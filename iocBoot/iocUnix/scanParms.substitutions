@@ -1,4 +1,4 @@
-file "$(STD)/db/scanParms.db"
+file "$(SSCAN)/sscanApp/Db/scanParms.db"
 {
 {P=xxx:,SCANREC=xxx:scan1,Q=m1,POS=$(Q).VAL,RDBK=$(Q).RBV}
 {P=xxx:,SCANREC=xxx:scan1,Q=m2,POS=$(Q).VAL,RDBK=$(Q).RBV}
@@ -8,14 +8,6 @@ file "$(STD)/db/scanParms.db"
 {P=xxx:,SCANREC=xxx:scan1,Q=m6,POS=$(Q).VAL,RDBK=$(Q).RBV}
 {P=xxx:,SCANREC=xxx:scan1,Q=m7,POS=$(Q).VAL,RDBK=$(Q).RBV}
 {P=xxx:,SCANREC=xxx:scan1,Q=m8,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m9,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m10,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m11,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m12,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m13,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m14,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m15,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m16,POS=$(Q).VAL,RDBK=$(Q).RBV}
 
 {P=xxx:,SCANREC=xxx:scan1,Q=Table1X,POS=table1.X,RDBK=table1.XRB}
 {P=xxx:,SCANREC=xxx:scan1,Q=Table1Y,POS=table1.Y,RDBK=table1.YRB}
