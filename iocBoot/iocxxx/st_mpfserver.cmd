@@ -5,6 +5,9 @@
 # slot c: EMPTY
 # slot d: EMPTY
 
+# for IP modules on this board
+localMessageRouterStart(0)
+
 ###############################################################################
 # Initialize IP carrier
 # ipacAddCarrier(ipac_carrier_t *pcarrier, char *cardParams)
@@ -175,8 +178,4 @@ initSerialServer("a-Serial[7]","UART[7]",1000,20,"\r",1)
 # Initialize Greenspring IP-Unidig
 
 #initIpUnidig("b-Unidig", carrier, "IP_b", 20)
-
-# Love controllers
-#initOctalUARTPort("UART[7]","octalUart0",7,19200,"N",1,8,"N")
-#initLoveServer("PORT7","UART[7]",112)
 

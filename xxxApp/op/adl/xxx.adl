@@ -1655,12 +1655,12 @@ text {
 	display[0] {
 		label=" 8-Channel MCS Control"
 		name="Struck8.adl"
-		args="P=xxx:mcs:"
+		args="P=xxx:"
 	}
 	display[1] {
 		label="32-Channel MCS Control"
 		name="Struck32.adl"
-		args="P=xxx:mcs:"
+		args="P=xxx:"
 	}
 	clr=0
 	bclr=17

@@ -70,8 +70,6 @@ foreach $file (@files) {
 		    $post = $base . $post;
 		}
 	    }
-	    
-	    $prefix =~ s/^\s+|\s+$//g; # strip leading and trailing whitespace.
 	    $applications{$prefix} = $post;
 	    if ( -d "$post") { #check that directory exists
 		print OUT "\n";
