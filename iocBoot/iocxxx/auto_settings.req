@@ -51,7 +51,7 @@ file scan_settings.req P=$(P),S=scanH
 file kohzuSeq_settings.req P=$(P)
 
 # High resolution monochromator
-file kohzuhrSeq_settings.req P=$(P),N=1
+file hrSeq_settings.req P=$(P),N=1
 
 file userCalcs10_settings.req P=$(P)
 file userCalcN_settings.req P=$(P),N=I_Detector
@@ -103,3 +103,12 @@ file sseq_settings.req P=$(P),S=Sseq3
 file auto_4step_settings.req P=$(P),Q=4step
 
 file userAve10_settings.req P=$(P)
+
+# MCA
+file mca_settings.req P=$(P),M=mca1
+file icb_adc_settings.req P=$(P),ADC=icbAdc1
+#file icb_amp_settings.req P=$(P),ADC=adcMP=amp1
+#file icb_hvps_settings.req P=$(P),HVPS=icbHvps1
+#file icb_tca_settings.req P=$(P),TCA=icbTca1
+#file icbDsp_settings.req P=$(P),DSP=icbDsp1
+#file simple_mca_settings.req P=$(P),M=mca1
