@@ -26,11 +26,11 @@ $(P)saveData_fullPathName
 $(P)saveData_realTime1D
 
 [scanRecord]	# specify scan records to be monitored
-# scan record	hand-shake PV name
-$(P)scanH,		$(P)scan1.WAIT
-$(P)scan1,		$(P)scan2.WAIT
-$(P)scan2,		$(P)scan3.WAIT
-$(P)scan3,		$(P)scan4.WAIT
+# scan record
+$(P)scanH
+$(P)scan1
+$(P)scan2
+$(P)scan3
 $(P)scan4
 
 [extraPV]
