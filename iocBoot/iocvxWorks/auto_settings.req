@@ -56,38 +56,35 @@ file hrSeq_settings.req P=$(P),N=1
 file userCalcs10_settings.req P=$(P)
 file userCalcN_settings.req P=$(P),N=I_Detector
 
-$(P)fltr1:name5.VAL
-$(P)fltr1:name4.VAL
-$(P)fltr1:name3.VAL
-$(P)fltr1:name2.VAL
-$(P)fltr1:name1.VAL
-$(P)fltr1:nameHome.VAL
-$(P)fltr1:pos5.VAL
-$(P)fltr1:pos4.VAL
-$(P)fltr1:pos3.VAL
-$(P)fltr1:pos2.VAL
-$(P)fltr1:pos1.VAL
-$(P)fltr1:posHome.VAL
-$(P)fltr1:motorOut.OUTN
-$(P)fltr2:name5.VAL
-$(P)fltr2:name4.VAL
-$(P)fltr2:name3.VAL
-$(P)fltr2:name2.VAL
-$(P)fltr2:name1.VAL
-$(P)fltr2:nameHome.VAL
-$(P)fltr2:pos5.VAL
-$(P)fltr2:pos4.VAL
-$(P)fltr2:pos3.VAL
-$(P)fltr2:pos2.VAL
-$(P)fltr2:pos1.VAL
-$(P)fltr2:posHome.VAL
-$(P)fltr2:motorOut.OUTN
-$(P)fltr_1_2:lockOut.OUTN
+#$(P)fltr1:name5.VAL
+#$(P)fltr1:name4.VAL
+#$(P)fltr1:name3.VAL
+#$(P)fltr1:name2.VAL
+#$(P)fltr1:name1.VAL
+#$(P)fltr1:nameHome.VAL
+#$(P)fltr1:pos5.VAL
+#$(P)fltr1:pos4.VAL
+#$(P)fltr1:pos3.VAL
+#$(P)fltr1:pos2.VAL
+#$(P)fltr1:pos1.VAL
+#$(P)fltr1:posHome.VAL
+#$(P)fltr1:motorOut.OUTN
+#$(P)fltr2:name5.VAL
+#$(P)fltr2:name4.VAL
+#$(P)fltr2:name3.VAL
+#$(P)fltr2:name2.VAL
+#$(P)fltr2:name1.VAL
+#$(P)fltr2:nameHome.VAL
+#$(P)fltr2:pos5.VAL
+#$(P)fltr2:pos4.VAL
+#$(P)fltr2:pos3.VAL
+#$(P)fltr2:pos2.VAL
+#$(P)fltr2:pos1.VAL
+#$(P)fltr2:posHome.VAL
+#$(P)fltr2:motorOut.OUTN
+#$(P)fltr_1_2:lockOut.OUTN
 
-$(P)saveData_fileSystem
-$(P)saveData_subDir
-$(P)saveData_scanNumber
-$(P)saveData_realTime1D
+file saveData_settings.req P=$(P)
 
 file userTransforms10_settings.req P=$(P)
 
@@ -112,3 +109,8 @@ file mca_settings.req P=$(P),M=mca1
 #file icb_tca_settings.req P=$(P),TCA=icbTca1
 #file icbDsp_settings.req P=$(P),DSP=icbDsp1
 #file simple_mca_settings.req P=$(P),M=mca1
+# PVs loaded by vxStats.substitutions
+$(P):R_CA
+$(P):R_FD
+$(P):R_Load
+$(P):R_Mem
