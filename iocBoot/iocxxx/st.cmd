@@ -361,7 +361,7 @@ dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 #dbLoadRecords("$(IP)/ipApp/Db/eMike.db", "P=xxx:,M=em1,C=0,IPSLOT=a,CHAN=2")
 
 # Keithley 2000 DMM
-#dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM.db","P=xxx:,Dmm=D1,C=1,IPSLOT=a,CHAN=0")
+#dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM_mf.db","P=xxx:,Dmm=D1,C=1,IPSLOT=a,CHAN=0")
 
 # Oxford Cyberstar X1000 Scintillation detector and pulse processing unit
 #dbLoadRecords("$(IP)/ipApp/Db/Oxford_X1k.db","P=xxx:,S=s1,C=0,IPSLOT=a,CHAN=3")
@@ -473,7 +473,10 @@ iocInit
 ### startup State Notation Language programs
 seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=1, logfile=kohzuCtl.log"
 seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
-#seq &Keithley2kDMM, "P=xxx:, Dmm=D1"
+
+# Keithley 2000 series DMM
+# channels: 10, 20, or 22;  model: 2000 or 2700
+#seq &Keithley2kDMM,("P=xxx:, Dmm=D1, channels=20, model=2000")
 
 # Bunch clock generator
 #seq &getFillPat, "unit=xxx"
