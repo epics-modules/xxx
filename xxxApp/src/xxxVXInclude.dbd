@@ -1,0 +1,34 @@
+# stuff to be added only for vxWorks ioc
+include "xxxInclude.dbd"
+
+include "stdVXSupport.dbd"
+
+include "mcaSupport.dbd"
+include "mcaCanberraSupport.dbd"
+include "mcaSISSupport.dbd"
+
+include "ipVXSupport.dbd"
+
+include "devIpUnidig.dbd"
+
+include "devAoDAC128V.dbd"
+
+include "devIp330.dbd"
+
+include "devOms.dbd"
+#include "devAcsMotor.dbd"
+#include "devImsMotor.dbd"
+#include "devMXmotor.dbd"
+#include "devMclennanMotor.dbd"
+#include "devNewport.dbd"
+
+#include "camacSupport.dbd"
+#include "devCamacSupport.dbd"
+#include "dxpCamacSupport.dbd"
+#include "allenBradley.dbd"
+include "devLove.dbd"
+include "drvIpac.dbd"
+
+# Locally defined stuff that needs to be registered
+#registrar(myRegistrar)
+#variable(myDebug)

@@ -1,14 +1,12 @@
 include "base.dbd"
-include "std.dbd"
+include "stdSupport.dbd"
 include "mpfSerial.dbd"
-
 include "motorRecord.dbd"
 include "devSoftMotor.dbd"
 #include "devAcsMotor.dbd"
 #include "devImsMotor.dbd"
 #include "devMclennanMotor.dbd"
-include "devNewport.dbd"
-
+#include "devNewport.dbd"
 #include "camacShare.dbd"
 #include "devCamacShare.dbd"
 #include "dxpCamacShare.dbd"
