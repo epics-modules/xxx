@@ -305,7 +305,7 @@ cd startup
 #devSTR7201Debug = 10
 #drvSTR7201Debug = 10
 
-#dbLoadRecords("mcaApp/Db/Struck8.db","P=xxx:mcs", mca)
+#dbLoadRecords("mcaApp/Db/Struck8.db","P=xxx:mcs:", mca)
 #dbLoadRecords("mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca1,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S0 @,CHANS=1000", mca)
 #dbLoadRecords("mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca2,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S1 @,CHANS=1000", mca)
 #dbLoadRecords("mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca3,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S2 @,CHANS=1000", mca)
