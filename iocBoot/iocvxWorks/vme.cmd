@@ -21,7 +21,6 @@ oms58Setup(2, 0x4000, 190, 5, 10)
 #v544Setup(0, 0xDD00, 0, 5, 10)
 
 ### Scalers: Joerger VSC8/16
-#dbLoadRecords("$(VME)/vmeApp/Db/Jscaler.db","P=xxx:,S=scaler1,C=0")
 dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,C=0,DTYP=Joerger VSC8/16,FREQ=10000000")
 # Joerger VSC setup parameters:
 #     (1)cards, (2)base address(ext, 256-byte boundary),
@@ -115,5 +114,5 @@ dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
 #abConfigAuto
 
 # APS quad electrometer
-<quadEM.cmd
+#<quadEM.cmd
 
