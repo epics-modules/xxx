@@ -3,7 +3,7 @@ setenv EPICS_APP /home/oxygen/SLUITER/ioc_Vx_5-4/support/xxx
 set output = `perl $EPICS_APP/release.pl $EPICS_APP`
 $output
 setenv EPICS_DISPLAY_PATH $MOTOR/motorApp/op/adl':'$STD/stdApp/op/adl':'$MCA/mcaApp/op/adl':'$IP330/ip330App/adl':'$IP/ipApp/op/adl':'$SUPPORT/xxx/xxxApp/op/adl
-setenv BURT_INCLUDE "-I$STD/stdApp/op/burt -I$MCA/mcaApp/op/burt -I${MOTOR}/motorApp/op/burt"
+setenv BURT_INCLUDE "-I$STD/stdApp/op/burt -I$MCA/mcaApp/op/burt -I$MOTOR/motorApp/op/burt"
 
 if (! ${?MEDM_EXEC_LIST}) setenv MEDM_EXEC_LIST 'Help; medm_help.sh &T:Probe;probe &P &'
 setenv MEDM_HELP medm_help.sh
