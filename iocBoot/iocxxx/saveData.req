@@ -7,6 +7,9 @@ $(P)saveData_status
 [message]
 $(P)saveData_message
 
+[filename]
+$(P)saveData_fileName
+
 [counter]	# scan counter
 $(P)saveData_scanNumber
 
