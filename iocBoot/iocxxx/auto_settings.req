@@ -112,3 +112,26 @@ file icb_adc_settings.req P=$(P),ADC=icbAdc1
 #file icb_tca_settings.req P=$(P),TCA=icbTca1
 #file icbDsp_settings.req P=$(P),DSP=icbDsp1
 #file simple_mca_settings.req P=$(P),M=mca1
+
+# Quad electrometer
+#file quadEM_settings.req P=$(P),EM=EM1
+
+# dac128V 8-channel DAC
+#file 8chan_DAC_settings.req P=$(P), D=1
+
+# Other request files
+#file Keithley2kDMM20_settings.req P=$(P)
+#file Keithley2kDMM_mf10_settings.req
+#file Keithley2kDMM_mf22_settings.req
+#file Keithley2kDMM_settings.req
+#file Keithley_10CH_settings.req
+#file Keithley_20CH_settings.req
+#file MPC_settings.req
+#file SR570preamp_settings.req
+#file TSP_settings.req
+#file DAC_settings.req
+#file BunchClkGenA.req
+#file IK320card_settings.req
+#file SGM_settings.req
+#file pid_control_settings.req
+#file saveData_settings.req
