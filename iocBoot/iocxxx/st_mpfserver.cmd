@@ -1,4 +1,4 @@
-# This configures the MPF server stuff
+# This configures the MPF server stuff for the processor that runs st.cmd
 
 # First carrier
 # slot a: IP-Octal (serial RS-232)
@@ -68,6 +68,42 @@ initOctalUARTPort("UART[13]","octalUart1",5, 9600,"N",1,8,"N")  /* ? */
 initOctalUARTPort("UART[14]","octalUart1",6, 9600,"N",1,8,"N")  /* ? */
 initOctalUARTPort("UART[15]","octalUart1",7, 9600,"N",1,8,"N")  /* ? */
 
+#################################################################
+# settings for various other devices
+# Heidenhain ND261
+#initOctalUARTPort("UART[0]","octalUart0", 0, 9600,"E",2,7,"N")
+#
+# Oriel 18011 encoder mike controller
+#initOctalUARTPort("UART[0]","octalUart0", 0, 4800,"N",1,8,"N")
+#
+# Lakeshore temperature controller
+#initOctalUARTPort("UART[0]","octalUart0", 0, 1200,"N",1,7,"N")
+#
+# Moller-Wedel AutoCollimator
+#initOctalUARTPort("UART[0]","octalUart0", 0, 2400,"N",1,8,"N")
+#
+# Eurotherm
+#initOctalUARTPort("UART[0]","octalUart0", 0, 9600,"E",1,7,"N")
+#
+# Oxford Cyberstar X1000
+#initOctalUARTPort("UART[0]","octalUart0", 0, 9600,"N",1,8,"N")
+#
+# Huber DMC9200
+#initOctalUARTPort("UART[0]","octalUart0", 0, 9600,"N",1,8,"N")
+#
+# PI 500 Series piezo controller
+#initOctalUARTPort("UART[0]","octalUart0", 0, 9600,"N",1,8,"N")
+#
+# Oxford ILM202 Cryogen Level Meter
+#initOctalUARTPort("UART[0]","octalUart0", 0, 9600,"N",1,8,"N")
+#
+# Lakeshore 819 cryopump monitor
+#initOctalUARTPort("UART[0]","octalUart0", 0, 300,"O",1,7,"N")
+#
+# OMEGA DP41 Temperature Controller
+#initOctalUARTPort("UART[0]","octalUart0", 0, 9600,"O",1,7,"N")
+#################################################################
+
 initSerialServer("a-Serial[0]","UART[0]",1000,20,"\r",1)
 initSerialServer("a-Serial[1]","UART[1]",1000,20,"\r",1)
 initSerialServer("a-Serial[2]","UART[2]",1000,20,"\r",1)
@@ -79,8 +115,8 @@ initSerialServer("a-Serial[4]","UART[4]",1000,20,"\r",1)
 initSerialServer("a-Serial[5]","UART[5]",1000,20,"\r",1)
 initSerialServer("a-Serial[6]","UART[6]",1000,20,"\r",1)
 # Comment out the following line if using the love controller
-#initSerialServer("a-Serial[7]","UART[7]",1000,20,"\r",1)
-initLoveServer("PORT7","UART[7]",112)
+initSerialServer("a-Serial[7]","UART[7]",1000,20,"\r",1)
+#initLoveServer("PORT7","UART[7]",112)
 
 initSerialServer("b-Serial[0]","UART[8]",1000,20,"\r",1)
 initSerialServer("b-Serial[1]","UART[9]",1000,20,"\r",1)
