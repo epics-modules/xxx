@@ -45,6 +45,16 @@ support/xxx/iocBoot/nfsCommands.README
 deleted
 =============================================================================
 
+support/xxx/iocBoot/iocLinux
+
+new directory
+=============================================================================
+
+support/xxx/iocBoot/iocSolaris
+
+new directory
+=============================================================================
+
 support/xxx/iocBoot/iocUnix/MPFconfig.cmd
 
 deleted
@@ -182,6 +192,8 @@ Renamed from 13element.*
 
 support/xxx/iocBoot/iocvxWorks/canberra_3.cmd
 
+Converted from MPF to asyn, icb_tca now requires 'MCA' macro
+
 Renamed from 3element.*
 =============================================================================
 
@@ -282,6 +294,7 @@ Added scanParms for 2-positioner, 1-D scan
 
 support/xxx/iocBoot/iocvxWorks/serial.cmd
 
+changes to comply with tyGSAsynInit()'s new argument list
 asynRecord.template -> asynRecord.substitutions
 Changes to agree with ipac 2.8
 Added commented-out entries for deviceCmdReply (replacement for
@@ -291,6 +304,10 @@ New file with serial commands and databases
 
 support/xxx/iocBoot/iocvxWorks/st.cmd
 
+Added sampleWheel database.
+Fixed table.db load so it will fit into vxWorks command-line limit.
+Deleted BitBus stuff.
+Deleted unneeded saveData init.
 Changed GPIB_OI_block to deviceCmdReply
 Changes for asyn; moved a lot of things into separate .cmd files
 interp.db now needs 'N' macro to give it array size
@@ -334,6 +351,20 @@ Ignore BAK.adl files
 
 support/xxx/xxxApp/op/adl/xxx.adl
 
+mca and icb names
+Added callup for soft motors.
+Put XIA slit with other slits.
+Deleted unsupported scan-load.
+Changed asyn record callups (record names) to agree with software as currently
+loaded.
+Put deviceCmdReply with other asyn stuff.
+Deleted unsupported VMI4145 waveform generator callup.
+Added callup for userCalcOuts.
+Deleted unsupported encoder-mike stuff.
+Deleted unsupported SR_Status.adl callup.
+Fixed DAC callups to agree with software as currently loaded.
+Deleted unsuported scope stuff.
+Deleted 2idd-specific stuff.
 Changes to Generic and Scan menus
 (serial_OI_block.adl, GPIB_OI_block.adl) -> deviceCmdReply.adl
 (serial_IO.adl, GPIB_IO.adl) -> asynRecord.adl
