@@ -24,7 +24,7 @@ LIBOBJS += $(DAC128V_BIN)/dac128VLib
 
 # motor record and device support
 LIBOBJS += $(MOTOR_BIN)/motorLib
-LIBOBJS += $(MOTOR_BIN)/ipServerLib
+#LIBOBJS += $(MOTOR_BIN)/motorCOM_mpf
 LIBOBJS += $(MOTOR_BIN)/omsLib 
 LIBOBJS += $(MOTOR_BIN)/softMotorLib 
 #LIBOBJS += $(MOTOR_BIN)/V544Lib
