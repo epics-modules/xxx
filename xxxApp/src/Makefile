@@ -29,15 +29,18 @@ include $(TOP)/configure/CONFIG
 # build an ioc application
 
 PROD_IOC_DEFAULT = xxx
-PROD_IOC_solaris = -nil-
+PROD_IOC_solaris = xxx
 
 # <name>.dbd will be created from <name>Include.dbd
 DBD += iocxxx.dbd
 DBD += iocxxxVX.dbd
+DBD += iocxxx_solaris.dbd
 
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
 xxx_SRCS_DEFAULT += iocxxx_registerRecordDeviceDriver.cpp
 xxx_SRCS_vxWorks += iocxxxVX_registerRecordDeviceDriver.cpp
+xxx_SRCS_solaris += iocxxx_solaris_registerRecordDeviceDriver.cpp
+xxx_SRCS_solaris += xxxMain.cpp
 
 xxx_SRCS_DEFAULT += xxxMain.cpp
 xxx_SRCS_vxWorks += -nil-
@@ -52,9 +55,9 @@ xxx_Common_LIBS += optics
 xxx_Common_LIBS += vme
 xxx_Common_LIBS += std
 xxx_Common_LIBS += ip
-xxx_Common_LIBS += brukerCCD
-xxx_Common_LIBS += marCCD
-xxx_Common_LIBS += roperCCD
+#xxx_Common_LIBS += brukerCCD
+#xxx_Common_LIBS += marCCD
+#xxx_Common_LIBS += roperCCD
 #xxx_Common_LIBS += Acs Ims Mclennan motor Newport softMotor
 xxx_Common_LIBS += Acs motor Mclennan Newport softMotor
 xxx_Common_LIBS += asyn
@@ -82,9 +85,28 @@ xxx_Linux_LIBS  += dxp handel
 # uncomment the following line.
 #xxx_Linux_LIBS  += mcaCanberra
 
+xxx_solaris_LIBS += genSub
+#xxx_solaris_LIBS += mca
+xxx_solaris_LIBS += calc
+xxx_solaris_LIBS += sscan
+xxx_solaris_LIBS += autosave
+xxx_solaris_LIBS += optics
+#xxx_solaris_LIBS += vme
+xxx_solaris_LIBS += std
+#xxx_solaris_LIBS += ip
+#xxx_solaris_LIBS += brukerCCD
+#xxx_solaris_LIBS += marCCD
+#xxx_solaris_LIBS += roperCCD
+xxx_solaris_LIBS += motor softMotor
+xxx_solaris_LIBS += asyn
+xxx_solaris_LIBS += seq pv seqDev
+xxx_solaris_LIBS += $(EPICS_BASE_IOC_LIBS)
+
+
 xxx_LIBS_DEFAULT = $(xxx_Common_LIBS)
 xxx_LIBS_vxWorks = $(xxx_vxWorks_LIBS) $(xxx_Common_LIBS)
 xxx_LIBS_Linux   = $(xxx_Linux_LIBS)   $(xxx_Common_LIBS)
+xxx_LIBS_solaris = $(xxx_solaris_LIBS)
 
 # If the host has libnet and libpcap for mca/Canberra support
 # uncomment the following line.
