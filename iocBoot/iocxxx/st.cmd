@@ -12,6 +12,10 @@ cd appbin
 # be added before any C++ code is loaded (see SPR #28980).
 sysCplusEnable=1
 
+# If using a PowerPC CPU with more than 32MB of memory, and not building with longjump, then
+# allocate enough memory here to force code to load in lower 32 MB
+#mem = malloc(1024*1024*96)
+
 ### Load EPICS base software
 ld < iocCore
 ld < seq
@@ -19,6 +23,9 @@ ld < mpfLib
 
 ### Load custom EPICS software from xxxApp and from share
 ld < xxxLib
+
+# Increase size of buffer for error logging from default 1256
+errlogInit(5000)
 
 # Note that you need an MPF router not only for IP modules, but also for
 # the AIM MCA support.
@@ -28,14 +35,20 @@ localMessageRouterStart(0)
 # talk to IP's on satellite processor
 # (must agree with tcpMessageRouterServerStart in st_proc1.cmd)
 # for IP modules on stand-alone mpf server board
-#tcpMessageRouterClientStart(1, 9900, Remote_IP, 1500, 40)
+#tcpMessageRouterClientStart(1, 9900, Remote_IP, 10000, 100)
 
-# for local IP slots
+# for local IP slots or IP slots on a VIPC616 dumb IP carrier
 # Uncomment, as needed.
 #ld < ipLib
 #ld < mpfserialserverLib
-#ld < mpfgpibserverLib
+#ld < Gpib.o
+#ld < gpibSniff.o
+#ld < GpibGsTi9914.o
+#ld < gpibServer.o
 #ld < dac128VLib
+#ld < ip330Lib
+#ld < ipUnidigLib
+#ld < quadEMLib
 
 # This IOC configures the MPF server code locally
 #cd startup
@@ -123,13 +136,13 @@ dbLoadRecords("stdApp/Db/4step.db", "P=xxx:", std)
 
 ##### Pico Motors (Ernest Williams MHATT-CAT)
 ##### Motors (see picMot.substitutions in same directory as this file) ####
-dbLoadTemplate("picMot.substitutions", ip)
+#dbLoadTemplate("picMot.substitutions", ip)
 
 
 ##############################################################################
 
 # Insertion-device control
-dbLoadRecords("stdApp/Db/IDctrl.db","P=xxx:,xx=02us", std)
+#dbLoadRecords("stdApp/Db/IDctrl.db","P=xxx:,xx=02us", std)
 #dbLoadRecords("stdApp/Db/IDctrl.db","P=xxx:,xx=02ds", std)
 
 # test generic gpib record
@@ -145,14 +158,14 @@ dbLoadRecords("stdApp/Db/yySseq.db","P=xxx:,S=Sseq3", std)
 ###############################################################################
 
 ##### Motors (see motors.substitutions in same directory as this file) ####
-#dbLoadTemplate("basic_motor.substitutions", motor)
-dbLoadTemplate("motor.substitutions", motor)
+dbLoadTemplate("basic_motor.substitutions")
+dbLoadTemplate("motor.substitutions")
 
 # OMS VME driver setup parameters: 
 #     (1)cards, (2)axes per card, (3)base address(short, 16-byte boundary), 
 #     (4)interrupt vector (0=disable or  64 - 255), (5)interrupt level (1 - 6),
 #     (6)motor task polling rate (min=1Hz,max=60Hz)
-omsSetup(2, 8, 0xFC00, 180, 5, 10)
+#omsSetup(2, 8, 0xFC00, 180, 5, 10)
 
 # OMS VME58 driver setup parameters: 
 #     (1)cards, (2)axes per card, (3)base address(short, 4k boundary), 
@@ -171,11 +184,11 @@ oms58Setup(3, 8, 0x3000, 190, 5, 10)
 #MM4000Setup(3, 0, 10)
 
 # Newport MM4000 driver configuration parameters: 
-#     (1)controller# being configured,
-#     (2)port type: 0-GPIB_PORT or 1-RS232_PORT,
-#     (3)GPIB link or MPF server location
-#     (4)GPIB address or hideos_task name
-#MM4000Config(0, 1, 1, "a-Serial[0]")
+#     (1) controller# being configured,
+#     (2) port type: 0-GPIB_PORT or 1-RS232_PORT,
+#     (3) GPIB link or MPF server location
+#     (4) GPIB address (int) or mpf serial server name (string)
+#MM4000Config(0, 1, 0, "b-Serial[0]")
 
 # Newport PM500 driver setup parameters:
 #     (1) maximum number of controllers in system
@@ -186,10 +199,33 @@ oms58Setup(3, 8, 0x3000, 190, 5, 10)
 # Newport PM500 configuration parameters:
 #     (1) card being configured
 #     (2) port type (0-GPIB_PORT, 1-RS232_PORT)
-#     (3) link for GPIB or hideos_card for RS-232
-#     (3)GPIB link or MPF server location
+#     (3) GPIB link or MPF server location
 #     (4) GPIB address (int) or mpf serial server name (string)
-#PM500Config(0, 1, 1, "a-Serial[4]")
+#PM500Config(0, 1, 0, "b-Serial[1]")
+
+# McClennan PM304 driver setup parameters:
+#     (1) maximum number of controllers in system
+#     (2) maximum number of channels on any controller
+#     (3) motor task polling rate (min=1Hz, max=60Hz)
+#PM304Setup(1, 1, 10)
+
+# McClennan PM304 driver configuration parameters:
+#     (1) controller being configured
+#     (2) MPF server location
+#     (3) MPF serial server name (string)
+#PM304Config(0, 0, "b-Serial[2]")
+
+# ACS MCB-4B driver setup parameters:
+#     (1) maximum number of controllers in system
+#     (2) maximum number of axes per controller
+#     (3) motor task polling rate (min=1Hz, max=60Hz)
+#MCB4BSetup(1, 4, 10)
+
+# ACS MCB-4B driver configuration parameters:
+#     (1) controller being configured
+#     (2) MPF server location
+#     (3) MPF server name (string)
+#MCB4BConfig(0, 0, "b-Serial[3]")
 
 # A set of scan parameters for each positioner.  This is a convenience
 # for the user.  It can contain an entry for each scannable thing in the
@@ -216,8 +252,8 @@ dbLoadRecords("stdApp/Db/all_com_16.db","P=xxx:", std)
 dbLoadRecords("stdApp/Db/scan.db","P=xxx:,MAXPTS1=2000,MAXPTS2=200,MAXPTS3=10,MAXPTS4=10,MAXPTSH=2000", std)
 
 # Slits
-dbLoadRecords("stdApp/Db/2slit.db","P=xxx:,SLIT=Slit1V,mXp=m24,mXn=m26", std)
-dbLoadRecords("stdApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m23,mXn=m25", std)
+#dbLoadRecords("stdApp/Db/2slit.db","P=xxx:,SLIT=Slit1V,mXp=m24,mXn=m26", std)
+#dbLoadRecords("stdApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m23,mXn=m25", std)
 
 # under development...
 #dbLoadRecords("stdApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2V,mXp=m13,mXn=m14", std)
@@ -241,7 +277,7 @@ cd startup
 ### Monochromator support ###
 # Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
 # standard geometry (geometry 1)
-dbLoadRecords("stdApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=17.4999,yOffHi=17.5001", std)
+#dbLoadRecords("stdApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=17.4999,yOffHi=17.5001", std)
 # modified geometry (geometry 2)
 #dbLoadRecords("stdApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=4,yOffHi=36", std)
 
@@ -255,10 +291,10 @@ dbLoadRecords("stdApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=
 #drvIK320RegErrStr()
 
 # Spherical grating monochromator
-dbLoadRecords("stdApp/Db/SGM.db","P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8,M_g=m9", std)
+#dbLoadRecords("stdApp/Db/SGM.db","P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8,M_g=m9", std)
 
 # 4-bounce high-resolution monochromator
-dbLoadRecords("stdApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10", std)
+#dbLoadRecords("stdApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10", std)
 
 ### Canberra AIM Multichannel Analyzer ###
 #
@@ -284,15 +320,15 @@ dbLoadRecords("stdApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10", std)
 # etherDev:     vxWorks device used to communicate over the network to AIM.
 #               Typically "ei0" for mv16x, mv17x; "dc0" for Motorola PowerPC
 # queueSize:    size of MPF message queue for this server (100 should be plenty)
-AIMConfig("AIM1/2", 0x9AA, 2, 2048, 1, 1, "dc0", 100)
+#AIMConfig("AIM1/2", 0x9AA, 2, 2048, 1, 1, "dc0", 100)
 
-dbLoadRecords("mcaApp/Db/mca.db","P=xxx:,M=mca1,INP=#C0 S0 @AIM1/2,DTYPE=MPF MCA,NCHAN=2048", mca)
+#dbLoadRecords("mcaApp/Db/mca.db","P=xxx:,M=mca1,INP=#C0 S0 @AIM1/2,DTYPE=MPF MCA,NCHAN=2048", mca)
 
 # Create ICB server for ADC, amplifier and HVPS
 # picbServer = icbConfig(icbServer, maxModules, icbAddress, queueSize)
 # This creates the ICB server and allocates configures the first module, module 0.
 # Additional modules are added to this server with icbAddModule().
-picbServer = icbConfig("icb/1", 5, "NI9AA:3", 100)
+#picbServer = icbConfig("icb/1", 5, "NI9AA:3", 100)
 
 # In the dbLoadRecords commands CARD=(0,1) for (local/remote), SERVER=icbServer name from
 # icbConfig, ADDR=module number from icbConfig() or icbAddModule().
@@ -300,18 +336,19 @@ picbServer = icbConfig("icb/1", 5, "NI9AA:3", 100)
 # Note: ADDR is the module number, not the icb address.  The correspondence between
 # module number and icb address is made in icbConfig (for module number 0) or in
 # icbAddModule.
+#dbLoadRecords("mcaApp/Db/icb_adc.db","P=xxx:,ADC=icbAdc1,CARD=0,SERVER=icb/1,ADDR=0", mca)
+
 #icbAddModule(picbServer, 1, "NI9AA:2")
-dbLoadRecords("mcaApp/Db/icb_adc.db","P=xxx:,ADC=icbAdc1,CARD=0,SERVER=icb/1,ADDR=0", mca)
+#dbLoadRecords("mcaApp/Db/icb_hvps.db","P=xxx:,HVPS=icbHvps1,CARD=0,SERVER=icb/1,ADDR=1,LIMIT=1000", mca)
+
+#icbAddModule(picbServer, 2, "NI9AA:4")
+#dbLoadRecords("mcaApp/Db/icb_amp.db","P=xxx:,AMP=icbAmp1,CARD=0,SERVER=icb/1,ADDR=2", mca)
 
 #icbTcaConfig("icbTca/1", 1, "NI9AA:1", 100)
 #dbLoadRecords("mcaApp/Db/icb_tca.db","P=xxx:,TCA=icbTca1,MCA=mca1,CARD=0,SERVER=icb/1,ADDR=1", mca)
 
-#icbAddModule(picbServer, 2, "NI9AA:2")
-#dbLoadRecords("mcaApp/Db/icb_hvps.db","P=xxx:,HVPS=icbHvps1,CARD=0,SERVER=icb/1,ADDR=2", mca)
-
-#icbAddModule(picbServer, 3, "NI9AA:4")
-#dbLoadRecords("mcaApp/Db/icb_amp.db","P=xxx:,AMP=icbAmp1,CARD=0,SERVER=icb/1,ADDR=4", mca)
-
+#icbDspConfig("icbDsp/1", 1, "NI9AA:5", 100)
+#dbLoadRecords "mcaApp/Db/icbDsp.db", "P=xxx:,DSP=dsp1,CARD=0,SERVER=icbDsp/1,ADDR=0", mca
 
 # Load 13 element detector software
 #< 13element.cmd
@@ -341,7 +378,8 @@ dbLoadRecords("mcaApp/Db/icb_adc.db","P=xxx:,ADC=icbAdc1,CARD=0,SERVER=icb/1,ADD
 #STR7201Config(0, 8, 1000, 0) 
 
 ### Acromag IP330 in sweep mode ###
-#dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=mADC_1,DTYPE=ip330Sweep,NCHAN=2048,INP=#C0 S0 @d-Ip330Sweep", mca)
+#dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=mADC_1,DTYPE=MPF MCA,NCHAN=2048,INP=#C0 S0 @d-Ip330Sweep", mca)
+#dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=mADC_2,DTYPE=MPF MCA,NCHAN=2048,INP=#C0 S1 @d-Ip330Sweep", mca)
 
 ### Stand-alone user calculations ###
 dbLoadRecords("stdApp/Db/userCalcs10.db","P=xxx:", std)
@@ -375,13 +413,13 @@ dbLoadRecords("stdApp/Db/userAve10.db","P=xxx:", std)
 #dbLoadRecords("ipApp/Db/eMike.db", "P=xxx:,M=em1,C=0,IPSLOT=a,CHAN=2", ip)
 
 # Keithley 2000 DMM
-#dbLoadRecords("ipApp/Db/Keithley2kDMM_mf.db","P=xxx:,Dmm=D1,C=1,IPSLOT=a,CHAN=0", ip)
+#dbLoadRecords("ipApp/Db/Keithley2kDMM_mf.db","P=xxx:,Dmm=D1,C=0,IPSLOT=a,CHAN=5", ip)
 
 # Oxford Cyberstar X1000 Scintillation detector and pulse processing unit
 #dbLoadRecords("ipApp/Db/Oxford_X1k.db","P=xxx:,S=s1,C=0,IPSLOT=a,CHAN=3", ip)
 
 # Oxford ILM202 Cryogen Level Meter (Serial)
-#dbLoadRecords("ipApp/Db/Oxford_ILM202.db","P=xxx:,S=s1,C=0,IPSLOT=c,CHAN=2", ip)
+#dbLoadRecords("ipApp/Db/Oxford_ILM202.db","P=xxx:,S=s1,C=0,IPSLOT=c,CHAN=6", ip)
 
 ### GPIB support ###
 # GPIB O/I block (generic gpib record with format and parse string calcs)
@@ -396,14 +434,14 @@ dbLoadRecords("stdApp/Db/userAve10.db","P=xxx:", std)
 
 ### Miscellaneous ###
 # Systran DAC database
-#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=1,S=0,IPSLOT=c", ip)
-#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=2,S=1,IPSLOT=c", ip)
-#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=3,S=2,IPSLOT=c", ip)
-#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=4,S=3,IPSLOT=c", ip)
-#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=5,S=4,IPSLOT=c", ip)
-#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=6,S=5,IPSLOT=c", ip)
-#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=7,S=6,IPSLOT=c", ip)
-#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=8,S=7,IPSLOT=c", ip)
+#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=1,S=0,IPSLOT=c", ip)
+#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=2,S=1,IPSLOT=c", ip)
+#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=3,S=2,IPSLOT=c", ip)
+#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=4,S=3,IPSLOT=c", ip)
+#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=5,S=4,IPSLOT=c", ip)
+#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=6,S=5,IPSLOT=c", ip)
+#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=7,S=6,IPSLOT=c", ip)
+#dbLoadRecords("ipApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=8,S=7,IPSLOT=c", ip)
 
 # vme test record
 #dbLoadRecords("stdApp/Db/vme.db", "P=xxx:,Q=vme1", std)
@@ -413,6 +451,9 @@ dbLoadRecords("stdApp/Db/userAve10.db","P=xxx:", std)
 # hardware configuration
 # example: devHP10895LaserAxisConfig(ncards,a16base)
 #devHPLaserAxisConfig(2,0x1000)
+
+# IpUnidig digital I/O
+dbLoadTemplate("IpUnidig.substitutions")
 
 # Acromag general purpose Digital I/O
 #dbLoadRecords("stdApp/Db/Acromag_16IO.db", "P=xxx:, A=1", std)
@@ -469,8 +510,7 @@ dbLoadRecords("stdApp/Db/save_restoreStatus.db","P=xxx:", std)
 #  Configure the MSL MRD 100 module.....
 #devA32VmeConfig(0, 0xa0000200, 30, 0xa0, 5)
 
-# VVVVVVVVVVVVVVVVVVVVV This doesn't look right (tmm) VVVVVVVVVVVVVVVVVVVVVVVVVVV
-#dbLoadRecords("stdApp/Db/msl_mrd100.db","C=0,S=01,ID1=00,ID2=00us", std)
+#dbLoadRecords("stdApp/Db/msl_mrd101.db","C=0,S=01,ID1=01,ID2=01us", std)
 
 ### Bit Bus configuration
 # BBConfig(Link, LinkType, BaseAddr, IrqVector, IrqLevel)
@@ -478,6 +518,134 @@ dbLoadRecords("stdApp/Db/save_restoreStatus.db","P=xxx:", std)
 # LinkType: 0:hosed; 1:xycom; 2:pep
 #BBConfig(3,1,0x2400,0xac,5)
 
+# Set up the Allen-Bradley 6008 scanner
+#abConfigNlinks 1
+#abConfigVme 0,0xc00000,0x60,5
+#abConfigAuto
+
+# MKS vacuum gauges
+#dbLoadRecords "ipApp/Db/MKS.db","P=xxx:,C=0,IPSLOT=a,CHAN=1,CC1=cc1,CC2=cc3,PR1=pr1,PR2=pr3", ip
+# PI Digitel 500/1500 pump
+#dbLoadRecords "ipApp/Db/Digitel.db","xxx:,PUMP=ip1,C=0,IPSLOT=a,CHAN=2", ip
+# PI MPC ion pump
+#dbLoadRecords("ipApp/Db/MPC.db","P=xxx:,PUMP=ip2,C=0,IPSLOT=a,CHAN=3,PA=0,PN=1", ip
+# PI MPC TSP (titanium sublimation pump)
+#dbLoadRecords("ipApp/Db/TSP.db","P=xxx:,TSP=tsp1,C=0,IPSLOT=b,CHAN=3,PA=0", ip)
+
+# APS Quad Electrometer from Steve Ross
+# pQuadEM = initQuadEM(baseAddress, fiberChannel, microSecondsPerScan, maxClients,
+#            pIpUnidig, unidigChan)
+#  pQuadEM       = Pointer to MPF server
+#  baseAddress   = base address of VME card
+#  fiberChannel = 0-3, fiber channel number
+#  microSecondsPerScan = microseconds to integrate.  When used with ipUnidig
+#                interrupts the unit is also read at this rate.
+#  maxClients  = maximum number of clients that will connect to the
+#                quadEM interrupt.  10 should be fine.
+#  iIpUnidig   = pointer to ipInidig object if it is used for interrupts.
+#                Set to 0 if there is no IP-Unidig being used, in which
+#                case the quadEM will be read at 60Hz.
+#  unidigChan  = IP-Unidig channel connected to quadEM pulse output
+#pQuadEM = initQuadEM(0xf000, 0, 1000, 10, pIpUnidig, 2)
+
+# initQuadEMScan(pQuadEM, serverName, queueSize)
+#  pQuadEM    = pointer to quadEM object created with initQuadEM
+#  serverName = name of MPF server (string)
+#  queueSize  = size of MPF queue
+#initQuadEMScan(pQuadEM, "quadEM1", 100)
+
+# initQuadEMSweep(pquadEM, serverName, maxPoints, int queueSize)
+#  pQuadEM    = pointer to quadEM object created with initQuadEM
+#  serverName = name of MPF server (string)
+#  maxPoints  = maximum number of channels per spectrum
+#  queueSize  = size of MPF queue
+#initQuadEMSweep(pQuadEM, "quadEMSweep", 2048, 100)
+
+# initQuadEMPID(serverName, pQuadEM, quadEMChannel,
+#               pDAC128V, DACChannel, queueSize)
+#  serverName  = name of MPF server (string)
+#  pQuadEM     = pointer to quadEM object created with initQuadEM
+#  quadEMChannel = quadEM "channel" to be used for feedback (0-9)
+#                  These are defined as:
+#                        0 = current 1
+#                        1 = current 2
+#                        2 = current 3
+#                        3 = current 4
+#                        4 = sum 1 = current1 + current3
+#                        5 = sum 2 = current2 + current4
+#                        6 = difference 1 = current3 - current1
+#                        7 = difference 2 = current4 - current2
+#                        8 = position 1 = difference1/sum1 * 32767
+#                        9 = position 2 = difference2/sum2 * 32767
+#  pDAC128V    = pointer to DAC128V object created with initDAC128V
+#  DACVChannel = DAC channel number used for this PID (0-7)
+#  queueSize   = size of MPF queue
+#initQuadEMPID("quadEMPID1", pQuadEM, 8, pDAC128V, 2, 20)
+#initQuadEMPID("quadEMPID2", pQuadEM, 9, pDAC128V, 3, 20)
+
+#Quad electrometer "scan" ai records
+#dbLoadRecords("quadEMApp/Db/quadEM.db","P=xxx:, EM=EM1, CARD=0, SERVER=quadEM1", quadem)
+
+### APS Quad Electrometer in sweep mode
+#dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=quadEM_1,DTYPE=MPF MCA,NCHAN=2048,INP=#C0 S0 @quadEMSweep", mca)
+#dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=quadEM_2,DTYPE=MPF MCA,NCHAN=2048,INP=#C0 S1 @quadEMSweep", mca)
+#dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=quadEM_3,DTYPE=MPF MCA,NCHAN=2048,INP=#C0 S2 @quadEMSweep", mca)
+#dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=quadEM_4,DTYPE=MPF MCA,NCHAN=2048,INP=#C0 S3 @quadEMSweep", mca)
+#dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=quadEM_5,DTYPE=MPF MCA,NCHAN=2048,INP=#C0 S8 @quadEMSweep", mca)
+#dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=quadEM_6,DTYPE=MPF MCA,NCHAN=2048,INP=#C0 S9 @quadEMSweep", mca)
+
+# Fast feedback with IP330 and QuadEM
+#dbLoadTemplate("pid_fast.substitutions")
+# Slow feedback
+#dbLoadTemplate("pid_slow.substitutions")
+
+# CAMAC hardware
+# Setup the ksc2917 hardware definitions
+# These are all actually the defaults, so this is not really necessary
+# num_cards, addrs, ivec, irq_level
+#ksc2917_setup(1, 0xFF00, 0x00A0, 2)
+
+# Initialize the CAMAC library.  Note that this is normally done automatically
+# in iocInit, but we need to get the CAMAC routines working before iocInit
+# because we need to initialize the DXP hardware.
+#camacLibInit
+
+### E500 Motors
+# E500 driver setup parameters:
+#     (1) maximum # of controllers,
+#     (2) maximum # axis per card
+#     (3) motor task polling rate (min=1Hz, max=60Hz)
+#E500Setup(2, 8, 10)
+
+# E500 driver configuration parameters:
+#     (1) controller
+#     (2) branch
+#     (3) crate
+#     (4) slot
+#E500Config(0, 0, 0, 13)
+#E500Config(1, 0, 0, 14)
+
+### Scalers: CAMAC scaler
+# CAMACScalerSetup(int max_cards)   /* maximum number of logical cards */
+#CAMACScalerSetup(1)
+
+# CAMACScalerConfig(int card,       /* logical card */
+#  int branch,                         /* CAMAC branch */
+#  int crate,                          /* CAMAC crate */
+#  int timer_type,                     /* 0=RTC-018 */
+#  int timer_slot,                     /* Timer N */
+#  int counter_type,                   /* 0=QS-450 */
+#  int counter_slot)                   /* Counter N */
+#CAMACScalerConfig(0, 0, 0, 0, 20, 0, 21)
+#dbLoadRecords("camacApp/Db/CamacScaler.db","P=xxx:,S=scaler1,C=0", camac)
+
+# Load the DXP stuff
+#< 16element_dxp.cmd
+
+# Generic CAMAC record
+#dbLoadRecords("camacApp/Db/generic_camac.db","P=xxx:,R=camac1,SIZE=2048", camac)
+
+#
 
 ###############################################################################
 # Set shell prompt (otherwise it is left at mv167 or mv162)
@@ -487,8 +655,8 @@ iocLogDisable=1
 iocInit
 
 ### startup State Notation Language programs
-seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=1, logfile=kohzuCtl.log"
-seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
+#seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=1, logfile=kohzuCtl.log"
+#seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
 
 # Keithley 2000 series DMM
 # channels: 10, 20, or 22;  model: 2000 or 2700
@@ -526,3 +694,6 @@ saveData_MessagePolicy = 2
 saveData_SetCptWait_ms(100)
 saveData_Init("saveData.req", "P=xxx:")
 #saveData_PrintScanInfo("xxx:scan1")
+
+# If memory was malloced at start of this script, free it
+#free(mem)
