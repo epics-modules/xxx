@@ -1497,3 +1497,19 @@ text {
 	bclr=17
 	label="-Struck"
 }
+"related display" {
+	object {
+		x=280
+		y=80
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Love controllers"
+		name="loveList.adl"
+		args="P1=xxx:,M1=love1,P2=xxx:,M2=love2,P3=xxx:,M3=love3"
+	}
+	clr=0
+	bclr=17
+	label="-Love"
+}
