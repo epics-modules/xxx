@@ -92,17 +92,17 @@ BIN_INSTALLS += $(IP_BIN)/mpcServer.o
 # Objects from MOTOR
 # ------------------
 LIBOBJS += $(MOTOR_BIN)/motorLib
+LIBOBJS += $(MOTOR_BIN)/softMotorLib 
 #LIBOBJS += $(MOTOR_BIN)/motorCOM_mpf
 LIBOBJS += $(MOTOR_BIN)/omsLib 
-LIBOBJS += $(MOTOR_BIN)/softMotorLib 
 #LIBOBJS += $(MOTOR_BIN)/V544Lib
 #LIBOBJS += $(MOTOR_BIN)/newportLib
 #LIBOBJS += $(MOTOR_BIN)/pm500Lib
 
 # CAMAC libraries
-LIBOBJS += $(CAMAC_BIN)/camacLib
-LIBOBJS += $(CAMAC_BIN)/devCamacLib
-LIBOBJS += $(CAMAC_BIN)/dxpCamacLib
+#LIBOBJS += $(CAMAC_BIN)/camacLib
+#LIBOBJS += $(CAMAC_BIN)/devCamacLib
+#LIBOBJS += $(CAMAC_BIN)/dxpCamacLib
 
 # Local source files.
 #SRCS.c  += ../myProg.c
