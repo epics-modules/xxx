@@ -1,1 +1,1 @@
-../../bin/${EPICS_HOST_ARCH}/xxx st.cmd
+../../bin/solaris-sparc-gnu/xxx st.cmd
