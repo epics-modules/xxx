@@ -3,7 +3,6 @@
 # Include everything for non-vxWorks IOC
 include "xxxCommonInclude.dbd"
 
-include "mpfSerialVx.dbd"
 include "vmeVXSupport.dbd"
 include "sscanVXSupport.dbd"
 include "stdVXSupport.dbd"
