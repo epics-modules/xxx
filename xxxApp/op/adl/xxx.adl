@@ -1,12 +1,12 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synApps_4_6/ioc/xxx/xxxApp/op/adl/xxx.adl"
-	version=030003
+	name="j:\epics\3-14-devel\xxx\xxxApp\op\adl\xxx.adl"
+	version=020306
 }
 display {
 	object {
-		x=521
-		y=27
+		x=477
+		y=50
 		width=450
 		height=160
 	}
@@ -1173,6 +1173,11 @@ text {
 		label="AMP 1"
 		name="xxIcbAmp.adl"
 		args="P=xxx:,AMP=icbAmp1"
+	}
+	display[6] {
+		label="DSP 1"
+		name="dsp9660Gain.adl"
+		args="P=xxx:,DSP=dsp1"
 	}
 	clr=0
 	bclr=17
