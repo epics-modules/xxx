@@ -1,4 +1,4 @@
-file motorApp/Db/basic_motor.db motor
+file motorApp/Db/basic_motor.db, motor
 {
 pattern
 {P,     N,  M,	    DTYP,         C,    S,  DESC,         EGU,      DIR, VELO,  VBAS,  ACCL,  BDST,  BVEL,  BACC,  MRES,   PREC,  DHLM,	DLLM,	INIT}

@@ -1,4 +1,4 @@
-file ip330App/Db/ip330Scan.template ip330
+file ip330App/Db/ip330Scan.template, ip330
 {
 pattern
 {P,    R,      C, IPSLOT, S,  GAIN,  SCAN,  EGUL, LOPR, EGUF, HOPR,  PREC}
