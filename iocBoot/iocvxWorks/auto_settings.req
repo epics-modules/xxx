@@ -39,7 +39,9 @@ file scanParms_settings.req P=$(P),M=m16
 
 file table_settings.req P=$(P),T=table1
 
-file scaler_settings.req P=$(P),S=scaler1
+file scaler_8ch_settings.req P=$(P),S=scaler1
+file scaler_8ch_settings.req P=$(P),S=scaler2
+file scaler_64ch_settings.req P=$(P),S=scaler3
 
 file scan_settings.req P=$(P),S=scan1
 file scan_settings.req P=$(P),S=scan2
@@ -100,6 +102,8 @@ file sseq_settings.req P=$(P),S=Sseq3
 file auto_4step_settings.req P=$(P),Q=4step
 
 file userAve10_settings.req P=$(P)
+
+file interp_settings.req P=$(P)
 
 # MCA
 file mca_settings.req P=$(P),M=mca1
