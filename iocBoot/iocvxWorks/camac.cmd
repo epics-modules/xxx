@@ -38,7 +38,7 @@ CAMACScalerSetup(1)
 #  int counter_slot)                   /* Counter N */
 CAMACScalerConfig(0, 0, 0, 0, 20, 0, 21)
 dbLoadRecords("$(CAMAC)/camacApp/Db/CamacScaler.db","P=xxx:,S=scaler1,C=0")
-dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,C=0,DTYP=CAMAC scaler,FREQ=10000000")
+#dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,C=0,DTYP=CAMAC scaler,FREQ=10000000")
 
 # Load the DXP stuff
 < 16element_dxp.cmd
