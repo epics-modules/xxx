@@ -1,12 +1,12 @@
 
 file {
-	name="j:\epics\3-14-devel\xxx\xxxApp\op\adl\xxx.adl"
-	version=020306
+	name="/home/oxygen4/MOONEY/epics/synApps_5_0/support/xxx/xxxApp/op/adl/xxx.adl"
+	version=030004
 }
 display {
 	object {
-		x=477
-		y=50
+		x=523
+		y=26
 		width=450
 		height=160
 	}
@@ -1585,18 +1585,23 @@ text {
 	object {
 		x=70
 		y=80
-		width=70
+		width=35
 		height=20
 	}
 	display[0] {
-		label="DAC 1 Chans 1-8"
-		name="topDAC8.adl"
+		label="vme DAC 1 Chans 1-8"
+		name="vmeDAC8.adl"
 		args="P=xxx:,D=1"
 	}
 	display[1] {
-		label="DAC 2 Chans 1-8"
-		name="topDAC8.adl"
+		label="vme DAC 2 Chans 1-8"
+		name="vmeDAC8.adl"
 		args="P=xxx:,D=2"
+	}
+	display[2] {
+		label="dac128V 1 Chans 1-8"
+		name="8_DACs.adl"
+		args="P=xxx:,D=1"
 	}
 	clr=0
 	bclr=17
@@ -1693,4 +1698,55 @@ text {
 	clr=0
 	bclr=63
 	label="-Microscope"
+}
+"related display" {
+	object {
+		x=105
+		y=80
+		width=35
+		height=20
+	}
+	display[0] {
+		label="dac128V 1 Chan 1"
+		name="singleDAC.adl"
+		args="P=xxx:,D=1,C=1"
+	}
+	display[1] {
+		label="dac128V 1 Chan 2"
+		name="singleDAC.adl"
+		args="P=xxx:,D=1,C=2"
+	}
+	display[2] {
+		label="dac128V 1 Chan 3"
+		name="singleDAC.adl"
+		args="P=xxx:,D=1,C=3"
+	}
+	display[3] {
+		label="dac128V 1 Chan 4"
+		name="singleDAC.adl"
+		args="P=xxx:,D=1,C=4"
+	}
+	display[4] {
+		label="dac128V 1 Chan 5"
+		name="singleDAC.adl"
+		args="P=xxx:,D=1,C=5"
+	}
+	display[5] {
+		label="dac128V 1 Chan 6"
+		name="singleDAC.adl"
+		args="P=xxx:,D=1,C=6"
+	}
+	display[6] {
+		label="dac128V 1 Chan 7"
+		name="singleDAC.adl"
+		args="P=xxx:,D=1,C=7"
+	}
+	display[7] {
+		label="dac128V 1 Chan 8"
+		name="singleDAC.adl"
+		args="P=xxx:,D=1,C=8"
+	}
+	clr=0
+	bclr=17
+	label="-DAC"
 }
