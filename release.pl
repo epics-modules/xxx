@@ -10,10 +10,11 @@
 #
 # MODIFICATION LOG...
 # 03/25/04 rls Support for GATEWAY environment variable.
+# 04/08/04 rls Bug fix for spaces between macro and '=' sign; e.g. MPF = /home/mpf.
 #
-#Version:	$Revision: 1.3.2.1 $
+#Version:	$Revision: 1.3.2.2 $
 #Modified By:	$Author: sluiter $
-#Last Modified:	$Date: 2004-03-25 19:24:34 $
+#Last Modified:	$Date: 2004-04-08 21:59:14 $
 
 use Env;
 
@@ -89,6 +90,9 @@ foreach $file (@files)
 			$post = $base . $post;
 		    }
 		}
+
+		$prefix =~ s/^\s+|\s+$//g; # strip leading and trailing whitespace.
+
 		$applications{$prefix} = $post;
 		if ( -d "$post")
 		{
