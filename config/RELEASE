@@ -9,20 +9,19 @@
 #
 # Add your declarations here
 
-EPICS_SUPPORT_PATH=<Complete pathname to Support directory>
+include $(TOP)/../config/IP_RELEASE
+include $(TOP)/../config/IP330_RELEASE
+include $(TOP)/../config/MCA_RELEASE
+include $(TOP)/../config/LOVE_RELEASE
+include $(TOP)/../config/IPUNIDIG_RELEASE
+include $(TOP)/../config/DAC128V_RELEASE
+include $(TOP)/../config/MOTOR_RELEASE
+include $(TOP)/../config/STD_RELEASE
+include $(TOP)/../config/BITBUS_RELEASE
+include $(TOP)/../config/MPFGPIB_RELEASE
+include $(TOP)/../config/MPFSERIAL_RELEASE
+include $(TOP)/../config/MPF_RELEASE
+include $(TOP)/../config/CAMAC_RELEASE
+#include $(TOP)/../config/ALLEN_BRADLEY_RELEASE
+include $(TOP)/../config/RELEASE
 
-include $(EPICS_SUPPORT_PATH)/config/IP_RELEASE
-include $(EPICS_SUPPORT_PATH)/config/IP330_RELEASE
-include $(EPICS_SUPPORT_PATH)/config/MCA_RELEASE
-include $(EPICS_SUPPORT_PATH)/config/LOVE_RELEASE
-include $(EPICS_SUPPORT_PATH)/config/IPUNIDIG_RELEASE
-include $(EPICS_SUPPORT_PATH)/config/DAC128V_RELEASE
-include $(EPICS_SUPPORT_PATH)/config/MOTOR_RELEASE
-include $(EPICS_SUPPORT_PATH)/config/STD_RELEASE
-include $(EPICS_SUPPORT_PATH)/config/BITBUS_RELEASE
-include $(EPICS_SUPPORT_PATH)/config/MPFGPIB_RELEASE
-include $(EPICS_SUPPORT_PATH)/config/MPFSERIAL_RELEASE
-include $(EPICS_SUPPORT_PATH)/config/MPF_RELEASE
-include $(EPICS_SUPPORT_PATH)/config/EPICS_BASE_RELEASE
-
-TEMPLATE_TOP=$(EPICS_SUPPORT_PATH)/../base/templates/makeBaseApp/top
