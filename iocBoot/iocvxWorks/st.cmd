@@ -228,9 +228,7 @@ create_monitor_set("auto_settings.req",30,"P=xxx:")
 #    sets this time.)
 # 3: if specified time has passed, wait for space in queue, then send message
 # else: don't send message
-#debug_saveData = 2
-saveData_MessagePolicy = 2
-saveData_SetCptWait_ms(100)
+#debug_saveData = 20
 saveData_Init("saveData.req", "P=xxx:")
 #saveData_PrintScanInfo("xxx:scan1")
 
