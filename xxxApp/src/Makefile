@@ -13,7 +13,7 @@ include $(TOP)/configure/CONFIG
 #==================================================
 # build a support library that some other application can use
 
-LIBRARY_IOC += xxxSupport
+#LIBRARY_IOC += xxxSupport
 
 # xxxRecord.h will be created from xxxRecord.dbd
 #DBDINC += xxxRecord
@@ -28,15 +28,16 @@ LIBRARY_IOC += xxxSupport
 #=============================
 # build an ioc application
 
-PROD_IOC = xxx
+PROD_IOC_DEFAULT = xxx
+PROD_IOC_solaris = -nil-
 
 # <name>.dbd will be created from <name>Include.dbd
-DBD += xxx.dbd
-DBD += xxxVX.dbd
+DBD += iocxxx.dbd
+DBD += iocxxxVX.dbd
 
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
-xxx_SRCS_DEFAULT += xxx_registerRecordDeviceDriver.cpp
-xxx_SRCS_vxWorks += xxxVX_registerRecordDeviceDriver.cpp
+xxx_SRCS_DEFAULT += iocxxx_registerRecordDeviceDriver.cpp
+xxx_SRCS_vxWorks += iocxxxVX_registerRecordDeviceDriver.cpp
 
 xxx_SRCS_DEFAULT += xxxMain.cpp
 xxx_SRCS_vxWorks += -nil-
