@@ -31,72 +31,56 @@ LIBRARY_IOC += xxxSupport
 PROD_IOC = xxx
 
 # <name>.dbd will be created from <name>Include.dbd
-DBD += iocxxx.dbd
-DBD += iocxxxVX.dbd
+DBD += xxx.dbd
+DBD += xxxVX.dbd
 
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
-xxx_SRCS_DEFAULT += iocxxx_registerRecordDeviceDriver.cpp
-xxx_SRCS_vxWorks += iocxxxVX_registerRecordDeviceDriver.cpp
+xxx_SRCS_DEFAULT += xxx_registerRecordDeviceDriver.cpp
+xxx_SRCS_vxWorks += xxxVX_registerRecordDeviceDriver.cpp
 
 xxx_SRCS_DEFAULT += xxxMain.cpp
 xxx_SRCS_vxWorks += -nil-
 
-# The following builds xxxSNL as a component of xxx
-# NOTE: for suffix .st, code is run through cpp; for .stt, it's not
-#xxx_SRCS += xxxSNL.st
-#xxx_SRCS_vxWorks += xxxSNL.st
+#xxx_Common_LIBS += xxxSupport
+xxx_Common_LIBS += mca
+xxx_Common_LIBS += mcaCanberra
+xxx_Common_LIBS += calc
+xxx_Common_LIBS += sscan
+xxx_Common_LIBS += autosave
+xxx_Common_LIBS += optics
+xxx_Common_LIBS += vme
+xxx_Common_LIBS += std
+xxx_Common_LIBS += ip
+xxx_Common_LIBS += gpib
+xxx_Common_LIBS += bruker
+xxx_Common_LIBS += Acs Ims Mclennan motor motorCOM_mpf Newport softMotor
+xxx_Common_LIBS += mpf mpfEpics mpfSerial
+xxx_Common_LIBS += seq pv seqDev
+xxx_Common_LIBS += $(EPICS_BASE_IOC_LIBS)
 
-#xxx_LIBS += xxxSupport
-
-### from support
-xxx_LIBS += mca 
-# Convert the following line to XXX_LIBS_vxWorks if you are not building mcaCanberra
-# for the host
-xxx_LIBS += mcaCanberra 
-xxx_LIBS_vxWorks += mcaSIS
-
-xxx_LIBS_vxWorks += dac128V
-
-xxx_LIBS += ip
-
-xxx_LIBS_vxWorks += ip330 devIp330
-
-xxx_LIBS_vxWorks += ipUnidig
-
-xxx_LIBS_vxWorks += quadEM
-
-xxx_LIBS_vxWorks += dxp xerxes
-xxx_LIBS_Linux += dxp xerxes
-
-xxx_LIBS_vxWorks += love
-
-xxx_LIBS += motor softMotor
-xxx_LIBS += Acs Ims Mclennan motorCOM_mpf Newport
-xxx_LIBS_vxWorks += oms 
-
-#xxx_LIBS_vxWorks += vxStats
-
-xxx_LIBS += std
-
-xxx_LIBS += mpfSerial mpf mpfEpics
-
-xxx_LIBS += seq pv seqDev
-
-#xxx_LIBS += gpib
-
-xxx_LIBS_vxWorks += allenBradley
-
-# xxx: in switch from ipac-2_5 to ipac-2_6,
-# $(IPAC_BIN)/tyGSOctal became $(IPAC_LIB)/libTyGSOctal.a, and
-# $(IPAC_BIN)/ipacLib became $(IPAC_LIB)/libIpac.a
-xxx_LIBS_vxWorks += TyGSOctal Ipac
-#xxx_LDOBJS_vxWorks += $(IPAC_BIN)/ipacLib
-#xxx_OBJS_vxWorks += $(IPAC_BIN)/tyGSOctal
-
-### from base
-xxx_LIBS += $(EPICS_BASE_IOC_LIBS)
-# The following adds support from base/src/vxWorks
+xxx_vxWorks_LIBS += allenBradley
+xxx_vxWorks_LIBS += mcaSIS
+xxx_vxWorks_LIBS += ip330 devIp330
+xxx_vxWorks_LIBS += ipUnidig
+xxx_vxWorks_LIBS += dac128V
+xxx_vxWorks_LIBS += quadEM
+xxx_vxWorks_LIBS += bruker
+xxx_vxWorks_LIBS += camac devCamac
+xxx_vxWorks_LIBS += dxp xerxes
+xxx_vxWorks_LIBS += oms
+xxx_vxWorks_LIBS += TyGSOctal Ipac
+#The following adds support from base/src/vxWorks
 xxx_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
+
+xxx_Linux_LIBS  += dxp xerxes
+
+xxx_LIBS_DEFAULT = $(xxx_Common_LIBS)
+xxx_LIBS_vxWorks = $(xxx_vxWorks_LIBS) $(xxx_Common_LIBS)
+xxx_LIBS_Linux   = $(xxx_Linux_LIBS)   $(xxx_Common_LIBS)
+
+# If the host has libnet and libpcap for mca/Canberra support
+xxx_SYS_LIBS_DEFAULT += net pcap
+xxx_SYS_LIBS_vxWorks += -nil-
 
 #===========================
 
