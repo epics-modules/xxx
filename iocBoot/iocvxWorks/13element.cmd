@@ -5,5 +5,5 @@ AIMConfig("AIM2/2", 0x98d, 2, 4000, 4, 1, "ei0", 100)
 AIMConfig("AIM3/1", 0x98b, 1, 4000, 4, 1, "ei0", 100)
 AIMConfig("AIM3/2", 0x903, 2, 4000, 4, 1, "ei0", 100)
 
-dbLoadRecords("mcaApp/Db/13element.db","P=xxx:med:,N=2000", mca)
-dbLoadTemplate("13element.substitutions", mca)
+dbLoadRecords("$(MCA)/mcaApp/Db/13element.db","P=xxx:med:,N=2000")
+dbLoadTemplate("13element.substitutions")
