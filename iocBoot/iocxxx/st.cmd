@@ -30,12 +30,11 @@ errlogInit(5000)
 # Note that you need an MPF router not only for IP modules, but also for
 # the AIM MCA support.
 routerInit
-# talk to local IP's
+# talk to local MPF servers, including AIM server and IndustryPack device servers
 localMessageRouterStart(0)
-# talk to IP's on satellite processor
-# (must agree with tcpMessageRouterServerStart in st_proc1.cmd)
-# for IP modules on stand-alone mpf server board
-#tcpMessageRouterClientStart(1, 9900, Remote_IP, 10000, 100)
+# talk to MPF servers on remote processor
+# (Note the following must agree with tcpMessageRouterServerStart() in st1.cmd)
+tcpMessageRouterClientStart(1, 9900, Remote_IP, 10000, 100)
 
 # for local IP slots or IP slots on a VIPC616 dumb IP carrier
 # Uncomment, as needed.
@@ -84,7 +83,7 @@ set_requestfile_path(ip, "ipApp/Db")
 set_requestfile_path(ip330, "ip330App/Db")
 set_requestfile_path(dac128v, "dac128VApp/Db")
 set_requestfile_path(ipunidig, "ipUnidigApp/Db")
-#set_requestfile_path(quadem, "quadEMApp/Db")
+set_requestfile_path(quadem, "quadEMApp/Db")
 #set_requestfile_path(camac, "camacApp/Db")
 # specify what save files should be restored.  Note these files must be reachable
 # from the directory current at the time iocInit is run

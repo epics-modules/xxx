@@ -3,10 +3,14 @@
 
 cd ""
 < ../nfsCommands
-< cdCommands.68K
+# Nore we're loading the cdCommands file that was built for the main
+# EPICS processor, which may be of a different architecture. 
+< cdCommands
 < MPFconfig.cmd
 
 cd appbin
+# appbin might point to a different architecture than we need
+cd "../mv167"
 ld < mpfLib
 ld < ipLib
 ld < mpfserialserverLib
@@ -19,7 +23,7 @@ cd startup
 routerInit
 tcpMessageRouterServerStart(1, 9900, Remote_IP, 1500, 40)
 
-< st_mpfserver.cmd
+< st1_mpfserver.cmd
 
 shellPromptSet "iocxxx1> "
 
