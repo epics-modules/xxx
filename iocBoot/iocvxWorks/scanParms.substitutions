@@ -1,4 +1,4 @@
-file "$(STD)/db/scanParms.db"
+file "$(sscan)/db/scanParms.db"
 {
 {P=xxx:,SCANREC=xxx:scan1,Q=m1,POS=$(Q).VAL,RDBK=$(Q).RBV}
 {P=xxx:,SCANREC=xxx:scan1,Q=m2,POS=$(Q).VAL,RDBK=$(Q).RBV}
