@@ -18,7 +18,7 @@ epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 # Tell EPICS all about the record types, device-support modules, drivers,
 # etc. in the software we just loaded (xxx.munch)
 dbLoadDatabase("../../dbd/iocxxx.dbd")
-iocxxx_registerRecordDeviceDriver(pdbbase)
+iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 
 ### save_restore setup
 # We presume a suitable initHook routine was compiled into xxx.munch.
