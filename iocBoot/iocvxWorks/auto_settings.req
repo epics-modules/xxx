@@ -106,8 +106,8 @@ file userAve10_settings.req P=$(P)
 
 # MCA
 file mca_settings.req P=$(P),M=mca1
-file icb_adc_settings.req P=$(P),ADC=icbAdc1
-#file icb_amp_settings.req P=$(P),ADC=adcMP=amp1
+#file icb_adc_settings.req P=$(P),ADC=icbAdc1
+#file icb_amp_settings.req P=$(P),AMP=amp1
 #file icb_hvps_settings.req P=$(P),HVPS=icbHvps1
 #file icb_tca_settings.req P=$(P),TCA=icbTca1
 #file icbDsp_settings.req P=$(P),DSP=icbDsp1
