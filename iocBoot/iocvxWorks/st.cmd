@@ -59,6 +59,9 @@ iocxxxVX_registerRecordDeviceDriver(pdbbase)
 # serial support
 < serial.cmd
 
+# gpib support
+< gpib.cmd
+
 # VME devices
 < vme.cmd
 
@@ -122,15 +125,15 @@ dbLoadRecords("$(DIR)/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M
 ### Monochromator support ###
 # Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
 # standard geometry (geometry 1)
-dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=17.4999,yOffHi=17.5001")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=17.4999,yOffHi=17.5001")
 # modified geometry (geometry 2)
-dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=4,yOffHi=36")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=4,yOffHi=36")
 
 # Spherical grating monochromator
-dbLoadRecords("$(OPTICS)/opticsApp/Db/SGM.db","P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8,M_g=m9")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/SGM.db","P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8,M_g=m9")
 
 # 4-bounce high-resolution monochromator
-dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10")
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=2,M_PHI1=m11,M_PHI2=m12")
 
 # Load single element Canberra AIM MCA and ICB modules
@@ -144,6 +147,7 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10
 
 ### Stuff for user programming ###
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=xxx:")
+dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
 # extra userCalcs (must also load userCalcs10.db for the enable switch)
@@ -160,16 +164,8 @@ dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
 # array test
 dbLoadRecords("$(CALC)/calcApp/Db/arrayTest.db", "P=xxx:,N=2000")
 
-### GPIB support ###
-# send impromptu message to gpib device, parse reply
-# (was GPIB_OI_block)
-#dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=1,PORT=gpib1,ADDR=1,OMAX=100,IMAX=100")
-
-# Heidenhain AWE1024 at GPIB address $(A)
-#dbLoadRecords("$(IP)/ipApp/Db/HeidAWE1024.db", "P=xxx:,L=10,A=6")
-
-# Keithley 199 DMM at GPIB address $(A)
-#dbLoadRecords("$(STD)/stdApp/Db/KeithleyDMM.db", "P=xxx:,L=10,A=26")
+# Slow feedback
+dbLoadTemplate "pid_slow.substitutions"
 
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
@@ -191,12 +187,13 @@ iocLogDisable=0
 iocInit
 
 ### startup State Notation Language programs
-seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=1, logfile=kohzuCtl.log"
-seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
+#seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=1, logfile=kohzuCtl.log"
+#seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
 
 # Keithley 2000 series DMM
 # channels: 10, 20, or 22;  model: 2000 or 2700
-#seq &Keithley2kDMM,("P=xxx:, Dmm=D1, channels=20, model=2000")
+seq &Keithley2kDMM,("P=xxx:, Dmm=D1, channels=22, model=2700")
+seq &Keithley2kDMM,("P=xxx:, Dmm=D2, channels=10, model=2000")
 
 # Bunch clock generator
 #seq &getFillPat, "unit=xxx"
