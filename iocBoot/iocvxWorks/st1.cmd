@@ -1,15 +1,16 @@
 cd ""
 < ../nfsCommands
-< cdCommands.68K
+< cdCommands
 < MPFconfig.cmd
 
 cd appbin
+cd ../vxWorks-68040
 ld < mpfLib
 ld < ipLib
 ld < mpfserialserverLib
 # Uncomment, as needed.
 #ld < mpfgpibserverLib
-#ld < dac128VLib
+ld < dac128VLib
 
 cd startup
 #start message router
