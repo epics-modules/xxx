@@ -116,6 +116,7 @@ cd startup
 # etc. in the software we just loaded (xxxLib)
 dbLoadDatabase("../../dbd/xxxApp.dbd")
 
+dbLoadRecords("stdApp/Db/SR_array_test.vdb", "P=xxx:,N=10", std)
 # Love Controllers
 #devLoveDebug=1
 #loveServerDebug=1
@@ -137,7 +138,8 @@ dbLoadRecords("stdApp/Db/4step.db", "P=xxx:", std)
 ##### Motors (see picMot.substitutions in same directory as this file) ####
 #dbLoadTemplate("picMot.substitutions", ip)
 
-
+dbLoadRecords("stdApp/Db/softMotor.db","P=xxx:,SM=sm1",std)
+dbLoadRecords("stdApp/Db/softMotor.db","P=xxx:,SM=sm2",std)
 ##############################################################################
 
 # Insertion-device control
@@ -157,9 +159,6 @@ dbLoadRecords("stdApp/Db/yySseq.db","P=xxx:,S=Sseq3", std)
 ###############################################################################
 
 ##### Motors (see motors.substitutions in same directory as this file) ####
-# Use "motor.substitutions" if using "stdApp/Db/all_com_##.db" below; otherwise
-# use "basic_motor.substitutions".
-
 #dbLoadTemplate("basic_motor.substitutions")
 dbLoadTemplate("motor.substitutions")
 
@@ -167,13 +166,13 @@ dbLoadTemplate("motor.substitutions")
 #     (1)cards, (2)axes per card, (3)base address(short, 16-byte boundary), 
 #     (4)interrupt vector (0=disable or  64 - 255), (5)interrupt level (1 - 6),
 #     (6)motor task polling rate (min=1Hz,max=60Hz)
-#omsSetup(2, 8, 0xFC00, 180, 5, 10)
+omsSetup(2, 8, 0xFC00, 180, 5, 10)
 
 # OMS VME58 driver setup parameters: 
 #     (1)cards, (2)axes per card, (3)base address(short, 4k boundary), 
 #     (4)interrupt vector (0=disable or  64 - 255), (5)interrupt level (1 - 6),
 #     (6)motor task polling rate (min=1Hz,max=60Hz)
-oms58Setup(3, 8, 0x4000, 190, 5, 10)
+oms58Setup(2, 8, 0x4000, 190, 5, 10)
 
 # Newport MM4000 driver setup parameters: 
 #     (1) max. controllers, (2)Unused, (3)polling rate (min=1Hz,max=60Hz) 
@@ -231,11 +230,21 @@ dbLoadTemplate("scanParms.substitutions", std)
 ###############################################################################
 
 ### Scalers: Joerger VSC8/16
-dbLoadRecords("stdApp/Db/Jscaler.db","P=xxx:,S=scaler1,C=0", std)
+dbLoadRecords("stdApp/Db/scaler.db","P=xxx:,DTYP=Joerger VSC8/16,S=scaler1,C=0", std)
 # Joerger VSC setup parameters: 
 #     (1)cards, (2)base address(ext, 256-byte boundary), 
 #     (3)interrupt vector (0=disable or  64 - 255)
 VSCSetup(1, 0xB0000000, 200)
+
+# Joerger VS
+# scalerVS_Setup(int num_cards,	/* maximum number of cards in crate */
+#	char *addrs,		/* address (0x800-0xf800, 2048-byte (0x800) boundary) */
+#	unsigned vector,	/* valid vectors(64-255) */
+#	int intlevel)	
+scalerVS_Setup(1, 0x2000, 205, 5)
+#devScaler_VSDebug=10
+#scalerRecordDebug=20
+dbLoadRecords("stdApp/Db/scaler.db","P=xxx:,DTYP=Joerger VS,S=scaler2,C=0", std)
 
 ### Allstop, alldone
 # This database must agree with the motors and other positioners you've actually loaded.
@@ -245,7 +254,8 @@ dbLoadRecords("stdApp/Db/all_com_16.db","P=xxx:", std)
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
-dbLoadRecords("stdApp/Db/scan.db","P=xxx:,MAXPTS1=2000,MAXPTS2=200,MAXPTS3=10,MAXPTS4=10,MAXPTSH=2000", std)
+#dbLoadRecords("stdApp/Db/scan.db","P=xxx:,MAXPTS1=2000,MAXPTS2=200,MAXPTS3=10,MAXPTS4=10,MAXPTSH=2000", std)
+dbLoadRecords("stdApp/Db/scan.db","P=xxx:,MAXPTS1=2000,MAXPTS2=2000,MAXPTS3=2000,MAXPTS4=2000,MAXPTSH=2000", std)
 
 # Slits
 #dbLoadRecords("stdApp/Db/2slit.db","P=xxx:,SLIT=Slit1V,mXp=m24,mXn=m26", std)
@@ -451,7 +461,7 @@ dbLoadRecords("stdApp/Db/userAve10.db","P=xxx:", std)
 #devHPLaserAxisConfig(2,0x1000)
 
 # IpUnidig digital I/O
-dbLoadTemplate("IpUnidig.substitutions")
+#dbLoadTemplate("IpUnidig.substitutions")
 
 # Acromag general purpose Digital I/O
 #dbLoadRecords("stdApp/Db/Acromag_16IO.db", "P=xxx:, A=1", std)
@@ -671,6 +681,8 @@ iocInit
 create_monitor_set("auto_positions.req",5,"P=xxx:")
 # save other things every thirty seconds
 create_monitor_set("auto_settings.req",30,"P=xxx:")
+# Note you can reload with, e.g., the following command:
+#reload_monitor_set("auto_settings.req",30,"P=xxx:")
 
 
 ### Start the saveData task.
@@ -681,7 +693,7 @@ create_monitor_set("auto_settings.req",30,"P=xxx:")
 #    sets this time.)
 # 3: if specified time has passed, wait for space in queue, then send message
 # else: don't send message
-#debug_saveData = 2
+debug_saveData = 0
 saveData_MessagePolicy = 2
 saveData_SetCptWait_ms(100)
 saveData_Init("saveData.req", "P=xxx:")
