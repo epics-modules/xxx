@@ -1,3 +1,6 @@
+
+# BEGIN save_restore.cmd ------------------------------------------------------
+
 ### save_restore setup
 #
 # The rest this file does not require modification for standard use, but...
@@ -60,3 +63,5 @@ set_requestfile_path(std, "stdApp/Db")
 set_requestfile_path(vme, "vmeApp/Db")
 
 dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=xxx:")
+
+# END save_restore.cmd --------------------------------------------------------

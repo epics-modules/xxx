@@ -1,4 +1,5 @@
-# CAMAC hardware
+
+# BEGIN camac.cmd -------------------------------------------------------------
 # Setup the ksc2917 hardware definitions
 # These are all actually the defaults, so this is not really necessary
 # num_cards, addrs, ivec, irq_level
@@ -45,3 +46,4 @@ dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,C=0,DTYP=CAMAC scal
 # Generic CAMAC record
 dbLoadRecords("$(CAMAC)/camacApp/Db/generic_camac.db","P=xxx:,R=camac1,SIZE=2048")
 
+# END camac.cmd ---------------------------------------------------------------

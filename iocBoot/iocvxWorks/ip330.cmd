@@ -1,3 +1,6 @@
+
+# BEGIN ip330.cmd -------------------------------------------------------------
+
 # Initialize Acromag IP-330 ADC
 # initIp330(
 #   const char *portName, int carrier, int slot,
@@ -58,3 +61,4 @@ dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=mip330_2,DTYP=asynMCA,NCHAN=2
 dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=mip330_3,DTYP=asynMCA,NCHAN=2048,INP=@asyn(Ip330Sweep1 2)")
 dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=mip330_4,DTYP=asynMCA,NCHAN=2048,INP=@asyn(Ip330Sweep1 3)")
 
+# END ip330.cmd ---------------------------------------------------------------

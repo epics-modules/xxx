@@ -1,3 +1,6 @@
+
+# BEGIN industryPack.cmd ------------------------------------------------------
+
 # This configures the Industry Pack Support
 
 # First carrier
@@ -41,3 +44,4 @@ ipacReport(2)
 # SBS IpUnidig digital I/O
 #< ipUnidig.cmd
 
+# END industryPack.cmd --------------------------------------------------------

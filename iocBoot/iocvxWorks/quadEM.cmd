@@ -1,3 +1,6 @@
+
+# BEGIN quadEM.cmd ------------------------------------------------------------
+
 # initQuadEM(quadEMName, baseAddress, fiberChannel, microSecondsPerScan,
 #            maxClients, unidigName, unidigChan)
 #  quadEMName  = name of quadEM object created
@@ -31,3 +34,4 @@ dbLoadRecords("$(QUADEM)/quadEMApp/Db/quadEM_med_FFT.db", "P=xxx:quadEM_FFT:,NCH
 # Database for fast feedback using quadEM and dac128V
 dbLoadTemplate("quadEM_pid.substitutions")
 
+# END quadEM.cmd --------------------------------------------------------------
