@@ -1,9 +1,18 @@
 include "base.dbd"
-include "std.dbd"
-include "mpfSerial.dbd"
+include "stdVX.dbd"
+include "mpfSerialVx.dbd"
+
+include "vxStats.dbd"
+include "mcaSupport.dbd"
+include "ipShare.dbd"
+include "devIpUnidig.dbd"
+include "devAoDAC128V.dbd"
+
+include "devIp330.dbd"
 
 include "motorRecord.dbd"
 include "devSoftMotor.dbd"
+include "devOms.dbd"
 #include "devAcsMotor.dbd"
 #include "devImsMotor.dbd"
 #include "devMclennanMotor.dbd"
@@ -13,4 +22,7 @@ include "devNewport.dbd"
 #include "devCamacShare.dbd"
 #include "dxpCamacShare.dbd"
 #include "allenBradley.dbd"
+include "devLove.dbd"
+
+registrar(stdRegister)
 
