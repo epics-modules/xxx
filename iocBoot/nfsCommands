@@ -30,4 +30,5 @@
 # The following line eliminates "cksum: out of data" messages due to DHCP
 #proxyPortFwdOff(67)
 
-
+# Give save_restore the info it needs to manage its own NFS mount
+save_restoreSet_NFSHost("oxygen", "164.54.52.4")
