@@ -14,6 +14,7 @@ ld < mpfserialserverLib
 cd startup
 #start message router
 routerInit
+localMessageRouterStart(0)
 tcpMessageRouterServerStart(1, 9900, Remote_IP, 1500, 40)
 
 < st_mpfserver.cmd
