@@ -1,7 +1,7 @@
 
 file {
 	name="/home/oxygen4/MOONEY/epics/synApps_4_6/support/xxx/xxxApp/op/adl/xxx.adl"
-	version=030003
+	version=030004
 }
 display {
 	object {
@@ -171,7 +171,7 @@ display {
 "related display" {
 	object {
 		x=0
-		y=40
+		y=60
 		width=70
 		height=20
 	}
@@ -273,7 +273,7 @@ display {
 "related display" {
 	object {
 		x=0
-		y=100
+		y=120
 		width=70
 		height=20
 	}
@@ -631,9 +631,9 @@ display {
 		height=20
 	}
 	display[0] {
-		label="Spherical Grating Monochromator (tiny)"
-		name="SGM_tiny.adl"
-		args="P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8"
+		label="High resolution monochromator"
+		name="hrSeqCtl_All.adl"
+		args="P=xxx:,N=1"
 	}
 	display[1] {
 		label="Spherical Grating Monochromator"
@@ -642,12 +642,12 @@ display {
 	}
 	clr=0
 	bclr=17
-	label="-SGM"
+	label="-etc. Mono"
 }
 "related display" {
 	object {
 		x=0
-		y=80
+		y=100
 		width=70
 		height=20
 	}
@@ -746,23 +746,18 @@ text {
 "related display" {
 	object {
 		x=0
-		y=120
+		y=40
 		width=70
 		height=20
 	}
 	display[0] {
-		label="High resolution monochromator"
-		name="hrSeqCtl_All.adl"
-		args="P=xxx:,N=1"
-	}
-	display[1] {
-		label="Second HR mono"
-		name="hrSeqCtl_All.adl"
-		args="P=xxx:,N=2"
+		label="1-10"
+		name="softMotors10.adl"
+		args="P=xxx:,SM1=sm1,SM2=sm2,SM3=sm3,SM4=sm4,SM5=sm5,SM6=sm6,SM7=sm7,SM8=sm8,SM9=sm9,SM10=sm10"
 	}
 	clr=0
 	bclr=17
-	label="-HR"
+	label="-softMotor"
 }
 "related display" {
 	object {
@@ -880,7 +875,7 @@ text {
 "related display" {
 	object {
 		x=0
-		y=60
+		y=80
 		width=70
 		height=20
 	}
