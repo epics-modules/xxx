@@ -1,80 +1,96 @@
-# Makefile.Vx
+# FILENAME... Makefile.Vx
+#
+# NOTE: Some software (STD and IP) can be loaded by either uncommenting two
+# lines like the following,
+#	include $(MOD)/modApp/src/modLIBOBJS
+#	LIBOBJS += $(MODLIBOBJS)
+# or, uncommenting one line that links an already made library like the
+# following,
+#	LIBOBJS += $(MOD_BIN)/modLib
+# But don't do both!  Either method should yield equivalent results.
+# Customization can be done by making a local copy of a
+# $(MOD)/modApp/src/modLIBOBJS file in the <ioc>App/src directory, and changing
+# the "include $(MOD)/modApp/src/modLIBOBJS" line to,
+#	include ../modLIBOBJS
+
 TOP = ../../..
 include $(TOP)/config/CONFIG_APP
 #----------------------------------------
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 
-# Define source files here for gnumake depends
-#SRCS.c += ../myProg.c
+# Objects from STD
+# ----------------
+#include $(STD)/stdApp/src/baseLIBOBJS
+#LIBOBJS += $(BASELIBOBJS)
+LIBOBJS  += $(STD_BIN)/baseLib
+#include $(STD)/stdApp/src/stdLIBOBJS
+#LIBOBJS += $(STDLIBOBJS)
+LIBOBJS  += $(STD_BIN)/stdLib
+BIN_INSTALLS += $(STD_BIN)/getFilledBuckets.o
+BIN_INSTALLS += $(STD_BIN)/initHooks.o
+BIN_INSTALLS += $(STD_BIN)/xiahsc.o
+BIN_INSTALLS += $(STD_BIN)/xia_slit.o
 
-# Stuff from base - local copy of baeLIBOBJS so it can be customized for 
-# this app.
-include ../baseLIBOBJS
+# Objects from MPF
+# ----------------
+LIBOBJS      += $(MPF_BIN)/DevMpf.o
+BIN_INSTALLS += $(MPF_BIN)/mpfLib
+BIN_INSTALLS += $(MPF_BIN)/ipLib
 
-# Objects from this app
-#include ../xxxLIBOBJS
-# MPF server objects from this App
-#include ../xxxMpfServerLIBOBJS
+# Objects from MPF_GPIB
+# ---------------------
+BIN_INSTALLS += $(MPF_GPIB_BIN)/GpibHideosRemote.o
+BIN_INSTALLS += $(MPF_GPIB_BIN)/GpibHideosLocal.o
+BIN_INSTALLS += $(MPF_GPIB_BIN)/mpfgpibserverLib
 
-# Objects from "mpf"
-LIBOBJS += $(MPF_BIN)/mpfLib
-LIBOBJS += $(MPF_BIN)/DevMpf.o
-MPFSERVERLIBOBJS += $(MPF_BIN)/ipLib
+# Objects from MPF_SERIAL
+# -----------------------
+LIBOBJS      += $(MPF_SERIAL_BIN)/devStringMpf.o
+BIN_INSTALLS += $(MPF_SERIAL_BIN)/mpfserialserverLib
 
-# Objects from "mpfGpib"
-MPFSERVERLIBOBJS += $(MPF_GPIB_BIN)/Gpib.o
-MPFSERVERLIBOBJS += $(MPF_GPIB_BIN)/gpibSniff.o
-MPFSERVERLIBOBJS += $(MPF_GPIB_BIN)/GpibGsTi9914.o
-MPFSERVERLIBOBJS += $(MPF_GPIB_BIN)/gpibServer.o
+# Objects from DAC128V
+# --------------------
+LIBOBJS      += $(DAC128V_BIN)/devAoDAC128V.o
+BIN_INSTALLS += $(DAC128V_BIN)/dac128VLib
 
-# Objects from "mpfSerial"
-LIBOBJS += $(MPF_SERIAL_BIN)/devStringMpf.o
-MPFSERVERLIBOBJS += $(MPF_SERIAL_BIN)/OctalUART.o
-MPFSERVERLIBOBJS += $(MPF_SERIAL_BIN)/SerialPort.o
-MPFSERVERLIBOBJS += $(MPF_SERIAL_BIN)/serialPortSniff.o
-MPFSERVERLIBOBJS += $(MPF_SERIAL_BIN)/serialServer.o
+# Objects from IP330
+# ------------------
+LIBOBJS      += $(IP330_BIN)/devAiIp330Scan.o
+LIBOBJS      += $(IP330_BIN)/devLoIp330Config.o
+LIBOBJS      += $(IP330_BIN)/devEpidIp330.o
+BIN_INSTALLS += $(IP330_BIN)/ip330Lib
+BIN_INSTALLS += $(IP330_BIN)/ip330ServLib
 
-# Objects from "dac128V"
-LIBOBJS += $(DAC128V_BIN)/devAoDAC128V.o
-MPFSERVERLIBOBJS += $(DAC128V_BIN)/dac128VLib
+# Objects from IPUNIDIG
+# ---------------------
+LIBOBJS      += $(IPUNIDIG_BIN)/devIpUnidig.o
+BIN_INSTALLS += $(IPUNIDIG_BIN)/ipUnidigLib
 
-# Objects from "ip330"
-LIBOBJS += $(IP330_BIN)/devAiIp330Scan.o
-LIBOBJS += $(IP330_BIN)/devLoIp330Config.o
-LIBOBJS += $(IP330_BIN)/devEpidIp330.o
-MPFSERVERLIBOBJS += $(IP330_BIN)/ip330Lib
-MPFSERVERLIBOBJS += $(IP330_BIN)/ip330ServLib
+# Objects from LOVE
+# -----------------
+LIBOBJS      += $(LOVE_BIN)/devLove.o
+BIN_INSTALLS += $(LOVE_BIN)/loveServer.o
 
-# Objects from "ipUnidig"
-LIBOBJS += $(IPUNIDIG_BIN)/devIpUnidig.o
-MPFSERVERLIBOBJS += $(IPUNIDIG_BIN)/ipUnidigLib
+# Objects from MCA
+# ----------------
+#include $(MCA)/mcaApp/src/mcaLIBOBJS
+#LIBOBJS += $(MCALIBOBJS)
+#include $(MCA)/mcaApp/src/mcaMpfServerLIBOBJS
+#LIBOBJS += $(MCAMPFSERVERLIBOBJS)
+LIBOBJS += $(MCA_BIN)/mcaLib
 
-# Objects from "love"
-LIBOBJS += $(LOVE_BIN)/devLove.o
-MPFSERVERLIBOBJS += $(LOVE_BIN)/loveServer.o
-
-# Objects from "std"
-include $(STD)/stdApp/src/stdLIBOBJS
-LIBOBJS += $(STDLIBOBJS)
-#LIBOBJS += $(STD_BIN)/stdLib
-
-# Objects from "mca"
-include $(MCA)/mcaApp/src/mcaLIBOBJS
-LIBOBJS += $(MCALIBOBJS)
-#LIBOBJS += $(MCA_BIN)/mcaLib
-include $(MCA)/mcaApp/src/mcaMpfServerLIBOBJS
-LIBOBJS += $(MCAMPFSERVERLIBOBJS)
-
-# Objects from "ip"
-include $(IP)/ipApp/src/ipLIBOBJS
-LIBOBJS += $(IPLIBOBJS)
-#LIBOBJS += $(IP_BIN)/ipLib
-MPFSERVERLIBOBJS += $(IP_BIN)/mpcServer.o
+# Objects from IP
+# ----------------
+#include $(IP)/ipApp/src/ipLIBOBJS
+#LIBOBJS += $(IPLIBOBJS)
+LIBOBJS      += $(IP_BIN)/ipLib
+BIN_INSTALLS += $(IP_BIN)/mpcServer.o
 
 # Allen Bradley objects.  Local copy of file to edit in needed routines
 #include ../allenBradleyLIBOBJS
 
-# motor record and device support
+# Objects from MOTOR
+# ------------------
 LIBOBJS += $(MOTOR_BIN)/motorLib
 #LIBOBJS += $(MOTOR_BIN)/motorCOM_mpf
 LIBOBJS += $(MOTOR_BIN)/omsLib 
@@ -88,19 +104,14 @@ LIBOBJS += $(CAMAC_BIN)/camacLib
 LIBOBJS += $(CAMAC_BIN)/devCamacLib
 LIBOBJS += $(CAMAC_BIN)/dxpCamacLib
 
+# Local source files.
+#SRCS.c  += ../myProg.c
+#SRCS.cc += ../myProg.cc
+#LIBOBJS += myProg.o
+
 LIBNAME = xxxLib
 
-PROD += mpfServLib
-
 BIN_INSTALLS += $(EPICS_BASE_BIN)/iocCore $(EPICS_BASE_BIN)/seq
-
-BIN_INSTALLS += $(STD_BIN)/xiahsc.o
-BIN_INSTALLS += $(STD_BIN)/xia_slit.o
-BIN_INSTALLS += $(STD_BIN)/getFilledBuckets.o
-BIN_INSTALLS += $(MPF_GPIB_BIN)/GpibHideosRemote.o
-BIN_INSTALLS += $(MPF_GPIB_BIN)/GpibHideosLocal.o
-BIN_INSTALLS += $(MPF_BIN)/mpfLib
-BIN_INSTALLS += $(STD_BIN)/initHooks.o
 
 #Note that the command line that builds the
 #library $(LIBNAME) may be HUGE (>3kB)
@@ -108,5 +119,3 @@ BIN_INSTALLS += $(STD_BIN)/initHooks.o
 include $(TOP)/config/RULES.Vx
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE
-mpfServLib : $(MPFSERVERLIBOBJS)
-	$(LINK.c) $@ $(MPFSERVERLIBOBJS)
