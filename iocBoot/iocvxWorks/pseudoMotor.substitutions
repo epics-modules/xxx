@@ -11,10 +11,9 @@ pattern
 {P,       M,           DINP,                        OUT,                     RDBL,                          STOO,     DESC, EGU, DIR, VELO, VBAS, ACCL, BDST, BVEL,                    BACC, MRES,   RRES, PREC,  DHLM, DLLM}
 {xxx:,  pm1, "xxx:KBV:Done NPP NMS", "xxx:pm1DVAL.VAL PP MS", "xxx:KBV:Readback.G NPP NMS", "xxx:KBV:Stop PP MS",    "Vert. curvature",          mm,  Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,  3,    10000, -10000}
 {xxx:,  pm2, "xxx:KBV:Done NPP NMS", "xxx:pm2DVAL.VAL PP MS", "xxx:KBV:Readback.H NPP NMS", "xxx:KBV:Stop PP MS",    "Vert. Ellipticity",        mm,  Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,  3,    10000, -10000}
-}
 {xxx:,  pm3, "xxx:KBH:Done NPP NMS", "xxx:pm3DVAL.VAL PP MS", "xxx:KBH:Readback.G NPP NMS", "xxx:KBH:Stop PP MS",    "Hor. curvature",          mm,  Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,  3,    10000, -10000}
 {xxx:,  pm4, "xxx:KBH:Done NPP NMS", "xxx:pm4DVAL.VAL PP MS", "xxx:KBH:Readback.H NPP NMS", "xxx:KBH:Stop PP MS",    "Hor. ellipticity",        mm,  Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,  3,    10000, -10000}
-
+}
 
 file "$(TOP)/xxxApp/Db/sumDiff2D.db"
 {
