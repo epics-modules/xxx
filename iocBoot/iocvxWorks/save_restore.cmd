@@ -24,6 +24,7 @@ save_restoreSet_SeqPeriodInSeconds(300)
 # specify where save files should be
 set_savefile_path(startup, "autosave")
 
+###
 # specify what save files should be restored.  Note these files must be
 # in the directory specified in set_savefile_path(), or, if that function
 # has not been called, from the directory current when iocInit is invoked
@@ -31,6 +32,12 @@ set_pass0_restoreFile("auto_positions.sav")
 set_pass0_restoreFile("auto_settings.sav")
 set_pass1_restoreFile("auto_settings.sav")
 
+# load general-purpose interpolation tables with local, user-editable file
+# (if interp_settings.req is included in auto_settings.req, the next line
+# will overwrite those restored values)
+#set_pass1_restoreFile("interp.sav")
+
+###
 # specify directories in which to to search for included request files
 set_requestfile_path(startup, "")
 set_requestfile_path(startup, "autosave")
