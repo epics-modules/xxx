@@ -10,9 +10,9 @@ xxx:icbTca1SCA1_PUR
 xxx:icbTca1SCA1_LOW
 xxx:icbTca1SCA1_HI
 xxx:icbTca1SCA2_GATE
-xxx:icbTca1SCA3_PUR
-xxx:icbTca1SCA4_LOW
-xxx:icbTca1SCA5_HI
+xxx:icbTca1SCA2_PUR
+xxx:icbTca1SCA2_LOW
+xxx:icbTca1SCA2_HI
 xxx:icbTca1SCA3_GATE
 xxx:icbTca1SCA3_PUR
 xxx:icbTca1SCA3_LOW
