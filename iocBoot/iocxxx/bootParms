@@ -1,0 +1,14 @@
+boot device          : dc0 
+processor number     : 0 
+host name            : oxygen 
+file name            : /usr/local/vxWorks/T202/mv2700-asd6 
+inet on ethernet (e) : 164.54.53.99:fffffc00 
+inet on backplane (b): 
+host inet (h)        : 164.54.52.4 
+gateway inet (g)     : 
+user (u)             : <user> 
+ftp password (pw) (blank = use rsh): <password> 
+flags (f)            : 0x0 
+target name (tn)     : ioctmm 
+startup script (s)   : /home/oxygen/MOONEY/epics/synApps_4_6/ioc/tmm/iocBoot/ioctmm/st.cmd 
+other (o)            : 
