@@ -8,7 +8,7 @@ display {
 		x=519
 		y=26
 		width=450
-		height=160
+		height=140
 	}
 	clr=64
 	bclr=1
@@ -266,6 +266,11 @@ display {
 		name="motorStatus32.adl"
 		args="P=xxx:"
 	}
+	display[8] {
+		label="soft motors 1-10"
+		name="softMotors10.adl"
+		args="P=xxx:,SM1=SM1,SM2=SM2,SM3=SM3,SM4=SM4,SM5=SM5,SM6=SM6,SM7=SM7,SM8=SM8,SM9=SM9,SM10=SM10"
+	}
 	clr=0
 	bclr=17
 	label="-Motors"
@@ -273,7 +278,7 @@ display {
 "related display" {
 	object {
 		x=0
-		y=100
+		y=80
 		width=70
 		height=20
 	}
@@ -323,24 +328,8 @@ display {
 }
 "related display" {
 	object {
-		x=70
-		y=20
-		width=70
-		height=20
-	}
-	display[0] {
-		label="XIA slit 1"
-		name="xiahsc.adl"
-		args="P=xxx:,HSC=hsc1:"
-	}
-	clr=0
-	bclr=17
-	label="-XIAslit"
-}
-"related display" {
-	object {
 		x=140
-		y=40
+		y=0
 		width=70
 		height=20
 	}
@@ -386,7 +375,7 @@ display {
 "related display" {
 	object {
 		x=70
-		y=140
+		y=120
 		width=70
 		height=20
 	}
@@ -422,7 +411,7 @@ display {
 "related display" {
 	object {
 		x=70
-		y=120
+		y=100
 		width=70
 		height=20
 	}
@@ -452,8 +441,8 @@ display {
 }
 "related display" {
 	object {
-		x=280
-		y=20
+		x=210
+		y=100
 		width=70
 		height=20
 	}
@@ -472,7 +461,7 @@ display {
 "related display" {
 	object {
 		x=70
-		y=100
+		y=80
 		width=70
 		height=20
 	}
@@ -493,38 +482,7 @@ display {
 "related display" {
 	object {
 		x=140
-		y=100
-		width=70
-		height=20
-	}
-	display[0] {
-		label="deviceCmdReply 1"
-		name="deviceCmdReply.adl"
-		args="P=xxx:,N=1"
-	}
-	display[1] {
-		label="deviceCmdReply 2"
-		name="deviceCmdReply.adl"
-		args="P=xxx:,N=2"
-	}
-	display[2] {
-		label="deviceCmdReply 3"
-		name="deviceCmdReply.adl"
-		args="P=xxx:,N=3"
-	}
-	display[3] {
-		label="deviceCmdReply 4"
-		name="deviceCmdReply.adl"
-		args="P=xxx:,N=4"
-	}
-	clr=0
-	bclr=17
-	label="-String"
-}
-"related display" {
-	object {
-		x=210
-		y=140
+		y=120
 		width=70
 		height=20
 	}
@@ -545,7 +503,7 @@ display {
 "related display" {
 	object {
 		x=70
-		y=0
+		y=20
 		width=70
 		height=20
 	}
@@ -584,6 +542,11 @@ display {
 		name="4slitGraphic_soft.adl"
 		args="P=xxx:,SLIT=Slit_2,H=Slit2H,mXp=m15,mXn=m16,V=Slit2V,mYp=m13,mYn=m14"
 	}
+	display[7] {
+		label="XIA slit 1"
+		name="xiahsc.adl"
+		args="P=xxx:,HSC=hsc1:"
+	}
 	clr=0
 	bclr=17
 	label="-Slits"
@@ -591,7 +554,7 @@ display {
 "related display" {
 	object {
 		x=0
-		y=140
+		y=120
 		width=70
 		height=20
 	}
@@ -612,7 +575,7 @@ display {
 "related display" {
 	object {
 		x=0
-		y=80
+		y=60
 		width=70
 		height=20
 	}
@@ -628,90 +591,10 @@ display {
 	bclr=17
 	label="-Mirror"
 }
-text {
-	object {
-		x=160
-		y=24
-		width=50
-		height=10
-	}
-	"basic attribute" {
-		clr=64
-	}
-	textix="ScanTbl"
-}
-text {
-	object {
-		x=160
-		y=5
-		width=50
-		height=10
-	}
-	"basic attribute" {
-		clr=64
-	}
-	textix="ScanCfg"
-}
-"shell command" {
-	object {
-		x=140
-		y=0
-		width=20
-		height=20
-	}
-	command[0] {
-		label="Save scan config to 'scanConfig1.save'"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f scanConfig.req -o scanConfig1.save"
-	}
-	command[1] {
-		label="Save scan config to 'scanConfig2.save'"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f scanConfig.req -o scanConfig2.save"
-	}
-	command[2] {
-		label="Save scan config to 'scanConfig3.save'"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f scanConfig.req -o scanConfig3.save"
-	}
-	command[3] {
-		label="Save scan config to 'scanConfig4.save'"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f scanConfig.req -o scanConfig4.save"
-	}
-	command[4] {
-		label="Restore scan config from 'scanConfig1.save'"
-		name="cd ../burt; burtwb -f scanConfig1.save"
-	}
-	command[5] {
-		label="Restore scan config from 'scanConfig2.save'"
-		name="cd ../burt; burtwb -f scanConfig2.save"
-	}
-	command[6] {
-		label="Restore scan config from 'scanConfig3.save'"
-		name="cd ../burt; burtwb -f scanConfig3.save"
-	}
-	command[7] {
-		label="Restore scan config from 'scanConfig4.save'"
-		name="cd ../burt; burtwb -f scanConfig4.save"
-	}
-	clr=0
-	bclr=17
-}
-"shell command" {
-	object {
-		x=140
-		y=20
-		width=20
-		height=20
-	}
-	command[0] {
-		label="Load scan1 positioner tables from 'scan1_PnPA.load'"
-		name="cd ../burt; burtwb -f scan1_PnPA.load"
-	}
-	clr=0
-	bclr=17
-}
 "related display" {
 	object {
 		x=0
-		y=120
+		y=100
 		width=70
 		height=20
 	}
@@ -732,7 +615,7 @@ text {
 "related display" {
 	object {
 		x=280
-		y=140
+		y=60
 		width=70
 		height=20
 	}
@@ -758,49 +641,49 @@ text {
 "related display" {
 	object {
 		x=140
-		y=80
+		y=40
 		width=70
 		height=20
 	}
 	display[0] {
 		label="asyn record serial1"
 		name="asynRecord.adl"
-		args="P=xxx:,R=serial1"
+		args="P=xxx:,R=asyn_1"
 	}
 	display[1] {
 		label="asyn record serial2"
 		name="asynRecord.adl"
-		args="P=xxx:,R=serial2"
+		args="P=xxx:,R=asyn_2"
 	}
 	display[2] {
 		label="asyn record serial3"
 		name="asynRecord.adl"
-		args="P=xxx:,R=serial3"
+		args="P=xxx:,R=asyn_3"
 	}
 	display[3] {
 		label="asyn record serial4"
 		name="asynRecord.adl"
-		args="P=xxx:,R=serial4"
+		args="P=xxx:,R=asyn_4"
 	}
 	display[4] {
 		label="asyn record serial5"
 		name="asynRecord.adl"
-		args="P=xxx:,R=serial5"
+		args="P=xxx:,R=asyn_5"
 	}
 	display[5] {
 		label="asyn record serial6"
 		name="asynRecord.adl"
-		args="P=xxx:,R=serial6"
+		args="P=xxx:,R=asyn_6"
 	}
 	display[6] {
 		label="asyn record serial7"
 		name="asynRecord.adl"
-		args="P=xxx:,R=serial7"
+		args="P=xxx:,R=asyn_7"
 	}
 	display[7] {
 		label="asyn record serial8"
 		name="asynRecord.adl"
-		args="P=xxx:,R=serial8"
+		args="P=xxx:,R=asyn_8"
 	}
 	display[8] {
 		label="asyn record gpib1"
@@ -808,38 +691,43 @@ text {
 		args="P=xxx:,R=gpib1"
 	}
 	display[9] {
-		label="asyn record gpib2"
-		name="asynRecord.adl"
-		args="P=xxx:,R=gpib2"
+		label="deviceCmdReply 1"
+		name="deviceCmdReply.adl"
+		args="P=xxx:,N=1"
 	}
 	display[10] {
-		label="asyn record gpib3"
-		name="asynRecord.adl"
-		args="P=xxx:,R=gpib3"
+		label="deviceCmdReply 2"
+		name="deviceCmdReply.adl"
+		args="P=xxx:,N=2"
 	}
 	display[11] {
-		label="asyn record gpib4"
-		name="asynRecord.adl"
-		args="P=xxx:,R=gpib4"
+		label="deviceCmdReply 3"
+		name="deviceCmdReply.adl"
+		args="P=xxx:,N=3"
 	}
 	display[12] {
+		label="deviceCmdReply 4"
+		name="deviceCmdReply.adl"
+		args="P=xxx:,N=4"
+	}
+	display[14] {
 		label="generic VME 1"
 		name="recVme.adl"
 		args="P=xxx:,Q=vme1"
 	}
-	display[13] {
+	display[15] {
 		label="generic CAMAC"
 		name="CAMAC_IO.adl"
 		args="REC=xxx:camac1"
 	}
 	clr=0
 	bclr=17
-	label="-Generic"
+	label="-GenericIO"
 }
 "related display" {
 	object {
 		x=280
-		y=100
+		y=20
 		width=70
 		height=20
 	}
@@ -879,8 +767,8 @@ text {
 }
 "related display" {
 	object {
-		x=0
-		y=60
+		x=70
+		y=0
 		width=70
 		height=20
 	}
@@ -904,7 +792,7 @@ text {
 "related display" {
 	object {
 		x=280
-		y=120
+		y=40
 		width=70
 		height=20
 	}
@@ -924,12 +812,12 @@ text {
 	}
 	clr=0
 	bclr=17
-	label="-Bunch"
+	label="-BunchClk"
 }
 "related display" {
 	object {
 		x=70
-		y=60
+		y=40
 		width=70
 		height=20
 	}
@@ -964,44 +852,8 @@ text {
 }
 "related display" {
 	object {
-		x=70
-		y=40
-		width=70
-		height=20
-	}
-	display[0] {
-		label="VMI4145 waveform gen."
-		name="VMI4145.adl"
-		args="P=xxx:,N=0"
-	}
-	display[1] {
-		label="VMI4145 waveform gen."
-		name="VMI4145.adl"
-		args="P=xxx:,N=1"
-	}
-	display[2] {
-		label="VMI4145 waveform gen."
-		name="VMI4145.adl"
-		args="P=xxx:,N=2"
-	}
-	display[3] {
-		label="VMI4145 waveform gen."
-		name="VMI4145.adl"
-		args="P=xxx:,N=3"
-	}
-	display[4] {
-		label="sweep.adl"
-		name="sweep.adl"
-		args="P=xxx:"
-	}
-	clr=0
-	bclr=17
-	label="-VMI4145"
-}
-"related display" {
-	object {
 		x=140
-		y=60
+		y=20
 		width=70
 		height=20
 	}
@@ -1040,6 +892,11 @@ text {
 		name="userAve10.adl"
 		args="P=xxx:"
 	}
+	display[7] {
+		label="user calcOuts"
+		name="userCalcOuts10.adl"
+		args="P=xxx:"
+	}
 	clr=0
 	bclr=17
 	label="-userCalc"
@@ -1047,7 +904,7 @@ text {
 "related display" {
 	object {
 		x=210
-		y=120
+		y=60
 		width=70
 		height=20
 	}
@@ -1077,27 +934,8 @@ text {
 }
 "related display" {
 	object {
-		x=210
+		x=140
 		y=100
-		width=70
-		height=20
-	}
-	display[0] {
-		label="Encoder Mike 1"
-		name="eMike.adl"
-		args="P=xxx:,M=em1"
-	}
-	display[1] {
-		label=" "
-	}
-	clr=0
-	bclr=17
-	label="-encMike"
-}
-"related display" {
-	object {
-		x=210
-		y=80
 		width=70
 		height=20
 	}
@@ -1116,7 +954,7 @@ text {
 "related display" {
 	object {
 		x=280
-		y=80
+		y=0
 		width=70
 		height=20
 	}
@@ -1127,11 +965,6 @@ text {
 	display[1] {
 		label="24 hr. beam history, etc."
 		name="beamHistory_full.adl"
-	}
-	display[2] {
-		label="SR Status"
-		name="SR_Status.adl"
-		args="xx=00"
 	}
 	clr=0
 	bclr=17
@@ -1186,7 +1019,7 @@ text {
 "related display" {
 	object {
 		x=140
-		y=140
+		y=80
 		width=70
 		height=20
 	}
@@ -1202,7 +1035,7 @@ text {
 "message button" {
 	object {
 		x=350
-		y=120
+		y=100
 		width=100
 		height=40
 	}
@@ -1217,7 +1050,7 @@ text {
 composite {
 	object {
 		x=350
-		y=90
+		y=80
 		width=82
 		height=28
 	}
@@ -1226,7 +1059,7 @@ composite {
 		text {
 			object {
 				x=351
-				y=91
+				y=81
 				width=80
 				height=26
 			}
@@ -1242,7 +1075,7 @@ composite {
 		text {
 			object {
 				x=352
-				y=92
+				y=82
 				width=80
 				height=26
 			}
@@ -1258,7 +1091,7 @@ composite {
 		text {
 			object {
 				x=350
-				y=90
+				y=80
 				width=80
 				height=26
 			}
@@ -1492,7 +1325,7 @@ text {
 "related display" {
 	object {
 		x=430
-		y=95
+		y=80
 		width=20
 		height=20
 	}
@@ -1541,8 +1374,8 @@ text {
 }
 "related display" {
 	object {
-		x=280
-		y=0
+		x=210
+		y=80
 		width=70
 		height=20
 	}
@@ -1568,7 +1401,7 @@ text {
 "related display" {
 	object {
 		x=140
-		y=120
+		y=60
 		width=70
 		height=20
 	}
@@ -1589,47 +1422,28 @@ text {
 "related display" {
 	object {
 		x=70
-		y=80
-		width=35
-		height=20
-	}
-	display[0] {
-		label="vme DAC 1 Chans 1-8"
-		name="vmeDAC8.adl"
-		args="P=xxx:,D=1"
-	}
-	display[1] {
-		label="vme DAC 2 Chans 1-8"
-		name="vmeDAC8.adl"
-		args="P=xxx:,D=2"
-	}
-	display[2] {
-		label="dac128V 1 Chans 1-8"
-		name="8_DACs.adl"
-		args="P=xxx:,D=1"
-	}
-	clr=0
-	bclr=17
-	label="-DAC"
-}
-"related display" {
-	object {
-		x=210
 		y=60
 		width=70
 		height=20
 	}
 	display[0] {
-		label="scope"
-		name="run_scope.adl"
-		args="P=xxx:"
+		label="vme DAC 1 Chans 1-8"
+		name="topDAC8.adl"
+		args="P=xxx:,D=1"
 	}
 	display[1] {
-		label=" "
+		label="vme DAC 2 Chans 1-8"
+		name="topDAC8.adl"
+		args="P=xxx:,D=2"
+	}
+	display[2] {
+		label="dac128V 1 Chans 1-8"
+		name="topDAC8.adl"
+		args="P=xxx:,D=3"
 	}
 	clr=0
-	bclr=63
-	label="-SCOPE"
+	bclr=17
+	label="-DAC"
 }
 "related display" {
 	object {
@@ -1682,76 +1496,4 @@ text {
 	clr=0
 	bclr=17
 	label="-Struck"
-}
-"related display" {
-	object {
-		x=280
-		y=40
-		width=70
-		height=20
-	}
-	display[0] {
-		label="2IDD Microscope (13-el. MCA)"
-		name="2IDM_microscope.adl"
-		args="P=xxx:,S=scanAux,PA=2idd:,PI=2idd:,PO=2idd:,o_x=m11,o_y=m12,PS=2ide:,s=Slit_1,s_x=Slit1H,s_y=Slit1V,PC=2idd:,c_x=m17,c_y=m20,c_z=m18,PZ=2idd:,z_x=m3,z_y=m4,z_z=m22,PT=2ide:,t_x=m17,t_y=m19,t_z=m18,PV=2idd:,vx=junk,vy=m23,PE=2ide:,PM=xxx:med:"
-	}
-	display[1] {
-		label="Alignment scan"
-		name="scanAux.adl"
-		args="P=2idd:,S=scanAux"
-	}
-	clr=0
-	bclr=63
-	label="-Microscope"
-}
-"related display" {
-	object {
-		x=105
-		y=80
-		width=35
-		height=20
-	}
-	display[0] {
-		label="dac128V 1 Chan 1"
-		name="singleDAC.adl"
-		args="P=xxx:,D=1,C=1"
-	}
-	display[1] {
-		label="dac128V 1 Chan 2"
-		name="singleDAC.adl"
-		args="P=xxx:,D=1,C=2"
-	}
-	display[2] {
-		label="dac128V 1 Chan 3"
-		name="singleDAC.adl"
-		args="P=xxx:,D=1,C=3"
-	}
-	display[3] {
-		label="dac128V 1 Chan 4"
-		name="singleDAC.adl"
-		args="P=xxx:,D=1,C=4"
-	}
-	display[4] {
-		label="dac128V 1 Chan 5"
-		name="singleDAC.adl"
-		args="P=xxx:,D=1,C=5"
-	}
-	display[5] {
-		label="dac128V 1 Chan 6"
-		name="singleDAC.adl"
-		args="P=xxx:,D=1,C=6"
-	}
-	display[6] {
-		label="dac128V 1 Chan 7"
-		name="singleDAC.adl"
-		args="P=xxx:,D=1,C=7"
-	}
-	display[7] {
-		label="dac128V 1 Chan 8"
-		name="singleDAC.adl"
-		args="P=xxx:,D=1,C=8"
-	}
-	clr=0
-	bclr=17
-	label="-DAC"
 }
