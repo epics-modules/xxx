@@ -5,9 +5,6 @@
 # slot c: EMPTY
 # slot d: EMPTY
 
-# for IP modules on this board
-localMessageRouterStart(0)
-
 ###############################################################################
 # Initialize IP carrier
 # ipacAddCarrier(ipac_carrier_t *pcarrier, char *cardParams)
