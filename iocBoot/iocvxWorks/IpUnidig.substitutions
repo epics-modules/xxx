@@ -1,14 +1,14 @@
-file ipApp/Db/IpUnidigLi.db ip
+file "$(IPUNIDIG)/ipUnidigApp/Db/IpUnidigLi.db"
 {
 pattern
-{P,       R,       C,   IPSLOT}
-{xxx:,  Unidig,  0,   b}
+{P,       R,     C,   SERVER}
+{xxx:,  Unidig,  0,   Unidig1}
 }
 
-file ipApp/Db/IpUnidigBi.db ip
+file "$(IPUNIDIG)/ipUnidigApp/Db/IpUnidigBi.db"
 {
 pattern
-{P,       R,       BIT}
+{P,       R,    BIT}
 {xxx:,  Unidig,  0}
 {xxx:,  Unidig,  1}
 {xxx:,  Unidig,  2}
@@ -35,32 +35,32 @@ pattern
 {xxx:,  Unidig,  23}
 }
 
-file ipApp/Db/IpUnidigBo.db ip
+file "$(IPUNIDIG)/ipUnidigApp/Db/IpUnidigBo.db"
 {
 pattern
-{P,       R,       C, IPSLOT, BIT}
-{xxx:,  Unidig,  0,    b,    0}
-{xxx:,  Unidig,  0,    b,    1}
-{xxx:,  Unidig,  0,    b,    2}
-{xxx:,  Unidig,  0,    b,    3}
-{xxx:,  Unidig,  0,    b,    4}
-{xxx:,  Unidig,  0,    b,    5}
-{xxx:,  Unidig,  0,    b,    6}
-{xxx:,  Unidig,  0,    b,    7}
-{xxx:,  Unidig,  0,    b,    8}
-{xxx:,  Unidig,  0,    b,    9}
-{xxx:,  Unidig,  0,    b,    10}
-{xxx:,  Unidig,  0,    b,    11}
-{xxx:,  Unidig,  0,    b,    12}
-{xxx:,  Unidig,  0,    b,    13}
-{xxx:,  Unidig,  0,    b,    14}
-{xxx:,  Unidig,  0,    b,    15}
-{xxx:,  Unidig,  0,    b,    16}
-{xxx:,  Unidig,  0,    b,    17}
-{xxx:,  Unidig,  0,    b,    18}
-{xxx:,  Unidig,  0,    b,    19}
-{xxx:,  Unidig,  0,    b,    20}
-{xxx:,  Unidig,  0,    b,    21}
-{xxx:,  Unidig,  0,    b,    22}
-{xxx:,  Unidig,  0,    b,    23}
+{P,       R,     C, SERVER,   BIT}
+{xxx:,  Unidig,  0, Unidig1,   0}
+{xxx:,  Unidig,  0, Unidig1    1}
+{xxx:,  Unidig,  0, Unidig1    2}
+{xxx:,  Unidig,  0, Unidig1    3}
+{xxx:,  Unidig,  0, Unidig1    4}
+{xxx:,  Unidig,  0, Unidig1    5}
+{xxx:,  Unidig,  0, Unidig1    6}
+{xxx:,  Unidig,  0, Unidig1    7}
+{xxx:,  Unidig,  0, Unidig1    8}
+{xxx:,  Unidig,  0, Unidig1    9}
+{xxx:,  Unidig,  0, Unidig1    10}
+{xxx:,  Unidig,  0, Unidig1    11}
+{xxx:,  Unidig,  0, Unidig1    12}
+{xxx:,  Unidig,  0, Unidig1    13}
+{xxx:,  Unidig,  0, Unidig1    14}
+{xxx:,  Unidig,  0, Unidig1    15}
+{xxx:,  Unidig,  0, Unidig1    16}
+{xxx:,  Unidig,  0, Unidig1    17}
+{xxx:,  Unidig,  0, Unidig1    18}
+{xxx:,  Unidig,  0, Unidig1    19}
+{xxx:,  Unidig,  0, Unidig1    20}
+{xxx:,  Unidig,  0, Unidig1    21}
+{xxx:,  Unidig,  0, Unidig1    22}
+{xxx:,  Unidig,  0, Unidig1    23}
 }
