@@ -24,12 +24,12 @@ file "$(STD)/db/scanParms.db"
 {P=xxx:,SCANREC=xxx:scan1,Q=Table1AY,POS=table1.AY,RDBK=table1.AYRB}
 {P=xxx:,SCANREC=xxx:scan1,Q=Table1AZ,POS=table1.AZ,RDBK=table1.AZRB}
 
-{P=xxx:,SCANREC=xxx:scan1,Q=BraggE,POS=BraggEAO.VAL,RDBK=BraggERdbkAO.VAL}
-{P=xxx:,SCANREC=xxx:scan1,Q=BraggLambda,POS=BraggLambdaAO.VAL,RDBK=BraggLambdaRdbkAO.VAL}
-{P=xxx:,SCANREC=xxx:scan1,Q=BraggTheta,POS=BraggThetaAO.VAL,RDBK=BraggThetaRdbkAO.VAL}
+#{P=xxx:,SCANREC=xxx:scan1,Q=BraggE,POS=BraggEAO.VAL,RDBK=BraggERdbkAO.VAL}
+#{P=xxx:,SCANREC=xxx:scan1,Q=BraggLambda,POS=BraggLambdaAO.VAL,RDBK=BraggLambdaRdbkAO.VAL}
+#{P=xxx:,SCANREC=xxx:scan1,Q=BraggTheta,POS=BraggThetaAO.VAL,RDBK=BraggThetaRdbkAO.VAL}
 
-{P=xxx:,SCANREC=xxx:scan1,Q=HR1_E,POS=HR1_EAO.VAL,RDBK=HR1_ERdbkAO}
-{P=xxx:,SCANREC=xxx:scan1,Q=HR1_A,POS=HR1_worldOffAO.VAL,RDBK=HR1_worldOffAO.VAL}
+#{P=xxx:,SCANREC=xxx:scan1,Q=HR1_E,POS=HR1_EAO.VAL,RDBK=HR1_ERdbkAO}
+#{P=xxx:,SCANREC=xxx:scan1,Q=HR1_A,POS=HR1_worldOffAO.VAL,RDBK=HR1_worldOffAO.VAL}
 
 # old slit
 {P=xxx:,SCANREC=xxx:scan1,Q=Slit1Hp,POS=Slit1Hxp.VAL,RDBK=Slit1Ht2.A}
@@ -42,13 +42,13 @@ file "$(STD)/db/scanParms.db"
 {P=xxx:,SCANREC=xxx:scan1,Q=Slit1Vcenter,POS=Slit1Vcenter.VAL,RDBK=Slit1Vt2.D}
 
 # new soft-motor-based slit
-{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hxn,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hxp,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hsize,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hcenter,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vxn,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vxp,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vsize,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vcenter,POS=$(Q).VAL,RDBK=$(Q).RBV}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hxn,POS=$(Q).VAL,RDBK=$(Q).RBV}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hxp,POS=$(Q).VAL,RDBK=$(Q).RBV}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hsize,POS=$(Q).VAL,RDBK=$(Q).RBV}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hcenter,POS=$(Q).VAL,RDBK=$(Q).RBV}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vxn,POS=$(Q).VAL,RDBK=$(Q).RBV}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vxp,POS=$(Q).VAL,RDBK=$(Q).RBV}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vsize,POS=$(Q).VAL,RDBK=$(Q).RBV}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vcenter,POS=$(Q).VAL,RDBK=$(Q).RBV}
 
 }

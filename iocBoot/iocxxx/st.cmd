@@ -93,8 +93,6 @@ xxxVX_registerRecordDeviceDriver(pdbbase)
 # interpolation
 #dbLoadRecords("$(STD)/stdApp/Db/interp.db", "P=xxx:")
 
-# 4-step measurement
-dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 
 # X-ray Instrumentation Associates Huber Slit Controller
 # supported by a customized version of the SNL program written by Pete Jemian
@@ -117,10 +115,6 @@ dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 # test generic camac record
 #dbLoadRecords("$(STD)/stdApp/Db/camac.db","P=xxx:")
 
-# string sequence (sseq) record
-#dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq1")
-#dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq2")
-#dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq3")
 
 ###############################################################################
 
@@ -320,13 +314,19 @@ dbLoadRecords("$(STD)/stdApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m
 ### Acromag IP330 in sweep mode ###
 #dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=mADC_1,DTYPE=ip330Sweep,NCHAN=2048,INP=#C0 S0 @d-Ip330Sweep")
 
-### Stand-alone user calculations ###
+### Stuff for user programming ###
 dbLoadRecords("$(STD)/stdApp/Db/userCalcs10.db","P=xxx:")
 dbLoadRecords("$(STD)/stdApp/Db/userStringCalcs10.db","P=xxx:")
 dbLoadRecords("$(STD)/stdApp/Db/userTransforms10.db","P=xxx:")
 # extra userCalcs (must also load userCalcs10.db for the enable switch)
 dbLoadRecords("$(STD)/stdApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
 dbLoadRecords("$(STD)/stdApp/Db/userAve10.db","P=xxx:")
+# string sequence (sseq) record
+dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq1")
+dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq2")
+dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq3")
+# 4-step measurement
+dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 
 ### serial support ###
 

@@ -45,87 +45,69 @@ file scan_settings.req P=$(P),S=scan4
 file scan_settings.req P=$(P),S=scanH
 
 # Kohzu monochromator
-$(P)BraggHAO.VAL
-$(P)BraggKAO.VAL
-$(P)BraggLAO.VAL
-$(P)BraggAAO.VAL
-$(P)BraggTypeMO.VAL
-$(P)KohzuMode2MO.VAL
-$(P)Kohzu_yOffsetAO.VAL
+#$(P)BraggHAO.VAL
+#$(P)BraggKAO.VAL
+#$(P)BraggLAO.VAL
+#$(P)BraggAAO.VAL
+#$(P)BraggTypeMO.VAL
+#$(P)KohzuMode2MO.VAL
+#$(P)Kohzu_yOffsetAO.VAL
 
 # High resolution monochromator
-$(P)HR1_A1AO.VAL
-$(P)HR1_H1AO.VAL
-$(P)HR1_K1AO.VAL
-$(P)HR1_L1AO.VAL
-$(P)HR1_A2AO.VAL
-$(P)HR1_H2AO.VAL
-$(P)HR1_K2AO.VAL
-$(P)HR1_L2AO.VAL
-$(P)HR1_EAO.VAL
-$(P)HR1_Mode2MO.VAL
-$(P)HR1_phi1OffAO
-$(P)HR1_phi2OffAO
-$(P)HR1_ETweakAI
-$(P)HR1_LambdaTweakAI
-$(P)HR1_Theta1TweakAI
-$(P)HR1_Theta2TweakAI
-$(P)HR1_worldTweakAI
+#$(P)HR1_A1AO.VAL
+#$(P)HR1_H1AO.VAL
+#$(P)HR1_K1AO.VAL
+#$(P)HR1_L1AO.VAL
+#$(P)HR1_A2AO.VAL
+#$(P)HR1_H2AO.VAL
+#$(P)HR1_K2AO.VAL
+#$(P)HR1_L2AO.VAL
+#$(P)HR1_EAO.VAL
+#$(P)HR1_Mode2MO.VAL
+#$(P)HR1_phi1OffAO
+#$(P)HR1_phi2OffAO
+#$(P)HR1_ETweakAI
+#$(P)HR1_LambdaTweakAI
+#$(P)HR1_Theta1TweakAI
+#$(P)HR1_Theta2TweakAI
+#$(P)HR1_worldTweakAI
 
 file userCalcs10_settings.req P=$(P)
 file userCalcN_settings.req P=$(P),N=I_Detector
 
-$(P)fltr1:name5.VAL
-$(P)fltr1:name4.VAL
-$(P)fltr1:name3.VAL
-$(P)fltr1:name2.VAL
-$(P)fltr1:name1.VAL
-$(P)fltr1:nameHome.VAL
-$(P)fltr1:pos5.VAL
-$(P)fltr1:pos4.VAL
-$(P)fltr1:pos3.VAL
-$(P)fltr1:pos2.VAL
-$(P)fltr1:pos1.VAL
-$(P)fltr1:posHome.VAL
-$(P)fltr1:motorOut.OUTN
-$(P)fltr2:name5.VAL
-$(P)fltr2:name4.VAL
-$(P)fltr2:name3.VAL
-$(P)fltr2:name2.VAL
-$(P)fltr2:name1.VAL
-$(P)fltr2:nameHome.VAL
-$(P)fltr2:pos5.VAL
-$(P)fltr2:pos4.VAL
-$(P)fltr2:pos3.VAL
-$(P)fltr2:pos2.VAL
-$(P)fltr2:pos1.VAL
-$(P)fltr2:posHome.VAL
-$(P)fltr2:motorOut.OUTN
-$(P)fltr_1_2:lockOut.OUTN
+#$(P)fltr1:name5.VAL
+#$(P)fltr1:name4.VAL
+#$(P)fltr1:name3.VAL
+#$(P)fltr1:name2.VAL
+#$(P)fltr1:name1.VAL
+#$(P)fltr1:nameHome.VAL
+#$(P)fltr1:pos5.VAL
+#$(P)fltr1:pos4.VAL
+#$(P)fltr1:pos3.VAL
+#$(P)fltr1:pos2.VAL
+#$(P)fltr1:pos1.VAL
+#$(P)fltr1:posHome.VAL
+#$(P)fltr1:motorOut.OUTN
+#$(P)fltr2:name5.VAL
+#$(P)fltr2:name4.VAL
+#$(P)fltr2:name3.VAL
+#$(P)fltr2:name2.VAL
+#$(P)fltr2:name1.VAL
+#$(P)fltr2:nameHome.VAL
+#$(P)fltr2:pos5.VAL
+#$(P)fltr2:pos4.VAL
+#$(P)fltr2:pos3.VAL
+#$(P)fltr2:pos2.VAL
+#$(P)fltr2:pos1.VAL
+#$(P)fltr2:posHome.VAL
+#$(P)fltr2:motorOut.OUTN
+#$(P)fltr_1_2:lockOut.OUTN
 
-file saveData.req P=$(P)
+file saveData_settings.req P=$(P)
 
-file transform_settings.req P=$(P),T=userTran1
-file transform_settings.req P=$(P),T=userTran2
-file transform_settings.req P=$(P),T=userTran3
-file transform_settings.req P=$(P),T=userTran4
-file transform_settings.req P=$(P),T=userTran5
-file transform_settings.req P=$(P),T=userTran6
-file transform_settings.req P=$(P),T=userTran7
-file transform_settings.req P=$(P),T=userTran8
-file transform_settings.req P=$(P),T=userTran9
-file transform_settings.req P=$(P),T=userTran10
+file userTransforms10_settings.req P=$(P)
 
-file scalcout_settings.req P=$(P),S=userStringCalc1
-file scalcout_settings.req P=$(P),S=userStringCalc2
-file scalcout_settings.req P=$(P),S=userStringCalc3
-file scalcout_settings.req P=$(P),S=userStringCalc4
-file scalcout_settings.req P=$(P),S=userStringCalc5
-file scalcout_settings.req P=$(P),S=userStringCalc6
-file scalcout_settings.req P=$(P),S=userStringCalc7
-file scalcout_settings.req P=$(P),S=userStringCalc8
-file scalcout_settings.req P=$(P),S=userStringCalc9
-file scalcout_settings.req P=$(P),S=userStringCalc10
+file userStringCalcs10_settings.req P=$(P)
 
 # string-sequence records
 file sseq_settings.req P=$(P),S=Sseq1
@@ -138,9 +120,3 @@ file auto_4step_settings.req P=$(P),Q=4step
 
 file userAve10_settings.req P=$(P)
 
-# mca
-#file mca_settings.req P=$(P),M=mca1
-#file icbDsp_settings.req P=$(P),DSP=dsp1
-#file icb_adc_settings.req P=$(P),ADC=adc1
-#file icb_amp_settings.req P=$(P),AMP=amp1
-#file icb_hvps_settings.req P=$(P),HVPS=hvps1

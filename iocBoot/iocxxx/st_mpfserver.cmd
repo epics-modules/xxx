@@ -61,15 +61,13 @@ initSerialServer("a-Serial[7]","UART[7]",1000,20,"\r",1)
 
 ###############################################################################
 # Initialize Systran DAC
-# initDAC128V(char *serverName, char *carrierName, char *siteName,
-#             int queueSize)
-# serverName  = name to give this server
-# carrierName = name of IPAC carrier from initIpacCarrier above
-# siteName    = name of IP site, e.g. "IP_a"
-# queueSize   = size of output queue for EPICS
-#
-
-#initDAC128V("c-DAC",carrier,"IP_c",20)
+# initDAC128V(char *serverName, int carrier, int slot, int queueSize)
+# serverName = name to give this server
+# carrier = IPAC carrier number (0, 1, etc.)
+# slot = IPAC slot (0,1,2,3, etc.)
+# queueSize = size of output queue for EPICS
+# Example: initDAC128V("DAC1", 0, 3, 20)
+#initDAC128V("DAC1",0,2,20)
 
 ###############################################################################
 # Initialize Acromag ADC

@@ -1,5 +1,10 @@
 Edit configure/RELEASE to set the variable SUPPORT
 
+If you don't want to build all of the default target architectures
+(see the variable CROSS_COMPILER_TARGET_ARCHS in 
+synApps/support/configure/CONFIG, or in base/configure/CONFIG_SITE),
+then edit configure/CONFIG to set the variable CROSS_COMPILER_TARGET_ARCHS.
+
 Edit iocBoot/iocxxx/Makefile to set the variable ARCH
 
 Edit start_epics_xxx to set the variable EPICS_APP
