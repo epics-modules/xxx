@@ -12,7 +12,7 @@ user (u)             : <user>
 ftp password (pw)    : <password>
 flags (f)            : 0x0 
 target name (tn)     : iocxxx
-startup script (s)   : /home/oxygen4/MOONEY/epics/synApps_4_6/support/xxx/iocBoot/iocxxx_162/st.cmd
+startup script (s)   : /home/oxygen4/MOONEY/epics/synApps_5_1/support/xxx/iocBoot/iocxxx/st.cmd
 
 NOTE: if "file name" specifies a board-support package labelled '-asd3' or
 higher' (as "/usr/local/vxWorks/T202/mv162-asd7" does), then an IOC that needs
@@ -34,7 +34,7 @@ user (u)             : <user>
 ftp password (pw)    : <password>
 flags (f)            : 0x0 
 target name (tn)     : iocxxx
-startup script (s)   : /home/oxygen4/MOONEY/epics/synApps_5_0/support/xxx/iocBoot/iocvxWorks/st.cmd
+startup script (s)   : /home/oxygen4/MOONEY/epics/synApps_5_1/support/xxx/iocBoot/iocvxWorks/st.cmd
 
 MPF processor
 =============
@@ -52,5 +52,5 @@ user (u)             : <user>
 ftp password (pw) (blank = use rsh): <password> 
 flags (f)            : 0x0 
 target name (tn)     : iocxxx1 
-startup script (s)   : /home/oxygen/MOONEY/epics/synApps_5_0/support/xxx/iocBoot/iocvxWorks/st1.cmd 
+startup script (s)   : /home/oxygen/MOONEY/epics/synApps_5_1/support/xxx/iocBoot/iocvxWorks/st1.cmd 
 other (o)            : 
