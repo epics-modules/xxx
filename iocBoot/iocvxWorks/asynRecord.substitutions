@@ -1,0 +1,24 @@
+file "$(ASYN)/db/asynRecord.db"
+{
+pattern
+{P        R         PORT    ADDR    OMAX  IMAX}
+{xxx:     asyn_1   serial1    0     256  256}
+{xxx:     asyn_2   serial2    0     256  256}
+{xxx:     asyn_3   serial3    0     256  256}
+{xxx:     asyn_4   serial4    0     256  256}
+{xxx:     asyn_5   serial5    0     256  256}
+{xxx:     asyn_6   serial6    0    2600  2600}
+{xxx:     asyn_7   serial7    0     256  256}
+{xxx:     asyn_8   serial8    0     256  256}
+{xxx:     asyn_9   serial9    0     256  256}
+{xxx:     asyn_10  serial10   0     256  256}
+{xxx:     asyn_11  serial11   0     256  256}
+{xxx:     asyn_12  serial12   0     256  256}
+{xxx:     asyn_13  serial13   0     256  256}
+{xxx:     asyn_14  serial14   0     256  256}
+{xxx:     asyn_15  serial15   0     256  256}
+{xxx:     asyn_16  serial16   0     256  256}
+{xxx:     gpib1    gpib1      1    2600 2600}
+{xxx:     asyn_20  serial20   0     256  256}
+{xxx:     asyn_21  serial21   0     256  256}
+}
