@@ -493,43 +493,23 @@ display {
 		height=20
 	}
 	display[0] {
-		label="serial O/I block 1"
-		name="serial_OI_block.adl"
+		label="deviceCmdReply 1"
+		name="deviceCmdReply.adl"
 		args="P=xxx:,N=1"
 	}
 	display[1] {
-		label="serial O/I block 2"
-		name="serial_OI_block.adl"
+		label="deviceCmdReply 2"
+		name="deviceCmdReply.adl"
 		args="P=xxx:,N=2"
 	}
 	display[2] {
-		label="serial O/I block 3"
-		name="serial_OI_block.adl"
+		label="deviceCmdReply 3"
+		name="deviceCmdReply.adl"
 		args="P=xxx:,N=3"
 	}
 	display[3] {
-		label="serial O/I block 4"
-		name="serial_OI_block.adl"
-		args="P=xxx:,N=4"
-	}
-	display[4] {
-		label="gpib O/I block 1"
-		name="GPIB_OI_block.adl"
-		args="P=xxx:,N=1"
-	}
-	display[5] {
-		label="gpib O/I block 2"
-		name="GPIB_OI_block.adl"
-		args="P=xxx:,N=2"
-	}
-	display[6] {
-		label="gpib O/I block 3"
-		name="GPIB_OI_block.adl"
-		args="P=xxx:,N=3"
-	}
-	display[7] {
-		label="gpib O/I block 4"
-		name="GPIB_OI_block.adl"
+		label="deviceCmdReply 4"
+		name="deviceCmdReply.adl"
 		args="P=xxx:,N=4"
 	}
 	clr=0
@@ -778,39 +758,34 @@ text {
 		height=20
 	}
 	display[0] {
-		label="generic serial port a[0]"
-		name="Serial_IO.adl"
-		args="REC=xxx:seriala[0]"
+		label="asyn record 0"
+		name="asynRecord.adl"
+		args="P=xxx:,R=asyn_0"
 	}
 	display[1] {
-		label="generic serial port a[1]"
-		name="Serial_IO.adl"
-		args="REC=xxx:seriala[1]"
+		label="asyn record 1"
+		name="asynRecord.adl"
+		args="P=xxx:,R=asyn_1"
 	}
 	display[2] {
-		label="generic serial port a[2]"
-		name="Serial_IO.adl"
-		args="REC=xxx:seriala[2]"
+		label="asyn record 2"
+		name="asynRecord.adl"
+		args="P=xxx:,R=asyn_2"
 	}
 	display[3] {
-		label="generic serial port a[3]"
-		name="Serial_IO.adl"
-		args="REC=xxx:seriala[3]"
+		label="asyn record 3"
+		name="asynRecord.adl"
+		args="P=xxx:,R=asyn_3"
 	}
 	display[4] {
-		label="generic serial port a[4]"
-		name="Serial_IO.adl"
-		args="REC=xxx:seriala[4]"
+		label="asyn record 4"
+		name="asynRecord.adl"
+		args="P=xxx:,R=asyn_4"
 	}
 	display[5] {
 		label="generic VME 1"
 		name="recVme.adl"
 		args="P=xxx:,Q=vme1"
-	}
-	display[6] {
-		label="generic GPIB"
-		name="GPIB_IO.adl"
-		args="REC=xxx:gpib1"
 	}
 	display[7] {
 		label="generic CAMAC"
