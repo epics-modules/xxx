@@ -41,7 +41,7 @@ ld < xxxLib
 #cd appbin
 
 # This IOC talks to a local GPIB server
-#ld < bin/GpibHideosLocal.o
+#ld < GpibHideosLocal.o
 
 ### dbrestore setup
 # ok to restore a save set that had missing values (no CA connection to PV)?
@@ -91,6 +91,11 @@ dbLoadDatabase("../../dbd/xxxApp.dbd")
 #dbLoadRecords("stdApp/Db/xia_slit.db", "P=xxx:, HSC=hsc1:", std)
 #dbLoadRecords("stdApp/Db/xia_slit.db", "P=xxx:, HSC=hsc2:", std)
 #dbLoadRecords("ipApp/Db/generic_serial.db", "P=xxx:,C=0,IPSLOT=a,CHAN=6,BAUD=9600,PRTY=None,DBIT=8,SBIT=1", ip)
+
+##### Pico Motors (Ernest Williams MHATT-CAT)
+##### Motors (see picMot.substitutions in same directory as this file) ####
+dbLoadTemplate("picMot.substitutions", ip)
+
 
 ################################
 # Sector 2 custom databases
