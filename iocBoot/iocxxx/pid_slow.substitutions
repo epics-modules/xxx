@@ -1,7 +1,0 @@
-file stdApp/Db/pid_control.db std
-{
-pattern
-{P,      PID,       INP,           OUT,    LOPR,  HOPR,  DRVL,  DRVH,  PREC,   KP,  KI,   KD,  SCAN}
-{xxx:, PID1,  DMM1Ch3_calc.VAL, DAC1_1,   0,    100,     0,    5,     3,     0.2,  3.,   0.,  ".1 second"}
-}
-
