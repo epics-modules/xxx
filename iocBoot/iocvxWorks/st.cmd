@@ -435,7 +435,6 @@ dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:")
 
 ### GPIB support ###
 # GPIB O/I block (generic gpib record with format and parse string calcs)
-# See HiDEOSGpibLinkConfig() below.
 #dbLoadRecords("$(IP)/ipApp/Db/GPIB_OI_block.db","P=xxx:,N=1,L=10")
 
 # Heidenhain AWE1024 at GPIB address $(A)
