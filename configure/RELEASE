@@ -9,28 +9,32 @@
 #
 # Add your declarations here
 
-ALLEN_BRADLEY=/corvette/home/epics/synApps5-1beta/allenBradley/2-1
-ASYN=/corvette/home/epics/synApps5-1beta/asyn/3-3beta
-AUTOSAVE=/corvette/home/epics/synApps5-1beta/autosave/
-CALC=/corvette/home/epics/synApps5-1beta/calc
-CAMAC=/corvette/home/epics/synApps5-1beta/camac
-CCD=/corvette/home/epics/synApps5-1beta/ccd
-DAC128V=/corvette/home/epics/synApps5-1beta/dac128V
-DXP=/corvette/home/epics/synApps5-1beta/dxp
-IP=/corvette/home/epics/synApps5-1beta/ip
-IP330=/corvette/home/epics/synApps5-1beta/ip330
-IPAC=/corvette/home/epics/synApps5-1beta/ipac/2-7a
-IPUNIDIG=/corvette/home/epics/synApps5-1beta/ipUnidig
-#LOVE=/corvette/home/epics/synApps5-1/love
-MCA=/corvette/home/epics/synApps5-1beta/mca
-MOTOR=/corvette/home/epics/synApps5-1beta/motor
-OPTICS=/corvette/home/epics/synApps5-1beta/optics
-QUADEM=/corvette/home/epics/synApps5-1beta/quadEM
-SSCAN=/corvette/home/epics/synApps5-1beta/sscan
-STD=/corvette/home/epics/synApps5-1beta/std
-SNCSEQ=/corvette/home/epics/synApps5-1beta/seq/2-0-9beta
-VME=/corvette/home/epics/synApps5-1beta/vme
-VXSTATS=/corvette/home/epics/synApps5-1beta/vxStats/1-7-2a
-EPICS_BASE=/corvette/usr/local/epics/base-3.14.6
+SUPPORT=/home/oxygen/MOONEY/epics/synApps_5_1/support
+ALLEN_BRADLEY=/home/oxygen/MOONEY/epics/synApps_5_1/support/allenBradley/2-1
+ASYN=/home/oxygen/MOONEY/epics/synApps_5_1/support/asyn/cvs
+AUTOSAVE=/home/oxygen/MOONEY/epics/synApps_5_1/support/autosave/cvs
+GENSUB=/home/oxygen/MOONEY/epics/synApps_5_1/support/genSub/1-6
+CALC=/home/oxygen/MOONEY/epics/synApps_5_1/support/calc/cvs
+CAMAC=/home/oxygen/MOONEY/epics/synApps_5_1/support/camac/cvs
+CCD=/home/oxygen/MOONEY/epics/synApps_5_1/support/ccd/cvs
+DAC128V=/home/oxygen/MOONEY/epics/synApps_5_1/support/dac128V/cvs
+DXP=/home/oxygen/MOONEY/epics/synApps_5_1/support/dxp/cvs
+IP=/home/oxygen/MOONEY/epics/synApps_5_1/support/ip/cvs
+IP330=/home/oxygen/MOONEY/epics/synApps_5_1/support/ip330/cvs
+IPUNIDIG=/home/oxygen/MOONEY/epics/synApps_5_1/support/ipUnidig/cvs
+IPAC=/home/oxygen/MOONEY/epics/synApps_5_1/support/ipac/2-7a
+#LOVE=/home/oxygen/MOONEY/epics/synApps_5_1/support/love/cvs
+MCA=/home/oxygen/MOONEY/epics/synApps_5_1/support/mca/cvs
+MOTOR=/home/oxygen/MOONEY/epics/synApps_5_1/support/motor/cvs
+MPF=/home/oxygen/MOONEY/epics/synApps_5_1/support/mpf/2-6
+OPTICS=/home/oxygen/MOONEY/epics/synApps_5_1/support/optics/cvs
+QUADEM=/home/oxygen/MOONEY/epics/synApps_5_1/support/quadEM/cvs
+SNCSEQ=/home/oxygen/MOONEY/epics/synApps_5_1/support/seq/2-0-8
+SSCAN=/home/oxygen/MOONEY/epics/synApps_5_1/support/sscan/cvs
+STD=/home/oxygen/MOONEY/epics/synApps_5_1/support/std/cvs
+VME=/home/oxygen/MOONEY/epics/synApps_5_1/support/vme/cvs
+VXSTATS=/home/oxygen/MOONEY/epics/synApps_5_1/support/vxStats/1-7-2a
+# EPICS_BASE usually appears last so other apps can override stuff:
+EPICS_BASE=/home/oxygen/MOONEY/epics/baseR3.14.6
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
