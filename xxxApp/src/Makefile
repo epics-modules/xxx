@@ -34,16 +34,17 @@ PROD_IOC_solaris = xxx
 # <name>.dbd will be created from <name>Include.dbd
 DBD += iocxxx.dbd
 DBD += iocxxxVX.dbd
+DBD += iocxxxLinux.dbd
+DBD += iocxxxCygwin.dbd
 DBD += iocxxx_solaris.dbd
 
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
-xxx_SRCS_DEFAULT += iocxxx_registerRecordDeviceDriver.cpp
-xxx_SRCS_vxWorks += iocxxxVX_registerRecordDeviceDriver.cpp
-xxx_SRCS_solaris += iocxxx_solaris_registerRecordDeviceDriver.cpp
-xxx_SRCS_solaris += xxxMain.cpp
-
-xxx_SRCS_DEFAULT += xxxMain.cpp
-xxx_SRCS_vxWorks += -nil-
+xxx_SRCS_DEFAULT  += iocxxx_registerRecordDeviceDriver.cpp          xxxMain.cpp
+xxx_SRCS_vxWorks  += iocxxxVX_registerRecordDeviceDriver.cpp        xxxMain.cpp
+xxx_SRCS_Linux    += iocxxxLinux_registerRecordDeviceDriver.cpp     xxxMain.cpp
+xxx_SRCS_cygwin32 += iocxxxCygwin_registerRecordDeviceDriver.cpp    xxxMain.cpp
+xxx_SRCS_solaris  += iocxxx_solaris_registerRecordDeviceDriver.cppa xxxMain.cpp
+xxx_SRCS_vxWorks  += -nil-
 
 #xxx_Common_LIBS += xxxSupport
 xxx_Common_LIBS += genSub
