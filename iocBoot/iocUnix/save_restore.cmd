@@ -1,4 +1,11 @@
 ### save_restore setup
+#
+# The rest this file does not require modification for standard use, but...
+# If you want save_restore to manage its own NFS mount, specify the name and
+# IP address of the file server to which save files should be written.
+# This currently is supported only on vxWorks.
+#save_restoreSet_NFSHost("oxygen", "164.54.52.4")
+
 # status-PV prefix
 save_restoreSet_status_prefix("xxx:")
 # Debug-output level
@@ -14,11 +21,6 @@ save_restoreSet_NumSeqFiles(3)
 # Time interval between sequenced backups
 save_restoreSet_SeqPeriodInSeconds(300)
 
-# If you want save_restore to manage its own NFS mount, specify the name and
-# IP address of the file server to which save files should be written.
-# This currently is supported only on vxWorks.
-#save_restoreSet_NFSHost("oxygen", "164.54.52.4")
-
 # specify where save files should be
 set_savefile_path(startup, "autosave")
 
@@ -32,7 +34,7 @@ set_pass1_restoreFile("auto_settings.sav")
 # specify directories in which to to search for included request files
 set_requestfile_path(startup, "")
 set_requestfile_path(startup, "autosave")
-set_requestfile_path(autosave, "autosaveApp/Db")
+set_requestfile_path(autosave, "asApp/Db")
 set_requestfile_path(calc, "calcApp/Db")
 #set_requestfile_path(camac, "camacApp/Db")
 set_requestfile_path(ccd, "ccdApp/Db")
@@ -49,3 +51,5 @@ set_requestfile_path(quadem, "quadEMApp/Db")
 set_requestfile_path(sscan, "sscanApp/Db")
 set_requestfile_path(std, "stdApp/Db")
 set_requestfile_path(vme, "vmeApp/Db")
+
+dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=xxx:")

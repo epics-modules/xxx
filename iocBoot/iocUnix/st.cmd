@@ -35,8 +35,6 @@ initSerialServer("serial2", "serial2", 1000, 20, "")
 #initSerialServer("serial5","serial5",1000,20,"") 
 #initSerialServer("serial6","serial6",1000,20,"") 
  
-< save_restore.cmd
-
 # need more entries in wait/scan-record channel-access queue?
 #var recDynLinkQsize, 1024
 
@@ -45,9 +43,10 @@ initSerialServer("serial2", "serial2", 1000, 20, "")
 # plot doesn't display
 epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 
-### save_restore
-#dbLoadRecords("$(AUTOSAVE)asApp/Db/SR_array_test.vdb", "P=xxx:,N=10")
-dbLoadRecords("$(AUTOSAVE)asApp/Db/save_restoreStatus.db", "P=xxx:")
+### save_restore setup
+# We presume a suitable initHook routine was compiled into the executable.
+# See also create_monitor_set(), after iocInit() .
+< save_restore.cmd
 
 # Love Controllers
 #var devLoveDebug,1

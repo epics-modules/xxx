@@ -41,8 +41,6 @@ localMessageRouterStart(0)
 # This IOC configures the MPF server code locally
 #< st_mpfserver.cmd
 
-< save_restore.cmd
-
 # override address, interrupt vector, etc. information in module_types.h
 #module_types()
 
@@ -59,6 +57,11 @@ putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"
 # etc. in the software we just loaded (xxx.munch)
 dbLoadDatabase("../../dbd/iocxxxVX.dbd")
 iocxxxVX_registerRecordDeviceDriver(pdbbase)
+
+### save_restore setup
+# We presume a suitable initHook routine was compiled into xxx.munch.
+# See also create_monitor_set(), after iocInit() .
+< save_restore.cmd
 
 ##############################################################################
 
@@ -142,10 +145,6 @@ oms58Setup(3, 8, 0x4000, 190, 5, 10)
 #dbLoadTemplate("picMot.substitutions")
 
 ###############################################################################
-
-### save_restore
-dbLoadRecords("$(AUTOSAVE)/asApp/Db/SR_array_test.vdb", "P=xxx:,N=10")
-dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=xxx:")
 
 ### Scalers: Joerger VSC8/16
 #dbLoadRecords("$(VME)/vmeApp/Db/Jscaler.db","P=xxx:,S=scaler1,C=0")
