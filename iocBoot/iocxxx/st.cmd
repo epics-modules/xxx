@@ -21,9 +21,9 @@ sysCplusEnable=1
 ### Load custom EPICS software from user tree and from share
 ld < xxx.munch
 
-#routerInit
+routerInit
 # talk to local IP's
-#localMessageRouterStart(0)
+localMessageRouterStart(0)
 # talk to IP's on satellite processor
 # (must agree with tcpMessageRouterServerStart in st_proc1.cmd)
 # for IP modules on stand-alone mpf server board
@@ -75,7 +75,9 @@ reboot_restoreDebug=0
 recDynLinkQsize = 1024
 
 # Specify largest array CA will transport
-putenv "EPICS_CA_MAX_ARRAY_BYTES=65000"
+# Note for N sscanRecord data points, need (N+1)*8 bytes, else MEDM
+# plot doesn't display
+putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"
 
 cd startup
 ################################################################################
@@ -186,7 +188,7 @@ dbLoadRecords("$(STD)/stdApp/Db/all_com_16.db","P=xxx:")
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
-dbLoadRecords("$(STD)/stdApp/Db/scan.db","P=xxx:,MAXPTS1=2000,MAXPTS2=200,MAXPTS3=10,MAXPTS4=10,MAXPTSH=200")
+dbLoadRecords("$(STD)/stdApp/Db/scan.db","P=xxx:,MAXPTS1=4000,MAXPTS2=200,MAXPTS3=10,MAXPTS4=10,MAXPTSH=4000")
 
 # Slits
 dbLoadRecords("$(STD)/stdApp/Db/2slit.db","P=xxx:,SLIT=Slit1V,mXp=m3,mXn=m4")
@@ -232,13 +234,17 @@ dbLoadRecords("$(STD)/stdApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10")
 #dbLoadRecords("$(STD)/stdApp/Db/hrSeq.db","P=xxx:,N=2,M_PHI1=m11,M_PHI2=m12")
 
 ### Canberra AIM Multichannel Analyzer ###
-#mcaRecordDebug=0
-#devMcaMpfDebug=0
-#mcaAIMServerDebug=0
-#aimDebug=0
+#mcaRecordDebug=1
+#devMcaMpfDebug=1
+#mcaAIMServerDebug=1
+#aimDebug=1
+#icbDebug=1
+#icbServerDebug=1
+#icbDspDebug=1
+#icbTcaDebug=1
 
-# AIMConfig(serverName, int etherAddr, int port, int maxChans, 
-#	int maxSignals, int maxSequences, etherDev, queueSize)
+# AIMConfig(char *serverName, int etherAddr, int port, int maxChans, 
+#	int maxSignals, int maxSequences, char *etherDev, int queueSize)
 #
 # serverName:   defined here, must agree with dbLoadRecords command
 # etherAddr:    ethernet address of AIM module
@@ -251,34 +257,41 @@ dbLoadRecords("$(STD)/stdApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10")
 # etherDev:     vxWorks device used to communicate over the network to AIM.
 #               Typically "ei0" for mv16x, mv17x; "dc0" for Motorola PowerPC
 # queueSize:    size of MPF message queue for this server (100 should be plenty)
-#AIMConfig("AIM1/2", 0x674, 2, 2048, 1, 1, "ei0", 100)
+#
+# EXAMPLE:
+#   AIMConfig("AIM1/2", 0x9AA, 2, 2048, 1, 1, "dc0", 100)
 
-#dbLoadRecords("$(MCA)/mcaApp/Db/mca.db","P=xxx:,M=mca1,INP=#C0 S0 @AIM1/2,DTYPE=MPF MCA,NCHAN=2048")
+AIMConfig("AIM1/2", 0x9AA, 2, 4000, 1, 1, "dc0", 100)
 
-# Create ICB server for ADC, amplifier and HVPS
-# picbServer = icbConfig(icbServer, maxModules, icbAddress, queueSize)
-# This creates the ICB server and allocates configures the first module, module 0.
-# Additional modules are added to this server with icbAddModule().
-#picbServer = icbConfig("icb/1", 10, "NI674:3", 100)
+dbLoadRecords("$(MCA)/mcaApp/Db/mca.db","P=xxx:,M=mca1,INP=#C0 S0 @AIM1/2,DTYPE=MPF MCA,NCHAN=4000")
 
-# In the dbLoadRecords commands CARD=(0,1) for (local/remote), SERVER=icbServer name from
-# icbConfig, ADDR=module number from icbConfig() or icbAddModule().
-#icbAddModule(picbServer, module, icbAddress)
-# Note: ADDR is the module number, not the icb address.  The correspondence between
-# module number and icb address is made in icbConfig (for module number 0) or in
-# icbAddModule.
-#icbAddModule(picbServer, 1, "NI674:2")
-#dbLoadRecords("$(MCA)/mcaApp/Db/icb_adc.db","P=xxx:,ADC=icbAdc1,CARD=0,SERVER=icb/1,ADDR=0")
+# Initialize ICB software, and create a new ICB server
+# icbSetup(const char *serverName, int maxModules, int queueSize)
+icbSetup("icb/1", 10, 100)
 
-#icbTcaConfig("icbTca/1", 1, "NI674:1", 100)
-#dbLoadRecords("$(MCA)/mcaApp/Db/icb_tca.db","P=xxx:,TCA=icbTca1,MCA=mca1,CARD=0,SERVER=icb/1,ADDR=1")
+# Configure the new ICB server
+# icbConfig(const char *serverName, int module, int enetAddress, int icbAddress)
+icbConfig("icb/1", 0, 0x9AA, 3)
 
-#icbAddModule(picbServer, 2, "NI674:2")
+# In dbLoadRecords commands for ICB devices
+#    CARD   = (0,1) for (local/remote),
+#    SERVER = server name supplied as argument to icbConfig(),
+#    ADDR   = module number supplied as argument to icbConfig()
+
+dbLoadRecords("$(MCA)/mcaApp/Db/icb_adc.db","P=xxx:,ADC=icbAdc1,CARD=0,SERVER=icb/1,ADDR=0")
+
+#icbConfig("icb/1", 2, 0x9AA, 2)
 #dbLoadRecords("$(MCA)/mcaApp/Db/icb_hvps.db","P=xxx:,HVPS=icbHvps1,CARD=0,SERVER=icb/1,ADDR=2")
 
-#icbAddModule(picbServer, 3, "NI674:4")
+#icbConfig("icb/1", 3, 0x9AA, 4)
 #dbLoadRecords("$(MCA)/mcaApp/Db/icb_amp.db","P=xxx:,AMP=icbAmp1,CARD=0,SERVER=icb/1,ADDR=4")
 
+# icbTcaSetup(char *serverName, int maxModules, int queueSize)
+# icbTcaConfig(char *serverName, int module, int enetAddress, int icbAddress)
+
+# icbTcaSetup("icbTca/1", 3, 100)
+# icbTcaConfig("icbTca/1", 0, 0x9AA, 1)
+#dbLoadRecords("$(MCA)/mcaApp/Db/icb_tca.db","P=xxx:,TCA=icbTca1,MCA=mca1,CARD=0,SERVER=icbTca/1,ADDR=0")
 
 # Load 13 element detector software
 #< 13element.cmd
@@ -458,8 +471,8 @@ iocLogDisable=1
 iocInit
 
 ### startup State Notation Language programs
-#seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=1, logfile=kohzuCtl.log"
-#seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
+seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=1, logfile=kohzuCtl.log"
+seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
 #seq &Keithley2kDMM, "P=xxx:, Dmm=D1"
 
 # Bunch clock generator
