@@ -20,9 +20,28 @@
 carrier1 = "mv162"
 ipacAddCarrier(&ipmv162, "A:l=3,3 m=0xe0000000,64;B:l=3,3 m=0xe0010000,64;C:l=3,3 m=0xe0020000,64;D:l=3,3 m=0xe0030000,64")
 
-# Select for SBS VIPC616-01 version IP carrier.
+# For SBS VIPC616-01 IP carrier board.  A32 and A24 examples follow:
 #carrier1 = "VIPC616_01"
-#ipacAddCarrier(&vipc616_01, "0x3000,D00000,128")
+
+# - A32 addressing.
+# - default I/O Base Address (0x6000).
+# - IP modules occupy 32MB of memory from 0x9000 0000 to 0x91FF FFFF.
+# - IP module A at 0x90000000,
+#      module B at 0x90800000,
+#      module C at 0x91000000,
+#      module D at 0x91800000
+#ipacAddCarrier(&vipc616_01,"6000,90000000")
+
+# - A24 addressing.
+# - default I/O Base Address (0x6000).
+# - default IP module base address at 0x00D0 0000
+#   occupies 512 bytes of memory from 0x00D0 0000 to 0x00D0 01FF.
+# - IP module A at 0x0x00D0 007F,
+#      module B at 0x0x00D0 0100,
+#      module C at 0x0x00D0 017F,
+#      module D at 0x0x00D0 01FF
+#ipacAddCarrier(&vipc616_01, "0x6000,D00000,128")
+
 #carrier2 = "VIPC616_02"
 #ipacAddCarrier(&vipc616_01, "0x3400,D00000,128")
 
