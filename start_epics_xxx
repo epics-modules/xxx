@@ -5,6 +5,7 @@ $output
 setenv EPICS_DISPLAY_PATH $EPICS_APP/xxxApp/op/adl':'$MOTOR/motorApp/op/adl':'$STD/stdApp/op/adl':'$MCA/mcaApp/op/adl':'$IP330/ip330App/adl':'$IP/ipApp/op/adl':'$IPUNIDIG/dac128ipUnidigApp/op/adl':'$DAC128V/dac128VApp/op/adl':'$LOVE/loveApp/op/adl':'$QUADEM/quadEMApp/op/adl
 setenv BURT_INCLUDE "-I$STD/stdApp/op/burt -I$MCA/mcaApp/op/burt -I$MOTOR/motorApp/op/burt"
 
+echo "EPICS_DISPLAY_PATH:" $EPICS_DISPLAY_PATH
 if (! ${?MEDM_EXEC_LIST}) setenv MEDM_EXEC_LIST 'Help; medm_help.sh &T:Probe;probe &P &'
 setenv MEDM_HELP medm_help.sh
 setenv MEDM_HELP_URL "http://www.aps.anl.gov/xfd/WWW/xfd/bcda/medm_help"
