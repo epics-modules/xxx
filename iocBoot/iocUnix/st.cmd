@@ -54,7 +54,7 @@ epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 #dbLoadRecords("$(IP)/ipApp/Db/love.db", "P=xxx:,Q=Love_0,C=0,PORT=PORT2,ADDR=1");
 
 # interpolation
-dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:")
+dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
 
 
 # X-ray Instrumentation Associates Huber Slit Controller

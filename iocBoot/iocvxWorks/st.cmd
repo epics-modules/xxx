@@ -375,7 +375,7 @@ dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq3")
 # 4-step measurement
 dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 # interpolation
-dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:")
+dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
 # array test
 dbLoadRecords("$(CALC)/calcApp/Db/arrayTest.db", "P=xxx:,N=2000")
 
