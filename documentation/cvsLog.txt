@@ -1,3 +1,5 @@
+CVS-commit comments since synApps 5.0
+=============================================================================
 
 support/xxx/release.pl
 
