@@ -39,7 +39,7 @@ file scanParms_settings.req P=$(P),M=m16
 
 file table_settings.req P=$(P),T=table1
 
-file Jscaler_settings.req P=$(P),S=scaler1
+file scaler_settings.req P=$(P),S=scaler1
 
 file scan_settings.req P=$(P),S=scan1
 file scan_settings.req P=$(P),S=scan2
@@ -109,6 +109,7 @@ file mca_settings.req P=$(P),M=mca1
 #file icb_tca_settings.req P=$(P),TCA=icbTca1
 #file icbDsp_settings.req P=$(P),DSP=icbDsp1
 #file simple_mca_settings.req P=$(P),M=mca1
+
 # PVs loaded by vxStats.substitutions
 $(P):R_CA
 $(P):R_FD
