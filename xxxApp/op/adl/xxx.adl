@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=509
-		y=27
+		x=519
+		y=26
 		width=450
 		height=160
 	}
@@ -368,6 +368,11 @@ display {
 		label="ScanH (for Hardware-assisted scans)"
 		name="scan.adl"
 		args="P=xxx:,N=H,S=scanH"
+	}
+	display[5] {
+		label="test scanParms2Pos"
+		name="scanParms2Pos.adl"
+		args="P=xxx:,Q=m7_8,SCAN=xxx:scan1,PV1=xxx:m7,PV2=xxx:m8"
 	}
 	display[7] {
 		label="saveData controls"
@@ -758,36 +763,71 @@ text {
 		height=20
 	}
 	display[0] {
-		label="asyn record 0"
+		label="asyn record serial1"
 		name="asynRecord.adl"
-		args="P=xxx:,R=asyn_0"
+		args="P=xxx:,R=serial1"
 	}
 	display[1] {
-		label="asyn record 1"
+		label="asyn record serial2"
 		name="asynRecord.adl"
-		args="P=xxx:,R=asyn_1"
+		args="P=xxx:,R=serial2"
 	}
 	display[2] {
-		label="asyn record 2"
+		label="asyn record serial3"
 		name="asynRecord.adl"
-		args="P=xxx:,R=asyn_2"
+		args="P=xxx:,R=serial3"
 	}
 	display[3] {
-		label="asyn record 3"
+		label="asyn record serial4"
 		name="asynRecord.adl"
-		args="P=xxx:,R=asyn_3"
+		args="P=xxx:,R=serial4"
 	}
 	display[4] {
-		label="asyn record 4"
+		label="asyn record serial5"
 		name="asynRecord.adl"
-		args="P=xxx:,R=asyn_4"
+		args="P=xxx:,R=serial5"
 	}
 	display[5] {
+		label="asyn record serial6"
+		name="asynRecord.adl"
+		args="P=xxx:,R=serial6"
+	}
+	display[6] {
+		label="asyn record serial7"
+		name="asynRecord.adl"
+		args="P=xxx:,R=serial7"
+	}
+	display[7] {
+		label="asyn record serial8"
+		name="asynRecord.adl"
+		args="P=xxx:,R=serial8"
+	}
+	display[8] {
+		label="asyn record gpib1"
+		name="asynRecord.adl"
+		args="P=xxx:,R=gpib1"
+	}
+	display[9] {
+		label="asyn record gpib2"
+		name="asynRecord.adl"
+		args="P=xxx:,R=gpib2"
+	}
+	display[10] {
+		label="asyn record gpib3"
+		name="asynRecord.adl"
+		args="P=xxx:,R=gpib3"
+	}
+	display[11] {
+		label="asyn record gpib4"
+		name="asynRecord.adl"
+		args="P=xxx:,R=gpib4"
+	}
+	display[12] {
 		label="generic VME 1"
 		name="recVme.adl"
 		args="P=xxx:,Q=vme1"
 	}
-	display[7] {
+	display[13] {
 		label="generic CAMAC"
 		name="CAMAC_IO.adl"
 		args="REC=xxx:camac1"
@@ -1599,8 +1639,8 @@ text {
 		height=20
 	}
 	display[1] {
-		label="13 element detector"
-		name="13element.adl"
+		label="3 element detector"
+		name="3element.adl"
 		args="P=xxx:med:"
 	}
 	display[3] {
@@ -1610,7 +1650,7 @@ text {
 	}
 	display[4] {
 		label="sum control"
-		name="mcaSum13.adl"
+		name="mcaSum3.adl"
 		args="P=xxx:med:"
 	}
 	display[5] {
