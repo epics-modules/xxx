@@ -6,8 +6,8 @@
 ################################################################################
 # Tell EPICS all about the record types, device-support modules, drivers,
 # etc. in the software we just loaded (xxx.munch)
-dbLoadDatabase("../../dbd/xxx.dbd")
-xxx_registerRecordDeviceDriver(pdbbase)
+dbLoadDatabase("../../dbd/iocxxx.dbd")
+iocxxx_registerRecordDeviceDriver(pdbbase)
 
 # Increase size of buffer for error logging from default 1256
 errlogInit(5000)
