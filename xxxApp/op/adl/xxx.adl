@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synApps_4_5/support/xxx/xxxApp/op/adl/xxx.adl"
+	name="/home/oxygen4/MOONEY/epics/synApps_4_6/support/xxx/xxxApp/op/adl/xxx.adl"
 	version=030003
 }
 display {
@@ -1688,4 +1688,20 @@ text {
 	clr=0
 	bclr=63
 	label="-Microscope"
+}
+"related display" {
+	object {
+		x=280
+		y=60
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Quad electrometer"
+		name="quadEM.adl"
+		args="P=xxx:,EM=EM1"
+	}
+	clr=0
+	bclr=17
+	label="-quadEM"
 }
