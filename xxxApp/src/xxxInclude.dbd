@@ -6,7 +6,6 @@ include "ipShare.dbd"
 include "devIpUnidig.dbd"
 include "devAoDAC128V.dbd"
 
-include "devEpidIp330.dbd"
 include "devAiIp330.dbd"
 
 include "motorRecord.dbd"
