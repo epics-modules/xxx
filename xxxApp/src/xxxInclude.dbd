@@ -1,4 +1,4 @@
-include "shareBase.dbd"
+include "base.dbd"
 include "devMpfString.dbd"
 include "stdShare.dbd"
 
