@@ -52,3 +52,8 @@ file "$(SSCAN)/sscanApp/Db/scanParms.db"
 #{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vcenter,POS=$(Q).VAL,RDBK=$(Q).RBV}
 
 }
+
+file "$(SSCAN)/sscanApp/Db/scanParms2Pos.db"
+{
+{P=xxx:,SCANREC=xxx:scan1,Q=m7_8,POS1=xxx:m7.VAL,RDBK1=xxx:m7.RBV,POS2=xxx:m8.VAL,RDBK2=xxx:m8.RBV}
+}
