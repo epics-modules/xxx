@@ -1,0 +1,9 @@
+file "$(IP)/ipApp/Db/picos.db"
+{
+pattern
+{P,      pChan,       DESC,          serChan }
+{xxx:, 	 111,         pMotor111,        1    }
+{xxx:, 	 112,         pMotor112,        1    }
+{xxx:, 	 113,         pMotor113,        1    }
+ 
+}
