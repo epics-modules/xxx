@@ -349,6 +349,7 @@ dbLoadRecords("stdApp/Db/userStringCalcs10.db","P=xxx:", std)
 dbLoadRecords("stdApp/Db/userTransforms10.db","P=xxx:", std)
 # extra userCalcs (must also load userCalcs10.db for the enable switch)
 dbLoadRecords("stdApp/Db/userCalcN.db","P=xxx:,N=I_Detector", std)
+dbLoadRecords("stdApp/Db/userAve10.db","P=xxx:", std)
 
 ### serial support ###
 
