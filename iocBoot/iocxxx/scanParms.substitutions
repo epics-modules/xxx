@@ -1,4 +1,4 @@
-file db/scanParms.db
+file "$(STD)/db/scanParms.db"
 {
 {P=xxx:,SCANREC=xxx:scan1,Q=m1,POS=$(Q).VAL,RDBK=$(Q).RBV}
 {P=xxx:,SCANREC=xxx:scan1,Q=m2,POS=$(Q).VAL,RDBK=$(Q).RBV}
@@ -16,22 +16,6 @@ file db/scanParms.db
 {P=xxx:,SCANREC=xxx:scan1,Q=m14,POS=$(Q).VAL,RDBK=$(Q).RBV}
 {P=xxx:,SCANREC=xxx:scan1,Q=m15,POS=$(Q).VAL,RDBK=$(Q).RBV}
 {P=xxx:,SCANREC=xxx:scan1,Q=m16,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m17,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m18,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m19,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m20,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m21,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m22,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m23,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m24,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m25,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m26,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m27,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m28,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m29,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m30,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m31,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m32,POS=$(Q).VAL,RDBK=$(Q).RBV}
 
 {P=xxx:,SCANREC=xxx:scan1,Q=Table1X,POS=table1.X,RDBK=table1.XRB}
 {P=xxx:,SCANREC=xxx:scan1,Q=Table1Y,POS=table1.Y,RDBK=table1.YRB}
@@ -39,6 +23,13 @@ file db/scanParms.db
 {P=xxx:,SCANREC=xxx:scan1,Q=Table1AX,POS=table1.AX,RDBK=table1.AXRB}
 {P=xxx:,SCANREC=xxx:scan1,Q=Table1AY,POS=table1.AY,RDBK=table1.AYRB}
 {P=xxx:,SCANREC=xxx:scan1,Q=Table1AZ,POS=table1.AZ,RDBK=table1.AZRB}
+
+{P=xxx:,SCANREC=xxx:scan1,Q=BraggE,POS=BraggEAO.VAL,RDBK=BraggERdbkAO.VAL}
+{P=xxx:,SCANREC=xxx:scan1,Q=BraggLambda,POS=BraggLambdaAO.VAL,RDBK=BraggLambdaRdbkAO.VAL}
+{P=xxx:,SCANREC=xxx:scan1,Q=BraggTheta,POS=BraggThetaAO.VAL,RDBK=BraggThetaRdbkAO.VAL}
+
+{P=xxx:,SCANREC=xxx:scan1,Q=HR1_E,POS=HR1_EAO.VAL,RDBK=HR1_ERdbkAO}
+{P=xxx:,SCANREC=xxx:scan1,Q=HR1_A,POS=HR1_worldOffAO.VAL,RDBK=HR1_worldOffAO.VAL}
 
 # old slit
 {P=xxx:,SCANREC=xxx:scan1,Q=Slit1Hp,POS=Slit1Hxp.VAL,RDBK=Slit1Ht2.A}
@@ -49,4 +40,15 @@ file db/scanParms.db
 {P=xxx:,SCANREC=xxx:scan1,Q=Slit1Vn,POS=Slit1Vxn.VAL,RDBK=Slit1Vt2.B}
 {P=xxx:,SCANREC=xxx:scan1,Q=Slit1Vsize,POS=Slit1Vsize.VAL,RDBK=Slit1Vt2.C}
 {P=xxx:,SCANREC=xxx:scan1,Q=Slit1Vcenter,POS=Slit1Vcenter.VAL,RDBK=Slit1Vt2.D}
+
+# new soft-motor-based slit
+{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hxn,POS=$(Q).VAL,RDBK=$(Q).RBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hxp,POS=$(Q).VAL,RDBK=$(Q).RBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hsize,POS=$(Q).VAL,RDBK=$(Q).RBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hcenter,POS=$(Q).VAL,RDBK=$(Q).RBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vxn,POS=$(Q).VAL,RDBK=$(Q).RBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vxp,POS=$(Q).VAL,RDBK=$(Q).RBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vsize,POS=$(Q).VAL,RDBK=$(Q).RBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vcenter,POS=$(Q).VAL,RDBK=$(Q).RBV}
+
 }

@@ -1,4 +1,4 @@
-file mcaApp/Db/simple_mca.db
+file "$(MCA)/mcaApp/Db/simple_mca.db"
 {
 pattern
 {P           M       DTYP           INP         PREC  CHANS}
@@ -18,7 +18,7 @@ pattern
 {xxx:med:   mca0  "Soft Channel"   "#C0 S0 @"     3  2048}
 }
 
-file mcaApp/Db/icb_amp.db
+file "$(MCA)/mcaApp/Db/icb_amp.db"
 {
 pattern
 {P			AMP		CARD	SERVER		ADDR}
@@ -37,7 +37,7 @@ pattern
 {xxx:med:	amp13	0		"AIM3/1"	5}
 }
 
-file mcaApp/Db/icb_adc.db
+file "$(MCA)/mcaApp/Db/icb_adc.db"
 {
 pattern
 {P			ADC		CARD	SERVER		ADDR}
@@ -47,7 +47,7 @@ pattern
 {xxx:med:	adc4	0		"AIM3/1"	7}
 }
 
-file mcaApp/Db/icb_hvps.db
+file "$(MCA)/mcaApp/Db/icb_hvps.db"
 {
 pattern
 {P			HVPS	LIMIT	CARD	SERVER		ADDR}

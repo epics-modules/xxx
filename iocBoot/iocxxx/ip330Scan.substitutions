@@ -1,4 +1,4 @@
-file db/ip330Scan.template
+file "$(IP330)/db/ip330Scan.template"
 {
 pattern
 {P,    R,      C, IPSLOT, S,  GAIN,  SCAN,  EGUL, LOPR, EGUF, HOPR,  PREC}
