@@ -3,10 +3,11 @@
 # actual destination address.)
 routeAdd "0","164.54.52.1"
 
-# needed for proc 0 if "inet on backplane" is defined
+# Something like this is needed for proc 0 if "inet on backplane" is defined
+# Here, 164.54.53.226 is the backplane address, and it's actually not the
+# gateway for everything in the world.
 routeDelete "164.54.0.0", "164.54.53.226"
 
-routeAdd "164.54.53.183", "164.54.53.226"
 routeShow
 
 # The following lines are examples of what might be required to use NFS,
