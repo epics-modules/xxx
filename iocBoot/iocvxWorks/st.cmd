@@ -68,6 +68,7 @@ iocxxxVX_registerRecordDeviceDriver(pdbbase)
 # Motors
 #dbLoadTemplate("basic_motor.substitutions")
 dbLoadTemplate("motor.substitutions")
+dbLoadTemplate("softMotor.substitutions")
 
 ### Allstop, alldone
 # This database must agree with the motors and other positioners you've actually loaded.
