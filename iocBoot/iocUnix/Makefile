@@ -1,5 +1,5 @@
 TOP = ../..
 include $(TOP)/configure/CONFIG
-ARCH = vxWorks-ppc604
-TARGETS = cdCommands
+ARCH = linux-x86
+TARGETS = envPaths
 include $(TOP)/configure/RULES.ioc
