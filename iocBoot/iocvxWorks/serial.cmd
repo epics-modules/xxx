@@ -65,8 +65,9 @@ MM4000Config(0, "serial7", 0)
 # Load asynRecord records on all ports
 dbLoadTemplate("asynRecord.template")
 
-# serial O/I block (asyn record with format and parse string calcs)
-#dbLoadRecords("$(IP)/ipApp/Db/serial_OI_block.db","P=xxx:,N=0_1,PORT=serial5")
+# send impromptu message to serial device, parse reply
+# (was serial_OI_block)
+#dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=1,PORT=serial5,ADDR=0,OMAX=100,IMAX=100")
 
 # Stanford Research Systems SR570 Current Preamplifier
 #dbLoadRecords("$(IP)/ipApp/Db/SR570.db", "P=xxx:,A=A1,PORT=serial1")
