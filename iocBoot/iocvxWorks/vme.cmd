@@ -61,8 +61,10 @@ dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca8,DTYP=Struck ST
 
 # STR7201Setup(int numCards, int baseAddress, int interruptVector, int interruptLevel)
 STR7201Setup(2, 0x90000000, 220, 6)
-# STR7201Config(int card, int maxSignals, int maxChans, int 1=enable internal 25MHZ clock)
-STR7201Config(0, 8, 1000, 1)
+# STR7201Config(int card, int maxSignals, int maxChans, 
+#               int 1=enable internal 25MHZ clock, 
+#               int 1=enable initial software channel advance in MCS external advance mode)
+STR7201Config(0, 8, 1000, 1, 1)
 
 # Struck as EPICS scaler
 #dbLoadRecords("$(MCA)/mcaApp/Db/STR7201scaler.db", "P=xxx:,S=scaler2,C=0")
