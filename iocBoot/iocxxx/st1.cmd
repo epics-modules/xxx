@@ -1,3 +1,6 @@
+# FILENAME: st1.cmd
+# USAGE:    VxWorks startup script for Auxiliary (Non-EPICS) processor.
+
 cd ""
 < ../nfsCommands
 < cdCommands.68K
