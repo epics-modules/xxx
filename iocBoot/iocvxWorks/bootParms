@@ -23,7 +23,7 @@ to support large numbers of network clients can have 0x1000 ORed into its
 EPICS processor: mv2700
 =======================
 
-boot device          : ei
+boot device          : dc
 processor number     : 0 
 host name            : oxygen
 file name            : /usr/local/vxWorks/T202/mv2700-asd7
@@ -34,7 +34,7 @@ user (u)             : <user>
 ftp password (pw)    : <password>
 flags (f)            : 0x0 
 target name (tn)     : iocxxx
-startup script (s)   : /home/oxygen4/MOONEY/epics/synApps_4_6/support/xxx/iocBoot/iocxxx_162/st.cmd
+startup script (s)   : /home/oxygen4/MOONEY/epics/synApps_5_0/support/xxx/iocBoot/iocvxWorks/st.cmd
 
 MPF processor
 =============
