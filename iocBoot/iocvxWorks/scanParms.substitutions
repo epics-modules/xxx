@@ -17,6 +17,17 @@ file "$(SSCAN)/sscanApp/Db/scanParms.db"
 {P=xxx:,SCANREC=xxx:scan1,Q=m15,POS=$(Q).VAL,RDBK=$(Q).RBV}
 {P=xxx:,SCANREC=xxx:scan1,Q=m16,POS=$(Q).VAL,RDBK=$(Q).RBV}
 
+{P=xxx:,SCANREC=xxx:scan1,Q=SM1,POS=$(Q).DVAL,RDBK=$(Q).DRBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=SM2,POS=$(Q).DVAL,RDBK=$(Q).DRBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=SM3,POS=$(Q).DVAL,RDBK=$(Q).DRBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=SM4,POS=$(Q).DVAL,RDBK=$(Q).DRBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=SM5,POS=$(Q).DVAL,RDBK=$(Q).DRBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=SM6,POS=$(Q).DVAL,RDBK=$(Q).DRBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=SM7,POS=$(Q).DVAL,RDBK=$(Q).DRBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=SM8,POS=$(Q).DVAL,RDBK=$(Q).DRBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=SM9,POS=$(Q).DVAL,RDBK=$(Q).DRBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=SM10,POS=$(Q).DVAL,RDBK=$(Q).DRBV}
+
 {P=xxx:,SCANREC=xxx:scan1,Q=Table1X,POS=table1.X,RDBK=table1.XRB}
 {P=xxx:,SCANREC=xxx:scan1,Q=Table1Y,POS=table1.Y,RDBK=table1.YRB}
 {P=xxx:,SCANREC=xxx:scan1,Q=Table1Z,POS=table1.Z,RDBK=table1.ZRB}
