@@ -474,7 +474,7 @@ display {
 	}
 	display[0] {
 		label="Keithley 2000 DMM"
-		name="Keithley2kDMM.adl"
+		name="Keithley2kDMM_mf.adl"
 		args="P=xxx:,Dmm=D1"
 	}
 	display[1] {
