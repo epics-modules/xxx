@@ -1,0 +1,1 @@
+../../bin/${EPICS_HOST_ARCH}/xxx st.cmd
