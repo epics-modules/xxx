@@ -22,6 +22,7 @@ include "devQuadEM.dbd"
 include "mcaCanberraSupport.dbd"
 #include "devLove.dbd"
 include "tyGSOctal.dbd"
+include "drvGsIP488.dbd"
 include "drvIpac.dbd"
 include "vxStats.dbd"
 
