@@ -14,15 +14,16 @@ content="text/html; charset=iso-8859-1">
 <ul>
 <li><p>start_epics_xxx - added new modules to EPICS_DISPLAY_PATH.  Added
 specification of EPICS_CA_MAX_ARRAY_BYTES
-<li><p>
-<li><p>
-<li><p>
-<li><p>
-<li><p>
-<li><p>
-<li><p>
-<li><p>
-<li><p>
+<li><p>documentation/vme_address.html - table of VME addresses, interrupt vectors, etc.
+<li><p>iocxxx - split into iocUnix, iocvxWorks
+<li><p>st.cmd, xxxApp/src - changed xxx.dbd to iocxxx.dbd, xxx_registerRecordDeviceDriver to
+iocxxx_registerRecordDeviceDriver because c function name cannot begin with a number
+<li><p>st1.cmd - cd to topbin/../vxWorks-68040, so we don't have to have a separate
+cdCommands file.  Load xxx.munch instead of a bunch of separate files
+<li><p>st1.cmd - must configure dac before ip330PID
+<li><p>vxStats.substitutions - new file to work with vxStats module
+<li><p>pid*.substitutions, dac128V.substitutions - new files
+<li><p>xxx.adl - added vxStats, Keithley 2000; changes in mca, DAC
 </ul>
 
 <address>
