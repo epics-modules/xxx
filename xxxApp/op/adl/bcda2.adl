@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen2/MOONEY/epics/3.12.2/stdApp/op/adl/tmm.adl"
+	name="/home/oxygen2/MOONEY/epics/3.12.2/stdApp/op/adl/xxx.adl"
 	version=020209
 }
 display {

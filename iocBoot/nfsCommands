@@ -1,33 +1,25 @@
-#Instructions for creating and using a real nfsCommands file
-# 
-# in order to use nfs do the following:
-# 1) Create hostAdd and nfsMountAll commands for each nfs server
-# 2) In each st.cmd file add the following two commands BEFORE any load commands
-#    ../nfs.cmd
-#    cd "<iocname>
-# 
-# The hostAdd and nfsMountAll commands have the form:
-# hostAdd("<host>","xxx.xxx.xxx.xxx")
-# nfsMountAll("<host>")
-# 
-# You can also mount subdirectories as follows:
-# nfsMount("<host>", "/xxx/xxx/xxx", "/xxx")
-# 
-# For example assume
-# 
-# host is mercury with inet address 155.77.2.56
-# You want to mount the directory (which is a file system of mercury)
-# /home/mercury5/iocinfo
-#    as
-# /iocinfo
-# 
-# The commands would be
-# 
-# hostAdd("mercury","155.77.2.56")
-# nfsMountAll("mercury")
-# nfsMount("mercury","/home/mercury5/iocinfo","/iocinfo")
+# Set the default gateway (the address to which IP datagrams will be sent
+# when there is no specific specific routing table entry available for the
+# actual destination address.)
+routeAdd "0","164.54.52.1"
+
+# needed for proc 0 if "inet on backplane" is defined
+routeDelete "164.54.0.0", "164.54.53.226"
+
+routeAdd "164.54.53.183", "164.54.53.226"
+routeShow
+
+# The following lines are examples of what might be required to use NFS,
+# rather than FTP, for booting the VME crate, and generally for reading
+# and writing files on the server.
 #
+#hostAdd("beams","164.54.100.5")
+#nfsMount("beams","/export/homeb","/home/beams")
+hostAdd("oxygen","164.54.52.4")
+nfsMount("oxygen","/home/oxygen","/home/oxygen")
+nfsMount("oxygen","/home/oxygen4","/home/oxygen4")
+hostAdd("wheaties","164.54.53.101")
+nfsMount("wheaties","/local","/local")
+
 # The following line eliminates "cksum: out of data" messages due to DHCP
 #proxyPortFwdOff(67)
-
-
