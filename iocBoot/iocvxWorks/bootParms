@@ -1,14 +1,34 @@
-boot device          : dc0 
+EPICS processor
+===============
+
+boot device          : ei
 processor number     : 0 
+host name            : oxygen
+file name            : /usr/local/vxWorks/T202/mv162-asd1
+inet on ethernet (e) : 164.54.53.99:fffffc00
+inet on backplane (b): 164.54.53.226
+host inet (h)        : 164.54.52.4
+user (u)             : <user>
+ftp password (pw)    : <password>
+flags (f)            : 0x0 
+target name (tn)     : iocxxx
+startup script (s)   : /home/oxygen4/MOONEY/epics/synApps_4_6/support/xxx/iocBoot/iocxxx_162/st.cmd
+
+
+MPF processor
+=============
+
+boot device          : sm=0x800006000 
+processor number     : 1 
 host name            : oxygen 
-file name            : /usr/local/vxWorks/T202/mv2700-asd6 
-inet on ethernet (e) : 164.54.53.99:fffffc00 
-inet on backplane (b): 
+file name            : 
+inet on ethernet (e) : 
+inet on backplane (b): 164.54.53.183 
 host inet (h)        : 164.54.52.4 
-gateway inet (g)     : 
+gateway inet (g)     : 164.54.53.226 
 user (u)             : <user> 
 ftp password (pw) (blank = use rsh): <password> 
 flags (f)            : 0x0 
-target name (tn)     : ioctmm 
-startup script (s)   : /home/oxygen/MOONEY/epics/synApps_4_6/ioc/tmm/iocBoot/ioctmm/st.cmd 
+target name (tn)     : ioctim1 
+startup script (s)   : /home/oxygen/MOONEY/epics/synApps_4_6/support/xxx/iocBoot/iocxxx_162/st1.cmd 
 other (o)            : 
