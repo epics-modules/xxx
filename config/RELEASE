@@ -9,19 +9,20 @@
 #
 # Add your declarations here
 
-IP=/home/epics/devel/ip
-IP330=/home/epics/devel/ip330
-CAMAC=/home/epics/devel/camac
-MCA=/home/epics/devel/mca
-LOVE=/home/epics/devel/love
-IPUNIDIG=/home/epics/devel/ipUnidig
-DAC128V=/home/epics/devel/dac128V
-MOTOR=/home/epics/devel/motor
-STD=/home/epics/devel/std
-BITBUS=/home/epics/devel/bitBus1-4
-MPF_GPIB=/home/epics/devel/mpfGpib1-4
-MPF_SERIAL=/home/epics/devel/mpfSerial1-4
-MPF=/home/epics/devel/mpf1-10
-EPICS_BASE=/usr/local/epics/R3.13.7/base
+IP=/home/oxygen/MOONEY/epics/synApps_4_5/support/ip
+IP330=/home/oxygen/MOONEY/epics/synApps_4_5/support/ip330
+#CAMAC=/home/epics/devel/camac
+MCA=/home/oxygen/MOONEY/epics/synApps_4_5/support/mca
+LOVE=/home/oxygen/MOONEY/epics/synApps_4_5/support/love
+IPUNIDIG=/home/oxygen/MOONEY/epics/synApps_4_5/support/ipUnidig
+DAC128V=/home/oxygen/MOONEY/epics/synApps_4_5/support/dac128V
+MOTOR=/home/oxygen/MOONEY/epics/synApps_4_5/support/motor4-8
+STD=/home/oxygen/MOONEY/epics/synApps_4_5/support/std
+BITBUS=/home/oxygen/MOONEY/epics/synApps_4_5/support/bitBus1-4
+MPF_GPIB=/home/oxygen/MOONEY/epics/synApps_4_5/support/mpfGpib1-4
+MPF_SERIAL=/home/oxygen/MOONEY/epics/synApps_4_5/support/mpfSerial1-4
+MPF=/home/oxygen/MOONEY/epics/synApps_4_5/support/mpf1-10
+#QUADEM=/home/oxygen/MOONEY/epics/synApps_4_5/support/quadEM
+EPICS_BASE=/net/beams/export/local/epics/baseR3.13.7
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
