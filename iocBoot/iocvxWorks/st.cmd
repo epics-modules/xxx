@@ -53,15 +53,23 @@ reboot_restoreDatedBU = 1;
 set_savefile_path(startup, "autosave")
 set_requestfile_path(startup, "")
 set_requestfile_path(startup, "autosave")
+set_requestfile_path(autosave, "autosaveApp/Db")
+set_requestfile_path(calc, "calcApp/Db")
+#set_requestfile_path(camac, "camacApp/Db")
+set_requestfile_path(ccd, "ccdApp/Db")
+set_requestfile_path(dac128v, "dac128VApp/Db")
+set_requestfile_path(dxp, "dxpApp/Db")
 set_requestfile_path(ip, "ipApp/Db")
 set_requestfile_path(ip330, "ip330App/Db")
-set_requestfile_path(mca, "mcaApp/Db")
 set_requestfile_path(ipunidig, "ipUnidigApp/Db")
-set_requestfile_path(dac128v, "dac128VApp/Db")
+set_requestfile_path(love, "loveApp/Db")
+set_requestfile_path(mca, "mcaApp/Db")
 set_requestfile_path(motor, "motorApp/Db")
-set_requestfile_path(std, "stdApp/Db")
+set_requestfile_path(optics, "opticsApp/Db")
 set_requestfile_path(quadem, "quadEMApp/Db")
-#set_requestfile_path(camac, "camacApp/Db")
+set_requestfile_path(sscan, "sscanApp/Db")
+set_requestfile_path(std, "stdApp/Db")
+set_requestfile_path(vme, "vmeApp/Db")
 reboot_restoreDebug=0
 # specify what save files should be restored.  Note these files must be reachable
 # from the directory current at the time iocInit is run
@@ -114,8 +122,6 @@ dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=xxx:,xx=02us")
 
 # test generic gpib record
 #dbLoadRecords("$(STD)/stdApp/Db/gpib.db","P=xxx:")
-# test generic camac record
-#dbLoadRecords("$(CAMAC)/camacApp/Db/camac.db","P=xxx:")
 
 
 ###############################################################################
@@ -372,12 +378,12 @@ dbLoadRecords("$(MCA)/mcaApp/Db/STR7201scaler.db", "P=xxx:,S=scaler2,C=0")
 #dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=mADC_2,DTYPE=ip330Sweep,NCHAN=2048,INP=#C0 S1 @Ip330Sweep1")
 
 ### Stuff for user programming ###
-dbLoadRecords("$(STD)/stdApp/Db/userCalcs10.db","P=xxx:")
-dbLoadRecords("$(STD)/stdApp/Db/userStringCalcs10.db","P=xxx:")
-dbLoadRecords("$(STD)/stdApp/Db/userTransforms10.db","P=xxx:")
+dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=xxx:")
+dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
+dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
 # extra userCalcs (must also load userCalcs10.db for the enable switch)
-dbLoadRecords("$(STD)/stdApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
-dbLoadRecords("$(STD)/stdApp/Db/userAve10.db","P=xxx:")
+dbLoadRecords("$(CALC)/calcApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
+dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
 # string sequence (sseq) record
 dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq1")
 dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq2")
@@ -430,26 +436,26 @@ dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 
 ### Miscellaneous ###
 # Systran DAC database
-#dbLoadRecords("$(IP)/ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=1,S=0,IPSLOT=c")
-#dbLoadRecords("$(IP)/ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=2,S=1,IPSLOT=c")
-#dbLoadRecords("$(IP)/ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=3,S=2,IPSLOT=c")
-#dbLoadRecords("$(IP)/ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=4,S=3,IPSLOT=c")
-#dbLoadRecords("$(IP)/ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=5,S=4,IPSLOT=c")
-#dbLoadRecords("$(IP)/ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=6,S=5,IPSLOT=c")
-#dbLoadRecords("$(IP)/ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=7,S=6,IPSLOT=c")
-#dbLoadRecords("$(IP)/ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=8,S=7,IPSLOT=c")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=1,S=0,IPSLOT=c")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=2,S=1,IPSLOT=c")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=3,S=2,IPSLOT=c")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=4,S=3,IPSLOT=c")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=5,S=4,IPSLOT=c")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=6,S=5,IPSLOT=c")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=7,S=6,IPSLOT=c")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=8,S=7,IPSLOT=c")
 
 # vme test record
-dbLoadRecords("$(STD)/stdApp/Db/vme.db", "P=xxx:,Q=vme1")
+dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
 
 # Hewlett-Packard 10895A Laser Axis (interferometer)
-#dbLoadRecords("$(STD)/stdApp/Db/HPLaserAxis.db", "P=xxx:,Q=HPLaser1, C=0")
+#dbLoadRecords("$(VME)/vmeApp/Db/HPLaserAxis.db", "P=xxx:,Q=HPLaser1, C=0")
 # hardware configuration
 # example: devHP10895LaserAxisConfig(ncards,a16base)
 #devHPLaserAxisConfig(2,0x1000)
 
 # Acromag general purpose Digital I/O
-#dbLoadRecords("$(STD)/stdApp/Db/Acromag_16IO.db", "P=xxx:, A=1")
+#dbLoadRecords("$(VME)/vmeApp/Db/Acromag_16IO.db", "P=xxx:, A=1")
 
 # Acromag AVME9440 setup parameters:
 # devAvem9440Config (ncards,a16base,intvecbase)
@@ -459,24 +465,24 @@ dbLoadRecords("$(STD)/stdApp/Db/vme.db", "P=xxx:,Q=vme1")
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
 #dbLoadRecords("$(STD)/stdApp/Db/VXstats.db","P=xxx:")
 # vxStats
-dbLoadTemplate("vxStats.substitutions")
+#dbLoadTemplate("vxStats.substitutions")
 
 # Elcomat autocollimator
 #dbLoadRecords("$(IP)/ipApp/Db/Elcomat.db", "P=xxx:,C=0,IPSLOT=a,CHAN=7")
 
 # Bunch-clock generator
-#dbLoadRecords("$(STD)/stdApp/Db/BunchClkGen.db","P=xxx:")
-#dbLoadRecords("$(STD)/stdApp/Db/BunchClkGenA.db", "UNIT=xxx", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/BunchClkGen.db","P=xxx:")
+#dbLoadRecords("$(VME)/vmeApp/Db/BunchClkGenA.db", "UNIT=xxx", std)
 # hardware configuration
 # example: BunchClkGenConfigure(intCard, unsigned long CardAddress)
 #BunchClkGenConfigure(0, 0x8c00)
 
 ### Queensgate piezo driver
-#dbLoadRecords("$(STD)/stdApp/Db/pzt_3id.db","P=xxx:")
-#dbLoadRecords("$(STD)/stdApp/Db/pzt.db","P=xxx:")
+#dbLoadRecords("$(IP)/ipApp/Db/pzt_3id.db","P=xxx:")
+#dbLoadRecords("$(IP)/ipApp/Db/pzt.db","P=xxx:")
 
 ### GP307 Vacuum Controller
-#dbLoadRecords("$(STD)/stdApp/Db/gp307.db","P=xxx:")
+#dbLoadRecords("$(VME)/vmeApp/Db/gp307.db","P=xxx:")
 
 ### Queensgate Nano2k piezo controller
 #dbLoadRecords("$(STD)/stdApp/Db/Nano2k.db","P=xxx:,S=s1")
@@ -486,7 +492,7 @@ dbLoadTemplate("vxStats.substitutions")
 #devAoEurothermDebug=20
 
 # Analog I/O (Acromag IP330 ADC)
-#dbLoadTemplate("ip330Scan.substitutions")
+dbLoadTemplate("ip330Scan.substitutions")
 
 # Machine-status board (MRD 100)
 #####################################################
@@ -502,14 +508,140 @@ dbLoadTemplate("vxStats.substitutions")
 #  Configure the MSL MRD 100 module.....
 #devA32VmeConfig(0, 0xa0000200, 30, 0xa0, 5)
 
-# VVVVVVVVVVVVVVVVVVVVV This doesn't look right (tmm)
-#dbLoadRecords("$(STD)/stdApp/Db/msl_mrd100.db","C=0,S=01,ID1=00,ID2=00us")
+#dbLoadRecords("stdApp/Db/msl_mrd101.db","C=0,S=01,ID1=01,ID2=01us", std)
 
 ### Bit Bus configuration
 # BBConfig(Link, LinkType, BaseAddr, IrqVector, IrqLevel)
 # Link: ?
 # LinkType: 0:hosed; 1:xycom; 2:pep
 #BBConfig(3,1,0x2400,0xac,5)
+
+# Set up the Allen-Bradley 6008 scanner
+#abConfigNlinks 1
+#abConfigVme 0,0xc00000,0x60,5
+#abConfigAuto
+
+# MKS vacuum gauges
+#dbLoadRecords "ipApp/Db/MKS.db","P=xxx:,C=0,IPSLOT=a,CHAN=1,CC1=cc1,CC2=cc3,PR1=pr1,PR2=pr3", ip
+# PI Digitel 500/1500 pump
+#dbLoadRecords "ipApp/Db/Digitel.db","xxx:,PUMP=ip1,C=0,IPSLOT=a,CHAN=2", ip
+# PI MPC ion pump
+#dbLoadRecords("ipApp/Db/MPC.db","P=xxx:,PUMP=ip2,C=0,IPSLOT=a,CHAN=3,PA=0,PN=1", ip
+# PI MPC TSP (titanium sublimation pump)
+#dbLoadRecords("ipApp/Db/TSP.db","P=xxx:,TSP=tsp1,C=0,IPSLOT=b,CHAN=3,PA=0", ip)
+
+# APS Quad Electrometer from Steve Ross
+# pQuadEM = initQuadEM(baseAddress, fiberChannel, microSecondsPerScan, maxClients,
+#            pIpUnidig, unidigChan)
+#  pQuadEM       = Pointer to MPF server
+#  baseAddress   = base address of VME card
+#  fiberChannel = 0-3, fiber channel number
+#  microSecondsPerScan = microseconds to integrate.  When used with ipUnidig
+#                interrupts the unit is also read at this rate.
+#  maxClients  = maximum number of clients that will connect to the
+#                quadEM interrupt.  10 should be fine.
+#  iIpUnidig   = pointer to ipInidig object if it is used for interrupts.
+#                Set to 0 if there is no IP-Unidig being used, in which
+#                case the quadEM will be read at 60Hz.
+#  unidigChan  = IP-Unidig channel connected to quadEM pulse output
+#pQuadEM = initQuadEM(0xf000, 0, 1000, 10, pIpUnidig, 2)
+
+# initQuadEMScan(pQuadEM, serverName, queueSize)
+#  pQuadEM    = pointer to quadEM object created with initQuadEM
+#  serverName = name of MPF server (string)
+#  queueSize  = size of MPF queue
+#initQuadEMScan(pQuadEM, "quadEM1", 100)
+
+# initQuadEMSweep(pquadEM, serverName, maxPoints, int queueSize)
+#  pQuadEM    = pointer to quadEM object created with initQuadEM
+#  serverName = name of MPF server (string)
+#  maxPoints  = maximum number of channels per spectrum
+#  queueSize  = size of MPF queue
+#initQuadEMSweep(pQuadEM, "quadEMSweep", 2048, 100)
+
+# initQuadEMPID(serverName, pQuadEM, quadEMChannel,
+#               pDAC128V, DACChannel, queueSize)
+#  serverName  = name of MPF server (string)
+#  pQuadEM     = pointer to quadEM object created with initQuadEM
+#  quadEMChannel = quadEM "channel" to be used for feedback (0-9)
+#                  These are defined as:
+#                        0 = current 1
+#                        1 = current 2
+#                        2 = current 3
+#                        3 = current 4
+#                        4 = sum 1 = current1 + current3
+#                        5 = sum 2 = current2 + current4
+#                        6 = difference 1 = current3 - current1
+#                        7 = difference 2 = current4 - current2
+#                        8 = position 1 = difference1/sum1 * 32767
+#                        9 = position 2 = difference2/sum2 * 32767
+#  pDAC128V    = pointer to DAC128V object created with initDAC128V
+#  DACVChannel = DAC channel number used for this PID (0-7)
+#  queueSize   = size of MPF queue
+#initQuadEMPID("quadEMPID1", pQuadEM, 8, pDAC128V, 2, 20)
+#initQuadEMPID("quadEMPID2", pQuadEM, 9, pDAC128V, 3, 20)
+
+#Quad electrometer "scan" ai records
+#dbLoadRecords("quadEMApp/Db/quadEM.db","P=xxx:, EM=EM1, CARD=0, SERVER=quadEM1", quadem)
+
+### APS Quad Electrometer in sweep mode
+#dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=quadEM_1,DTYPE=MPF MCA,NCHAN=2048,INP=#C0 S0 @quadEMSweep", mca)
+#dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=quadEM_2,DTYPE=MPF MCA,NCHAN=2048,INP=#C0 S1 @quadEMSweep", mca)
+#dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=quadEM_3,DTYPE=MPF MCA,NCHAN=2048,INP=#C0 S2 @quadEMSweep", mca)
+#dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=quadEM_4,DTYPE=MPF MCA,NCHAN=2048,INP=#C0 S3 @quadEMSweep", mca)
+#dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=quadEM_5,DTYPE=MPF MCA,NCHAN=2048,INP=#C0 S8 @quadEMSweep", mca)
+#dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=quadEM_6,DTYPE=MPF MCA,NCHAN=2048,INP=#C0 S9 @quadEMSweep", mca)
+
+# Fast feedback with IP330 and QuadEM
+#dbLoadTemplate("pid_fast.substitutions")
+# Slow feedback
+#dbLoadTemplate("pid_slow.substitutions")
+
+# CAMAC hardware
+# Setup the ksc2917 hardware definitions
+# These are all actually the defaults, so this is not really necessary
+# num_cards, addrs, ivec, irq_level
+#ksc2917_setup(1, 0xFF00, 0x00A0, 2)
+
+# Initialize the CAMAC library.  Note that this is normally done automatically
+# in iocInit, but we need to get the CAMAC routines working before iocInit
+# because we need to initialize the DXP hardware.
+#camacLibInit
+
+### E500 Motors
+# E500 driver setup parameters:
+#     (1) maximum # of controllers,
+#     (2) maximum # axis per card
+#     (3) motor task polling rate (min=1Hz, max=60Hz)
+#E500Setup(2, 8, 10)
+
+# E500 driver configuration parameters:
+#     (1) controller
+#     (2) branch
+#     (3) crate
+#     (4) slot
+#E500Config(0, 0, 0, 13)
+#E500Config(1, 0, 0, 14)
+
+### Scalers: CAMAC scaler
+# CAMACScalerSetup(int max_cards)   /* maximum number of logical cards */
+#CAMACScalerSetup(1)
+
+# CAMACScalerConfig(int card,       /* logical card */
+#  int branch,                         /* CAMAC branch */
+#  int crate,                          /* CAMAC crate */
+#  int timer_type,                     /* 0=RTC-018 */
+#  int timer_slot,                     /* Timer N */
+#  int counter_type,                   /* 0=QS-450 */
+#  int counter_slot)                   /* Counter N */
+#CAMACScalerConfig(0, 0, 0, 0, 20, 0, 21)
+#dbLoadRecords("camacApp/Db/CamacScaler.db","P=xxx:,S=scaler1,C=0", camac)
+
+# Load the DXP stuff
+#< 16element_dxp.cmd
+
+# Generic CAMAC record
+#dbLoadRecords("camacApp/Db/generic_camac.db","P=xxx:,R=camac1,SIZE=2048", camac)
 
 
 ###############################################################################
