@@ -1,11 +1,11 @@
-# Set the SCAN field of the longin record and bi record #2 to ".1 second", rather than I/O
+# Set the SCAN field of the longin record and bi record #2 to "1 second", rather than I/O
 # interrupt, because the quadEM toggles input #2 at 800Hz, and that is too much load on the IOC
 
 file "$(IPUNIDIG)/ipUnidigApp/Db/IpUnidigLi.db"
 {
 pattern
 {P,       R,       PORT,       SCAN}
-{xxx:,  UnidigLi1,  Unidig1, "1 second"}
+{xxx:,  Unidig1Li,  Unidig1, "1 second"}
 }
 
 file "$(IPUNIDIG)/ipUnidigApp/Db/IpUnidigBi.db"
@@ -72,5 +72,5 @@ file "$(IPUNIDIG)/ipUnidigApp/Db/IpUnidigLo.db"
 {
 pattern
 {P,       R,       PORT}
-{xxx:,  UnidigLo1,  Unidig1}
+{xxx:,  Unidig1Lo,  Unidig1}
 }
