@@ -1,12 +1,12 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synApps_5_1/support/xxx/xxxApp/op/adl/xxx.adl"
-	version=030004
+	name="C:\Program Files\EPICS\adls\xxx.adl"
+	version=020306
 }
 display {
 	object {
-		x=519
-		y=26
+		x=279
+		y=76
 		width=450
 		height=140
 	}
@@ -257,19 +257,14 @@ display {
 		args="P=xxx:,M1=m41,M2=m42,M3=m43,M4=m44,M5=m45,M6=m46,M7=m47,M8=m48"
 	}
 	display[6] {
-		label="49-56"
-		name="topMotors8.adl"
-		args="P=xxx:,M1=m49,M2=m50,M3=m51,M4=m52,M5=m53,M6=m54,M7=m55,M8=m56"
-	}
-	display[7] {
-		label="Motor status"
-		name="motorStatus32.adl"
-		args="P=xxx:"
-	}
-	display[8] {
 		label="soft motors 1-10"
 		name="softMotors10.adl"
 		args="P=xxx:,SM1=SM1,SM2=SM2,SM3=SM3,SM4=SM4,SM5=SM5,SM6=SM6,SM7=SM7,SM8=SM8,SM9=SM9,SM10=SM10"
+	}
+	display[7] {
+		label="Pseudo-motors"
+		name="topMotors4.adl"
+		args="P=xxx:,M1=pm1,M2=pm2,M3=pm3,M4=pm4"
 	}
 	clr=0
 	bclr=17
@@ -447,12 +442,14 @@ display {
 		height=20
 	}
 	display[0] {
-		label="Keithley 2000 DMM"
+		label="Keithley 2000 DMM #1"
 		name="Keithley2kDMM_mf.adl"
 		args="P=xxx:,Dmm=D1"
 	}
 	display[1] {
-		label=" "
+		label="Keithley 2000 DMM #2"
+		name="Keithley2kDMM_mf.adl"
+		args="P=xxx:,Dmm=D2"
 	}
 	clr=0
 	bclr=63
@@ -468,12 +465,37 @@ display {
 	display[0] {
 		label="ADC 1"
 		name="Ip330Scan.adl"
-		args="P=xxx:,R=ADC_"
+		args="P=xxx:,R=IP330_"
 	}
 	display[1] {
 		label="ADC 1 sweep"
 		name="mca_small.adl"
-		args="P=xxx:,M=mADC_1"
+		args="P=xxx:,M=mip330_1"
+	}
+	display[2] {
+		label="ADC 2 sweep"
+		name="mca_small.adl"
+		args="P=xxx:,M=mip330_2"
+	}
+	display[3] {
+		label="ADC 3 sweep"
+		name="mca_small.adl"
+		args="P=xxx:,M=mip330_3"
+	}
+	display[4] {
+		label="ADC 4 sweep"
+		name="mca_small.adl"
+		args="P=xxx:,M=mip330_4"
+	}
+	display[5] {
+		label="Slow feedback"
+		name="pid_control.adl"
+		args="P=xxx:,PID=pid_slow,TITLE=Slow_Feedback"
+	}
+	display[6] {
+		label="Fast feedback"
+		name="pid_control.adl"
+		args="P=xxx:,PID=ip330PIDFast,TITLE=Fast_Feedback"
 	}
 	clr=0
 	bclr=17
@@ -646,79 +668,29 @@ display {
 		height=20
 	}
 	display[0] {
-		label="asyn record serial1"
-		name="asynRecord.adl"
-		args="P=xxx:,R=asyn_1"
+		label="generic VME"
+		name="recVME.adl"
+		args="P=xxx:,Q=vme1"
 	}
 	display[1] {
-		label="asyn record serial2"
-		name="asynRecord.adl"
-		args="P=xxx:,R=asyn_2"
+		label="generic CAMAC"
+		name="CAMAC_IO.adl"
+		args="REC=xxx:camac1"
 	}
 	display[2] {
-		label="asyn record serial3"
-		name="asynRecord.adl"
-		args="P=xxx:,R=asyn_3"
-	}
-	display[3] {
-		label="asyn record serial4"
-		name="asynRecord.adl"
-		args="P=xxx:,R=asyn_4"
-	}
-	display[4] {
-		label="asyn record serial5"
-		name="asynRecord.adl"
-		args="P=xxx:,R=asyn_5"
-	}
-	display[5] {
-		label="asyn record serial6"
-		name="asynRecord.adl"
-		args="P=xxx:,R=asyn_6"
-	}
-	display[6] {
-		label="asyn record serial7"
-		name="asynRecord.adl"
-		args="P=xxx:,R=asyn_7"
-	}
-	display[7] {
-		label="asyn record serial8"
-		name="asynRecord.adl"
-		args="P=xxx:,R=asyn_8"
-	}
-	display[8] {
-		label="asyn record gpib1"
-		name="asynRecord.adl"
+		label="asyn GPIB"
+		name="asynOctet.adl"
 		args="P=xxx:,R=gpib1"
 	}
-	display[9] {
+	display[3] {
 		label="deviceCmdReply 1"
 		name="deviceCmdReply.adl"
 		args="P=xxx:,N=1"
 	}
-	display[10] {
+	display[4] {
 		label="deviceCmdReply 2"
 		name="deviceCmdReply.adl"
 		args="P=xxx:,N=2"
-	}
-	display[11] {
-		label="deviceCmdReply 3"
-		name="deviceCmdReply.adl"
-		args="P=xxx:,N=3"
-	}
-	display[12] {
-		label="deviceCmdReply 4"
-		name="deviceCmdReply.adl"
-		args="P=xxx:,N=4"
-	}
-	display[14] {
-		label="generic VME 1"
-		name="recVme.adl"
-		args="P=xxx:,Q=vme1"
-	}
-	display[15] {
-		label="generic CAMAC"
-		name="CAMAC_IO.adl"
-		args="REC=xxx:camac1"
 	}
 	clr=0
 	bclr=17
@@ -1512,4 +1484,105 @@ text {
 	clr=0
 	bclr=17
 	label="-Love"
+}
+"related display" {
+	object {
+		x=210
+		y=120
+		width=70
+		height=20
+	}
+	display[0] {
+		label="IpUnidig I/O"
+		name="IpUnidig.adl"
+		args="P=xxx:,R=Unidig1"
+	}
+	display[1] {
+		label=" "
+	}
+	clr=0
+	bclr=63
+	label="-Digital"
+}
+"related display" {
+	object {
+		x=280
+		y=100
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Quad Electrometer"
+		name="quadEM.adl"
+		args="P=xxx:,EM=EM1"
+	}
+	display[1] {
+		label="Quad Electrometer MCAs"
+		name="quadEM_med.adl"
+		args="P=xxx:quadEM:, P_FFT=xxx:quadEM_FFT:"
+	}
+	display[2] {
+		label="Vertical feedback"
+		name="pid_control.adl"
+		args="P=xxx:, PID=quadEMVertical,TITLE=Vertical_Feedback"
+	}
+	display[3] {
+		label="Horizontal feedback"
+		name="pid_control.adl"
+		args="P=xxx:, PID=quadEMHorizontal,TITLE=Horizontal_Feedback"
+	}
+	clr=0
+	bclr=63
+	label="-quadEM"
+}
+"related display" {
+	object {
+		x=280
+		y=120
+		width=70
+		height=20
+	}
+	display[0] {
+		label="asyn record serial1"
+		name="asynOctet.adl"
+		args="P=xxx:,R=asyn_1"
+	}
+	display[1] {
+		label="asyn record serial2"
+		name="asynOctet.adl"
+		args="P=xxx:,R=asyn_2"
+	}
+	display[2] {
+		label="asyn record serial3"
+		name="asynOctet.adl"
+		args="P=xxx:,R=asyn_3"
+	}
+	display[3] {
+		label="asyn record serial4"
+		name="asynOctet.adl"
+		args="P=xxx:,R=asyn_4"
+	}
+	display[4] {
+		label="asyn record serial5"
+		name="asynOctet.adl"
+		args="P=xxx:,R=asyn_5"
+	}
+	display[5] {
+		label="asyn record serial6"
+		name="asynOctet.adl"
+		args="P=xxx:,R=asyn_6"
+	}
+	display[6] {
+		label="asyn record serial7"
+		name="asynOctet.adl"
+		args="P=xxx:,R=asyn_7"
+	}
+	display[7] {
+		label="asyn record serial8"
+		name="asynOctet.adl"
+		args="P=xxx:,R=asyn_8"
+	}
+	clr=0
+	bclr=17
+	label="-serial"
 }
