@@ -3,7 +3,7 @@
 
 cd ""
 < ../nfsCommands
-# Nore we're loading the cdCommands file that was built for the main
+# Note we're loading the cdCommands file that was built for the main
 # EPICS processor, which may be of a different architecture. 
 < cdCommands
 < MPFconfig.cmd
