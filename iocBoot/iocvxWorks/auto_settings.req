@@ -20,6 +20,17 @@ file motor_settings.req P=$(P),M=m14
 file motor_settings.req P=$(P),M=m15
 file motor_settings.req P=$(P),M=m16
 
+file softMotor_settings.req P=$(P),SM=SM1
+file softMotor_settings.req P=$(P),SM=SM2
+file softMotor_settings.req P=$(P),SM=SM3
+file softMotor_settings.req P=$(P),SM=SM4
+file softMotor_settings.req P=$(P),SM=SM5
+file softMotor_settings.req P=$(P),SM=SM6
+file softMotor_settings.req P=$(P),SM=SM7
+file softMotor_settings.req P=$(P),SM=SM8
+file softMotor_settings.req P=$(P),SM=SM9
+file softMotor_settings.req P=$(P),SM=SM10
+
 file scanParms_settings.req P=$(P),M=m1
 file scanParms_settings.req P=$(P),M=m2
 file scanParms_settings.req P=$(P),M=m3
@@ -36,6 +47,17 @@ file scanParms_settings.req P=$(P),M=m13
 file scanParms_settings.req P=$(P),M=m14
 file scanParms_settings.req P=$(P),M=m15
 file scanParms_settings.req P=$(P),M=m16
+
+file scanParms_settings.req P=$(P),M=SM1
+file scanParms_settings.req P=$(P),M=SM2
+file scanParms_settings.req P=$(P),M=SM3
+file scanParms_settings.req P=$(P),M=SM4
+file scanParms_settings.req P=$(P),M=SM5
+file scanParms_settings.req P=$(P),M=SM6
+file scanParms_settings.req P=$(P),M=SM7
+file scanParms_settings.req P=$(P),M=SM8
+file scanParms_settings.req P=$(P),M=SM9
+file scanParms_settings.req P=$(P),M=SM10
 
 file table_settings.req P=$(P),T=table1,Q=Table1
 
@@ -107,12 +129,11 @@ file interp_settings.req P=$(P)
 
 # MCA
 #file mca_settings.req P=$(P),M=mca1
-#file icb_adc_settings.req P=$(P),ADC=icbAdc1
+#file icb_adc_settings.req P=$(P),ADC=adc1
 #file icb_amp_settings.req P=$(P),AMP=amp1
-#file icb_hvps_settings.req P=$(P),HVPS=icbHvps1
-#file icb_tca_settings.req P=$(P),TCA=icbTca1
-#file icbDsp_settings.req P=$(P),DSP=icbDsp1
-#file simple_mca_settings.req P=$(P),M=mca1
+#file icb_hvps_settings.req P=$(P),HVPS=hvps1
+#file icb_tca_settings.req P=$(P),TCA=tca1
+#file icbDsp_settings.req P=$(P),DSP=dsp1
 
 # PVs loaded by vxStats.substitutions
 $(P):R_CA
