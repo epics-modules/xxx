@@ -1,5 +1,6 @@
 
 # BEGIN canberra_1.cmd --------------------------------------------------------
+
 # Commands to load a single Canberra detector with ICB electronics
 #mcaRecordDebug=1
 #aimDebug=1
