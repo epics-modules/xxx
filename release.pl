@@ -1,3 +1,29 @@
+# FILENAME...	release.pl
+#
+# USAGE... This PERL script is used in conjunction with a start_epics_xxx
+#           csh script to setup environment variables for medm.
+#
+# ORIGINAL AUTHOR: Ron Sluiter
+# 
+# SYNOPSIS...	release.pl(<ioctop> directory)
+#
+#
+# MODIFICATION LOG...
+# 03/25/04 rls Support for GATEWAY environment variable.
+# 04/08/04 rls Bug fix for spaces between macro and '=' sign; e.g. MPF = /home/mpf.
+#
+#Version:	$Revision: 1.5 $
+#Modified By:	$Author: sluiter $
+#Last Modified:	$Date: 2004-04-08 22:04:23 $
+
+use Env;
+
+if ($ENV{GATEWAY} ne "")
+{
+    # Add GATEWAY to macro list.
+    $applications{GATEWAY} = $ENV{GATEWAY};
+}
+
 $top = $ARGV[0];
 
 $applications{TOP} = $top;
@@ -64,6 +90,9 @@ foreach $file (@files)
 			$post = $base . $post;
 		    }
 		}
+
+		$prefix =~ s/^\s+|\s+$//g; # strip leading and trailing whitespace.
+
 		$applications{$prefix} = $post;
 		if ( -d "$post")
 		{
