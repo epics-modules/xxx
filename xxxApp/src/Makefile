@@ -44,7 +44,6 @@ xxx_SRCS_vxWorks += -nil-
 
 #xxx_Common_LIBS += xxxSupport
 xxx_Common_LIBS += mca
-xxx_Common_LIBS += mcaCanberra
 xxx_Common_LIBS += calc
 xxx_Common_LIBS += sscan
 xxx_Common_LIBS += autosave
@@ -52,18 +51,19 @@ xxx_Common_LIBS += optics
 xxx_Common_LIBS += vme
 xxx_Common_LIBS += std
 xxx_Common_LIBS += ip
-xxx_Common_LIBS += gpib
 xxx_Common_LIBS += brukerCCD
 xxx_Common_LIBS += marCCD
 xxx_Common_LIBS += roperCCD
 #xxx_Common_LIBS += Acs Ims Mclennan motor Newport softMotor
 xxx_Common_LIBS += Acs motor Mclennan Newport softMotor
 xxx_Common_LIBS += mpf 
+xxx_Common_LIBS += asyn
 xxx_Common_LIBS += seq pv seqDev
 xxx_Common_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 xxx_vxWorks_LIBS += allenBradley
 xxx_vxWorks_LIBS += mcaSIS
+xxx_vxWorks_LIBS += mcaCanberra
 xxx_vxWorks_LIBS += ip330 devIp330
 xxx_vxWorks_LIBS += ipUnidig
 xxx_vxWorks_LIBS += dac128V
@@ -78,13 +78,14 @@ xxx_vxWorks_LIBS += TyGSOctal Ipac
 xxx_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
 xxx_Linux_LIBS  += dxp xerxes
+xxx_Linux_LIBS  += mcaCanberra
 
 xxx_LIBS_DEFAULT = $(xxx_Common_LIBS)
 xxx_LIBS_vxWorks = $(xxx_vxWorks_LIBS) $(xxx_Common_LIBS)
 xxx_LIBS_Linux   = $(xxx_Linux_LIBS)   $(xxx_Common_LIBS)
 
 # If the host has libnet and libpcap for mca/Canberra support
-xxx_SYS_LIBS_DEFAULT += net pcap
+xxx_SYS_LIBS_Linux += net pcap
 xxx_SYS_LIBS_vxWorks += -nil-
 
 #===========================
