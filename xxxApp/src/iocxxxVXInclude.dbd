@@ -1,0 +1,30 @@
+# stuff for vxWorks ioc
+
+# Include everything for non-vxWorks IOC
+include "xxxCommonInclude.dbd"
+
+include "mpfSerialVx.dbd"
+include "vmeVXSupport.dbd"
+include "sscanVXSupport.dbd"
+include "stdVXSupport.dbd"
+include "ipVXSupport.dbd"
+include "mcaSISSupport.dbd"
+include "devIpUnidig.dbd"
+include "devAoDAC128V.dbd"
+include "devIp330.dbd"
+include "devOms.dbd"
+include "camacSupport.dbd"
+include "devCamacSupport.dbd"
+include "dxpSupport.dbd"
+include "allenBradley.dbd"
+include "devQuadEM.dbd"
+# If not defined in iocxxxInclude.dbd
+include "mcaCanberraSupport.dbd"
+include "devLove.dbd"
+include "tyGSOctal.dbd"
+include "drvIpac.dbd"
+include "vxStats.dbd"
+
+# Locally defined stuff that needs to be registered
+#registrar(myRegistrar)
+#variable(myDebug)
