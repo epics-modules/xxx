@@ -18,14 +18,21 @@ include $(TOP)/config/CONFIG_APP
 #----------------------------------------
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 
+
+# Objects from BASE
+# -----------------
+include ../baseLIBOBJS
+LIBOBJS += $(BASELIBOBJS)
+
 # Objects from STD
 # ----------------
-#include $(STD)/stdApp/src/baseLIBOBJS
-#LIBOBJS += $(BASELIBOBJS)
-LIBOBJS  += $(STD_BIN)/baseLib
 #include $(STD)/stdApp/src/stdLIBOBJS
 #LIBOBJS += $(STDLIBOBJS)
 LIBOBJS  += $(STD_BIN)/stdLib
+
+SRCS.c += ../module_types.c
+LIBOBJS += module_types.o
+
 BIN_INSTALLS += $(STD_BIN)/getFilledBuckets.o
 BIN_INSTALLS += $(STD_BIN)/initHooks.o
 BIN_INSTALLS += $(STD_BIN)/xiahsc.o
