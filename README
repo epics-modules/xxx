@@ -5,17 +5,18 @@ If you don't want to build all of the default target architectures
 synApps/support/configure/CONFIG, or in base/configure/CONFIG_SITE),
 then edit configure/CONFIG to set the variable CROSS_COMPILER_TARGET_ARCHS.
 
-Edit iocBoot/iocxxx/Makefile to set the variable ARCH
+Edit iocBoot/ioc*/Makefile to set the variable ARCH
 
 Edit start_epics_xxx to set the variable EPICS_APP
 
-Edit iocBoot/iocxxx/st.cmd and iocBoot/iocxxx/*.substitutions
+Edit iocBoot/ioc*/st.cmd and iocBoot/ioc*/*.substitutions
 to agree with your hardware
 
-Edit iocBoot/iocxxx/auto*.req to agree with your software
+Edit iocBoot/ioc*/auto*.req to agree with your software
 
-chmod a+w,g+s iocBoot/iocxxx/autosave
+chmod a+w,g+s iocBoot/ioc*/autosave
 
-Run changePrefix_synApps_4.6 to change the prefix from xxx to whatever you want
+Run synApps/support/utils/changePrefix to change the prefix from 'xxx'
+to whatever you want
 
 Run gnumake
