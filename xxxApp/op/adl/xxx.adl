@@ -980,32 +980,32 @@ display {
 	display[0] {
 		label="Canberra AIM Multichannel Analyzer"
 		name="mca_small.adl"
-		args="P=xxx:,M=mca1"
+		args="P=xxx:,M=aim_adc1"
 	}
 	display[1] {
 		label="MCA with ROI's"
 		name="mca.adl"
-		args="P=xxx:,M=mca1"
+		args="P=xxx:,M=aim_adc1"
 	}
 	display[2] {
 		label="ADC 1"
 		name="xxIcbAdc.adl"
-		args="P=xxx:,ADC=icbAdc1"
+		args="P=xxx:,ADC=adc1"
 	}
 	display[3] {
 		label="TCA 1"
 		name="xxIcbTCA.adl"
-		args="P=xxx:,TCA=icbTca1"
+		args="P=xxx:,TCA=tca1"
 	}
 	display[4] {
 		label="HVPS 1"
 		name="xxIcbHVPS.adl"
-		args="P=xxx:,HVPS=icbHvps1"
+		args="P=xxx:,HVPS=hvps1"
 	}
 	display[5] {
 		label="AMP 1"
 		name="xxIcbAmp.adl"
-		args="P=xxx:,AMP=icbAmp1"
+		args="P=xxx:,AMP=amp1"
 	}
 	display[6] {
 		label="DSP 1"
