@@ -365,7 +365,7 @@ dbLoadRecords("$(MCA)/mcaApp/Db/icb_adc.db","P=xxx:,ADC=icbAdc1,CARD=0,SERVER=ic
 #STR7201Config(0, 8, 1000, 0) 
 
 # Struck as EPICS scaler
-dbLoadRecords("$(MCA)/mcaApp/Db/STR7201scaler.db", "P=13LAB:,S=scaler2,C=0")
+dbLoadRecords("$(MCA)/mcaApp/Db/STR7201scaler.db", "P=xxx:,S=scaler2,C=0")
 
 ### Acromag IP330 in sweep mode ###
 #dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=mADC_1,DTYPE=ip330Sweep,NCHAN=2048,INP=#C0 S0 @Ip330Sweep1")
