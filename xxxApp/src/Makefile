@@ -78,14 +78,17 @@ xxx_vxWorks_LIBS += TyGSOctal Ipac
 xxx_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
 xxx_Linux_LIBS  += dxp handel
-xxx_Linux_LIBS  += mcaCanberra
+# If libnet IS installed on your HOST Linux system;
+# uncomment the following line.
+#xxx_Linux_LIBS  += mcaCanberra
 
 xxx_LIBS_DEFAULT = $(xxx_Common_LIBS)
 xxx_LIBS_vxWorks = $(xxx_vxWorks_LIBS) $(xxx_Common_LIBS)
 xxx_LIBS_Linux   = $(xxx_Linux_LIBS)   $(xxx_Common_LIBS)
 
 # If the host has libnet and libpcap for mca/Canberra support
-xxx_SYS_LIBS_Linux += net pcap
+# uncomment the following line.
+#xxx_SYS_LIBS_Linux += net pcap
 xxx_SYS_LIBS_vxWorks += -nil-
 
 #===========================
