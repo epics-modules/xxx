@@ -119,6 +119,29 @@ file icb_adc_settings.req P=$(P),ADC=icbAdc1
 # dac128V 8-channel DAC
 #file 8chan_DAC_settings.req P=$(P), D=1
 
+# lookup-table stuff
+xxx:interp.A
+xxx:interp.B
+xxx:interp.C
+xxx:interp_y1.DESC
+xxx:interp_y2.DESC
+xxx:interp_x.VAL
+xxx:interp.F
+xxx:interp_y1.OUT
+xxx:interp_y2.OUT
+
+# SR_array_test.vdb
+$(P)SR_char_array.VAL
+$(P)SR_double_array.VAL
+$(P)SR_enum_array.VAL
+$(P)SR_float_array.VAL
+$(P)SR_long_array.VAL
+$(P)SR_short_array.VAL
+$(P)SR_string_array.VAL
+$(P)SR_uchar_array.VAL
+$(P)SR_ulong_array.VAL
+$(P)SR_ushort_array.VAL
+
 # Other request files
 #file Keithley2kDMM20_settings.req P=$(P)
 #file Keithley2kDMM_mf10_settings.req
@@ -135,3 +158,7 @@ file icb_adc_settings.req P=$(P),ADC=icbAdc1
 #file SGM_settings.req
 #file pid_control_settings.req
 #file saveData_settings.req
+
+file softMotor_settings.req P=$(P),SM=sm1
+file softMotor_settings.req P=$(P),SM=sm1
+
