@@ -1,5 +1,5 @@
 #!/bin/csh
-setenv EPICS_APP /home/oxygen/SLUITER/ioc_Vx_5-4/support/xxx
+setenv EPICS_APP /home/oxygen4/MOONEY/epics/synApps_4_6/support/xxx
 set output = `perl $EPICS_APP/release.pl $EPICS_APP`
 $output
 setenv EPICS_DISPLAY_PATH $MOTOR/motorApp/op/adl':'$STD/stdApp/op/adl':'$MCA/mcaApp/op/adl':'$IP330/ip330App/adl':'$IP/ipApp/op/adl':'$SUPPORT/xxx/xxxApp/op/adl
