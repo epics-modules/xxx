@@ -32,9 +32,9 @@ set_pass0_restoreFile("auto_positions.sav")
 set_pass0_restoreFile("auto_settings.sav")
 set_pass1_restoreFile("auto_settings.sav")
 
-# load general-purpose interpolation tables with local, user-editable file
-# (if interp_settings.req is included in auto_settings.req, the next line
-# will overwrite those restored values)
+# load general-purpose interpolation tables with the local, user-editable
+# file interp.sav.  (If interp_settings.req is included in auto_settings.req,
+# the next line will overwrite those restored values.)
 #set_pass1_restoreFile("interp.sav")
 
 ###
