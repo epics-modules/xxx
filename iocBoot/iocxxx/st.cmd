@@ -20,9 +20,11 @@ ld < mpfLib
 ### Load custom EPICS software from xxxApp and from share
 ld < xxxLib
 
-#routerInit
+# Note that you need an MPF router not only for IP modules, but also for
+# the AIM MCA support.
+routerInit
 # talk to local IP's
-#localMessageRouterStart(0)
+localMessageRouterStart(0)
 # talk to IP's on satellite processor
 # (must agree with tcpMessageRouterServerStart in st_proc1.cmd)
 # for IP modules on stand-alone mpf server board
@@ -44,7 +46,6 @@ ld < xxxLib
 #ld < GpibHideosLocal.o
 
 ### save_restore setup
-cd startup
 # status-PV prefix
 save_restoreSet_status_prefix("xxx:")
 # Debug-output level
@@ -57,20 +58,23 @@ save_restoreSet_DatedBackupFiles(1)
 save_restoreSet_NumSeqFiles(3)
 # Time interval between sequenced backups
 save_restoreSet_SeqPeriodInSeconds(300)
-# The following line was moved to ../nfsCommands
-#save_restoreSet_NFSHost("oxygen", "164.54.52.4")
+save_restoreSet_NFSHost("oxygen", "164.54.52.4")
 
 # specify where save files should go
 set_savefile_path(startup, "autosave")
 # specify where request files come from
-# (current directory)
 set_requestfile_path(startup)
 set_requestfile_path(std, "stdApp/Db")
 set_requestfile_path(motor, "motorApp/Db")
 set_requestfile_path(mca, "mcaApp/Db")
 set_requestfile_path(ip, "ipApp/Db")
 set_requestfile_path(ip330, "ip330App/Db")
-# specify what save files should be restored
+set_requestfile_path(dac128v, "dac128VApp/Db")
+set_requestfile_path(ipunidig, "ipUnidigApp/Db")
+#set_requestfile_path(quadem, "quadEMApp/Db")
+#set_requestfile_path(camac, "camacApp/Db")
+# specify what save files should be restored.  Note these files must be reachable
+# from the directory current at the time iocInit is run
 set_pass0_restoreFile("auto_positions.sav")
 set_pass0_restoreFile("auto_settings.sav")
 set_pass1_restoreFile("auto_settings.sav")
@@ -87,17 +91,6 @@ ld < initHooks.o
 # X-ray Instrumentation Associates Huber Slit Controller
 # supported by a customized version of the SNL program written by Pete Jemian
 #ld < xia_slit.o
-
-# The following applies to "save/restore V2.9" and above.
-# specify where save files should go
-set_savefile_path("autosave")
-
-# specify where to get request files
-set_requestfile_path(ip,    "ipApp/Db");
-set_requestfile_path(mca,   "mcaApp/Db");
-set_requestfile_path(motor, "motorApp/Db");
-set_requestfile_path(std,   "stdApp/Db");
-set_requestfile_path(startup);
 
 # override address, interrupt vector, etc. information in module_types.h
 module_types()
@@ -117,10 +110,10 @@ dbLoadDatabase("../../dbd/xxxApp.dbd")
 #dbLoadRecords("ipApp/Db/love.db", "P=xxx:,Q=Love_0,C=0,PORT=PORT2,ADDR=1", ip);
 
 # interpolation
-#dbLoadRecords("stdApp/Db/interp.db", "P=xxx:", std)
+dbLoadRecords("stdApp/Db/interp.db", "P=xxx:", std)
 
 # 4-step measurement
-#dbLoadRecords("stdApp/Db/4step.db", "P=xxx:", std)
+dbLoadRecords("stdApp/Db/4step.db", "P=xxx:", std)
 
 # X-ray Instrumentation Associates Huber Slit Controller
 # supported by a customized version of the SNL program written by Pete Jemian
@@ -133,27 +126,11 @@ dbLoadDatabase("../../dbd/xxxApp.dbd")
 dbLoadTemplate("picMot.substitutions", ip)
 
 
-################################
-# Sector 2 custom databases
-################################
-
-#M1 mirror stripe change database
-#!dbLoadRecords("sectorApp/Db/stripe_change.db","P=xxx:,M=m21", top)
-
-#M2B 6 position select database
-#bt dbLoadRecords("sectorApp/Db/2motor_position_selector.db","P=xxx:,D=M2B,M1=m29,M2=m30", top)
-
-#M2C 6 position select database
-#bt dbLoadRecords("sectorApp/Db/2motor_position_selector.db","P=xxx:,D=M2C,M1=m28,M2=m27", top)
-################################
-# End Sector 2 Custom databases
-################################
-
 ##############################################################################
 
 # Insertion-device control
 dbLoadRecords("stdApp/Db/IDctrl.db","P=xxx:,xx=02us", std)
-dbLoadRecords("stdApp/Db/IDctrl.db","P=xxx:,xx=02ds", std)
+#dbLoadRecords("stdApp/Db/IDctrl.db","P=xxx:,xx=02ds", std)
 
 # test generic gpib record
 #dbLoadRecords("stdApp/Db/gpib.db","P=xxx:", std)
@@ -161,9 +138,9 @@ dbLoadRecords("stdApp/Db/IDctrl.db","P=xxx:,xx=02ds", std)
 #dbLoadRecords("stdApp/Db/camac.db","P=xxx:", std)
 
 # string sequence (sseq) record
-#dbLoadRecords("stdApp/Db/yySseq.db","P=xxx:,S=Sseq1", std)
-#dbLoadRecords("stdApp/Db/yySseq.db","P=xxx:,S=Sseq2", std)
-#dbLoadRecords("stdApp/Db/yySseq.db","P=xxx:,S=Sseq3", std)
+dbLoadRecords("stdApp/Db/yySseq.db","P=xxx:,S=Sseq1", std)
+dbLoadRecords("stdApp/Db/yySseq.db","P=xxx:,S=Sseq2", std)
+dbLoadRecords("stdApp/Db/yySseq.db","P=xxx:,S=Sseq3", std)
 
 ###############################################################################
 
@@ -181,7 +158,7 @@ omsSetup(2, 8, 0xFC00, 180, 5, 10)
 #     (1)cards, (2)axes per card, (3)base address(short, 4k boundary), 
 #     (4)interrupt vector (0=disable or  64 - 255), (5)interrupt level (1 - 6),
 #     (6)motor task polling rate (min=1Hz,max=60Hz)
-oms58Setup(3, 8, 0x4000, 190, 5, 10)
+oms58Setup(3, 8, 0x3000, 190, 5, 10)
 
 # Highland V544 driver setup parameters: 
 #     (1)cards, (2)axes per card, (3)base address(short, 4k boundary), 
@@ -226,12 +203,12 @@ dbLoadRecords("stdApp/Db/Jscaler.db","P=xxx:,S=scaler1,C=0", std)
 # Joerger VSC setup parameters: 
 #     (1)cards, (2)base address(ext, 256-byte boundary), 
 #     (3)interrupt vector (0=disable or  64 - 255)
-VSCSetup(1, 0xD0000000, 200)
+VSCSetup(1, 0x90000000, 200)
 
 ### Allstop, alldone
 # This database must agree with the motors and other positioners you've actually loaded.
 # Several versions (e.g., all_com_32.db) are in stdApp/Db
-dbLoadRecords("stdApp/Db/all_com_32.db","P=xxx:", std)
+dbLoadRecords("stdApp/Db/all_com_16.db","P=xxx:", std)
 
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
@@ -258,13 +235,13 @@ dbLoadRecords("stdApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m23,mXn=m25", std)
 #tableRecordDebug=1
 # command line would be too long ( >128 chars). One way to shorten it...
 cd std
-dbLoadRecords("stdApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m31,M0Y=m12,M1Y=m13,M2X=m32,M2Y=m14,M2Z=m18,GEOM=SRI")
+dbLoadRecords("stdApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
 cd startup
 
 ### Monochromator support ###
 # Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
 # standard geometry (geometry 1)
-#dbLoadRecords("stdApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=17.4999,yOffHi=17.5001", std)
+dbLoadRecords("stdApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=17.4999,yOffHi=17.5001", std)
 # modified geometry (geometry 2)
 #dbLoadRecords("stdApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=4,yOffHi=36", std)
 
@@ -278,23 +255,23 @@ cd startup
 #drvIK320RegErrStr()
 
 # Spherical grating monochromator
-#dbLoadRecords("stdApp/Db/SGM.db","P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8,M_g=m9", std)
+dbLoadRecords("stdApp/Db/SGM.db","P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8,M_g=m9", std)
 
 # 4-bounce high-resolution monochromator
-#dbLoadRecords("stdApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10", std)
-#dbLoadRecords("stdApp/Db/hrSeq.db","P=xxx:,N=2,M_PHI1=m11,M_PHI2=m12", std)
-
-# dispersive-monochromator protection
-#dbLoadRecords("stdApp/Db/bprotect.db","P=xxx:,M_BTHETA=m25,M_BTRANS=m26", std)
+dbLoadRecords("stdApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10", std)
 
 ### Canberra AIM Multichannel Analyzer ###
+#
+# Make sure you're calling 'routerInit'and 'localMessageRouterStart(0) above
+# (or tcpMessageRouterClientStart(), if you know what you're doing.)
+#
 #mcaRecordDebug=0
 #devMcaMpfDebug=0
 #mcaAIMServerDebug=0
 #aimDebug=0
 
 # AIMConfig(serverName, int etherAddr, int port, int maxChans, 
-#	int maxSignals, int maxSequences, etherDev, queueSize)
+#	int maxSignals, int maxSequences, char *etherDev, queueSize)
 #
 # serverName:   defined here, must agree with dbLoadRecords command
 # etherAddr:    ethernet address of AIM module
@@ -307,15 +284,15 @@ cd startup
 # etherDev:     vxWorks device used to communicate over the network to AIM.
 #               Typically "ei0" for mv16x, mv17x; "dc0" for Motorola PowerPC
 # queueSize:    size of MPF message queue for this server (100 should be plenty)
-#AIMConfig("AIM1/2", 0x674, 2, 2048, 1, 1, "ei0", 100)
+AIMConfig("AIM1/2", 0x9AA, 2, 2048, 1, 1, "dc0", 100)
 
-#dbLoadRecords("mcaApp/Db/mca.db","P=xxx:,M=mca1,INP=#C0 S0 @AIM1/2,DTYPE=MPF MCA,NCHAN=2048", mca)
+dbLoadRecords("mcaApp/Db/mca.db","P=xxx:,M=mca1,INP=#C0 S0 @AIM1/2,DTYPE=MPF MCA,NCHAN=2048", mca)
 
 # Create ICB server for ADC, amplifier and HVPS
 # picbServer = icbConfig(icbServer, maxModules, icbAddress, queueSize)
 # This creates the ICB server and allocates configures the first module, module 0.
 # Additional modules are added to this server with icbAddModule().
-#picbServer = icbConfig("icb/1", 10, "NI674:3", 100)
+#picbServer = icbConfig("icb/1", 10, "NI9AA:3", 100)
 
 # In the dbLoadRecords commands CARD=(0,1) for (local/remote), SERVER=icbServer name from
 # icbConfig, ADDR=module number from icbConfig() or icbAddModule().
@@ -323,16 +300,16 @@ cd startup
 # Note: ADDR is the module number, not the icb address.  The correspondence between
 # module number and icb address is made in icbConfig (for module number 0) or in
 # icbAddModule.
-#icbAddModule(picbServer, 1, "NI674:2")
+#icbAddModule(picbServer, 1, "NI9AA:2")
 #dbLoadRecords("mcaApp/Db/icb_adc.db","P=xxx:,ADC=icbAdc1,CARD=0,SERVER=icb/1,ADDR=0", mca)
 
-#icbTcaConfig("icbTca/1", 1, "NI674:1", 100)
+#icbTcaConfig("icbTca/1", 1, "NI9AA:1", 100)
 #dbLoadRecords("mcaApp/Db/icb_tca.db","P=xxx:,TCA=icbTca1,MCA=mca1,CARD=0,SERVER=icb/1,ADDR=1", mca)
 
-#icbAddModule(picbServer, 2, "NI674:2")
+#icbAddModule(picbServer, 2, "NI9AA:2")
 #dbLoadRecords("mcaApp/Db/icb_hvps.db","P=xxx:,HVPS=icbHvps1,CARD=0,SERVER=icb/1,ADDR=2", mca)
 
-#icbAddModule(picbServer, 3, "NI674:4")
+#icbAddModule(picbServer, 3, "NI9AA:4")
 #dbLoadRecords("mcaApp/Db/icb_amp.db","P=xxx:,AMP=icbAmp1,CARD=0,SERVER=icb/1,ADDR=4", mca)
 
 
@@ -397,7 +374,7 @@ dbLoadRecords("stdApp/Db/userCalcN.db","P=xxx:,N=I_Detector", std)
 #dbLoadRecords("ipApp/Db/eMike.db", "P=xxx:,M=em1,C=0,IPSLOT=a,CHAN=2", ip)
 
 # Keithley 2000 DMM
-dbLoadRecords("ipApp/Db/Keithley2kDMM.db","P=xxx:,Dmm=D1,C=1,IPSLOT=a,CHAN=0", ip)
+#dbLoadRecords("ipApp/Db/Keithley2kDMM.db","P=xxx:,Dmm=D1,C=1,IPSLOT=a,CHAN=0", ip)
 
 # Oxford Cyberstar X1000 Scintillation detector and pulse processing unit
 #dbLoadRecords("ipApp/Db/Oxford_X1k.db","P=xxx:,S=s1,C=0,IPSLOT=a,CHAN=3", ip)
@@ -437,11 +414,11 @@ dbLoadRecords("ipApp/Db/Keithley2kDMM.db","P=xxx:,Dmm=D1,C=1,IPSLOT=a,CHAN=0", i
 #devHPLaserAxisConfig(2,0x1000)
 
 # Acromag general purpose Digital I/O
-dbLoadRecords("stdApp/Db/Acromag_16IO.db", "P=xxx:, A=1", std)
+#dbLoadRecords("stdApp/Db/Acromag_16IO.db", "P=xxx:, A=1", std)
 
 # Acromag AVME9440 setup parameters:
 # devAvem9440Config (ncards,a16base,intvecbase)
-devAvme9440Config(1,0x0400,0x78)
+#devAvme9440Config(1,0x0400,0x78)
 
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("stdApp/Db/misc.db","P=xxx:", std)
@@ -509,8 +486,8 @@ iocLogDisable=1
 iocInit
 
 ### startup State Notation Language programs
-#seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=1, logfile=kohzuCtl.log"
-#seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
+seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=1, logfile=kohzuCtl.log"
+seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
 #seq &Keithley2kDMM, "P=xxx:, Dmm=D1"
 
 # Bunch clock generator
@@ -542,6 +519,6 @@ create_monitor_set("auto_settings.req",30,"P=xxx:")
 # else: don't send message
 #debug_saveData = 2
 saveData_MessagePolicy = 2
-saveData_SetCptWait(.1)
+saveData_SetCptWait_ms(100)
 saveData_Init("saveData.req", "P=xxx:")
 #saveData_PrintScanInfo("xxx:scan1")

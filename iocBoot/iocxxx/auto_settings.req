@@ -19,22 +19,6 @@ file motor_settings.req P=$(P),M=m13
 file motor_settings.req P=$(P),M=m14
 file motor_settings.req P=$(P),M=m15
 file motor_settings.req P=$(P),M=m16
-file motor_settings.req P=$(P),M=m17
-file motor_settings.req P=$(P),M=m18
-file motor_settings.req P=$(P),M=m19
-file motor_settings.req P=$(P),M=m20
-file motor_settings.req P=$(P),M=m21
-file motor_settings.req P=$(P),M=m22
-file motor_settings.req P=$(P),M=m23
-file motor_settings.req P=$(P),M=m24
-file motor_settings.req P=$(P),M=m25
-file motor_settings.req P=$(P),M=m26
-file motor_settings.req P=$(P),M=m27
-file motor_settings.req P=$(P),M=m28
-file motor_settings.req P=$(P),M=m29
-file motor_settings.req P=$(P),M=m30
-file motor_settings.req P=$(P),M=m31
-file motor_settings.req P=$(P),M=m32
 
 file scanParms_settings.req P=$(P),M=m1
 file scanParms_settings.req P=$(P),M=m2
@@ -52,22 +36,6 @@ file scanParms_settings.req P=$(P),M=m13
 file scanParms_settings.req P=$(P),M=m14
 file scanParms_settings.req P=$(P),M=m15
 file scanParms_settings.req P=$(P),M=m16
-file scanParms_settings.req P=$(P),M=m17
-file scanParms_settings.req P=$(P),M=m18
-file scanParms_settings.req P=$(P),M=m19
-file scanParms_settings.req P=$(P),M=m20
-file scanParms_settings.req P=$(P),M=m21
-file scanParms_settings.req P=$(P),M=m22
-file scanParms_settings.req P=$(P),M=m23
-file scanParms_settings.req P=$(P),M=m24
-file scanParms_settings.req P=$(P),M=m25
-file scanParms_settings.req P=$(P),M=m26
-file scanParms_settings.req P=$(P),M=m27
-file scanParms_settings.req P=$(P),M=m28
-file scanParms_settings.req P=$(P),M=m29
-file scanParms_settings.req P=$(P),M=m30
-file scanParms_settings.req P=$(P),M=m31
-file scanParms_settings.req P=$(P),M=m32
 
 file table_settings.req P=$(P),T=table1
 
