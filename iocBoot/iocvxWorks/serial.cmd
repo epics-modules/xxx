@@ -17,14 +17,14 @@ tyGSOctalModuleInit("UART_0", "232", 0x80, 0, 0)
 # int tyGSAsynInit(char *port, char *moduleName, int channel, int baud,
 # char parity, int sbits, int dbits, char handshake, 
 # char *inputEos, char *outputEos)
-tyGSAsynInit("serial1",  "UART_0", 0, 9600,'N',2,8,'N',"","")  /* SRS570 */
-tyGSAsynInit("serial2",  "UART_0", 1,19200,'E',1,8,'N',"","")  /* MKS */
-tyGSAsynInit("serial3",  "UART_0", 2, 9600,'E',1,7,'N',"","")  /* Digitel */
-tyGSAsynInit("serial4",  "UART_0", 3, 9600,'N',1,8,'N',"","")  /* MPC */
-tyGSAsynInit("serial5",  "UART_0", 4, 9600,'E',1,7,'N',"","")  /* McClennan PM304 */
-tyGSAsynInit("serial6",  "UART_0", 5,19200,'N',1,8,'N',"","")  /* Keithley 2000 */
-tyGSAsynInit("serial7",  "UART_0", 6, 9600,'N',1,8,'N',"","")  /* Oxford ILM cryometer */
-tyGSAsynInit("serial8",  "UART_0", 7,19200,'N',1,8,'N',"","")  /* Love controllers */
+tyGSAsynInit("serial1",  "UART_0", 0, 9600,'N',2,8,'N',"\r","\r")  /* SRS570 */
+tyGSAsynInit("serial2",  "UART_0", 1,19200,'N',1,8,'N',"\r\n","\r")  /* Keithley 2000 */
+tyGSAsynInit("serial3",  "UART_0", 2, 9600,'E',1,7,'N',"\n","\n")  /* Digitel */
+tyGSAsynInit("serial4",  "UART_0", 3, 9600,'N',1,8,'N',"\n","\n")  /* MPC */
+tyGSAsynInit("serial5",  "UART_0", 4,19200,'N',1,8,'N',"\r","\r")  /* ACS MCB-4B */
+tyGSAsynInit("serial6",  "UART_0", 5,19200,'N',1,8,'N',"\r\n","\r") /* Keithley 2000 */
+tyGSAsynInit("serial7",  "UART_0", 6,38400,'N',1,8,'N',"\r","\r")  /* Newport MM4000 */
+tyGSAsynInit("serial8",  "UART_0", 7,19200,'N',1,8,'N',"","")      /* Love controllers */
 
 # Newport MM4000 driver setup parameters:
 #     (1) maximum # of controllers,
