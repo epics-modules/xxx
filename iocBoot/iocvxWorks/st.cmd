@@ -76,6 +76,9 @@ dbLoadRecords("$(STD)/stdApp/Db/all_com_16.db","P=xxx:")
 ### Insertion-device control
 #dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=xxx:,xx=02us")
 
+# sample-wheel
+dbLoadRecords("$(STD)/stdApp/Db/sampleWheel.db", "P=xxx:,ROWMOTOR=xxx:m7,ANGLEMOTOR=xxx:m8")
+
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
@@ -111,7 +114,8 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m
 
 ### Optical tables
 #tableRecordDebug=1
-dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
+putenv "DIR=$(OPTICS)/opticsApp/Db"
+dbLoadRecords("$(DIR)/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
 
 ### Monochromator support ###
 # Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
@@ -178,15 +182,6 @@ dbLoadTemplate("vxStats.substitutions")
 ### Queensgate Nano2k piezo controller
 #dbLoadRecords("$(STD)/stdApp/Db/Nano2k.db","P=xxx:,S=s1")
 
-### Bit Bus configuration
-# BBConfig(Link, LinkType, BaseAddr, IrqVector, IrqLevel)
-# Link: ?
-# LinkType: 0:hosed; 1:xycom; 2:pep
-#BBConfig(3,1,0x2400,0xac,5)
-
-# Slow feedback
-#dbLoadTemplate("pid_slow.substitutions")
-
 ###############################################################################
 # Set shell prompt (otherwise it is left at mv167 or mv162)
 shellPromptSet "iocvxWorks> "
@@ -221,16 +216,7 @@ create_monitor_set("auto_positions.req",5,"P=xxx:")
 create_monitor_set("auto_settings.req",30,"P=xxx:")
 
 ### Start the saveData task.
-# saveData_MessagePolicy
-# 0: wait forever for space in message queue, then send message
-# 1: send message only if queue is not full
-# 2: send message only if queue is not full and specified time has passed (SetCptWait()
-#    sets this time.)
-# 3: if specified time has passed, wait for space in queue, then send message
-# else: don't send message
-#debug_saveData = 20
 saveData_Init("saveData.req", "P=xxx:")
-#saveData_PrintScanInfo("xxx:scan1")
 
 # If memory allocated at beginning free it now
 free(mem)

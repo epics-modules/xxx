@@ -1,3 +1,6 @@
+
+# BEGIN canberra_13.cmd -------------------------------------------------------
+
 # AIMConfig(portName, ethernet_address, portNumber, maxChans,
 #           maxSignals, maxSequences, ethernetDevice)
 #    portName,         # asyn port name to be created
@@ -15,3 +18,5 @@ AIMConfig("AIM3/2", 0x903, 2, 4000, 4, 1, "ei0")
 
 dbLoadRecords("$(MCA)/mcaApp/Db/13element.db","P=xxx:med:")
 dbLoadTemplate("canberra_13Element.substitutions")
+
+# END canberra_13.cmd ---------------------------------------------------------

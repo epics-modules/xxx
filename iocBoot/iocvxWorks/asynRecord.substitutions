@@ -19,6 +19,4 @@ pattern
 {xxx:     asyn_15  serial15   0     256  256}
 {xxx:     asyn_16  serial16   0     256  256}
 {xxx:     gpib1    gpib1      1    2600 2600}
-{xxx:     asyn_20  serial20   0     256  256}
-{xxx:     asyn_21  serial21   0     256  256}
 }
