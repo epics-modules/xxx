@@ -9,26 +9,27 @@
 #
 # Add your declarations here
 
-SUPPORT=/home/oxygen/MOONEY/epics/synApps_4_6/support
+SNCSEQ=/corvette/home/epics/3_14/seq-2_0_7
 
-include $(SUPPORT)/config/IP_RELEASE
-include $(SUPPORT)/config/IP330_RELEASE
-#include $(SUPPORT)/config/CAMAC_RELEASE
-include $(SUPPORT)/config/MCA_RELEASE
-include $(SUPPORT)/config/LOVE_RELEASE
-include $(SUPPORT)/config/IPUNIDIG_RELEASE
-include $(SUPPORT)/config/DAC128V_RELEASE
-include $(SUPPORT)/config/MOTOR_RELEASE
-include $(SUPPORT)/config/STD_RELEASE
-#include $(SUPPORT)/config/BITBUS_RELEASE
-#include $(SUPPORT)/config/MPFGPIB_RELEASE
-include $(SUPPORT)/config/MPF_RELEASE
-#include $(SUPPORT)/config/ALLEN_BRADLEY_RELEASE
-include $(SUPPORT)/config/IPAC_RELEASE
-include $(SUPPORT)/config/ASYN_RELEASE
-include $(SUPPORT)/config/SNCSEQ_RELEASE
-include $(SUPPORT)/config/VXSTATS_RELEASE
-include $(SUPPORT)/config/GPIBCORE_RELEASE
-include $(SUPPORT)/config/RELEASE
+ALLEN_BRADLEY=/corvette/home/epics/3_14/allenBradley2-0
+IPAC=/corvette/home/epics/3_14/ipac2-6
+IP=/corvette/home/epics/3_14/ip
+IP330=/corvette/home/epics/3_14/ip330
+MCA=/corvette/home/epics/3_14/mca
+LOVE=/corvette/home/epics/3_14/love
+IPUNIDIG=/corvette/home/epics/3_14/ipUnidig
+DAC128V=/corvette/home/epics/3_14/dac128V
+MOTOR=/corvette/home/epics/3_14/motor
+STD=/corvette/home/epics/3_14/std
+MPF=/corvette/home/epics/3_14/mpf2-4-1
+CAMAC=/corvette/home/epics/3_14/camac
+DXP=/corvette/home/epics/3_14/dxp
+QUADEM=/corvette/home/epics/3_14/quadEM
+LOVE=/corvette/home/epics/3_14/love
+#ASYN=/corvette/home/epics/3.14/asyn
+#VXSTATS=/corvette/home/epics/3.14/vxStats
+#GPIBCORE=/corvette/home/epics/3.14/gpibcore
+# EPICS_BASE usually appears last so other apps can override stuff:
+EPICS_BASE=/corvette/usr/local/epics/base-3.14.4
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
