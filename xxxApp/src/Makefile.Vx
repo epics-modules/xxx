@@ -4,44 +4,102 @@ include $(TOP)/config/CONFIG_APP
 #----------------------------------------
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 
+# Define source files here for gnumake depends
+#SRCS.c += ../myProg.c
 
-LIBOBJS += $(EPICS_BASE_BIN)/iocCore
-LIBOBJS += $(EPICS_BASE_BIN)/seq
+# Stuff from base - local copy of baeLIBOBJS so it can be customized for 
+# this app.
+include ../baseLIBOBJS
 
-include $(STD)/stdApp/src/baseLIBOBJS
+# Objects from this app
+#include ../xxxLIBOBJS
+# MPF server objects from this App
+#include ../xxxMpfServerLIBOBJS
 
+# Objects from "mpf"
+LIBOBJS += $(MPF_BIN)/mpfLib
+LIBOBJS += $(MPF_BIN)/DevMpf.o
+MPFSERVERLIBOBJS += $(MPF_BIN)/ipLib
+
+# Objects from "mpfGpib"
+MPFSERVERLIBOBJS += $(MPF_GPIB_BIN)/Gpib.o
+MPFSERVERLIBOBJS += $(MPF_GPIB_BIN)/gpibSniff.o
+MPFSERVERLIBOBJS += $(MPF_GPIB_BIN)/GpibGsTi9914.o
+MPFSERVERLIBOBJS += $(MPF_GPIB_BIN)/gpibServer.o
+
+# Objects from "mpfSerial"
+LIBOBJS += $(MPF_SERIAL_BIN)/devStringMpf.o
+MPFSERVERLIBOBJS += $(MPF_SERIAL_BIN)/OctalUART.o
+MPFSERVERLIBOBJS += $(MPF_SERIAL_BIN)/SerialPort.o
+MPFSERVERLIBOBJS += $(MPF_SERIAL_BIN)/serialPortSniff.o
+MPFSERVERLIBOBJS += $(MPF_SERIAL_BIN)/serialServer.o
+
+# Objects from "dac128V"
+LIBOBJS += $(DAC128V_BIN)/devAoDAC128V.o
+MPFSERVERLIBOBJS += $(DAC128V_BIN)/dac128VLib
+
+# Objects from "ip330"
+LIBOBJS += $(IP330_BIN)/devAiIp330Scan.o
+LIBOBJS += $(IP330_BIN)/devLoIp330Config.o
+LIBOBJS += $(IP330_BIN)/devEpidIp330.o
+MPFSERVERLIBOBJS += $(IP330_BIN)/ip330Lib
+MPFSERVERLIBOBJS += $(IP330_BIN)/ip330ServLib
+
+# Objects from "ipUnidig"
+LIBOBJS += $(IPUNIDIG_BIN)/devIpUnidig.o
+MPFSERVERLIBOBJS += $(IPUNIDIG_BIN)/ipUnidigLib
+
+# Objects from "love"
+LIBOBJS += $(LOVE_BIN)/devLove.o
+MPFSERVERLIBOBJS += $(LOVE_BIN)/loveServer.o
+
+# Objects from "std"
 include $(STD)/stdApp/src/stdLIBOBJS
 LIBOBJS += $(STDLIBOBJS)
 #LIBOBJS += $(STD_BIN)/stdLib
 
+# Objects from "mca"
 include $(MCA)/mcaApp/src/mcaLIBOBJS
 LIBOBJS += $(MCALIBOBJS)
 #LIBOBJS += $(MCA_BIN)/mcaLib
+include $(MCA)/mcaApp/src/mcaMpfServerLIBOBJS
+LIBOBJS += $(MCAMPFSERVERLIBOBJS)
 
+# Objects from "ip"
 include $(IP)/ipApp/src/ipLIBOBJS
 LIBOBJS += $(IPLIBOBJS)
 #LIBOBJS += $(IP_BIN)/ipLib
+MPFSERVERLIBOBJS += $(IP_BIN)/mpcServer.o
 
-include $(IP)/ipApp/src/ipMpfServerLIBOBJS
-LIBOBJS += $(IPMPFSERVERLIBOBJS)
-#LIBOBJS += $(IP_BIN)/mpfServLib
+# Allen Bradley objects.  Local copy of file to edit in needed routines
+#include ../allenBradleyLIBOBJS
 
 # motor record and device support
 LIBOBJS += $(MOTOR_BIN)/motorLib
-#LIBOBJS += $(MOTOR_BIN)/motorCOM_mpf
+LIBOBJS += $(MOTOR_BIN)/motorCOM_mpf
 LIBOBJS += $(MOTOR_BIN)/omsLib 
 LIBOBJS += $(MOTOR_BIN)/softMotorLib 
 #LIBOBJS += $(MOTOR_BIN)/V544Lib
 #LIBOBJS += $(MOTOR_BIN)/newportLib
 #LIBOBJS += $(MOTOR_BIN)/pm500Lib
 
+# CAMAC libraries
+LIBOBJS += $(CAMAC_BIN)/camacLib
+LIBOBJS += $(CAMAC_BIN)/devCamacLib
+LIBOBJS += $(CAMAC_BIN)/dxpCamacLib
+
 LIBNAME = xxxLib
+
+PROD += mpfServLib
+
+BIN_INSTALLS += $(EPICS_BASE_BIN)/iocCore $(EPICS_BASE_BIN)/seq
 
 BIN_INSTALLS += $(STD_BIN)/xiahsc.o
 BIN_INSTALLS += $(STD_BIN)/xia_slit.o
 BIN_INSTALLS += $(STD_BIN)/getFilledBuckets.o
 BIN_INSTALLS += $(MPF_GPIB_BIN)/GpibHideosRemote.o
 BIN_INSTALLS += $(MPF_GPIB_BIN)/GpibHideosLocal.o
+BIN_INSTALLS += $(MPF_BIN)/mpfLib
 BIN_INSTALLS += $(STD_BIN)/initHooks.o
 
 #Note that the command line that builds the
@@ -50,3 +108,5 @@ BIN_INSTALLS += $(STD_BIN)/initHooks.o
 include $(TOP)/config/RULES.Vx
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE
+mpfServLib : $(MPFSERVERLIBOBJS)
+	$(LINK.c) $@ $(MPFSERVERLIBOBJS)
