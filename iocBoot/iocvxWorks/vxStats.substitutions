@@ -1,0 +1,69 @@
+#
+# Macro Descriptions
+#
+# stats.db:
+#
+# P = first part of PV names.  
+# HMM = HOPR field of Maximum Free Memory Block (unit is bytes)
+# WMM = LOW field of Maximum Free Memory Block
+# AMM = LOLO field of Maximum Free Memory Block
+# HCP = HOPR field of CPU Load (unit is %)
+# WCP = HIGH field of CPU Load
+# ACP = HIHI field of CPU Load
+# HCL = HOPR field of CA Client count
+# WCL = HIGH field of CA Client count
+# ACL = HIHI field of CA Client count
+# HCX = HOPR field of CA Connection count
+# WCX = HIGH field of CA Connection count
+# HCX = HIHI field of CA Connection count
+# HFD = HOPR field of Available File Descriptor count
+# WFD = LOW field of Available File Descriptor count
+# AFD = LOLO field of Available File Descriptor count
+# WMB = LOW field of % Free MBufs
+# AMB = LOLO field of % Free MBufs
+#
+# reboot.db:
+#
+# P = first part of PV names.  
+# T = time in seconds that reboot enable stays high after button push.
+#
+# ClusterLine.template:
+#
+# P = first part of PV names.  
+# PO = pool (0 = Data, 1 = System)
+# SI = size index (first size is index 0)
+# SC = SCAN field content
+#
+
+file "$(VXSTATS)/db/stats.template"
+{
+    {P=xxx:,
+	HMM=50000000,WMM=500000,AMM=100000,
+	HCP=100,WCP=50,ACP=80,
+	HCL=200,WCL=100,ACL=175,
+	HCX=2000,WCX=1000,ACX=1750,
+	HFD=150,WFD=20,AFD=5,WMB=50,AMB=10}
+}
+file "$(VXSTATS)/db/reboot.template"
+{
+    {P=xxx:,T=3}
+}
+file "$(VXSTATS)/db/ClusterLine.template"
+{
+    {P=xxx:,PO=0,SI=0,SC="10 second"}
+    {P=xxx:,PO=0,SI=1,SC="10 second"}
+    {P=xxx:,PO=0,SI=2,SC="10 second"}
+    {P=xxx:,PO=0,SI=3,SC="10 second"}
+    {P=xxx:,PO=0,SI=4,SC="10 second"}
+    {P=xxx:,PO=0,SI=5,SC="10 second"}
+    {P=xxx:,PO=0,SI=6,SC="10 second"}
+    {P=xxx:,PO=0,SI=7,SC="10 second"}
+    {P=xxx:,PO=1,SI=0,SC="10 second"}
+    {P=xxx:,PO=1,SI=1,SC="10 second"}
+    {P=xxx:,PO=1,SI=2,SC="10 second"}
+    {P=xxx:,PO=1,SI=3,SC="10 second"}
+    {P=xxx:,PO=1,SI=4,SC="10 second"}
+    {P=xxx:,PO=1,SI=5,SC="10 second"}
+    {P=xxx:,PO=1,SI=6,SC="10 second"}
+    {P=xxx:,PO=1,SI=7,SC="10 second"}
+}
