@@ -1,9 +1,10 @@
 # This configures the MPF server stuff
 
+# First carrier
 # slot a: IP-Octal (serial RS-232)
-# slot b: EMPTY
-# slot c: EMPTY
-# slot d: EMPTY
+# slot b: IpUnidig (digital I/O)
+# slot c: Ip330 (A/D converter)
+# slot d: Dac128V (D/A converter)
 
 ###############################################################################
 # Initialize IP carrier
@@ -11,87 +12,64 @@
 #   pcarrier   - pointer to carrier driver structure
 #   cardParams - carrier-specific init parameters
 
-carrier = "ipac"
-ipacAddCarrier(&ipmv162, "A:l=3,3 m=0xe0000000,64;B:l=3,3 m=0xe0010000,64;C:l=3,3 m=0xe0020000,64;D:l=3,3 m=0xe0030000,64")
-# Number of tyGSOctal modules to support:
-tyGSOctalDrv(1)
-taskDelay(10)
+# Select for MVME162 or MVME172 CPU board IP carrier.
+#carrier1=ipacAddMVME162("A:l=3,3 m=0xe0000000,64;B:l=3,3 m=0xe0010000,64;C:l=3,3 m=0xe0020000,64;D:l=3,3 m=0xe0030000,64")
 
-# tyGSOctalModuleInit(IP module type, Interrupt number, carrier board [0-n],
-#                     module number on carrier [0-m])
-octalUart0 = tyGSOctalModuleInit("GSIP_OCTAL232", 0x80, 0, 0)
-taskDelay(3)
-
-###############################################################################
-# Initialize GPIB stuff
-
-#initGpibGsTi9914("GS-IP488-0",carrier,"IP_b",104)
-#initGpibServer("GPIB0","GS-IP488-0",1024,1000)
+# Select for SBS VIPC616-01 version IP carrier.
+carrier1=ipacAddVIPC616_01("0x3000,0xa0000000")
 
 ###############################################################################
 # Initialize Octal UART stuff
+tyGSOctalDrv 1
+tyGSOctalModuleInit("GSIP_OCTAL232", 0x80, 0, 0)
 
-port0 = tyGSOctalDevCreate("/tyGS/0/0",octalUart0,0,1000,1000)
-port1 = tyGSOctalDevCreate("/tyGS/0/1",octalUart0,1,1000,1000)
-port2 = tyGSOctalDevCreate("/tyGS/0/2",octalUart0,2,1000,1000)
-port3 = tyGSOctalDevCreate("/tyGS/0/3",octalUart0,3,1000,1000)
-port4 = tyGSOctalDevCreate("/tyGS/0/4",octalUart0,4,1000,1000)
-port5 = tyGSOctalDevCreate("/tyGS/0/5",octalUart0,5,1000,1000)
-port6 = tyGSOctalDevCreate("/tyGS/0/6",octalUart0,6,1000,1000)
-port7 = tyGSOctalDevCreate("/tyGS/0/7",octalUart0,7,1000,1000)
+# int tyGSMPFInit(char *server, int uart, int channel, int baud, char parity, int sbits,
+#                 int dbits, char handshake, char *eomstr)
+tyGSMPFInit("serial1",  0, 0, 9600,'N',2,8,'N',"")  /* SRS570 */
+tyGSMPFInit("serial2",  0, 1,19200,'E',1,8,'N',"")  /* MKS */
+tyGSMPFInit("serial3",  0, 2, 9600,'E',1,7,'N',"")  /* Digitel */
+tyGSMPFInit("serial4",  0, 3, 9600,'N',1,8,'N',"")  /* MPC */
+tyGSMPFInit("serial5",  0, 4, 9600,'E',1,7,'N',"")  /* McClennan PM304 */
+tyGSMPFInit("serial6",  0, 5,19200,'N',1,8,'N',"")  /* Keithley 2000 */
+tyGSMPFInit("serial7",  0, 6, 9600,'N',1,8,'N',"")  /* Oxford ILM cryometer */
+tyGSMPFInit("serial8",  0, 7,19200,'N',1,8,'N',"")  /* Love controllers */
 
-tyGSOctalConfig(port0,9600,'N',1,8,'N') /* */
-tyGSOctalConfig(port1,9600,'N',1,8,'N') /* */
-tyGSOctalConfig(port2,9600,'N',1,8,'N') /* */
-tyGSOctalConfig(port3,9600,'N',1,8,'N') /* */
-tyGSOctalConfig(port4,9600,'N',1,8,'N') /* */
-tyGSOctalConfig(port5,9600,'N',1,8,'N') /* */
-tyGSOctalConfig(port6,9600,'N',1,8,'N') /* */
-tyGSOctalConfig(port7,9600,'N',1,8,'N') /* */
-
-initTtyVxPort("UART[0]","/tyGS/0/0",9600,1000)
-initTtyVxPort("UART[1]","/tyGS/0/1",9600,1000)
-initTtyVxPort("UART[2]","/tyGS/0/2",9600,1000)
-initTtyVxPort("UART[3]","/tyGS/0/3",9600,1000)
-initTtyVxPort("UART[4]","/tyGS/0/4",9600,1000)
-initTtyVxPort("UART[5]","/tyGS/0/5",9600,1000)
-initTtyVxPort("UART[6]","/tyGS/0/6",9600,1000)
-initTtyVxPort("UART[7]","/tyGS/0/7",9600,1000)
-
-initSerialServer("a-Serial[0]","UART[0]",1000,20,"\r",1)
-initSerialServer("a-Serial[1]","UART[1]",1000,20,"\r",1)
-initSerialServer("a-Serial[2]","UART[2]",1000,20,"\r",1)
-initSerialServer("a-Serial[3]","UART[3]",1000,20,"\r",1)
-initSerialServer("a-Serial[4]","UART[4]",1000,20,"\r",1)
-initSerialServer("a-Serial[5]","UART[5]",1000,20,"\r",1)
-initSerialServer("a-Serial[6]","UART[6]",1000,20,"\r",1)
-initSerialServer("a-Serial[7]","UART[7]",1000,20,"\r",1)
-
-###############################################################################
-# Initialize Systran DAC
-# initDAC128V(char *serverName, char *carrierName, char *siteName,
-#             int queueSize)
+# Initialize Greenspring IP-Unidig
+# initIpUnidig(char *serverName,
+#              int carrier,
+#              int slot,
+#              int queueSize,
+#              int msecPoll,
+#              int intVec,
+#              int risingMask,
+#              int fallingMask,
+#              int biMask,
+#              int maxClients)
 # serverName  = name to give this server
-# carrierName = name of IPAC carrier from initIpacCarrier above
-# siteName    = name of IP site, e.g. "IP_a"
+# carrier     = IPAC carrier number (0, 1, etc.)
+# slot        = IPAC slot (0,1,2,3, etc.)
 # queueSize   = size of output queue for EPICS
-#
+# msecPoll    = polling time for input bits in msec.  Default=100.
+# intVec      = interrupt vector
+# risingMask  = mask of bits to generate interrupts on low to high (24 bits)
+# fallingMask = mask of bits to generate interrupts on high to low (24 bits)
+# biMask      = mask of bits to generate callbacks to bi record support
+#               This can be a subset of (risingMask | fallingMask)
+# maxClients  = Maximum number of callback tasks which will attach to this
+#               IpUnidig server.  This
+#               does not refer to the number of EPICS clients.  A value of
+#               10 should certainly be safe.
+initIpUnidig("Unidig1", 0, 1, 20, 2000, 116, 1, 1, 0xffff, 10)
 
-#initDAC128V("c-DAC",carrier,"IP_c",20)
-
-###############################################################################
-# Initialize Acromag ADC
-# Ip330 *pIp330 = initIp330(
-#    const char *moduleName, const char *carrierName, const char *siteName,
-#    const char *typeString, const char *rangeString,
-#    int firstChan, int lastChan,
-#    int maxClients, int intVec)
-#
-# pIp330      = pointer to the Ip330 object, needed by configIp330(), and
-#               needed to initialize the application-specific classes
+# Initialize Acromag IP-330 ADC
+# initIp330(
+#   const char *moduleName, int carrier, int slot,
+#   const char *typeString, const char *rangeString,
+#   int firstChan, int lastChan,
+#   int maxClients, int intVec)
 # moduleName  = name to give this module
-# carrierName = name of IPAC carrier from initIpacCarrier() above
-# siteName    = name of IP site on the carrier, e.g. "IP_a"
+# carrier     = IPAC carrier number (0, 1, etc.)
+# slot        = IPAC slot (0,1,2,3, etc.)
 # typeString  = "D" or "S" for differential or single-ended
 # rangeString = "-5to5","-10to10","0to5", or "0to10"
 #               This value must match hardware setting selected
@@ -99,19 +77,18 @@ initSerialServer("a-Serial[7]","UART[7]",1000,20,"\r",1)
 #               0 to 31 (single-ended)
 #               0 to 15 (differential)
 # lastChan    = last channel to be digitized
-# maxClients  = Maximum number of Ip330 tasks which will attach to this
+# maxClients =  Maximum number of Ip330 tasks which will attach to this
 #               Ip330 module.  For example Ip330Scan, Ip330Sweep, etc.  This
 #               does not refer to the number of EPICS clients.  A value of
 #               10 should certainly be safe.
-# intVec      = Interrupt vector
+# intVec        Interrupt vector
+initIp330("Ip330_1",0,2,"D","-5to5",0,15,10,120)
 
-#pIp330 = initIp330("d-ADC", carrier, "IP_d", "D", "-10to10", 0, 15, 10, 205)
-
-# int configIp330(Ip330 *pIp330, scanModeType scanMode,
-#    const char *triggerString, int microSecondsPerScan,
-#    int secondsBetweenCalibrate)
-#
-# pIp330      = pointer to the Ip330 object, returned by initIp330 above
+# configIp330(
+#   const char *moduleName,
+#   int scanMode, const char *triggerString,
+#   int microSecondsPerScan, int secondsBetweenCalibrate)
+# moduleName  = name of module passed to initIp330 above
 # scanMode    = scan mode:
 #               0 = disable
 #               1 = uniformContinuous
@@ -128,69 +105,55 @@ initSerialServer("a-Serial[7]","UART[7]",1000,20,"\r",1)
 # secondsBetweenCalibrate = number of seconds between calibration cycles.
 #               If zero then there will be no periodic calibration, but
 #               one calibration will still be done at initialization.
+configIp330("Ip330_1", 3,"Input",500,0)
 
-#configIp330(pIp330, 3, "Input", 1000, 60)
-
-
-# initIp330Scan(Ip330 *pIp330, char *serverName, int firstChan, int lastChan,
-#               int milliSecondsToAverage, int queueSize)
-# pIp330     = pointer returned by initIp330 above
-# serverName = name to give this server
-# firstChan  = first channel to be used by Ip330Scan.  This must be in the 
+# initIp330Scan(
+#      const char moduleName, const char *serverName, int firstChan, int lastChan,
+#      int queueSize)
+# moduleName = module name passed to initIp330 above
+# serverName = name to give this server.  Must match the INP parm field in
+#              EPICS records
+# firstChan  = first channel to be used by Ip330Scan.  This must be in the
 #              range firstChan to lastChan specified in initIp330
 # lastChan   = last channel to be used by Ip330Scan.  This must be in the range
 #              firstChan to lastChan specified in initIp330
-# milliSecondsToAverage = number of milliseconds to average for values 
-#              returned to EPICS
-# queueSize  = size of output queue for EPICS
+# queueSize  = size of output queue for MPF. Make this the maximum number
+#              of ai records attached to this server.
+initIp330Scan("Ip330_1","Ip330Scan1",0,15,100)
 
-#initIp330Scan(pIp330,"d-Ip330Scan",0,15,100,20)
-
-
-# initIp330Sweep(Ip330 *pIp330, char *serverName, int firstChan, int lastChan,
-#                int maxPoints, int queueSize)
-# pIp330     = pointer returned by initIp330 above
+# initIp330Sweep(char *moduleName, char *serverName, int firstChan,
+#     int lastChan, int maxPoints, int queueSize)
+# moduleName = module name passed to initIp330 above
 # serverName = name to give this server
-# firstChan  = first channel to be used by Ip330Sweep.  This must be in the 
+# firstChan  = first channel to be used by Ip330Sweep.  This must be in the
 #              range firstChan to lastChan specified in initIp330
-# lastChan   = last channel to be used by Ip330Sweep.  This must be in the 
+# lastChan   = last channel to be used by Ip330Sweep.  This must be in the
 #              range firstChan to lastChan specified in initIp330
 # maxPoints  = maximum number of points in a sweep.  The amount of memory
 #              allocated will be maxPoints*(lastChan-firstChan+1)*4 bytes
 # queueSize  = size of output queue for EPICS
+initIp330Sweep("Ip330_1","Ip330Sweep1",0,3,2048,100)
 
-#initIp330Sweep(pIp330,"d-Ip330Sweep",0,12,2048,20)
-
-
-# initIp330PID(char *serverName, Ip330 *pIp330, int ADCChan, 
-#              DAC128V *pDAC128V, int DACChan,
-#              double KP, double KI, double KD,
-#              int interval, int feedbackOn, int lowLimit, int highLimit,
-#              int queueSize)
+# initIp330PID(const char *serverName,
+#        char *ip330Name, int ADCChannel, dacName, int DACChannel,
+#        int queueSize)
 # serverName = name to give this server
-# pIp330     = pointer returned by initIp330 above
-# ADCChan    = ADC channel to be used by Ip330PID.  This must be in the range
-#              firstChan to lastChan specified in initIp330
-# pDAC128V   = pointer returned by initDAC128V above
-# DACChan    = DAC channel to be used by Ip330PID, in the range 0 to 7
-# KP         = proportional gain, must be a floating point value
-# KI         = integral gain, must be a floating point value
-# KD         = derivative gain, must be a floating point value
-# interval   = number of microseconds per feedback loop
-# feedbackOn = initial state of feedback. 0 = off, 1 = on
-# lowLimit   = lower limit on the DAC output, in the range 0-2047
-# highLimit  = upper limit on the DAC output, in the range 0-2047
+# ip330Name  = module name passed to initIp330 above
+# ADCChannel = ADC channel to be used by Ip330PID as its readback source.
+#              This must be in the range firstChan to lastChan specified in
+#              initIp330
+# dacName    = server name passed to initDAC128V
+# DACChannel = DAC channel to be used by Ip330PID as its control output.  This
+#              must be in the range 0-7.
 # queueSize  = size of output queue for EPICS
+initIp330PID("Ip330PID1", "Ip330_1", 0, "DAC1", 0, 20)
 
-#pIp330PID = initIp330PID("Ip330PID_1", pIp330, 0, pDAC128V, 0, 20)
-#configIp330PID(pIp330PID, .1, 10., 0., 1000, 0, 500, 1500)
-
-###############################################################################
-# Initialize Greenspring IP-Unidig
-
-#initIpUnidig("b-Unidig", carrier, "IP_b", 20)
-
-# Love controllers
-#initOctalUARTPort("UART[7]","octalUart0",7,19200,"N",1,8,"N")
-#initLoveServer("PORT7","UART[7]",112)
+# Initialize Systran DAC
+# initDAC128V(char *serverName, int carrier, int slot, int queueSize)
+# serverName  = name to give this server
+# carrier     = IPAC carrier number (0, 1, etc.)
+# slot        = IPAC slot (0,1,2,3, etc.)
+# queueSize   = size of output queue for EPICS
+#
+initDAC128V("DAC1", 0, 3, 20)
 
