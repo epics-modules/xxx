@@ -317,8 +317,8 @@ cd startup
 
 # STR7201Setup(int numCards, int baseAddress, int interruptVector, int interruptLevel)
 #STR7201Setup(2, 0xA0000000, 210, 6)
-# STR7201Config(int card, int maxSignals, int maxChans) 
-#STR7201Config(0, 8, 1000) 
+# STR7201Config(int card, int maxSignals, int maxChans, int 1=enable internal 25MHZ clock) 
+#STR7201Config(0, 8, 1000, 0) 
 
 ### Acromag IP330 in sweep mode ###
 #dbLoadRecords("mcaApp/Db/mca.db", "P=xxx:,M=mADC_1,DTYPE=ip330Sweep,NCHAN=2048,INP=#C0 S0 @d-Ip330Sweep", mca)
