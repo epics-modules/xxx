@@ -20,7 +20,7 @@ include "allenBradley.dbd"
 include "devQuadEM.dbd"
 # If not defined in iocxxxInclude.dbd
 include "mcaCanberraSupport.dbd"
-include "devLove.dbd"
+#include "devLove.dbd"
 include "tyGSOctal.dbd"
 include "drvIpac.dbd"
 include "vxStats.dbd"
