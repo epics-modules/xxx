@@ -93,8 +93,11 @@ BIN_INSTALLS += $(IP_BIN)/mpcServer.o
 # ------------------
 LIBOBJS += $(MOTOR_BIN)/motorLib
 LIBOBJS += $(MOTOR_BIN)/softMotorLib 
-#LIBOBJS += $(MOTOR_BIN)/motorCOM_mpf
 LIBOBJS += $(MOTOR_BIN)/omsLib 
+#LIBOBJS += $(MOTOR_BIN)/motorCOM_mpf
+#LIBOBJS += $(MOTOR_BIN)/AcsLib
+#LIBOBJS += $(MOTOR_BIN)/ImsLib
+#LIBOBJS += $(MOTOR_BIN)/MclennanLib
 #LIBOBJS += $(MOTOR_BIN)/V544Lib
 #LIBOBJS += $(MOTOR_BIN)/newportLib
 #LIBOBJS += $(MOTOR_BIN)/pm500Lib
