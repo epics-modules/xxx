@@ -15,7 +15,7 @@ include $(TOP)/config/CONFIG_APP
 
 #----------------------------------------------------
 # Add databases, templates, substitutions like this
-DB += softMotor.db
+#DB += xxx.db
 
 #----------------------------------------------------
 # Declare template files which do not show up in DB
