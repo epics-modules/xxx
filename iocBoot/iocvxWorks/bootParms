@@ -1,10 +1,10 @@
-EPICS processor
-===============
+EPICS processor: mv162
+======================
 
 boot device          : ei
 processor number     : 0 
 host name            : oxygen
-file name            : /usr/local/vxWorks/T202/mv162-asd1
+file name            : /usr/local/vxWorks/T202/mv162-asd7
 inet on ethernet (e) : 164.54.53.99:fffffc00
 inet on backplane (b): 164.54.53.226
 host inet (h)        : 164.54.52.4
@@ -15,20 +15,37 @@ target name (tn)     : iocxxx
 startup script (s)   : /home/oxygen4/MOONEY/epics/synApps_4_6/support/xxx/iocBoot/iocxxx_162/st.cmd
 
 
+EPICS processor: mv2700
+=======================
+
+boot device          : ei
+processor number     : 0 
+host name            : oxygen
+file name            : /usr/local/vxWorks/T202/mv2700-asd7
+inet on ethernet (e) : 164.54.53.99:fffffc00
+inet on backplane (b): 164.54.53.226
+host inet (h)        : 164.54.52.4
+user (u)             : <user>
+ftp password (pw)    : <password>
+flags (f)            : 0x0 
+target name (tn)     : iocxxx
+startup script (s)   : /home/oxygen4/MOONEY/epics/synApps_4_6/support/xxx/iocBoot/iocxxx_162/st.cmd
+
 MPF processor
 =============
 
-boot device          : sm=0x800006000 
+boot device          : sm=0x80000600 (if main processor is mv167 or mv162)
+boot device          : sm=0x80004100 (if main processor is mv2700)
 processor number     : 1 
 host name            : oxygen 
-file name            : 
+file name            : /usr/local/vxWorks/T202/mv162-asd7
 inet on ethernet (e) : 
-inet on backplane (b): 164.54.53.183 
+inet on backplane (b): 164.54.53.183:fffffc00
 host inet (h)        : 164.54.52.4 
 gateway inet (g)     : 164.54.53.226 
 user (u)             : <user> 
 ftp password (pw) (blank = use rsh): <password> 
 flags (f)            : 0x0 
-target name (tn)     : ioctim1 
-startup script (s)   : /home/oxygen/MOONEY/epics/synApps_4_6/support/xxx/iocBoot/iocxxx_162/st1.cmd 
+target name (tn)     : iocxxx1 
+startup script (s)   : /home/oxygen/MOONEY/epics/synApps_5_0/support/xxx/iocBoot/iocvxWorks/st1.cmd 
 other (o)            : 
