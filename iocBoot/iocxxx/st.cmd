@@ -1,5 +1,11 @@
 # vxWorks startup script
 
+# for vxStats
+#putenv "engineer=not me"
+#putenv "location=Earth"
+engineer="not me"
+location="Earth"
+
 cd ""
 < ../nfsCommands
 < cdCommands
@@ -11,9 +17,6 @@ cd topbin
 # If the VxWorks kernel was built using the project facility, the following must
 # be added before any C++ code is loaded (see SPR #28980).
 sysCplusEnable=1
-
-### mpf
-#ld < mpf.munch
 
 ### Load custom EPICS software from user tree and from share
 ld < xxx.munch
@@ -65,25 +68,21 @@ set_requestfile_path(motor, "motorApp/Db")
 set_requestfile_path(std, "stdApp/Db")
 reboot_restoreDebug=0
 
-# Bunch clock generator
-#ld < getFilledBuckets.o
-
-# X-ray Instrumentation Associates Huber Slit Controller
-# supported by a customized version of the SNL program written by Pete Jemian
-#ld < xia_slit.o
-
 # override address, interrupt vector, etc. information in module_types.h
 #module_types()
 
 # need more entries in wait/scan-record channel-access queue?
 recDynLinkQsize = 1024
 
+# Specify largest array CA will transport
+putenv "EPICS_CA_MAX_ARRAY_BYTES=65000"
+
 cd startup
 ################################################################################
 # Tell EPICS all about the record types, device-support modules, drivers,
 # etc. in the software we just loaded (xxx.munch)
-dbLoadDatabase("../../dbd/xxxVX.dbd")
-xxxVX_registerRecordDeviceDriver(pdbbase)
+dbLoadDatabase("../../dbd/iocxxxVX.dbd")
+iocxxxVX_registerRecordDeviceDriver(pdbbase)
 
 # Love Controllers
 #devLoveDebug=1
@@ -91,7 +90,7 @@ xxxVX_registerRecordDeviceDriver(pdbbase)
 #dbLoadRecords("$(IP)/ipApp/Db/love.db", "P=xxx:,Q=Love_0,C=0,PORT=PORT2,ADDR=1");
 
 # interpolation
-#dbLoadRecords("$(STD)/stdApp/Db/interp.db", "P=xxx:")
+dbLoadRecords("$(STD)/stdApp/Db/interp.db", "P=xxx:")
 
 
 # X-ray Instrumentation Associates Huber Slit Controller
@@ -108,7 +107,7 @@ xxxVX_registerRecordDeviceDriver(pdbbase)
 ##############################################################################
 
 # Insertion-device control
-#dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=xxx:,xx=02us")
+dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=xxx:,xx=02us")
 
 # test generic gpib record
 #dbLoadRecords("$(STD)/stdApp/Db/gpib.db","P=xxx:")
@@ -212,9 +211,9 @@ dbLoadRecords("$(STD)/stdApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m
 ### Monochromator support ###
 # Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
 # standard geometry (geometry 1)
-#dbLoadRecords("$(STD)/stdApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=17.4999,yOffHi=17.5001")
+dbLoadRecords("$(STD)/stdApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=17.4999,yOffHi=17.5001")
 # modified geometry (geometry 2)
-#dbLoadRecords("$(STD)/stdApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=4,yOffHi=36")
+dbLoadRecords("$(STD)/stdApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=4,yOffHi=36")
 
 # Heidenhain ND261 encoder (for PSL monochromator)
 #dbLoadRecords("$(IP)/ipApp/Db/heidND261.db", "P=xxx:,C=0,IPSLOT=a,CHAN=0")
@@ -226,14 +225,11 @@ dbLoadRecords("$(STD)/stdApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m
 #drvIK320RegErrStr()
 
 # Spherical grating monochromator
-#dbLoadRecords("$(STD)/stdApp/Db/SGM.db","P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8,M_g=m9")
+dbLoadRecords("$(STD)/stdApp/Db/SGM.db","P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8,M_g=m9")
 
 # 4-bounce high-resolution monochromator
-#dbLoadRecords("$(STD)/stdApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10")
+dbLoadRecords("$(STD)/stdApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10")
 #dbLoadRecords("$(STD)/stdApp/Db/hrSeq.db","P=xxx:,N=2,M_PHI1=m11,M_PHI2=m12")
-
-# dispersive-monochromator protection
-#dbLoadRecords("$(STD)/stdApp/Db/bprotect.db","P=xxx:,M_BTHETA=m25,M_BTRANS=m26")
 
 ### Canberra AIM Multichannel Analyzer ###
 #mcaRecordDebug=0
@@ -383,7 +379,7 @@ dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 #dbLoadRecords("$(IP)/ipApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=8,S=7,IPSLOT=c")
 
 # vme test record
-#dbLoadRecords("$(STD)/stdApp/Db/vme.db", "P=xxx:,Q=vme1")
+dbLoadRecords("$(STD)/stdApp/Db/vme.db", "P=xxx:,Q=vme1")
 
 # Hewlett-Packard 10895A Laser Axis (interferometer)
 #dbLoadRecords("$(STD)/stdApp/Db/HPLaserAxis.db", "P=xxx:,Q=HPLaser1, C=0")
@@ -401,6 +397,8 @@ dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
 #dbLoadRecords("$(STD)/stdApp/Db/VXstats.db","P=xxx:")
+# vxStats
+dbLoadTemplate("vxStats.substitutions")
 
 # Elcomat autocollimator
 #dbLoadRecords("$(IP)/ipApp/Db/Elcomat.db", "P=xxx:,C=0,IPSLOT=a,CHAN=7")
@@ -476,6 +474,8 @@ iocInit
 # The task is actually named "save_restore".
 # (See also, 'initHooks' above, which is the means by which the values that
 # will be saved by the task we're starting here are going to be restored.
+# Note that you can reload these sets after creating them: e.g., 
+# reload_monitor_set("auto_settings.req",30,"P=xxx:")
 #
 # save positions every five seconds
 create_monitor_set("auto_positions.req",5,"P=xxx:")
