@@ -2,5 +2,5 @@
 # one board is the EPICS processor and the other
 # board is the MPF server processor.
 # Set "Remote_IP" to the MPF server processor.
-Remote_IP = "#.#.#.#"
+Remote_IP = "164.54.53.183"
 
