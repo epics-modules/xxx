@@ -43,13 +43,38 @@ ld < xxxLib
 # This IOC talks to a local GPIB server
 #ld < GpibHideosLocal.o
 
-### dbrestore setup
-# ok to restore a save set that had missing values (no CA connection to PV)?
-sr_restore_incomplete_sets_ok = 1
-# dbrestore saves a copy of the save file it restored.  File name is, e.g.,
-# auto_settings.sav.bu or auto_settings.savYYMMDD-HHMMSS if
-# reboot_restoreDatedBU is nonzero.
-reboot_restoreDatedBU = 1;
+### save_restore setup
+cd startup
+# status-PV prefix
+save_restoreSet_status_prefix("xxx:")
+# Debug-output level
+save_restoreSet_Debug(0)
+# Ok to save/restore save sets with missing values (no CA connection to PV)?
+save_restoreSet_IncompleteSetsOk(1)
+# Save dated backup files?
+save_restoreSet_DatedBackupFiles(1)
+# Number of sequenced backup files to write
+save_restoreSet_NumSeqFiles(3)
+# Time interval between sequenced backups
+save_restoreSet_SeqPeriodInSeconds(300)
+# The following line was moved to ../nfsCommands
+#save_restoreSet_NFSHost("oxygen", "164.54.52.4")
+
+# specify where save files should go
+set_savefile_path(startup, "autosave")
+# specify where request files come from
+# (current directory)
+set_requestfile_path(startup)
+set_requestfile_path(std, "stdApp/Db")
+set_requestfile_path(motor, "motorApp/Db")
+set_requestfile_path(mca, "mcaApp/Db")
+set_requestfile_path(ip, "ipApp/Db")
+set_requestfile_path(ip330, "ip330App/Db")
+# specify what save files should be restored
+set_pass0_restoreFile("auto_positions.sav")
+set_pass0_restoreFile("auto_settings.sav")
+set_pass1_restoreFile("auto_settings.sav")
+
 # Currently, the only thing we do in initHooks is call reboot_restore(), which
 # restores positions and settings saved ~continuously while EPICS is alive.
 # See calls to "create_monitor_set()" at the end of this file.  To disable
@@ -449,6 +474,9 @@ dbLoadRecords("stdApp/Db/VXstats.db","P=xxx:", std)
 # Analog I/O (Acromag IP330 ADC)
 #dbLoadTemplate("ip330Scan.substitutions", ip330)
 
+# PV save_restore can use to report its status
+dbLoadRecords("stdApp/Db/save_restoreStatus.db","P=xxx:", std)
+
 # Machine-status board (MRD 100)
 #####################################################
 # dev32VmeConfig(card,a32base,nreg,iVector,iLevel)                 
@@ -499,9 +527,9 @@ iocInit
 # will be saved by the task we're starting here are going to be restored.
 #
 # save positions every five seconds
-create_monitor_set("auto_positions.req",5)
+create_monitor_set("auto_positions.req",5,"P=xxx:")
 # save other things every thirty seconds
-create_monitor_set("auto_settings.req",30)
+create_monitor_set("auto_settings.req",30,"P=xxx:")
 
 
 ### Start the saveData task.
