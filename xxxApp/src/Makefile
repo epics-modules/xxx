@@ -85,6 +85,8 @@ xxx_Linux_LIBS  += dxp handel
 # uncomment the following line.
 #xxx_Linux_LIBS  += mcaCanberra
 
+xxx_cygwin_LIBS += dxp handel
+
 xxx_solaris_LIBS += genSub
 #xxx_solaris_LIBS += mca
 xxx_solaris_LIBS += calc
@@ -107,11 +109,18 @@ xxx_LIBS_DEFAULT = $(xxx_Common_LIBS)
 xxx_LIBS_vxWorks = $(xxx_vxWorks_LIBS) $(xxx_Common_LIBS)
 xxx_LIBS_Linux   = $(xxx_Linux_LIBS)   $(xxx_Common_LIBS)
 xxx_LIBS_solaris = $(xxx_solaris_LIBS)
+xxx_LIBS_cygwin32 = $(xxx_cygwin_LIBS) $(xxx_Common_LIBS)
 
 # If the host has libnet and libpcap for mca/Canberra support
 # uncomment the following line.
 #xxx_SYS_LIBS_Linux += net pcap
 xxx_SYS_LIBS_vxWorks += -nil-
+
+# This is needed by dxp on cygwin
+xxx_SYS_LIBS_cygwin32 += DLPORTIO
+# This is needed by saveData on cygwin
+xxx_SYS_LIBS_cygwin32 += rpc
+
 
 #===========================
 
