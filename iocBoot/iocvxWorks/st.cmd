@@ -154,6 +154,15 @@ dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,C=0,DTYP=Joerger VS
 #     (3)interrupt vector (0=disable or  64 - 255)
 VSCSetup(1, 0xB0000000, 200)
 
+# Joerger VS
+# scalerVS_Setup(int num_cards,	/* maximum number of cards in crate */
+#	char *addrs,		/* address (0x800-0xf800, 2048-byte (0x800) boundary) */
+#	unsigned vector,	/* valid vectors(64-255) */
+#	int intlevel)	
+scalerVS_Setup(1, 0x2000, 205, 5)
+#devScaler_VSDebug=0
+dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler3,C=0, DTYP=Joerger VS, FREQ=10000000")
+
 ### Allstop, alldone
 # This database must agree with the motors and other positioners you've actually loaded.
 # Several versions (e.g., all_com_32.db) are in stdApp/Db
@@ -367,6 +376,8 @@ dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq3")
 dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 # interpolation
 dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:")
+# array test
+dbLoadRecords("$(CALC)/calcApp/Db/arrayTest.db", "P=xxx:,N=2000")
 
 ### serial support ###
 
@@ -671,3 +682,5 @@ saveData_Init("saveData.req", "P=xxx:")
 
 # If memory allocated at beginning free it now
 free(mem)
+
+dbcar(0,1)
