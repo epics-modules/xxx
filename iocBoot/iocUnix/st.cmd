@@ -35,33 +35,7 @@ initSerialServer("serial2", "serial2", 1000, 20, "")
 #initSerialServer("serial5","serial5",1000,20,"") 
 #initSerialServer("serial6","serial6",1000,20,"") 
  
-### dbrestore setup
-# ok to restore a save set that had missing values (no CA connection to PV)?
-#var sr_restore_incomplete_sets_ok, 1
-# dbrestore saves a copy of the save file it restored.  File name is, e.g.,
-# auto_settings.sav.bu or auto_settings.savYYMMDD-HHMMSS if
-# reboot_restoreDatedBU is nonzero.
-#var reboot_restoreDatedBU, 1
-#set_savefile_path(startup, "autosave")
-set_requestfile_path(startup, "")
-set_requestfile_path(startup, "autosave")
-set_requestfile_path(autosave, "autosaveApp/Db")
-set_requestfile_path(calc, "calcApp/Db")
-set_requestfile_path(ccd, "ccdApp/Db")
-set_requestfile_path(dxp, "dxpApp/Db")
-set_requestfile_path(ip, "ipApp/Db")
-set_requestfile_path(love, "loveApp/Db")
-set_requestfile_path(mca, "mcaApp/Db")
-set_requestfile_path(motor, "motorApp/Db")
-set_requestfile_path(optics, "opticsApp/Db")
-set_requestfile_path(sscan, "sscanApp/Db")
-set_requestfile_path(std, "stdApp/Db")
-#var reboot_restoreDebug,0
-# specify what save files should be restored.  Note these files must be reachable
-# from the directory current at the time iocInit is run
-set_pass0_restoreFile("auto_positions.sav")
-set_pass0_restoreFile("auto_settings.sav")
-set_pass1_restoreFile("auto_settings.sav")
+< save_restore.cmd
 
 # need more entries in wait/scan-record channel-access queue?
 #var recDynLinkQsize, 1024
@@ -70,6 +44,10 @@ set_pass1_restoreFile("auto_settings.sav")
 # Note for N sscanRecord data points, need (N+1)*8 bytes, else MEDM
 # plot doesn't display
 epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
+
+### save_restore
+#dbLoadRecords("$(AUTOSAVE)asApp/Db/SR_array_test.vdb", "P=xxx:,N=10")
+dbLoadRecords("$(AUTOSAVE)asApp/Db/save_restoreStatus.db", "P=xxx:")
 
 # Love Controllers
 #var devLoveDebug,1
@@ -395,8 +373,6 @@ seq &Keithley2kDMM,("P=xxx:, Dmm=D1, channels=10, model=2000")
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".
-# (See also, 'initHooks' above, which is the means by which the values that
-# will be saved by the task we're starting here are going to be restored.
 # Note that you can reload these sets after creating them: e.g., 
 # reload_monitor_set("auto_settings.req",30,"P=xxx:")
 #

@@ -26,6 +26,10 @@ mem = malloc(1024*1024*96)
 ### Load custom EPICS software from user tree and from share
 ld < xxx.munch
 
+cd startup
+
+recDynLinkDebug = 1
+
 # Increase size of buffer for error logging from default 1256
 errlogInit(5000)
 
@@ -34,49 +38,10 @@ errlogInit(5000)
 routerInit
 localMessageRouterStart(0)
 
-# talk to IP's on satellite processor
-# (must agree with tcpMessageRouterServerStart in st_proc1.cmd)
-# for IP modules on stand-alone mpf server board
-tcpMessageRouterClientStart(1, 9900, Remote_IP, 1500, 40)
-
 # This IOC configures the MPF server code locally
-#cd startup
 #< st_mpfserver.cmd
-#cd topbin
 
-### dbrestore setup
-# ok to restore a save set that had missing values (no CA connection to PV)?
-sr_restore_incomplete_sets_ok = 1
-# dbrestore saves a copy of the save file it restored.  File name is, e.g.,
-# auto_settings.sav.bu or auto_settings.savYYMMDD-HHMMSS if
-# reboot_restoreDatedBU is nonzero.
-reboot_restoreDatedBU = 1;
-set_savefile_path(startup, "autosave")
-set_requestfile_path(startup, "")
-set_requestfile_path(startup, "autosave")
-set_requestfile_path(autosave, "autosaveApp/Db")
-set_requestfile_path(calc, "calcApp/Db")
-#set_requestfile_path(camac, "camacApp/Db")
-set_requestfile_path(ccd, "ccdApp/Db")
-set_requestfile_path(dac128v, "dac128VApp/Db")
-set_requestfile_path(dxp, "dxpApp/Db")
-set_requestfile_path(ip, "ipApp/Db")
-set_requestfile_path(ip330, "ip330App/Db")
-set_requestfile_path(ipunidig, "ipUnidigApp/Db")
-set_requestfile_path(love, "loveApp/Db")
-set_requestfile_path(mca, "mcaApp/Db")
-set_requestfile_path(motor, "motorApp/Db")
-set_requestfile_path(optics, "opticsApp/Db")
-set_requestfile_path(quadem, "quadEMApp/Db")
-set_requestfile_path(sscan, "sscanApp/Db")
-set_requestfile_path(std, "stdApp/Db")
-set_requestfile_path(vme, "vmeApp/Db")
-reboot_restoreDebug=0
-# specify what save files should be restored.  Note these files must be reachable
-# from the directory current at the time iocInit is run
-set_pass0_restoreFile("auto_positions.sav")
-set_pass0_restoreFile("auto_settings.sav")
-set_pass1_restoreFile("auto_settings.sav")
+< save_restore.cmd
 
 # override address, interrupt vector, etc. information in module_types.h
 #module_types()
@@ -89,7 +54,6 @@ recDynLinkQsize = 1024
 # plot doesn't display
 putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"
 
-cd startup
 ################################################################################
 # Tell EPICS all about the record types, device-support modules, drivers,
 # etc. in the software we just loaded (xxx.munch)
@@ -178,6 +142,10 @@ oms58Setup(3, 8, 0x4000, 190, 5, 10)
 #dbLoadTemplate("picMot.substitutions")
 
 ###############################################################################
+
+### save_restore
+dbLoadRecords("$(AUTOSAVE)/asApp/Db/SR_array_test.vdb", "P=xxx:,N=10")
+dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=xxx:")
 
 ### Scalers: Joerger VSC8/16
 #dbLoadRecords("$(VME)/vmeApp/Db/Jscaler.db","P=xxx:,S=scaler1,C=0")
@@ -448,7 +416,7 @@ dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:")
 
 ### Miscellaneous ###
 # Systran DAC database
-dbLoadTemplate("dac128V.substitutions")
+#dbLoadTemplate("dac128V.substitutions")
 
 # vme test record
 dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
@@ -679,8 +647,6 @@ seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".
-# (See also, 'initHooks' above, which is the means by which the values that
-# will be saved by the task we're starting here are going to be restored.
 # Note that you can reload these sets after creating them: e.g., 
 # reload_monitor_set("auto_settings.req",30,"P=xxx:")
 #
