@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synApps_4_4/support/xxx/xxxApp/op/adl/xxx.adl"
+	name="/home/oxygen4/MOONEY/epics/synApps_4_5/support/xxx/xxxApp/op/adl/xxx.adl"
 	version=030003
 }
 display {
@@ -777,7 +777,7 @@ text {
 		args="P=xxx:"
 	}
 	display[1] {
-		label="save_restore ststus"
+		label="save_restore status"
 		name="save_restoreStatus.adl"
 		args="P=xxx:"
 	}
@@ -1166,7 +1166,7 @@ text {
 	}
 	display[4] {
 		label="HVPS 1"
-		name="xxIcbHvps.adl"
+		name="xxIcbHVPS.adl"
 		args="P=xxx:,HVPS=icbHvps1"
 	}
 	display[5] {

@@ -213,7 +213,7 @@ dbLoadRecords("stdApp/Db/all_com_16.db","P=xxx:", std)
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
-dbLoadRecords("stdApp/Db/scan.db","P=xxx:,MAXPTS1=2000,MAXPTS2=200,MAXPTS3=10,MAXPTS4=10,MAXPTSH=200", std)
+dbLoadRecords("stdApp/Db/scan.db","P=xxx:,MAXPTS1=2000,MAXPTS2=200,MAXPTS3=10,MAXPTS4=10,MAXPTSH=2000", std)
 
 # Slits
 dbLoadRecords("stdApp/Db/2slit.db","P=xxx:,SLIT=Slit1V,mXp=m24,mXn=m26", std)
@@ -292,7 +292,7 @@ dbLoadRecords("mcaApp/Db/mca.db","P=xxx:,M=mca1,INP=#C0 S0 @AIM1/2,DTYPE=MPF MCA
 # picbServer = icbConfig(icbServer, maxModules, icbAddress, queueSize)
 # This creates the ICB server and allocates configures the first module, module 0.
 # Additional modules are added to this server with icbAddModule().
-#picbServer = icbConfig("icb/1", 10, "NI9AA:3", 100)
+picbServer = icbConfig("icb/1", 5, "NI9AA:3", 100)
 
 # In the dbLoadRecords commands CARD=(0,1) for (local/remote), SERVER=icbServer name from
 # icbConfig, ADDR=module number from icbConfig() or icbAddModule().
@@ -301,7 +301,7 @@ dbLoadRecords("mcaApp/Db/mca.db","P=xxx:,M=mca1,INP=#C0 S0 @AIM1/2,DTYPE=MPF MCA
 # module number and icb address is made in icbConfig (for module number 0) or in
 # icbAddModule.
 #icbAddModule(picbServer, 1, "NI9AA:2")
-#dbLoadRecords("mcaApp/Db/icb_adc.db","P=xxx:,ADC=icbAdc1,CARD=0,SERVER=icb/1,ADDR=0", mca)
+dbLoadRecords("mcaApp/Db/icb_adc.db","P=xxx:,ADC=icbAdc1,CARD=0,SERVER=icb/1,ADDR=0", mca)
 
 #icbTcaConfig("icbTca/1", 1, "NI9AA:1", 100)
 #dbLoadRecords("mcaApp/Db/icb_tca.db","P=xxx:,TCA=icbTca1,MCA=mca1,CARD=0,SERVER=icb/1,ADDR=1", mca)
