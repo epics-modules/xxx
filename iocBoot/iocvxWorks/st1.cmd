@@ -3,14 +3,9 @@ cd ""
 < cdCommands
 < MPFconfig.cmd
 
-cd appbin
-cd ../vxWorks-68040
-ld < mpfLib
-ld < ipLib
-ld < mpfserialserverLib
-# Uncomment, as needed.
-#ld < mpfgpibserverLib
-ld < dac128VLib
+cd topbin
+cd "../vxWorks-68040"
+ld < xxx.munch
 
 cd startup
 #start message router
