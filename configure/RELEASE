@@ -25,8 +25,9 @@ include $(SUPPORT)/config/STD_RELEASE
 include $(SUPPORT)/config/MPF_RELEASE
 #include $(SUPPORT)/config/ALLEN_BRADLEY_RELEASE
 include $(SUPPORT)/config/IPAC_RELEASE
+include $(SUPPORT)/config/ASYN_RELEASE
 include $(SUPPORT)/config/SNCSEQ_RELEASE
-#include $(SUPPORT)/config/VXSTATS_RELEASE
+include $(SUPPORT)/config/VXSTATS_RELEASE
 include $(SUPPORT)/config/GPIBCORE_RELEASE
 include $(SUPPORT)/config/RELEASE
 
