@@ -63,6 +63,17 @@ ld < initHooks.o
 # supported by a customized version of the SNL program written by Pete Jemian
 #ld < xia_slit.o
 
+# The following applies to "save/restore V2.9" and above.
+# specify where save files should go
+set_savefile_path("autosave")
+
+# specify where to get request files
+set_requestfile_path(ip,    "ipApp/Db");
+set_requestfile_path(mca,   "mcaApp/Db");
+set_requestfile_path(motor, "motorApp/Db");
+set_requestfile_path(std,   "stdApp/Db");
+set_requestfile_path(startup);
+
 # override address, interrupt vector, etc. information in module_types.h
 module_types()
 
