@@ -1,8 +1,0 @@
-file "$(IP)/ipApp/Db/fast_pid_control.db"
-{
-pattern
-{P,      PID,   C,  SERVER,       LOPR,     HOPR,  DRVL,  DRVH,  PREC,   KP,  KI,   KD,  DT, SCAN}
-{xxx:, PID2,  0, Ip330PID_1,       0,    65535,  0,     4095,   3,    .02,  100.,  0., .001, ".1 second"}
-{xxx:, PID3,  0, quadEMPID1,  -32767,    32767,  2048,  2662,   3,    .02,  100.,  0., .001, ".1 second"}
-{xxx:, PID4,  0, quadEMPID2,  -32767,    32767,  2048,  3072,   3,    .02,  100.,  0., .001, ".1 second"}
-}
