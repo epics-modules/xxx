@@ -2,7 +2,7 @@
 
 # First carrier
 # slot a: IP-Octal (serial RS-232)
-# slot b: IpUnidig (digital I/O)
+# slot b: IpUnidig (digital I/O)    NOT
 # slot c: Ip330 (A/D converter)
 # slot d: Dac128V (D/A converter)
 
@@ -13,10 +13,10 @@
 #   cardParams - carrier-specific init parameters
 
 # Select for MVME162 or MVME172 CPU board IP carrier.
-#carrier1=ipacAddMVME162("A:l=3,3 m=0xe0000000,64;B:l=3,3 m=0xe0010000,64;C:l=3,3 m=0xe0020000,64;D:l=3,3 m=0xe0030000,64")
+carrier1=ipacAddMVME162("A:l=3,3 m=0xe0000000,64;B:l=3,3 m=0xe0010000,64;C:l=3,3 m=0xe0020000,64;D:l=3,3 m=0xe0030000,64")
 
 # Select for SBS VIPC616-01 version IP carrier.
-carrier1=ipacAddVIPC616_01("0x3000,0xa0000000")
+#carrier1=ipacAddVIPC616_01("0x3000,0xa0000000")
 
 ###############################################################################
 # Initialize Octal UART stuff
@@ -59,7 +59,18 @@ tyGSMPFInit("serial8",  0, 7,19200,'N',1,8,'N',"")  /* Love controllers */
 #               IpUnidig server.  This
 #               does not refer to the number of EPICS clients.  A value of
 #               10 should certainly be safe.
-initIpUnidig("Unidig1", 0, 1, 20, 2000, 116, 1, 1, 0xffff, 10)
+#initIpUnidig("Unidig1", 0, 1, 20, 2000, 116, 1, 1, 0xffff, 10)
+
+# NOTE: the server name, "DAC1" is needed by initIp330PID, so initDAC128V
+# must be called first.
+# Initialize Systran DAC
+# initDAC128V(char *serverName, int carrier, int slot, int queueSize)
+# serverName  = name to give this server
+# carrier     = IPAC carrier number (0, 1, etc.)
+# slot        = IPAC slot (0,1,2,3, etc.)
+# queueSize   = size of output queue for EPICS
+#
+initDAC128V("DAC1", 0, 3, 20)
 
 # Initialize Acromag IP-330 ADC
 # initIp330(
@@ -119,7 +130,7 @@ configIp330("Ip330_1", 3,"Input",500,0)
 #              firstChan to lastChan specified in initIp330
 # queueSize  = size of output queue for MPF. Make this the maximum number
 #              of ai records attached to this server.
-initIp330Scan("Ip330_1","Ip330Scan1",0,15,100)
+#initIp330Scan("Ip330_1","Ip330Scan1",0,15,100)
 
 # initIp330Sweep(char *moduleName, char *serverName, int firstChan,
 #     int lastChan, int maxPoints, int queueSize)
@@ -132,7 +143,7 @@ initIp330Scan("Ip330_1","Ip330Scan1",0,15,100)
 # maxPoints  = maximum number of points in a sweep.  The amount of memory
 #              allocated will be maxPoints*(lastChan-firstChan+1)*4 bytes
 # queueSize  = size of output queue for EPICS
-initIp330Sweep("Ip330_1","Ip330Sweep1",0,3,2048,100)
+#initIp330Sweep("Ip330_1","Ip330Sweep1",0,3,2048,100)
 
 # initIp330PID(const char *serverName,
 #        char *ip330Name, int ADCChannel, dacName, int DACChannel,
@@ -146,14 +157,6 @@ initIp330Sweep("Ip330_1","Ip330Sweep1",0,3,2048,100)
 # DACChannel = DAC channel to be used by Ip330PID as its control output.  This
 #              must be in the range 0-7.
 # queueSize  = size of output queue for EPICS
-initIp330PID("Ip330PID1", "Ip330_1", 0, "DAC1", 0, 20)
+#initIp330PID("Ip330PID1", "Ip330_1", 0, "DAC1", 0, 20)
 
-# Initialize Systran DAC
-# initDAC128V(char *serverName, int carrier, int slot, int queueSize)
-# serverName  = name to give this server
-# carrier     = IPAC carrier number (0, 1, etc.)
-# slot        = IPAC slot (0,1,2,3, etc.)
-# queueSize   = size of output queue for EPICS
-#
-initDAC128V("DAC1", 0, 3, 20)
 
