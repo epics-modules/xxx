@@ -31,16 +31,16 @@ asynOctetSetOutputEos("serial2",0,"\r")
 # serial 3 is connected to the ACS MCB-4B at 9600 baud
 #drvAsynIPPortConfigure("portName","hostInfo",priority,noAutoConnect,
 #                        noProcessEos)
-drvAsynIPPortConfigure("serial3", "164.54.160.50:4001", 0, 0, 0)
-asynOctetConnect("serial3", "serial3")
-asynOctetSetInputEos("serial3",0,"\r")
-asynOctetSetOutputEos("serial3",0,"\r")
+#drvAsynIPPortConfigure("serial3", "164.54.160.50:4001", 0, 0, 0)
+#asynOctetConnect("serial3", "serial3")
+#asynOctetSetInputEos("serial3",0,"\r")
+#asynOctetSetOutputEos("serial3",0,"\r")
 
 # serial 4 not connected for now
-drvAsynIPPortConfigure("serial4", "164.54.160.50:4002", 0, 0, 0)
-asynOctetConnect("serial4", "serial4")
-asynOctetSetInputEos("serial4",0,"\r")
-asynOctetSetOutputEos("serial4",0,"\r")
+#drvAsynIPPortConfigure("serial4", "164.54.160.50:4002", 0, 0, 0)
+#asynOctetConnect("serial4", "serial4")
+#asynOctetSetInputEos("serial4",0,"\r")
+#asynOctetSetOutputEos("serial4",0,"\r")
 
 # Newport MM4000 driver setup parameters:
 #     (1) maximum # of controllers,
