@@ -112,7 +112,7 @@ seqDev_DIR = $(SEQ_LIB)
 xxx_LIBS += std
 std_DIR = $(STD_LIB)
 
-xxx_LIBS += mpf mpfEpics mpfSerial
+xxx_LIBS += mpfSerial mpf mpfEpics
 mpf_DIR = $(MPF_LIB)
 mpfEpics_DIR = $(MPF_LIB)
 mpfSerial_DIR = $(MPF_LIB)

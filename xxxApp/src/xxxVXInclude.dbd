@@ -1,5 +1,15 @@
-# stuff to be added only for vxWorks ioc
-include "xxxInclude.dbd"
+# stuff for vxWorks ioc
+include "shareBase.dbd"
+include "stdSupport.dbd"
+
+include "motorRecord.dbd"
+include "devSoftMotor.dbd"
+include "devOms.dbd"
+#include "devAcsMotor.dbd"
+#include "devImsMotor.dbd"
+#include "devMclennanMotor.dbd"
+#include "devNewport.dbd"
+
 
 include "stdVXSupport.dbd"
 
@@ -15,19 +25,17 @@ include "devAoDAC128V.dbd"
 
 include "devIp330.dbd"
 
-include "devOms.dbd"
-#include "devAcsMotor.dbd"
-#include "devImsMotor.dbd"
-#include "devMXmotor.dbd"
-#include "devMclennanMotor.dbd"
-#include "devNewport.dbd"
-
 #include "camacSupport.dbd"
 #include "devCamacSupport.dbd"
 #include "dxpCamacSupport.dbd"
+
 #include "allenBradley.dbd"
 include "devLove.dbd"
 include "drvIpac.dbd"
+
+include "mpf.dbd"
+include "devStringMpf.dbd"
+include "mpfSerialVx.dbd"
 
 # Locally defined stuff that needs to be registered
 #registrar(myRegistrar)

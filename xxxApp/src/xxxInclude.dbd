@@ -1,5 +1,7 @@
+# stuff for non-vxWorks ioc
 include "shareBase.dbd"
 include "stdSupport.dbd"
+include "mpf.dbd"
 include "mpfSerial.dbd"
 include "motorRecord.dbd"
 include "devSoftMotor.dbd"

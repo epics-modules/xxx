@@ -94,7 +94,7 @@ xxxVX_registerRecordDeviceDriver(pdbbase)
 #dbLoadRecords("$(STD)/stdApp/Db/interp.db", "P=xxx:")
 
 # 4-step measurement
-#dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
+dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 
 # X-ray Instrumentation Associates Huber Slit Controller
 # supported by a customized version of the SNL program written by Pete Jemian
@@ -456,7 +456,6 @@ dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
 ###############################################################################
 # Set shell prompt (otherwise it is left at mv167 or mv162)
 shellPromptSet "iocxxx> "
-#reboot_restoreDebug=5
 iocLogDisable=1
 iocInit
 
