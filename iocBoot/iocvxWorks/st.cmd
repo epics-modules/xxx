@@ -1,8 +1,4 @@
 # vxWorks startup script
-# If using a PowerPC CPU with more than 32MB of memory, and not building with longjump, then
-# allocate enough memory here to force code to load in lower 32 MB
-mem = malloc(1024*1024*96)
-
 
 # for vxStats
 #putenv "engineer=not me"
@@ -22,36 +18,30 @@ cd topbin
 # be added before any C++ code is loaded (see SPR #28980).
 sysCplusEnable=1
 
+# If using a PowerPC CPU with more than 32MB of memory, and not building with longjump, then
+# allocate enough memory here to force code to load in lower 32 MB
+mem = malloc(1024*1024*96)
+
 ### Load custom EPICS software from user tree and from share
 ld < xxx.munch
 
+# Increase size of buffer for error logging from default 1256
+errlogInit(5000)
+
+# Note that you need an MPF router not only for IP modules, but also for
+# the AIM MCA support and other MPF servers
 routerInit
-# talk to local IP's
 localMessageRouterStart(0)
+
 # talk to IP's on satellite processor
 # (must agree with tcpMessageRouterServerStart in st_proc1.cmd)
 # for IP modules on stand-alone mpf server board
 #tcpMessageRouterClientStart(1, 9900, Remote_IP, 1500, 40)
 
-# For processor with IP slots or that runs a dumb IP carrier
-#ld < ip.munch 
-#ld < mpfgpibserver.munch 
-#ld < mpfserialserver.munch
-#ld < dac128V.munch
-#ld < ip330.munch
-#ld < ip330Serv.munch
-#ld < ipUnidig.munch
-#ld < loveServer.o
-#ld < mpcServer.o
-
 # This IOC configures the MPF server code locally
-#cd startup
-#< st_mpfserver.cmd
-#cd topbin
-
-# For local OR remote GPIB server.  Can't use both (as of mpfGpib1.4)
-#ld < GpibHideosLocal.o
-#ld < GpibHideosRemote.o
+cd startup
+< st_mpfserver.cmd
+cd topbin
 
 ### dbrestore setup
 # ok to restore a save set that had missing values (no CA connection to PV)?
@@ -70,7 +60,14 @@ set_requestfile_path(ipunidig, "ipUnidigApp/Db")
 set_requestfile_path(dac128v, "dac128VApp/Db")
 set_requestfile_path(motor, "motorApp/Db")
 set_requestfile_path(std, "stdApp/Db")
+set_requestfile_path(quadem, "quadEMApp/Db")
+#set_requestfile_path(camac, "camacApp/Db")
 reboot_restoreDebug=0
+# specify what save files should be restored.  Note these files must be reachable
+# from the directory current at the time iocInit is run
+set_pass0_restoreFile("auto_positions.sav")
+set_pass0_restoreFile("auto_settings.sav")
+set_pass1_restoreFile("auto_settings.sav")
 
 # override address, interrupt vector, etc. information in module_types.h
 #module_types()
@@ -103,7 +100,7 @@ dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:")
 # supported by a customized version of the SNL program written by Pete Jemian
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/xia_slit.db", "P=xxx:, HSC=hsc1:")
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/xia_slit.db", "P=xxx:, HSC=hsc2:")
-#dbLoadRecords("$(IP)/ipApp/Db/generic_serial.db", "P=xxx:,C=0,IPSLOT=a,CHAN=6,BAUD=9600,PRTY=None,DBIT=8,SBIT=1")
+#dbLoadRecords("$(IP)/ipApp/Db/generic_serial.db", "P=xxx:,C=0,SERVER=serial7")
 
 ##### Pico Motors (Ernest Williams MHATT-CAT)
 ##### Motors (see picMot.substitutions in same directory as this file) ####
@@ -118,7 +115,7 @@ dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=xxx:,xx=02us")
 # test generic gpib record
 #dbLoadRecords("$(STD)/stdApp/Db/gpib.db","P=xxx:")
 # test generic camac record
-#dbLoadRecords("$(STD)/stdApp/Db/camac.db","P=xxx:")
+#dbLoadRecords("$(CAMAC)/camacApp/Db/camac.db","P=xxx:")
 
 
 ###############################################################################
@@ -153,8 +150,8 @@ oms58Setup(3, 8, 0x3000, 190, 5, 10)
 #     (1)controller# being configured,
 #     (2)port type: 0-GPIB_PORT or 1-RS232_PORT,
 #     (3)GPIB link or MPF server location
-#     (4)GPIB address or hideos_task name
-#MM4000Config(0, 1, 1, "a-Serial[0]")
+#     (4) GPIB address (int) or mpf serial server name (string)
+#MM4000Config(0, 1, 1, "serial2")
 
 # Newport PM500 driver setup parameters:
 #     (1) maximum number of controllers in system
@@ -165,10 +162,33 @@ oms58Setup(3, 8, 0x3000, 190, 5, 10)
 # Newport PM500 configuration parameters:
 #     (1) card being configured
 #     (2) port type (0-GPIB_PORT, 1-RS232_PORT)
-#     (3) link for GPIB or hideos_card for RS-232
-#     (3)GPIB link or MPF server location
+#     (3) GPIB link or MPF server location
 #     (4) GPIB address (int) or mpf serial server name (string)
-#PM500Config(0, 1, 1, "a-Serial[4]")
+#PM500Config(0, 1, 1, "serial3")
+
+# McClennan PM304 driver setup parameters:
+#     (1) maximum number of controllers in system
+#     (2) maximum number of channels on any controller
+#     (3) motor task polling rate (min=1Hz, max=60Hz)
+#PM304Setup(1, 1, 10)
+
+# McClennan PM304 driver configuration parameters:
+#     (1) controller being configured
+#     (2) MPF server location
+#     (3) MPF serial server name (string)
+#PM304Config(0, 0, "serial4")
+
+# ACS MCB-4B driver setup parameters:
+#     (1) maximum number of controllers in system
+#     (2) maximum number of axes per controller
+#     (3) motor task polling rate (min=1Hz, max=60Hz)
+#MCB4BSetup(1, 4, 10)
+
+# ACS MCB-4B driver configuration parameters:
+#     (1) controller being configured
+#     (2) MPF server location
+#     (3) MPF server name (string)
+#MCB4BConfig(0, 0, "serial5")
 
 # A set of scan parameters for each positioner.  This is a convenience
 # for the user.  It can contain an entry for each scannable thing in the
@@ -182,7 +202,7 @@ dbLoadRecords("$(VME)/vmeApp/Db/Jscaler.db","P=xxx:,S=scaler1,C=0")
 # Joerger VSC setup parameters: 
 #     (1)cards, (2)base address(ext, 256-byte boundary), 
 #     (3)interrupt vector (0=disable or  64 - 255)
-VSCSetup(1, 0x90000000, 200)
+VSCSetup(1, 0xB0000000, 200)
 
 ### Allstop, alldone
 # This database must agree with the motors and other positioners you've actually loaded.
@@ -192,50 +212,50 @@ dbLoadRecords("$(STD)/stdApp/Db/all_com_16.db","P=xxx:")
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
-dbLoadRecords("$(STD)/stdApp/Db/scan.db","P=xxx:,MAXPTS1=4000,MAXPTS2=200,MAXPTS3=10,MAXPTS4=10,MAXPTSH=4000")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db","P=xxx:,MAXPTS1=4000,MAXPTS2=200,MAXPTS3=10,MAXPTS4=10,MAXPTSH=4000")
 
 # Slits
-dbLoadRecords("$(STD)/stdApp/Db/2slit.db","P=xxx:,SLIT=Slit1V,mXp=m3,mXn=m4")
-dbLoadRecords("$(STD)/stdApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m6")
+dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1V,mXp=m3,mXn=m4")
+dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m6")
 
 # under development...
-#dbLoadRecords("$(STD)/stdApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2V,mXp=m13,mXn=m14")
-#dbLoadRecords("$(STD)/stdApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2H,mXp=m15,mXn=m16")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2V,mXp=m13,mXn=m14")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2H,mXp=m15,mXn=m16")
 
 # 2-post mirror
-#dbLoadRecords("$(STD)/stdApp/Db/2postMirror.db","P=xxx:,Q=M1,mDn=m18,mUp=m17,LENGTH=0.3")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/2postMirror.db","P=xxx:,Q=M1,mDn=m18,mUp=m17,LENGTH=0.3")
 
 # User filters
-#dbLoadRecords("$(STD)/stdApp/Db/filterMotor.db","P=xxx:,Q=fltr1:,MOTOR=m1,LOCK=fltr_1_2:")
-#dbLoadRecords("$(STD)/stdApp/Db/filterMotor.db","P=xxx:,Q=fltr2:,MOTOR=m2,LOCK=fltr_1_2:")
-#dbLoadRecords("$(STD)/stdApp/Db/filterLock.db","P=xxx:,Q=fltr2:,LOCK=fltr_1_2:,LOCK_PV=xxx:DAC1_1.VAL")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/filterMotor.db","P=xxx:,Q=fltr1:,MOTOR=m1,LOCK=fltr_1_2:")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/filterMotor.db","P=xxx:,Q=fltr2:,MOTOR=m2,LOCK=fltr_1_2:")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/filterLock.db","P=xxx:,Q=fltr2:,LOCK=fltr_1_2:,LOCK_PV=xxx:DAC1_1.VAL")
 
 # Optical tables
 #tableRecordDebug=1
-dbLoadRecords("$(STD)/stdApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
+dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
 
 ### Monochromator support ###
 # Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
 # standard geometry (geometry 1)
-dbLoadRecords("$(STD)/stdApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=17.4999,yOffHi=17.5001")
+dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=17.4999,yOffHi=17.5001")
 # modified geometry (geometry 2)
-dbLoadRecords("$(STD)/stdApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=4,yOffHi=36")
+dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=4,yOffHi=36")
 
 # Heidenhain ND261 encoder (for PSL monochromator)
 #dbLoadRecords("$(IP)/ipApp/Db/heidND261.db", "P=xxx:,C=0,IPSLOT=a,CHAN=0")
 
 # Heidenhain IK320 VME encoder interpolator
-#dbLoadRecords("$(STD)/stdApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=1,switches=41344,irq=3")
-#dbLoadRecords("$(STD)/stdApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=2,switches=41344,irq=3")
-#dbLoadRecords("$(STD)/stdApp/Db/IK320group.db","P=xxx:,group=5")
+#dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=1,switches=41344,irq=3")
+#dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=2,switches=41344,irq=3")
+#dbLoadRecords("$(VME)/vmeApp/Db/IK320group.db","P=xxx:,group=5")
 #drvIK320RegErrStr()
 
 # Spherical grating monochromator
-dbLoadRecords("$(STD)/stdApp/Db/SGM.db","P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8,M_g=m9")
+dbLoadRecords("$(OPTICS)/opticsApp/Db/SGM.db","P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8,M_g=m9")
 
 # 4-bounce high-resolution monochromator
-dbLoadRecords("$(STD)/stdApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10")
-#dbLoadRecords("$(STD)/stdApp/Db/hrSeq.db","P=xxx:,N=2,M_PHI1=m11,M_PHI2=m12")
+dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=2,M_PHI1=m11,M_PHI2=m12")
 
 ### Canberra AIM Multichannel Analyzer ###
 #mcaRecordDebug=1
@@ -271,10 +291,19 @@ dbLoadRecords("$(MCA)/mcaApp/Db/mca.db","P=xxx:,M=mca1,INP=#C0 S0 @AIM1/2,DTYPE=
 
 # Initialize ICB software, and create a new ICB server
 # icbSetup(const char *serverName, int maxModules, int queueSize)
+#
+# serverName:   defined here, must agree with icbConfig and dbLoadRecords commands
+# maxModules:   Maximum number of ICB modules that this server will control
+# queueSize:    size of MPF message queue for this server (100 should be plenty)
 icbSetup("icb/1", 10, 100)
 
-# Configure the new ICB server
-# icbConfig(const char *serverName, int module, int enetAddress, int icbAddress)
+# Configure an ICB module on this server
+# icbConfig(const char *serverName, int module, int etherAddr, int icbAddress)
+#
+# serverName:   defined in icbSetup above
+# module:       the index number for this module (0,1,2...)
+# etherAddr:    ethernet address of AIM module
+# icbAddress:   ICB address of this module (set with internal rotary switch, 0x0-0xF)
 icbConfig("icb/1", 0, 0x9AA, 3)
 
 # In dbLoadRecords commands for ICB devices
@@ -284,17 +313,28 @@ icbConfig("icb/1", 0, 0x9AA, 3)
 
 dbLoadRecords("$(MCA)/mcaApp/Db/icb_adc.db","P=xxx:,ADC=icbAdc1,CARD=0,SERVER=icb/1,ADDR=0")
 
-#icbConfig("icb/1", 2, 0x9AA, 2)
-#dbLoadRecords("$(MCA)/mcaApp/Db/icb_hvps.db","P=xxx:,HVPS=icbHvps1,CARD=0,SERVER=icb/1,ADDR=2")
+#icbConfig("icb/1", 1, 0x9AA, 2)
+#dbLoadRecords("$(MCA)/mcaApp/Db/icb_hvps.db","P=xxx:,HVPS=icbHvps1,CARD=0,SERVER=icb/1,ADDR=1")
 
-#icbConfig("icb/1", 3, 0x9AA, 4)
-#dbLoadRecords("$(MCA)/mcaApp/Db/icb_amp.db","P=xxx:,AMP=icbAmp1,CARD=0,SERVER=icb/1,ADDR=4")
+#icbConfig("icb/1", 2, 0x9AA, 4)
+#dbLoadRecords("$(MCA)/mcaApp/Db/icb_amp.db","P=xxx:,AMP=icbAmp1,CARD=0,SERVER=icb/1,ADDR=2")
 
 # icbTcaSetup(char *serverName, int maxModules, int queueSize)
-# icbTcaConfig(char *serverName, int module, int enetAddress, int icbAddress)
+#
+# serverName:   defined here, must agree with icbTcaConfig and dbLoadRecords commands
+# maxModules:   Maximum number of TCA modules that this server will control
+# queueSize:    size of MPF message queue for this server (100 should be plenty)
 
-# icbTcaSetup("icbTca/1", 3, 100)
-# icbTcaConfig("icbTca/1", 0, 0x9AA, 1)
+#icbTcaSetup("icbTca/1", 3, 100)
+
+# icbTcaConfig(char *serverName, int module, int etherAddr, int icbAddress)
+#
+# serverName:   defined in icbTcaSetup above
+# module:       the index number for this module (0,1,2...)
+# etherAddr:    ethernet address of AIM module
+# icbAddress:   ICB address of this module (set with internal rotary switch, 0x0-0xF)
+
+#icbTcaConfig("icbTca/1", 0, 0x9AA, 1)
 #dbLoadRecords("$(MCA)/mcaApp/Db/icb_tca.db","P=xxx:,TCA=icbTca1,MCA=mca1,CARD=0,SERVER=icbTca/1,ADDR=0")
 
 # Load 13 element detector software
@@ -324,8 +364,12 @@ dbLoadRecords("$(MCA)/mcaApp/Db/icb_adc.db","P=xxx:,ADC=icbAdc1,CARD=0,SERVER=ic
 # STR7201Config(int card, int maxSignals, int maxChans, int 1=enable internal 25MHZ clock) 
 #STR7201Config(0, 8, 1000, 0) 
 
+# Struck as EPICS scaler
+dbLoadRecords("$(MCA)/mcaApp/Db/STR7201scaler.db", "P=13LAB:,S=scaler2,C=0")
+
 ### Acromag IP330 in sweep mode ###
-#dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=mADC_1,DTYPE=ip330Sweep,NCHAN=2048,INP=#C0 S0 @d-Ip330Sweep")
+#dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=mADC_1,DTYPE=ip330Sweep,NCHAN=2048,INP=#C0 S0 @Ip330Sweep1")
+#dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=mADC_2,DTYPE=ip330Sweep,NCHAN=2048,INP=#C0 S1 @Ip330Sweep1")
 
 ### Stuff for user programming ###
 dbLoadRecords("$(STD)/stdApp/Db/userCalcs10.db","P=xxx:")
