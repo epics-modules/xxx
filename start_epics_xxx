@@ -1,0 +1,17 @@
+#!/bin/csh
+setenv EPICS_APP /home/oxygen/SLUITER/ioc_Vx_5-4/support/xxx
+rm tmp;touch tmp;perl $EPICS_APP/release.pl $EPICS_APP;source tmp
+setenv IP330 $ip330
+setenv MCA   $mca
+setenv STD   $std
+setenv MOTOR $motor
+setenv EPICS_DISPLAY_PATH ${MOTOR}/motorApp/op/adl':'${STD}/stdApp/op/adl':'${MCA}/mcaApp/op/adl':'${IP330}/ip330App/op/adl
+setenv BURT_INCLUDE "-I${MOTOR}/motorApp/op/adl -I${STD}/stdApp/op/adl -I${MCA}/mcaApp/op/adl -I${IP330}/ip330App/op/adl"
+
+if (! ${?MEDM_EXEC_LIST}) setenv MEDM_EXEC_LIST 'Help; medm_help.sh &T:Probe;probe &P &'
+setenv MEDM_HELP medm_help.sh
+setenv MEDM_HELP_URL "http://www.aps.anl.gov/xfd/WWW/xfd/bcda/medm_help"
+#setenv EPICS_CA_ADDR_LIST "164.54.53.126"
+
+cd $EPICS_APP/xxxApp/op/adl
+medm xxx.adl&

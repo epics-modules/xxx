@@ -1,0 +1,1689 @@
+
+file {
+	name="/home/oxygen50/SLUITER/local/epics/Vx_5-4_R3-13-4/ioc/xxx/xxxApp/op/adl/xxx.adl"
+	version=020306
+}
+display {
+	object {
+		x=521
+		y=27
+		width=450
+		height=160
+	}
+	clr=64
+	bclr=1
+	cmap=""
+	gridSpacing=10
+	gridOn=0
+	snapToGrid=1
+}
+"color map" {
+	ncolors=65
+	colors {
+		ffffff,
+		ececec,
+		dadada,
+		c8c8c8,
+		bbbbbb,
+		aeaeae,
+		9e9e9e,
+		919191,
+		858585,
+		787878,
+		696969,
+		5a5a5a,
+		464646,
+		2d2d2d,
+		000000,
+		00d800,
+		1ebb00,
+		339900,
+		2d7f00,
+		216c00,
+		fd0000,
+		de1309,
+		be190b,
+		a01207,
+		820400,
+		5893ff,
+		597ee1,
+		4b6ec7,
+		3a5eab,
+		27548d,
+		fbf34a,
+		f9da3c,
+		eeb62b,
+		e19015,
+		cd6100,
+		ffb0ff,
+		d67fe2,
+		ae4ebc,
+		8b1a96,
+		610a75,
+		a4aaff,
+		8793e2,
+		6a73c1,
+		4d52a4,
+		343386,
+		c7bb6d,
+		b79d5c,
+		a47e3c,
+		7d5627,
+		58340f,
+		99ffff,
+		73dfff,
+		4ea5f9,
+		2a63e4,
+		0a00b8,
+		ebf1b5,
+		d4db9d,
+		bbc187,
+		a6a462,
+		8b8239,
+		73ff6b,
+		52da3b,
+		3cb420,
+		289315,
+		1a7309,
+	}
+}
+"related display" {
+	object {
+		x=-114
+		y=538
+		width=136
+		height=23
+	}
+	display[0] {
+		label="TR_SLIT (S)"
+		name="trs.adl"
+		args="P=xxx:, M1=m7, M2=m8"
+	}
+	display[1] {
+		label="9-16"
+		name="topMotors8.adl"
+		args="P=xxx:,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16"
+	}
+	display[2] {
+		label="17-24"
+		name="topMotors8.adl"
+		args="P=xxx:,M1=m17,M2=m18,M3=m19,M4=m20,M5=m21,M6=m22,M7=m23,M8=m24"
+	}
+	display[3] {
+		label="25-32"
+		name="topMotors8.adl"
+		args="P=xxx:,M1=m25,M2=m26,M3=m27,M4=m28,M5=m29,M6=m30,M7=m31,M8=m32"
+	}
+	display[4] {
+		label="33-40"
+		name="topMotors8.adl"
+		args="P=xxx:,M1=m33,M2=m34,M3=m35,M4=m36,M5=m37,M6=m38,M7=m39,M8=m40"
+	}
+	display[5] {
+		label="41-48"
+		name="topMotors8.adl"
+		args="P=xxx:,M1=m41,M2=m42,M3=m43,M4=m44,M5=m45,M6=m46,M7=m47,M8=m48"
+	}
+	display[6] {
+		label="49-56"
+		name="topMotors8.adl"
+		args="P=xxx:,M1=m49,M2=m50,M3=m51,M4=m52,M5=m53,M6=m54,M7=m55,M8=m56"
+	}
+	display[7] {
+		label="57-64"
+		name="topMotors8.adl"
+		args="P=xxx:,M1=m57,M2=m58,M3=m59,M4=m60,M5=m61,M6=m62,M7=m63,M8=m64"
+	}
+	clr=54
+	bclr=52
+}
+"related display" {
+	object {
+		x=0
+		y=0
+		width=70
+		height=20
+	}
+	display[0] {
+		label="1bm A"
+		name="1bma_beamline.adl"
+		args="P=xxx:"
+	}
+	display[1] {
+		label="2id E&D"
+		name="2ided_beamline.adl"
+		args="P=xxx:"
+	}
+	display[2] {
+		label="3id A"
+		name="StationA.adl"
+		args="P=xxx:"
+	}
+	display[3] {
+		label="3id B"
+		name="StationB.adl"
+		args="P=xxx:"
+	}
+	clr=0
+	bclr=17
+	label="-Beamline"
+}
+"related display" {
+	object {
+		x=0
+		y=40
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Table1 (S)"
+		name="table.adl"
+		args="P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6"
+	}
+	display[1] {
+		label="Table1 (L)"
+		name="table_full.adl"
+		args="P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6"
+	}
+	display[2] {
+		label="Table2 (S) (no Z)"
+		name="table.adl"
+		args="P=xxx:,Q=Table2,T=table2,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=junk"
+	}
+	display[3] {
+		label="Table2 (L) (no Z)"
+		name="table_full.adl"
+		args="P=xxx:,Q=Table2,T=table2,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=junk"
+	}
+	display[4] {
+		label="Table3 (S) (no X)"
+		name="table.adl"
+		args="P=xxx:,Q=Table3,T=table3,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=m6"
+	}
+	display[5] {
+		label="Table3 (L) (no X)"
+		name="table_full.adl"
+		args="P=xxx:,Q=Table3,T=table3,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=m6"
+	}
+	display[6] {
+		label="Table4 (S) (no X or Z)"
+		name="table.adl"
+		args="P=xxx:,Q=Table4,T=table4,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=junk"
+	}
+	display[7] {
+		label="Table4 (L) (no X or Z)"
+		name="table_full.adl"
+		args="P=xxx:,Q=Table4,T=table4,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=junk"
+	}
+	clr=0
+	bclr=17
+	label="-Tables"
+}
+"related display" {
+	object {
+		x=0
+		y=20
+		width=70
+		height=20
+	}
+	display[0] {
+		label="1-8"
+		name="topMotors8.adl"
+		args="P=xxx:,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+	}
+	display[1] {
+		label="9-16"
+		name="topMotors8.adl"
+		args="P=xxx:,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16"
+	}
+	display[2] {
+		label="17-24"
+		name="topMotors8.adl"
+		args="P=xxx:,M1=m17,M2=m18,M3=m19,M4=m20,M5=m21,M6=m22,M7=m23,M8=m24"
+	}
+	display[3] {
+		label="25-32"
+		name="topMotors8.adl"
+		args="P=xxx:,M1=m25,M2=m26,M3=m27,M4=m28,M5=m29,M6=m30,M7=m31,M8=m32"
+	}
+	display[4] {
+		label="33-40"
+		name="topMotors8.adl"
+		args="P=xxx:,M1=m33,M2=m34,M3=m35,M4=m36,M5=m37,M6=m38,M7=m39,M8=m40"
+	}
+	display[5] {
+		label="41-48"
+		name="topMotors8.adl"
+		args="P=xxx:,M1=m41,M2=m42,M3=m43,M4=m44,M5=m45,M6=m46,M7=m47,M8=m48"
+	}
+	display[6] {
+		label="49-56"
+		name="topMotors8.adl"
+		args="P=xxx:,M1=m49,M2=m50,M3=m51,M4=m52,M5=m53,M6=m54,M7=m55,M8=m56"
+	}
+	display[7] {
+		label="Motor status"
+		name="motorStatus32.adl"
+		args="P=xxx:"
+	}
+	clr=0
+	bclr=17
+	label="-Motors"
+}
+"related display" {
+	object {
+		x=0
+		y=100
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Kohzu Graphic (GEOM 1)"
+		name="kohzuGraphic.adl"
+		args="P=xxx:,mTH=m9,mY1=m10,mZ2=m11,mCHI2=m12,mTH2=m13,mX=m14,mY=m15,mX2=m16,QE=BraggE,PVE=BraggEAO,QL=BraggLambda,PVL=BraggLambdaAO,QTh=BraggTheta,PVTh=BraggThetaAO"
+	}
+	display[1] {
+		label="Kohzu Graphic (GEOM 2)"
+		name="kohzu2Graphic.adl"
+		args="P=xxx:,mTH=m9,mY2=m10,mZ2=m11,mCHI2=m12,mTH2=m13,mX=m14,mY=m15,mX2=m16,QE=BraggE,PVE=BraggEAO,QL=BraggLambda,PVL=BraggLambdaAO,QTh=BraggTheta,PVTh=BraggThetaAO"
+	}
+	display[2] {
+		label="KohzuSeq (tiny)"
+		name="kohzuSeqCtl_tiny.adl"
+		args="P=xxx:"
+	}
+	display[3] {
+		label="KohzuSeq"
+		name="kohzuSeqCtl.adl"
+		args="P=xxx:"
+	}
+	display[4] {
+		label="KohzuSeq (All)"
+		name="kohzuSeqCtl_All.adl"
+		args="P=xxx:"
+	}
+	display[5] {
+		label="Energy-scan parameters"
+		name="scanParms.adl"
+		args="P=xxx:,Q=BraggE,PV=BraggEAO"
+	}
+	display[6] {
+		label="Theta-scan parameters"
+		name="scanParms.adl"
+		args="P=xxx:,Q=BraggTheta,PV=BraggThetaAO"
+	}
+	display[7] {
+		label="Wavelength-scan parameters"
+		name="scanParms.adl"
+		args="P=xxx:,Q=BraggLambda,PV=BraggLambdaAO"
+	}
+	clr=0
+	bclr=17
+	label="-Kohzu"
+}
+"related display" {
+	object {
+		x=70
+		y=20
+		width=70
+		height=20
+	}
+	display[0] {
+		label="XIA slit 1"
+		name="xiahsc.adl"
+		args="P=xxx:,HSC=hsc1:"
+	}
+	clr=0
+	bclr=17
+	label="-XIAslit"
+}
+"related display" {
+	object {
+		x=140
+		y=40
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Scan1 (for all scans)"
+		name="scan.adl"
+		args="P=xxx:,N=1,S=scan1"
+	}
+	display[1] {
+		label="Scan2 (for 2D & higher scans)"
+		name="scan.adl"
+		args="P=xxx:,N=2,S=scan2"
+	}
+	display[2] {
+		label="Scan3 (for 3D & higher scans)"
+		name="scan.adl"
+		args="P=xxx:,N=3,S=scan3"
+	}
+	display[3] {
+		label="Scan4 (for 4D scans)"
+		name="scan.adl"
+		args="P=xxx:,N=4,S=scan4"
+	}
+	display[4] {
+		label="ScanH (for Hardware-assisted scans)"
+		name="scan.adl"
+		args="P=xxx:,N=H,S=scanH"
+	}
+	display[7] {
+		label="saveData controls"
+		name="scan_saveData.adl"
+		args="P=xxx:"
+	}
+	clr=0
+	bclr=17
+	label="-Scan"
+}
+"related display" {
+	object {
+		x=70
+		y=140
+		width=70
+		height=20
+	}
+	display[0] {
+		label="SRS 570 Current Preamplifier #A1"
+		name="SR570_tiny.adl"
+		args="P=xxx:,A=A1"
+	}
+	display[1] {
+		label="SRS 570 Current Preamplifier #A2"
+		name="SR570_tiny.adl"
+		args="P=xxx:,A=A2"
+	}
+	display[2] {
+		label="SRS 570 Current Preamplifier #A3"
+		name="SR570_tiny.adl"
+		args="P=xxx:,A=A3"
+	}
+	display[3] {
+		label="SRS 570 Current Preamplifier #A4"
+		name="SR570_tiny.adl"
+		args="P=xxx:,A=A4"
+	}
+	display[4] {
+		label="SRS 570 Current Preamplifier #A5"
+		name="SR570_tiny.adl"
+		args="P=xxx:,A=A5"
+	}
+	clr=0
+	bclr=17
+	label="-Preamps"
+}
+"related display" {
+	object {
+		x=70
+		y=120
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Joerger Scaler 1 (S)"
+		name="scaler.adl"
+		args="P=xxx:,S=scaler1"
+	}
+	display[1] {
+		label="Joerger Scaler 1 (M)"
+		name="scaler_more.adl"
+		args="P=xxx:,S=scaler1"
+	}
+	display[2] {
+		label="Joerger Scaler 1 (L)"
+		name="scaler_full.adl"
+		args="P=xxx:,S=scaler1"
+	}
+	display[3] {
+		label="Joerger Scaler 1 & User Calcs"
+		name="scaler_full_calc.adl"
+		args="P=xxx:,S=scaler1"
+	}
+	display[4] {
+		label="Joerger Scaler 2 (S)"
+		name="scaler16.adl"
+		args="P=xxx:,S=scaler2"
+	}
+	display[5] {
+		label="Joerger Scaler 2 (M)"
+		name="scaler16_more.adl"
+		args="P=xxx:,S=scaler2"
+	}
+	display[6] {
+		label="Joerger Scaler 2 (L)"
+		name="scaler16_full.adl"
+		args="P=xxx:,S=scaler2"
+	}
+	display[7] {
+		label="Joerger Scaler 2 & User Calcs"
+		name="scaler16_full_calc.adl"
+		args="P=xxx:,S=scaler2"
+	}
+	clr=0
+	bclr=17
+	label="-Scalers"
+}
+"related display" {
+	object {
+		x=280
+		y=20
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Keithley 2000 DMM"
+		name="Keithley2kDMM.adl"
+		args="P=xxx:,Dmm=D1"
+	}
+	display[1] {
+		label=" "
+	}
+	clr=0
+	bclr=63
+	label="-DMM"
+}
+"related display" {
+	object {
+		x=70
+		y=100
+		width=70
+		height=20
+	}
+	display[0] {
+		label="ADC 1"
+		name="Ip330Scan.adl"
+		args="P=xxx:,R=ADC_"
+	}
+	display[1] {
+		label="ADC 1 sweep"
+		name="mca_small.adl"
+		args="P=xxx:,M=mADC_1"
+	}
+	clr=0
+	bclr=17
+	label="-ADC"
+}
+"related display" {
+	object {
+		x=140
+		y=100
+		width=70
+		height=20
+	}
+	display[0] {
+		label="serial O/I block 1"
+		name="serial_OI_block.adl"
+		args="P=xxx:,N=1"
+	}
+	display[1] {
+		label="serial O/I block 2"
+		name="serial_OI_block.adl"
+		args="P=xxx:,N=2"
+	}
+	display[2] {
+		label="serial O/I block 3"
+		name="serial_OI_block.adl"
+		args="P=xxx:,N=3"
+	}
+	display[3] {
+		label="serial O/I block 4"
+		name="serial_OI_block.adl"
+		args="P=xxx:,N=4"
+	}
+	display[4] {
+		label="gpib O/I block 1"
+		name="GPIB_OI_block.adl"
+		args="P=xxx:,N=1"
+	}
+	display[5] {
+		label="gpib O/I block 2"
+		name="GPIB_OI_block.adl"
+		args="P=xxx:,N=2"
+	}
+	display[6] {
+		label="gpib O/I block 3"
+		name="GPIB_OI_block.adl"
+		args="P=xxx:,N=3"
+	}
+	display[7] {
+		label="gpib O/I block 4"
+		name="GPIB_OI_block.adl"
+		args="P=xxx:,N=4"
+	}
+	clr=0
+	bclr=17
+	label="-String"
+}
+"related display" {
+	object {
+		x=210
+		y=140
+		width=70
+		height=20
+	}
+	display[0] {
+		label="HP Laser Axis 1"
+		name="HPLaserAxis.adl"
+		args="P=xxx:,Q=HPLaser1"
+	}
+	display[1] {
+		label="HP Laser Axis 2"
+		name="HPLaserAxis.adl"
+		args="P=xxx:,Q=HPLaser2"
+	}
+	clr=0
+	bclr=17
+	label="-HP"
+}
+"related display" {
+	object {
+		x=70
+		y=0
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Slit 1 (H)"
+		name="2slit.adl"
+		args="P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m6"
+	}
+	display[1] {
+		label="Slit 1 (V)"
+		name="2slit.adl"
+		args="P=xxx:,SLIT=Slit1V,mXp=m3,mXn=m4"
+	}
+	display[2] {
+		label="Slit 1 Graphic"
+		name="4slitGraphic.adl"
+		args="P=xxx:,SLIT=Slit_1,H=Slit1H,mXp=m3,mXn=m4,V=Slit1V,mYp=m5,mYn=m6"
+	}
+	display[3] {
+		label="Slit Motors"
+		name="motor4x.adl"
+		args="P=xxx:,M1=m3,M2=m4,M3=m5,M4=m6"
+	}
+	display[4] {
+		label="Slit 2 (H) (soft)"
+		name="2slit_soft.adl"
+		args="P=xxx:,SLIT=Slit2H,mXp=m15,mXn=m16"
+	}
+	display[5] {
+		label="Slit 2 (V) (soft)"
+		name="2slit_soft.adl"
+		args="P=xxx:,SLIT=Slit2V,mXp=m13,mXn=m14"
+	}
+	display[6] {
+		label="Slit 2 Graphic (soft)"
+		name="4slitGraphic_soft.adl"
+		args="P=xxx:,SLIT=Slit_2,H=Slit2H,mXp=m15,mXn=m16,V=Slit2V,mYp=m13,mYn=m14"
+	}
+	clr=0
+	bclr=17
+	label="-Slits"
+}
+"related display" {
+	object {
+		x=0
+		y=140
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Spherical Grating Monochromator (tiny)"
+		name="SGM_tiny.adl"
+		args="P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8"
+	}
+	display[1] {
+		label="Spherical Grating Monochromator"
+		name="SGM.adl"
+		args="P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8"
+	}
+	clr=0
+	bclr=17
+	label="-SGM"
+}
+"related display" {
+	object {
+		x=0
+		y=80
+		width=70
+		height=20
+	}
+	display[0] {
+		label="2-post Mirror"
+		name="2postMirror.adl"
+		args="P=xxx:,Q=M1,mDn=m11,mUp=m12"
+	}
+	display[1] {
+		label=" "
+	}
+	clr=0
+	bclr=17
+	label="-Mirror"
+}
+text {
+	object {
+		x=160
+		y=24
+		width=50
+		height=10
+	}
+	"basic attribute" {
+		clr=64
+	}
+	textix="ScanTbl"
+}
+text {
+	object {
+		x=160
+		y=5
+		width=50
+		height=10
+	}
+	"basic attribute" {
+		clr=64
+	}
+	textix="ScanCfg"
+}
+"shell command" {
+	object {
+		x=140
+		y=0
+		width=20
+		height=20
+	}
+	command[0] {
+		label="Save scan config to 'scanConfig1.save'"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f scanConfig.req -o scanConfig1.save"
+	}
+	command[1] {
+		label="Save scan config to 'scanConfig2.save'"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f scanConfig.req -o scanConfig2.save"
+	}
+	command[2] {
+		label="Save scan config to 'scanConfig3.save'"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f scanConfig.req -o scanConfig3.save"
+	}
+	command[3] {
+		label="Save scan config to 'scanConfig4.save'"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f scanConfig.req -o scanConfig4.save"
+	}
+	command[4] {
+		label="Restore scan config from 'scanConfig1.save'"
+		name="cd ../burt; burtwb -f scanConfig1.save"
+	}
+	command[5] {
+		label="Restore scan config from 'scanConfig2.save'"
+		name="cd ../burt; burtwb -f scanConfig2.save"
+	}
+	command[6] {
+		label="Restore scan config from 'scanConfig3.save'"
+		name="cd ../burt; burtwb -f scanConfig3.save"
+	}
+	command[7] {
+		label="Restore scan config from 'scanConfig4.save'"
+		name="cd ../burt; burtwb -f scanConfig4.save"
+	}
+	clr=0
+	bclr=17
+}
+"shell command" {
+	object {
+		x=140
+		y=20
+		width=20
+		height=20
+	}
+	command[0] {
+		label="Load scan1 positioner tables from 'scan1_PnPA.load'"
+		name="cd ../burt; burtwb -f scan1_PnPA.load"
+	}
+	clr=0
+	bclr=17
+}
+"related display" {
+	object {
+		x=0
+		y=120
+		width=70
+		height=20
+	}
+	display[0] {
+		label="High resolution monochromator"
+		name="hrSeqCtl_All.adl"
+		args="P=xxx:,N=1"
+	}
+	display[1] {
+		label="Second HR mono"
+		name="hrSeqCtl_All.adl"
+		args="P=xxx:,N=2"
+	}
+	clr=0
+	bclr=17
+	label="-HR"
+}
+"related display" {
+	object {
+		x=280
+		y=140
+		width=70
+		height=20
+	}
+	display[0] {
+		label="vxWorks stats"
+		name="VXstats.adl"
+		args="P=xxx:"
+	}
+	display[1] {
+		label=" "
+	}
+	clr=0
+	bclr=17
+	label="-vxStats"
+}
+"related display" {
+	object {
+		x=140
+		y=80
+		width=70
+		height=20
+	}
+	display[0] {
+		label="generic serial port a[0]"
+		name="Serial_IO.adl"
+		args="REC=xxx:seriala[0]"
+	}
+	display[1] {
+		label="generic serial port a[1]"
+		name="Serial_IO.adl"
+		args="REC=xxx:seriala[1]"
+	}
+	display[2] {
+		label="generic serial port a[2]"
+		name="Serial_IO.adl"
+		args="REC=xxx:seriala[2]"
+	}
+	display[3] {
+		label="generic serial port a[3]"
+		name="Serial_IO.adl"
+		args="REC=xxx:seriala[3]"
+	}
+	display[4] {
+		label="generic serial port a[4]"
+		name="Serial_IO.adl"
+		args="REC=xxx:seriala[4]"
+	}
+	display[5] {
+		label="generic VME 1"
+		name="recVme.adl"
+		args="P=xxx:,Q=vme1"
+	}
+	display[6] {
+		label="generic GPIB"
+		name="GPIB_IO.adl"
+		args="REC=xxx:gpib1"
+	}
+	display[7] {
+		label="generic CAMAC"
+		name="CAMAC_IO.adl"
+		args="REC=xxx:camac1"
+	}
+	clr=0
+	bclr=17
+	label="-Generic"
+}
+"related display" {
+	object {
+		x=280
+		y=100
+		width=70
+		height=20
+	}
+	display[0] {
+		label="1 BM BPM info"
+		name="xx_BM_BPM.adl"
+		args="xx=01"
+	}
+	display[1] {
+		label="1 ID BPM info"
+		name="xx_ID_BPM.adl"
+		args="xx=01"
+	}
+	display[2] {
+		label="1 ID basic control"
+		name="UndulatorCtl.adl"
+		args="xx=01"
+	}
+	display[3] {
+		label="1 ID sync-scan control"
+		name="UndulatorSyncCtl.adl"
+		args="xx=01"
+	}
+	display[4] {
+		label="new ID control"
+		name="xxIDCtrl.adl"
+		args="P=xxx:,xx=01"
+	}
+	display[5] {
+		label="new ID control (us)"
+		name="xxIDCtrl.adl"
+		args="P=xxx:,xx=01us"
+	}
+	clr=0
+	bclr=17
+	label="-OPS"
+}
+"related display" {
+	object {
+		x=0
+		y=60
+		width=70
+		height=20
+	}
+	display[0] {
+		label=" "
+	}
+	display[1] {
+		label="User Filter"
+		name="2filter.adl"
+		args="P=xxx:,Q1=fltr1:,Q2=fltr2:,LOCK1=fltr_1_2:,LOCK2=fltr_1_2:"
+	}
+	display[2] {
+		label="User Filter Setup"
+		name="2filter_setup.adl"
+		args="P=xxx:,Q1=fltr1:,Q2=fltr2:,LOCK1=fltr_1_2:,LOCK2=fltr_1_2:"
+	}
+	clr=0
+	bclr=17
+	label="-Filter"
+}
+"related display" {
+	object {
+		x=280
+		y=120
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Bunch Clock Generator"
+		name="BunchClkGen.adl"
+		args="UNIT=xxx:BnchClkGen"
+	}
+	display[1] {
+		label="Bunch Clock display A"
+		name="BunchClkGenA.adl"
+		args="UNIT=xxx:BnchClkGen"
+	}
+	display[2] {
+		label="Bunch Clock 3id Top screen"
+		name="BunchClkGenTop.adl"
+	}
+	clr=0
+	bclr=17
+	label="-Bunch"
+}
+"related display" {
+	object {
+		x=70
+		y=60
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Queensgate piezo (3id)"
+		name="pzt_3id.adl"
+		args="P=xxx:"
+	}
+	display[1] {
+		label="Queensgate piezo (std)"
+		name="pzt.adl"
+		args="P=xxx:"
+	}
+	display[2] {
+		label="Nano2k (ch 1)"
+		name="Nano2k.adl"
+		args="P=xxx:,S=nano,p=1"
+	}
+	display[3] {
+		label="Nano2k (ch 2)"
+		name="Nano2k.adl"
+		args="P=xxx:,S=nano,p=2"
+	}
+	display[4] {
+		label="Huber DMC9200 servo controller"
+		name="HuberDMC4.adl"
+		args="P=xxx:,Q=DMC1:,M1=1,M2=2,M3=3,M4=4"
+	}
+	clr=0
+	bclr=17
+	label="-Piezo"
+}
+"related display" {
+	object {
+		x=70
+		y=40
+		width=70
+		height=20
+	}
+	display[0] {
+		label="VMI4145 waveform gen."
+		name="VMI4145.adl"
+		args="P=xxx:,N=0"
+	}
+	display[1] {
+		label="VMI4145 waveform gen."
+		name="VMI4145.adl"
+		args="P=xxx:,N=1"
+	}
+	display[2] {
+		label="VMI4145 waveform gen."
+		name="VMI4145.adl"
+		args="P=xxx:,N=2"
+	}
+	display[3] {
+		label="VMI4145 waveform gen."
+		name="VMI4145.adl"
+		args="P=xxx:,N=3"
+	}
+	display[4] {
+		label="sweep.adl"
+		name="sweep.adl"
+		args="P=xxx:"
+	}
+	clr=0
+	bclr=17
+	label="-VMI4145"
+}
+"related display" {
+	object {
+		x=140
+		y=60
+		width=70
+		height=20
+	}
+	display[0] {
+		label="user calcs 1-10"
+		name="userCalcs10.adl"
+		args="P=xxx:"
+	}
+	display[1] {
+		label="user stringCalcs 1-10"
+		name="userStringCalcs10.adl"
+		args="P=xxx:"
+	}
+	display[2] {
+		label="user transforms 1-10"
+		name="userTransforms10.adl"
+		args="P=xxx:"
+	}
+	display[3] {
+		label="sseq record 1"
+		name="yySseq.adl"
+		args="P=xxx:,S=Sseq1"
+	}
+	display[4] {
+		label="sseq record 2"
+		name="yySseq.adl"
+		args="P=xxx:,S=Sseq2"
+	}
+	display[5] {
+		label="sseq record 3"
+		name="yySseq.adl"
+		args="P=xxx:,S=Sseq3"
+	}
+	display[6] {
+		label="user average 1-10"
+		name="userAve10.adl"
+		args="P=xxx:"
+	}
+	clr=0
+	bclr=17
+	label="-userCalc"
+}
+"related display" {
+	object {
+		x=210
+		y=120
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Heidenhain AWE1024"
+		name="HeidEncoder.adl"
+		args="P=xxx:, A=6"
+	}
+	display[1] {
+		label="Heidenhain AWE1024"
+		name="HeidEncoder.adl"
+		args="P=xxx:, A=7"
+	}
+	display[2] {
+		label="Heidenhain ND261"
+		name="HeidND261.adl"
+		args="P=xxx:"
+	}
+	display[3] {
+		label="Heidenhain IK320"
+		name="HeidIK320_group.adl"
+		args="P=xxx:,card=card0,group=5"
+	}
+	clr=0
+	bclr=17
+	label="-Encoders"
+}
+"related display" {
+	object {
+		x=210
+		y=100
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Encoder Mike 1"
+		name="eMike.adl"
+		args="P=xxx:,M=em1"
+	}
+	display[1] {
+		label=" "
+	}
+	clr=0
+	bclr=17
+	label="-encMike"
+}
+"related display" {
+	object {
+		x=210
+		y=80
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Autocollimator"
+		name="Elcomat.adl"
+		args="P=xxx:"
+	}
+	display[1] {
+		label=" "
+	}
+	clr=0
+	bclr=17
+	label="-Autocoll"
+}
+"related display" {
+	object {
+		x=280
+		y=80
+		width=70
+		height=20
+	}
+	display[0] {
+		label="24 hr. Beam History"
+		name="beamHistory.adl"
+	}
+	display[1] {
+		label="24 hr. beam history, etc."
+		name="beamHistory_full.adl"
+	}
+	display[2] {
+		label="SR Status"
+		name="SR_Status.adl"
+		args="xx=00"
+	}
+	clr=0
+	bclr=17
+	label="-Beam"
+}
+"related display" {
+	object {
+		x=210
+		y=0
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Canberra AIM Multichannel Analyzer"
+		name="mca_small.adl"
+		args="P=xxx:,M=mca1"
+	}
+	display[1] {
+		label="MCA with ROI's"
+		name="mca.adl"
+		args="P=xxx:,M=mca1"
+	}
+	display[2] {
+		label="ADC 1"
+		name="xxIcbAdc.adl"
+		args="P=xxx:,ADC=icbAdc1"
+	}
+	display[3] {
+		label="TCA 1"
+		name="xxIcbTCA.adl"
+		args="P=xxx:,TCA=icbTca1"
+	}
+	display[4] {
+		label="HVPS 1"
+		name="xxIcbHvps.adl"
+		args="P=xxx:,HVPS=icbHvps1"
+	}
+	display[5] {
+		label="AMP 1"
+		name="xxIcbAmp.adl"
+		args="P=xxx:,AMP=icbAmp1"
+	}
+	clr=0
+	bclr=17
+	label="-MCA"
+}
+"related display" {
+	object {
+		x=140
+		y=140
+		width=70
+		height=20
+	}
+	display[0] {
+		label="4-step measurement"
+		name="4step.adl"
+		args="P=xxx:"
+	}
+	clr=0
+	bclr=17
+	label="-4-step"
+}
+"message button" {
+	object {
+		x=350
+		y=120
+		width=100
+		height=40
+	}
+	control {
+		chan="xxx:allstop.VAL"
+		clr=30
+		bclr=20
+	}
+	label="All Stop"
+	press_msg="1"
+}
+composite {
+	object {
+		x=350
+		y=90
+		width=82
+		height=28
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=351
+				y=91
+				width=80
+				height=26
+			}
+			"basic attribute" {
+				clr=54
+			}
+			"dynamic attribute" {
+				vis="if zero"
+				chan="xxx:alldone.VAL"
+			}
+			textix="Moving"
+		}
+		text {
+			object {
+				x=352
+				y=92
+				width=80
+				height=26
+			}
+			"basic attribute" {
+				clr=54
+			}
+			"dynamic attribute" {
+				vis="if not zero"
+				chan="xxx:alldoneBlink.VAL"
+			}
+			textix="Moving"
+		}
+		text {
+			object {
+				x=350
+				y=90
+				width=80
+				height=26
+			}
+			"basic attribute" {
+				clr=50
+			}
+			"dynamic attribute" {
+				vis="if zero"
+				chan="xxx:alldone.VAL"
+			}
+			textix="Moving"
+		}
+	}
+}
+rectangle {
+	object {
+		x=350
+		y=0
+		width=100
+		height=80
+	}
+	"basic attribute" {
+		clr=3
+		width=2
+	}
+}
+text {
+	object {
+		x=375
+		y=22
+		width=70
+		height=20
+	}
+	"basic attribute" {
+		clr=64
+	}
+	textix="Restore"
+}
+text {
+	object {
+		x=375
+		y=2
+		width=60
+		height=20
+	}
+	"basic attribute" {
+		clr=64
+	}
+	textix="Save"
+}
+text {
+	object {
+		x=375
+		y=42
+		width=70
+		height=20
+	}
+	"basic attribute" {
+		clr=64
+	}
+	textix="Compare"
+}
+text {
+	object {
+		x=375
+		y=62
+		width=70
+		height=20
+	}
+	"basic attribute" {
+		clr=64
+	}
+	textix="Tools"
+}
+"shell command" {
+	object {
+		x=353
+		y=0
+		width=20
+		height=20
+	}
+	command[0] {
+		label="Save settings to 'settings1.save' (scratchpad)"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f settings.req -o settings1.save"
+	}
+	command[1] {
+		label="Save settings to 'settings2.save' (short term)"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f settings.req -o settings2.save"
+	}
+	command[2] {
+		label="Save settings to 'settings3.save' (long term)"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f settings.req -o settings3.save"
+	}
+	command[3] {
+		label="Save positions to 'positions1.save' (scratch pad)"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f positions.req -o positions1.save"
+	}
+	command[4] {
+		label="Save positions to 'positions2.save' (short term)"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f positions.req -o positions2.save"
+	}
+	command[5] {
+		label="Save positions to 'positions3.save' (long term)"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f positions.req -o positions3.save"
+	}
+	clr=0
+	bclr=17
+}
+"shell command" {
+	object {
+		x=353
+		y=20
+		width=20
+		height=20
+	}
+	command[0] {
+		label="Restore settings from 'settings1.save' (scratch pad)"
+		name="cd ../burt; burtwb -f settings1.save"
+	}
+	command[1] {
+		label="Restore settings from 'settings2.save' (short term)"
+		name="cd ../burt; burtwb -f settings2.save"
+	}
+	command[2] {
+		label="Restore settings from 'settings3.save' (long term)"
+		name="cd ../burt; burtwb -f settings3.save"
+	}
+	command[3] {
+		label="Restore settings from 'settings4.save' (read only)"
+		name="cd ../burt; burtwb -f settings4.save"
+	}
+	command[4] {
+		label="Restore positions from 'positions1.save' (scratch pad)"
+		name="cd ../burt; burtwb -f positions1.save"
+	}
+	command[5] {
+		label="Restore positions from 'positions2.save' (short term)"
+		name="cd ../burt; burtwb -f positions2.save"
+	}
+	command[6] {
+		label="Restore positions from 'positions3.save' (long term)"
+		name="cd ../burt; burtwb -f positions3.save"
+	}
+	command[7] {
+		label="Restore positions from 'positions4.save' (read only)"
+		name="cd ../burt; burtwb -f positions4.save"
+	}
+	clr=0
+	bclr=17
+}
+"shell command" {
+	object {
+		x=353
+		y=40
+		width=20
+		height=20
+	}
+	command[0] {
+		label="Compare current settings with 'settings1.save' (scratchpad)"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f settings.req -o current.save 1>&- 2>&-; wrapCmd 'showBurtDiff current.save settings1.save'&"
+	}
+	command[1] {
+		label="Compare current settings with 'settings2.save' (short term)"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f settings.req -o current.save 1>&- 2>&-; wrapCmd 'showBurtDiff current.save settings2.save'&"
+	}
+	command[2] {
+		label="Compare current settings with 'settings3.save' (long term)"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f settings.req -o current.save; wrapCmd 'showBurtDiff current.save settings3.save'&"
+	}
+	command[3] {
+		label="Compare current settings with 'settings4.save' (read only)"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f settings.req -o current.save 1>&- 2>&-; wrapCmd 'showBurtDiff current.save settings4.save'&"
+	}
+	command[4] {
+		label="Compare current positions with 'positions1.save' (scratch pad)"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f positions.req -o current.save 1>&- 2>&-; wrapCmd 'showBurtDiff current.save positions1.save'&"
+	}
+	command[5] {
+		label="Compare current positions with 'positions2.save' (short term)"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f positions.req -o current.save 1>&- 2>&-; wrapCmd 'showBurtDiff current.save positions2.save'&"
+	}
+	command[6] {
+		label="Compare current positions with 'positions3.save' (long term)"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f positions.req -o current.save 1>&- 2>&-; wrapCmd 'showBurtDiff current.save positions3.save'&"
+	}
+	command[7] {
+		label="Compare current positions with 'positions4.save' (long term)"
+		name="cd ../burt; burtrb $BURT_INCLUDE -f positions.req -o current.save 1>&- 2>&-; wrapCmd 'showBurtDiff current.save positions4.save'&"
+	}
+	clr=0
+	bclr=17
+}
+"shell command" {
+	object {
+		x=353
+		y=60
+		width=20
+		height=20
+	}
+	command[0] {
+		label="data catcher (run-time license)"
+		name="cd ../idl; catcher&"
+	}
+	command[1] {
+		label="data catcher (developer's license)"
+		name="cd ../idl; catcher -D&"
+	}
+	command[2] {
+		label="stripTool (stripchart)"
+		name="stripTool&"
+	}
+	command[3] {
+		label="New StripTool"
+		name="StripTool&"
+	}
+	command[4] {
+		label="EPICS channel-access probe"
+		name="probe&"
+	}
+	command[5] {
+		label="MCA 4.2 (developer's license)"
+		name="cd ../idl; wrapCmd startMCA_4.2&"
+	}
+	command[7] {
+		label="scanSee"
+		name="cd ../idl; wrapCmd scanSee&"
+	}
+	clr=0
+	bclr=17
+}
+"related display" {
+	object {
+		x=430
+		y=95
+		width=20
+		height=20
+	}
+	display[0] {
+		label="alldone waits"
+		name="yyWaitRecord_full.adl"
+		args="P=xxx:,C=alldone"
+	}
+	display[1] {
+		label="alldone_1 waits"
+		name="yyWaitRecord_full.adl"
+		args="P=xxx:,C=alldone_1"
+	}
+	display[2] {
+		label="alldone_2 waits"
+		name="yyWaitRecord_full.adl"
+		args="P=xxx:,C=alldone_2"
+	}
+	display[3] {
+		label="alldone_3 waits"
+		name="yyWaitRecord_full.adl"
+		args="P=xxx:,C=alldone_3"
+	}
+	display[4] {
+		label="alldone_4 waits"
+		name="yyWaitRecord_full.adl"
+		args="P=xxx:,C=alldone_4"
+	}
+	display[5] {
+		label="alldone_5 waits"
+		name="yyWaitRecord_full.adl"
+		args="P=xxx:,C=alldone_5"
+	}
+	display[6] {
+		label="alldone_6 waits"
+		name="yyWaitRecord_full.adl"
+		args="P=xxx:,C=alldone_6"
+	}
+	display[7] {
+		label="alldone_7 waits"
+		name="yyWaitRecord_full.adl"
+		args="P=xxx:,C=alldone_7"
+	}
+	clr=0
+	bclr=17
+}
+"related display" {
+	object {
+		x=280
+		y=0
+		width=70
+		height=20
+	}
+	display[0] {
+		label="LakeShore Temp. Controller"
+		name="LakeShore.adl"
+		args="P=xxx:,Q=TC1"
+	}
+	display[1] {
+		label="Keithley DMM (thermistors)"
+		name="KeithleyDMM.adl"
+		args="P=xxx:"
+	}
+	display[2] {
+		label="Eurotherm"
+		name="Eurotherm.adl"
+		args="P=xxx:"
+	}
+	clr=0
+	bclr=17
+	label="-TempCtrl"
+}
+"related display" {
+	object {
+		x=140
+		y=120
+		width=70
+		height=20
+	}
+	display[0] {
+		label="interp"
+		name="interp.adl"
+		args="P=xxx:"
+	}
+	clr=0
+	bclr=17
+	label="-LookupTbl"
+}
+"related display" {
+	object {
+		x=70
+		y=80
+		width=70
+		height=20
+	}
+	display[0] {
+		label="DAC 1 Chans 1-8"
+		name="topDAC8.adl"
+		args="P=xxx:,D=1"
+	}
+	display[1] {
+		label="DAC 2 Chans 1-8"
+		name="topDAC8.adl"
+		args="P=xxx:,D=2"
+	}
+	clr=0
+	bclr=17
+	label="-DAC"
+}
+"related display" {
+	object {
+		x=210
+		y=60
+		width=70
+		height=20
+	}
+	display[0] {
+		label="scope"
+		name="run_scope.adl"
+		args="P=xxx:"
+	}
+	display[1] {
+		label=" "
+	}
+	clr=0
+	bclr=63
+	label="-SCOPE"
+}
+"related display" {
+	object {
+		x=210
+		y=20
+		width=70
+		height=20
+	}
+	display[1] {
+		label="13 element detector"
+		name="13element.adl"
+		args="P=xxx:med:"
+	}
+	display[3] {
+		label="summed spectrum (mca0)"
+		name="mca_small.adl"
+		args="P=xxx:med:,M=mca0"
+	}
+	display[4] {
+		label="sum control"
+		name="mcaSum13.adl"
+		args="P=xxx:med:"
+	}
+	display[5] {
+		label="HV power supply"
+		name="xxIcbHVPS.adl"
+		args="P=xxx:med:,HVPS=hvps1"
+	}
+	clr=0
+	bclr=17
+	label="-multiMCA"
+}
+"related display" {
+	object {
+		x=210
+		y=40
+		width=70
+		height=20
+	}
+	display[0] {
+		label=" 8-Channel MCS Control"
+		name="Struck8.adl"
+		args="P=xxx:"
+	}
+	display[1] {
+		label="32-Channel MCS Control"
+		name="Struck32.adl"
+		args="P=xxx:"
+	}
+	clr=0
+	bclr=17
+	label="-Struck"
+}
+"related display" {
+	object {
+		x=280
+		y=40
+		width=70
+		height=20
+	}
+	display[0] {
+		label="2IDD Microscope (13-el. MCA)"
+		name="2IDM_microscope.adl"
+		args="P=xxx:,S=scanAux,PA=2idd:,PI=2idd:,PO=2idd:,o_x=m11,o_y=m12,PS=2ide:,s=Slit_1,s_x=Slit1H,s_y=Slit1V,PC=2idd:,c_x=m17,c_y=m20,c_z=m18,PZ=2idd:,z_x=m3,z_y=m4,z_z=m22,PT=2ide:,t_x=m17,t_y=m19,t_z=m18,PV=2idd:,vx=junk,vy=m23,PE=2ide:,PM=xxx:med:"
+	}
+	display[1] {
+		label="Alignment scan"
+		name="scanAux.adl"
+		args="P=2idd:,S=scanAux"
+	}
+	clr=0
+	bclr=63
+	label="-Microscope"
+}

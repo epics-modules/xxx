@@ -1,0 +1,26 @@
+# RELEASE - Location of external products
+#
+# (Architecture dependent declarations should go into RELEASE.<arch>)
+#
+# Note: This file will be scanned to automatically generate
+#       include path definitions etc.
+#       The order of the following declarations will be retained
+#       within those definitions.
+#
+# Add your declarations here
+
+EPICS_SUPPORT_PATH=/home/oxygen/SLUITER/ioc_Vx_5-4/support
+
+IP330=$(EPICS_SUPPORT_PATH)/ip330_1.02
+MCA=$(EPICS_SUPPORT_PATH)/mca_5.02
+IP=$(EPICS_SUPPORT_PATH)/ip1-1
+STD=$(EPICS_SUPPORT_PATH)/std1-1
+LOVE=$(EPICS_SUPPORT_PATH)/love1-1
+IPUNIDIG=$(EPICS_SUPPORT_PATH)/ipUnidig1-1
+DAC128V=$(EPICS_SUPPORT_PATH)/dac128V1-1
+MOTOR=$(EPICS_SUPPORT_PATH)/motor4-3
+include $(EPICS_SUPPORT_PATH)/config/MPFGPIB_RELEASE
+include $(EPICS_SUPPORT_PATH)/config/MPF_RELEASE
+include $(EPICS_SUPPORT_PATH)/config/EPICS_BASE_RELEASE
+
+TEMPLATE_TOP=$(EPICS_SUPPORT_PATH)/../base/templates/makeBaseApp/top
