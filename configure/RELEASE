@@ -27,6 +27,7 @@ include $(SUPPORT)/config/MPF_RELEASE
 include $(SUPPORT)/config/IPAC_RELEASE
 include $(SUPPORT)/config/SNCSEQ_RELEASE
 #include $(SUPPORT)/config/VXSTATS_RELEASE
+include $(SUPPORT)/config/GPIBCORE_RELEASE
 include $(SUPPORT)/config/RELEASE
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top

@@ -2,4 +2,7 @@ Edit configure/RELEASE to set the variable SUPPORT
 Edit iocBoot/iocxxx/Makefile to set the variable ARCH
 Edit start_epics_xxx to set the variable EPICS_APP
 Run changePrefix_synApps_4.6 to change the prefix from xxx to whatever you want
+Edit iocBoot/iocxxx/st.cmd to agree with your hardware
+Edit iocBoot/iocxxx/auto*.req to agree with your software
+chmod a+w,g+s iocBoot/iocxxx/autosave
 Run gnumake
