@@ -14,6 +14,11 @@ flags (f)            : 0x0
 target name (tn)     : iocxxx
 startup script (s)   : /home/oxygen4/MOONEY/epics/synApps_4_6/support/xxx/iocBoot/iocxxx_162/st.cmd
 
+NOTE: if "file name" specifies a board-support package labelled '-asd3' or
+higher' (as "/usr/local/vxWorks/T202/mv162-asd7" does), then an IOC that needs
+to support large numbers of network clients can have 0x1000 ORed into its
+'flags' boot parameter, which increases the number of network buffers created
+(but uses up an extra 930KB of RAM). 
 
 EPICS processor: mv2700
 =======================
