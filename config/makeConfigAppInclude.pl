@@ -1,7 +1,28 @@
-# makeConfigAppInclude.pl,v 1.1.2.3 1999/07/30 21:14:18 lange Exp 
+# FILENAME...	makeConfigAppInclude.pl
+#
+# ORIGINAL AUTHOR: Janet Anderson
+# CURRENT AUTHOR: Ron Sluiter
+#
+# USAGE... This is a modified version of Janet Anderson's
+#          makeConfigAppInclude.pl file. It is modified to support "include"
+#          directives and various macros; i.e., SUPPORT, GATEWAY,
+#
+# SYNOPSIS...	makeConfigAppInclude.pl(host_arch, output file, ioctop)
+#
+#Version:	$Revision: 1.4.2.1 $
+#Modified By:	$Author: sluiter $
+#Last Modified:	$Date: 2004-03-25 22:05:58 $
 
 eval 'exec perl -S $0 ${1+"$@"}'  # -*- Mode: perl -*-
     if $running_under_some_shell; # makeConfigAppInclude.pl
+
+use Env;
+
+if ($ENV{GATEWAY} ne "")
+{
+    # Add GATEWAY to macro list.
+    $applications{GATEWAY} = $ENV{GATEWAY};
+}
 
 use Cwd;
 
