@@ -17,7 +17,7 @@ save_restoreSet_SeqPeriodInSeconds(300)
 # If you want save_restore to manage its own NFS mount, specify the name and
 # IP address of the file server to which save files should be written.
 # This currently is supported only on vxWorks.
-save_restoreSet_NFSHost("oxygen", "164.54.52.4")
+#save_restoreSet_NFSHost("oxygen", "164.54.52.4")
 
 # specify where save files should be
 set_savefile_path(startup, "autosave")
