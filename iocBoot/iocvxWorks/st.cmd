@@ -53,10 +53,13 @@ iocxxxVX_registerRecordDeviceDriver(pdbbase)
 < save_restore.cmd
 
 # Industry Pack support
-#< industryPack.cmd
+< industryPack.cmd
+
+# serial support
+< serial.cmd
 
 # VME devices
-#< vme.cmd
+< vme.cmd
 
 # CAMAC hardware
 #<camac.cmd
@@ -71,12 +74,12 @@ dbLoadTemplate("motor.substitutions")
 dbLoadRecords("$(STD)/stdApp/Db/all_com_16.db","P=xxx:")
 
 ### Insertion-device control
-dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=xxx:,xx=02us")
+#dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=xxx:,xx=02us")
 
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
-dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db","P=xxx:,MAXPTS1=8000,MAXPTS2=200,MAXPTS3=10,MAXPTS4=10,MAXPTSH=8000")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db","P=xxx:,MAXPTS1=8000,MAXPTS2=1000,MAXPTS3=10,MAXPTS4=10,MAXPTSH=8000")
 
 # A set of scan parameters for each positioner.  This is a convenience
 # for the user.  It can contain an entry for each scannable thing in the
@@ -152,8 +155,9 @@ dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/arrayTest.db", "P=xxx:,N=2000")
 
 ### GPIB support ###
-# GPIB O/I block (generic gpib record with format and parse string calcs)
-#dbLoadRecords("$(IP)/ipApp/Db/GPIB_OI_block.db","P=xxx:,N=1,L=10")
+# send impromptu message to gpib device, parse reply
+# (was GPIB_OI_block)
+#dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=1,PORT=gpib1,ADDR=1,OMAX=100,IMAX=100")
 
 # Heidenhain AWE1024 at GPIB address $(A)
 #dbLoadRecords("$(IP)/ipApp/Db/HeidAWE1024.db", "P=xxx:,L=10,A=6")
@@ -209,12 +213,12 @@ seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
 # The task is actually named "save_restore".
 # Note that you can reload these sets after creating them: e.g., 
 # reload_monitor_set("auto_settings.req",30,"P=xxx:")
+#save_restoreDebug=20
 #
 # save positions every five seconds
 create_monitor_set("auto_positions.req",5,"P=xxx:")
 # save other things every thirty seconds
 create_monitor_set("auto_settings.req",30,"P=xxx:")
-
 
 ### Start the saveData task.
 # saveData_MessagePolicy
