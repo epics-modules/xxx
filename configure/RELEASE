@@ -9,27 +9,32 @@
 #
 # Add your declarations here
 
-SNCSEQ=/corvette/home/epics/3_14/seq-2_0_7
-
-ALLEN_BRADLEY=/corvette/home/epics/3_14/allenBradley2-0
-IPAC=/corvette/home/epics/3_14/ipac2-6
-IP=/corvette/home/epics/3_14/ip
-IP330=/corvette/home/epics/3_14/ip330
-MCA=/corvette/home/epics/3_14/mca
-LOVE=/corvette/home/epics/3_14/love
-IPUNIDIG=/corvette/home/epics/3_14/ipUnidig
-DAC128V=/corvette/home/epics/3_14/dac128V
-MOTOR=/corvette/home/epics/3_14/motor
-STD=/corvette/home/epics/3_14/std
-MPF=/corvette/home/epics/3_14/mpf2-4-1
-CAMAC=/corvette/home/epics/3_14/camac
-DXP=/corvette/home/epics/3_14/dxp
-QUADEM=/corvette/home/epics/3_14/quadEM
-LOVE=/corvette/home/epics/3_14/love
-#ASYN=/corvette/home/epics/3.14/asyn
-#VXSTATS=/corvette/home/epics/3.14/vxStats
-#GPIBCORE=/corvette/home/epics/3.14/gpibcore
+SUPPORT=/home/oxygen/MOONEY/epics/synApps_5_0/support
+ALLEN_BRADLEY=/home/oxygen/MOONEY/epics/synApps_5_0/support/allenBradley/2-0
+#ASYN=$(SUPPORT)/asyn/1-1
+AUTOSAVE=/home/oxygen/MOONEY/epics/synApps_5_0/support/autosave
+CALC=/home/oxygen/MOONEY/epics/synApps_5_0/support/calc
+CAMAC=/home/oxygen/MOONEY/epics/synApps_5_0/support/camac
+CCD=/home/oxygen/MOONEY/epics/synApps_5_0/support/ccd
+DAC128V=/home/oxygen/MOONEY/epics/synApps_5_0/support/dac128V
+DXP=/home/oxygen/MOONEY/epics/synApps_5_0/support/dxp
+GPIBCORE=/home/oxygen/MOONEY/epics/synApps_5_0/support/gpibCore/1-2
+IP=/home/oxygen/MOONEY/epics/synApps_5_0/support/ip
+IP330=/home/oxygen/MOONEY/epics/synApps_5_0/support/ip330
+IPUNIDIG=/home/oxygen/MOONEY/epics/synApps_5_0/support/ipUnidig
+IPAC=/home/oxygen/MOONEY/epics/synApps_5_0/support/ipac/2-6
+LOVE=/home/oxygen/MOONEY/epics/synApps_5_0/support/love
+MCA=/home/oxygen/MOONEY/epics/synApps_5_0/support/mca
+MOTOR=/home/oxygen/MOONEY/epics/synApps_5_0/support/motor_CVS
+MPF=/home/oxygen/MOONEY/epics/synApps_5_0/support/mpf/2-4-2
+OPTICS=/home/oxygen/MOONEY/epics/synApps_5_0/support/optics
+QUADEM=/home/oxygen/MOONEY/epics/synApps_5_0/support/quadEM
+SNCSEQ=/home/oxygen/MOONEY/epics/synApps_5_0/support/seq/2-0-8
+SSCAN=/home/oxygen/MOONEY/epics/synApps_5_0/support/sscan
+STD=/home/oxygen/MOONEY/epics/synApps_5_0/support/std
+VME=/home/oxygen/MOONEY/epics/synApps_5_0/support/vme
+VXSTATS=/home/oxygen/MOONEY/epics/synApps_5_0/support/vxStats/1-7-2a
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/corvette/usr/local/epics/base-3.14.4
+EPICS_BASE=/net/beams/export/local/epics/baseR3.14.5
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
