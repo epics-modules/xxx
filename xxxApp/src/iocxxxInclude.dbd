@@ -1,3 +1,0 @@
-# stuff for non-vxWorks ioc
-include "iocxxxCommonInclude.dbd"
-include "mpfSerial.dbd"
