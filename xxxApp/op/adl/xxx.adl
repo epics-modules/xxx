@@ -1166,7 +1166,7 @@ text {
 	}
 	display[4] {
 		label="HVPS 1"
-		name="xxIcbHvps.adl"
+		name="xxIcbHVPS.adl"
 		args="P=xxx:,HVPS=icbHvps1"
 	}
 	display[5] {
