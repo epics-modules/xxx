@@ -22,7 +22,7 @@ include $(SUPPORT)/config/MOTOR_RELEASE
 include $(SUPPORT)/config/STD_RELEASE
 #include $(SUPPORT)/config/BITBUS_RELEASE
 #include $(SUPPORT)/config/MPFGPIB_RELEASE
-#include $(SUPPORT)/config/MPF_RELEASE
+include $(SUPPORT)/config/MPF_RELEASE
 #include $(SUPPORT)/config/ALLEN_BRADLEY_RELEASE
 include $(SUPPORT)/config/IPAC_RELEASE
 include $(SUPPORT)/config/SNCSEQ_RELEASE
