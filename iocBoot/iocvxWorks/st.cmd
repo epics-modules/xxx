@@ -1,4 +1,5 @@
 # vxWorks startup script
+sysVmeMapShow
 
 # for vxStats
 #putenv "engineer=not me"
@@ -9,7 +10,7 @@ location="Earth"
 cd ""
 < ../nfsCommands
 < cdCommands
-#< MPFconfig.cmd
+< MPFconfig.cmd
 
 ################################################################################
 cd topbin
@@ -19,7 +20,7 @@ cd topbin
 sysCplusEnable=1
 
 # If using a PowerPC CPU with more than 32MB of memory, and not building with longjump, then
-# allocate enough memory here to force code to load in lower 32 MB
+# allocate enough memory here to force code to load in lower 32 MB.
 mem = malloc(1024*1024*96)
 
 ### Load custom EPICS software from user tree and from share
@@ -36,12 +37,12 @@ localMessageRouterStart(0)
 # talk to IP's on satellite processor
 # (must agree with tcpMessageRouterServerStart in st_proc1.cmd)
 # for IP modules on stand-alone mpf server board
-#tcpMessageRouterClientStart(1, 9900, Remote_IP, 1500, 40)
+tcpMessageRouterClientStart(1, 9900, Remote_IP, 1500, 40)
 
 # This IOC configures the MPF server code locally
-cd startup
-< st_mpfserver.cmd
-cd topbin
+#cd startup
+#< st_mpfserver.cmd
+#cd topbin
 
 ### dbrestore setup
 # ok to restore a save set that had missing values (no CA connection to PV)?
@@ -92,37 +93,13 @@ cd startup
 ################################################################################
 # Tell EPICS all about the record types, device-support modules, drivers,
 # etc. in the software we just loaded (xxx.munch)
-dbLoadDatabase("../../dbd/xxxVX.dbd")
-xxxVX_registerRecordDeviceDriver(pdbbase)
-
-# Love Controllers
-#devLoveDebug=1
-#loveServerDebug=1
-#dbLoadRecords("$(IP)/ipApp/Db/love.db", "P=xxx:,Q=Love_0,C=0,PORT=PORT2,ADDR=1");
-
-# interpolation
-dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:")
-
-
-# X-ray Instrumentation Associates Huber Slit Controller
-# supported by a customized version of the SNL program written by Pete Jemian
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/xia_slit.db", "P=xxx:, HSC=hsc1:")
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/xia_slit.db", "P=xxx:, HSC=hsc2:")
-#dbLoadRecords("$(IP)/ipApp/Db/generic_serial.db", "P=xxx:,C=0,SERVER=serial7")
-
-##### Pico Motors (Ernest Williams MHATT-CAT)
-##### Motors (see picMot.substitutions in same directory as this file) ####
-#dbLoadTemplate("picMot.substitutions")
-
+dbLoadDatabase("../../dbd/iocxxxVX.dbd")
+iocxxxVX_registerRecordDeviceDriver(pdbbase)
 
 ##############################################################################
 
 # Insertion-device control
 dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=xxx:,xx=02us")
-
-# test generic gpib record
-#dbLoadRecords("$(STD)/stdApp/Db/gpib.db","P=xxx:")
-
 
 ###############################################################################
 
@@ -196,15 +173,15 @@ oms58Setup(3, 8, 0x4000, 190, 5, 10)
 #     (3) MPF server name (string)
 #MCB4BConfig(0, 0, "serial5")
 
-# A set of scan parameters for each positioner.  This is a convenience
-# for the user.  It can contain an entry for each scannable thing in the
-# crate.
-dbLoadTemplate("scanParms.substitutions")
+##### Pico Motors (Ernest Williams MHATT-CAT)
+##### Motors (see picMot.substitutions in same directory as this file) ####
+#dbLoadTemplate("picMot.substitutions")
 
 ###############################################################################
 
 ### Scalers: Joerger VSC8/16
-dbLoadRecords("$(VME)/vmeApp/Db/Jscaler.db","P=xxx:,S=scaler1,C=0")
+#dbLoadRecords("$(VME)/vmeApp/Db/Jscaler.db","P=xxx:,S=scaler1,C=0")
+dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,C=0,DTYP=Joerger VSC8/16,FREQ=10000000")
 # Joerger VSC setup parameters: 
 #     (1)cards, (2)base address(ext, 256-byte boundary), 
 #     (3)interrupt vector (0=disable or  64 - 255)
@@ -218,9 +195,14 @@ dbLoadRecords("$(STD)/stdApp/Db/all_com_16.db","P=xxx:")
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
-dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db","P=xxx:,MAXPTS1=4000,MAXPTS2=200,MAXPTS3=10,MAXPTS4=10,MAXPTSH=4000")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db","P=xxx:,MAXPTS1=8000,MAXPTS2=200,MAXPTS3=10,MAXPTS4=10,MAXPTSH=8000")
 
-# Slits
+# A set of scan parameters for each positioner.  This is a convenience
+# for the user.  It can contain an entry for each scannable thing in the
+# crate.
+dbLoadTemplate("scanParms.substitutions")
+
+### Slits
 dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1V,mXp=m3,mXn=m4")
 dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m6")
 
@@ -228,15 +210,22 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2V,mXp=m13,mXn=m14")
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2H,mXp=m15,mXn=m16")
 
-# 2-post mirror
+# X-ray Instrumentation Associates Huber Slit Controller
+# supported by a customized version of the SNL program written by Pete Jemian
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/xia_slit.db", "P=xxx:, HSC=hsc1:")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/xia_slit.db", "P=xxx:, HSC=hsc2:")
+#dbLoadRecords("$(IP)/ipApp/Db/generic_serial.db", "P=xxx:,C=0,SERVER=serial7")
+
+
+### 2-post mirror
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/2postMirror.db","P=xxx:,Q=M1,mDn=m18,mUp=m17,LENGTH=0.3")
 
-# User filters
+### User filters
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/filterMotor.db","P=xxx:,Q=fltr1:,MOTOR=m1,LOCK=fltr_1_2:")
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/filterMotor.db","P=xxx:,Q=fltr2:,MOTOR=m2,LOCK=fltr_1_2:")
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/filterLock.db","P=xxx:,Q=fltr2:,LOCK=fltr_1_2:,LOCK_PV=xxx:DAC1_1.VAL")
 
-# Optical tables
+### Optical tables
 #tableRecordDebug=1
 dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
 
@@ -310,7 +299,7 @@ icbSetup("icb/1", 10, 100)
 # module:       the index number for this module (0,1,2...)
 # etherAddr:    ethernet address of AIM module
 # icbAddress:   ICB address of this module (set with internal rotary switch, 0x0-0xF)
-icbConfig("icb/1", 0, 0x9AA, 1)
+icbConfig("icb/1", 0, 0x9AA, 3)
 
 # In dbLoadRecords commands for ICB devices
 #    CARD   = (0,1) for (local/remote),
@@ -373,23 +362,24 @@ dbLoadRecords("$(MCA)/mcaApp/Db/icb_adc.db","P=xxx:,ADC=icbAdc1,CARD=0,SERVER=ic
 #devSTR7201Debug = 10
 #drvSTR7201Debug = 10
 
-#dbLoadRecords("$(MCA)/mcaApp/Db/Struck8.db","P=xxx:mcs:")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca1,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S0 @,CHANS=1000")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca2,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S1 @,CHANS=1000")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca3,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S2 @,CHANS=1000")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca4,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S3 @,CHANS=1000")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca5,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S4 @,CHANS=1000")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca6,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S5 @,CHANS=1000")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca7,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S6 @,CHANS=1000")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca8,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S7 @,CHANS=1000")
+dbLoadRecords("$(MCA)/mcaApp/Db/Struck8.db","P=xxx:mcs:")
+dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca1,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S0 @,CHANS=1000")
+dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca2,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S1 @,CHANS=1000")
+dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca3,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S2 @,CHANS=1000")
+dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca4,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S3 @,CHANS=1000")
+dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca5,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S4 @,CHANS=1000")
+dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca6,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S5 @,CHANS=1000")
+dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca7,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S6 @,CHANS=1000")
+dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca8,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S7 @,CHANS=1000")
 
 # STR7201Setup(int numCards, int baseAddress, int interruptVector, int interruptLevel)
-#STR7201Setup(2, 0x90000000, 220, 6)
+STR7201Setup(2, 0x90000000, 220, 6)
 # STR7201Config(int card, int maxSignals, int maxChans, int 1=enable internal 25MHZ clock) 
-#STR7201Config(0, 8, 1000, 0) 
+STR7201Config(0, 8, 1000, 0) 
 
 # Struck as EPICS scaler
-dbLoadRecords("$(MCA)/mcaApp/Db/STR7201scaler.db", "P=xxx:,S=scaler2,C=0")
+#dbLoadRecords("$(MCA)/mcaApp/Db/STR7201scaler.db", "P=xxx:,S=scaler2,C=0")
+dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler2,C=0,DTYP=Struck STR7201 Scaler,FREQ=25000000")
 
 ### Acromag IP330 in sweep mode ###
 #dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=mADC_1,DTYPE=MPF MCA,NCHAN=2048,INP=#C0 S0 @Ip330Sweep1")
@@ -408,6 +398,8 @@ dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq2")
 dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq3")
 # 4-step measurement
 dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
+# interpolation
+dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:")
 
 ### serial support ###
 
@@ -452,16 +444,12 @@ dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 # Keithley 199 DMM at GPIB address $(A)
 #dbLoadRecords("$(STD)/stdApp/Db/KeithleyDMM.db", "P=xxx:,L=10,A=26")
 
+# generic gpib record
+#dbLoadRecords("$(STD)/stdApp/Db/gpib.db","P=xxx:")
+
 ### Miscellaneous ###
 # Systran DAC database
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=1,S=0,SERVER=DAC1")
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=2,S=1,SERVER=DAC1")
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=3,S=2,SERVER=DAC1")
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=4,S=3,SERVER=DAC1")
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=5,S=4,SERVER=DAC1")
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=6,S=5,SERVER=DAC1")
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=7,S=6,SERVER=DAC1")
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=0,N=8,S=7,SERVER=DAC1")
+dbLoadTemplate("dac128V.substitutions")
 
 # vme test record
 dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
@@ -654,6 +642,7 @@ dbLoadTemplate("ip330Scan.substitutions")
 #  int counter_slot)                   /* Counter N */
 #CAMACScalerConfig(0, 0, 0, 0, 20, 0, 21)
 #dbLoadRecords("$(CAMAC)/camacApp/Db/CamacScaler.db","P=xxx:,S=scaler1,C=0")
+#dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,C=0,DTYP=CAMAC scaler,FREQ=10000000")
 
 # Load the DXP stuff
 #< 16element_dxp.cmd
@@ -661,11 +650,16 @@ dbLoadTemplate("ip330Scan.substitutions")
 # Generic CAMAC record
 #dbLoadRecords("$(CAMAC)/camacApp/Db/generic_camac.db","P=xxx:,R=camac1,SIZE=2048")
 
+### Etc. ###
+# Love Controllers
+#devLoveDebug=1
+#loveServerDebug=1
+#dbLoadRecords("$(IP)/ipApp/Db/love.db", "P=xxx:,Q=Love_0,C=0,PORT=PORT2,ADDR=1");
 
 ###############################################################################
 # Set shell prompt (otherwise it is left at mv167 or mv162)
 shellPromptSet "iocvxWorks> "
-iocLogDisable=1
+iocLogDisable=0
 iocInit
 
 ### startup State Notation Language programs
