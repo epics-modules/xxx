@@ -157,7 +157,10 @@ dbLoadRecords("stdApp/Db/yySseq.db","P=xxx:,S=Sseq3", std)
 ###############################################################################
 
 ##### Motors (see motors.substitutions in same directory as this file) ####
-dbLoadTemplate("basic_motor.substitutions")
+# Use "motor.substitutions" if using "stdApp/Db/all_com_##.db" below; otherwise
+# use "basic_motor.substitutions".
+
+#dbLoadTemplate("basic_motor.substitutions")
 dbLoadTemplate("motor.substitutions")
 
 # OMS VME driver setup parameters: 
