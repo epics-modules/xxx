@@ -3,38 +3,38 @@
 # create_monitor_set("auto_settings.req",30,"P=xxx:")
 # This requires save_restore v2.8 or later.
 
-file xx_auto_motor_settings.req P=$(P),M=m1
-file xx_auto_motor_settings.req P=$(P),M=m2
-file xx_auto_motor_settings.req P=$(P),M=m3
-file xx_auto_motor_settings.req P=$(P),M=m4
-file xx_auto_motor_settings.req P=$(P),M=m5
-file xx_auto_motor_settings.req P=$(P),M=m6
-file xx_auto_motor_settings.req P=$(P),M=m7
-file xx_auto_motor_settings.req P=$(P),M=m8
-file xx_auto_motor_settings.req P=$(P),M=m9
-file xx_auto_motor_settings.req P=$(P),M=m10
-file xx_auto_motor_settings.req P=$(P),M=m11
-file xx_auto_motor_settings.req P=$(P),M=m12
-file xx_auto_motor_settings.req P=$(P),M=m13
-file xx_auto_motor_settings.req P=$(P),M=m14
-file xx_auto_motor_settings.req P=$(P),M=m15
-file xx_auto_motor_settings.req P=$(P),M=m16
-file xx_auto_motor_settings.req P=$(P),M=m17
-file xx_auto_motor_settings.req P=$(P),M=m18
-file xx_auto_motor_settings.req P=$(P),M=m19
-file xx_auto_motor_settings.req P=$(P),M=m20
-file xx_auto_motor_settings.req P=$(P),M=m21
-file xx_auto_motor_settings.req P=$(P),M=m22
-file xx_auto_motor_settings.req P=$(P),M=m23
-file xx_auto_motor_settings.req P=$(P),M=m24
-file xx_auto_motor_settings.req P=$(P),M=m25
-file xx_auto_motor_settings.req P=$(P),M=m26
-file xx_auto_motor_settings.req P=$(P),M=m27
-file xx_auto_motor_settings.req P=$(P),M=m28
-file xx_auto_motor_settings.req P=$(P),M=m29
-file xx_auto_motor_settings.req P=$(P),M=m30
-file xx_auto_motor_settings.req P=$(P),M=m31
-file xx_auto_motor_settings.req P=$(P),M=m32
+file motor_settings.req P=$(P),M=m1
+file motor_settings.req P=$(P),M=m2
+file motor_settings.req P=$(P),M=m3
+file motor_settings.req P=$(P),M=m4
+file motor_settings.req P=$(P),M=m5
+file motor_settings.req P=$(P),M=m6
+file motor_settings.req P=$(P),M=m7
+file motor_settings.req P=$(P),M=m8
+file motor_settings.req P=$(P),M=m9
+file motor_settings.req P=$(P),M=m10
+file motor_settings.req P=$(P),M=m11
+file motor_settings.req P=$(P),M=m12
+file motor_settings.req P=$(P),M=m13
+file motor_settings.req P=$(P),M=m14
+file motor_settings.req P=$(P),M=m15
+file motor_settings.req P=$(P),M=m16
+file motor_settings.req P=$(P),M=m17
+file motor_settings.req P=$(P),M=m18
+file motor_settings.req P=$(P),M=m19
+file motor_settings.req P=$(P),M=m20
+file motor_settings.req P=$(P),M=m21
+file motor_settings.req P=$(P),M=m22
+file motor_settings.req P=$(P),M=m23
+file motor_settings.req P=$(P),M=m24
+file motor_settings.req P=$(P),M=m25
+file motor_settings.req P=$(P),M=m26
+file motor_settings.req P=$(P),M=m27
+file motor_settings.req P=$(P),M=m28
+file motor_settings.req P=$(P),M=m29
+file motor_settings.req P=$(P),M=m30
+file motor_settings.req P=$(P),M=m31
+file motor_settings.req P=$(P),M=m32
 
 file scanParms_settings.req P=$(P),M=m1
 file scanParms_settings.req P=$(P),M=m2
@@ -69,55 +69,24 @@ file scanParms_settings.req P=$(P),M=m30
 file scanParms_settings.req P=$(P),M=m31
 file scanParms_settings.req P=$(P),M=m32
 
-file xx_auto_table_settings.req P=$(P),T=table1
+file table_settings.req P=$(P),T=table1
 
-file xx_auto_scaler_settings.req P=$(P),S=scaler1
+file scaler_16ch_settings.req P=$(P),S=scaler1
 
-file xx_auto_scan_settings.req P=$(P),S=scan1
-file xx_auto_scan_settings.req P=$(P),S=scan2
-file xx_auto_scan_settings.req P=$(P),S=scan3
-file xx_auto_scan_settings.req P=$(P),S=scan4
-file xx_auto_scan_settings.req P=$(P),S=scanH
+file scan_settings.req P=$(P),S=scan1
+file scan_settings.req P=$(P),S=scan2
+file scan_settings.req P=$(P),S=scan3
+file scan_settings.req P=$(P),S=scan4
+file scan_settings.req P=$(P),S=scanH
 
 # Kohzu monochromator
-$(P)BraggHAO.VAL
-$(P)BraggKAO.VAL
-$(P)BraggLAO.VAL
-$(P)BraggAAO.VAL
-$(P)BraggTypeMO.VAL
-$(P)KohzuMode2MO.VAL
-$(P)Kohzu_yOffsetAO.VAL
+file kohzuSeq_settings.req P=$(P)
 
 # High resolution monochromator
-$(P)HR1_A1AO.VAL
-$(P)HR1_H1AO.VAL
-$(P)HR1_K1AO.VAL
-$(P)HR1_L1AO.VAL
-$(P)HR1_A2AO.VAL
-$(P)HR1_H2AO.VAL
-$(P)HR1_K2AO.VAL
-$(P)HR1_L2AO.VAL
-$(P)HR1_EAO.VAL
-$(P)HR1_Mode2MO.VAL
-$(P)HR1_phi1OffAO
-$(P)HR1_phi2OffAO
-$(P)HR1_ETweakAI
-$(P)HR1_LambdaTweakAI
-$(P)HR1_Theta1TweakAI
-$(P)HR1_Theta2TweakAI
-$(P)HR1_worldTweakAI
+file kohzuhrSeq_settings.req P=$(P),N=1
 
-file xx_auto_swait_settings.req P=$(P),S=userCalc1
-file xx_auto_swait_settings.req P=$(P),S=userCalc2
-file xx_auto_swait_settings.req P=$(P),S=userCalc3
-file xx_auto_swait_settings.req P=$(P),S=userCalc4
-file xx_auto_swait_settings.req P=$(P),S=userCalc5
-file xx_auto_swait_settings.req P=$(P),S=userCalc6
-file xx_auto_swait_settings.req P=$(P),S=userCalc7
-file xx_auto_swait_settings.req P=$(P),S=userCalc8
-file xx_auto_swait_settings.req P=$(P),S=userCalc9
-file xx_auto_swait_settings.req P=$(P),S=userCalc10
-file xx_auto_swait_settings.req P=$(P),S=userCalcI_Detector
+file userCalcs10_settings.req P=$(P)
+file userCalcN_settings.req P=$(P),N=I_Detector
 
 $(P)fltr1:name5.VAL
 $(P)fltr1:name4.VAL
@@ -152,45 +121,17 @@ $(P)saveData_subDir
 $(P)saveData_scanNumber
 $(P)saveData_realTime1D
 
-file xx_auto_transform_settings.req P=$(P),T=userTran1
-file xx_auto_transform_settings.req P=$(P),T=userTran2
-file xx_auto_transform_settings.req P=$(P),T=userTran3
-file xx_auto_transform_settings.req P=$(P),T=userTran4
-file xx_auto_transform_settings.req P=$(P),T=userTran5
-file xx_auto_transform_settings.req P=$(P),T=userTran6
-file xx_auto_transform_settings.req P=$(P),T=userTran7
-file xx_auto_transform_settings.req P=$(P),T=userTran8
-file xx_auto_transform_settings.req P=$(P),T=userTran9
-file xx_auto_transform_settings.req P=$(P),T=userTran10
+file userTransforms10_settings.req P=$(P)
 
-file xx_auto_scalcout_settings.req P=$(P),S=userStringCalc1
-file xx_auto_scalcout_settings.req P=$(P),S=userStringCalc2
-file xx_auto_scalcout_settings.req P=$(P),S=userStringCalc3
-file xx_auto_scalcout_settings.req P=$(P),S=userStringCalc4
-file xx_auto_scalcout_settings.req P=$(P),S=userStringCalc5
-file xx_auto_scalcout_settings.req P=$(P),S=userStringCalc6
-file xx_auto_scalcout_settings.req P=$(P),S=userStringCalc7
-file xx_auto_scalcout_settings.req P=$(P),S=userStringCalc8
-file xx_auto_scalcout_settings.req P=$(P),S=userStringCalc9
-file xx_auto_scalcout_settings.req P=$(P),S=userStringCalc10
+file userStringCalcs10_settings.req P=$(P)
 
 # string-sequence records
-file xx_auto_sseq_settings.req P=$(P),S=Sseq1
-file xx_auto_sseq_settings.req P=$(P),S=Sseq2
-file xx_auto_sseq_settings.req P=$(P),S=Sseq3
+file sseq_settings.req P=$(P),S=Sseq1
+file sseq_settings.req P=$(P),S=Sseq2
+file sseq_settings.req P=$(P),S=Sseq3
 
 
 # 4-step measurement
-file xx_auto_4step_settings.req P=$(P),Q=4step
+file auto_4step_settings.req P=$(P),Q=4step
 
-file xx_auto_userAve_settings.req P=$(P),A=userAve1
-file xx_auto_userAve_settings.req P=$(P),A=userAve2
-file xx_auto_userAve_settings.req P=$(P),A=userAve3
-file xx_auto_userAve_settings.req P=$(P),A=userAve4
-file xx_auto_userAve_settings.req P=$(P),A=userAve5
-file xx_auto_userAve_settings.req P=$(P),A=userAve6
-file xx_auto_userAve_settings.req P=$(P),A=userAve7
-file xx_auto_userAve_settings.req P=$(P),A=userAve8
-file xx_auto_userAve_settings.req P=$(P),A=userAve9
-file xx_auto_userAve_settings.req P=$(P),A=userAve10
-
+file userAve10_settings.req P=$(P)
