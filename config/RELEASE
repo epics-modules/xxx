@@ -9,19 +9,21 @@
 #
 # Add your declarations here
 
-include $(TOP)/../config/IP_RELEASE
-include $(TOP)/../config/IP330_RELEASE
-include $(TOP)/../config/MCA_RELEASE
-include $(TOP)/../config/LOVE_RELEASE
-include $(TOP)/../config/IPUNIDIG_RELEASE
-include $(TOP)/../config/DAC128V_RELEASE
-include $(TOP)/../config/MOTOR_RELEASE
-include $(TOP)/../config/STD_RELEASE
-include $(TOP)/../config/BITBUS_RELEASE
-include $(TOP)/../config/MPFGPIB_RELEASE
-include $(TOP)/../config/MPFSERIAL_RELEASE
-include $(TOP)/../config/MPF_RELEASE
-include $(TOP)/../config/CAMAC_RELEASE
-#include $(TOP)/../config/ALLEN_BRADLEY_RELEASE
-include $(TOP)/../config/RELEASE
+IP=
+IP330=
+MCA=
+LOVE=
+IPUNIDIG=
+DAC128V=
+MOTOR=
+STD=
+BITBUS=
+MPF_GPIB=
+MPF_SERIAL=
+MPF=
+CAMAC=
+#ALLEN_BRADLEY=
+
+# RELEASE - Location of master EPICS base release file.
+EPICS_BASE=
 
