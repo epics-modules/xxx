@@ -1,19 +1,18 @@
-# RELEASE - Location of external products
+#RELEASE Location of external products
+# Run "gnumake clean uninstall install" in the application
+# top directory each time this file is changed.
 #
-# (Architecture dependent declarations should go into RELEASE.<arch>)
-#
-# Note: This file will be scanned to automatically generate
-#       include path definitions etc.
-#       The order of the following declarations will be retained
-#       within those definitions.
-#
-# Add your declarations here
+# NOTE: The build does not check dependancies on files
+# external to this application. Thus you should run
+# "gnumake clean uninstall install" in the top directory
+# each time EPICS_BASE, SNCSEQ, or any other external
+# module defined in the RELEASE file is rebuilt.
 
 SUPPORT=/home/oxygen/MOONEY/epics/synApps_5_1/support
 ALLEN_BRADLEY=/home/oxygen/MOONEY/epics/synApps_5_1/support/allenBradley/2-1
-ASYN=/home/oxygen/MOONEY/epics/synApps_5_1/support/asyn/cvs
-AUTOSAVE=/home/oxygen/MOONEY/epics/synApps_5_1/support/autosave/cvs
-CALC=/home/oxygen/MOONEY/epics/synApps_5_1/support/calc/cvs
+ASYN=/home/oxygen/MOONEY/epics/synApps_5_1/support/asyn/4-1
+AUTOSAVE=/home/oxygen/MOONEY/epics/synApps_5_1/support/autosave/4-1
+CALC=/home/oxygen/MOONEY/epics/synApps_5_1/support/calc/2-4
 CAMAC=/home/oxygen/MOONEY/epics/synApps_5_1/support/camac/cvs
 CCD=/home/oxygen/MOONEY/epics/synApps_5_1/support/ccd/cvs
 DAC128V=/home/oxygen/MOONEY/epics/synApps_5_1/support/dac128V/cvs
@@ -22,7 +21,7 @@ GENSUB=/home/oxygen/MOONEY/epics/synApps_5_1/support/genSub/1-6
 IP=/home/oxygen/MOONEY/epics/synApps_5_1/support/ip/cvs
 IP330=/home/oxygen/MOONEY/epics/synApps_5_1/support/ip330/cvs
 IPUNIDIG=/home/oxygen/MOONEY/epics/synApps_5_1/support/ipUnidig/cvs
-IPAC=/home/oxygen/MOONEY/epics/synApps_5_1/support/ipac/2-7a
+IPAC=/home/oxygen/MOONEY/epics/synApps_5_1/support/ipac/2-8
 #LOVE=/home/oxygen/MOONEY/epics/synApps_5_1/support/love/cvs
 MCA=/home/oxygen/MOONEY/epics/synApps_5_1/support/mca/cvs
 MOTOR=/home/oxygen/MOONEY/epics/synApps_5_1/support/motor/cvs
@@ -32,8 +31,8 @@ SNCSEQ=/home/oxygen/MOONEY/epics/synApps_5_1/support/seq/2-0-8
 SSCAN=/home/oxygen/MOONEY/epics/synApps_5_1/support/sscan/cvs
 STD=/home/oxygen/MOONEY/epics/synApps_5_1/support/std/cvs
 VME=/home/oxygen/MOONEY/epics/synApps_5_1/support/vme/cvs
-VXSTATS=/home/oxygen/MOONEY/epics/synApps_5_1/support/vxStats/1-7-2a
+VXSTATS=/home/oxygen/MOONEY/epics/synApps_5_1/support/vxStats/1-7-2b
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/home/oxygen/MOONEY/epics/baseR3.14.6
+EPICS_BASE=/home/oxygen/MOONEY/epics/base-3.14.7
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
