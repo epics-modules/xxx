@@ -2,7 +2,7 @@
 setenv EPICS_APP /home/oxygen4/MOONEY/epics/synApps_4_5/support/xxx
 set output = `perl $EPICS_APP/release.pl $EPICS_APP`
 $output
-setenv EPICS_DISPLAY_PATH $EPICS_APP/xxxApp/op/adl':'$MOTOR/motorApp/op/adl':'$STD/stdApp/op/adl':'$MCA/mcaApp/op/adl':'$IP330/ip330App/adl':'$IP/ipApp/op/adl':'$IPUNIDIG/dac128ipUnidigApp/op/adl':'$DAC128V/dac128VApp/op/adl':'$LOVE/loveApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_APP/xxxApp/op/adl':'$MOTOR/motorApp/op/adl':'$STD/stdApp/op/adl':'$MCA/mcaApp/op/adl':'$IP330/ip330App/adl':'$IP/ipApp/op/adl':'$IPUNIDIG/dac128ipUnidigApp/op/adl':'$DAC128V/dac128VApp/op/adl':'$LOVE/loveApp/op/adl':'$QUADEM/quadEMApp/op/adl
 setenv BURT_INCLUDE "-I$STD/stdApp/op/burt -I$MCA/mcaApp/op/burt -I$MOTOR/motorApp/op/burt"
 
 if (! ${?MEDM_EXEC_LIST}) setenv MEDM_EXEC_LIST 'Help; medm_help.sh &T:Probe;probe &P &'
