@@ -37,7 +37,7 @@ file scanParms_settings.req P=$(P),M=m14
 file scanParms_settings.req P=$(P),M=m15
 file scanParms_settings.req P=$(P),M=m16
 
-file table_settings.req P=$(P),T=table1
+file table_settings.req P=$(P),T=table1,Q=Table1
 
 file scaler_8ch_settings.req P=$(P),S=scaler1
 file scaler_8ch_settings.req P=$(P),S=scaler2
@@ -106,7 +106,7 @@ file userAve10_settings.req P=$(P)
 file interp_settings.req P=$(P)
 
 # MCA
-file mca_settings.req P=$(P),M=mca1
+#file mca_settings.req P=$(P),M=mca1
 #file icb_adc_settings.req P=$(P),ADC=icbAdc1
 #file icb_amp_settings.req P=$(P),AMP=amp1
 #file icb_hvps_settings.req P=$(P),HVPS=icbHvps1
