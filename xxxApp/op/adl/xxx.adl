@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen50/SLUITER/local/epics/Vx_5-4_R3-13-4/ioc/xxx/xxxApp/op/adl/xxx.adl"
-	version=020306
+	name="/home/oxygen4/MOONEY/epics/synApps_4_4/support/xxx/xxxApp/op/adl/xxx.adl"
+	version=030003
 }
 display {
 	object {
@@ -777,11 +777,13 @@ text {
 		args="P=xxx:"
 	}
 	display[1] {
-		label=" "
+		label="save_restore ststus"
+		name="save_restoreStatus.adl"
+		args="P=xxx:"
 	}
 	clr=0
 	bclr=17
-	label="-vxStats"
+	label="-Status"
 }
 "related display" {
 	object {
