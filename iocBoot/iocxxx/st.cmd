@@ -238,7 +238,7 @@ cd startup
 # Heidenhain IK320 VME encoder interpolator
 #dbLoadRecords("stdApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=1,switches=41344,irq=3", std)
 #dbLoadRecords("stdApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=2,switches=41344,irq=3", std)
-#dbLoadRecords("stdApp/Db/IK320group.db","P=xxx:,group=5")
+#dbLoadRecords("stdApp/Db/IK320group.db","P=xxx:,group=5", std)
 #drvIK320RegErrStr()
 
 # Spherical grating monochromator
