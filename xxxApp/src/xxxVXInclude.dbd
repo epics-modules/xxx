@@ -4,6 +4,8 @@
 include "xxxCommonInclude.dbd"
 
 include "mpfSerialVx.dbd"
+include "vmeVXSupport.dbd"
+include "sscanVXSupport.dbd"
 include "stdVXSupport.dbd"
 include "ipVXSupport.dbd"
 include "mcaSISSupport.dbd"
@@ -19,6 +21,7 @@ include "devQuadEM.dbd"
 # If not defined in iocxxxInclude.dbd
 include "mcaCanberraSupport.dbd"
 include "devLove.dbd"
+include "tyGSOctal.dbd"
 include "drvIpac.dbd"
 include "vxStats.dbd"
 

@@ -68,6 +68,8 @@ xxx_vxWorks_LIBS += bruker
 xxx_vxWorks_LIBS += camac devCamac
 xxx_vxWorks_LIBS += dxp xerxes
 xxx_vxWorks_LIBS += oms
+xxx_vxWorks_LIBS += love
+xxx_vxWorks_LIBS += vxStats
 xxx_vxWorks_LIBS += TyGSOctal Ipac
 #The following adds support from base/src/vxWorks
 xxx_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary

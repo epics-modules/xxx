@@ -1,4 +1,8 @@
 # vxWorks startup script
+# If using a PowerPC CPU with more than 32MB of memory, and not building with longjump, then
+# allocate enough memory here to force code to load in lower 32 MB
+mem = malloc(1024*1024*96)
+
 
 # for vxStats
 #putenv "engineer=not me"
@@ -83,8 +87,8 @@ cd startup
 ################################################################################
 # Tell EPICS all about the record types, device-support modules, drivers,
 # etc. in the software we just loaded (xxx.munch)
-dbLoadDatabase("../../dbd/iocxxxVX.dbd")
-iocxxxVX_registerRecordDeviceDriver(pdbbase)
+dbLoadDatabase("../../dbd/xxxVX.dbd")
+xxxVX_registerRecordDeviceDriver(pdbbase)
 
 # Love Controllers
 #devLoveDebug=1
@@ -92,13 +96,13 @@ iocxxxVX_registerRecordDeviceDriver(pdbbase)
 #dbLoadRecords("$(IP)/ipApp/Db/love.db", "P=xxx:,Q=Love_0,C=0,PORT=PORT2,ADDR=1");
 
 # interpolation
-dbLoadRecords("$(STD)/stdApp/Db/interp.db", "P=xxx:")
+dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:")
 
 
 # X-ray Instrumentation Associates Huber Slit Controller
 # supported by a customized version of the SNL program written by Pete Jemian
-#dbLoadRecords("$(STD)/stdApp/Db/xia_slit.db", "P=xxx:, HSC=hsc1:")
-#dbLoadRecords("$(STD)/stdApp/Db/xia_slit.db", "P=xxx:, HSC=hsc2:")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/xia_slit.db", "P=xxx:, HSC=hsc1:")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/xia_slit.db", "P=xxx:, HSC=hsc2:")
 #dbLoadRecords("$(IP)/ipApp/Db/generic_serial.db", "P=xxx:,C=0,IPSLOT=a,CHAN=6,BAUD=9600,PRTY=None,DBIT=8,SBIT=1")
 
 ##### Pico Motors (Ernest Williams MHATT-CAT)
@@ -174,7 +178,7 @@ dbLoadTemplate("scanParms.substitutions")
 ###############################################################################
 
 ### Scalers: Joerger VSC8/16
-dbLoadRecords("$(STD)/stdApp/Db/Jscaler.db","P=xxx:,S=scaler1,C=0")
+dbLoadRecords("$(VME)/vmeApp/Db/Jscaler.db","P=xxx:,S=scaler1,C=0")
 # Joerger VSC setup parameters: 
 #     (1)cards, (2)base address(ext, 256-byte boundary), 
 #     (3)interrupt vector (0=disable or  64 - 255)
@@ -340,13 +344,13 @@ dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 ### serial support ###
 
 # generic serial ports
-#dbLoadRecords("$(IP)/ipApp/Db/generic_serial.db", "P=xxx:,C=0,IPSLOT=a,CHAN=0,BAUD=9600,PRTY=None,DBIT=8,SBIT=1")
+#dbLoadRecords("$(IP)/ipApp/Db/generic_serial.db", "P=xxx:,C=0,SERVER=serial1")
 
 # serial O/I block (generic serial record with format and parse string calcs)
 # on epics/mpf processor
-#dbLoadRecords("$(IP)/ipApp/Db/serial_OI_block.db","P=xxx:,N=0_1,C=0,IPSLOT=a,CHAN=4")
+#dbLoadRecords("$(IP)/ipApp/Db/serial_OI_block.db","P=xxx:,N=0_1,C=0,SERVER=serial5")
 # on stand-alone mpf processor
-#dbLoadRecords("$(IP)/ipApp/Db/serial_OI_block.db","P=xxx:,N=1_1,C=0,IPSLOT=a,CHAN=4")
+#dbLoadRecords("$(IP)/ipApp/Db/serial_OI_block.db","P=xxx:,N=1_1,C=0,SERVER=serial5")
 
 # Stanford Research Systems SR570 Current Preamplifier
 #dbLoadRecords("$(IP)/ipApp/Db/SR570.db", "P=xxx:,A=A1,C=0,IPSLOT=a,CHAN=0")
@@ -466,7 +470,7 @@ dbLoadTemplate("vxStats.substitutions")
 
 ###############################################################################
 # Set shell prompt (otherwise it is left at mv167 or mv162)
-shellPromptSet "iocxxx> "
+shellPromptSet "iocvxWorks> "
 iocLogDisable=1
 iocInit
 
@@ -512,3 +516,6 @@ saveData_MessagePolicy = 2
 saveData_SetCptWait_ms(100)
 saveData_Init("saveData.req", "P=xxx:")
 #saveData_PrintScanInfo("xxx:scan1")
+
+# If memory allocated at beginning free it now
+free(mem)
