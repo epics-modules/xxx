@@ -1,4 +1,5 @@
 include "shareBase.dbd"
+include "devMpfString.dbd"
 include "stdShare.dbd"
 
 include "mcaShare.dbd"
@@ -21,4 +22,5 @@ include "devOms.dbd"
 #include "dxpCamacShare.dbd"
 #include "allenBradley.dbd"
 include "devLove.dbd"
+#include "devQuadEM.dbd"
 
