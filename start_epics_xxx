@@ -2,8 +2,8 @@
 setenv EPICS_APP /home/oxygen4/MOONEY/epics/synApps_5_0/support/xxx
 set output = `perl $EPICS_APP/release.pl $EPICS_APP`
 $output
-setenv EPICS_DISPLAY_PATH $AUTOSAVE/asApp/op/adl':'$CALC/calcApp/op/adl':'$CAMAC/camacApp/op/adl':'$CCD/ccdApp/op/adl':'$DAC128V/dac128VAppApp/op/adl':'$DXP/dxpApp/op/adl':'$IP/ipApp/op/adl':'$IP330/ip330App/op/adl':'$IPUNIDIG/ipUnidigApp/op/adl':'$LOVE/loveApp/op/adl':'$MCA/mcaApp/op/adl':'$MOTOR/motorApp/op/adl':'$OPTICS/opticsApp/op/adl':'$QUADEM/quadEMApp/op/adl':'$SSCAN/sscanApp/op/adl':'$STD/stdApp/op/adl':'$VME/vmeApp/op/adl':'$EPICS_APP/xxxApp/op/adl
-setenv BURT_INCLUDE "-I$AUTOSAVE/asApp/op/burt -I$CALC/calcApp/op/burt -I$CAMAC/camacApp/op/burt -I$CCD/ccdApp/op/burt -I$DAC128V/dac128VAppApp/op/burt -I$DXP/dxpApp/op/burt -I$IP/ipApp/op/burt -I$IP330/ip330App/op/burt -I$IPUNIDIG/ipUnidigApp/op/burt -I$LOVE/loveApp/op/burt -I$MCA/mcaApp/op/burt -I$MOTOR/motorApp/op/burt -I$OPTICS/opticsApp/op/burt -I$QUADEM/quadEMApp/op/burt -I$SSCAN/sscanApp/op/burt -I$STD/stdApp/op/burt -I$VME/vmeApp/op/burt -I$EPICS_APP/xxxApp/op/burt"
+setenv EPICS_DISPLAY_PATH $AUTOSAVE/asApp/op/adl':'$CALC/calcApp/op/adl':'$CAMAC/camacApp/op/adl':'$CCD/ccdApp/op/adl':'$DAC128V/dac128VApp/op/adl':'$DXP/dxpApp/op/adl':'$IP/ipApp/op/adl':'$IP330/ip330App/op/adl':'$IPUNIDIG/ipUnidigApp/op/adl':'$LOVE/loveApp/op/adl':'$MCA/mcaApp/op/adl':'$MOTOR/motorApp/op/adl':'$OPTICS/opticsApp/op/adl':'$QUADEM/quadEMApp/op/adl':'$SSCAN/sscanApp/op/adl':'$STD/stdApp/op/adl':'$VME/vmeApp/op/adl':'$EPICS_APP/xxxApp/op/adl
+setenv BURT_INCLUDE "-I$AUTOSAVE/asApp/op/burt -I$CALC/calcApp/op/burt -I$CAMAC/camacApp/op/burt -I$CCD/ccdApp/op/burt -I$DAC128V/dac128VApp/op/burt -I$DXP/dxpApp/op/burt -I$IP/ipApp/op/burt -I$IP330/ip330App/op/burt -I$IPUNIDIG/ipUnidigApp/op/burt -I$LOVE/loveApp/op/burt -I$MCA/mcaApp/op/burt -I$MOTOR/motorApp/op/burt -I$OPTICS/opticsApp/op/burt -I$QUADEM/quadEMApp/op/burt -I$SSCAN/sscanApp/op/burt -I$STD/stdApp/op/burt -I$VME/vmeApp/op/burt -I$EPICS_APP/xxxApp/op/burt"
 if (! ${?MEDM_EXEC_LIST}) setenv MEDM_EXEC_LIST 'Probe;probe &P &'
 
 #setenv EPICS_CA_ADDR_LIST "164.54.53.126"
