@@ -1,0 +1,23 @@
+# stuff for non-vxWorks ioc
+include "base.dbd"
+include "mpf.dbd"
+include "devStringMpf.dbd"
+include "stdSupport.dbd"
+include "calcSupport.dbd"
+include "sscanSupport.dbd"
+include "asSupport.dbd"
+include "opticsSupport.dbd"
+include "mcaSupport.dbd"
+# If your host supports libpcap and libnet and you want to build Canberra network 
+# support uncomment the following line
+#include "mcaCanberraSupport.dbd"
+include "ipSupport.dbd"
+include "motorRecord.dbd"
+include "devSoftMotor.dbd"
+#include "devNewport.dbd"
+#include "devAcsMotor.dbd"
+#include "devMclennanMotor.dbd"
+#include "devImsMotor.dbd"
+# For Linux host that supports parallel port interface to Saturn DXP
+#include "dxpSupport.dbd"
+include "devSequencer.dbd"
