@@ -1,6 +1,7 @@
-##### Motors (see motors.substitutions in same directory as this file) ####
-#dbLoadTemplate("basic_motor.substitutions")
-dbLoadTemplate("motor.substitutions")
+
+# BEGIN vme.cmd ---------------------------------------------------------------
+
+##### Motors
 
 # OMS VME driver setup parameters:
 #     (1)cards, (2)base address(short, 16-byte boundary),
@@ -116,3 +117,4 @@ dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
 # APS quad electrometer
 #<quadEM.cmd
 
+# END vme.cmd -----------------------------------------------------------------
