@@ -70,7 +70,7 @@ tyGSAsynInit("serial8",  "UART_0", 7,19200,'N',1,8,'N',"")  /* Love controllers 
 #dbLoadTemplate("picMot.substitutions")
 
 # Load asynRecord records on all ports
-dbLoadTemplate("asynRecord.template")
+dbLoadTemplate("asynRecord.substitutions")
 
 # send impromptu message to serial device, parse reply
 # (was serial_OI_block)
