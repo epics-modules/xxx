@@ -171,13 +171,7 @@ dbLoadTemplate("motor.substitutions")
 #     (1)cards, (2)axes per card, (3)base address(short, 4k boundary), 
 #     (4)interrupt vector (0=disable or  64 - 255), (5)interrupt level (1 - 6),
 #     (6)motor task polling rate (min=1Hz,max=60Hz)
-oms58Setup(3, 8, 0x3000, 190, 5, 10)
-
-# Highland V544 driver setup parameters: 
-#     (1)cards, (2)axes per card, (3)base address(short, 4k boundary), 
-#     (4)interrupt vector (0=disable or  64 - 255), (5)interrupt level (1 - 6),
-#     (6)motor task polling rate (min=1Hz,max=60Hz)
-#v544Setup(0, 4, 0xDD00, 0, 5, 10)
+oms58Setup(3, 8, 0x4000, 190, 5, 10)
 
 # Newport MM4000 driver setup parameters: 
 #     (1) max. controllers, (2)Unused, (3)polling rate (min=1Hz,max=60Hz) 
@@ -239,7 +233,7 @@ dbLoadRecords("stdApp/Db/Jscaler.db","P=xxx:,S=scaler1,C=0", std)
 # Joerger VSC setup parameters: 
 #     (1)cards, (2)base address(ext, 256-byte boundary), 
 #     (3)interrupt vector (0=disable or  64 - 255)
-VSCSetup(1, 0x90000000, 200)
+VSCSetup(1, 0xB0000000, 200)
 
 ### Allstop, alldone
 # This database must agree with the motors and other positioners you've actually loaded.
@@ -373,7 +367,9 @@ cd startup
 #dbLoadRecords("mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca8,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S7 @,CHANS=1000", mca)
 
 # STR7201Setup(int numCards, int baseAddress, int interruptVector, int interruptLevel)
-#STR7201Setup(2, 0xA0000000, 210, 6)
+#     (1)cards, (2)base address(short, 2k-byte boundary), 
+#     (3)interrupt vector (0=disable or  64 - 255), (4)interrupt level (1 - 6),
+#STR7201Setup(2, 0x90000000, 210, 6)
 # STR7201Config(int card, int maxSignals, int maxChans, int 1=enable internal 25MHZ clock) 
 #STR7201Config(0, 8, 1000, 0) 
 
@@ -460,7 +456,7 @@ dbLoadTemplate("IpUnidig.substitutions")
 
 # Acromag AVME9440 setup parameters:
 # devAvem9440Config (ncards,a16base,intvecbase)
-#devAvme9440Config(1,0x0400,0x78)
+#devAvme9440Config(1,0x0400,0x70)
 
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("stdApp/Db/misc.db","P=xxx:", std)
@@ -508,15 +504,9 @@ dbLoadRecords("stdApp/Db/save_restoreStatus.db","P=xxx:", std)
 #   devA32VmeConfig(0, 0x80000000, 44, 0, 0)             
 #####################################################
 #  Configure the MSL MRD 100 module.....
-#devA32VmeConfig(0, 0xa0000200, 30, 0xa0, 5)
+#devA32VmeConfig(0, 0xb0000200, 30, 0xa0, 5)
 
 #dbLoadRecords("stdApp/Db/msl_mrd101.db","C=0,S=01,ID1=01,ID2=01us", std)
-
-### Bit Bus configuration
-# BBConfig(Link, LinkType, BaseAddr, IrqVector, IrqLevel)
-# Link: ?
-# LinkType: 0:hosed; 1:xycom; 2:pep
-#BBConfig(3,1,0x2400,0xac,5)
 
 # Set up the Allen-Bradley 6008 scanner
 #abConfigNlinks 1
