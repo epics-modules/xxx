@@ -35,6 +35,7 @@ set_pass1_restoreFile("auto_settings.sav")
 # Note cdCommands defines 'startup', but envPaths does not
 set_requestfile_path("$(STARTUP)", "")
 set_requestfile_path("$(STARTUP)", "autosave")
+set_requestfile_path("$(TOP)", "xxxApp/Db")
 set_requestfile_path("$(AUTOSAVE)", "asApp/Db")
 set_requestfile_path("$(CALC)", "calcApp/Db")
 #set_requestfile_path("$(CAMAC)", "camacApp/Db")
