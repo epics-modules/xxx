@@ -12,7 +12,7 @@ include "opticsSupport.dbd"
 include "mcaSupport.dbd"
 # If your host supports libpcap and libnet and you want to build Canberra network 
 # support uncomment the following line
-include "mcaCanberraSupport.dbd"
+#include "mcaCanberraSupport.dbd"
 include "ipSupport.dbd"
 include "motorRecord.dbd"
 include "devSoftMotor.dbd"
