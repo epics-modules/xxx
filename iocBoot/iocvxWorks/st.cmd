@@ -248,7 +248,7 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_
 dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=4,yOffHi=36")
 
 # Heidenhain ND261 encoder (for PSL monochromator)
-#dbLoadRecords("$(IP)/ipApp/Db/heidND261.db", "P=xxx:,C=0,IPSLOT=a,CHAN=0")
+#dbLoadRecords("$(IP)/ipApp/Db/heidND261.db", "P=xxx:,C=0,SERVER=serial1")
 
 # Heidenhain IK320 VME encoder interpolator
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=1,switches=41344,irq=3")
@@ -403,25 +403,25 @@ dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 #dbLoadRecords("$(IP)/ipApp/Db/serial_OI_block.db","P=xxx:,N=1_1,C=0,SERVER=serial5")
 
 # Stanford Research Systems SR570 Current Preamplifier
-#dbLoadRecords("$(IP)/ipApp/Db/SR570.db", "P=xxx:,A=A1,C=0,IPSLOT=a,CHAN=0")
+#dbLoadRecords("$(IP)/ipApp/Db/SR570.db", "P=xxx:,A=A1,C=0,SERVER=serial1")
 
 # Lakeshore DRC-93CA Temperature Controller
-#dbLoadRecords("$(IP)/ipApp/Db/LakeShoreDRC-93CA.db", "P=xxx:,Q=TC1,C=0,IPSLOT=a,CHAN=3")
+#dbLoadRecords("$(IP)/ipApp/Db/LakeShoreDRC-93CA.db", "P=xxx:,Q=TC1,C=0,SERVER=serial4")
 
 # Huber DMC9200 DC Motor Controller
-#dbLoadRecords("$(IP)/ipApp/Db/HuberDMC9200.db", "P=xxx:,Q=DMC1:,C=0,IPSLOT=a,CHAN=5")
+#dbLoadRecords("$(IP)/ipApp/Db/HuberDMC9200.db", "P=xxx:,Q=DMC1:,C=0,SERVER=serial5")
 
 # Oriel 18011 Encoder Mike
-#dbLoadRecords("$(IP)/ipApp/Db/eMike.db", "P=xxx:,M=em1,C=0,IPSLOT=a,CHAN=2")
+#dbLoadRecords("$(IP)/ipApp/Db/eMike.db", "P=xxx:,M=em1,C=0,SERVER=serial3")
 
 # Keithley 2000 DMM
-#dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM_mf.db","P=xxx:,Dmm=D1,C=1,IPSLOT=a,CHAN=0")
+#dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM_mf.db","P=xxx:,Dmm=D1,C=1,SERVER=serial1")
 
 # Oxford Cyberstar X1000 Scintillation detector and pulse processing unit
-#dbLoadRecords("$(IP)/ipApp/Db/Oxford_X1k.db","P=xxx:,S=s1,C=0,IPSLOT=a,CHAN=3")
+#dbLoadRecords("$(IP)/ipApp/Db/Oxford_X1k.db","P=xxx:,S=s1,C=0,SERVER=serial4")
 
 # Oxford ILM202 Cryogen Level Meter (Serial)
-#dbLoadRecords("$(IP)/ipApp/Db/Oxford_ILM202.db","P=xxx:,S=s1,C=0,IPSLOT=c,CHAN=2")
+#dbLoadRecords("$(IP)/ipApp/Db/Oxford_ILM202.db","P=xxx:,S=s1,C=0,SERVER=serial5")
 
 ### GPIB support ###
 # GPIB O/I block (generic gpib record with format and parse string calcs)
@@ -436,14 +436,14 @@ dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 
 ### Miscellaneous ###
 # Systran DAC database
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=1,S=0,IPSLOT=c")
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=2,S=1,IPSLOT=c")
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=3,S=2,IPSLOT=c")
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=4,S=3,IPSLOT=c")
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=5,S=4,IPSLOT=c")
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=6,S=5,IPSLOT=c")
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=7,S=6,IPSLOT=c")
-#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=8,S=7,IPSLOT=c")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=1,S=0,SERVER=DAC1")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=2,S=1,SERVER=DAC1")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=3,S=2,SERVER=DAC1")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=4,S=3,SERVER=DAC1")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=5,S=4,SERVER=DAC1")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=6,S=5,SERVER=DAC1")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=7,S=6,SERVER=DAC1")
+#dbLoadRecords("$(DAC128V)/dac128VApp/Db/DAC.db", "P=xxx:,D=1,C=1,N=8,S=7,SERVER=DAC1")
 
 # vme test record
 dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
@@ -465,10 +465,10 @@ dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
 #dbLoadRecords("$(STD)/stdApp/Db/VXstats.db","P=xxx:")
 # vxStats
-#dbLoadTemplate("vxStats.substitutions")
+dbLoadTemplate("vxStats.substitutions")
 
 # Elcomat autocollimator
-#dbLoadRecords("$(IP)/ipApp/Db/Elcomat.db", "P=xxx:,C=0,IPSLOT=a,CHAN=7")
+#dbLoadRecords("$(IP)/ipApp/Db/Elcomat.db", "P=xxx:,C=0,SERVER=serial8")
 
 # Bunch-clock generator
 #dbLoadRecords("$(VME)/vmeApp/Db/BunchClkGen.db","P=xxx:")
@@ -488,7 +488,7 @@ dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
 #dbLoadRecords("$(STD)/stdApp/Db/Nano2k.db","P=xxx:,S=s1")
 
 # Eurotherm temp controller
-#dbLoadRecords("$(IP)/ipApp/Db/Eurotherm.db","P=xxx:,C=0,IPSLOT=a,CHAN=6")
+#dbLoadRecords("$(IP)/ipApp/Db/Eurotherm.db","P=xxx:,C=0,SERVER=serial7")
 #devAoEurothermDebug=20
 
 # Analog I/O (Acromag IP330 ADC)
@@ -522,13 +522,13 @@ dbLoadTemplate("ip330Scan.substitutions")
 #abConfigAuto
 
 # MKS vacuum gauges
-#dbLoadRecords "ipApp/Db/MKS.db","P=xxx:,C=0,IPSLOT=a,CHAN=1,CC1=cc1,CC2=cc3,PR1=pr1,PR2=pr3", ip
+#dbLoadRecords "ipApp/Db/MKS.db","P=xxx:,C=0,SERVER=serial2,CC1=cc1,CC2=cc3,PR1=pr1,PR2=pr3", ip
 # PI Digitel 500/1500 pump
-#dbLoadRecords "ipApp/Db/Digitel.db","xxx:,PUMP=ip1,C=0,IPSLOT=a,CHAN=2", ip
+#dbLoadRecords "ipApp/Db/Digitel.db","xxx:,PUMP=ip1,C=0,SERVER=serial3", ip
 # PI MPC ion pump
-#dbLoadRecords("ipApp/Db/MPC.db","P=xxx:,PUMP=ip2,C=0,IPSLOT=a,CHAN=3,PA=0,PN=1", ip
+#dbLoadRecords("ipApp/Db/MPC.db","P=xxx:,PUMP=ip2,C=0,SERVER=serial4,PA=0,PN=1", ip
 # PI MPC TSP (titanium sublimation pump)
-#dbLoadRecords("ipApp/Db/TSP.db","P=xxx:,TSP=tsp1,C=0,IPSLOT=b,CHAN=3,PA=0", ip)
+#dbLoadRecords("ipApp/Db/TSP.db","P=xxx:,TSP=tsp1,C=0,SERVER=serial4,PA=0", ip)
 
 # APS Quad Electrometer from Steve Ross
 # pQuadEM = initQuadEM(baseAddress, fiberChannel, microSecondsPerScan, maxClients,
