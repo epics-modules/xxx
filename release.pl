@@ -3,7 +3,7 @@ $top = $ARGV[0];
 $applications{TOP} = $top;
 
 @files =();
-push(@files,"$top/config/RELEASE");
+push(@files,"$top/configure/RELEASE");
 
 foreach $file (@files)
 {
