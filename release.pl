@@ -1,5 +1,7 @@
 $top = $ARGV[0];
 
+$applications{TOP} = $top;
+
 unlink("tmp");
 open(OUT,">tmp") or die "$! opening tmp";
 
