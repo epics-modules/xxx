@@ -1,8 +1,9 @@
 # vxWorks startup script
 
-cd "/home/oxygen/SLUITER/ioc_Vx_5-4/support/xxx/iocBoot/ioc_old_xxx"
+cd ""
 < ../nfsCommands
 < cdCommands
+#< MPFconfig.cmd
 
 ################################################################################
 cd appbin
@@ -14,9 +15,6 @@ sysCplusEnable=1
 ### Load EPICS base software
 ld < iocCore
 ld < seq
-
-# ???? Don't load both mpfLib and mpfServLib
-# ???? for processor without IP slots
 ld < mpfLib
 
 ### Load custom EPICS software from xxxApp and from share
@@ -28,10 +26,14 @@ ld < xxxLib
 # talk to IP's on satellite processor
 # (must agree with tcpMessageRouterServerStart in st_proc1.cmd)
 # for IP modules on stand-alone mpf server board
-#!tcpMessageRouterClientStart(1,9900,"164.54.113.yyy",1500,40)
+#tcpMessageRouterClientStart(1, 9900, Remote_IP, 1500, 40)
 
-# ??? for processor with IP slots
-#ld < mpfServLib 
+# for local IP slots
+# Uncomment, as needed.
+#ld < ipLib
+#ld < mpfserialserverLib
+#ld < mpfgpibserverLib
+#ld < dac128VLib
 
 # This IOC configures the MPF server code locally
 #cd startup
@@ -45,7 +47,7 @@ ld < xxxLib
 # ok to restore a save set that had missing values (no CA connection to PV)?
 sr_restore_incomplete_sets_ok = 1
 # dbrestore saves a copy of the save file it restored.  File name is, e.g.,
-# auto_settings.sav.bu or auto_settings.sav_DEC_16_17:52:17_1999 if
+# auto_settings.sav.bu or auto_settings.savYYMMDD-HHMMSS if
 # reboot_restoreDatedBU is nonzero.
 reboot_restoreDatedBU = 1;
 # Currently, the only thing we do in initHooks is call reboot_restore(), which
@@ -193,7 +195,7 @@ dbLoadRecords("stdApp/Db/all_com_32.db","P=xxx:", std)
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
-dbLoadRecords("stdApp/Db/scan.db","P=xxx:,MAXPTS1=2000,MAXPTS2=200,MAXPTS3=10,MAXPTS4=10", std)
+dbLoadRecords("stdApp/Db/scan.db","P=xxx:,MAXPTS1=2000,MAXPTS2=200,MAXPTS3=10,MAXPTS4=10,MAXPTSH=200", std)
 
 # Slits
 dbLoadRecords("stdApp/Db/2slit.db","P=xxx:,SLIT=Slit1V,mXp=m24,mXn=m26", std)
@@ -443,10 +445,10 @@ dbLoadRecords("stdApp/Db/VXstats.db","P=xxx:", std)
 #   devA32VmeConfig(0, 0x80000000, 44, 0, 0)             
 #####################################################
 #  Configure the MSL MRD 100 module.....
-devA32VmeConfig(0, 0xa0000200, 30, 0xa0, 5)
+#devA32VmeConfig(0, 0xa0000200, 30, 0xa0, 5)
 
 # VVVVVVVVVVVVVVVVVVVVV This doesn't look right (tmm) VVVVVVVVVVVVVVVVVVVVVVVVVVV
-dbLoadRecords("stdApp/Db/msl_mrd100.db","C=0,S=01,ID1=00,ID2=00us", std)
+#dbLoadRecords("stdApp/Db/msl_mrd100.db","C=0,S=01,ID1=00,ID2=00us", std)
 
 ### Bit Bus configuration
 # BBConfig(Link, LinkType, BaseAddr, IrqVector, IrqLevel)
@@ -481,9 +483,9 @@ iocInit
 # will be saved by the task we're starting here are going to be restored.
 #
 # save positions every five seconds
-create_monitor_set("auto_positions.req",5.0)
+create_monitor_set("auto_positions.req",5)
 # save other things every thirty seconds
-create_monitor_set("auto_settings.req",30.0)
+create_monitor_set("auto_settings.req",30)
 
 
 ### Start the saveData task.
