@@ -211,7 +211,7 @@ dbLoadRecords("stdApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m23,mXn=m25", std)
 # User filters
 #dbLoadRecords("stdApp/Db/filterMotor.db","P=xxx:,Q=fltr1:,MOTOR=m1,LOCK=fltr_1_2:", std)
 #dbLoadRecords("stdApp/Db/filterMotor.db","P=xxx:,Q=fltr2:,MOTOR=m2,LOCK=fltr_1_2:", std)
-#dbLoadRecords("stdApp/Db/filterLock.db","P=xxx:,Q=fltr2:,LOCK=fltr_1_2:,LOCK_PV=DAC1_1.VAL", std)
+#dbLoadRecords("stdApp/Db/filterLock.db","P=xxx:,Q=fltr2:,LOCK=fltr_1_2:,LOCK_PV=xxx:DAC1_1.VAL", std)
 
 # Optical tables
 #tableRecordDebug=1
