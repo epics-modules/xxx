@@ -2,9 +2,6 @@ $top = $ARGV[0];
 
 $applications{TOP} = $top;
 
-unlink("tmp");
-open(OUT,">tmp") or die "$! opening tmp";
-
 @files =();
 push(@files,"$top/config/RELEASE");
 
@@ -60,7 +57,7 @@ foreach $file (@files)
 		    $base = $applications{$macro};
 		    if ($base eq "")
 		    {
-			print "error: $macro was not previously defined\n";
+			#print "error: $macro was not previously defined\n";
 		    }
 		    else
 		    {
@@ -68,16 +65,13 @@ foreach $file (@files)
 		    }
 		}
 		$applications{$prefix} = $post;
-		$app = lc($prefix);
 		if ( -d "$post")
 		{
-		    #check that directory exists
-		    print OUT "setenv $app $post\n";
+		    print "set $prefix = $post\n";
 		}
 	    }
 	}
 	close IN;
     }
 }
-close OUT;
 
