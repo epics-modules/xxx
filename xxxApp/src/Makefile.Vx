@@ -4,6 +4,10 @@ include $(TOP)/config/CONFIG_APP
 #----------------------------------------
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 
+
+LIBOBJS += $(EPICS_BASE_BIN)/iocCore
+LIBOBJS += $(EPICS_BASE_BIN)/seq
+
 include $(STD)/stdApp/src/baseLIBOBJS
 
 include $(STD)/stdApp/src/stdLIBOBJS
@@ -18,9 +22,9 @@ include $(IP)/ipApp/src/ipLIBOBJS
 LIBOBJS += $(IPLIBOBJS)
 #LIBOBJS += $(IP_BIN)/ipLib
 
-LIBOBJS += $(IP330_BIN)/ip330Lib
-LIBOBJS += $(IP330_BIN)/ip330ServLib
-LIBOBJS += $(DAC128V_BIN)/dac128VLib
+include $(IP)/ipApp/src/ipMpfServerLIBOBJS
+LIBOBJS += $(IPMPFSERVERLIBOBJS)
+#LIBOBJS += $(IP_BIN)/mpfServLib
 
 # motor record and device support
 LIBOBJS += $(MOTOR_BIN)/motorLib
@@ -33,15 +37,11 @@ LIBOBJS += $(MOTOR_BIN)/softMotorLib
 
 LIBNAME = xxxLib
 
-BIN_INSTALLS += $(EPICS_BASE_BIN)/iocCore $(EPICS_BASE_BIN)/seq
-
 BIN_INSTALLS += $(STD_BIN)/xiahsc.o
 BIN_INSTALLS += $(STD_BIN)/xia_slit.o
 BIN_INSTALLS += $(STD_BIN)/getFilledBuckets.o
 BIN_INSTALLS += $(MPF_GPIB_BIN)/GpibHideosRemote.o
 BIN_INSTALLS += $(MPF_GPIB_BIN)/GpibHideosLocal.o
-BIN_INSTALLS += $(MPF_BIN)/mpfLib
-BIN_INSTALLS += $(IP_BIN)/mpfServLib
 BIN_INSTALLS += $(STD_BIN)/initHooks.o
 
 #Note that the command line that builds the
