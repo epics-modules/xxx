@@ -34,7 +34,7 @@ routerInit
 localMessageRouterStart(0)
 # talk to MPF servers on remote processor
 # (Note the following must agree with tcpMessageRouterServerStart() in st1.cmd)
-tcpMessageRouterClientStart(1, 9900, Remote_IP, 10000, 100)
+#tcpMessageRouterClientStart(1, 9900, Remote_IP, 10000, 100)
 
 # for local IP slots or IP slots on a VIPC616 dumb IP carrier
 # Uncomment, as needed.
