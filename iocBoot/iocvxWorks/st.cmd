@@ -140,7 +140,7 @@ omsSetup(2, 8, 0xFC00, 180, 5, 10)
 #     (1)cards, (2)axes per card, (3)base address(short, 4k boundary), 
 #     (4)interrupt vector (0=disable or  64 - 255), (5)interrupt level (1 - 6),
 #     (6)motor task polling rate (min=1Hz,max=60Hz)
-oms58Setup(3, 8, 0x3000, 190, 5, 10)
+oms58Setup(3, 8, 0x4000, 190, 5, 10)
 
 # Highland V544 driver setup parameters: 
 #     (1)cards, (2)axes per card, (3)base address(short, 4k boundary), 
@@ -366,7 +366,7 @@ dbLoadRecords("$(MCA)/mcaApp/Db/icb_adc.db","P=xxx:,ADC=icbAdc1,CARD=0,SERVER=ic
 #dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca8,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S7 @,CHANS=1000")
 
 # STR7201Setup(int numCards, int baseAddress, int interruptVector, int interruptLevel)
-#STR7201Setup(2, 0xA0000000, 210, 6)
+#STR7201Setup(2, 0x90000000, 220, 6)
 # STR7201Config(int card, int maxSignals, int maxChans, int 1=enable internal 25MHZ clock) 
 #STR7201Config(0, 8, 1000, 0) 
 
@@ -506,7 +506,7 @@ dbLoadTemplate("ip330Scan.substitutions")
 #   devA32VmeConfig(0, 0x80000000, 44, 0, 0)             
 #####################################################
 #  Configure the MSL MRD 100 module.....
-#devA32VmeConfig(0, 0xa0000200, 30, 0xa0, 5)
+#devA32VmeConfig(0, 0xB0000200, 30, 0xa0, 5)
 
 #dbLoadRecords("stdApp/Db/msl_mrd101.db","C=0,S=01,ID1=01,ID2=01us", std)
 
