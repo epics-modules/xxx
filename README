@@ -9,7 +9,7 @@ Edit iocBoot/ioc*/Makefile to set the variable ARCH
 
 Edit start_epics_xxx to set the variable EPICS_APP
 
-Edit iocBoot/ioc*/st.cmd and iocBoot/ioc*/*.substitutions
+Edit iocBoot/ioc*/*.cmd and iocBoot/ioc*/*.substitutions
 to agree with your hardware
 
 Edit iocBoot/ioc*/auto*.req to agree with your software
