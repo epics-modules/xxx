@@ -1,4 +1,5 @@
 # vxWorks startup script
+
 sysVmeMapShow
 
 # for vxStats
