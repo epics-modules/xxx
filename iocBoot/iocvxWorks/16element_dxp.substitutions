@@ -1,4 +1,4 @@
-file mcaApp/Db/simple_mca.db mca
+file "$(MCA)/mcaApp/Db/simple_mca.db"
 {
 pattern
 {P,           M,       DTYP,         INP          PREC,  CHANS}
@@ -21,7 +21,7 @@ pattern
 }
 
 # DXP records
-file camacApp/Db/dxp2x.db camac
+file "$(DXP)/dxpApp/Db/dxp2x.db"
 {
 pattern
 {P,           R,        INP       }

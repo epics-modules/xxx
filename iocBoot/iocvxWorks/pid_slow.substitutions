@@ -1,4 +1,4 @@
-file stdApp/Db/pid_control.db std
+file "$(STD)/stdApp/Db/pid_control.db"
 {
 pattern
 {P,      PID,       INP,           OUT,    LOPR,  HOPR,  DRVL,  DRVH,  PREC,   KP,  KI,   KD,  SCAN}

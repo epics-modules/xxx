@@ -1,4 +1,4 @@
-file ipApp/Db/fast_pid_control.db ip
+file "$(IP)/ipApp/Db/fast_pid_control.db"
 {
 pattern
 {P,      PID,   C,  SERVER,       LOPR,     HOPR,  DRVL,  DRVH,  PREC,   KP,  KI,   KD,  DT, SCAN}
