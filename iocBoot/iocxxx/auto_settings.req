@@ -120,3 +120,7 @@ file auto_4step_settings.req P=$(P),Q=4step
 
 file userAve10_settings.req P=$(P)
 
+$(P):R_CA
+$(P):R_FD
+$(P):R_Load
+$(P):R_Mem
