@@ -1,0 +1,17 @@
+# stuff for non-vxWorks ioc
+include "shareBase.dbd"
+include "stdSupport.dbd"
+include "mpf.dbd"
+include "mpfSerial.dbd"
+include "motorRecord.dbd"
+include "devSoftMotor.dbd"
+#include "devAcsMotor.dbd"
+#include "devImsMotor.dbd"
+#include "devMclennanMotor.dbd"
+#include "devNewport.dbd"
+#include "camacShare.dbd"
+#include "devCamacShare.dbd"
+#include "dxpCamacShare.dbd"
+#include "allenBradley.dbd"
+
+include "devSequencer.dbd"
