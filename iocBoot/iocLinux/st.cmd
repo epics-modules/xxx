@@ -97,7 +97,7 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=2,M_PHI1=m11,M_PHI2=m12")
 
 # Load single element Canberra AIM MCA and ICB modules
-< canberra_1.cmd
+#< canberra_1.cmd
 
 # Load 13 element detector software
 #< canberra_13.cmd
