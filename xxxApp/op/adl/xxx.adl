@@ -1,12 +1,12 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synApps_5_0/support/xxx/xxxApp/op/adl/xxx.adl"
+	name="/home/oxygen4/MOONEY/epics/synApps_5_1/support/xxx/xxxApp/op/adl/xxx.adl"
 	version=030004
 }
 display {
 	object {
-		x=523
-		y=26
+		x=509
+		y=27
 		width=450
 		height=160
 	}
@@ -422,44 +422,24 @@ display {
 		height=20
 	}
 	display[0] {
-		label="Joerger Scaler 1 (S)"
+		label="Scaler 1"
 		name="scaler.adl"
 		args="P=xxx:,S=scaler1"
 	}
 	display[1] {
-		label="Joerger Scaler 1 (M)"
-		name="scaler_more.adl"
-		args="P=xxx:,S=scaler1"
+		label="Scaler 2"
+		name="scaler.adl"
+		args="P=xxx:,S=scaler2"
 	}
 	display[2] {
-		label="Joerger Scaler 1 (L)"
-		name="scaler_full.adl"
-		args="P=xxx:,S=scaler1"
+		label="Scaler 3"
+		name="scaler.adl"
+		args="P=xxx:,S=scaler3"
 	}
 	display[3] {
-		label="Joerger Scaler 1 & User Calcs"
-		name="scaler_full_calc.adl"
-		args="P=xxx:,S=scaler1"
-	}
-	display[4] {
-		label="Joerger Scaler 2 (S)"
-		name="scaler16.adl"
-		args="P=xxx:,S=scaler2"
-	}
-	display[5] {
-		label="Joerger Scaler 2 (M)"
-		name="scaler16_more.adl"
-		args="P=xxx:,S=scaler2"
-	}
-	display[6] {
-		label="Joerger Scaler 2 (L)"
-		name="scaler16_full.adl"
-		args="P=xxx:,S=scaler2"
-	}
-	display[7] {
-		label="Joerger Scaler 2 & User Calcs"
-		name="scaler16_full_calc.adl"
-		args="P=xxx:,S=scaler2"
+		label="Scaler3 (64 ch)"
+		name="scaler64.adl"
+		args="P=xxx:,S=scaler3"
 	}
 	clr=0
 	bclr=17
@@ -781,9 +761,14 @@ text {
 		name="IOC_Status.adl"
 		args="P=xxx:"
 	}
+	display[2] {
+		label="save_restore Status"
+		name="save_restoreStatus.adl"
+		args="P=xxx:"
+	}
 	clr=0
 	bclr=17
-	label="-vxStats"
+	label="-Status"
 }
 "related display" {
 	object {
@@ -1577,9 +1562,14 @@ text {
 		name="interp.adl"
 		args="P=xxx:"
 	}
+	display[1] {
+		label="arrayTest"
+		name="arrayTest.adl"
+		args="P=xxx:"
+	}
 	clr=0
 	bclr=17
-	label="-LookupTbl"
+	label="-Array"
 }
 "related display" {
 	object {
