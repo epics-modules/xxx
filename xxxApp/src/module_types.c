@@ -12,7 +12,7 @@ ai_addrs[XY566DIL]		= 0xe000;
 ai_num_cards[XY566DIL] = 0;
 
 ai_addrs[VXI_AT5_AI]		= 0xc014;
-ai_num_cards[VXI_AT5_AI] = 32;
+ai_num_cards[VXI_AT5_AI] = 0;
 
 ai_addrs[DVX2502]		= 0xff00;
 ai_num_cards[DVX2502] = 0;
@@ -25,7 +25,7 @@ ao_addrs[ZIO085]		= 0x0800;
 ao_num_cards[ZIO085] = 0;
 
 ao_addrs[VXI_AT5_AO]		= 0xc000;
-ao_num_cards[VXI_AT5_AO] = 32;
+ao_num_cards[VXI_AT5_AO] = 0;
 
 bi_addrs[BB910]		= 0xb800;
 bi_num_cards[BB910] = 0;
@@ -34,16 +34,16 @@ bi_addrs[XY210]		= 0xa000;
 bi_num_cards[XY210] = 0;
 
 bi_addrs[VXI_AT5_BI]	= 0xc000;
-bi_num_cards[VXI_AT5_BI] = 32;
+bi_num_cards[VXI_AT5_BI] = 0;
 
 bi_addrs[HPE1368A_BI]	= 0xc000;
-bi_num_cards[HPE1368A_BI] = 32;
+bi_num_cards[HPE1368A_BI] = 0;
 
 bi_addrs[AT8_FP10S_BI]	= 0x0e00;
 bi_num_cards[AT8_FP10S_BI] = 0;
 
 bi_addrs[XY240_BI]	= 0xd000;
-bi_num_cards[XY240_BI] = 2;
+bi_num_cards[XY240_BI] = 1;
 
 
 bo_addrs[BB902]		= 0xd800;
@@ -53,23 +53,23 @@ bo_addrs[XY220]		= 0xc800;
 bo_num_cards[XY220] = 0;
 
 bo_addrs[VXI_AT5_BO]	= 0xc000;
-bo_num_cards[VXI_AT5_BO] = 32;
+bo_num_cards[VXI_AT5_BO] = 0;
 
 bo_addrs[HPE1368A_BO]	= 0xc000;
-bo_num_cards[HPE1368A_BO] = 32;
+bo_num_cards[HPE1368A_BO] = 0;
 
 bo_addrs[AT8_FP10M_BO]	= 0x0c00;
 bo_num_cards[AT8_FP10M_BO] = 0;
 
 bo_addrs[XY240_BO]	= 0xd000;
-bo_num_cards[XY240_BO] = 2;
+bo_num_cards[XY240_BO] = 1;
 
 
 sm_addrs[CM57_83E]	= 0x8000;
 sm_num_cards[CM57_83E] = 0;
 
 sm_addrs[OMS_6AXIS]	= 0xfc00;
-sm_num_cards[OMS_6AXIS] = 8;
+sm_num_cards[OMS_6AXIS] = 5;
 
 wf_addrs[XY566WF]	= 0x9000;
 wf_armaddrs[XY566WF]	= 0x5400;
@@ -85,19 +85,19 @@ wf_num_cards[COMET] = 0;
 
 
 tm_addrs[MZ8310]	= 0xf800;
-tm_num_cards[MZ8310] = 4;
+tm_num_cards[MZ8310] = 0;
 
 tm_addrs[VXI_AT5_TIME]	= 0xc000;
-tm_num_cards[VXI_AT5_TIME] = 32;
+tm_num_cards[VXI_AT5_TIME] = 0;
 
 AT830X_1_addrs		= 0x0400;
-AT830X_1_num_cards	= 2;
+AT830X_1_num_cards	= 0;
 AT830X_addrs		= 0xaa0000;
-AT830X_num_cards	= 2;
+AT830X_num_cards	= 0;
 
 xy010ScA16Base		= 0x0000;
 
-EPICS_VXI_LA_COUNT	= 32;
+EPICS_VXI_LA_COUNT	= 0;
 EPICS_VXI_A24_BASE	= (char *) 0x900000;
 EPICS_VXI_A24_SIZE	= 0x100000;
 EPICS_VXI_A32_BASE	= (char *) 0x90000000;

@@ -9,19 +9,20 @@
 #
 # Add your declarations here
 
-IP=/home/oxygen/MOONEY/epics/synApps_4_5/support/ip
-IP330=/home/oxygen/MOONEY/epics/synApps_4_5/support/ip330
+IP=/home/oxygen/MOONEY/epics/synApps_4_6/support/ip1-4
+IP330=/home/oxygen/MOONEY/epics/synApps_4_6/support/ip3301-7
+BITBUS=/home/oxygen/MOONEY/epics/synApps_4_6/support/bitBus1-4
 #CAMAC=/home/epics/devel/camac
-MCA=/home/oxygen/MOONEY/epics/synApps_4_5/support/mca
-LOVE=/home/oxygen/MOONEY/epics/synApps_4_5/support/love
-IPUNIDIG=/home/oxygen/MOONEY/epics/synApps_4_5/support/ipUnidig
-DAC128V=/home/oxygen/MOONEY/epics/synApps_4_5/support/dac128V
-MOTOR=/home/oxygen/MOONEY/epics/synApps_4_5/support/motor4-8
-STD=/home/oxygen/MOONEY/epics/synApps_4_5/support/std
-MPF_GPIB=/home/oxygen/MOONEY/epics/synApps_4_5/support/mpfGpib1-4
-MPF_SERIAL=/home/oxygen/MOONEY/epics/synApps_4_5/support/mpfSerial1-4
-MPF=/home/oxygen/MOONEY/epics/synApps_4_5/support/mpf1-10
-#QUADEM=/home/oxygen/MOONEY/epics/synApps_4_5/support/quadEM
+MCA=/home/oxygen/MOONEY/epics/synApps_4_6/support/mca5-5
+LOVE=/home/oxygen/MOONEY/epics/synApps_4_6/support/love1-3
+IPUNIDIG=/home/oxygen/MOONEY/epics/synApps_4_6/support/ipUnidig1-3
+DAC128V=/home/oxygen/MOONEY/epics/synApps_4_6/support/dac128V1-4
+MOTOR=/home/oxygen/MOONEY/epics/synApps_4_6/support/motor4-8
+STD=/home/oxygen/MOONEY/epics/synApps_4_6/support/std1-4
+MPF_GPIB=/home/oxygen/MOONEY/epics/synApps_4_6/support/mpfGpib1-4
+MPF_SERIAL=/home/oxygen/MOONEY/epics/synApps_4_6/support/mpfSerial1-4
+MPF=/home/oxygen/MOONEY/epics/synApps_4_6/support/mpf1-10
+QUADEM=/home/oxygen/MOONEY/epics/synApps_4_6/support/quadEM1-1
 EPICS_BASE=/usr/local/epics/baseR3.13.9
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top

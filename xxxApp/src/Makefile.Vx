@@ -116,8 +116,8 @@ LIBOBJS += $(MOTOR_BIN)/omsLib
 #LIBOBJS += $(CAMAC_BIN)/dxpCamacLib
 
 # Objects from "QUADEM"
-#LIBOBJS += $(QUADEM_BIN)/devQuadEMLib
-#BIN_INSTALLS += $(QUADEM_BIN)/quadEMLib
+LIBOBJS += $(QUADEM_BIN)/devQuadEMLib
+BIN_INSTALLS += $(QUADEM_BIN)/quadEMLib
 
 # Local source files.
 #SRCS.c  += ../myProg.c
