@@ -10,15 +10,6 @@ include $(TOP)/configure/CONFIG
 # of Joerger scaler hardware and endianness of processor.
 #USR_CFLAGS += -DHAS_IOOPS_H
 
-# Locally built ca-client application
-#PROD_HOST += caExample
-#caExample_SRCS	+= caExample.c
-#caExample_LIBS	+= ca
-#caExample_LIBS	+= Com
-#ca_DIR           = $(EPICS_BASE_LIB)
-#Com_DIR          = $(EPICS_BASE_LIB)
-
-
 #==================================================
 # build a support library that some other application can use
 
@@ -37,7 +28,7 @@ LIBRARY_IOC += xxxSupport
 #=============================
 # build an ioc application
 
-PROD_IOC_vxWorks = xxx
+PROD_IOC = xxx
 
 # <name>.dbd will be created from <name>Include.dbd
 DBD += iocxxx.dbd
@@ -58,64 +49,42 @@ xxx_SRCS_vxWorks += -nil-
 #xxx_LIBS += xxxSupport
 
 ### from support
-xxx_LIBS_DEFAULT += mca mcaCanberra mcaSIS
-xxx_LIBS_vxWorks += mca mcaCanberra mcaSIS
-xxx_LIBS_solaris += -nil-
-mca_DIR = $(MCA_LIB)
-mcaCanberra_DIR = $(MCA_LIB)
-mcaSIS_DIR = $(MCA_LIB)
+xxx_LIBS += mca 
+# Convert the following line to XXX_LIBS_vxWorks if you are not building mcaCanberra
+# for the host
+xxx_LIBS += mcaCanberra 
+xxx_LIBS_vxWorks += mcaSIS
 
-xxx_LIBS_DEFAULT += dac128V
 xxx_LIBS_vxWorks += dac128V
-xxx_LIBS_solaris += -nil-
-dac128V_DIR = $(DAC128V_LIB)
 
-xxx_LIBS_DEFAULT += ip
-xxx_LIBS_vxWorks += ip
-xxx_LIBS_solaris += -nil-
-ip_DIR = $(IP_LIB)
+xxx_LIBS += ip
 
-xxx_LIBS_DEFAULT += ip330 devIp330
 xxx_LIBS_vxWorks += ip330 devIp330
-xxx_LIBS_solaris += -nil-
-ip330_DIR = $(IP330_LIB)
-devip330_DIR = $(IP330_LIB)
 
-xxx_LIBS_DEFAULT += ipUnidig
 xxx_LIBS_vxWorks += ipUnidig
-xxx_LIBS_solaris += -nil-
-ipUnidig_DIR = $(IPUNIDIG_LIB)
 
-xxx_LIBS_DEFAULT += love
+xxx_LIBS_vxWorks += quadEM
+
+xxx_LIBS_vxWorks += dxp xerxes
+xxx_LIBS_Linux += dxp xerxes
+
 xxx_LIBS_vxWorks += love
-xxx_LIBS_solaris += -nil-
-love_DIR = $(LOVE_LIB)
 
-xxx_LIBS_DEFAULT += oms softMotor motor
-xxx_LIBS_vxWorks += oms softMotor motor
-xxx_LIBS_solaris += softMotor motor
-motor_DIR = $(MOTOR_LIB)
-softMotor_DIR = $(MOTOR_LIB)
-oms_DIR = $(MOTOR_LIB)
+xxx_LIBS += motor softMotor
+xxx_LIBS += Acs Ims Mclennan motorCOM_mpf Newport
+xxx_LIBS_vxWorks += oms 
 
-xxx_LIBS_vxWorks += vxStats
-vxStats_DIR = $(VXSTATS_LIB)
+#xxx_LIBS_vxWorks += vxStats
 
 xxx_LIBS += std
-std_DIR = $(STD_LIB)
 
 xxx_LIBS += mpfSerial mpf mpfEpics
-mpf_DIR = $(MPF_LIB)
-mpfEpics_DIR = $(MPF_LIB)
-mpfSerial_DIR = $(MPF_LIB)
 
 xxx_LIBS += seq pv seqDev
-seq_DIR = $(SEQ_LIB)
-pv_DIR = $(SEQ_LIB)
-seqDev_DIR = $(SEQ_LIB)
 
-xxx_LIBS += gpib
-gpib_DIR = $(GPIBCORE_LIB)
+#xxx_LIBS += gpib
+
+xxx_LIBS_vxWorks += allenBradley
 
 # xxx: in switch from ipac-2_5 to ipac-2_6,
 # $(IPAC_BIN)/tyGSOctal became $(IPAC_LIB)/libTyGSOctal.a, and
