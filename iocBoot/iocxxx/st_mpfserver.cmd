@@ -11,8 +11,14 @@
 #   pcarrier   - pointer to carrier driver structure
 #   cardParams - carrier-specific init parameters
 
-carrier = "ipac"
+# Select for MVME162 or MVME172 CPU board IP carrier.
+carrier = "mv162"
 ipacAddCarrier(&ipmv162, "A:l=3,3 m=0xe0000000,64;B:l=3,3 m=0xe0010000,64;C:l=3,3 m=0xe0020000,64;D:l=3,3 m=0xe0030000,64")
+
+# Select for SBS VIPC616-01 IP carrier.
+#carrier = "VIPC616_01"
+#ipacAddCarrier(&vipc616_01, "0x6000,D00000,128")
+
 initIpacCarrier(carrier, 0)
 
 ###############################################################################
