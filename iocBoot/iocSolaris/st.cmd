@@ -37,6 +37,11 @@ dbLoadRecords("$(TOP)/xxxApp/Db/busy.db", "P=xxx:,B=busy")
 # Motors
 dbLoadTemplate("softMotor.substitutions")
 
+### Allstop, alldone
+# This database must agree with the motors and other positioners you've actually loaded.
+# Several versions (e.g., all_com_*.db) are in stdApp/Db
+dbLoadRecords("$(STD)/stdApp/Db/all_com_0.db","P=xxx:")
+
 # interpolation
 dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
 
@@ -91,8 +96,7 @@ dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db","P=xxx:")
 dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq1")
 dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq2")
 dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq3")
-# 4-step measurement
-#dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
+
 
 ### serial support ###
 
