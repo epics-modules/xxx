@@ -107,7 +107,7 @@ dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
 #####################################################
 #  Configure the MSL MRD 100 module.....
 #devAvmeMRDConfig(0xB0000200, 0xA0, 5)    
-#dbLoadRecords("../../vmeApp/Db/msl_mrd100.db","C=0,S=01,ID1=01,ID2=01us")
+#dbLoadRecords("$(VME)/vmeApp/Db/msl_mrd100.db","C=0,S=01,ID1=01,ID2=01us")
 
 # Allen-Bradley 6008 scanner
 #abConfigNlinks 1
