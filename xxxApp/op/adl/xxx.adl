@@ -1,7 +1,7 @@
 
 file {
-	name="C:\Program Files\EPICS\adls\xxx.adl"
-	version=020306
+	name="/home/oxygen4/MOONEY/epics/synApps_T202_E3_14_7_R5_1/support/xxx/5-1/xxxApp/op/adl/xxx.adl"
+	version=030004
 }
 display {
 	object {
@@ -733,6 +733,14 @@ display {
 		name="xxIDCtrl.adl"
 		args="P=xxx:,xx=01us"
 	}
+	display[6] {
+		label="24 hr. Beam History"
+		name="beamHistory.adl"
+	}
+	display[7] {
+		label="24 hr. beam history, etc."
+		name="beamHistory_full.adl"
+	}
 	clr=0
 	bclr=17
 	label="-OPS"
@@ -931,16 +939,13 @@ display {
 		height=20
 	}
 	display[0] {
-		label="24 hr. Beam History"
-		name="beamHistory.adl"
-	}
-	display[1] {
-		label="24 hr. beam history, etc."
-		name="beamHistory_full.adl"
+		label="orientation matrix"
+		name="orient.adl"
+		args="P=xxx:,O=1,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
 	}
 	clr=0
 	bclr=17
-	label="-Beam"
+	label="-4 Circle"
 }
 "related display" {
 	object {
