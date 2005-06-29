@@ -209,7 +209,7 @@ seq &Keithley2kDMM,("P=xxx:, Dmm=D2, channels=10, model=2000")
 #seq  &xia_slit, "name=hsc1, P=xxx:, HSC=hsc1:, S=xxx:seriala[6]"
 
 # Orientation-matrix
-seq &orient, "P=xxx:orient1:,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
+#seq &orient, "P=xxx:orient1:,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".
