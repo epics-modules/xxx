@@ -84,6 +84,10 @@ dbLoadTemplate("scanParms.substitutions")
 # 4-bounce high-resolution monochromator
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m1,M_PHI2=m2")
 
+### Orientation matrix, four-circle diffractometer (see seq program 'orient' below)
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/orient.db", "P=xxx:,O=1,PREC=4")
+#dbLoadTemplate("orient_xtals.substitutions")
+
 ### Stuff for user programming ###
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
@@ -120,6 +124,9 @@ iocInit
 ### startup State Notation Language programs
 #seq &kohzuCtl, "P=xxx:, M_THETA=m1, M_Y=m2, M_Z=m3, GEOM=1, logfile=kohzuCtl.log"
 #seq &hrCtl, "P=xxx:, N=1, M_PHI1=m1, M_PHI2=m2, logfile=hrCtl1.log"
+
+# Orientation-matrix
+#seq &orient, "P=xxx:orient1:,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".

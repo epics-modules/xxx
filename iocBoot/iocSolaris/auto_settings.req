@@ -46,3 +46,6 @@ file sseq_settings.req P=$(P),S=Sseq1
 file sseq_settings.req P=$(P),S=Sseq2
 file sseq_settings.req P=$(P),S=Sseq3
 
+# orientation matrix
+#file orient_settings.req P=$(P),O=1
+#file orient_xtals_settings.req P=$(P),O=1

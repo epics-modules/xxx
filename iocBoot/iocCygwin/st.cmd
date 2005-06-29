@@ -96,6 +96,10 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10")
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=2,M_PHI1=m11,M_PHI2=m12")
 
+### Orientation matrix, four-circle diffractometer (see seq program 'orient' below)
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/orient.db", "P=xxx:,O=1,PREC=4")
+#dbLoadTemplate("orient_xtals.substitutions")
+
 # Load single element Canberra AIM MCA and ICB modules
 #< canberra_1.cmd
 
@@ -153,6 +157,9 @@ seq &Keithley2kDMM,("P=xxx:, Dmm=D1, channels=22, model=2700")
 # supported by a SNL program written by Pete Jemian and modified (TMM) for use with the
 # sscan record
 #seq  &xia_slit, "name=hsc1, P=xxx:, HSC=hsc1:, S=xxx:seriala[6]"
+
+# Orientation-matrix
+#seq &orient, "P=xxx:orient1:,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".

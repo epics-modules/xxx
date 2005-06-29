@@ -50,3 +50,6 @@ file auto_4step_settings.req P=$(P),Q=4step
 
 file userAve10_settings.req P=$(P)
 
+# orientation matrix
+#file orient_settings.req P=$(P),O=1
+#file orient_xtals_settings.req P=$(P),O=1
