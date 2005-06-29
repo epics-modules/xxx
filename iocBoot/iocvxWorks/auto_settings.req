@@ -140,3 +140,7 @@ $(P):R_CA
 $(P):R_FD
 $(P):R_Load
 $(P):R_Mem
+
+# orientation matrix
+#file orient_settings.req P=$(P),O=1
+#file orient_xtals_settings.req P=$(P),O=1
