@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synApps_T202_E3_14_7_R5_1/support/xxx/5-1/xxxApp/op/adl/xxx.adl"
+	name="/home/oxygen12/DKLINE/EPICS/synApps/support/xxx/work/xxxApp/op/adl/xxx.adl"
 	version=030004
 }
 display {
@@ -1483,8 +1483,8 @@ text {
 	}
 	display[0] {
 		label="Love controllers"
-		name="loveList.adl"
-		args="P1=xxx:,M1=love1,P2=xxx:,M2=love2,P3=xxx:,M3=love3"
+		name="LoveList4.adl"
+		args="P=xxx:,Q1=Love1,Q2=Love2,Q3=Love3,Q4=Love4"
 	}
 	clr=0
 	bclr=17
