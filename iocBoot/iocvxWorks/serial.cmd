@@ -19,7 +19,7 @@ tyGSOctalModuleInit("UART_0", "232", 0x80, 0, 0)
 # char *inputEos, char *outputEos)
 tyGSAsynInit("serial1",  "UART_0", 0, 9600,'N',2,8,'N',"\r","\r")  /* SRS570 */
 tyGSAsynInit("serial2",  "UART_0", 1,19200,'N',1,8,'N',"\r\n","\r")  /* Keithley 2000 */
-tyGSAsynInit("serial3",  "UART_0", 2, 9600,'E',1,7,'N',"\n","\n")  /* Digitel */
+tyGSAsynInit("serial3",  "UART_0", 2, 9600,'E',1,7,'N',"","\n")  /* Digitel */
 tyGSAsynInit("serial4",  "UART_0", 3, 9600,'N',1,8,'N',"\n","\n")  /* MPC */
 tyGSAsynInit("serial5",  "UART_0", 4,19200,'N',1,8,'N',"\r","\r")  /* ACS MCB-4B */
 tyGSAsynInit("serial6",  "UART_0", 5,19200,'N',1,8,'N',"\r\n","\r") /* Keithley 2000 */

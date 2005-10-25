@@ -36,6 +36,8 @@ asynOctetSetOutputEos("serial2",0,"\r")
 drvAsynIPPortConfigure("serial3", "164.54.160.50:4001", 0, 0, 0)
 asynOctetConnect("serial3", "serial3")
 asynOctetSetInputEos("serial3",0,"\r")
+# For Digitel need to use null input terminator
+#asynOctetSetInputEos("serial3",0,"")
 asynOctetSetOutputEos("serial3",0,"\r")
 
 # serial 4 not connected for now
