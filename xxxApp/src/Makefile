@@ -32,16 +32,21 @@ PROD_IOC_DEFAULT = xxx
 PROD_IOC_solaris = xxx
 
 # <name>.dbd will be created from <name>Include.dbd
-DBD += iocxxx.dbd
-DBD += iocxxxVX.dbd
-DBD += iocxxxLinux.dbd
-DBD += iocxxxCygwin.dbd
-DBD += iocxxx_solaris.dbd
+ifeq ($(OS_CLASS), WIN32)
+DBD  += iocxxxWin32.dbd
+else
+DBD  += iocxxx.dbd
+DBD  += iocxxxVX.dbd
+DBD  += iocxxxLinux.dbd
+DBD  += iocxxxCygwin.dbd
+DBD  += iocxxx_solaris.dbd
+endif
 
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
 xxx_SRCS_DEFAULT  += iocxxx_registerRecordDeviceDriver.cpp          xxxMain.cpp
 xxx_SRCS_vxWorks  += iocxxxVX_registerRecordDeviceDriver.cpp
 xxx_SRCS_Linux    += iocxxxLinux_registerRecordDeviceDriver.cpp     xxxMain.cpp
+xxx_SRCS_WIN32    += iocxxxWin32_registerRecordDeviceDriver.cpp     xxxMain.cpp
 xxx_SRCS_cygwin32 += iocxxxCygwin_registerRecordDeviceDriver.cpp    xxxMain.cpp
 xxx_SRCS_solaris  += iocxxx_solaris_registerRecordDeviceDriver.cppa xxxMain.cpp
 xxx_SRCS_vxWorks  += -nil-
@@ -56,11 +61,10 @@ xxx_Common_LIBS += optics
 xxx_Common_LIBS += vme
 xxx_Common_LIBS += std
 xxx_Common_LIBS += ip
-#xxx_Common_LIBS += brukerCCD
-#xxx_Common_LIBS += marCCD
-#xxx_Common_LIBS += roperCCD
-#xxx_Common_LIBS += Acs Ims Mclennan motor Newport softMotor
-xxx_Common_LIBS += Acs motor Mclennan Newport softMotor
+xxx_Common_LIBS += brukerCCD
+xxx_Common_LIBS += marCCD
+xxx_Common_LIBS += roperCCD
+xxx_Common_LIBS += Acs Ims Mclennan motor Newport softMotor
 xxx_Common_LIBS += asyn
 xxx_Common_LIBS += seq pv seqDev
 xxx_Common_LIBS += $(EPICS_BASE_IOC_LIBS)
@@ -88,6 +92,8 @@ xxx_Linux_LIBS  += dxp handel
 
 xxx_cygwin_LIBS += dxp handel
 
+xxx_WIN32_LIBS += dxp handel
+
 xxx_solaris_LIBS += genSub
 #xxx_solaris_LIBS += mca
 xxx_solaris_LIBS += calc
@@ -111,15 +117,17 @@ xxx_LIBS_vxWorks = $(xxx_vxWorks_LIBS) $(xxx_Common_LIBS)
 xxx_LIBS_Linux   = $(xxx_Linux_LIBS)   $(xxx_Common_LIBS)
 xxx_LIBS_solaris = $(xxx_solaris_LIBS)
 xxx_LIBS_cygwin32 = $(xxx_cygwin_LIBS) $(xxx_Common_LIBS)
+xxx_LIBS_WIN32    = $(xxx_WIN32_LIBS)  $(xxx_Common_LIBS)
 
 # If the host has libnet and libpcap for mca/Canberra support
 # uncomment the following line.
 #xxx_SYS_LIBS_Linux += net pcap
 xxx_SYS_LIBS_vxWorks += -nil-
 
-# This is needed by dxp on cygwin
+# This is needed by dxp on cygwin and WIN32
 xxx_SYS_LIBS_cygwin32 += DLPORTIO
-# This is needed by saveData on cygwin
+xxx_LIBS_WIN32        += DLPORTIO
+# This is needed by saveData and asyn VXI-11 on cygwin
 xxx_SYS_LIBS_cygwin32 += rpc
 
 
