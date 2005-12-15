@@ -1,0 +1,29 @@
+# stuff for WIN32 ioc
+include "base.dbd"
+include "asyn.dbd"
+#include "drvAsynSerialPort.dbd"
+include "drvAsynIPPort.dbd"
+include "stdSupport.dbd"
+include "genSubRecord.dbd"
+include "calcSupport.dbd"
+include "sscanWin32Support.dbd"
+include "asSupport.dbd"
+include "opticsSupport.dbd"
+include "mcaSupport.dbd"
+include "ipSupport.dbd"
+include "motorRecord.dbd"
+include "devSoftMotor.dbd"
+include "devNewport.dbd"
+include "devAcsMotor.dbd"
+include "devMclennanMotor.dbd"
+include "brukerCCDSupport.dbd"
+include "devImsMotor.dbd"
+include "marCCDSupport.dbd"
+include "roperCCDSupport.dbd"
+include "devSequencer.dbd"
+# If your host supports libpcap and libnet and you want to build Canberra network
+# support uncomment the following line
+#include "mcaCanberraSupport.dbd"
+# If you want to build parallel port interface to Saturn DXP uncomment the following line
+include "dxpSupport.dbd"
+
