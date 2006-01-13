@@ -17,7 +17,7 @@ epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 ################################################################################
 # Tell EPICS all about the record types, device-support modules, drivers,
 # etc. in the software we just loaded (xxx.munch)
-dbLoadDatabase("../../dbd/iocxxx.dbd")
+dbLoadDatabase("../../dbd/iocxxxCygwin.dbd")
 iocxxxCygwin_registerRecordDeviceDriver(pdbbase)
 
 ### save_restore setup
