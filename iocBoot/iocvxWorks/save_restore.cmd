@@ -25,7 +25,8 @@ save_restoreSet_NumSeqFiles(3)
 save_restoreSet_SeqPeriodInSeconds(300)
 
 # specify where save files should be
-set_savefile_path(startup, "autosave")
+#set_savefile_path(startup, "autosave")
+set_savefile_path("/export/oxygen4/MOONEY/epics/synApps_T202_E3_14_7_R5_1/support/xxx/iocBoot/iocvxWorks", "autosave")
 
 ###
 # specify what save files should be restored.  Note these files must be
