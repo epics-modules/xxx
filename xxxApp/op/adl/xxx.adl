@@ -1,12 +1,12 @@
 
 file {
-	name="/home/oxygen12/DKLINE/EPICS/synApps/support/xxx/work/xxxApp/op/adl/xxx.adl"
+	name="/home/oxygen4/MOONEY/epics/synApps_T202_E3_14_7_R5_1/support/xxx/xxxApp/op/adl/xxx.adl"
 	version=030004
 }
 display {
 	object {
-		x=279
-		y=76
+		x=519
+		y=26
 		width=450
 		height=140
 	}
@@ -621,14 +621,19 @@ display {
 		height=20
 	}
 	display[0] {
-		label="High resolution monochromator"
-		name="hrSeqCtl_All.adl"
+		label="High resolution monochromator (nested)"
+		name="hr_nested.adl"
 		args="P=xxx:,N=1"
 	}
 	display[1] {
-		label="Second HR mono"
+		label="High resolution monochromator (symmetric)"
+		name="hr_symmetric.adl"
+		args="P=xxx:,N=1"
+	}
+	display[2] {
+		label="High resolution monochromator control"
 		name="hrSeqCtl_All.adl"
-		args="P=xxx:,N=2"
+		args="P=xxx:,N=1"
 	}
 	clr=0
 	bclr=17
@@ -942,6 +947,11 @@ display {
 		label="orientation matrix"
 		name="orient.adl"
 		args="P=xxx:,O=1,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
+	}
+	display[1] {
+		label="orientation matrix 2"
+		name="orient.adl"
+		args="P=xxx:,O=2,PM=xxx:,mTTH=m13,mTH=m14,mCHI=m15,mPHI=m16"
 	}
 	clr=0
 	bclr=17
@@ -1391,6 +1401,11 @@ text {
 		label="arrayTest"
 		name="arrayTest.adl"
 		args="P=xxx:"
+	}
+	display[2] {
+		label="pvHistory 1"
+		name="pvHistory.adl"
+		args="P=xxx:,N=1"
 	}
 	clr=0
 	bclr=17
