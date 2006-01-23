@@ -72,13 +72,10 @@ file scan_settings.req P=$(P),S=scan4
 file scan_settings.req P=$(P),S=scanH
 
 # Kohzu monochromator
-file kohzuSeq_settings.req P=$(P)
+#file kohzuSeq_settings.req P=$(P)
 
 # High resolution monochromator
-file hrSeq_settings.req P=$(P),N=1
-
-file userCalcs10_settings.req P=$(P)
-file userCalcN_settings.req P=$(P),N=I_Detector
+#file hrSeq_settings.req P=$(P),N=1
 
 #$(P)fltr1:name5.VAL
 #$(P)fltr1:name4.VAL
@@ -110,9 +107,14 @@ file userCalcN_settings.req P=$(P),N=I_Detector
 
 file saveData_settings.req P=$(P)
 
+file userCalcs10_settings.req P=$(P)
+$(P)userCalcEnable.VAL
+
 file userTransforms10_settings.req P=$(P)
+$(P)userTranEnable.VAL
 
 file userStringCalcs10_settings.req P=$(P)
+$(P)userStringCalcEnable.VAL
 
 # string-sequence records
 file sseq_settings.req P=$(P),S=Sseq1
@@ -124,6 +126,7 @@ file sseq_settings.req P=$(P),S=Sseq3
 file auto_4step_settings.req P=$(P),Q=4step
 
 file userAve10_settings.req P=$(P)
+$(P)userAveEnable.VAL
 
 file interp_settings.req P=$(P)
 
@@ -142,5 +145,9 @@ $(P):R_Load
 $(P):R_Mem
 
 # orientation matrix
-#file orient_settings.req P=$(P),O=1
-#file orient_xtals_settings.req P=$(P),O=1
+file orient_settings.req P=$(P),O=1
+file orient_settings.req P=$(P),O=2
+file orient_xtals_settings.req P=$(P),O=1
+
+# pvHistory
+file pvHistory.req P=$(P),N=1
