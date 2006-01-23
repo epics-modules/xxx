@@ -21,7 +21,7 @@ sysCplusEnable=1
 
 # If using a PowerPC CPU with more than 32MB of memory, and not building with longjump, then
 # allocate enough memory here to force code to load in lower 32 MB.
-mem = malloc(1024*1024*96)
+##mem = malloc(1024*1024*96)
 
 ### Load synApps EPICS software
 ld < xxx.munch
@@ -48,19 +48,24 @@ putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"
 dbLoadDatabase("../../dbd/iocxxxVX.dbd")
 iocxxxVX_registerRecordDeviceDriver(pdbbase)
 
+# test pvHistory
+#pvHistoryDebug = 1
+#var pvHistoryDebug,1
+dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
+
 ### save_restore setup
 # We presume a suitable initHook routine was compiled into xxx.munch.
 # See also create_monitor_set(), after iocInit() .
 < save_restore.cmd
 
 # Industry Pack support
-< industryPack.cmd
+#< industryPack.cmd
 
 # serial support
-< serial.cmd
+#< serial.cmd
 
 # gpib support
-< gpib.cmd
+#< gpib.cmd
 
 # VME devices
 < vme.cmd
@@ -72,7 +77,7 @@ iocxxxVX_registerRecordDeviceDriver(pdbbase)
 #dbLoadTemplate("basic_motor.substitutions")
 dbLoadTemplate("motor.substitutions")
 dbLoadTemplate("softMotor.substitutions")
-dbLoadTemplate("pseudoMotor.substitutions")
+#dbLoadTemplate("pseudoMotor.substitutions")
 
 ### Allstop, alldone
 # This database must agree with the motors and other positioners you've actually loaded.
@@ -83,7 +88,7 @@ dbLoadRecords("$(STD)/stdApp/Db/all_com_16.db","P=xxx:")
 #dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=xxx:,xx=02us")
 
 # sample-wheel
-dbLoadRecords("$(STD)/stdApp/Db/sampleWheel.db", "P=xxx:,ROWMOTOR=xxx:m7,ANGLEMOTOR=xxx:m8")
+#dbLoadRecords("$(STD)/stdApp/Db/sampleWheel.db", "P=xxx:,ROWMOTOR=xxx:m7,ANGLEMOTOR=xxx:m8")
 
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
@@ -138,11 +143,12 @@ dbLoadRecords("$(DIR)/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=2,M_PHI1=m11,M_PHI2=m12")
 
 ### Orientation matrix, four-circle diffractometer (see seq program 'orient' below)
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/orient.db", "P=xxx:,O=1,PREC=4")
-#dbLoadTemplate("orient_xtals.substitutions")
+dbLoadRecords("$(OPTICS)/opticsApp/Db/orient.db", "P=xxx:,O=1,PREC=4")
+dbLoadRecords("$(OPTICS)/opticsApp/Db/orient.db", "P=xxx:,O=2,PREC=4")
+dbLoadTemplate("orient_xtals.substitutions")
 
 # Load single element Canberra AIM MCA and ICB modules
-< canberra_1.cmd
+#< canberra_1.cmd
 
 # Load 13 element detector software
 #< canberra_13.cmd
@@ -192,13 +198,13 @@ iocLogDisable=0
 iocInit
 
 ### startup State Notation Language programs
-#seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=1, logfile=kohzuCtl.log"
+#seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=2, logfile=kohzuCtl.log"
 #seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
 
 # Keithley 2000 series DMM
 # channels: 10, 20, or 22;  model: 2000 or 2700
-seq &Keithley2kDMM,("P=xxx:, Dmm=D1, channels=22, model=2700")
-seq &Keithley2kDMM,("P=xxx:, Dmm=D2, channels=10, model=2000")
+#seq &Keithley2kDMM,("P=xxx:, Dmm=D1, channels=22, model=2700")
+#seq &Keithley2kDMM,("P=xxx:, Dmm=D2, channels=10, model=2000")
 
 # Bunch clock generator
 #seq &getFillPat, "unit=xxx"
@@ -209,7 +215,9 @@ seq &Keithley2kDMM,("P=xxx:, Dmm=D2, channels=10, model=2000")
 #seq  &xia_slit, "name=hsc1, P=xxx:, HSC=hsc1:, S=xxx:seriala[6]"
 
 # Orientation-matrix
-#seq &orient, "P=xxx:orient1:,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
+#orientDebug=1
+seq &orient, "P=xxx:orient1:,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
+seq &orient, "P=xxx:orient2:,PM=xxx:,mTTH=m13,mTH=m14,mCHI=m15,mPHI=m16"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".
@@ -226,6 +234,6 @@ create_monitor_set("auto_settings.req",30,"P=xxx:")
 saveData_Init("saveData.req", "P=xxx:")
 
 # If memory allocated at beginning free it now
-free(mem)
+##free(mem)
 
 dbcar(0,1)
