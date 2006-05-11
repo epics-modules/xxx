@@ -12,6 +12,10 @@ cd ""
 < ../nfsCommands
 < cdCommands
 
+# How to set and get the clock rate
+#sysClkRateSet(100)
+#sysClkRateGet()
+
 ################################################################################
 cd topbin
 
@@ -47,11 +51,6 @@ putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"
 # etc. in the software we just loaded (xxx.munch)
 dbLoadDatabase("../../dbd/iocxxxVX.dbd")
 iocxxxVX_registerRecordDeviceDriver(pdbbase)
-
-# test pvHistory
-#pvHistoryDebug = 1
-#var pvHistoryDebug,1
-dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
 
 ### save_restore setup
 # We presume a suitable initHook routine was compiled into xxx.munch.
@@ -110,13 +109,12 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m
 
 # X-ray Instrumentation Associates Huber Slit Controller
 # supported by a customized version of the SNL program written by Pete Jemian
+# (Uses asyn record loaded separately)
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/xia_slit.db", "P=xxx:, HSC=hsc1:")
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/xia_slit.db", "P=xxx:, HSC=hsc2:")
-#dbLoadRecords("$(IP)/ipApp/Db/generic_serial.db", "P=xxx:,C=0,SERVER=serial7")
-
 
 ### 2-post mirror
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/2postMirror.db","P=xxx:,Q=M1,mDn=m18,mUp=m17,LENGTH=0.3")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/2postMirror.db","P=xxx:,Q=M1,mDn=m8,mUp=m7,LENGTH=0.3")
 
 ### User filters
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/filterMotor.db","P=xxx:,Q=fltr1:,MOTOR=m1,LOCK=fltr_1_2:")
@@ -143,9 +141,8 @@ dbLoadRecords("$(DIR)/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=2,M_PHI1=m11,M_PHI2=m12")
 
 ### Orientation matrix, four-circle diffractometer (see seq program 'orient' below)
-dbLoadRecords("$(OPTICS)/opticsApp/Db/orient.db", "P=xxx:,O=1,PREC=4")
-dbLoadRecords("$(OPTICS)/opticsApp/Db/orient.db", "P=xxx:,O=2,PREC=4")
-dbLoadTemplate("orient_xtals.substitutions")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/orient.db", "P=xxx:,O=1,PREC=6")
+#dbLoadTemplate("orient_xtals.substitutions")
 
 # Load single element Canberra AIM MCA and ICB modules
 #< canberra_1.cmd
@@ -160,6 +157,7 @@ dbLoadTemplate("orient_xtals.substitutions")
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
+dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=4000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
 # extra userCalcs (must also load userCalcs10.db for the enable switch)
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
@@ -174,6 +172,9 @@ dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
 # array test
 dbLoadRecords("$(CALC)/calcApp/Db/arrayTest.db", "P=xxx:,N=2000")
+
+# pvHistory (in-crate archive of up to three PV's)
+#dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
 
 # Slow feedback
 dbLoadTemplate "pid_slow.substitutions"
@@ -212,12 +213,10 @@ iocInit
 # X-ray Instrumentation Associates Huber Slit Controller
 # supported by a SNL program written by Pete Jemian and modified (TMM) for use with the
 # sscan record
-#seq  &xia_slit, "name=hsc1, P=xxx:, HSC=hsc1:, S=xxx:seriala[6]"
+#seq  &xia_slit, "name=hsc1, P=xxx:, HSC=hsc1:, S=xxx:asyn_6"
 
 # Orientation-matrix
-#orientDebug=1
-seq &orient, "P=xxx:orient1:,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
-seq &orient, "P=xxx:orient2:,PM=xxx:,mTTH=m13,mTH=m14,mCHI=m15,mPHI=m16"
+#seq &orient, "P=xxx:orient1:,PM=xxx:,mTTH=m13,mTH=m14,mCHI=m15,mPHI=m16"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".
