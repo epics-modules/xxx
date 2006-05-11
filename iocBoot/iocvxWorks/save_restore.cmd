@@ -62,6 +62,7 @@ set_requestfile_path(quadem, "quadEMApp/Db")
 set_requestfile_path(sscan, "sscanApp/Db")
 set_requestfile_path(std, "stdApp/Db")
 set_requestfile_path(vme, "vmeApp/Db")
+set_requestfile_path(top, "xxxApp/Db")
 
 dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=xxx:")
 
