@@ -116,6 +116,9 @@ $(P)userTranEnable.VAL
 file userStringCalcs10_settings.req P=$(P)
 $(P)userStringCalcEnable.VAL
 
+file userArrayCalcs10_settings.req P=$(P)
+$(P)userArrayCalcEnable.VAL
+
 # string-sequence records
 file sseq_settings.req P=$(P),S=Sseq1
 file sseq_settings.req P=$(P),S=Sseq2
@@ -145,9 +148,14 @@ $(P):R_Load
 $(P):R_Mem
 
 # orientation matrix
-file orient_settings.req P=$(P),O=1
-file orient_settings.req P=$(P),O=2
-file orient_xtals_settings.req P=$(P),O=1
+#file orient_settings.req P=$(P),O=1
+#file orient_xtals_settings.req P=$(P),O=1
 
 # pvHistory
 file pvHistory.req P=$(P),N=1
+
+# XIA slit
+$(P)hsc1:hID
+$(P)hsc1:vID
+$(P)hsc1:enable
+$(P)hsc1:debug
