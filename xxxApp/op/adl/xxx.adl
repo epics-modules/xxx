@@ -1,12 +1,12 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synApps_T202_E3_14_7_R5_1/support/xxx/xxxApp/op/adl/xxx.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/xxx/xxxApp/op/adl/xxx_save.adl"
 	version=030004
 }
 display {
 	object {
-		x=519
-		y=26
+		x=513
+		y=226
 		width=450
 		height=140
 	}
@@ -837,57 +837,6 @@ display {
 }
 "related display" {
 	object {
-		x=140
-		y=20
-		width=70
-		height=20
-	}
-	display[0] {
-		label="user calcs 1-10"
-		name="userCalcs10.adl"
-		args="P=xxx:"
-	}
-	display[1] {
-		label="user stringCalcs 1-10"
-		name="userStringCalcs10.adl"
-		args="P=xxx:"
-	}
-	display[2] {
-		label="user transforms 1-10"
-		name="userTransforms10.adl"
-		args="P=xxx:"
-	}
-	display[3] {
-		label="sseq record 1"
-		name="yySseq.adl"
-		args="P=xxx:,S=Sseq1"
-	}
-	display[4] {
-		label="sseq record 2"
-		name="yySseq.adl"
-		args="P=xxx:,S=Sseq2"
-	}
-	display[5] {
-		label="sseq record 3"
-		name="yySseq.adl"
-		args="P=xxx:,S=Sseq3"
-	}
-	display[6] {
-		label="user average 1-10"
-		name="userAve10.adl"
-		args="P=xxx:"
-	}
-	display[7] {
-		label="user calcOuts"
-		name="userCalcOuts10.adl"
-		args="P=xxx:"
-	}
-	clr=0
-	bclr=17
-	label="-userCalc"
-}
-"related display" {
-	object {
 		x=210
 		y=60
 		width=70
@@ -1605,4 +1554,60 @@ text {
 	clr=0
 	bclr=17
 	label="-serial"
+}
+"related display" {
+	object {
+		x=140
+		y=20
+		width=70
+		height=20
+	}
+	display[0] {
+		label="user calcs 1-10"
+		name="userCalcs10.adl"
+		args="P=xxx:"
+	}
+	display[1] {
+		label="user stringCalcs 1-10"
+		name="userStringCalcs10.adl"
+		args="P=xxx:"
+	}
+	display[2] {
+		label="user transforms 1-10"
+		name="userTransforms10.adl"
+		args="P=xxx:"
+	}
+	display[3] {
+		label="sseq record 1"
+		name="yySseq.adl"
+		args="P=xxx:,S=Sseq1"
+	}
+	display[4] {
+		label="sseq record 2"
+		name="yySseq.adl"
+		args="P=xxx:,S=Sseq2"
+	}
+	display[5] {
+		label="sseq record 3"
+		name="yySseq.adl"
+		args="P=xxx:,S=Sseq3"
+	}
+	display[6] {
+		label="user average 1-10"
+		name="userAve10.adl"
+		args="P=xxx:"
+	}
+	display[7] {
+		label="user calcOuts"
+		name="userCalcOuts10.adl"
+		args="P=xxx:"
+	}
+	display[8] {
+		label="user arrayCalcs 1-10"
+		name="userArrayCalcs10.adl"
+		args="P=xxx:"
+	}
+	clr=0
+	bclr=17
+	label="-userCalc"
 }
