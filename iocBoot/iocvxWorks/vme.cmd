@@ -41,7 +41,6 @@ dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler3,C=0, DTYP=Joerger V
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=1,switches=41344,irq=3")
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=2,switches=41344,irq=3")
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320group.db","P=xxx:,group=5")
-#drvIK320RegErrStr()
 
 ### Struck 7201 multichannel scaler (same as SIS 3806 multichannel scaler)
 
