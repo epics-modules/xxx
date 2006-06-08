@@ -79,7 +79,7 @@ dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
 #devHPLaserAxisConfig(2,0x1000)
 
 # Acromag general purpose Digital I/O
-#dbLoadRecords("$(VME)/vmeApp/Db/Acromag_16IO.db", "P=xxx:, A=1")
+#dbLoadRecords("$(VME)/vmeApp/Db/Acromag_16IO.db", "P=xxx:, A=1, C=0")
 
 # Acromag AVME9440 setup parameters:
 # devAvem9440Config (ncards,a16base,intvecbase)
