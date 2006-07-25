@@ -14,11 +14,11 @@ routeShow
 # rather than FTP, for booting the VME crate, and generally for reading
 # and writing files on the server.
 #
-hostAdd("beams","164.54.100.5")
-nfsMount("beams","/export/homeb","/home/beams")
+hostAdd("beams-nfs","164.54.100.202")
+nfsMount("beams-nfs","/export/beams","/home/beams")
 hostAdd("oxygen","164.54.52.4")
-nfsMount("oxygen","/home/oxygen","/home/oxygen")
-nfsMount("oxygen","/home/oxygen4","/home/oxygen4")
+nfsMount("oxygen","/export/oxygen","/home/oxygen")
+nfsMount("oxygen","/export/oxygen4","/home/oxygen4")
 hostAdd("wheaties","164.54.53.101")
 nfsMount("wheaties","/local","/local")
 
