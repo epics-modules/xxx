@@ -159,3 +159,9 @@ $(P)hsc1:hID
 $(P)hsc1:vID
 $(P)hsc1:enable
 $(P)hsc1:debug
+
+## Femto amplifier 4
+#file femto.req P=$(P),H=fem01:,F=seq01:
+
+## PF4 dual filter
+#file pf4dual.req P=$(P),H=pf401:,F=seq01:

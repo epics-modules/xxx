@@ -192,6 +192,12 @@ dbLoadTemplate("vxStats.substitutions")
 ### Queensgate Nano2k piezo controller
 #dbLoadRecords("$(STD)/stdApp/Db/Nano2k.db","P=xxx:,S=s1")
 
+### Load database records for Femto amplifiers
+#dbLoadRecords("$(STD)/stdApp/Db/femto.db","P=xxx:,H=fem01:,F=seq01:")
+
+### Load database records for PF4 filters
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4dual.db","P=xxx:,H=pf401:,F=seq01:")
+
 ###############################################################################
 # Set shell prompt (otherwise it is left at mv167 or mv162)
 shellPromptSet "iocvxWorks> "
@@ -217,6 +223,12 @@ iocInit
 
 # Orientation-matrix
 #seq &orient, "P=xxx:orient1:,PM=xxx:,mTTH=m13,mTH=m14,mCHI=m15,mPHI=m16"
+
+# Start PF4 filter sequence program
+#seq pf4Dual,"P=xxx:pf401:seq01:,MONO=,A0=,A1=,A2=,A3=,B0=,B1=,B2=,B3="
+
+# Start Femto amplifier sequence programs
+#seq femto,"name=femto1,P=xxx:,H=fem01:,F=seq01:,GAIN1=,GAIN2=,GAIN3=,NOISE="
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".

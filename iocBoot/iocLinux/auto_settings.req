@@ -53,3 +53,10 @@ file userAve10_settings.req P=$(P)
 # orientation matrix
 #file orient_settings.req P=$(P),O=1
 #file orient_xtals_settings.req P=$(P),O=1
+
+
+## Femto amplifier 4
+#file femto.req P=$(P),H=fem01:,F=seq01:
+
+## PF4 dual filter
+#file pf4dual.req P=$(P),H=pf401:,F=seq01:
