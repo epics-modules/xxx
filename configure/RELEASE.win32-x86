@@ -1,39 +1,52 @@
-#RELEASE Location of external products
+# RELEASE - Location of external products
+#
 # Run "gnumake clean uninstall install" in the application
 # top directory each time this file is changed.
 #
-# NOTE: The build does not check dependancies on files
-# external to this application. Thus you should run
-# "gnumake clean uninstall install" in the top directory
-# each time EPICS_BASE, SNCSEQ, or any other external
-# module defined in the RELEASE file is rebuilt.
+# Notes:
+#
+# - Architecture dependent declarations should go into RELEASE.<arch>
+#
+# - This file will be scanned to automatically generate
+#   include path definitions etc.
+#   The order of the following declarations will be retained
+#   within those definitions.
+#
+# - The build does not check dependencies on files
+#   external to this application. Thus you should run
+#   "gnumake clean uninstall install" in the top directory
+#   each time EPICS_BASE, SNCSEQ, or any other external
+#   module defined in the RELEASE file is rebuilt.
+#
+# - "#!" marks lines that can be uncommented.
 
-SUPPORT=J:/epics/devel
-ALLEN_BRADLEY=J:/epics/devel/allenBradley/2-1
-ASYN=J:/epics/devel/asyn/4-4beta
-AUTOSAVE=J:/epics/devel/autosave/4-1-2beta
-CALC=J:/epics/devel/calc/2-6beta
-CAMAC=J:/epics/devel/camac/2-4
-CCD=J:/epics/devel/ccd/1-6beta
-DAC128V=J:/epics/devel/dac128V/2-3
-DXP=J:/epics/devel/dxp/2-4beta
-GENSUB=J:/epics/devel/genSub/1-6
-IP=J:/epics/devel/ip/2-7beta
-IP330=J:/epics/devel/ip330/2-3
-IPUNIDIG=J:/epics/devel/ipUnidig/2-3
-IPAC=J:/epics/devel/ipac/2-8
-LOVE=J:/epics/devel/love/3-2beta
-MCA=J:/epics/devel/mca/6-7beta
-MOTOR=J:/epics/devel/motor/5-7beta
-OPTICS=J:/epics/devel/optics/2-4-2beta
-QUADEM=J:/epics/devel/quadEM/2-2
-SNCSEQ=J:/epics/devel/seq/2-0-11beta
-SSCAN=J:/epics/devel/sscan/2-5-2beta
-STD=J:/epics/devel/std/2-5
-VME=J:/epics/devel/vme/2-4-1
-VXSTATS=J:/epics/devel/vxStats/1-7-3beta
-XXX=J:/epics/devel/xxx/5-1
-# EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=H:/epics/base-3.14.9beta
+##############################################################################
+# Choose one, and only one, of the following two methods to define SUPPORT.
+#
+# The 1st method uses the intermediate variable GATEWAY.  GATEWAY is used if
+# you are using a shared distribution of synApps among users with different
+# directory paths (i.e., mount points) to synApps.
+
+# The 2nd, defalut, method is for users that have their own copy of synApps.
+
+# 1ST METHOD, for GATEWAY users.
+# If you are using the APS gateway to access synApps; define the NFS mount path
+# to the gateway here and uncomment the following lines.
+#!GATEWAY=
+#!SUPPORT=$(GATEWAY)/epics/synApps_5_2/support
+
+# 2ND METHOD; define the path to the synApps support directory and uncomment.
+SUPPORT=/corvette/home/epics/devel
+
+##############################################################################
+# Choice one, and only one, of the following two methods to define the synApps
+# configuration.
+
+# For the standard synApps configuration; uncomment the following line.
+include $(SUPPORT)/config/WIN32_MASTER_RELEASE
+
+# For a local, custom configuration; copy $(SUPPORT)/config/MASTER_RELEASE
+# to this directory, edit the local copy and uncomment the following line.
+#!include $(TOP)/configure/MASTER_RELEASE
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
