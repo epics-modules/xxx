@@ -64,8 +64,7 @@ xxx_Common_LIBS += ip
 xxx_Common_LIBS += brukerCCD
 xxx_Common_LIBS += marCCD
 xxx_Common_LIBS += roperCCD
-xxx_Common_LIBS += Acs Ims Mclennan Newport softMotor
-xxx_Common_LIBS += motor
+xxx_Common_LIBS += Acs Ims Mclennan Newport softMotor motorSimSupport motor
 xxx_Common_LIBS += asyn
 xxx_Common_LIBS += seq pv seqDev
 xxx_Common_LIBS += $(EPICS_BASE_IOC_LIBS)
@@ -78,7 +77,7 @@ xxx_vxWorks_LIBS += ipUnidig
 xxx_vxWorks_LIBS += dac128V
 xxx_vxWorks_LIBS += quadEM
 xxx_vxWorks_LIBS += camac devCamac
-xxx_vxWorks_LIBS += dxp handel
+xxx_vxWorks_LIBS += dxp handelSrc
 xxx_vxWorks_LIBS += oms
 #xxx_vxWorks_LIBS += love
 xxx_vxWorks_LIBS += vxStats
@@ -86,14 +85,14 @@ xxx_vxWorks_LIBS += TyGSOctal Ipac
 #The following adds support from base/src/vxWorks
 xxx_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
-xxx_Linux_LIBS  += dxp handel
+xxx_Linux_LIBS  += dxp handelSrc
 # If libnet IS installed on your HOST Linux system;
 # uncomment the following line.
 #xxx_Linux_LIBS  += mcaCanberra
 
-xxx_cygwin_LIBS += dxp handel
+xxx_cygwin_LIBS += dxp handelSrc
 
-xxx_WIN32_LIBS += dxp handel
+xxx_WIN32_LIBS += dxp handelSrc
 
 xxx_solaris_LIBS += genSub
 #xxx_solaris_LIBS += mca
