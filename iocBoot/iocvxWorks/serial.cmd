@@ -22,7 +22,7 @@ tyGSAsynInit("serial2",  "UART_0", 1,19200,'N',1,8,'N',"\r\n","\r")  /* Keithley
 tyGSAsynInit("serial3",  "UART_0", 2, 9600,'E',1,7,'N',"","\n")  /* Digitel */
 tyGSAsynInit("serial4",  "UART_0", 3, 9600,'N',1,8,'N',"\n","\n")  /* MPC */
 tyGSAsynInit("serial5",  "UART_0", 4,19200,'N',1,8,'N',"\r","\r")  /* ACS MCB-4B */
-tyGSAsynInit("serial6",  "UART_0", 5,19200,'N',1,8,'N',"\r\n","\r") /* Keithley 2000 */
+tyGSAsynInit("serial6",  "UART_0", 5, 9600,'N',1,8,'N',"\r\n","\r") /* XIA slit */
 tyGSAsynInit("serial7",  "UART_0", 6,38400,'N',1,8,'N',"\r","\r")  /* Newport MM4000 */
 tyGSAsynInit("serial8",  "UART_0", 7,19200,'N',1,8,'N',"","")      /* Love controllers */
 
