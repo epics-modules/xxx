@@ -58,6 +58,7 @@ dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca6,DTYP=Struck ST
 dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca7,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S6 @,CHANS=1000")
 dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca8,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S7 @,CHANS=1000")
 
+# Note the address 0x9000000 does not work on an MVME5100; try 0xA0000000
 # STR7201Setup(int numCards, int baseAddress, int interruptVector, int interruptLevel)
 STR7201Setup(2, 0x90000000, 220, 6)
 # STR7201Config(int card, int maxSignals, int maxChans, 
