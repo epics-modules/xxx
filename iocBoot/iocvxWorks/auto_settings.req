@@ -116,14 +116,11 @@ $(P)userTranEnable.VAL
 file userStringCalcs10_settings.req P=$(P)
 $(P)userStringCalcEnable.VAL
 
+file userStringSeqs10_settings.req P=$(P)
+$(P)userStringSeqEnable
+
 file userArrayCalcs10_settings.req P=$(P)
-$(P)userArrayCalcEnable.VAL
-
-# string-sequence records
-file sseq_settings.req P=$(P),S=Sseq1
-file sseq_settings.req P=$(P),S=Sseq2
-file sseq_settings.req P=$(P),S=Sseq3
-
+#$(P)userArrayCalcEnable.VAL
 
 # 4-step measurement
 file auto_4step_settings.req P=$(P),Q=4step
@@ -153,6 +150,8 @@ $(P):R_Mem
 
 # pvHistory
 file pvHistory.req P=$(P),N=1
+
+file CoarseFineMotor_settings.req P=xxx:cf1:
 
 # XIA slit
 $(P)hsc1:hID
