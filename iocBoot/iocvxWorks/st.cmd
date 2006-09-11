@@ -103,10 +103,6 @@ dbLoadTemplate("scanParms.substitutions")
 dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1V,mXp=m3,mXn=m4")
 dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m6")
 
-# under development...
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2V,mXp=m13,mXn=m14")
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2H,mXp=m15,mXn=m16")
-
 # X-ray Instrumentation Associates Huber Slit Controller
 # supported by a customized version of the SNL program written by Pete Jemian
 # (Uses asyn record loaded separately)
@@ -144,6 +140,9 @@ dbLoadRecords("$(DIR)/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/orient.db", "P=xxx:,O=1,PREC=6")
 #dbLoadTemplate("orient_xtals.substitutions")
 
+# Coarse/Fine stage
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/CoarseFineMotor.db","P=xxx:cf1:,PM=xxx:,CM=m7,FM=m8")
+
 # Load single element Canberra AIM MCA and ICB modules
 #< canberra_1.cmd
 
@@ -157,15 +156,14 @@ dbLoadRecords("$(DIR)/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
-dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=4000")
+arrayCalcSize=2000
+dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
 # extra userCalcs (must also load userCalcs10.db for the enable switch)
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
 dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
-# string sequence (sseq) record
-dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq1")
-dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq2")
-dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq3")
+# string sequence (sseq) records
+dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")
 # 4-step measurement
 dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 # interpolation
@@ -206,6 +204,11 @@ iocInit
 
 ### startup State Notation Language programs
 #seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=2, logfile=kohzuCtl.log"
+### Example of specifying offset limits
+##taskDelay(300)
+##dbpf xxx:kohzu_yOffsetAO.DRVH 17.51
+##dbpf xxx:kohzu_yOffsetAO.DRVL 17.49
+
 #seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
 
 # Keithley 2000 series DMM
@@ -241,7 +244,9 @@ create_monitor_set("auto_positions.req",5,"P=xxx:")
 # save other things every thirty seconds
 create_monitor_set("auto_settings.req",30,"P=xxx:")
 
-### Start the saveData task.
+### Start the saveData task.  If you start this task, scan records mentioned
+# in saveData.req will *always* write data files.  There is no programmable
+# disable for this software.
 saveData_Init("saveData.req", "P=xxx:")
 
 # If memory allocated at beginning free it now
