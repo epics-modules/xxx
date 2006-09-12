@@ -1,30 +1,63 @@
 # stuff for non-vxWorks ioc
 include "base.dbd"
+
+# asyn
 include "asyn.dbd"
 include "drvAsynSerialPort.dbd"
 include "drvAsynIPPort.dbd"
-include "stdSupport.dbd"
-include "genSubRecord.dbd"
-include "calcSupport.dbd"
-include "sscanSupport.dbd"
-include "asSupport.dbd"
-include "opticsSupport.dbd"
-include "mcaSupport.dbd"
-include "ipSupport.dbd"
-include "motorSupport.dbd"
-include "devSoftMotor.dbd"
-include "devNewport.dbd"
-include "motorSimSupport.dbd"
-include "devAcsMotor.dbd"
-#include "brukerCCDSupport.dbd"
-#include "marCCDSupport.dbd"
-#include "roperCCDSupport.dbd"
-include "devMclennanMotor.dbd"
-#include "devImsMotor.dbd"
-include "devSequencer.dbd"
-
 include "drvVxi11.dbd"
 include "devAsynOctet.dbd"
 include "devAsynRecord.dbd"
-include "asynRecord.dbd"
 include "devGpib.dbd"
+
+# std
+include "stdSupport.dbd"
+
+# genSub
+include "genSubRecord.dbd"
+
+# calc
+include "calcSupport.dbd"
+
+# sscan
+include "sscanSupport.dbd"
+
+# autosave
+include "asSupport.dbd"
+
+# optics
+include "opticsSupport.dbd"
+
+# mca
+include "mcaSupport.dbd"
+
+# ip
+include "ipSupport.dbd"
+
+# motor
+include "devAcsMotor.dbd"
+include "devDeltaTau.dbd"
+include "devFaulhaberMotor.dbd"
+include "devImsMotor.dbd"
+include "devMclennanMotor.dbd"
+include "devMicos.dbd"
+include "devMicroMo.dbd"
+include "devMXmotor.dbd"
+include "devNewFocus.dbd"
+include "devNewport.dbd"
+include "devOms.dbd"
+include "devPC6K.dbd"
+include "devPIMotor.dbd"
+include "devSoftMotor.dbd"
+include "motorRecord.dbd"
+include "motorSimSupport.dbd"
+include "motorSupport.dbd"
+
+# ccd
+#include "brukerCCDSupport.dbd"
+#include "marCCDSupport.dbd"
+#include "roperCCDSupport.dbd"
+
+# seq
+include "devSequencer.dbd"
+
