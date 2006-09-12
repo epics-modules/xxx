@@ -4,7 +4,6 @@
 include "xxxCommonInclude.dbd"
 
 include "vmeVXSupport.dbd"
-include "sscanVXSupport.dbd"
 include "stdVXSupport.dbd"
 include "ipVXSupport.dbd"
 include "mcaSISSupport.dbd"
