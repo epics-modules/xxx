@@ -39,11 +39,9 @@ file userTransforms10_settings.req P=$(P)
 
 file userStringCalcs10_settings.req P=$(P)
 
-# string-sequence records
-file sseq_settings.req P=$(P),S=Sseq1
-file sseq_settings.req P=$(P),S=Sseq2
-file sseq_settings.req P=$(P),S=Sseq3
+file userArrayCalcs10_settings.req P=$(P)
 
+file userStringSeqs10_settings.req P=$(P)
 
 # 4-step measurement
 file auto_4step_settings.req P=$(P),Q=4step
