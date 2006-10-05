@@ -23,6 +23,9 @@ include "tyGSOctal.dbd"
 include "drvGsIP488.dbd"
 include "drvIpac.dbd"
 include "vxStats.dbd"
+# motor support
+include "devOms.dbd"
+include "devDeltaTau.dbd"
 
 # Locally defined stuff that needs to be registered
 #registrar(myRegistrar)
