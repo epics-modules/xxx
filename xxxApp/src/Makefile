@@ -35,11 +35,14 @@ PROD_IOC_solaris = xxx
 ifeq ($(OS_CLASS), WIN32)
 DBD  += iocxxxWin32.dbd
 else
+ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
+DBD  += iocxxxCygwin.dbd
+else
 DBD  += iocxxx.dbd
 DBD  += iocxxxVX.dbd
 DBD  += iocxxxLinux.dbd
-DBD  += iocxxxCygwin.dbd
 DBD  += iocxxx_solaris.dbd
+endif
 endif
 
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
@@ -82,10 +85,11 @@ xxx_vxWorks_LIBS += dac128V
 xxx_vxWorks_LIBS += quadEM
 xxx_vxWorks_LIBS += camac devCamac
 xxx_vxWorks_LIBS += dxp handelSrc
-xxx_vxWorks_LIBS += oms
 #xxx_vxWorks_LIBS += love
 xxx_vxWorks_LIBS += vxStats
 xxx_vxWorks_LIBS += TyGSOctal Ipac
+xxx_vxWorks_LIBS += oms DeltaTau
+
 #The following adds support from base/src/vxWorks
 xxx_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
