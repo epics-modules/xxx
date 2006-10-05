@@ -105,22 +105,23 @@ file scan_settings.req P=$(P),S=scanH
 #$(P)fltr2:motorOut.OUTN
 #$(P)fltr_1_2:lockOut.OUTN
 
-file saveData_settings.req P=$(P)
 
 file userCalcs10_settings.req P=$(P)
-$(P)userCalcEnable.VAL
+#$(P)userCalcEnable.VAL
 
 file userTransforms10_settings.req P=$(P)
-$(P)userTranEnable.VAL
+#$(P)userTranEnable.VAL
 
 file userStringCalcs10_settings.req P=$(P)
-$(P)userStringCalcEnable.VAL
+#$(P)userStringCalcEnable.VAL
 
 file userStringSeqs10_settings.req P=$(P)
-$(P)userStringSeqEnable
+#$(P)userStringSeqEnable
 
 file userArrayCalcs10_settings.req P=$(P)
 #$(P)userArrayCalcEnable.VAL
+
+file saveData_settings.req P=$(P)
 
 # 4-step measurement
 file auto_4step_settings.req P=$(P),Q=4step
