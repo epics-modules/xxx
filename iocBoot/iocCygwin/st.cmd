@@ -12,7 +12,7 @@ errlogInit(20000)
 # Specify largest array CA will transport
 # Note for N sscanRecord data points, need (N+1)*8 bytes, else MEDM
 # plot doesn't display
-epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
+#epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 
 ################################################################################
 # Tell EPICS all about the record types, device-support modules, drivers,
@@ -37,7 +37,7 @@ dbLoadTemplate("pseudoMotor.substitutions")
 ### Allstop, alldone
 # This database must agree with the motors and other positioners you've actually loaded.
 # Several versions (e.g., all_com_32.db) are in stdApp/Db
-dbLoadRecords("$(STD)/stdApp/Db/all_com_16.db","P=xxx:")
+#dbLoadRecords("$(STD)/stdApp/Db/all_com_16.db","P=xxx:")
 
 ### Insertion-device control
 #dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=xxx:,xx=02us")
@@ -48,7 +48,7 @@ dbLoadRecords("$(STD)/stdApp/Db/sampleWheel.db", "P=xxx:,ROWMOTOR=xxx:m7,ANGLEMO
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
-dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db","P=xxx:,MAXPTS1=8000,MAXPTS2=1000,MAXPTS3=10,MAXPTS4=10,MAXPTSH=8000")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db","P=xxx:,MAXPTS1=2000,MAXPTS2=1000,MAXPTS3=10,MAXPTS4=10,MAXPTSH=2000")
 
 # A set of scan parameters for each positioner.  This is a convenience
 # for the user.  It can contain an entry for each scannable thing in the
