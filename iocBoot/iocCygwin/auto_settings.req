@@ -30,18 +30,25 @@ file scan_settings.req P=$(P),S=scanH
 ##$(P)KohzuMode2MO.VAL
 ##$(P)Kohzu_yOffsetAO.VAL
 
+### user calcs.  Disabled on startup unless the xxxEnable PV is
+### autosaved.
 file userCalcs10_settings.req P=$(P)
 file userCalcN_settings.req P=$(P),N=I_Detector
-
-file saveData_settings.req P=$(P)
+#$(P)userCalcEnable
 
 file userTransforms10_settings.req P=$(P)
+#$(P)userTranEnable
 
 file userStringCalcs10_settings.req P=$(P)
+#$(P)userStringCalcEnable
 
 file userArrayCalcs10_settings.req P=$(P)
+#$(P)userArrayCalcEnable
 
 file userStringSeqs10_settings.req P=$(P)
+#$(P)userStringSeqEnable
+
+file saveData_settings.req P=$(P)
 
 # 4-step measurement
 file auto_4step_settings.req P=$(P),Q=4step
