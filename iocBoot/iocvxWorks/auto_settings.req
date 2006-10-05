@@ -131,7 +131,7 @@ $(P)userAveEnable.VAL
 file interp_settings.req P=$(P)
 
 # MCA
-#file mca_settings.req P=$(P),M=mca1
+#file mca_settings.req P=$(P),M=aim_adc1
 #file icb_adc_settings.req P=$(P),ADC=adc1
 #file icb_amp_settings.req P=$(P),AMP=amp1
 #file icb_hvps_settings.req P=$(P),HVPS=hvps1
