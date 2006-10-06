@@ -25,6 +25,11 @@
 #ipacAddMVME162("A:l=3,3 m=0xe0000000,64;B:l=3,3 m=0xe0010000,64;C:l=3,3 m=0xe0020000,64;D:l=3,3 m=0xe0030000,64")
 
 # Select for SBS VIPC616-01 version IP carrier.
+# ipacAddVIPC616_01("<a16 address>, <a32 address>")
+# (fixed 8 MB of a32 memory per module)
+#    OR
+# ipacAddVIPC616_01("<a16 address>, <a24 address>, <size (kB) of a24 per module>")
+#
 ipacAddVIPC616_01("0x3000,0xa0000000")
 ipacAddVIPC616_01("0x3400,0xa2000000")
 
