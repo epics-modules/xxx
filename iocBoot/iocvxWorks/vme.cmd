@@ -70,6 +70,19 @@ STR7201Config(0, 8, 1000, 1, 1)
 #dbLoadRecords("$(MCA)/mcaApp/Db/STR7201scaler.db", "P=xxx:,S=scaler2,C=0")
 dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler2,C=0,DTYP=Struck STR7201 Scaler,FREQ=25000000")
 
+# VMI4116 setup parameters: 
+#     (1)cards, (2)base address(short, 36-byte boundary), 
+#devAoVMI4116Debug = 20
+#VMI4116_setup(1, 0xff00)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=1,S=0,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=2,S=1,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=3,S=2,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=4,S=3,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=5,S=4,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=6,S=5,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=7,S=6,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=8,S=7,DTYP=VMIVME-4116,H=65536,L=0", std)
+
 # vme test record
 dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
 
