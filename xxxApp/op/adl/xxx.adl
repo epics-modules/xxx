@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/xxx/xxxApp/op/adl/xxx_save.adl"
+	name="C:\cygwin\home\mooney\epics\synApps\support\all_adl\xxx.adl"
 	version=030004
 }
 display {
 	object {
-		x=513
-		y=226
+		x=849
+		y=35
 		width=450
-		height=140
+		height=160
 	}
 	clr=64
 	bclr=1
@@ -524,57 +524,6 @@ display {
 }
 "related display" {
 	object {
-		x=70
-		y=20
-		width=70
-		height=20
-	}
-	display[0] {
-		label="Slit 1 (H)"
-		name="2slit.adl"
-		args="P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m6"
-	}
-	display[1] {
-		label="Slit 1 (V)"
-		name="2slit.adl"
-		args="P=xxx:,SLIT=Slit1V,mXp=m3,mXn=m4"
-	}
-	display[2] {
-		label="Slit 1 Graphic"
-		name="4slitGraphic.adl"
-		args="P=xxx:,SLIT=Slit_1,H=Slit1H,mXp=m3,mXn=m4,V=Slit1V,mYp=m5,mYn=m6"
-	}
-	display[3] {
-		label="Slit Motors"
-		name="motor4x.adl"
-		args="P=xxx:,M1=m3,M2=m4,M3=m5,M4=m6"
-	}
-	display[4] {
-		label="Slit 2 (H) (soft)"
-		name="2slit_soft.adl"
-		args="P=xxx:,SLIT=Slit2H,mXp=m15,mXn=m16"
-	}
-	display[5] {
-		label="Slit 2 (V) (soft)"
-		name="2slit_soft.adl"
-		args="P=xxx:,SLIT=Slit2V,mXp=m13,mXn=m14"
-	}
-	display[6] {
-		label="Slit 2 Graphic (soft)"
-		name="4slitGraphic_soft.adl"
-		args="P=xxx:,SLIT=Slit_2,H=Slit2H,mXp=m15,mXn=m16,V=Slit2V,mYp=m13,mYn=m14"
-	}
-	display[7] {
-		label="XIA slit 1"
-		name="xiahsc.adl"
-		args="P=xxx:,HSC=hsc1:"
-	}
-	clr=0
-	bclr=17
-	label="-Slits"
-}
-"related display" {
-	object {
 		x=0
 		y=120
 		width=70
@@ -696,6 +645,11 @@ display {
 		label="deviceCmdReply 2"
 		name="deviceCmdReply.adl"
 		args="P=xxx:,N=2"
+	}
+	display[5] {
+		label="asyn serial 6"
+		name="asynOctet.adl"
+		args="P=xxx:,R=asyn_6"
 	}
 	clr=0
 	bclr=17
@@ -837,6 +791,52 @@ display {
 }
 "related display" {
 	object {
+		x=140
+		y=20
+		width=70
+		height=20
+	}
+	display[0] {
+		label="user calcs 1-10"
+		name="userCalcs10.adl"
+		args="P=xxx:"
+	}
+	display[1] {
+		label="user stringCalcs 1-10"
+		name="userStringCalcs10.adl"
+		args="P=xxx:"
+	}
+	display[2] {
+		label="user transforms 1-10"
+		name="userTransforms10.adl"
+		args="P=xxx:"
+	}
+	display[3] {
+		label="user string seqs 1-10"
+		name="userStringSeqs10.adl"
+		args="P=xxx:"
+	}
+	display[4] {
+		label="user arrayCalcs 1-10"
+		name="userArrayCalcs10.adl"
+		args="P=xxx:"
+	}
+	display[6] {
+		label="user average 1-10"
+		name="userAve10.adl"
+		args="P=xxx:"
+	}
+	display[7] {
+		label="user calcOuts"
+		name="userCalcOuts10.adl"
+		args="P=xxx:"
+	}
+	clr=0
+	bclr=17
+	label="-userCalc"
+}
+"related display" {
+	object {
 		x=210
 		y=60
 		width=70
@@ -895,12 +895,12 @@ display {
 	display[0] {
 		label="orientation matrix"
 		name="orient.adl"
-		args="P=xxx:,O=1,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
+		args="P=xxx:,O=_0,PM=xxx:,mTTH=SM1,mTH=SM2,mCHI=SM3,mPHI=SM4"
 	}
 	display[1] {
-		label="orientation matrix 2"
-		name="orient.adl"
-		args="P=xxx:,O=2,PM=xxx:,mTTH=m13,mTH=m14,mCHI=m15,mPHI=m16"
+		label="orient9"
+		name="orient9.adl"
+		args="P=xxx:,PM=xxx:,mTTH=SM1,mTH=SM2,mCHI=SM3,mPHI=SM4"
 	}
 	clr=0
 	bclr=17
@@ -973,7 +973,7 @@ display {
 		x=350
 		y=100
 		width=100
-		height=40
+		height=30
 	}
 	control {
 		chan="xxx:allstop.VAL"
@@ -1440,22 +1440,6 @@ text {
 }
 "related display" {
 	object {
-		x=280
-		y=80
-		width=70
-		height=20
-	}
-	display[0] {
-		label="Love controllers"
-		name="LoveList4.adl"
-		args="P=xxx:,Q1=Love1,Q2=Love2,Q3=Love3,Q4=Love4"
-	}
-	clr=0
-	bclr=17
-	label="-Love"
-}
-"related display" {
-	object {
 		x=210
 		y=120
 		width=70
@@ -1467,7 +1451,24 @@ text {
 		args="P=xxx:,R=Unidig1"
 	}
 	display[1] {
-		label=" "
+		label=" Acromag 8 in"
+		name="Acromag_8in.adl"
+		args="P=xxx:,A=1,CH0=0,CH1=1,CH2=2,CH3=3,CH4=4,CH5=5,CH6=6,CH7=7"
+	}
+	display[2] {
+		label=" Acromag 8 out"
+		name="Acromag_8out.adl"
+		args="P=xxx:,A=1,CH0=0,CH1=1,CH2=2,CH3=3,CH4=4,CH5=5,CH6=6,CH7=7"
+	}
+	display[3] {
+		label=" Acromag 16 out"
+		name="Acromag_16out.adl"
+		args="P=xxx:,A=1"
+	}
+	display[4] {
+		label=" Acromag 16 in"
+		name="Acromag_16in.adl"
+		args="P=xxx:,A=1"
 	}
 	clr=0
 	bclr=63
@@ -1557,57 +1558,132 @@ text {
 }
 "related display" {
 	object {
+		x=210
+		y=140
+		width=70
+		height=20
+	}
+	display[0] {
+		label="beamFinder"
+		name="beamFinder.adl"
+		args="P=xxx:bf1:,PM=xxx:,m_sX=SM1,m_sY=SM2,m_zpX=SM3,m_zpY=SM4,m_zpZ=SM5"
+	}
+	clr=0
+	bclr=17
+	label="-beamFind"
+}
+"related display" {
+	object {
+		x=0
+		y=140
+		width=70
+		height=20
+	}
+	display[0] {
+		label="CoarseFine"
+		name="CoarseFineMotor.adl"
+		args="P=xxx:cf1:,M=MOT,PM=xxx:,CM=SM1,FM=SM2"
+	}
+	clr=0
+	bclr=17
+	label="-CF"
+}
+"related display" {
+	object {
+		x=70
+		y=140
+		width=70
+		height=20
+	}
+	display[6] {
+		label="scantest"
+		name="scanAux.adl"
+		args="P=xxx:,S=scantest"
+	}
+	clr=0
+	bclr=17
+	label="-Scan"
+}
+"related display" {
+	object {
 		x=140
+		y=140
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Io"
+		name="Io.adl"
+		args="P=xxx:Io:,S=xxx:scaler1,MONO=xxx:BraggEAO"
+	}
+	clr=0
+	bclr=17
+	label="-Io"
+}
+"related display" {
+	object {
+		x=70
 		y=20
 		width=70
 		height=20
 	}
 	display[0] {
-		label="user calcs 1-10"
-		name="userCalcs10.adl"
-		args="P=xxx:"
+		label="Slit 1 (H)"
+		name="2slit.adl"
+		args="P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m6"
 	}
 	display[1] {
-		label="user stringCalcs 1-10"
-		name="userStringCalcs10.adl"
-		args="P=xxx:"
+		label="Slit 1 (V)"
+		name="2slit.adl"
+		args="P=xxx:,SLIT=Slit1V,mXp=m3,mXn=m4"
 	}
 	display[2] {
-		label="user transforms 1-10"
-		name="userTransforms10.adl"
-		args="P=xxx:"
+		label="Slit 1 Graphic"
+		name="4slitGraphic.adl"
+		args="P=xxx:,SLIT=Slit_1,H=Slit1H,mXp=m3,mXn=m4,V=Slit1V,mYp=m5,mYn=m6"
 	}
 	display[3] {
-		label="sseq record 1"
-		name="yySseq.adl"
-		args="P=xxx:,S=Sseq1"
+		label="Slit Motors"
+		name="motor4x.adl"
+		args="P=xxx:,M1=m3,M2=m4,M3=m5,M4=m6"
 	}
 	display[4] {
-		label="sseq record 2"
-		name="yySseq.adl"
-		args="P=xxx:,S=Sseq2"
+		label="Slit 2 (H) (soft)"
+		name="2slit_soft.adl"
+		args="P=xxx:,SLIT=Slit2H,mXp=m15,mXn=m16"
 	}
 	display[5] {
-		label="sseq record 3"
-		name="yySseq.adl"
-		args="P=xxx:,S=Sseq3"
+		label="Slit 2 (V) (soft)"
+		name="2slit_soft.adl"
+		args="P=xxx:,SLIT=Slit2V,mXp=m13,mXn=m14"
 	}
 	display[6] {
-		label="user average 1-10"
-		name="userAve10.adl"
-		args="P=xxx:"
+		label="Slit 2 Graphic (soft)"
+		name="4slitGraphic_soft.adl"
+		args="P=xxx:,SLIT=Slit_2,H=Slit2H,mXp=m15,mXn=m16,V=Slit2V,mYp=m13,mYn=m14"
 	}
 	display[7] {
-		label="user calcOuts"
-		name="userCalcOuts10.adl"
-		args="P=xxx:"
-	}
-	display[8] {
-		label="user arrayCalcs 1-10"
-		name="userArrayCalcs10.adl"
-		args="P=xxx:"
+		label="XIA slit 1"
+		name="xiahsc.adl"
+		args="P=xxx:,HSC=hsc1:"
 	}
 	clr=0
 	bclr=17
-	label="-userCalc"
+	label="-Slits"
+}
+"related display" {
+	object {
+		x=280
+		y=80
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Love controllers"
+		name="LoveList4.adl"
+		args="P=xxx:,Q1=Love1,Q2=Love2,Q3=Love3,Q4=Love4"
+	}
+	clr=0
+	bclr=17
+	label="-Love"
 }
