@@ -11,6 +11,7 @@ include "ipUnidigSupport.dbd"
 include "dac128VSupport.dbd"
 include "ip330Support.dbd"
 include "devOms.dbd"
+include "devDeltaTau.dbd"
 include "camacSupport.dbd"
 include "devCamacSupport.dbd"
 include "dxpSupport.dbd"
@@ -23,9 +24,6 @@ include "tyGSOctal.dbd"
 include "drvGsIP488.dbd"
 include "drvIpac.dbd"
 include "vxStats.dbd"
-# motor support
-include "devOms.dbd"
-include "devDeltaTau.dbd"
 
 # Locally defined stuff that needs to be registered
 #registrar(myRegistrar)
