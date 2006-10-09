@@ -22,13 +22,10 @@ file scan_settings.req P=$(P),S=scan4
 file scan_settings.req P=$(P),S=scanH
 
 # Kohzu monochromator
-##$(P)BraggHAO.VAL
-##$(P)BraggKAO.VAL
-##$(P)BraggLAO.VAL
-##$(P)BraggAAO.VAL
-##$(P)BraggTypeMO.VAL
-##$(P)KohzuMode2MO.VAL
-##$(P)Kohzu_yOffsetAO.VAL
+#file kohzuSeq_settings.req P=$(P)
+
+# High resolution monochromator
+#file hrSeq_settings.req P=$(P),N=1
 
 # Io calc
 file Io_settings.req P=xxx:Io:
