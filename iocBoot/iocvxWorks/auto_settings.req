@@ -77,6 +77,9 @@ file scan_settings.req P=$(P),S=scanH
 # High resolution monochromator
 #file hrSeq_settings.req P=$(P),N=1
 
+# Io calc
+file Io_settings.req P=xxx:Io:
+
 #$(P)fltr1:name5.VAL
 #$(P)fltr1:name4.VAL
 #$(P)fltr1:name3.VAL
