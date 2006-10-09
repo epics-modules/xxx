@@ -122,6 +122,9 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m
 putenv "DIR=$(OPTICS)/opticsApp/Db"
 dbLoadRecords("$(DIR)/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
 
+# Io calculation
+dbLoadRecords("$(OPTICS)/opticsApp/Db/Io.db","P=xxx:Io:")
+
 ### Monochromator support ###
 # Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
 # standard geometry (geometry 1)
@@ -226,6 +229,9 @@ iocInit
 
 # Orientation-matrix
 #seq &orient, "P=xxx:orient1:,PM=xxx:,mTTH=m13,mTH=m14,mCHI=m15,mPHI=m16"
+
+# Io calculation
+seq &Io, "P=xxx:Io:,MONO=xxx:BraggEAO,VSC=xxx:scaler1"
 
 # Start PF4 filter sequence program
 #seq pf4Dual,"P=xxx:pf401:seq01:,MONO=,A0=,A1=,A2=,A3=,B0=,B1=,B2=,B3="
