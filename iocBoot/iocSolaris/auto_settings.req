@@ -35,6 +35,9 @@ file scan_settings.req P=$(P),S=scanH
 #$(P)KohzuMode2MO.VAL
 #$(P)Kohzu_yOffsetAO.VAL
 
+# Io calc
+file Io_settings.req P=xxx:Io:
+
 ### user calcs.  Disabled on startup unless the xxxEnable PV is
 ### autosaved.
 file userCalcs10_settings.req P=$(P)
