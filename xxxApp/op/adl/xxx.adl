@@ -1,12 +1,12 @@
 
 file {
-	name="C:\cygwin\home\mooney\epics\synApps\support\all_adl\xxx.adl"
-	version=030004
+	name="/home/oxygen/MOONEY/epics/synApps/support/xxx/xxxApp/op/adl/xxx.adl"
+	version=030101
 }
 display {
 	object {
-		x=849
-		y=35
+		x=495
+		y=25
 		width=450
 		height=160
 	}
@@ -1482,21 +1482,36 @@ text {
 		height=20
 	}
 	display[0] {
-		label="Quad Electrometer"
+		label="Quad Electrometer Ch.1"
 		name="quadEM.adl"
 		args="P=xxx:,EM=EM1"
 	}
 	display[1] {
+		label="Quad Electrometer Ch.2"
+		name="quadEM.adl"
+		args="P=xxx:,EM=EM2"
+	}
+	display[2] {
+		label="Quad Electrometer Ch.3"
+		name="quadEM.adl"
+		args="P=xxx:,EM=EM3"
+	}
+	display[3] {
+		label="Quad Electrometer Ch.4"
+		name="quadEM.adl"
+		args="P=xxx:,EM=EM4"
+	}
+	display[5] {
 		label="Quad Electrometer MCAs"
 		name="quadEM_med.adl"
 		args="P=xxx:quadEM:, P_FFT=xxx:quadEM_FFT:"
 	}
-	display[2] {
+	display[6] {
 		label="Vertical feedback"
 		name="pid_control.adl"
 		args="P=xxx:, PID=quadEMVertical,TITLE=Vertical_Feedback"
 	}
-	display[3] {
+	display[7] {
 		label="Horizontal feedback"
 		name="pid_control.adl"
 		args="P=xxx:, PID=quadEMHorizontal,TITLE=Horizontal_Feedback"
