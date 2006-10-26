@@ -14,6 +14,9 @@ errlogInit(20000)
 # plot doesn't display
 #epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 
+# set the protocol path for streamDevice
+epicsEnvSet STREAM_PROTOCOL_PATH ".:$(STREAM)/protocols"
+
 ################################################################################
 # Tell EPICS all about the record types, device-support modules, drivers,
 # etc. in the software we just loaded (xxx.munch)
@@ -38,6 +41,9 @@ dbLoadTemplate("pseudoMotor.substitutions")
 # This database must agree with the motors and other positioners you've actually loaded.
 # Several versions (e.g., all_com_32.db) are in stdApp/Db
 #dbLoadRecords("$(STD)/stdApp/Db/all_com_16.db","P=xxx:")
+
+### streamDevice example
+#dbLoadRecords("$(TOP)/xxxApp/Db/streamExample.db","P=xxx:,PORT=serial1")
 
 ### Insertion-device control
 #dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=xxx:,xx=02us")
