@@ -61,3 +61,6 @@ include "devSoftMotor.dbd"
 # seq
 include "devSequencer.dbd"
 
+# stream
+#include "stream.dbd"
+#include "streamSynApps.dbd"
