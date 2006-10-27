@@ -15,7 +15,7 @@ errlogInit(20000)
 #epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 
 # set the protocol path for streamDevice
-epicsEnvSet STREAM_PROTOCOL_PATH ".:$(STREAM)/protocols"
+epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
 
 ################################################################################
 # Tell EPICS all about the record types, device-support modules, drivers,
