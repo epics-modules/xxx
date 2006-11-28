@@ -22,7 +22,7 @@ oms58Setup(2, 0x4000, 190, 5, 10)
 #v544Setup(0, 0xDD00, 0, 5, 10)
 
 ### Scalers: Joerger VSC8/16
-dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,C=0,DTYP=Joerger VSC8/16,FREQ=10000000")
+dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,OUT=#C0 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
 # Joerger VSC setup parameters:
 #     (1)cards, (2)base address(ext, 256-byte boundary),
 #     (3)interrupt vector (0=disable or  64 - 255)
@@ -35,7 +35,7 @@ VSCSetup(1, 0xB0000000, 200)
 #       int intlevel)
 scalerVS_Setup(1, 0x2000, 205, 5)
 #devScaler_VSDebug=0
-dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler3,C=0, DTYP=Joerger VS, FREQ=10000000")
+dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler3,OUT=#C0 S0 @, DTYP=Joerger VS, FREQ=10000000")
 
 # Heidenhain IK320 VME encoder interpolator
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=1,switches=41344,irq=3")
@@ -60,7 +60,7 @@ dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca8,DTYP=Struck ST
 
 # Note the address 0x9000000 does not work on an MVME5100; try 0xA0000000
 # STR7201Setup(int numCards, int baseAddress, int interruptVector, int interruptLevel)
-STR7201Setup(2, 0x90000000, 220, 6)
+STR7201Setup(2, 0xA0000000, 220, 6)
 # STR7201Config(int card, int maxSignals, int maxChans, 
 #               int 1=enable internal 25MHZ clock, 
 #               int 1=enable initial software channel advance in MCS external advance mode)
@@ -68,7 +68,7 @@ STR7201Config(0, 8, 1000, 1, 1)
 
 # Struck as EPICS scaler
 #dbLoadRecords("$(MCA)/mcaApp/Db/STR7201scaler.db", "P=xxx:,S=scaler2,C=0")
-dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler2,C=0,DTYP=Struck STR7201 Scaler,FREQ=25000000")
+dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler2,OUT=#C0 S0 @,DTYP=Struck STR7201 Scaler,FREQ=25000000")
 
 # VMI4116 setup parameters: 
 #     (1)cards, (2)base address(short, 36-byte boundary), 
