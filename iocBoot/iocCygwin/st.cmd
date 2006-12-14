@@ -38,9 +38,7 @@ dbLoadTemplate("softMotor.substitutions")
 dbLoadTemplate("pseudoMotor.substitutions")
 
 ### Allstop, alldone
-# This database must agree with the motors and other positioners you've actually loaded.
-# Several versions (e.g., all_com_32.db) are in stdApp/Db
-#dbLoadRecords("$(STD)/stdApp/Db/all_com_16.db","P=xxx:")
+dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=xxx:")
 
 ### streamDevice example
 #dbLoadRecords("$(TOP)/xxxApp/Db/streamExample.db","P=xxx:,PORT=serial1")
@@ -205,6 +203,9 @@ create_monitor_set("auto_settings.req",30,"P=xxx:")
 
 ### Start the saveData task.
 saveData_Init("saveData.req", "P=xxx:")
+
+# motorUtil (allstop & alldone)
+motorUtilInit("xxx:")
 
 dbcar(0,1)
 
