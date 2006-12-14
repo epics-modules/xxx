@@ -84,6 +84,9 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/filterMotor.db","P=xxx:,Q=fltr2:,MOTOR=m2,LOCK=fltr_1_2:")
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/filterLock.db","P=xxx:,Q=fltr2:,LOCK=fltr_1_2:,LOCK_PV=xxx:DAC1_1.VAL")
 
+# XIA shutter
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/XIA_shutter.db","P=xxx:,S=shutter1,PORT=serial2,ADDRESS=0123")
+
 ### Optical tables
 #tableRecordDebug=1
 dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
@@ -134,6 +137,12 @@ dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
 # array test
 dbLoadRecords("$(CALC)/calcApp/Db/arrayTest.db", "P=xxx:,N=2000")
+
+# pvHistory (in-crate archive of up to three PV's)
+dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
+
+# resettable timer
+dbLoadRecords("$(STD)/stdApp/Db/timer.db","P=xxx:,N=1")
 
 # Slow feedback
 dbLoadTemplate "pid_slow.substitutions"
