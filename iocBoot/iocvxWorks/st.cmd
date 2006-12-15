@@ -181,6 +181,9 @@ dbLoadRecords("$(CALC)/calcApp/Db/arrayTest.db", "P=xxx:,N=2000")
 # pvHistory (in-crate archive of up to three PV's)
 #dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
 
+# software timer
+#dbLoadRecords("$(STD)/stdApp/Db/timer.db","P=xxx:,N=1")
+
 # Slow feedback
 dbLoadTemplate "pid_slow.substitutions"
 
