@@ -168,3 +168,7 @@ $(P)hsc1:debug
 
 ## PF4 dual filter
 #file pf4dual.req P=$(P),H=pf401:,F=seq01:
+
+#file deviceCmdReply.req P=$(P),N=1
+
+#file timer.req P=$(P),N=1
