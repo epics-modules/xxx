@@ -33,11 +33,23 @@ $(P)scan3
 $(P)scan4
 
 [extraPV]
+
 $(P)userCalc1.CALC	"string"
 $(P)saveData_realTime1D "enum"
 $(P)saveData_scanNumber	"long"
-$(P)scaler1.TP
+$(P)saveData_comment1
+$(P)saveData_comment2
 $(P)saveData_fileSystem	"filesystem"
+$(P)scaler1.TP
+$(P)scaler1.NM1
+$(P)scaler1.NM2
+$(P)scaler1.NM3
+$(P)scaler1.NM4
+$(P)scaler1.NM5
+$(P)scaler1.NM6
+$(P)scaler1.NM7
+$(P)scaler1.NM8
+$(P)scaler1.FREQ
 $(P)scan1.P1SM		"scan mode"
 #$(P)mca1.NUSE	"CHANNELS:"
 #$(P)mca1.ERTM	"REAL_TIME:"
