@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/xxx/xxxApp/op/adl/xxx.adl"
+	name="/home/oxygen4/MOONEY/epics/synApps_T202_E3_14_7_R5_1/support/xxx/xxxApp/op/adl/xxx.adl"
 	version=030101
 }
 display {
@@ -265,6 +265,11 @@ display {
 		label="Pseudo-motors"
 		name="topMotors4.adl"
 		args="P=xxx:,M1=pm1,M2=pm2,M3=pm3,M4=pm4"
+	}
+	display[8] {
+		label="motor status 16"
+		name="motorStatus16.adl"
+		args="P=xxx:"
 	}
 	clr=0
 	bclr=17
@@ -647,9 +652,34 @@ display {
 		args="P=xxx:,N=2"
 	}
 	display[5] {
-		label="asyn serial 6"
-		name="asynOctet.adl"
-		args="P=xxx:,R=asyn_6"
+		label="deviceCmdReply 3"
+		name="deviceCmdReply.adl"
+		args="P=xxx:,N=3"
+	}
+	display[6] {
+		label="deviceCmdReply 4"
+		name="deviceCmdReply.adl"
+		args="P=xxx:,N=4"
+	}
+	display[7] {
+		label="deviceCmdReply 5"
+		name="deviceCmdReply.adl"
+		args="P=xxx:,N=5"
+	}
+	display[8] {
+		label="deviceCmdReply 6"
+		name="deviceCmdReply.adl"
+		args="P=xxx:,N=6"
+	}
+	display[9] {
+		label="deviceCmdReply 7"
+		name="deviceCmdReply.adl"
+		args="P=xxx:,N=7"
+	}
+	display[10] {
+		label="deviceCmdReply 8"
+		name="deviceCmdReply.adl"
+		args="P=xxx:,N=8"
 	}
 	clr=0
 	bclr=17
@@ -830,6 +860,11 @@ display {
 		label="user calcOuts"
 		name="userCalcOuts10.adl"
 		args="P=xxx:"
+	}
+	display[8] {
+		label="timer"
+		name="timer.adl"
+		args="P=xxx:,N=1"
 	}
 	clr=0
 	bclr=17
@@ -1591,7 +1626,7 @@ text {
 	object {
 		x=0
 		y=140
-		width=70
+		width=35
 		height=20
 	}
 	display[0] {
@@ -1701,4 +1736,20 @@ text {
 	clr=0
 	bclr=17
 	label="-Love"
+}
+"related display" {
+	object {
+		x=35
+		y=140
+		width=35
+		height=20
+	}
+	display[0] {
+		label="xps"
+		name="xps.adl"
+		args="P=xxx:"
+	}
+	clr=0
+	bclr=17
+	label="-xps"
 }
