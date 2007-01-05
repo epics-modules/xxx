@@ -24,6 +24,9 @@ and no longer do this.  Message terminators must be specified in serial.cmd.
 <li><p>Added example of setting system clock rate to iocvxWorks/st.cmd
 <li><p>Added new motor types to xxxApp/src/*
 <li><P>Scaler database loading has changed to accommodate asyn-based device support.
+<li>Modified substitutions files in iocBoot/ioc* to enclose in quotes any macro
+substitutions that themselves contain macro arguments (i.e., X=$(Y) -> X="$(Y)").
+This will be required in EPICS 3.13.9.
 </ul>
 
 <h2 align="center">Release 5-1</h2>
