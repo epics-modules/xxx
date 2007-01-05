@@ -1,13 +1,15 @@
+# Note beginning with 3.13.9, macro args that contain macro args must be
+# in quotes"
 file "$(SSCAN)/sscanApp/Db/scanParms.db"
 {
-{P=xxx:,SCANREC=xxx:scan1,Q=m1,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m2,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m3,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m4,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m5,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m6,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m7,POS=$(Q).VAL,RDBK=$(Q).RBV}
-{P=xxx:,SCANREC=xxx:scan1,Q=m8,POS=$(Q).VAL,RDBK=$(Q).RBV}
+{P=xxx:,SCANREC=xxx:scan1,Q=m1,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{P=xxx:,SCANREC=xxx:scan1,Q=m2,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{P=xxx:,SCANREC=xxx:scan1,Q=m3,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{P=xxx:,SCANREC=xxx:scan1,Q=m4,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{P=xxx:,SCANREC=xxx:scan1,Q=m5,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{P=xxx:,SCANREC=xxx:scan1,Q=m6,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{P=xxx:,SCANREC=xxx:scan1,Q=m7,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{P=xxx:,SCANREC=xxx:scan1,Q=m8,POS="$(Q).VAL",RDBK="$(Q).RBV"}
 
 {P=xxx:,SCANREC=xxx:scan1,Q=Table1X,POS=table1.X,RDBK=table1.XRB}
 {P=xxx:,SCANREC=xxx:scan1,Q=Table1Y,POS=table1.Y,RDBK=table1.YRB}
@@ -34,13 +36,13 @@ file "$(SSCAN)/sscanApp/Db/scanParms.db"
 {P=xxx:,SCANREC=xxx:scan1,Q=Slit1Vcenter,POS=Slit1Vcenter.VAL,RDBK=Slit1Vt2.D}
 
 # new soft-motor-based slit
-#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hxn,POS=$(Q).VAL,RDBK=$(Q).RBV}
-#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hxp,POS=$(Q).VAL,RDBK=$(Q).RBV}
-#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hsize,POS=$(Q).VAL,RDBK=$(Q).RBV}
-#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hcenter,POS=$(Q).VAL,RDBK=$(Q).RBV}
-#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vxn,POS=$(Q).VAL,RDBK=$(Q).RBV}
-#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vxp,POS=$(Q).VAL,RDBK=$(Q).RBV}
-#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vsize,POS=$(Q).VAL,RDBK=$(Q).RBV}
-#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vcenter,POS=$(Q).VAL,RDBK=$(Q).RBV}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hxn,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hxp,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hsize,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Hcenter,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vxn,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vxp,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vsize,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{P=xxx:,SCANREC=xxx:scan1,Q=Slit2Vcenter,POS="$(Q).VAL",RDBK="$(Q).RBV"}
 
 }

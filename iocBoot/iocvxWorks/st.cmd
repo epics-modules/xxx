@@ -248,14 +248,18 @@ seq &Io, "P=xxx:Io:,MONO=xxx:BraggEAO,VSC=xxx:scaler1"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".
+
+create_monitor_set("dummy.req",0,"")
+
+
 # Note that you can reload these sets after creating them: e.g., 
 # reload_monitor_set("auto_settings.req",30,"P=xxx:")
 #save_restoreDebug=20
 #
 # save positions every five seconds
-create_monitor_set("auto_positions.req",5,"P=xxx:")
+#create_monitor_set("auto_positions.req",5,"P=xxx:")
 # save other things every thirty seconds
-create_monitor_set("auto_settings.req",30,"P=xxx:")
+#create_monitor_set("auto_settings.req",30,"P=xxx:")
 
 ### Start the saveData task.  If you start this task, scan records mentioned
 # in saveData.req will *always* write data files.  There is no programmable
