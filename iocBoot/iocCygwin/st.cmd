@@ -36,6 +36,7 @@ iocxxxCygwin_registerRecordDeviceDriver(pdbbase)
 #dbLoadTemplate("motor.substitutions")
 dbLoadTemplate("softMotor.substitutions")
 dbLoadTemplate("pseudoMotor.substitutions")
+< motorSim.cmd
 
 ### Allstop, alldone
 dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=xxx:")
