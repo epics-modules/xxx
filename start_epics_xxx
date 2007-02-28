@@ -4,9 +4,52 @@ setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps/support/xxx
 set output = `perl $EPICS_APP/release.pl $EPICS_APP`
 $output
 
-setenv EPICS_DISPLAY_PATH $EPICS_APP/xxxApp/op/adl':'$AUTOSAVE/asApp/op/adl':'$CALC/calcApp/op/adl':'$CAMAC/camacApp/op/adl':'$CCD/ccdApp/op/adl':'$DAC128V/dac128VApp/op/adl':'$DXP/dxpApp/op/adl':'$IP/ipApp/op/adl':'$IP330/ip330App/op/adl':'$IPUNIDIG/ipUnidigApp/op/adl':'$LOVE/loveApp/op/adl':'$MCA/mcaApp/op/adl':'$MOTOR/motorApp/op/adl':'$OPTICS/opticsApp/op/adl':'$QUADEM/quadEMApp/op/adl':'$SSCAN/sscanApp/op/adl':'$STD/stdApp/op/adl':'$VME/vmeApp/op/adl':'$ASYN/medm
+#####################
+# prepare MEDM path
+#
+if (! ${?EPICS_DISPLAY_PATH}) setenv EPICS_DISPLAY_PATH '.'
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$EPICS_APP/xxxApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$AUTOSAVE/asApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$CALC/calcApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$CAMAC/camacApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$CCD/ccdApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$DAC128V/dac128VApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$DXP/dxpApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$IP/ipApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$IP330/ip330App/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$IPUNIDIG/ipUnidigApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$LOVE/loveApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$MCA/mcaApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$MOTOR/motorApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$OPTICS/opticsApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$QUADEM/quadEMApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$SSCAN/sscanApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$STD/stdApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$VME/vmeApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$ASYN/medm
 
-setenv BURT_INCLUDE "-I$EPICS_APP/xxxApp/op/burt -I$AUTOSAVE/asApp/op/burt -I$CALC/calcApp/op/burt -I$CAMAC/camacApp/op/burt -I$CCD/ccdApp/op/burt -I$DAC128V/dac128VApp/op/burt -I$DXP/dxpApp/op/burt -I$IP/ipApp/op/burt -I$IP330/ip330App/op/burt -I$IPUNIDIG/ipUnidigApp/op/burt -I$MCA/mcaApp/op/burt -I$MOTOR/motorApp/op/burt -I$OPTICS/opticsApp/op/burt -I$QUADEM/quadEMApp/op/burt -I$SSCAN/sscanApp/op/burt -I$STD/stdApp/op/burt -I$VME/vmeApp/op/burt"
+#####################
+# prepare BURT path
+#
+if (! ${?BURT_INCLUDE}) setenv BURT_INCLUDE ''
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$EPICS_APP/xxxApp/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$AUTOSAVE/asApp/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$CALC/calcApp/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$CAMAC/camacApp/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$CCD/ccdApp/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$DAC128V/dac128VApp/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$DXP/dxpApp/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$IP/ipApp/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$IP330/ip330App/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$IPUNIDIG/ipUnidigApp/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$MCA/mcaApp/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$MOTOR/motorApp/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$OPTICS/opticsApp/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$QUADEM/quadEMApp/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$SSCAN/sscanApp/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$STD/stdApp/op/burt"
+setenv BURT_INCLUDE "$BURT_INCLUDE  -I$VME/vmeApp/op/burt"
+
 if (! ${?MEDM_EXEC_LIST}) setenv MEDM_EXEC_LIST 'Probe;probe &P &'
 
 #setenv EPICS_CA_ADDR_LIST "164.54.53.126"
