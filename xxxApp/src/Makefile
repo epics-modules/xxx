@@ -74,7 +74,7 @@ xxx_Common_LIBS +=  softMotor motorSimSupport motor
 
 xxx_Common_LIBS += asyn
 #xxx_Common_LIBS += stream streamSynApps
-xxx_Common_LIBS += seq pv seqDev
+xxx_Common_LIBS += seqDev seq pv
 xxx_Common_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 xxx_vxWorks_LIBS += allenBradley
@@ -117,7 +117,7 @@ xxx_solaris_LIBS += std
 #xxx_solaris_LIBS += roperCCD
 xxx_solaris_LIBS += motor softMotor
 xxx_solaris_LIBS += asyn
-xxx_solaris_LIBS += seq pv seqDev
+xxx_solaris_LIBS += seqDev seq pv
 xxx_solaris_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 
