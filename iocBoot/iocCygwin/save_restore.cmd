@@ -6,10 +6,11 @@
 # This currently is supported only on vxWorks.
 #save_restoreSet_NFSHost("oxygen", "164.54.52.4")
 
-# status-PV prefix
+# status-PV prefix.  If you don't want to use status PV's, don't call this,
+# or call it with the argument "".
 save_restoreSet_status_prefix("xxx:")
 # Debug-output level
-save_restoreSet_Debug(0)
+#save_restoreSet_Debug(2)
 
 # Ok to save/restore save sets with missing values (no CA connection to PV)?
 save_restoreSet_IncompleteSetsOk(1)
@@ -27,7 +28,7 @@ set_savefile_path("$(STARTUP)", "autosave")
 # specify what save files should be restored.  Note these files must be
 # in the directory specified in set_savefile_path(), or, if that function
 # has not been called, from the directory current when iocInit is invoked
-set_pass0_restoreFile("auto_positions.sav")
+#set_pass0_restoreFile("auto_positions.sav")
 set_pass0_restoreFile("auto_settings.sav")
 set_pass1_restoreFile("auto_settings.sav")
 
@@ -54,4 +55,8 @@ set_requestfile_path("$(SSCAN)", "sscanApp/Db")
 set_requestfile_path("$(STD)", "stdApp/Db")
 set_requestfile_path("$(VME)", "vmeApp/Db")
 
+# The prefix, P, specified here must agree with the prefix specified in
+# the call to save_restoreSet_status_prefix(), above.  If you don't want
+# to load this database, don't call save_restoreSet_status_prefix(),
+# or call it with the argument "".
 dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=xxx:")
