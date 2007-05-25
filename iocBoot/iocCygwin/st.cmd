@@ -38,7 +38,16 @@ dbLoadTemplate("softMotor.substitutions")
 dbLoadTemplate("pseudoMotor.substitutions")
 < motorSim.cmd
 
+# autoshutter test
+dbLoadRecords("$(TOP)/xxxApp/Db/myBO.db", "P=xxx:")
+
+# autoshutter test
+dbLoadRecords("$(TOP)/xxxApp/Db/alarmClockTest.vdb", "P=xxx:,N=1")
+
+#dbLoadRecords("$(TOP)/xxxApp/Db/IDBLTest.db", "real=xxx:m1,soft=xxx:softTest")
+
 ### Allstop, alldone
+#var motorUtil_debug,1
 dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=xxx:")
 
 ### streamDevice example
@@ -53,7 +62,8 @@ dbLoadRecords("$(STD)/stdApp/Db/sampleWheel.db", "P=xxx:,ROWMOTOR=xxx:m7,ANGLEMO
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
-dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db","P=xxx:,MAXPTS1=2000,MAXPTS2=1000,MAXPTS3=10,MAXPTS4=10,MAXPTSH=2000")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/standardScans.db","P=xxx:,MAXPTS1=2000,MAXPTS2=1000,MAXPTS3=10,MAXPTS4=10,MAXPTSH=2000")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/saveData.db","P=xxx:")
 
 # A set of scan parameters for each positioner.  This is a convenience
 # for the user.  It can contain an entry for each scannable thing in the
