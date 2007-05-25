@@ -15,11 +15,8 @@ file scanParms_settings.req P=$(P),M=m4
 
 #file table_settings.req P=$(P),T=table1,Q=table1
 
-file scan_settings.req P=$(P),S=scan1
-file scan_settings.req P=$(P),S=scan2
-file scan_settings.req P=$(P),S=scan3
-file scan_settings.req P=$(P),S=scan4
-file scan_settings.req P=$(P),S=scanH
+file standardScans_settings.req P=$(P)
+file saveData_settings.req P=$(P)
 
 # Kohzu monochromator
 ##$(P)BraggHAO.VAL
@@ -37,21 +34,19 @@ file Io_settings.req P=xxx:Io:
 ### autosaved.
 file userCalcs10_settings.req P=$(P)
 file userCalcN_settings.req P=$(P),N=I_Detector
-#$(P)userCalcEnable
+$(P)userCalcEnable
 
 file userTransforms10_settings.req P=$(P)
-#$(P)userTranEnable
+$(P)userTranEnable
 
 file userStringCalcs10_settings.req P=$(P)
-#$(P)userStringCalcEnable
+$(P)userStringCalcEnable
 
 file userArrayCalcs10_settings.req P=$(P)
-#$(P)userArrayCalcEnable
+$(P)userArrayCalcEnable
 
 file userStringSeqs10_settings.req P=$(P)
-#$(P)userStringSeqEnable
-
-file saveData_settings.req P=$(P)
+$(P)userStringSeqEnable
 
 # 4-step measurement
 file auto_4step_settings.req P=$(P),Q=4step
@@ -67,3 +62,5 @@ file userAve10_settings.req P=$(P)
 
 ## PF4 dual filter
 #file pf4dual.req P=$(P),H=pf401:,F=seq01:
+
+file ASRPmirrorTable_settings.req P=$(P),TBL=mt1
