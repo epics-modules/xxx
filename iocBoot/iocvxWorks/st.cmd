@@ -163,7 +163,7 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/Io.db","P=xxx:Io:")
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
-arrayCalcSize=2000
+aCalcArraySize=2000
 dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
 # extra userCalcs (must also load userCalcs10.db for the enable switch)
