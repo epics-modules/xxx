@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synApps_T202_E3_14_7_R5_1/support/xxx/xxxApp/op/adl/xxx.adl"
-	version=030101
+	name="/home/oxygen3/GOETZE/epics/support_cvs/support/xxx/xxxApp/op/adl/xxx.adl"
+	version=030004
 }
 display {
 	object {
@@ -1364,6 +1364,11 @@ text {
 		label="Eurotherm"
 		name="Eurotherm.adl"
 		args="P=xxx:"
+	}
+	display[3] {
+		label="Eurotherm 2k"
+		name="Eurotherm2k.adl"
+		args="P=xxx:,TC=1"
 	}
 	clr=0
 	bclr=17
