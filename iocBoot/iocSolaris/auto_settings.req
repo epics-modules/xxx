@@ -20,11 +20,8 @@ file scanParms_settings.req P=$(P),M=SM8
 file scanParms_settings.req P=$(P),M=SM9
 file scanParms_settings.req P=$(P),M=SM10
 
-file scan_settings.req P=$(P),S=scan1
-file scan_settings.req P=$(P),S=scan2
-file scan_settings.req P=$(P),S=scan3
-file scan_settings.req P=$(P),S=scan4
-file scan_settings.req P=$(P),S=scanH
+file standardScans_settings.req P=$(P)
+file saveData_settings.req P=$(P)
 
 # Kohzu monochromator
 #$(P)BraggHAO.VAL
@@ -58,8 +55,6 @@ file userStringSeqs10_settings.req P=$(P)
 
 file userCalcOuts10_settings.req P=$(P)
 #$(P)userCalcOutEnable
-
-file saveData_settings.req P=$(P)
 
 # orientation matrix
 #file orient_settings.req P=$(P),O=1

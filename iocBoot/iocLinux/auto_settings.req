@@ -15,11 +15,8 @@ file scanParms_settings.req P=$(P),M=m4
 
 #file table_settings.req P=$(P),T=table1,Q=table1
 
-file scan_settings.req P=$(P),S=scan1
-file scan_settings.req P=$(P),S=scan2
-file scan_settings.req P=$(P),S=scan3
-file scan_settings.req P=$(P),S=scan4
-file scan_settings.req P=$(P),S=scanH
+file standardScans_settings.req P=$(P)
+file saveData_settings.req P=$(P)
 
 # Kohzu monochromator
 #file kohzuSeq_settings.req P=$(P)
@@ -47,8 +44,6 @@ file userArrayCalcs10_settings.req P=$(P)
 
 file userStringSeqs10_settings.req P=$(P)
 #$(P)userStringSeqEnable
-
-file saveData_settings.req P=$(P)
 
 # 4-step measurement
 file auto_4step_settings.req P=$(P),Q=4step
