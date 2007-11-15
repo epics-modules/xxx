@@ -56,6 +56,9 @@ file userArrayCalcs10_settings.req P=$(P)
 file userStringSeqs10_settings.req P=$(P)
 #$(P)userStringSeqEnable
 
+file userCalcOuts10_settings.req P=$(P)
+#$(P)userCalcOutEnable
+
 file saveData_settings.req P=$(P)
 
 # orientation matrix
