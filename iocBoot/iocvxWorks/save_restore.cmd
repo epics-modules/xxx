@@ -26,7 +26,7 @@ save_restoreSet_SeqPeriodInSeconds(300)
 
 # specify where save files should be
 #set_savefile_path(startup, "autosave")
-set_savefile_path("/export/oxygen4/MOONEY/epics/synApps_T202_E3_14_7_R5_1/support/xxx/iocBoot/iocvxWorks", "autosave")
+set_savefile_path("/export/oxygen4/MOONEY/epics/synApps/support/xxx/iocBoot/iocvxWorks", "autosave")
 
 ###
 # specify what save files should be restored.  Note these files must be
@@ -36,10 +36,9 @@ set_pass0_restoreFile("auto_positions.sav")
 set_pass0_restoreFile("auto_settings.sav")
 set_pass1_restoreFile("auto_settings.sav")
 
-# load general-purpose interpolation tables with the local, user-editable
-# file interp.sav.  (If interp_settings.req is included in auto_settings.req,
-# the next line will overwrite those restored values.)
-#set_pass1_restoreFile("interp.sav")
+# Note that you can restore a .sav file without also autosaving to it.
+#set_pass0_restoreFile("myInitData.sav")
+#set_pass1_restoreFile("myInitData.sav")
 
 ###
 # specify directories in which to to search for included request files
