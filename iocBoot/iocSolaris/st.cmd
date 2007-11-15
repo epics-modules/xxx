@@ -35,6 +35,7 @@ epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 dbLoadRecords("$(TOP)/xxxApp/Db/busy.db", "P=xxx:,B=busy")
 
 # Motors
+dbLoadTemplate("motor.substitutions")
 dbLoadTemplate("softMotor.substitutions")
 
 ### Allstop, alldone
@@ -90,16 +91,16 @@ dbLoadTemplate("scanParms.substitutions")
 
 ### Stuff for user programming ###
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=xxx:")
+dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
+aCalcArraySize=2000
+dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
 # extra userCalcs (must also load userCalcs10.db for the enable switch)
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
 #dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
-dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db","P=xxx:")
-# string sequence (sseq) record
-dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq1")
-dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq2")
-dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq3")
+# string sequence (sseq) records
+dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")
 
 
 ### serial support ###
