@@ -32,18 +32,18 @@ iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 #dbLoadTemplate("basic_motor.substitutions")
 dbLoadTemplate("motor.substitutions")
 dbLoadTemplate("softMotor.substitutions")
-dbLoadTemplate("pseudoMotor.substitutions")
+#dbLoadTemplate("pseudoMotor.substitutions")
 
 ### Allstop, alldone
 # This database must agree with the motors and other positioners you've actually loaded.
 # Several versions (e.g., all_com_32.db) are in stdApp/Db
-dbLoadRecords("$(STD)/stdApp/Db/all_com_16.db","P=xxx:")
+dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=xxx:")
 
 ### Insertion-device control
 #dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=xxx:,xx=02us")
 
 # sample-wheel
-dbLoadRecords("$(STD)/stdApp/Db/sampleWheel.db", "P=xxx:,ROWMOTOR=xxx:m7,ANGLEMOTOR=xxx:m8")
+#dbLoadRecords("$(STD)/stdApp/Db/sampleWheel.db", "P=xxx:,ROWMOTOR=xxx:m7,ANGLEMOTOR=xxx:m8")
 
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
@@ -53,11 +53,11 @@ dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db","P=xxx:,MAXPTS1=8000,MAXPTS2=1000,M
 # A set of scan parameters for each positioner.  This is a convenience
 # for the user.  It can contain an entry for each scannable thing in the
 # crate.
-dbLoadTemplate("scanParms.substitutions")
+#dbLoadTemplate("scanParms.substitutions")
 
 ### Slits
-dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1V,mXp=m3,mXn=m4")
-dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m6")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1V,mXp=m3,mXn=m4")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m6")
 
 # under development...
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2V,mXp=m13,mXn=m14")
@@ -80,7 +80,7 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m
 
 ### Optical tables
 #tableRecordDebug=1
-dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
 
 ### Monochromator support ###
 # Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
@@ -113,8 +113,9 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
+aCalcArraySize=2000
+dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
-dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=8000")
 # extra userCalcs (must also load userCalcs10.db for the enable switch)
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
 dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
@@ -130,7 +131,7 @@ dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/arrayTest.db", "P=xxx:,N=2000")
 
 # Slow feedback
-dbLoadTemplate "pid_slow.substitutions"
+#dbLoadTemplate "pid_slow.substitutions"
 
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
@@ -158,7 +159,7 @@ iocInit
 
 # Keithley 2000 series DMM
 # channels: 10, 20, or 22;  model: 2000 or 2700
-seq &Keithley2kDMM,("P=xxx:, Dmm=D1, channels=22, model=2700")
+#seq &Keithley2kDMM,("P=xxx:, Dmm=D1, channels=22, model=2700")
 
 # X-ray Instrumentation Associates Huber Slit Controller
 # supported by a SNL program written by Pete Jemian and modified (TMM) for use with the
@@ -189,4 +190,7 @@ create_monitor_set("auto_settings.req",30,"P=xxx:")
 saveData_Init("saveData.req", "P=xxx:")
 
 dbcar(0,1)
+
+# motorUtil (allstop & alldone)
+motorUtilInit("xxx:")
 
