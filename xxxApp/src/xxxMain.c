@@ -7,8 +7,9 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "epicsThread.h"
-#include "iocsh.h"
+#include <epicsThread.h>
+#include <iocsh.h>
+#include <epicsExit.h>
 
 int main(int argc,char *argv[])
 {
@@ -17,5 +18,6 @@ int main(int argc,char *argv[])
         epicsThreadSleep(.2);
     }
     iocsh(NULL);
+	epicsExit(0);
     return(0);
 }
