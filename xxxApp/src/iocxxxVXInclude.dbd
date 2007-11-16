@@ -14,7 +14,7 @@ include "devOms.dbd"
 include "devDeltaTau.dbd"
 include "camacSupport.dbd"
 include "devCamacSupport.dbd"
-include "dxpSupport.dbd"
+#include "dxpSupport.dbd"
 include "allenBradley.dbd"
 include "quadEMSupport.dbd"
 # If not defined in iocxxxInclude.dbd
