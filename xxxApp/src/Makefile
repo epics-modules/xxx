@@ -131,6 +131,8 @@ xxx_LIBS_WIN32    = $(xxx_WIN32_LIBS)  $(xxx_Common_LIBS)
 # If the host has libnet and libpcap for mca/Canberra support
 # uncomment the following line.
 #xxx_SYS_LIBS_Linux += net pcap
+# For USB support on Saturn
+xxx_SYS_LIBS_Linux += usb
 xxx_SYS_LIBS_vxWorks += -nil-
 
 # This is needed by dxp on cygwin and WIN32
