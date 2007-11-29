@@ -195,7 +195,7 @@ dbLoadTemplate("vxStats.substitutions")
 
 ### Queensgate piezo driver
 #dbLoadRecords("$(IP)/ipApp/Db/pzt_3id.db","P=xxx:")
-#dbLoadRecords("$(IP)/ipApp/Db/pzt.db","P=xxx:")
+#dbLoadRecords("$(IP)/ipApp/Db/pzt.db","P=xxx:,PORT=")
 
 ### Queensgate Nano2k piezo controller
 #dbLoadRecords("$(STD)/stdApp/Db/Nano2k.db","P=xxx:,S=s1")
