@@ -136,8 +136,9 @@ xxx_SYS_LIBS_Linux += usb
 xxx_SYS_LIBS_vxWorks += -nil-
 
 # This is needed by dxp on cygwin and WIN32
-xxx_SYS_LIBS_cygwin32 += DLPORTIO
-xxx_LIBS_WIN32        += DLPORTIO
+xxx_SYS_LIBS_cygwin32 += DLPORTIO PlxApi setupapi
+xxx_LIBS_WIN32        += DLPORTIO PlxApi
+xxx_SYS_LIBS_WIN32    += setupapi
 # This is needed by saveData and asyn VXI-11 on cygwin
 xxx_SYS_LIBS_cygwin32 += rpc
 
