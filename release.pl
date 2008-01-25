@@ -11,10 +11,12 @@
 # MODIFICATION LOG...
 # 03/25/04 rls Support for GATEWAY environment variable.
 # 04/08/04 rls Bug fix for spaces between macro and '=' sign; e.g. MPF = /home/mpf.
+# 01/25/08 rls Support "include" entries without a macro; e.g. "include /home/ioc/configure/MASTER_RELEASE"
+
 #
-#Version:	$Revision: 1.5 $
+#Version:	$Revision: 1.6 $
 #Modified By:	$Author: sluiter $
-#Last Modified:	$Date: 2004-04-08 22:04:23 $
+#Last Modified:	$Date: 2008-01-25 23:37:27 $
 
 use Env;
 
@@ -42,9 +44,10 @@ foreach $file (@files)
 	    chomp($line);
 	    $_ = $line;
 	    #test for "include" command
-	    ($prefix,$macro,$post) = /(.*)\s* \s*\$\((.*)\)(.*)/;
+	    ($prefix,$post) = /(.*)\s* (.*)/;
 	    if ($prefix eq "include")
 	    {
+		($macro) = /(.*)\s* \s*\$\((.*)\)(.*)/;
 		if ($macro eq "")
 		{
 		    #true if no macro is present
