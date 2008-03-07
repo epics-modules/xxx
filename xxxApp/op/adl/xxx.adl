@@ -762,7 +762,7 @@ display {
 	display[3] {
 		label="PF4 Filter"
 		name="pf4.adl"
-		args="P=xxx:,H=pf4:,A=A,B=B,PV=xxx:Unidig1Lo,MONO=xxx:BraggEAO"
+		args="P=xxx:,H=pf4:,A=A,B=B,MONO=xxx:BraggEAO,B1=xxx:Unidig1Bo3,B2=xxx:Unidig1Bo4,B3=xxx:Unidig1Bo5,B4=xxx:Unidig1Bo6,B5=xxx:Unidig1Bo7,B6=xxx:Unidig1Bo8,B7=xxx:Unidig1Bo9,B8=xxx:Unidig1Bo10"
 	}
 	clr=0
 	bclr=17
