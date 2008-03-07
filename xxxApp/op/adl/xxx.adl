@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen3/GOETZE/epics/support_cvs/support/xxx/xxxApp/op/adl/xxx.adl"
-	version=030004
+	name="/home/oxygen12/DKLINE/EPICS/shared/synApps/support/xxx/work/xxxApp/op/adl/xxx.adl"
+	version=030101
 }
 display {
 	object {
@@ -404,6 +404,11 @@ display {
 		name="SR570_tiny.adl"
 		args="P=xxx:,A=A5"
 	}
+	display[5] {
+		label="Femto Current Preamplifier"
+		name="femto.adl"
+		args="P=xxx:,H=fem01:,F=seq01:,AC=xxx:Unidig1Bo9"
+	}
 	clr=0
 	bclr=17
 	label="-Preamps"
@@ -753,6 +758,11 @@ display {
 		label="User Filter Setup"
 		name="2filter_setup.adl"
 		args="P=xxx:,Q1=fltr1:,Q2=fltr2:,LOCK1=fltr_1_2:,LOCK2=fltr_1_2:"
+	}
+	display[3] {
+		label="PF4 Filter"
+		name="pf4.adl"
+		args="P=xxx:,H=pf4:,A=A,B=B,PV=xxx:Unidig1Lo,MONO=xxx:BraggEAO"
 	}
 	clr=0
 	bclr=17
