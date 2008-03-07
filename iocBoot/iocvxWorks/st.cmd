@@ -203,8 +203,10 @@ dbLoadTemplate("vxStats.substitutions")
 ### Load database records for Femto amplifiers
 #dbLoadRecords("$(STD)/stdApp/Db/femto.db","P=xxx:,H=fem01:,F=seq01:")
 
-### Load database records for PF4 filters
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4dual.db","P=xxx:,H=pf401:,F=seq01:")
+### Load database records for dual PF4 filters
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4common.db","P=xxx:,H=pf4:,A=A,B=B")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=A")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=B")
 
 ###############################################################################
 # Set shell prompt (otherwise it is left at mv167 or mv162)
@@ -212,7 +214,9 @@ shellPromptSet "iocvxWorks> "
 iocLogDisable=0
 iocInit
 
-### startup State Notation Language programs
+### Startup State Notation Language (SNL) programs
+# NOTE: Command line limited to 128 characters
+
 #seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=2, logfile=kohzuCtl.log"
 ### Example of specifying offset limits
 ##taskDelay(300)
@@ -240,11 +244,11 @@ iocInit
 # Io calculation
 seq &Io, "P=xxx:Io:,MONO=xxx:BraggEAO,VSC=xxx:scaler1"
 
-# Start PF4 filter sequence program
-#seq pf4Dual,"P=xxx:pf401:seq01:,MONO=,A0=,A1=,A2=,A3=,B0=,B1=,B2=,B3="
-
 # Start Femto amplifier sequence programs
-#seq femto,"name=femto1,P=xxx:,H=fem01:,F=seq01:,GAIN1=,GAIN2=,GAIN3=,NOISE="
+#seq &femto,"name=fem1,P=xxx:,H=fem01:,F=seq01:,G1=xxx:Unidig1Bo6,G2=xxx:Unidig1Bo7,G3=xxx:Unidig1Bo8,NO=xxx:Unidig1Bo10"
+
+# Start PF4 filter sequence program
+#seq &pf4,"name=pf4,P=xxx:,H=pf4:,B=A,MONO=xxx:BraggEAO,B1=xxx:Unidig1Bo6,B2=xxx:Unidig1Bo7,B3=xxx:Unidig1Bo8,B4=xxx:Unidig1Bo9"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".
@@ -273,4 +277,3 @@ dbcar(0,1)
 
 # motorUtil (allstop & alldone)
 motorUtilInit("xxx:")
-

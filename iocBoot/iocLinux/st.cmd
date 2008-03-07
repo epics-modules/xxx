@@ -173,7 +173,7 @@ iocInit
 #seq pf4Dual,"P=xxx:pf401:seq01:,MONO=,A0=,A1=,A2=,A3=,B0=,B1=,B2=,B3="
 
 # Start Femto amplifier sequence programs
-#seq femto,"name=femto1,P=xxx:,H=fem01:,F=seq01:,GAIN1=,GAIN2=,GAIN3=,NOISE="
+#seq femto,"name=fem1,P=xxx:,H=fem01:,F=seq01:,G1=xxx:Unidig1Bo6,G2=xxx:Unidig1Bo7,G3=xxx:Unidig1Bo8,NO=xxx:Unidig1Bo10"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".
