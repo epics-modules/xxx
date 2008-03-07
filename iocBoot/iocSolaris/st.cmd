@@ -122,7 +122,9 @@ dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
 #dbLoadRecords("$(STD)/stdApp/Db/femto.db","P=xxx:,H=fem01:,F=seq01:")
 
 ### Load database records for PF4 filters
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4dual.db","P=xxx:,H=pf401:,F=seq01:")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4common.db","P=xxx:,H=pf4:,A=A,B=B")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=A")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=B")
 
 ###############################################################################
 iocInit
@@ -135,7 +137,8 @@ iocInit
 #seq &orient, "P=xxx:orient1:,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
 
 # Start PF4 filter sequence program
-#seq pf4Dual,"P=xxx:pf401:seq01:,MONO=,A0=,A1=,A2=,A3=,B0=,B1=,B2=,B3="
+#seq &pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:BraggEAO,B1=xxx:Unidig1Bo3,B2=xxx:Unidig1Bo4,B3=xxx:Unidig1Bo5,B4=xxx:Unidig1Bo6"
+#seq &pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:BraggEAO,B1=xxx:Unidig1Bo7,B2=xxx:Unidig1Bo8,B3=xxx:Unidig1Bo9,B4=xxx:Unidig1Bo10"
 
 # Start Femto amplifier sequence programs
 #seq femto,"name=fem1,P=xxx:,H=fem01:,F=seq01:,G1=xxx:Unidig1Bo6,G2=xxx:Unidig1Bo7,G3=xxx:Unidig1Bo8,NO=xxx:Unidig1Bo10"

@@ -248,13 +248,13 @@ seq &Io, "P=xxx:Io:,MONO=xxx:BraggEAO,VSC=xxx:scaler1"
 #seq &femto,"name=fem1,P=xxx:,H=fem01:,F=seq01:,G1=xxx:Unidig1Bo6,G2=xxx:Unidig1Bo7,G3=xxx:Unidig1Bo8,NO=xxx:Unidig1Bo10"
 
 # Start PF4 filter sequence program
-#seq &pf4,"name=pf4,P=xxx:,H=pf4:,B=A,MONO=xxx:BraggEAO,B1=xxx:Unidig1Bo6,B2=xxx:Unidig1Bo7,B3=xxx:Unidig1Bo8,B4=xxx:Unidig1Bo9"
+#seq &pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:BraggEAO,B1=xxx:Unidig1Bo3,B2=xxx:Unidig1Bo4,B3=xxx:Unidig1Bo5,B4=xxx:Unidig1Bo6"
+#seq &pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:BraggEAO,B1=xxx:Unidig1Bo7,B2=xxx:Unidig1Bo8,B3=xxx:Unidig1Bo9,B4=xxx:Unidig1Bo10"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".
 
 create_monitor_set("dummy.req",0,"")
-
 
 # Note that you can reload these sets after creating them: e.g., 
 # reload_monitor_set("auto_settings.req",30,"P=xxx:")
