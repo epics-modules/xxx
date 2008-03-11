@@ -3,24 +3,27 @@
 
 ### save_restore setup
 #
-# The rest this file does not require modification for standard use, but...
+# This file does not require modification for standard use, but...
+
 # If you want save_restore to manage its own NFS mount, specify the name and
 # IP address of the file server to which save files should be written.
 # This currently is supported only on vxWorks.
 save_restoreSet_NFSHost("oxygen", "164.54.52.4")
 
-# status-PV prefix
+# status PVs
+#save_restoreSet_UseStatusPVs(1)
 save_restoreSet_status_prefix("xxx:")
-# Debug-output level
-save_restoreSet_Debug(0)
+dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=xxx:, DEAD_SECONDS=5")
 
 # Ok to save/restore save sets with missing values (no CA connection to PV)?
 save_restoreSet_IncompleteSetsOk(1)
+
 # Save dated backup files?
 save_restoreSet_DatedBackupFiles(1)
 
 # Number of sequenced backup files to write
 save_restoreSet_NumSeqFiles(3)
+
 # Time interval between sequenced backups
 save_restoreSet_SeqPeriodInSeconds(300)
 
@@ -63,6 +66,7 @@ set_requestfile_path(std, "stdApp/Db")
 set_requestfile_path(vme, "vmeApp/Db")
 set_requestfile_path(top, "xxxApp/Db")
 
-dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=xxx:")
+# Debug-output level
+save_restoreSet_Debug(0)
 
 # END save_restore.cmd --------------------------------------------------------
