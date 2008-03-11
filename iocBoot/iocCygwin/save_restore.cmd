@@ -1,62 +1,70 @@
+
+# BEGIN save_restore.cmd ------------------------------------------------------
+
 ### save_restore setup
 #
-# The rest this file does not require modification for standard use, but...
-# If you want save_restore to manage its own NFS mount, specify the name and
-# IP address of the file server to which save files should be written.
-# This currently is supported only on vxWorks.
-#save_restoreSet_NFSHost("oxygen", "164.54.52.4")
+# This file does not require modification for standard use, but...
 
-# status-PV prefix.  If you don't want to use status PV's, don't call this,
-# or call it with the argument "".
+# status PVs
+#save_restoreSet_UseStatusPVs(1)
 save_restoreSet_status_prefix("xxx:")
-# Debug-output level
-#save_restoreSet_Debug(2)
+dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=xxx:, DEAD_SECONDS=5")
 
 # Ok to save/restore save sets with missing values (no CA connection to PV)?
 save_restoreSet_IncompleteSetsOk(1)
+
 # Save dated backup files?
 save_restoreSet_DatedBackupFiles(1)
 
 # Number of sequenced backup files to write
 save_restoreSet_NumSeqFiles(3)
+
 # Time interval between sequenced backups
 save_restoreSet_SeqPeriodInSeconds(300)
 
 # specify where save files should be
-set_savefile_path("$(STARTUP)", "autosave")
+#set_savefile_path(startup, "autosave")
+set_savefile_path("/export/oxygen4/MOONEY/epics/synApps/support/xxx/iocBoot/iocvxWorks", "autosave")
 
+###
 # specify what save files should be restored.  Note these files must be
 # in the directory specified in set_savefile_path(), or, if that function
 # has not been called, from the directory current when iocInit is invoked
-#set_pass0_restoreFile("auto_positions.sav")
+set_pass0_restoreFile("auto_positions.sav")
 set_pass0_restoreFile("auto_settings.sav")
 set_pass1_restoreFile("auto_settings.sav")
 
-# specify directories in which to to search for included request files
-# Note cdCommands defines 'startup', but envPaths does not
-set_requestfile_path("$(STARTUP)", "")
-set_requestfile_path("$(STARTUP)", "autosave")
-set_requestfile_path("$(TOP)", "xxxApp/Db")
-set_requestfile_path("$(AUTOSAVE)", "asApp/Db")
-set_requestfile_path("$(CALC)", "calcApp/Db")
-#set_requestfile_path("$(CAMAC)", "camacApp/Db")
-set_requestfile_path("$(CCD)", "ccdApp/Db")
-set_requestfile_path("$(DAC128V)", "dac128VApp/Db")
-set_requestfile_path("$(DXP)", "dxpApp/Db")
-set_requestfile_path("$(IP)", "ipApp/Db")
-set_requestfile_path("$(IP330)", "ip330App/Db")
-set_requestfile_path("$(IPUNIDIG)", "ipUnidigApp/Db")
-#set_requestfile_path("$(LOVE)", "loveApp/Db")
-set_requestfile_path("$(MCA)", "mcaApp/Db")
-set_requestfile_path("$(MOTOR)", "motorApp/Db")
-set_requestfile_path("$(OPTICS)", "opticsApp/Db")
-set_requestfile_path("$(QUADEM)", "quadEMApp/Db")
-set_requestfile_path("$(SSCAN)", "sscanApp/Db")
-set_requestfile_path("$(STD)", "stdApp/Db")
-set_requestfile_path("$(VME)", "vmeApp/Db")
+# Note that you can restore a .sav file without also autosaving to it.
+#set_pass0_restoreFile("myInitData.sav")
+#set_pass1_restoreFile("myInitData.sav")
 
-# The prefix, P, specified here must agree with the prefix specified in
-# the call to save_restoreSet_status_prefix(), above.  If you don't want
-# to load this database, don't call save_restoreSet_status_prefix(),
-# or call it with the argument "".
-dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=xxx:")
+###
+# specify directories in which to to search for included request files
+set_requestfile_path(startup, "")
+set_requestfile_path(startup, "autosave")
+set_requestfile_path(autosave, "asApp/Db")
+set_requestfile_path(calc, "calcApp/Db")
+#set_requestfile_path(camac, "camacApp/Db")
+set_requestfile_path(ccd, "ccdApp/Db")
+set_requestfile_path(dac128v, "dac128VApp/Db")
+set_requestfile_path(dxp, "dxpApp/Db")
+set_requestfile_path(ip, "ipApp/Db")
+set_requestfile_path(ip330, "ip330App/Db")
+set_requestfile_path(ipunidig, "ipUnidigApp/Db")
+#set_requestfile_path(love, "loveApp/Db")
+set_requestfile_path(mca, "mcaApp/Db")
+#set_requestfile_path(modbus, "modbusApp/Db")
+set_requestfile_path(motor, "motorApp/Db")
+set_requestfile_path(optics, "opticsApp/Db")
+#set_requestfile_path(pilatus, "pilatusApp/Db")
+set_requestfile_path(quadem, "quadEMApp/Db")
+set_requestfile_path(sscan, "sscanApp/Db")
+set_requestfile_path(std, "stdApp/Db")
+#set_requestfile_path(vac, "vacApp/Db")
+set_requestfile_path(vme, "vmeApp/Db")
+set_requestfile_path(top, "xxxApp/Db")
+
+# Debug-output level
+save_restoreSet_Debug(0)
+
+# END save_restore.cmd --------------------------------------------------------
