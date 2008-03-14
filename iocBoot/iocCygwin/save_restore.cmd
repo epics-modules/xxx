@@ -23,7 +23,7 @@ save_restoreSet_NumSeqFiles(3)
 save_restoreSet_SeqPeriodInSeconds(300)
 
 # specify where save files should be
-set_savefile_path("$(STARTUP)", "autosave")
+set_savefile_path("$(TOP)/iocBoot/$(IOC)", "autosave")
 
 ###
 # specify what save files should be restored.  Note these files must be
