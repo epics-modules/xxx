@@ -7,19 +7,37 @@
 #     (1)cards, (2)base address(short, 16-byte boundary),
 #     (3)interrupt vector (0=disable or  64 - 255), (4)interrupt level (1 - 6),
 #     (5)motor task polling rate (min=1Hz,max=60Hz)
-omsSetup(2, 0xFC00, 180, 5, 10)
+#!omsSetup(2, 0xFC00, 180, 5, 10)
 
 # OMS VME58 driver setup parameters:
 #     (1)cards, (2)base address(short, 4k boundary),                  
 #     (3)interrupt vector (0=disable or  64 - 255), (4)interrupt level (1 - 6),
 #     (5)motor task polling rate (min=1Hz,max=60Hz)
-oms58Setup(2, 0x4000, 190, 5, 10)
+#!oms58Setup(2, 0x4000, 190, 5, 10)
 
-# Highland V544 driver setup parameters:
-#     (1)cards, (2)base address(short, 4k boundary),
-#     (3)interrupt vector (0=disable or  64 - 255), (4)interrupt level (1 - 6),
-#     (5)motor task polling rate (min=1Hz,max=60Hz)
-#v544Setup(0, 0xDD00, 0, 5, 10)
+# OMS MAXv driver setup parameters: 
+#     (1)number of cards in array.
+#     (2)VME Address Type (16,24,32).
+#     (3)Base Address on 4K (0x1000) boundary.
+#     (4)interrupt vector (0=disable or  64 - 255).
+#     (5)interrupt level (1 - 6).
+#     (6)motor task polling rate (min=1Hz,max=60Hz).
+#!MAXvSetup(1, 16, 0xF000,     190, 5, 10)
+#!MAXvSetup(1, 24, 0xF00000,   190, 5, 10)
+#!MAXvSetup(1, 32, 0xB0000000, 190, 5, 10)
+#!drvMAXvdebug=4
+
+# OMS MAXv configuration string:
+#     (1) number of card being configured (0-14).
+#     (2) configuration string; axis type (PSO/PSE/PSM) MUST be set here.
+#         For example, set which TTL signal level defines
+#         an active limit switch.  Set X,Y,Z,T to active low and set U,V,R,S
+#         to active high.  Set all axes to open-loop stepper (PSO). See MAXv
+#         User's Manual for LL/LH and PSO/PSE/PSM commands.
+#config0="AX LL PSO; AY LL PSO; AZ LL PSO; AT LL PSO; AU LH PSO; AV LH PSO; AR LH PSO; AS LH PSO;"
+
+#!config0="AX LH PSM; AY LL PSO; AZ LL PSO; AT LL PSO; AU LH PSO; AV LH PSO; AR LH PSO; AS LH PSO;"
+#!MAXvConfig(0, config0)
 
 ### Scalers: Joerger VSC8/16
 dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,OUT=#C0 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
