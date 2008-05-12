@@ -176,3 +176,6 @@ file deviceCmdReply_settings.req P=$(P),N=3
 file timer.req P=$(P),N=1
 
 file ASRPmirrorTable_settings.req P=xxx:,TBL=mt1
+
+file ramp_tweak_settings.req P=$(P),Q=LaserDelay
+file ramp_tweak_settings.req P=$(P),Q=rt1
