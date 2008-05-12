@@ -25,7 +25,7 @@ errlogInit(5000)
 # Specify largest array CA will transport
 # Note for N sscanRecord data points, need (N+1)*8 bytes, else MEDM
 # plot doesn't display
-epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
+#epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 
 ### save_restore setup
 # We presume a suitable initHook routine was compiled into the executable.
@@ -35,13 +35,15 @@ epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 dbLoadRecords("$(TOP)/xxxApp/Db/busy.db", "P=xxx:,B=busy")
 
 # Motors
-dbLoadTemplate("motor.substitutions")
+#dbLoadTemplate("motor.substitutions")
 dbLoadTemplate("softMotor.substitutions")
+< motorSim.cmd
 
 ### Allstop, alldone
 # This database must agree with the motors and other positioners you've actually loaded.
 # Several versions (e.g., all_com_*.db) are in stdApp/Db
-dbLoadRecords("$(STD)/stdApp/Db/all_com_0.db","P=xxx:")
+#dbLoadRecords("$(STD)/stdApp/Db/all_com_0.db","P=xxx:")
+dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=xxx:")
 
 # interpolation
 dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
@@ -50,7 +52,8 @@ dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
-dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db","P=xxx:,MAXPTS1=4000,MAXPTS2=200,MAXPTS3=10,MAXPTS4=10,MAXPTSH=4000")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/standardScans.db","P=xxx:,MAXPTS1=2000,MAXPTS2=1000,MAXPTS3=1000,MAXPTS4=1000,MAXPTSH=2000")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/saveData.db","P=xxx:")
 
 # A set of scan parameters for each positioner.  This is a convenience
 # for the user.  It can contain an entry for each scannable thing in the
@@ -166,3 +169,5 @@ create_monitor_set("auto_settings.req",30,"P=xxx:")
 #saveData_SetCptWait_ms(100)
 saveData_Init("saveData.req", "P=xxx:")
 #saveData_PrintScanInfo("xxx:scan1")
+
+motorUtilInit("xxx:")
