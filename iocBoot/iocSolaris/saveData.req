@@ -19,6 +19,9 @@ $(P)saveData_fileSystem
 [subdir]	# scan file subdirectory
 $(P)saveData_subDir
 
+[basename]	# PV containing the desired data-file base name
+$(P)saveData_baseName
+
 [fullPathName]
 $(P)saveData_fullPathName
 
@@ -33,8 +36,7 @@ $(P)scan3
 $(P)scan4
 
 [extraPV]
-$(P)userCalc1.CALC	"string"
-$(P)saveData_realTime1D "enum"
-$(P)saveData_scanNumber	"long"
-$(P)saveData_fileSystem	"filesystem"
+
+$(P)saveData_comment1
+$(P)saveData_comment2
 $(P)scan1.P1SM		"scan mode"
