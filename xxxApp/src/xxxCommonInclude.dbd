@@ -35,7 +35,6 @@ include "mcaSupport.dbd"
 include "ipSupport.dbd"
 
 # motor
-#include "motorRecord.dbd"
 include "motorSimSupport.dbd"
 include "motorSupport.dbd"
 include "devAcsMotor.dbd"
