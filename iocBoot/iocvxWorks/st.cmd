@@ -44,7 +44,7 @@ recDynLinkQsize = 1024
 # Specify largest array CA will transport
 # Note for N sscanRecord data points, need (N+1)*8 bytes, else MEDM
 # plot doesn't display
-putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"
+#putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"
 
 # set the protocol path for streamDevice
 #epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
@@ -54,6 +54,16 @@ putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"
 # etc. in the software we just loaded (xxx.munch)
 dbLoadDatabase("../../dbd/iocxxxVX.dbd")
 iocxxxVX_registerRecordDeviceDriver(pdbbase)
+
+# test ramp output
+dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=LaserDelay")
+dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt1")
+
+# ASRP table
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/ASRPmirrorTable.db","P=xxx:,TBL=mt1,VERT=xxx:m7,PITCH=xxx:m8")
+
+# Spare busy record
+#dbLoadRecords("$(TOP)/xxxApp/Db/busy.db","P=xxx:")
 
 ### save_restore setup
 # We presume a suitable initHook routine was compiled into xxx.munch.
@@ -96,7 +106,8 @@ dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=xxx:")
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
-dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db","P=xxx:,MAXPTS1=8000,MAXPTS2=1000,MAXPTS3=10,MAXPTS4=10,MAXPTSH=8000")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/standardScans.db","P=xxx:,MAXPTS1=8000,MAXPTS2=1000,MAXPTS3=1000,MAXPTS4=1000,MAXPTSH=8000")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/saveData.db","P=xxx:")
 
 # A set of scan parameters for each positioner.  This is a convenience
 # for the user.  It can contain an entry for each scannable thing in the
@@ -166,8 +177,10 @@ dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
 aCalcArraySize=2000
 dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
+# individually disabled transforms
+dbLoadRecords("$(CALC)/calcApp/Db/transforms10.db","P=xxx:,N=1")
 # extra userCalcs (must also load userCalcs10.db for the enable switch)
-dbLoadRecords("$(CALC)/calcApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
+#dbLoadRecords("$(CALC)/calcApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
 dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
 # string sequence (sseq) records
 dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")
@@ -248,22 +261,34 @@ seq &Io, "P=xxx:Io:,MONO=xxx:BraggEAO,VSC=xxx:scaler1"
 #seq &femto,"name=fem1,P=xxx:,H=fem01:,F=seq01:,G1=xxx:Unidig1Bo6,G2=xxx:Unidig1Bo7,G3=xxx:Unidig1Bo8,NO=xxx:Unidig1Bo10"
 
 # Start PF4 filter sequence program
+#        name = what user will call it
+#        P    = prefix of database and sequencer
+#        H    = hardware (i.e. pf4)
+#        B    = bank indicator (i.e. A,B)
+#        M    = Monochromatic-beam energy PV
+#        B1   = Filter control bit 0 PV
+#        B2   = Filter control bit 1 PV
+#        B3   = Filter control bit 2 PV
+#        B4   = Fitler control bit 3 PV
 #seq &pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:BraggEAO,B1=xxx:Unidig1Bo3,B2=xxx:Unidig1Bo4,B3=xxx:Unidig1Bo5,B4=xxx:Unidig1Bo6"
 #seq &pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:BraggEAO,B1=xxx:Unidig1Bo7,B2=xxx:Unidig1Bo8,B3=xxx:Unidig1Bo9,B4=xxx:Unidig1Bo10"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".
 
-create_monitor_set("dummy.req",0,"")
+# test starting the save_restore task without loading any save sets
+#create_monitor_set("dummy.req",0,"")
 
 # Note that you can reload these sets after creating them: e.g., 
 # reload_monitor_set("auto_settings.req",30,"P=xxx:")
-#save_restoreDebug=20
 #
 # save positions every five seconds
-#create_monitor_set("auto_positions.req",5,"P=xxx:")
+create_monitor_set("auto_positions.req",5,"P=xxx:")
 # save other things every thirty seconds
-#create_monitor_set("auto_settings.req",30,"P=xxx:")
+create_monitor_set("auto_settings.req",30,"P=xxx:")
+# You can have a save set triggered by a PV, and specify the name of the file it will write to with a PV
+#create_triggered_set(<request file>,<trigger PV>,<PV from which file name should be read>)
+#create_triggered_set("trigSet.req","xxx:userStringCalc1.SVAL","P=xxx:,SAVENAMEPV=xxx:userStringCalc1.SVAL")
 
 ### Start the saveData task.  If you start this task, scan records mentioned
 # in saveData.req will *always* write data files.  There is no programmable
