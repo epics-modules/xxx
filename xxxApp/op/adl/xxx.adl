@@ -1,13 +1,13 @@
 
 file {
-	name="/home/oxygen12/DKLINE/EPICS/shared/synApps/support/xxx/work/xxxApp/op/adl/xxx.adl"
-	version=030101
+	name="/home/oxygen4/MOONEY/epics/synApps/support/xxx/xxxApp/op/adl/xxx.adl"
+	version=030102
 }
 display {
 	object {
-		x=495
+		x=960
 		y=25
-		width=450
+		width=470
 		height=160
 	}
 	clr=64
@@ -368,50 +368,14 @@ display {
 		name="scan_saveData.adl"
 		args="P=xxx:"
 	}
+	display[9] {
+		label="aux scan"
+		name="scanAux.adl"
+		args="P=xxx:,S=scantest"
+	}
 	clr=0
 	bclr=17
 	label="-Scan"
-}
-"related display" {
-	object {
-		x=70
-		y=120
-		width=70
-		height=20
-	}
-	display[0] {
-		label="SRS 570 Current Preamplifier #A1"
-		name="SR570_tiny.adl"
-		args="P=xxx:,A=A1"
-	}
-	display[1] {
-		label="SRS 570 Current Preamplifier #A2"
-		name="SR570_tiny.adl"
-		args="P=xxx:,A=A2"
-	}
-	display[2] {
-		label="SRS 570 Current Preamplifier #A3"
-		name="SR570_tiny.adl"
-		args="P=xxx:,A=A3"
-	}
-	display[3] {
-		label="SRS 570 Current Preamplifier #A4"
-		name="SR570_tiny.adl"
-		args="P=xxx:,A=A4"
-	}
-	display[4] {
-		label="SRS 570 Current Preamplifier #A5"
-		name="SR570_tiny.adl"
-		args="P=xxx:,A=A5"
-	}
-	display[5] {
-		label="Femto Current Preamplifier"
-		name="femto.adl"
-		args="P=xxx:,H=fem01:,F=seq01:,AC=xxx:Unidig1Bo9"
-	}
-	clr=0
-	bclr=17
-	label="-Preamps"
 }
 "related display" {
 	object {
@@ -422,7 +386,7 @@ display {
 	}
 	display[0] {
 		label="Scaler 1"
-		name="scaler.adl"
+		name="scaler16.adl"
 		args="P=xxx:,S=scaler1"
 	}
 	display[1] {
@@ -436,9 +400,24 @@ display {
 		args="P=xxx:,S=scaler3"
 	}
 	display[3] {
-		label="Scaler3 (64 ch)"
+		label="Scaler1 (16 ch)"
+		name="scaler16.adl"
+		args="P=xxx:,S=scaler1"
+	}
+	display[4] {
+		label="Scaler1 (32 ch)"
+		name="scaler32.adl"
+		args="P=xxx:,S=scaler1"
+	}
+	display[5] {
+		label="Scaler1 (64 ch)"
 		name="scaler64.adl"
-		args="P=xxx:,S=scaler3"
+		args="P=xxx:,S=scaler1"
+	}
+	display[7] {
+		label="Scaler 1 modCalc"
+		name="scaler16m.adl"
+		args="P=xxx:,S=scaler1"
 	}
 	clr=0
 	bclr=17
@@ -633,7 +612,7 @@ display {
 	}
 	display[0] {
 		label="generic VME"
-		name="recVME.adl"
+		name="recVme.adl"
 		args="P=xxx:,Q=vme1"
 	}
 	display[1] {
@@ -760,6 +739,16 @@ display {
 		args="P=xxx:,Q1=fltr1:,Q2=fltr2:,LOCK1=fltr_1_2:,LOCK2=fltr_1_2:"
 	}
 	display[3] {
+		label="XIA pfcu"
+		name="pf4.adl"
+		args="P=xxx:,H=pf401:,A=A,B=B,PV=,MONO="
+	}
+	display[4] {
+		label="XIA pfcu (synApps 5.2.1)"
+		name="pf4dual.adl"
+		args="P=xxx:,PV1=xxx:pf4_1:,PV2=xxx:Unidig1Bo,MONO=xxx:BraggERdbkAO"
+	}
+	display[6] {
 		label="PF4 Filter"
 		name="pf4.adl"
 		args="P=xxx:,H=pf4:,A=A,B=B,MONO=xxx:BraggEAO,B1=xxx:Unidig1Bo3,B2=xxx:Unidig1Bo4,B3=xxx:Unidig1Bo5,B4=xxx:Unidig1Bo6,B5=xxx:Unidig1Bo7,B6=xxx:Unidig1Bo8,B7=xxx:Unidig1Bo9,B8=xxx:Unidig1Bo10"
@@ -874,6 +863,16 @@ display {
 	display[8] {
 		label="timer"
 		name="timer.adl"
+		args="P=xxx:,N=1"
+	}
+	display[9] {
+		label="busyRecord"
+		name="busyRecord.adl"
+		args="P=xxx:,R=mybusy"
+	}
+	display[10] {
+		label="IDisableTransforms"
+		name="Transforms10.adl"
 		args="P=xxx:,N=1"
 	}
 	clr=0
@@ -1355,37 +1354,6 @@ text {
 }
 "related display" {
 	object {
-		x=210
-		y=80
-		width=70
-		height=20
-	}
-	display[0] {
-		label="LakeShore Temp. Controller"
-		name="LakeShore.adl"
-		args="P=xxx:,Q=TC1"
-	}
-	display[1] {
-		label="Keithley DMM (thermistors)"
-		name="KeithleyDMM.adl"
-		args="P=xxx:"
-	}
-	display[2] {
-		label="Eurotherm"
-		name="Eurotherm.adl"
-		args="P=xxx:"
-	}
-	display[3] {
-		label="Eurotherm 2k"
-		name="Eurotherm2k.adl"
-		args="P=xxx:,TC=1"
-	}
-	clr=0
-	bclr=17
-	label="-TempCtrl"
-}
-"related display" {
-	object {
 		x=140
 		y=60
 		width=70
@@ -1419,18 +1387,23 @@ text {
 	}
 	display[0] {
 		label="vme DAC 1 Chans 1-8"
-		name="topDAC8.adl"
+		name="VME_DAC8.adl"
 		args="P=xxx:,D=1"
 	}
 	display[1] {
 		label="vme DAC 2 Chans 1-8"
-		name="topDAC8.adl"
+		name="VME_DAC8.adl"
 		args="P=xxx:,D=2"
 	}
 	display[2] {
 		label="dac128V 1 Chans 1-8"
 		name="topDAC8.adl"
 		args="P=xxx:,D=3"
+	}
+	display[3] {
+		label="vme DAC 1 Chans 1-8"
+		name="topDAC8.adl"
+		args="P=xxx:,D=1"
 	}
 	clr=0
 	bclr=17
@@ -1497,7 +1470,7 @@ text {
 	}
 	display[0] {
 		label="IpUnidig I/O"
-		name="IpUnidig.adl"
+		name="IpUnidig_top.adl"
 		args="P=xxx:,R=Unidig1"
 	}
 	display[1] {
@@ -1660,20 +1633,25 @@ text {
 		width=70
 		height=20
 	}
-	display[6] {
-		label="scantest"
-		name="scanAux.adl"
-		args="P=xxx:,S=scantest"
+	display[0] {
+		label="XIA shutter 1"
+		name="XIA_shutter.adl"
+		args="P=xxx:,S=shutter1"
+	}
+	display[1] {
+		label="XIA shutter 2"
+		name="XIA_shutterTry.adl"
+		args="P=xxx:,S=shutter2"
 	}
 	clr=0
 	bclr=17
-	label="-Scan"
+	label="-XIA shutter"
 }
 "related display" {
 	object {
-		x=140
+		x=30
 		y=140
-		width=70
+		width=35
 		height=20
 	}
 	display[0] {
@@ -1728,9 +1706,14 @@ text {
 		args="P=xxx:,SLIT=Slit_2,H=Slit2H,mXp=m15,mXn=m16,V=Slit2V,mYp=m13,mYn=m14"
 	}
 	display[7] {
-		label="XIA slit 1"
-		name="xiahsc.adl"
+		label="XIA slit 1 (H)"
+		name="xia_slit.adl"
 		args="P=xxx:,HSC=hsc1:"
+	}
+	display[8] {
+		label="XIA slit 1 (V)"
+		name="xia_slit.adl"
+		args="P=xxx:,HSC=hsc2:"
 	}
 	clr=0
 	bclr=17
@@ -1754,17 +1737,125 @@ text {
 }
 "related display" {
 	object {
-		x=35
+		x=280
 		y=140
-		width=35
+		width=70
 		height=20
 	}
 	display[0] {
-		label="xps"
-		name="xps.adl"
-		args="P=xxx:"
+		label="ASRP mirror table"
+		name="ASRPmirrorTable.adl"
+		args="P=xxx:,TBL=mt1,VERT=xxx:m7,PITCH=xxx:m8"
 	}
 	clr=0
 	bclr=17
-	label="-xps"
+	label="-ASRPmt"
+}
+"related display" {
+	object {
+		x=140
+		y=140
+		width=70
+		height=20
+	}
+	display[0] {
+		label="ramp/tweak LaserDelay"
+		name="ramp_tweak.adl"
+		args="P=xxx:,Q=LaserDelay"
+	}
+	display[1] {
+		label="ramp/tweak rt1"
+		name="ramp_tweak.adl"
+		args="P=xxx:,Q=rt1"
+	}
+	clr=0
+	bclr=17
+	label="-ramp_tweak"
+}
+"shell command" {
+	object {
+		x=360
+		y=140
+		width=50
+		height=20
+	}
+	command[0] {
+		label="test"
+		name="xterm -e python test.py &A &"
+	}
+	clr=64
+	bclr=1
+	label="test"
+}
+"related display" {
+	object {
+		x=70
+		y=120
+		width=70
+		height=20
+	}
+	display[0] {
+		label="SRS 570 Current Preamplifier #A1"
+		name="SR570_tiny.adl"
+		args="P=xxx:,A=A1"
+	}
+	display[1] {
+		label="SRS 570 Current Preamplifier #A2"
+		name="SR570_tiny.adl"
+		args="P=xxx:,A=A2"
+	}
+	display[2] {
+		label="SRS 570 Current Preamplifier #A3"
+		name="SR570_tiny.adl"
+		args="P=xxx:,A=A3"
+	}
+	display[3] {
+		label="SRS 570 Current Preamplifier #A4"
+		name="SR570_tiny.adl"
+		args="P=xxx:,A=A4"
+	}
+	display[4] {
+		label="SRS 570 Current Preamplifier #A5"
+		name="SR570_tiny.adl"
+		args="P=xxx:,A=A5"
+	}
+	display[5] {
+		label="Femto Current Preamplifier"
+		name="femto.adl"
+		args="P=xxx:,H=fem01:,F=seq01:,AC=xxx:Unidig1Bo9"
+	}
+	clr=0
+	bclr=17
+	label="-Preamps"
+}
+"related display" {
+	object {
+		x=210
+		y=80
+		width=70
+		height=20
+	}
+	display[0] {
+		label="LakeShore Temp. Controller"
+		name="LakeShore.adl"
+		args="P=xxx:,Q=TC1"
+	}
+	display[1] {
+		label="Keithley DMM (thermistors)"
+		name="KeithleyDMM.adl"
+		args="P=xxx:"
+	}
+	display[2] {
+		label="Eurotherm"
+		name="Eurotherm.adl"
+		args="P=xxx:"
+	}
+	display[3] {
+		label="Eurotherm 2k"
+		name="Eurotherm2k.adl"
+		args="P=xxx:,TC=1"
+	}
+	clr=0
+	bclr=17
+	label="-TempCtrl"
 }
