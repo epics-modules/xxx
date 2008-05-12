@@ -40,11 +40,13 @@
 #!MAXvConfig(0, config0)
 
 ### Scalers: Joerger VSC8/16
-dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,OUT=#C0 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
+dbLoadRecords("$(STD)/stdApp/Db/scaler16.db","P=xxx:,S=scaler1,OUT=#C0 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
+# scaler database with modified calcs (user calcs for all 16 channels)
+dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=xxx:,S=scaler2,OUT=#C1 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
 # Joerger VSC setup parameters:
 #     (1)cards, (2)base address(ext, 256-byte boundary),
 #     (3)interrupt vector (0=disable or  64 - 255)
-VSCSetup(1, 0xB0000000, 200)
+VSCSetup(2, 0xB0000000, 200)
 
 # Joerger VS
 # scalerVS_Setup(int num_cards, /* maximum number of cards in crate */
@@ -53,7 +55,7 @@ VSCSetup(1, 0xB0000000, 200)
 #       int intlevel)
 scalerVS_Setup(1, 0x2000, 205, 5)
 #devScaler_VSDebug=0
-dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler3,OUT=#C0 S0 @, DTYP=Joerger VS, FREQ=10000000")
+dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=xxx:,S=scaler3,OUT=#C0 S0 @, DTYP=Joerger VS, FREQ=10000000")
 
 # Heidenhain IK320 VME encoder interpolator
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=1,switches=41344,irq=3")
@@ -66,27 +68,26 @@ dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler3,OUT=#C0 S0 @, DTYP=
 #devSTR7201Debug = 10
 #drvSTR7201Debug = 10
 
-dbLoadRecords("$(MCA)/mcaApp/Db/Struck8.db","P=xxx:mcs:")
-dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca1,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S0 @,CHANS=1000")
-dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca2,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S1 @,CHANS=1000")
-dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca3,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S2 @,CHANS=1000")
-dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca4,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S3 @,CHANS=1000")
-dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca5,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S4 @,CHANS=1000")
-dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca6,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S5 @,CHANS=1000")
-dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca7,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S6 @,CHANS=1000")
-dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca8,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S7 @,CHANS=1000")
+#dbLoadRecords("$(MCA)/mcaApp/Db/Struck8.db","P=xxx:mcs:")
+#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca1,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S0 @,CHANS=1000")
+#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca2,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S1 @,CHANS=1000")
+#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca3,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S2 @,CHANS=1000")
+#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca4,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S3 @,CHANS=1000")
+#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca5,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S4 @,CHANS=1000")
+#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca6,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S5 @,CHANS=1000")
+#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca7,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S6 @,CHANS=1000")
+#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca8,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S7 @,CHANS=1000")
 
 # Note the address 0x9000000 does not work on an MVME5100; try 0xA0000000
 # STR7201Setup(int numCards, int baseAddress, int interruptVector, int interruptLevel)
-STR7201Setup(2, 0xA0000000, 220, 6)
+#STR7201Setup(2, 0xA0000000, 220, 6)
 # STR7201Config(int card, int maxSignals, int maxChans, 
 #               int 1=enable internal 25MHZ clock, 
 #               int 1=enable initial software channel advance in MCS external advance mode)
-STR7201Config(0, 8, 1000, 1, 1)
+#STR7201Config(0, 8, 1000, 1, 1)
 
 # Struck as EPICS scaler
-#dbLoadRecords("$(MCA)/mcaApp/Db/STR7201scaler.db", "P=xxx:,S=scaler2,C=0")
-dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler2,OUT=#C0 S0 @,DTYP=Struck STR7201 Scaler,FREQ=25000000")
+#dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler2,OUT=#C0 S0 @,DTYP=Struck STR7201 Scaler,FREQ=25000000")
 
 # VMI4116 setup parameters: 
 #     (1)cards, (2)base address(short, 36-byte boundary), 
