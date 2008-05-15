@@ -14,7 +14,7 @@ include "opticsSupport.dbd"
 # support uncomment the following line
 #include "mcaCanberraSupport.dbd"
 #include "ipSupport.dbd"
-include "motorRecord.dbd"
+include "motorSupport.dbd"
 include "devSoftMotor.dbd"
 include "motorSimSupport.dbd"
 #include "devNewport.dbd"
