@@ -39,8 +39,8 @@ set_pass1_restoreFile("auto_settings.sav")
 
 ###
 # specify directories in which to to search for included request files
-set_requestfile_path("$(STARTUP)", "")
-set_requestfile_path("$(STARTUP)", "autosave")
+set_requestfile_path("$(TOP)/iocBoot/$(IOC)", "")
+set_requestfile_path("$(TOP)/iocBoot/$(IOC)", "autosave")
 set_requestfile_path("$(AUTOSAVE)", "asApp/Db")
 set_requestfile_path("$(CALC)", "calcApp/Db")
 #set_requestfile_path("$(CAMAC)", "camacApp/Db")
