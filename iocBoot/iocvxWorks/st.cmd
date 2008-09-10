@@ -106,7 +106,8 @@ dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=xxx:")
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
-dbLoadRecords("$(SSCAN)/sscanApp/Db/standardScans.db","P=xxx:,MAXPTS1=8000,MAXPTS2=1000,MAXPTS3=1000,MAXPTS4=1000,MAXPTSH=8000")
+putenv "MP=MAXPTS"
+dbLoadRecords("$(SSCAN)/sscanApp/Db/standardScans.db","P=xxx:,$(MP)1=8000,$(MP)2=1000,$(MP)3=1000,$(MP)4=1000,$(MP)H=8000")
 dbLoadRecords("$(SSCAN)/sscanApp/Db/saveData.db","P=xxx:")
 
 # A set of scan parameters for each positioner.  This is a convenience
@@ -258,7 +259,8 @@ iocInit
 seq &Io, "P=xxx:Io:,MONO=xxx:BraggEAO,VSC=xxx:scaler1"
 
 # Start Femto amplifier sequence programs
-#seq &femto,"name=fem1,P=xxx:,H=fem01:,F=seq01:,G1=xxx:Unidig1Bo6,G2=xxx:Unidig1Bo7,G3=xxx:Unidig1Bo8,NO=xxx:Unidig1Bo10"
+putenv "FBO=xxx:Unidig1Bo"
+#seq &femto,"name=fem1,P=xxx:,H=fem01:,F=seq01:,G1=$(FBO)6,G2=$(FBO)7,G3=$(FBO)8,NO=$(FBO)10"
 
 # Start PF4 filter sequence program
 #        name = what user will call it
@@ -270,8 +272,9 @@ seq &Io, "P=xxx:Io:,MONO=xxx:BraggEAO,VSC=xxx:scaler1"
 #        B2   = Filter control bit 1 PV
 #        B3   = Filter control bit 2 PV
 #        B4   = Fitler control bit 3 PV
-#seq &pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:BraggEAO,B1=xxx:Unidig1Bo3,B2=xxx:Unidig1Bo4,B3=xxx:Unidig1Bo5,B4=xxx:Unidig1Bo6"
-#seq &pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:BraggEAO,B1=xxx:Unidig1Bo7,B2=xxx:Unidig1Bo8,B3=xxx:Unidig1Bo9,B4=xxx:Unidig1Bo10"
+putenv "BO=xxx:Unidig1Bo"
+#seq &pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:BraggEAO,B1=$(BO)3,B2=$(BO)4,B3=$(BO)5,B4=$(BO)6"
+#seq &pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:BraggEAO,B1=$(BO)7,B2=$(BO)8,B3=$(BO)9,B4=$(BO)10"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".
