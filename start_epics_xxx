@@ -9,6 +9,7 @@ $output
 #
 setenv myEPICS_DISPLAY_PATH '.'
 setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$EPICS_APP/xxxApp/op/adl
+setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$AREADETECTOR/ADApp/op/adl
 setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$AUTOSAVE/asApp/op/adl
 setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$CALC/calcApp/op/adl
 setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$CAMAC/camacApp/op/adl
@@ -35,27 +36,6 @@ setenv EPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$EPICS_DISPLAY_PATH
 endif
 
 echo $EPICS_DISPLAY_PATH
-#####################
-# prepare BURT path
-#
-if (! ${?BURT_INCLUDE}) setenv BURT_INCLUDE ''
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$EPICS_APP/xxxApp/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$AUTOSAVE/asApp/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$CALC/calcApp/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$CAMAC/camacApp/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$CCD/ccdApp/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$DAC128V/dac128VApp/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$DXP/dxpApp/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$IP/ipApp/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$IP330/ip330App/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$IPUNIDIG/ipUnidigApp/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$MCA/mcaApp/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$MOTOR/motorApp/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$OPTICS/opticsApp/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$QUADEM/quadEMApp/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$SSCAN/sscanApp/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$STD/stdApp/op/burt"
-setenv BURT_INCLUDE "$BURT_INCLUDE  -I$VME/vmeApp/op/burt"
 
 if (! ${?MEDM_EXEC_LIST}) setenv MEDM_EXEC_LIST 'Probe;probe &P &'
 
