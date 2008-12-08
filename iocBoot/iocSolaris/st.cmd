@@ -18,21 +18,18 @@ errlogInit(5000)
 
 # debug sseq record
 #var sseqRecDebug,10
- 
 # need more entries in wait/scan-record channel-access queue?
 #var recDynLinkQsize, 1024
 
 # Specify largest array CA will transport
 # Note for N sscanRecord data points, need (N+1)*8 bytes, else MEDM
 # plot doesn't display
-#epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
+epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 
 ### save_restore setup
 # We presume a suitable initHook routine was compiled into the executable.
 # See also create_monitor_set(), after iocInit() .
 < save_restore.cmd
-
-dbLoadRecords("$(TOP)/xxxApp/Db/busy.db", "P=xxx:,B=busy")
 
 # Motors
 #dbLoadTemplate("motor.substitutions")
@@ -52,7 +49,7 @@ dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
-dbLoadRecords("$(SSCAN)/sscanApp/Db/standardScans.db","P=xxx:,MAXPTS1=2000,MAXPTS2=1000,MAXPTS3=1000,MAXPTS4=1000,MAXPTSH=2000")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/standardScans.db","P=xxx:,MAXPTS1=8000,MAXPTS2=1000,MAXPTS3=1000,MAXPTS4=1000,MAXPTSH=2000")
 dbLoadRecords("$(SSCAN)/sscanApp/Db/saveData.db","P=xxx:")
 
 # A set of scan parameters for each positioner.  This is a convenience
@@ -96,7 +93,7 @@ dbLoadTemplate("scanParms.substitutions")
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
-aCalcArraySize=2000
+var aCalcArraySize, 2000
 dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
 # extra userCalcs (must also load userCalcs10.db for the enable switch)
@@ -104,6 +101,8 @@ dbLoadRecords("$(CALC)/calcApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
 #dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
 # string sequence (sseq) records
 dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")
+# ramp/tweak
+dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt1")
 
 
 ### serial support ###
