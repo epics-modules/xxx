@@ -55,9 +55,10 @@ xxx_SRCS_solaris  += iocxxx_solaris_registerRecordDeviceDriver.cppa xxxMain.cpp
 xxx_SRCS_vxWorks  += -nil-
 
 #xxx_Common_LIBS += xxxSupport
-xxx_Common_LIBS += genSub
+#xxx_Common_LIBS += genSub
 xxx_Common_LIBS += mca
 xxx_Common_LIBS += calc
+xxx_Common_LIBS += busy
 xxx_Common_LIBS += sscan
 xxx_Common_LIBS += autosave
 xxx_Common_LIBS += optics
@@ -94,7 +95,7 @@ xxx_vxWorks_LIBS += oms DeltaTau
 #The following adds support from base/src/vxWorks
 xxx_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
-xxx_Linux_LIBS  += dxp handel
+#xxx_Linux_LIBS  += dxp handel
 # If libnet IS installed on your HOST Linux system;
 # uncomment the following line.
 #xxx_Linux_LIBS  += mcaCanberra
@@ -103,9 +104,10 @@ xxx_cygwin_LIBS += dxp handel
 
 xxx_WIN32_LIBS += dxp handel
 
-xxx_solaris_LIBS += genSub
+#xxx_solaris_LIBS += genSub
 #xxx_solaris_LIBS += mca
 xxx_solaris_LIBS += calc
+xxx_solaris_LIBS += busy
 xxx_solaris_LIBS += sscan
 xxx_solaris_LIBS += autosave
 xxx_solaris_LIBS += optics
@@ -132,7 +134,7 @@ xxx_LIBS_WIN32    = $(xxx_WIN32_LIBS)  $(xxx_Common_LIBS)
 # uncomment the following line.
 #xxx_SYS_LIBS_Linux += net pcap
 # For USB support on Saturn
-xxx_SYS_LIBS_Linux += usb
+#xxx_SYS_LIBS_Linux += usb
 xxx_SYS_LIBS_vxWorks += -nil-
 
 # This is needed by dxp on cygwin and WIN32
