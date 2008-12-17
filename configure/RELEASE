@@ -36,17 +36,19 @@
 #!SUPPORT=$(GATEWAY)/epics/synApps_5_2/support
 
 # 2ND METHOD; define the path to the synApps support directory and uncomment.
-SUPPORT=
+SUPPORT=/home/oxygen/MOONEY/epics/synApps/support
 
 ##############################################################################
 # Choice one, and only one, of the following two methods to define the synApps
 # configuration.
 
 # For the standard synApps configuration; uncomment the following line.
-include $(SUPPORT)/config/MASTER_RELEASE
+#include $(SUPPORT)/config/MASTER_RELEASE
+include $(SUPPORT)/configure/RELEASE
 
-# For a local, custom configuration; copy $(SUPPORT)/config/MASTER_RELEASE
-# to this directory, edit the local copy and uncomment the following line.
+# For a local, custom configuration; copy $(SUPPORT)/configure/RELEASE
+# to this directory as the file MASTER_RELEASE, edit the file and uncomment
+# the following line.
 #!include $(TOP)/configure/MASTER_RELEASE
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
