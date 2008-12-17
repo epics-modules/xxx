@@ -5,5 +5,5 @@ include "xxxCommonInclude.dbd"
 # (Support build is commented out of mca/mcaApp/CanberraSrc/Makefile)
 #include "mcaCanberraSupport.dbd"
 # If you want to build parallel port or USB interfaces to Saturn DXP uncomment the following line
-include "dxpSupport.dbd"
+#include "dxpSupport.dbd"
 
