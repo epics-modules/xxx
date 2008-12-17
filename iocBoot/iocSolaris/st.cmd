@@ -72,6 +72,9 @@ dbLoadTemplate("scanParms.substitutions")
 #var tableRecordDebug,1
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
 
+# Io calculation
+dbLoadRecords("$(OPTICS)/opticsApp/Db/Io.db","P=xxx:Io:")
+
 ### Monochromator support ###
 # Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
 # standard geometry (geometry 1)
