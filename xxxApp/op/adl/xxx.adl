@@ -1,14 +1,14 @@
 
 file {
 	name="/home/oxygen4/MOONEY/epics/synApps/support/xxx/xxxApp/op/adl/xxx.adl"
-	version=030102
+	version=030103
 }
 display {
 	object {
-		x=960
+		x=522
 		y=25
 		width=470
-		height=160
+		height=156
 	}
 	clr=64
 	bclr=1
@@ -89,10 +89,10 @@ display {
 }
 "related display" {
 	object {
-		x=-114
-		y=538
+		x=-113
+		y=525
 		width=136
-		height=23
+		height=22
 	}
 	display[0] {
 		label="TR_SLIT (S)"
@@ -171,7 +171,7 @@ display {
 "related display" {
 	object {
 		x=0
-		y=40
+		y=39
 		width=70
 		height=20
 	}
@@ -278,7 +278,7 @@ display {
 "related display" {
 	object {
 		x=0
-		y=80
+		y=78
 		width=70
 		height=20
 	}
@@ -380,7 +380,7 @@ display {
 "related display" {
 	object {
 		x=70
-		y=100
+		y=98
 		width=70
 		height=20
 	}
@@ -426,7 +426,7 @@ display {
 "related display" {
 	object {
 		x=210
-		y=100
+		y=98
 		width=70
 		height=20
 	}
@@ -447,7 +447,7 @@ display {
 "related display" {
 	object {
 		x=70
-		y=80
+		y=78
 		width=70
 		height=20
 	}
@@ -493,7 +493,7 @@ display {
 "related display" {
 	object {
 		x=140
-		y=120
+		y=117
 		width=70
 		height=20
 	}
@@ -514,7 +514,7 @@ display {
 "related display" {
 	object {
 		x=0
-		y=120
+		y=117
 		width=70
 		height=20
 	}
@@ -535,7 +535,7 @@ display {
 "related display" {
 	object {
 		x=0
-		y=60
+		y=59
 		width=70
 		height=20
 	}
@@ -554,7 +554,7 @@ display {
 "related display" {
 	object {
 		x=0
-		y=100
+		y=98
 		width=70
 		height=20
 	}
@@ -580,7 +580,7 @@ display {
 "related display" {
 	object {
 		x=280
-		y=60
+		y=59
 		width=70
 		height=20
 	}
@@ -606,7 +606,7 @@ display {
 "related display" {
 	object {
 		x=140
-		y=40
+		y=39
 		width=70
 		height=20
 	}
@@ -760,7 +760,7 @@ display {
 "related display" {
 	object {
 		x=280
-		y=40
+		y=39
 		width=70
 		height=20
 	}
@@ -785,7 +785,7 @@ display {
 "related display" {
 	object {
 		x=70
-		y=40
+		y=39
 		width=70
 		height=20
 	}
@@ -882,7 +882,7 @@ display {
 "related display" {
 	object {
 		x=210
-		y=60
+		y=59
 		width=70
 		height=20
 	}
@@ -913,7 +913,7 @@ display {
 "related display" {
 	object {
 		x=140
-		y=100
+		y=98
 		width=70
 		height=20
 	}
@@ -999,7 +999,7 @@ display {
 "related display" {
 	object {
 		x=140
-		y=80
+		y=78
 		width=70
 		height=20
 	}
@@ -1015,9 +1015,9 @@ display {
 "message button" {
 	object {
 		x=350
-		y=100
+		y=98
 		width=100
-		height=30
+		height=29
 	}
 	control {
 		chan="xxx:allstop.VAL"
@@ -1030,18 +1030,18 @@ display {
 composite {
 	object {
 		x=350
-		y=80
+		y=78
 		width=82
-		height=28
+		height=27
 	}
 	"composite name"=""
 	children {
 		text {
 			object {
 				x=351
-				y=81
+				y=79
 				width=80
-				height=26
+				height=25
 			}
 			"basic attribute" {
 				clr=54
@@ -1055,9 +1055,9 @@ composite {
 		text {
 			object {
 				x=352
-				y=82
+				y=80
 				width=80
-				height=26
+				height=25
 			}
 			"basic attribute" {
 				clr=54
@@ -1071,9 +1071,9 @@ composite {
 		text {
 			object {
 				x=350
-				y=80
+				y=78
 				width=80
-				height=26
+				height=25
 			}
 			"basic attribute" {
 				clr=50
@@ -1086,276 +1086,10 @@ composite {
 		}
 	}
 }
-rectangle {
-	object {
-		x=350
-		y=0
-		width=100
-		height=80
-	}
-	"basic attribute" {
-		clr=3
-		width=2
-	}
-}
-text {
-	object {
-		x=375
-		y=22
-		width=70
-		height=20
-	}
-	"basic attribute" {
-		clr=64
-	}
-	textix="Restore"
-}
-text {
-	object {
-		x=375
-		y=2
-		width=60
-		height=20
-	}
-	"basic attribute" {
-		clr=64
-	}
-	textix="Save"
-}
-text {
-	object {
-		x=375
-		y=42
-		width=70
-		height=20
-	}
-	"basic attribute" {
-		clr=64
-	}
-	textix="Compare"
-}
-text {
-	object {
-		x=375
-		y=62
-		width=70
-		height=20
-	}
-	"basic attribute" {
-		clr=64
-	}
-	textix="Tools"
-}
-"shell command" {
-	object {
-		x=353
-		y=0
-		width=20
-		height=20
-	}
-	command[0] {
-		label="Save settings to 'settings1.save' (scratchpad)"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f settings.req -o settings1.save"
-	}
-	command[1] {
-		label="Save settings to 'settings2.save' (short term)"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f settings.req -o settings2.save"
-	}
-	command[2] {
-		label="Save settings to 'settings3.save' (long term)"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f settings.req -o settings3.save"
-	}
-	command[3] {
-		label="Save positions to 'positions1.save' (scratch pad)"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f positions.req -o positions1.save"
-	}
-	command[4] {
-		label="Save positions to 'positions2.save' (short term)"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f positions.req -o positions2.save"
-	}
-	command[5] {
-		label="Save positions to 'positions3.save' (long term)"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f positions.req -o positions3.save"
-	}
-	clr=0
-	bclr=17
-}
-"shell command" {
-	object {
-		x=353
-		y=20
-		width=20
-		height=20
-	}
-	command[0] {
-		label="Restore settings from 'settings1.save' (scratch pad)"
-		name="cd ../burt; burtwb -f settings1.save"
-	}
-	command[1] {
-		label="Restore settings from 'settings2.save' (short term)"
-		name="cd ../burt; burtwb -f settings2.save"
-	}
-	command[2] {
-		label="Restore settings from 'settings3.save' (long term)"
-		name="cd ../burt; burtwb -f settings3.save"
-	}
-	command[3] {
-		label="Restore settings from 'settings4.save' (read only)"
-		name="cd ../burt; burtwb -f settings4.save"
-	}
-	command[4] {
-		label="Restore positions from 'positions1.save' (scratch pad)"
-		name="cd ../burt; burtwb -f positions1.save"
-	}
-	command[5] {
-		label="Restore positions from 'positions2.save' (short term)"
-		name="cd ../burt; burtwb -f positions2.save"
-	}
-	command[6] {
-		label="Restore positions from 'positions3.save' (long term)"
-		name="cd ../burt; burtwb -f positions3.save"
-	}
-	command[7] {
-		label="Restore positions from 'positions4.save' (read only)"
-		name="cd ../burt; burtwb -f positions4.save"
-	}
-	clr=0
-	bclr=17
-}
-"shell command" {
-	object {
-		x=353
-		y=40
-		width=20
-		height=20
-	}
-	command[0] {
-		label="Compare current settings with 'settings1.save' (scratchpad)"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f settings.req -o current.save 1>&- 2>&-; wrapCmd 'showBurtDiff current.save settings1.save'&"
-	}
-	command[1] {
-		label="Compare current settings with 'settings2.save' (short term)"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f settings.req -o current.save 1>&- 2>&-; wrapCmd 'showBurtDiff current.save settings2.save'&"
-	}
-	command[2] {
-		label="Compare current settings with 'settings3.save' (long term)"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f settings.req -o current.save; wrapCmd 'showBurtDiff current.save settings3.save'&"
-	}
-	command[3] {
-		label="Compare current settings with 'settings4.save' (read only)"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f settings.req -o current.save 1>&- 2>&-; wrapCmd 'showBurtDiff current.save settings4.save'&"
-	}
-	command[4] {
-		label="Compare current positions with 'positions1.save' (scratch pad)"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f positions.req -o current.save 1>&- 2>&-; wrapCmd 'showBurtDiff current.save positions1.save'&"
-	}
-	command[5] {
-		label="Compare current positions with 'positions2.save' (short term)"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f positions.req -o current.save 1>&- 2>&-; wrapCmd 'showBurtDiff current.save positions2.save'&"
-	}
-	command[6] {
-		label="Compare current positions with 'positions3.save' (long term)"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f positions.req -o current.save 1>&- 2>&-; wrapCmd 'showBurtDiff current.save positions3.save'&"
-	}
-	command[7] {
-		label="Compare current positions with 'positions4.save' (long term)"
-		name="cd ../burt; burtrb $BURT_INCLUDE -f positions.req -o current.save 1>&- 2>&-; wrapCmd 'showBurtDiff current.save positions4.save'&"
-	}
-	clr=0
-	bclr=17
-}
-"shell command" {
-	object {
-		x=353
-		y=60
-		width=20
-		height=20
-	}
-	command[0] {
-		label="data catcher (run-time license)"
-		name="cd ../idl; catcher&"
-	}
-	command[1] {
-		label="data catcher (developer's license)"
-		name="cd ../idl; catcher -D&"
-	}
-	command[2] {
-		label="stripTool (stripchart)"
-		name="stripTool&"
-	}
-	command[3] {
-		label="New StripTool"
-		name="StripTool&"
-	}
-	command[4] {
-		label="EPICS channel-access probe"
-		name="probe&"
-	}
-	command[5] {
-		label="MCA 4.2 (developer's license)"
-		name="cd ../idl; wrapCmd startMCA_4.2&"
-	}
-	command[7] {
-		label="scanSee"
-		name="cd ../idl; wrapCmd scanSee&"
-	}
-	clr=0
-	bclr=17
-}
-"related display" {
-	object {
-		x=430
-		y=80
-		width=20
-		height=20
-	}
-	display[0] {
-		label="alldone waits"
-		name="yyWaitRecord_full.adl"
-		args="P=xxx:,C=alldone"
-	}
-	display[1] {
-		label="alldone_1 waits"
-		name="yyWaitRecord_full.adl"
-		args="P=xxx:,C=alldone_1"
-	}
-	display[2] {
-		label="alldone_2 waits"
-		name="yyWaitRecord_full.adl"
-		args="P=xxx:,C=alldone_2"
-	}
-	display[3] {
-		label="alldone_3 waits"
-		name="yyWaitRecord_full.adl"
-		args="P=xxx:,C=alldone_3"
-	}
-	display[4] {
-		label="alldone_4 waits"
-		name="yyWaitRecord_full.adl"
-		args="P=xxx:,C=alldone_4"
-	}
-	display[5] {
-		label="alldone_5 waits"
-		name="yyWaitRecord_full.adl"
-		args="P=xxx:,C=alldone_5"
-	}
-	display[6] {
-		label="alldone_6 waits"
-		name="yyWaitRecord_full.adl"
-		args="P=xxx:,C=alldone_6"
-	}
-	display[7] {
-		label="alldone_7 waits"
-		name="yyWaitRecord_full.adl"
-		args="P=xxx:,C=alldone_7"
-	}
-	clr=0
-	bclr=17
-}
 "related display" {
 	object {
 		x=140
-		y=60
+		y=59
 		width=70
 		height=20
 	}
@@ -1381,7 +1115,7 @@ text {
 "related display" {
 	object {
 		x=70
-		y=60
+		y=59
 		width=70
 		height=20
 	}
@@ -1443,7 +1177,7 @@ text {
 "related display" {
 	object {
 		x=210
-		y=40
+		y=39
 		width=70
 		height=20
 	}
@@ -1464,7 +1198,7 @@ text {
 "related display" {
 	object {
 		x=210
-		y=120
+		y=117
 		width=70
 		height=20
 	}
@@ -1500,7 +1234,7 @@ text {
 "related display" {
 	object {
 		x=280
-		y=100
+		y=98
 		width=70
 		height=20
 	}
@@ -1546,7 +1280,7 @@ text {
 "related display" {
 	object {
 		x=280
-		y=120
+		y=117
 		width=70
 		height=20
 	}
@@ -1597,7 +1331,7 @@ text {
 "related display" {
 	object {
 		x=210
-		y=140
+		y=137
 		width=70
 		height=20
 	}
@@ -1613,7 +1347,7 @@ text {
 "related display" {
 	object {
 		x=0
-		y=140
+		y=137
 		width=35
 		height=20
 	}
@@ -1629,7 +1363,7 @@ text {
 "related display" {
 	object {
 		x=70
-		y=140
+		y=137
 		width=70
 		height=20
 	}
@@ -1650,7 +1384,7 @@ text {
 "related display" {
 	object {
 		x=30
-		y=140
+		y=137
 		width=35
 		height=20
 	}
@@ -1722,7 +1456,7 @@ text {
 "related display" {
 	object {
 		x=280
-		y=80
+		y=78
 		width=70
 		height=20
 	}
@@ -1738,7 +1472,7 @@ text {
 "related display" {
 	object {
 		x=280
-		y=140
+		y=137
 		width=70
 		height=20
 	}
@@ -1754,7 +1488,7 @@ text {
 "related display" {
 	object {
 		x=140
-		y=140
+		y=137
 		width=70
 		height=20
 	}
@@ -1772,25 +1506,10 @@ text {
 	bclr=17
 	label="-ramp_tweak"
 }
-"shell command" {
-	object {
-		x=360
-		y=140
-		width=50
-		height=20
-	}
-	command[0] {
-		label="test"
-		name="xterm -e python test.py &A &"
-	}
-	clr=64
-	bclr=1
-	label="test"
-}
 "related display" {
 	object {
 		x=70
-		y=120
+		y=117
 		width=70
 		height=20
 	}
@@ -1831,7 +1550,7 @@ text {
 "related display" {
 	object {
 		x=210
-		y=80
+		y=78
 		width=70
 		height=20
 	}
@@ -1858,4 +1577,55 @@ text {
 	clr=0
 	bclr=17
 	label="-TempCtrl"
+}
+"related display" {
+	object {
+		x=350
+		y=0
+		width=50
+		height=20
+	}
+	display[0] {
+		label="dig delay GigaBaudics"
+		name="digDelay.adl"
+		args="P=xxx:,Q=digDly1:,T=GigaBaudics"
+	}
+	display[1] {
+		label="dig delay PPS100"
+		name="digDelay.adl"
+		args="P=xxx:,Q=digDlyPPS:,T=PPS_0"
+	}
+	clr=0
+	bclr=17
+	label="-digDelay"
+}
+"related display" {
+	object {
+		x=400
+		y=0
+		width=50
+		height=20
+	}
+	display[0] {
+		label="test"
+		name="test.adl"
+		args="P=xxx:"
+	}
+	display[1] {
+		label="test Composite"
+		name="testC.adl"
+		args="P=xxx:"
+	}
+	display[2] {
+		label="test_grabbag"
+		name="newDisplay.adl"
+		args="P=xxx:"
+	}
+	display[3] {
+		label="llnl_slit"
+		name="llnl_slit.adl"
+	}
+	clr=0
+	bclr=17
+	label="-test"
 }
