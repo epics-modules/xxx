@@ -1,6 +1,7 @@
 # stuff for non-vxWorks ioc
 include "base.dbd"
 
+
 # asyn
 include "asyn.dbd"
 include "drvAsynSerialPort.dbd"
@@ -13,11 +14,14 @@ include "devGpib.dbd"
 # std
 include "stdSupport.dbd"
 
-# genSub
-include "genSubRecord.dbd"
+# genSub (for EPICS 3.14.10, use aSub)
+#include "genSubRecord.dbd"
 
 # calc
 include "calcSupport.dbd"
+
+# busy
+include "busySupport.dbd"
 
 # sscan
 include "sscanSupport.dbd"
