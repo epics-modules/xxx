@@ -61,9 +61,9 @@ file scanParms_settings.req P=$(P),M=SM10
 
 file table_settings.req P=$(P),T=table1,Q=Table1
 
-file scaler_8ch_settings.req P=$(P),S=scaler1
-file scaler_8ch_settings.req P=$(P),S=scaler2
-file scaler_64ch_settings.req P=$(P),S=scaler3
+file scaler_16ch_settings.req P=$(P),S=scaler1
+#file scaler_8ch_settings.req P=$(P),S=scaler2
+#file scaler_64ch_settings.req P=$(P),S=scaler3
 
 file standardScans_settings.req P=$(P)
 file saveData_settings.req P=$(P)
@@ -145,10 +145,6 @@ $(P):R_FD
 $(P):R_Load
 $(P):R_Mem
 
-# orientation matrix
-#file orient_settings.req P=$(P),O=1
-#file orient_xtals_settings.req P=$(P),O=1
-
 # pvHistory
 file pvHistory.req P=$(P),N=1
 
@@ -175,7 +171,4 @@ file deviceCmdReply_settings.req P=$(P),N=3
 
 file timer.req P=$(P),N=1
 
-file ASRPmirrorTable_settings.req P=xxx:,TBL=mt1
-
-file ramp_tweak_settings.req P=$(P),Q=LaserDelay
 file ramp_tweak_settings.req P=$(P),Q=rt1
