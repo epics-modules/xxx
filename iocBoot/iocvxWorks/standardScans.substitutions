@@ -1,0 +1,6 @@
+file "$(SSCAN)/sscanApp/Db/standardScans.db"
+{
+pattern
+{P, MAXPTS1, MAXPTS2, MAXPTS3, MAXPTS4, MAXPTSH}
+{xxx:, 8000, 1000, 1000, 1000, 8000}
+}
