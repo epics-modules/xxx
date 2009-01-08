@@ -1,54 +1,27 @@
-# RELEASE - Location of external products
+#RELEASE Location of external products
 #
-# Run "gnumake clean uninstall install" in the application
-# top directory each time this file is changed.
+# IF YOU MAKE ANY CHANGES to this file you MUST at least run
+# "gnumake" in this directory afterwards; you usually need
+# to run "gnumake rebuild" in the application's top level
+# directory each time this file is changed.
 #
-# Notes:
+# NOTE: The build does not check dependencies against files
+# that are outside this application, thus you should run
+# "gnumake distclean install" in the top directory each time
+# EPICS_BASE, SNCSEQ, or any other external module defined
+# in the RELEASE file is rebuilt.
 #
-# - Architecture dependent declarations should go into RELEASE.<arch>
-#
-# - This file will be scanned to automatically generate
-#   include path definitions etc.
-#   The order of the following declarations will be retained
-#   within those definitions.
-#
-# - The build does not check dependencies on files
-#   external to this application. Thus you should run
-#   "gnumake clean uninstall install" in the top directory
-#   each time EPICS_BASE, SNCSEQ, or any other external
-#   module defined in the RELEASE file is rebuilt.
-#
-# - "#!" marks lines that can be uncommented.
+# Host/target specific settings can be specified in files named
+#  RELEASE.$(EPICS_HOST_ARCH).Common
+#  RELEASE.Common.$(T_A)
+#  RELEASE.$(EPICS_HOST_ARCH).$(T_A)
 
 ##############################################################################
-# Choose one, and only one, of the following two methods to define SUPPORT.
-#
-# The 1st method uses the intermediate variable GATEWAY.  GATEWAY is used if
-# you are using a shared distribution of synApps among users with different
-# directory paths (i.e., mount points) to synApps.
 
-# The 2nd, defalut, method is for users that have their own copy of synApps.
-
-# 1ST METHOD, for GATEWAY users.
-# If you are using the APS gateway to access synApps; define the NFS mount path
-# to the gateway here and uncomment the following lines.
-#!GATEWAY=
-#!SUPPORT=$(GATEWAY)/epics/synApps_5_2/support
-
-# 2ND METHOD; define the path to the synApps support directory and uncomment.
+# Define the path to the synApps support directory and uncomment.
 SUPPORT=/home/oxygen/MOONEY/epics/synApps/support
 
-##############################################################################
-# Choice one, and only one, of the following two methods to define the synApps
-# configuration.
-
-# For the standard synApps configuration; uncomment the following line.
-#include $(SUPPORT)/config/MASTER_RELEASE
+# Specify the standard synApps configuration.
 include $(SUPPORT)/configure/RELEASE
-
-# For a local, custom configuration; copy $(SUPPORT)/configure/RELEASE
-# to this directory as the file MASTER_RELEASE, edit the file and uncomment
-# the following line.
-#!include $(TOP)/configure/MASTER_RELEASE
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
