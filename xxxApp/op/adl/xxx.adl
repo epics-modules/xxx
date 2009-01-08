@@ -1417,12 +1417,7 @@ composite {
 	display[2] {
 		label="Slit 1 Graphic"
 		name="4slitGraphic.adl"
-		args="P=xxx:,SLIT=Slit_1,H=Slit1H,mXp=m3,mXn=m4,V=Slit1V,mYp=m5,mYn=m6"
-	}
-	display[3] {
-		label="Slit Motors"
-		name="motor4x.adl"
-		args="P=xxx:,M1=m3,M2=m4,M3=m5,M4=m6"
+		args="P=xxx:,SLIT=Slit_1,H=Slit1H,V=Slit1V"
 	}
 	display[4] {
 		label="Slit 2 (H) (soft)"
