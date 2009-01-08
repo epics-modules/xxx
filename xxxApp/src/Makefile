@@ -55,7 +55,6 @@ xxx_SRCS_solaris  += iocxxx_solaris_registerRecordDeviceDriver.cppa xxxMain.cpp
 xxx_SRCS_vxWorks  += -nil-
 
 #xxx_Common_LIBS += xxxSupport
-#xxx_Common_LIBS += genSub
 xxx_Common_LIBS += mca
 xxx_Common_LIBS += calc
 xxx_Common_LIBS += busy
