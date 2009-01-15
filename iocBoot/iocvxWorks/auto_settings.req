@@ -61,7 +61,7 @@ file scanParms_settings.req P=$(P),M=SM10
 
 file table_settings.req P=$(P),T=table1,Q=Table1
 
-file scaler_16ch_settings.req P=$(P),S=scaler1
+file scaler16m_settings.req P=$(P),S=scaler1
 #file scaler_8ch_settings.req P=$(P),S=scaler2
 #file scaler_64ch_settings.req P=$(P),S=scaler3
 

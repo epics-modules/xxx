@@ -28,8 +28,8 @@ sysCplusEnable=1
 ##mem = malloc(1024*1024*96)
 
 ### Load synApps EPICS software
-ld < xxx.munch
-
+### doesn't work for tornado 2.2.2 ### ld < xxx.munch
+ld(0,0,"xxx.munch")
 cd startup
 
 # Increase size of buffer for error logging from default 1256
@@ -52,18 +52,11 @@ recDynLinkQsize = 1024
 ################################################################################
 # Tell EPICS all about the record types, device-support modules, drivers,
 # etc. in the software we just loaded (xxx.munch)
-dbLoadDatabase("../../dbd/iocxxxVX.dbd")
+dbLoadDatabase("$(TOP)/dbd/iocxxxVX.dbd")
 iocxxxVX_registerRecordDeviceDriver(pdbbase)
 
-# test ramp output
-dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=LaserDelay")
+# user-assignable ramp/tweak
 dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt1")
-
-# ASRP table
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/ASRPmirrorTable.db","P=xxx:,TBL=mt1,VERT=xxx:m7,PITCH=xxx:m8")
-
-# Spare busy record
-#dbLoadRecords("$(TOP)/xxxApp/Db/busy.db","P=xxx:")
 
 ### save_restore setup
 # We presume a suitable initHook routine was compiled into xxx.munch.
@@ -71,10 +64,10 @@ dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt1")
 < save_restore.cmd
 
 # Industry Pack support
-#< industryPack.cmd
+< industryPack.cmd
 
 # serial support
-#< serial.cmd
+< serial.cmd
 
 # gpib support
 #< gpib.cmd
@@ -100,14 +93,10 @@ dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=xxx:")
 ### Insertion-device control
 #dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=xxx:,xx=02us")
 
-# sample-wheel
-#dbLoadRecords("$(STD)/stdApp/Db/sampleWheel.db", "P=xxx:,ROWMOTOR=xxx:m7,ANGLEMOTOR=xxx:m8")
-
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
-putenv "MP=MAXPTS"
-dbLoadRecords("$(SSCAN)/sscanApp/Db/standardScans.db","P=xxx:,$(MP)1=8000,$(MP)2=1000,$(MP)3=1000,$(MP)4=1000,$(MP)H=8000")
+dbLoadTemplate("standardScans.substitutions")
 dbLoadRecords("$(SSCAN)/sscanApp/Db/saveData.db","P=xxx:")
 
 # A set of scan parameters for each positioner.  This is a convenience
@@ -178,10 +167,6 @@ dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
 aCalcArraySize=2000
 dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
-# individually disabled transforms
-dbLoadRecords("$(CALC)/calcApp/Db/transforms10.db","P=xxx:,N=1")
-# extra userCalcs (must also load userCalcs10.db for the enable switch)
-#dbLoadRecords("$(CALC)/calcApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
 dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
 # string sequence (sseq) records
 dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")

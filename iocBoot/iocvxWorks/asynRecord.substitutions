@@ -10,5 +10,5 @@ pattern
 {xxx:     asyn_6   serial6    0    2600  2600}
 {xxx:     asyn_7   serial7    0     256  256}
 {xxx:     asyn_8   serial8    0     256  256}
-{xxx:     gpib1    gpib1      1    2600 2600}
+#{xxx:     gpib1    gpib1      1    2600 2600}
 }

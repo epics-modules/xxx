@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=522
-		y=25
+		x=551
+		y=57
 		width=470
 		height=156
 	}
@@ -386,7 +386,7 @@ display {
 	}
 	display[0] {
 		label="Scaler 1"
-		name="scaler16.adl"
+		name="scaler16m.adl"
 		args="P=xxx:,S=scaler1"
 	}
 	display[1] {
@@ -1417,7 +1417,12 @@ composite {
 	display[2] {
 		label="Slit 1 Graphic"
 		name="4slitGraphic.adl"
-		args="P=xxx:,SLIT=Slit_1,H=Slit1H,V=Slit1V"
+		args="P=xxx:,SLIT=Slit_1,H=Slit1H,mXp=m3,mXn=m4,V=Slit1V,mYp=m5,mYn=m6"
+	}
+	display[3] {
+		label="Slit Motors"
+		name="motor4x.adl"
+		args="P=xxx:,M1=m3,M2=m4,M3=m5,M4=m6"
 	}
 	display[4] {
 		label="Slit 2 (H) (soft)"
@@ -1572,55 +1577,4 @@ composite {
 	clr=0
 	bclr=17
 	label="-TempCtrl"
-}
-"related display" {
-	object {
-		x=350
-		y=0
-		width=50
-		height=20
-	}
-	display[0] {
-		label="dig delay GigaBaudics"
-		name="digDelay.adl"
-		args="P=xxx:,Q=digDly1:,T=GigaBaudics"
-	}
-	display[1] {
-		label="dig delay PPS100"
-		name="digDelay.adl"
-		args="P=xxx:,Q=digDlyPPS:,T=PPS_0"
-	}
-	clr=0
-	bclr=17
-	label="-digDelay"
-}
-"related display" {
-	object {
-		x=400
-		y=0
-		width=50
-		height=20
-	}
-	display[0] {
-		label="test"
-		name="test.adl"
-		args="P=xxx:"
-	}
-	display[1] {
-		label="test Composite"
-		name="testC.adl"
-		args="P=xxx:"
-	}
-	display[2] {
-		label="test_grabbag"
-		name="newDisplay.adl"
-		args="P=xxx:"
-	}
-	display[3] {
-		label="llnl_slit"
-		name="llnl_slit.adl"
-	}
-	clr=0
-	bclr=17
-	label="-test"
 }

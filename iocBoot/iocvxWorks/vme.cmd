@@ -7,13 +7,13 @@
 #     (1)cards, (2)base address(short, 16-byte boundary),
 #     (3)interrupt vector (0=disable or  64 - 255), (4)interrupt level (1 - 6),
 #     (5)motor task polling rate (min=1Hz,max=60Hz)
-#!omsSetup(2, 0xFC00, 180, 5, 10)
+omsSetup(2, 0xFC00, 180, 5, 10)
 
 # OMS VME58 driver setup parameters:
 #     (1)cards, (2)base address(short, 4k boundary),                  
 #     (3)interrupt vector (0=disable or  64 - 255), (4)interrupt level (1 - 6),
 #     (5)motor task polling rate (min=1Hz,max=60Hz)
-#!oms58Setup(2, 0x4000, 190, 5, 10)
+oms58Setup(2, 0x4000, 190, 5, 10)
 
 # OMS MAXv driver setup parameters: 
 #     (1)number of cards in array.
@@ -40,9 +40,9 @@
 #!MAXvConfig(0, config0)
 
 ### Scalers: Joerger VSC8/16
-dbLoadRecords("$(STD)/stdApp/Db/scaler16.db","P=xxx:,S=scaler1,OUT=#C0 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
+#dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,OUT=#C1 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
 # scaler database with modified calcs (user calcs for all 16 channels)
-dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=xxx:,S=scaler2,OUT=#C1 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
+dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=xxx:,S=scaler1,OUT=#C0 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
 # Joerger VSC setup parameters:
 #     (1)cards, (2)base address(ext, 256-byte boundary),
 #     (3)interrupt vector (0=disable or  64 - 255)
@@ -53,9 +53,9 @@ VSCSetup(2, 0xB0000000, 200)
 #       char *addrs,            /* address (0x800-0xf800, 2048-byte (0x800) boundary) */
 #       unsigned vector,        /* valid vectors(64-255) */
 #       int intlevel)
-scalerVS_Setup(1, 0x2000, 205, 5)
+#scalerVS_Setup(1, 0x2000, 205, 5)
 #devScaler_VSDebug=0
-dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=xxx:,S=scaler3,OUT=#C0 S0 @, DTYP=Joerger VS, FREQ=10000000")
+#dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=xxx:,S=scaler3,OUT=#C0 S0 @, DTYP=Joerger VS, FREQ=10000000")
 
 # Heidenhain IK320 VME encoder interpolator
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=1,switches=41344,irq=3")
