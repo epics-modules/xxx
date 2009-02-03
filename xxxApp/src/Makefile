@@ -136,6 +136,10 @@ xxx_LIBS_WIN32    = $(xxx_WIN32_LIBS)  $(xxx_Common_LIBS)
 #xxx_SYS_LIBS_Linux += usb
 xxx_SYS_LIBS_vxWorks += -nil-
 
+# This is needed by areaDetector on Linux and WIN32
+xxx_LIBS_WIN32        += PvAPI
+xxx_LIBS_Linux        += PvAPI
+
 # This is needed by dxp on cygwin and WIN32
 xxx_SYS_LIBS_cygwin32 += DLPORTIO PlxApi setupapi
 xxx_LIBS_WIN32        += DLPORTIO PlxApi
