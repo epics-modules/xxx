@@ -107,6 +107,8 @@ dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")
 # ramp/tweak
 dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt1")
 
+# pvHistory (in-crate archive of up to three PV's)
+dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
 
 ### serial support ###
 
