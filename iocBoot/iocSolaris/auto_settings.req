@@ -39,22 +39,28 @@ file Io_settings.req P=xxx:Io:
 ### autosaved.
 file userCalcs10_settings.req P=$(P)
 file userCalcN_settings.req P=$(P),N=I_Detector
-#$(P)userCalcEnable
+$(P)userCalcEnable
 
 file userTransforms10_settings.req P=$(P)
-#$(P)userTranEnable
+$(P)userTranEnable
 
 file userStringCalcs10_settings.req P=$(P)
-#$(P)userStringCalcEnable
+$(P)userStringCalcEnable
 
 file userArrayCalcs10_settings.req P=$(P)
-#$(P)userArrayCalcEnable
+$(P)userArrayCalcEnable
+# Note that the above does not save arrays.  You can do this, one record
+# at a time, as follows:
+#file acalcoutArrays_settings.req P=$(P)userArrayCalc1
 
 file userStringSeqs10_settings.req P=$(P)
-#$(P)userStringSeqEnable
+$(P)userStringSeqEnable
 
 file userCalcOuts10_settings.req P=$(P)
-#$(P)userCalcOutEnable
+$(P)userCalcOutEnable
+
+# pvHistory
+file pvHistory.req P=$(P),N=1
 
 # orientation matrix
 #file orient_settings.req P=$(P),O=1
