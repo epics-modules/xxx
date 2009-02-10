@@ -2,7 +2,7 @@ setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps/support/xxx
 set output = `perl $EPICS_APP/release.pl $EPICS_APP`
 $output
 setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$EPICS_APP/xxxApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$AREADETECTOR/ADApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$AREA_DETECTOR/ADApp/op/adl
 setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$AUTOSAVE/asApp/op/adl
 setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$CALC/calcApp/op/adl
 setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$CAMAC/camacApp/op/adl
