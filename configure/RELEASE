@@ -24,4 +24,10 @@ SUPPORT=/home/oxygen/MOONEY/epics/synApps/support
 # Specify the standard synApps configuration.
 include $(SUPPORT)/configure/RELEASE
 
+# For a local, custom configuration; copy $(SUPPORT)/configure/RELEASE
+# to this directory as the file MASTER_RELEASE, edit the file, comment out
+# the above include, and uncomment the following line.
+#!include $(TOP)/configure/MASTER_RELEASE
+
+
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
