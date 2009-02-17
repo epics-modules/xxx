@@ -592,7 +592,7 @@ display {
 	display[1] {
 		label="IOC_Status.adl"
 		name="IOC_Status.adl"
-		args="P=xxx:"
+		args="P=xxx"
 	}
 	display[2] {
 		label="save_restore Status"
