@@ -22,7 +22,7 @@ setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$SSCAN/sscanApp/op/adl
 setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$STD/stdApp/op/adl
 setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$VME/vmeApp/op/adl
 setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$ASYN/medm
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$VAC/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$VAC/vacApp/op/adl
 
 # This should agree with the environment variable set by the ioc
 # see 'putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"' in iocBoot/ioc<target>/st.cmd
