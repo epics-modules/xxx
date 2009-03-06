@@ -109,9 +109,6 @@ file Io_settings.req P=xxx:Io:
 file userCalcs10_settings.req P=$(P)
 #$(P)userCalcEnable.VAL
 
-file userCalcOuts10_settings.req P=$(P)
-#$(P)userCalcOutEnable.VAL
-
 file userTransforms10_settings.req P=$(P)
 #$(P)userTranEnable.VAL
 
