@@ -1,5 +1,0 @@
-# Stuff for Cygwin ioc
-include "xxxCommonInclude.dbd"
-# If you want to build parallel port or USB interfaces to Saturn and/or xMAP DXP 
-# then uncomment the following line
-include "dxpSupport.dbd"
