@@ -38,12 +38,44 @@ else
 ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
 DBD  += iocxxxCygwin.dbd
 else
-DBD  += iocxxx.dbd
+ifeq ($(OS_CLASS), vxWorks)
 DBD  += iocxxxVX.dbd
+else
+ifeq ($(OS_CLASS), Linux)
 DBD  += iocxxxLinux.dbd
+else
+ifeq ($(OS_CLASS), solaris)
 DBD  += iocxxx_solaris.dbd
+else
+DBD  += iocxxx.dbd
 endif
 endif
+endif
+endif
+endif
+
+# If your host supports libpcap and libnet and you want to build Canberra network
+# support, set LINUX_NET_INSTALLED to YES in <synApps>/configure/CONFIG_SITE.
+iocxxxLinux_DBD += xxxCommonInclude.dbd
+ifneq ($(OS_CLASS), Linux)
+iocxxxLinux_DBD += mcaCanberraSupport.dbd
+else
+ifeq ($(LINUX_NET_INSTALLED), YES)
+iocxxxLinux_DBD += mcaCanberraSupport.dbd
+endif
+endif
+# If your host supports parallel port or USB interfaces to Saturn DXP, set
+# LINUX_USB_INSTALLED to YES in <synApps>/configure/CONFIG_SITE.
+ifneq ($(OS_CLASS), Linux)
+iocxxxLinux_DBD += dxpSupport.dbd
+else
+ifeq ($(OS_CLASS), Linux)
+ifeq ($(LINUX_USB_INSTALLED), YES)
+iocxxxLinux_DBD += dxpSupport.dbd
+endif
+endif
+endif
+
 
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
 xxx_SRCS_DEFAULT  += iocxxx_registerRecordDeviceDriver.cpp          xxxMain.cpp
@@ -94,10 +126,12 @@ xxx_vxWorks_LIBS += oms DeltaTau
 #The following adds support from base/src/vxWorks
 xxx_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
-#xxx_Linux_LIBS  += dxp handel
-# If libnet IS installed on your HOST Linux system;
-# uncomment the following line.
-#xxx_Linux_LIBS  += mcaCanberra
+ifeq ($(LINUX_USB_INSTALLED), YES)
+xxx_Linux_LIBS  += dxp handel
+endif
+ifeq ($(LINUX_NET_INSTALLED), YES)
+xxxLinux_LIBS += mcaCanberra
+endif
 
 xxx_cygwin_LIBS += dxp handel
 
@@ -138,11 +172,8 @@ xxx_SYS_LIBS_vxWorks += -nil-
 
 # This is needed by areaDetector on Linux and WIN32
 xxx_LIBS_WIN32        += PvAPI
-
-ifeq ($(EPICS_HOST_ARCH), linux-x86)
 ifeq ($(LINUX_TIFF_INSTALLED), YES)
 xxx_LIBS_Linux        += PvAPI
-endif
 endif
 
 # This is needed by dxp on cygwin and WIN32

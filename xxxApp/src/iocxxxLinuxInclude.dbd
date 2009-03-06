@@ -1,9 +1,2 @@
 # stuff for Linux ioc
 include "xxxCommonInclude.dbd"
-# If your host supports libpcap and libnet and you want to build Canberra network
-# support uncomment the following line
-# (Support build is commented out of mca/mcaApp/CanberraSrc/Makefile)
-#include "mcaCanberraSupport.dbd"
-# If you want to build parallel port or USB interfaces to Saturn DXP uncomment the following line
-#include "dxpSupport.dbd"
-
