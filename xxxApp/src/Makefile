@@ -138,7 +138,10 @@ xxx_SYS_LIBS_vxWorks += -nil-
 
 # This is needed by areaDetector on Linux and WIN32
 xxx_LIBS_WIN32        += PvAPI
-xxx_LIBS_Linux        += PvAPI
+# Couldn't get areaDetector to build on Linux with, e.g., libtiff.so.
+# Comment this out until we get libtiff.a installed, or solve the problem
+# some other way.  tmm
+#xxx_LIBS_Linux        += PvAPI
 
 # This is needed by dxp on cygwin and WIN32
 xxx_SYS_LIBS_cygwin32 += DLPORTIO PlxApi setupapi
