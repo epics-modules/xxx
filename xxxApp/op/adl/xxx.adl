@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synApps/support/xxx/xxxApp/op/adl/xxx.adl"
-	version=030103
+	name="/home/oxygen12/DKLINE/EPICS/dev/synApps_5_4/support/xxx/cvs/xxxApp/op/adl/xxx.adl"
+	version=030101
 }
 display {
 	object {
@@ -163,6 +163,11 @@ display {
 		label="3id B"
 		name="StationB.adl"
 		args="P=xxx:"
+	}
+	display[4] {
+		label="PSS Station Overview"
+		name="StationStatus04.adl"
+		args="xx=07,yy=ID"
 	}
 	clr=0
 	bclr=17
