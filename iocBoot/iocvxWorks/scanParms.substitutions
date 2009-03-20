@@ -49,6 +49,11 @@ file "$(SSCAN)/sscanApp/Db/scanParms.db"
 {P=xxx:SGM1:,SCANREC=xxx:scan1,Q=Lambda,POS=Lambda,RDBK=LambdaRBV}
 {P=xxx:SGM1:,SCANREC=xxx:scan1,Q=phi,POS=phi,RDBK=phiRBV}
 
+# multilayer monochromator
+{P=xxx:,SCANREC=xxx:scan1,Q=ml_monoE,POS=ml_monoE.VAL,RDBK=ml_monoERdbk.VAL}
+{P=xxx:,SCANREC=xxx:scan1,Q=ml_monoLambda,POS=ml_monoLambda.VAL,RDBK=ml_monoLambdaRdbk.VAL}
+{P=xxx:,SCANREC=xxx:scan1,Q=ml_monoTheta,POS=ml_monoTheta.VAL,RDBK=ml_monoThetaRdbk.VAL}
+
 # Mirror
 {P=xxx:,SCANREC=xxx:scan1,Q=M1dn,POS=M1dn,RDBK=M1t2.A}
 {P=xxx:,SCANREC=xxx:scan1,Q=M1up,POS=M1up,RDBK=M1t2.B}

@@ -1,30 +1,31 @@
 
 EPICS processor: mv2700
 =======================
-
-boot device          : dc
+boot device          : dc0 
 processor number     : 0 
-host name            : oxygen [wheaties, ozone]
-file name            : /usr/local/vxWorks/T202/mv2700-asd7
-inet on ethernet (e) : 164.54.53.99:fffffc00
+host name            : ozone 
+file name            : /usr/local/vxWorks/T222/mv2700-asd1 
+inet on ethernet (e) : 164.54.53.99:fffffc00 
 inet on backplane (b): 
-host inet (h)        : 164.54.52.4 [164.54.53.101, 164.54.53.4]
+host inet (h)        : 164.54.53.4 
+gateway inet (g)     : 
 user (u)             : <user>
 ftp password (pw)    : <password>
 flags (f)            : 0x0 
-target name (tn)     : iocxxx
-startup script (s)   : /home/oxygen4/MOONEY/epics/synApps/support/xxx/iocBoot/iocvxWorks/st.cmd
+target name (tn)     : iocxxx 
+startup script (s)   : /home/oxygen4/MOONEY/epics/synApps/support/xxx/iocBoot/iocvxWorks/st.cmd 
+other (o)            : 
 
 EPICS processor: mv5100
 =======================
 
 boot device          : fei0
 processor number     : 0 
-host name            : oxygen
-file name            : /usr/local/vxWorks/T202/mv5100-asd7
+host name            : ozone
+file name            : /usr/local/vxWorks/T222/mv2700-asd1 
 inet on ethernet (e) : 164.54.53.99:fffffc00
 inet on backplane (b): 
-host inet (h)        : 164.54.52.4
+host inet (h)        : 164.54.53.4 
 user (u)             : <user>
 ftp password (pw)    : <password>
 flags (f)            : 0x0 
