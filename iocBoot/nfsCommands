@@ -21,6 +21,7 @@ nfsMount("oxygen","/export/oxygen","/home/oxygen")
 nfsMount("oxygen","/export/oxygen4","/home/oxygen4")
 hostAdd("wheaties","164.54.53.101")
 nfsMount("wheaties","/local","/local")
+hostAdd("oxygennfs52","164.54.54.136")
 
 # The following line eliminates "cksum: out of data" messages due to DHCP
 #proxyPortFwdOff(67)
