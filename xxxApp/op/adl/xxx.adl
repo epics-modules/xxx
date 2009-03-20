@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen12/DKLINE/EPICS/dev/synApps_5_4/support/xxx/cvs/xxxApp/op/adl/xxx.adl"
-	version=030101
+	name="/home/oxygen4/MOONEY/epics/synApps/support/xxx/xxxApp/op/adl/xxx.adl"
+	version=030103
 }
 display {
 	object {
@@ -1388,7 +1388,7 @@ composite {
 }
 "related display" {
 	object {
-		x=30
+		x=35
 		y=137
 		width=35
 		height=20
@@ -1582,4 +1582,50 @@ composite {
 	clr=0
 	bclr=17
 	label="-TempCtrl"
+}
+"related display" {
+	object {
+		x=370
+		y=40
+		width=70
+		height=20
+	}
+	display[1] {
+		label="ml_monoGraphic"
+		name="ml_monoGraphic.adl"
+		args="P=xxx:,mY1=m1,mZ1=m2,mY2=m9,mZ2=m8,mT1=m7,mT2=m10,mB=m11"
+	}
+	display[2] {
+		label="ml_monoSeq (tiny)"
+		name="ml_monoSeqCtl_tiny.adl"
+		args="P=xxx:"
+	}
+	display[3] {
+		label="ml_monoSeq"
+		name="ml_monoSeqCtl.adl"
+		args="P=xxx:"
+	}
+	display[4] {
+		label="ml_monoSeq (All)"
+		name="ml_monoSeqCtl_All.adl"
+		args="P=xxx:"
+	}
+	display[5] {
+		label="Energy-scan parameters"
+		name="scanParms.adl"
+		args="P=xxx:,Q=ml_monoE,PV=ml_monoE"
+	}
+	display[6] {
+		label="Theta-scan parameters"
+		name="scanParms.adl"
+		args="P=xxx:,Q=ml_monoTheta,PV=ml_monoTheta"
+	}
+	display[7] {
+		label="Wavelength-scan parameters"
+		name="scanParms.adl"
+		args="P=xxx:,Q=ml_monoLambda,PV=ml_monoLambda"
+	}
+	clr=0
+	bclr=17
+	label="-ML Mono"
 }
