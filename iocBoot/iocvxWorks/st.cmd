@@ -133,7 +133,7 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/Io.db","P=xxx:Io:")
 ### Monochromator support ###
 # Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
 # standard geometry (geometry 1)
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=17.4999,yOffHi=17.5001")
+dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=17.4999,yOffHi=17.5001")
 # modified geometry (geometry 2)
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=4,yOffHi=36")
 
@@ -143,6 +143,9 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/Io.db","P=xxx:Io:")
 # 4-bounce high-resolution monochromator
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10")
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=2,M_PHI1=m11,M_PHI2=m12")
+
+# multilayer monochromator: Bragg and theta/Y/Z motors
+dbLoadRecords("$(OPTICS)/opticsApp/Db/ml_monoSeq.db","P=xxx:")
 
 ### Orientation matrix, four-circle diffractometer (see seq program 'orient' below)
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/orient.db", "P=xxx:,O=1,PREC=6")
@@ -221,6 +224,8 @@ iocInit
 ##taskDelay(300)
 ##dbpf xxx:kohzu_yOffsetAO.DRVH 17.51
 ##dbpf xxx:kohzu_yOffsetAO.DRVL 17.49
+
+seq &ml_monoCtl, "P=xxx:, M_THETA=m7, M_THETA2=m10, M_Y=m9, M_Z=m8, Y_OFF=35., GEOM=1"
 
 #seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
 
