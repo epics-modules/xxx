@@ -35,11 +35,11 @@ ipacAddVIPC616_01("0x3400,0xa2000000")
 
 # Select for Tews TVME-200 (also sold by SBS as VIPC626) version IP carrier.
 # Config string is hex values of the six rotary switches on the board.
-# In this example, the card is at a16 address 0x3000 ("30"), uses the default
-# interrupt assignment ("1"), uses the 32-bit address space for module memory
+# In this example, the card is at a16 address 0x3000 ("30"), uses the interrupt
+# assignment ("2"), uses the 32-bit address space for module memory
 # ("f"), and maps that memory to A32 address 0xa000000 ("a0")
-#ipacAddTVME200("301fa0")
-#ipacAddTVME200("341fa2")
+#ipacAddTVME200("302fa0")
+#ipacAddTVME200("342fa2")
 
 # Print out report of IP modules
 ipacReport(2)
