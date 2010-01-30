@@ -56,11 +56,6 @@ include "devPC6K.dbd"
 include "devPIMotor.dbd"
 include "devSoftMotor.dbd"
 
-# ccd
-#include "brukerCCDSupport.dbd"
-#include "marCCDSupport.dbd"
-#include "roperCCDSupport.dbd"
-
 # seq
 include "devSequencer.dbd"
 
