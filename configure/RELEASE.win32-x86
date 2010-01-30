@@ -19,7 +19,7 @@
 ##############################################################################
 
 # Define the path to the synApps support directory and uncomment.
-SUPPORT=/corvette/home/epics/devel
+SUPPORT=J:/epics/devel
 
 # Specify the standard synApps configuration.
 include $(SUPPORT)/configure/RELEASE.win32-x86

@@ -19,7 +19,7 @@
 ##############################################################################
 
 # Define the path to the synApps support directory and uncomment.
-SUPPORT=/home/oxygen/MOONEY/epics/synApps/support
+SUPPORT=/corvette/home/epics/devel
 
 # Specify the standard synApps configuration.
 include $(SUPPORT)/configure/RELEASE
