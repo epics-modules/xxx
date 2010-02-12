@@ -22,17 +22,19 @@ gsIP488Configure("gpib1",1,1,0x69,0,0)
 # asynInterposeEosConfig(const char *portName, int addr,
 #                        int processEosIn, int processEosOut);
 asynInterposeEosConfig("gpib1", 1, 1, 0)
+asynInterposeEosConfig("gpib1", 2, 1, 0)
+asynInterposeEosConfig("gpib1", 3, 1, 0)
+
 # asynOctetSetInputEos(const char *portName, int addr,
 #                      const char *eosin,const char *drvInfo)
 asynOctetSetInputEos("gpib1", 1, "\n")
+asynOctetSetInputEos("gpib1", 2, "\n")
+asynOctetSetInputEos("gpib1", 3, "\r")
+
 # asynOctetConnect(const char *entry, const char *port, int addr,
 #                  int timeout, int buffer_len, const char *drvInfo)
 asynOctetConnect("gpib1:1", "gpib1", 1, 1, 80)
-asynInterposeEosConfig("gpib1", 2, 1, 0)
-asynOctetSetInputEos("gpib1", 2, "\n")
 asynOctetConnect("gpib1:2", "gpib1", 2, 1, 80)
-asynInterposeEosConfig("gpib1", 3, 1, 0)
-asynOctetSetInputEos("gpib1", 3, "\r")
 asynOctetConnect("gpib1:3", "gpib1", 3, 1, 80)
 
 # Keithley 2000 DMM, connected with GPIB
