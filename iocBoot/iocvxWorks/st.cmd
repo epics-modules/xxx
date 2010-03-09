@@ -55,6 +55,9 @@ recDynLinkQsize = 1024
 dbLoadDatabase("$(TOP)/dbd/iocxxxVX.dbd")
 iocxxxVX_registerRecordDeviceDriver(pdbbase)
 
+# Soft function generator
+dbLoadRecords("$(CALC)/calcApp/Db/FuncGen.db","P=xxx:,Q=fgen,OUT=xxx:m7.VAL")
+
 # user-assignable ramp/tweak
 dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt1")
 
