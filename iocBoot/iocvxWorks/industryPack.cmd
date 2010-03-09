@@ -56,4 +56,8 @@ ipacReport(2)
 # SBS IpUnidig digital I/O
 < ipUnidig.cmd
 
+# user programmable glue electronics (Requires Acromag IP-EP201 with custom
+# firmware, and the softGlue module)
+#< softGlue.cmd
+
 # END industryPack.cmd --------------------------------------------------------
