@@ -74,6 +74,9 @@ file saveData_settings.req P=$(P)
 # High resolution monochromator
 #file hrSeq_settings.req P=$(P),N=1
 
+# Multilayer monochromator
+#file ml_monoSeq_settings.req P=$(P)
+
 # Io calc
 file Io_settings.req P=xxx:Io:
 
@@ -175,3 +178,9 @@ file deviceCmdReply_settings.req P=$(P),N=3
 file timer.req P=$(P),N=1
 
 file ramp_tweak_settings.req P=$(P),Q=rt1
+
+file pid_control_settings.req P=$(P) PID=pid_slow
+
+file softGlue_settings.req P=$(P) H=softGlue:
+
+file FuncGen_settings.req P=$(P) Q=fgen
