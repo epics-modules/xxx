@@ -6,9 +6,16 @@
 # This file does not require modification for standard use, but...
 
 # If you want save_restore to manage its own NFS mount, specify the name and
-# IP address of the file server to which save files should be written.
-# This currently is supported only on vxWorks.
-save_restoreSet_NFSHost("oxygen", "164.54.52.4")
+# IP address of the file server to which save files should be written, and
+# call set_savefile_path() with a path as the server sees it.  This currently
+# is supported only on vxWorks.
+# If the NFS mount from nfsCommands is used, call set_savefile_path() with a
+# path as mounted by that file
+# That is, do this...
+set_savefile_path(startup, "autosave")
+# ... or this...
+#save_restoreSet_NFSHost("oxygen", "164.54.52.4")
+#set_savefile_path("/export/oxygen4/MOONEY/epics/synApps/support/xxx/iocBoot/iocvxWorks", "autosave")
 
 # status PVs
 #save_restoreSet_UseStatusPVs(1)
@@ -26,12 +33,6 @@ save_restoreSet_NumSeqFiles(3)
 
 # Time interval between sequenced backups
 save_restoreSet_SeqPeriodInSeconds(300)
-
-# specify where save files should be
-#set_savefile_path(startup, "autosave")
-# When using save_restoreSet_NFSHost() (autosave manages its own nfs mount)
-# we need the server's path.  (As does ../nfsCommands.)
-set_savefile_path("/export/oxygen4/MOONEY/epics/synApps/support/xxx/iocBoot/iocvxWorks", "autosave")
 
 ###
 # specify what save files should be restored.  Note these files must be
@@ -65,6 +66,7 @@ set_requestfile_path(motor, "motorApp/Db")
 set_requestfile_path(optics, "opticsApp/Db")
 #set_requestfile_path(pilatus, "pilatusApp/Db")
 set_requestfile_path(quadem, "quadEMApp/Db")
+#set_requestfile_path(softglue, "softGlueApp/Db")
 set_requestfile_path(sscan, "sscanApp/Db")
 set_requestfile_path(std, "stdApp/Db")
 #set_requestfile_path(vac, "vacApp/Db")
