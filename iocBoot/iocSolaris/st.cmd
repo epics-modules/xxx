@@ -21,10 +21,17 @@ errlogInit(5000)
 # need more entries in wait/scan-record channel-access queue?
 #var recDynLinkQsize, 1024
 
+#epicsEnvSet("EPICS_CA_ADDR_LIST", "164.54.53.99")
+#epicsEnvSet("EPICS_CA_AUTO_ADDR_LIST", "NO")
+
 # Specify largest array CA will transport
 # Note for N sscanRecord data points, need (N+1)*8 bytes, else MEDM
 # plot doesn't display
 epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
+
+# set the protocol path for streamDevice
+#epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
+#epicsEnvSet("STREAM_PROTOCOL_PATH", "$(TOP)/abd/def")
 
 ### save_restore setup
 # We presume a suitable initHook routine was compiled into the executable.
@@ -110,17 +117,9 @@ dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt1")
 # pvHistory (in-crate archive of up to three PV's)
 dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
 
-### serial support ###
-
-# generic serial ports
-#dbLoadRecords("$(IP)/ipApp/Db/generic_serial.db", "P=xxx:,C=0,SERVER=serial1")
-#dbLoadRecords("$(IP)/ipApp/Db/generic_serial.db", "P=xxx:,C=0,SERVER=serial2")
-
-# serial O/I block (generic serial record with format and parse string calcs)
-# on epics/mpf processor
-#dbLoadRecords("$(IP)/ipApp/Db/serial_OI_block.db","P=xxx:,N=0_1,C=0,SERVER=serial5")
-# on stand-alone mpf processor
-#dbLoadRecords("$(IP)/ipApp/Db/serial_OI_block.db","P=xxx:,N=1_1,C=0,SERVER=serial5")
+# Slow feedback
+dbLoadTemplate "pid_slow.substitutions"
+dbLoadTemplate "async_pid_slow.substitutions"
 
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
