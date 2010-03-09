@@ -59,6 +59,9 @@ $(P)userStringSeqEnable
 file userCalcOuts10_settings.req P=$(P)
 $(P)userCalcOutEnable
 
+file userAve10_settings.req P=$(P)
+$(P)userAveEnable
+
 # pvHistory
 file pvHistory.req P=$(P),N=1
 
@@ -71,3 +74,11 @@ file pvHistory.req P=$(P),N=1
 
 ## PF4 dual filter
 #file pf4dual.req P=$(P),H=pf401:,F=seq01:
+
+# pid
+file pid_control_settings.req P=$(P) PID=pid_slow
+
+# async-readback pid
+file pid_control_settings.req P=$(P) PID=async_pid_slow
+$(P)async_pid_slow.TRIG
+$(P)async_pid_slow.TVAL
