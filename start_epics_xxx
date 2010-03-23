@@ -1,5 +1,5 @@
 #!/bin/csh
-setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps/support/xxx
+setenv EPICS_APP /home/oxygen/MOONEY/epics/synAppsSVN/support/xxx
 
 set output = `perl $EPICS_APP/release.pl $EPICS_APP`
 $output
@@ -11,9 +11,10 @@ setenv myEPICS_DISPLAY_PATH '.'
 setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$EPICS_APP/xxxApp/op/adl
 setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$AREA_DETECTOR/ADApp/op/adl
 setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$AUTOSAVE/asApp/op/adl
+setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$BUSY/busyApp/op/adl
 setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$CALC/calcApp/op/adl
 setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$CAMAC/camacApp/op/adl
-setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$CCD/ccdApp/op/adl
+#setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$CCD/ccdApp/op/adl
 setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$DAC128V/dac128VApp/op/adl
 setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$DELAYGEN/delayGenApp/op/adl
 setenv myEPICS_DISPLAY_PATH $myEPICS_DISPLAY_PATH':'$DXP/dxpApp/op/adl

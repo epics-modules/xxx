@@ -1,12 +1,13 @@
-setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps/support/xxx
+setenv EPICS_APP /home/oxygen/MOONEY/epics/synAppsSVN/support/xxx
 set output = `perl $EPICS_APP/release.pl $EPICS_APP`
 $output
 setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$EPICS_APP/xxxApp/op/adl
 setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$AREA_DETECTOR/ADApp/op/adl
 setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$AUTOSAVE/asApp/op/adl
+setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$BUSY/busyApp/op/adl
 setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$CALC/calcApp/op/adl
 setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$CAMAC/camacApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$CCD/ccdApp/op/adl
+#setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$CCD/ccdApp/op/adl
 setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$DAC128V/dac128VApp/op/adl
 setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$DELAYGEN/delaygenApp/op/adl
 setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$DXP/dxpApp/op/adl
