@@ -1,21 +1,16 @@
-# stuff for non-vxWorks ioc
-include "base.dbd"
+# stuff for any ioc
 
+include "base.dbd"
 
 # asyn
 include "asyn.dbd"
 include "drvAsynSerialPort.dbd"
 include "drvAsynIPPort.dbd"
 include "drvVxi11.dbd"
-include "devAsynOctet.dbd"
-include "devAsynRecord.dbd"
 include "devGpib.dbd"
 
 # std
 include "stdSupport.dbd"
-
-# genSub (for EPICS 3.14.10, use aSub)
-#include "genSubRecord.dbd"
 
 # calc
 include "calcSupport.dbd"
@@ -39,26 +34,35 @@ include "mcaSupport.dbd"
 include "ipSupport.dbd"
 
 # motor
-include "motorSimSupport.dbd"
 include "motorSupport.dbd"
 include "devAcsMotor.dbd"
-#include "devDeltaTau.dbd"
+include "devAerotech.dbd"
+include "devAttocube.dbd"
 include "devFaulhaberMotor.dbd"
 include "devImsMotor.dbd"
+include "devKohzuMotor.dbd"
 include "devMclennanMotor.dbd"
 include "devMicos.dbd"
 include "devMicroMo.dbd"
+# not built in our copy of the motor module
 #include "devMXmotor.dbd"
 include "devNewFocus.dbd"
 include "devNewport.dbd"
-#include "devOms.dbd"
+include "devOriel.dbd"
 include "devPC6K.dbd"
+include "devPIJena.dbd"
 include "devPIMotor.dbd"
+include "devSPiiPlus.dbd"
+include "devSmartMotorMotor.dbd"
 include "devSoftMotor.dbd"
+include "devThorLabs.dbd"
+include "motorRecord.dbd"
+include "motorSim.dbd"
+include "motorSimSupport.dbd"
 
 # seq
 include "devSequencer.dbd"
 
 # stream
-#include "stream.dbd"
-#include "streamSynApps.dbd"
+include "stream.dbd"
+include "streamSynApps.dbd"
