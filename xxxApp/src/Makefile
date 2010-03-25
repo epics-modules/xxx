@@ -24,159 +24,156 @@ include $(TOP)/configure/CONFIG
 #xxxSupport_SRCS += xxxRecord.c
 
 #xxxSupport_LIBS += $(EPICS_BASE_IOC_LIBS)
+#xxx_Common_LIBS += xxxSupport
 
 #=============================
 # build an ioc application
 
-PROD_IOC_DEFAULT = xxx
-PROD_IOC_solaris = xxx
+PROD_IOC = xxx
+
+# Note that the order in which .dbd files are added to a list variable
+# doesn't matter, but the order of libraries does.
 
 # <name>.dbd will be created from <name>Include.dbd
 ifeq ($(OS_CLASS), WIN32)
-DBD  += iocxxxWin32.dbd
-else
-ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
-DBD  += iocxxxCygwin.dbd
-else
-ifeq ($(OS_CLASS), vxWorks)
-DBD  += iocxxxVX.dbd
-else
-ifeq ($(OS_CLASS), Linux)
-DBD  += iocxxxLinux.dbd
-else
-ifeq ($(OS_CLASS), solaris)
-DBD  += iocxxx_solaris.dbd
-else
-DBD  += iocxxx.dbd
-endif
-endif
-endif
-endif
+	DBD  += iocxxxWin32.dbd
+	iocxxxWin32_DBD += xxxCommonInclude.dbd
+
+	# If your host supports libpcap and libnet and you want to build Canberra network
+	# support uncomment the following line
+	#iocxxxWin32_DBD += mcaCanberraSupport.dbd
+
+	# If you want to build parallel port or USB interfaces to Saturn and/or xMAP DXP
+	# then uncomment the following two lines
+	iocxxxWin32_DBD += dxpSupport.dbd
+	xxx_LIBS_WIN32 += dxp handel
 endif
 
-# If your host supports libpcap and libnet and you want to build Canberra network
-# support, set LINUX_NET_INSTALLED to YES in <synApps>/configure/CONFIG_SITE.
-iocxxxLinux_DBD += xxxCommonInclude.dbd
-ifneq ($(OS_CLASS), Linux)
-iocxxxLinux_DBD += mcaCanberraSupport.dbd
-else
-ifeq ($(LINUX_NET_INSTALLED), YES)
-iocxxxLinux_DBD += mcaCanberraSupport.dbd
+ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
+	DBD  += iocxxxCygwin.dbd
+	iocxxxCygwin_DBD += xxxCommonInclude.dbd
+
+	# If you want to build parallel port or USB interfaces to Saturn and/or xMAP DXP
+	# then uncomment the following two lines
+	iocxxxCygwin_DBD += dxpSupport.dbd
+	xxx_LIBS_cygwin32 += dxp handel
+
 endif
+
+ifeq ($(OS_CLASS), vxWorks)
+	DBD  += iocxxxVX.dbd
+	iocxxxVX_DBD += iocxxxVXInclude.dbd
 endif
-# If your host supports parallel port or USB interfaces to Saturn DXP, set
-# LINUX_USB_INSTALLED to YES in <synApps>/configure/CONFIG_SITE.
-ifneq ($(OS_CLASS), Linux)
-iocxxxLinux_DBD += dxpSupport.dbd
-else
+
 ifeq ($(OS_CLASS), Linux)
-ifeq ($(LINUX_USB_INSTALLED), YES)
-iocxxxLinux_DBD += dxpSupport.dbd
+	DBD  += iocxxxLinux.dbd
+	iocxxxLinux_DBD += xxxCommonInclude.dbd
+
+	iocxxxLinux_DBD += ADSupport.dbd
+	xxx_LIBS_Linux += ADBase 
+
+	# If your host supports libpcap and libnet and you want to build Canberra network
+	# support, set LINUX_NET_INSTALLED to YES in <synApps>/configure/CONFIG_SITE.
+	ifeq ($(LINUX_NET_INSTALLED), YES)
+		iocxxxLinux_DBD += mcaCanberraSupport.dbd
+		xxx_LIBS_Linux += mcaCanberra
+	endif
+	# If your host supports parallel port or USB interfaces to Saturn DXP, set
+	# LINUX_USB_INSTALLED to YES in <synApps>/configure/CONFIG_SITE.
+	ifeq ($(LINUX_USB_INSTALLED), YES)
+		iocxxxLinux_DBD += dxpSupport.dbd
+		xxx_LIBS_Linux  += dxp handel
+	endif
 endif
+
+ifeq ($(OS_CLASS), solaris)
+	DBD  += iocxxx_solaris.dbd
+	iocxxx_solaris_DBD += xxxCommonInclude.dbd
 endif
-endif
+
+
 
 
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
-xxx_SRCS_DEFAULT  += iocxxx_registerRecordDeviceDriver.cpp          xxxMain.cpp
 xxx_SRCS_vxWorks  += iocxxxVX_registerRecordDeviceDriver.cpp
 xxx_SRCS_Linux    += iocxxxLinux_registerRecordDeviceDriver.cpp     xxxMain.cpp
 xxx_SRCS_WIN32    += iocxxxWin32_registerRecordDeviceDriver.cpp     xxxMain.cpp
 xxx_SRCS_cygwin32 += iocxxxCygwin_registerRecordDeviceDriver.cpp    xxxMain.cpp
 xxx_SRCS_solaris  += iocxxx_solaris_registerRecordDeviceDriver.cppa xxxMain.cpp
-xxx_SRCS_vxWorks  += -nil-
 
-#xxx_Common_LIBS += xxxSupport
 xxx_Common_LIBS += mca
 xxx_Common_LIBS += calc
 xxx_Common_LIBS += busy
 xxx_Common_LIBS += sscan
 xxx_Common_LIBS += autosave
 xxx_Common_LIBS += optics
-xxx_Common_LIBS += vme
 xxx_Common_LIBS += std
 xxx_Common_LIBS += ip
-
-xxx_Common_LIBS += Acs Faulhaber Ims Mclennan Micos MicroMo NewFocus
-xxx_Common_LIBS += Newport PI Parker
-xxx_Common_LIBS += softMotor motorSimSupport motor
-
+xxx_Common_LIBS += Acs acsTech80 Aerotech Attocube Faulhaber Ims KohzuMotor Mclennan
+xxx_Common_LIBS += Micos MicroMo NewFocus Newport Oriel PI PIJena Parker SmartMotor
+xxx_Common_LIBS += ThorLabs softMotor motorSimSupport motor
 xxx_Common_LIBS += asyn
-#xxx_Common_LIBS += stream streamSynApps
+xxx_Common_LIBS += stream streamSynApps
 xxx_Common_LIBS += seqDev seq pv
 xxx_Common_LIBS += $(EPICS_BASE_IOC_LIBS)
 
-xxx_vxWorks_LIBS += allenBradley
-xxx_vxWorks_LIBS += mcaSIS
-xxx_vxWorks_LIBS += mcaCanberra
-xxx_vxWorks_LIBS += ip330
-xxx_vxWorks_LIBS += ipUnidig
-xxx_vxWorks_LIBS += dac128V
-xxx_vxWorks_LIBS += quadEM
-xxx_vxWorks_LIBS += camac devCamac
-xxx_vxWorks_LIBS += dxp handel
-#xxx_vxWorks_LIBS += love
-xxx_vxWorks_LIBS += vxStats
-xxx_vxWorks_LIBS += TyGSOctal Ipac
-xxx_vxWorks_LIBS += oms DeltaTau
+xxx_LIBS_vxWorks += allenBradley
+xxx_LIBS_vxWorks += mcaSIS
+xxx_LIBS_vxWorks += mcaCanberra
+xxx_LIBS_vxWorks += ip330
+xxx_LIBS_vxWorks += ipUnidig
+xxx_LIBS_vxWorks += dac128V
+xxx_LIBS_vxWorks += quadEM
+xxx_LIBS_vxWorks += camac devCamac
+xxx_LIBS_vxWorks += dxp handel
+xxx_LIBS_vxWorks += love
+xxx_LIBS_vxWorks += vxStats
+xxx_LIBS_vxWorks += vme
+xxx_LIBS_vxWorks += TyGSOctal Ipac
+xxx_LIBS_vxWorks += oms DeltaTau
+xxx_LIBS_vxWorks += softGlue
 
 #The following adds support from base/src/vxWorks
 xxx_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
-ifeq ($(LINUX_USB_INSTALLED), YES)
-xxx_Linux_LIBS  += dxp handel
-endif
-ifeq ($(LINUX_NET_INSTALLED), YES)
-xxxLinux_LIBS += mcaCanberra
-endif
-
-xxx_cygwin_LIBS += dxp handel
-
-xxx_WIN32_LIBS += dxp handel
-
-#xxx_solaris_LIBS += genSub
-#xxx_solaris_LIBS += mca
-xxx_solaris_LIBS += calc
-xxx_solaris_LIBS += busy
-xxx_solaris_LIBS += sscan
-xxx_solaris_LIBS += autosave
-xxx_solaris_LIBS += optics
-#xxx_solaris_LIBS += vme
-xxx_solaris_LIBS += std
-#xxx_solaris_LIBS += ip
-xxx_solaris_LIBS += motor softMotor motorSimSupport
-xxx_solaris_LIBS += asyn
-xxx_solaris_LIBS += seqDev seq pv
-xxx_solaris_LIBS += $(EPICS_BASE_IOC_LIBS)
-
-
-xxx_LIBS_DEFAULT = $(xxx_Common_LIBS)
-xxx_LIBS_vxWorks = $(xxx_vxWorks_LIBS) $(xxx_Common_LIBS)
-xxx_LIBS_Linux   = $(xxx_Linux_LIBS)   $(xxx_Common_LIBS)
-xxx_LIBS_solaris = $(xxx_solaris_LIBS)
-xxx_LIBS_cygwin32 = $(xxx_cygwin_LIBS) $(xxx_Common_LIBS)
-xxx_LIBS_WIN32    = $(xxx_WIN32_LIBS)  $(xxx_Common_LIBS)
+xxx_LIBS_vxWorks  += $(xxx_Common_LIBS)
+xxx_LIBS_Linux    += $(xxx_Common_LIBS)
+xxx_LIBS_solaris  += $(xxx_Common_LIBS)
+xxx_LIBS_cygwin32 += $(xxx_Common_LIBS)
+xxx_LIBS_WIN32    += $(xxx_Common_LIBS)
 
 # If the host has libnet and libpcap for mca/Canberra support
 # uncomment the following line.
 #xxx_SYS_LIBS_Linux += net pcap
-# For USB support on Saturn
-#xxx_SYS_LIBS_Linux += usb
-xxx_SYS_LIBS_vxWorks += -nil-
 
-# This is needed by areaDetector on Linux and WIN32
+# For USB support on Saturn uncomment the following line
+xxx_SYS_LIBS_Linux += usb
+
+# This is needed (and provided) by areaDetector on Linux and WIN32
 xxx_LIBS_WIN32        += PvAPI
-ifeq ($(LINUX_TIFF_INSTALLED), YES)
 xxx_LIBS_Linux        += PvAPI
-endif
 
 # This is needed by dxp on cygwin and WIN32
 xxx_SYS_LIBS_cygwin32 += DLPORTIO PlxApi setupapi
 xxx_LIBS_WIN32        += DLPORTIO PlxApi
 xxx_SYS_LIBS_WIN32    += setupapi
+
 # This is needed by saveData and asyn VXI-11 on cygwin
 xxx_SYS_LIBS_cygwin32 += rpc
 
+# areaDetector needs these
+xxx_SYS_LIBS_solaris   += tiff jpeg z
+#xxx_SYS_LIBS_solaris    += NeXus mfhdf df hdf5 mxml
+
+# To use versions of these libraries supplied with areaDetector use this line
+xxx_LIBS_Linux        += NeXus mfhdf df hdf5 mxml
+# To use system versions of these libraries use this line
+#xxx_SYS_LIBS_Linux    += NeXus mfhdf df hdf5 mxml
+
+# To use versions of these libraries supplied with areaDetector use this line
+xxx_LIBS_Linux        += tiff jpeg z
+# To use system versions of these libraries use this line
+#xxx_SYS_LIBS_Linux    += tiff jpeg z
 
 #===========================
 
