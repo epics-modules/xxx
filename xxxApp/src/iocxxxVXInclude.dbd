@@ -10,20 +10,24 @@ include "mcaSISSupport.dbd"
 include "ipUnidigSupport.dbd"
 include "dac128VSupport.dbd"
 include "ip330Support.dbd"
-include "devOms.dbd"
-include "devDeltaTau.dbd"
+
 include "camacSupport.dbd"
 include "devCamacSupport.dbd"
-#include "dxpSupport.dbd"
+include "dxpSupport.dbd"
 include "allenBradley.dbd"
 include "quadEMSupport.dbd"
-# If not defined in iocxxxInclude.dbd
 include "mcaCanberraSupport.dbd"
-#include "devLove.dbd"
+include "devLove.dbd"
+# from ipac
 include "tyGSOctal.dbd"
-include "drvGsIP488.dbd"
 include "drvIpac.dbd"
+# from asyn
+include "drvGsIP488.dbd"
 include "vxStats.dbd"
+include "softGlueSupport.dbd"
+# from motor
+include "devDeltaTau.dbd"
+include "devOms.dbd"
 
 # Locally defined stuff that needs to be registered
 #registrar(myRegistrar)
