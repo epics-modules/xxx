@@ -1,9 +1,0 @@
-# stuff for WIN32 ioc
-include "xxxCommonInclude.dbd"
-
-# If your host supports libpcap and libnet and you want to build Canberra network
-# support uncomment the following line
-#include "mcaCanberraSupport.dbd"
-# If you want to build parallel port or USB interfaces to Saturn and/or xMAP DXP
-# then uncomment the following line
-include "dxpSupport.dbd"
