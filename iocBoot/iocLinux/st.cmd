@@ -17,7 +17,7 @@ epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 ################################################################################
 # Tell EPICS all about the record types, device-support modules, drivers,
 # etc. in the software we just loaded (xxx.munch)
-dbLoadDatabase("../../dbd/iocxxx.dbd")
+dbLoadDatabase("../../dbd/iocxxxLinux.dbd")
 iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 
 ### save_restore setup
@@ -30,9 +30,10 @@ iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 
 # Motors
 #dbLoadTemplate("basic_motor.substitutions")
-dbLoadTemplate("motor.substitutions")
+#dbLoadTemplate("motor.substitutions")
 dbLoadTemplate("softMotor.substitutions")
 #dbLoadTemplate("pseudoMotor.substitutions")
+< motorSim.cmd
 
 ### Allstop, alldone
 # This database must agree with the motors and other positioners you've actually loaded.
@@ -113,7 +114,7 @@ dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db","P=xxx:,MAXPTS1=8000,MAXPTS2=1000,M
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
-aCalcArraySize=2000
+var aCalcArraySize, 2000
 dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
 # extra userCalcs (must also load userCalcs10.db for the enable switch)
