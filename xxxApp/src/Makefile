@@ -60,9 +60,42 @@ ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
 
 endif
 
-ifeq ($(OS_CLASS), vxWorks)
+ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 	DBD  += iocxxxVX.dbd
-	iocxxxVX_DBD += iocxxxVXInclude.dbd
+	#iocxxxVX_DBD += iocxxxVXInclude.dbd
+
+	iocxxxVX_DBD += xxxCommonInclude.dbd
+
+	iocxxxVX_DBD += vmeVXSupport.dbd
+	iocxxxVX_DBD += stdVXSupport.dbd
+	iocxxxVX_DBD += ipVXSupport.dbd
+	iocxxxVX_DBD += mcaSISSupport.dbd
+	iocxxxVX_DBD += ipUnidigSupport.dbd
+	iocxxxVX_DBD += dac128VSupport.dbd
+	iocxxxVX_DBD += ip330Support.dbd
+
+	iocxxxVX_DBD += camacSupport.dbd
+	iocxxxVX_DBD += devCamacSupport.dbd
+	iocxxxVX_DBD += dxpSupport.dbd
+	iocxxxVX_DBD += allenBradley.dbd
+	iocxxxVX_DBD += quadEMSupport.dbd
+	iocxxxVX_DBD += mcaCanberraSupport.dbd
+	iocxxxVX_DBD += devLove.dbd
+	# from ipac
+	iocxxxVX_DBD += tyGSOctal.dbd
+	iocxxxVX_DBD += drvIpac.dbd
+	# from asyn
+	iocxxxVX_DBD += drvGsIP488.dbd
+	iocxxxVX_DBD += vxStats.dbd
+	iocxxxVX_DBD += softGlueSupport.dbd
+	# from motor
+	iocxxxVX_DBD += devDeltaTau.dbd
+	iocxxxVX_DBD += devOms.dbd
+	# from areaDetector
+	iocxxxVX_DBD += ADSupport.dbd
+	iocxxxVX_DBD += simDetectorSupport.dbd
+	#iocxxxVX_DBD += pluginSupport.dbd
+	iocxxxVX_DBD += AD_pluginSupportVX.dbd
 endif
 
 ifeq ($(OS_CLASS), Linux)
@@ -132,6 +165,11 @@ xxx_LIBS_vxWorks += vme
 xxx_LIBS_vxWorks += TyGSOctal Ipac
 xxx_LIBS_vxWorks += oms DeltaTau
 xxx_LIBS_vxWorks += softGlue
+# areaDetector stuff
+xxx_LIBS_vxWorks += simDetector
+xxx_LIBS_vxWorks += NDPlugin
+xxx_LIBS_vxWorks += netCDF
+xxx_LIBS_vxWorks += ADBase 
 
 #The following adds support from base/src/vxWorks
 xxx_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
