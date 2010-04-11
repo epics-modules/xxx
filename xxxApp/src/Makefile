@@ -47,6 +47,10 @@ ifeq ($(OS_CLASS), WIN32)
 	# then uncomment the following two lines
 	iocxxxWin32_DBD += dxpSupport.dbd
 	xxx_LIBS_WIN32 += dxp handel
+
+	# areaDetector
+	iocxxxWin32_DBD += pluginSupport.dbd
+
 endif
 
 ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
@@ -57,6 +61,9 @@ ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
 	# then uncomment the following two lines
 	iocxxxCygwin_DBD += dxpSupport.dbd
 	xxx_LIBS_cygwin32 += dxp handel
+
+	# areaDetector
+	iocxxxCygwin_DBD += pluginSupport.dbd
 
 endif
 
@@ -91,19 +98,14 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 	# from motor
 	iocxxxVX_DBD += devDeltaTau.dbd
 	iocxxxVX_DBD += devOms.dbd
-	# from areaDetector
-	iocxxxVX_DBD += ADSupport.dbd
-	iocxxxVX_DBD += simDetectorSupport.dbd
-	#iocxxxVX_DBD += pluginSupport.dbd
+
+	# locally defined subset of pluginSupport.dbd from areaDetector
 	iocxxxVX_DBD += AD_pluginSupportVX.dbd
 endif
 
 ifeq ($(OS_CLASS), Linux)
 	DBD  += iocxxxLinux.dbd
 	iocxxxLinux_DBD += xxxCommonInclude.dbd
-
-	iocxxxLinux_DBD += ADSupport.dbd
-	xxx_LIBS_Linux += ADBase 
 
 	# If your host supports libpcap and libnet and you want to build Canberra network
 	# support, set LINUX_NET_INSTALLED to YES in <synApps>/configure/CONFIG_SITE.
@@ -117,11 +119,17 @@ ifeq ($(OS_CLASS), Linux)
 		iocxxxLinux_DBD += dxpSupport.dbd
 		xxx_LIBS_Linux  += dxp handel
 	endif
+
+	# areaDetector
+	iocxxxLinux_DBD += pluginSupport.dbd
 endif
 
 ifeq ($(OS_CLASS), solaris)
 	DBD  += iocxxx_solaris.dbd
 	iocxxx_solaris_DBD += xxxCommonInclude.dbd
+
+	# areaDetector
+	iocxxx_solaris_DBD += pluginSupport.dbd
 endif
 
 
@@ -145,6 +153,8 @@ xxx_Common_LIBS += ip
 xxx_Common_LIBS += Acs acsTech80 Aerotech Attocube Faulhaber Ims KohzuMotor Mclennan
 xxx_Common_LIBS += Micos MicroMo NewFocus Newport Oriel PI PIJena Parker SmartMotor
 xxx_Common_LIBS += ThorLabs softMotor motorSimSupport motor
+#xxx_Common_LIBS += ADBase NDPlugin netCDF
+xxx_Common_LIBS += simDetector NDPlugin netCDF ADBase
 xxx_Common_LIBS += asyn
 xxx_Common_LIBS += stream streamSynApps
 xxx_Common_LIBS += seqDev seq pv
@@ -165,11 +175,6 @@ xxx_LIBS_vxWorks += vme
 xxx_LIBS_vxWorks += TyGSOctal Ipac
 xxx_LIBS_vxWorks += oms DeltaTau
 xxx_LIBS_vxWorks += softGlue
-# areaDetector stuff
-xxx_LIBS_vxWorks += simDetector
-xxx_LIBS_vxWorks += NDPlugin
-xxx_LIBS_vxWorks += netCDF
-xxx_LIBS_vxWorks += ADBase 
 
 #The following adds support from base/src/vxWorks
 xxx_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
@@ -188,8 +193,8 @@ xxx_LIBS_WIN32    += $(xxx_Common_LIBS)
 xxx_SYS_LIBS_Linux += usb
 
 # This is needed (and provided) by areaDetector on Linux and WIN32
-xxx_LIBS_WIN32        += PvAPI
-xxx_LIBS_Linux        += PvAPI
+xxx_LIBS_WIN32        += PvAPI ImageLib
+xxx_LIBS_Linux        += PvAPI ImageLib
 
 # This is needed by dxp on cygwin and WIN32
 xxx_SYS_LIBS_cygwin32 += DLPORTIO PlxApi setupapi
@@ -200,8 +205,14 @@ xxx_SYS_LIBS_WIN32    += setupapi
 xxx_SYS_LIBS_cygwin32 += rpc
 
 # areaDetector needs these
-xxx_SYS_LIBS_solaris   += tiff jpeg z
-#xxx_SYS_LIBS_solaris    += NeXus mfhdf df hdf5 mxml
+xxx_SYS_LIBS_solaris   += tiff
+xxx_LIBS_solaris   += jpeg sz z
+xxx_LIBS_solaris += NeXus hdf5_cpp hdf5
+
+# areaDetector needs (and provides) these
+xxx_LIBS_WIN32    += libtiff jpeg libNeXus.dll
+xxx_LIBS_cygwin32 += libtiff jpeg libNeXus.dll
+
 
 # To use versions of these libraries supplied with areaDetector use this line
 xxx_LIBS_Linux        += NeXus mfhdf df hdf5 mxml
