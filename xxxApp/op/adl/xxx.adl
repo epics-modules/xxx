@@ -8,7 +8,7 @@ display {
 		x=863
 		y=25
 		width=470
-		height=156
+		height=160
 	}
 	clr=64
 	bclr=1
@@ -140,43 +140,7 @@ display {
 "related display" {
 	object {
 		x=0
-		y=0
-		width=70
-		height=20
-	}
-	display[0] {
-		label="1bm A"
-		name="1bma_beamline.adl"
-		args="P=xxx:"
-	}
-	display[1] {
-		label="2id E&D"
-		name="2ided_beamline.adl"
-		args="P=xxx:"
-	}
-	display[2] {
-		label="3id A"
-		name="StationA.adl"
-		args="P=xxx:"
-	}
-	display[3] {
-		label="3id B"
-		name="StationB.adl"
-		args="P=xxx:"
-	}
-	display[4] {
-		label="PSS Station Overview"
-		name="StationStatus04.adl"
-		args="xx=07,yy=ID"
-	}
-	clr=0
-	bclr=17
-	label="-Beamline"
-}
-"related display" {
-	object {
-		x=0
-		y=39
+		y=20
 		width=70
 		height=20
 	}
@@ -227,7 +191,7 @@ display {
 "related display" {
 	object {
 		x=0
-		y=20
+		y=0
 		width=70
 		height=20
 	}
@@ -283,7 +247,7 @@ display {
 "related display" {
 	object {
 		x=0
-		y=78
+		y=60
 		width=70
 		height=20
 	}
@@ -329,7 +293,7 @@ display {
 	}
 	clr=0
 	bclr=17
-	label="-Kohzu"
+	label="-Monochrom"
 }
 "related display" {
 	object {
@@ -385,7 +349,7 @@ display {
 "related display" {
 	object {
 		x=70
-		y=98
+		y=100
 		width=70
 		height=20
 	}
@@ -431,7 +395,7 @@ display {
 "related display" {
 	object {
 		x=210
-		y=98
+		y=100
 		width=70
 		height=20
 	}
@@ -452,7 +416,7 @@ display {
 "related display" {
 	object {
 		x=140
-		y=117
+		y=120
 		width=70
 		height=20
 	}
@@ -473,7 +437,7 @@ display {
 "related display" {
 	object {
 		x=0
-		y=117
+		y=100
 		width=70
 		height=20
 	}
@@ -489,12 +453,12 @@ display {
 	}
 	clr=0
 	bclr=17
-	label="-SGM"
+	label="-SGM mono"
 }
 "related display" {
 	object {
 		x=0
-		y=59
+		y=40
 		width=70
 		height=20
 	}
@@ -513,7 +477,7 @@ display {
 "related display" {
 	object {
 		x=0
-		y=98
+		y=80
 		width=70
 		height=20
 	}
@@ -534,19 +498,14 @@ display {
 	}
 	clr=0
 	bclr=17
-	label="-HR"
+	label="-HR mono"
 }
 "related display" {
 	object {
 		x=280
-		y=59
+		y=60
 		width=70
 		height=20
-	}
-	display[0] {
-		label="old vxWorks stats"
-		name="VXstats.adl"
-		args="P=xxx:"
 	}
 	display[1] {
 		label="IOC_Status.adl"
@@ -565,7 +524,7 @@ display {
 "related display" {
 	object {
 		x=140
-		y=39
+		y=40
 		width=70
 		height=20
 	}
@@ -719,7 +678,7 @@ display {
 "related display" {
 	object {
 		x=280
-		y=39
+		y=40
 		width=70
 		height=20
 	}
@@ -744,7 +703,7 @@ display {
 "related display" {
 	object {
 		x=70
-		y=39
+		y=40
 		width=70
 		height=20
 	}
@@ -841,7 +800,7 @@ display {
 "related display" {
 	object {
 		x=210
-		y=59
+		y=60
 		width=70
 		height=20
 	}
@@ -872,7 +831,7 @@ display {
 "related display" {
 	object {
 		x=140
-		y=98
+		y=100
 		width=70
 		height=20
 	}
@@ -958,7 +917,7 @@ display {
 "related display" {
 	object {
 		x=140
-		y=78
+		y=80
 		width=70
 		height=20
 	}
@@ -1048,7 +1007,7 @@ composite {
 "related display" {
 	object {
 		x=140
-		y=59
+		y=60
 		width=70
 		height=20
 	}
@@ -1074,7 +1033,7 @@ composite {
 "related display" {
 	object {
 		x=70
-		y=59
+		y=60
 		width=70
 		height=20
 	}
@@ -1136,7 +1095,7 @@ composite {
 "related display" {
 	object {
 		x=210
-		y=39
+		y=40
 		width=70
 		height=20
 	}
@@ -1157,7 +1116,7 @@ composite {
 "related display" {
 	object {
 		x=210
-		y=117
+		y=120
 		width=70
 		height=20
 	}
@@ -1193,7 +1152,7 @@ composite {
 "related display" {
 	object {
 		x=280
-		y=98
+		y=100
 		width=70
 		height=20
 	}
@@ -1239,7 +1198,7 @@ composite {
 "related display" {
 	object {
 		x=280
-		y=117
+		y=120
 		width=70
 		height=20
 	}
@@ -1290,7 +1249,7 @@ composite {
 "related display" {
 	object {
 		x=210
-		y=137
+		y=140
 		width=70
 		height=20
 	}
@@ -1306,11 +1265,11 @@ composite {
 "related display" {
 	object {
 		x=0
-		y=137
-		width=35
+		y=120
+		width=70
 		height=20
 	}
-	display[0] {
+	display[1] {
 		label="CoarseFine"
 		name="CoarseFineMotor.adl"
 		args="P=xxx:cf1:,M=MOT,PM=xxx:,CM=SM1,FM=SM2"
@@ -1322,7 +1281,7 @@ composite {
 "related display" {
 	object {
 		x=70
-		y=137
+		y=140
 		width=70
 		height=20
 	}
@@ -1342,9 +1301,9 @@ composite {
 }
 "related display" {
 	object {
-		x=35
-		y=137
-		width=35
+		x=0
+		y=140
+		width=70
 		height=20
 	}
 	display[0] {
@@ -1415,7 +1374,7 @@ composite {
 "related display" {
 	object {
 		x=280
-		y=78
+		y=80
 		width=70
 		height=20
 	}
@@ -1431,7 +1390,7 @@ composite {
 "related display" {
 	object {
 		x=280
-		y=137
+		y=140
 		width=70
 		height=20
 	}
@@ -1447,7 +1406,7 @@ composite {
 "related display" {
 	object {
 		x=140
-		y=137
+		y=140
 		width=70
 		height=20
 	}
@@ -1468,7 +1427,7 @@ composite {
 "related display" {
 	object {
 		x=70
-		y=117
+		y=120
 		width=70
 		height=20
 	}
@@ -1509,7 +1468,7 @@ composite {
 "related display" {
 	object {
 		x=210
-		y=78
+		y=80
 		width=70
 		height=20
 	}
@@ -1628,7 +1587,7 @@ composite {
 "related display" {
 	object {
 		x=70
-		y=78
+		y=80
 		width=70
 		height=20
 	}
