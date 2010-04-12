@@ -81,6 +81,8 @@ dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt1")
 # CAMAC hardware
 #<camac.cmd
 
+#< areaDetector.cmd
+
 # Motors
 #dbLoadTemplate("basic_motor.substitutions")
 dbLoadTemplate("motor.substitutions")
@@ -118,7 +120,7 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/xia_slit.db", "P=xxx:, HSC=hsc2:")
 
 ### 2-post mirror
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/2postMirror.db","P=xxx:,Q=M1,mDn=m8,mUp=m7,LENGTH=0.3")
+dbLoadRecords("$(OPTICS)/opticsApp/Db/2postMirror.db","P=xxx:,Q=M1,mDn=m8,mUp=m7,LENGTH=0.3")
 
 ### User filters
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/filterMotor.db","P=xxx:,Q=fltr1:,MOTOR=m1,LOCK=fltr_1_2:")
@@ -179,15 +181,21 @@ dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")
 # 4-step measurement
 dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 # interpolation
-dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
+#dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
+
+dbLoadRecords("$(TOP)/xxxApp/Db/interpNew.db", "P=xxx:,Q=1,N=100")
+
 # array test
 dbLoadRecords("$(CALC)/calcApp/Db/arrayTest.db", "P=xxx:,N=2000")
 
 # pvHistory (in-crate archive of up to three PV's)
-#dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
+dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
 
 # software timer
-#dbLoadRecords("$(STD)/stdApp/Db/timer.db","P=xxx:,N=1")
+dbLoadRecords("$(STD)/stdApp/Db/timer.db","P=xxx:,N=1")
+
+# busy record
+dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db","P=xxx:,R=mybusy")
 
 # Slow feedback
 dbLoadTemplate "pid_slow.substitutions"
