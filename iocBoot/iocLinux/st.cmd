@@ -35,6 +35,8 @@ dbLoadTemplate("softMotor.substitutions")
 #dbLoadTemplate("pseudoMotor.substitutions")
 < motorSim.cmd
 
+#< areaDetector.cmd
+
 ### Allstop, alldone
 # This database must agree with the motors and other positioners you've actually loaded.
 # Several versions (e.g., all_com_32.db) are in stdApp/Db
