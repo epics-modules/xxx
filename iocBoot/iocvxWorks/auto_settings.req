@@ -69,7 +69,7 @@ file standardScans_settings.req P=$(P)
 file saveData_settings.req P=$(P)
 
 # Kohzu monochromator
-#file kohzuSeq_settings.req P=$(P)
+file kohzuSeq_settings.req P=$(P)
 
 # High resolution monochromator
 #file hrSeq_settings.req P=$(P),N=1
@@ -110,22 +110,22 @@ file Io_settings.req P=xxx:Io:
 
 
 file userCalcs10_settings.req P=$(P)
-#$(P)userCalcEnable.VAL
+$(P)userCalcEnable.VAL
 
 file userCalcOuts10_settings.req P=$(P)
-#$(P)userCalcOutEnable.VAL
+$(P)userCalcOutEnable.VAL
 
 file userTransforms10_settings.req P=$(P)
-#$(P)userTranEnable.VAL
+$(P)userTranEnable.VAL
 
 file userStringCalcs10_settings.req P=$(P)
-#$(P)userStringCalcEnable.VAL
+$(P)userStringCalcEnable.VAL
 
 file userStringSeqs10_settings.req P=$(P)
-#$(P)userStringSeqEnable
+$(P)userStringSeqEnable
 
 file userArrayCalcs10_settings.req P=$(P)
-#$(P)userArrayCalcEnable.VAL
+$(P)userArrayCalcEnable.VAL
 
 file saveData_settings.req P=$(P)
 
@@ -134,8 +134,6 @@ file auto_4step_settings.req P=$(P),Q=4step
 
 file userAve10_settings.req P=$(P)
 $(P)userAveEnable.VAL
-
-file interp_settings.req P=$(P)
 
 # MCA
 #file mca_settings.req P=$(P),M=aim_adc1
@@ -154,13 +152,13 @@ $(P):R_Mem
 # pvHistory
 file pvHistory.req P=$(P),N=1
 
-file CoarseFineMotor_settings.req P=xxx:cf1:
+#file CoarseFineMotor_settings.req P=xxx:cf1:
 
 # XIA slit
-$(P)hsc1:hID
-$(P)hsc1:vID
-$(P)hsc1:enable
-$(P)hsc1:debug
+#$(P)hsc1:hID
+#$(P)hsc1:vID
+#$(P)hsc1:enable
+#$(P)hsc1:debug
 
 ## Femto amplifier  
 #file femto.req P=$(P),H=fem01:,F=seq01:
@@ -177,7 +175,7 @@ file deviceCmdReply_settings.req P=$(P),N=3
 
 file timer.req P=$(P),N=1
 
-file ramp_tweak_settings.req P=$(P),Q=rt1
+file ramp_tweak_settings.req P=$(P) Q=rt1
 
 file pid_control_settings.req P=$(P) PID=pid_slow
 

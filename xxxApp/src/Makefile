@@ -47,10 +47,6 @@ ifeq ($(OS_CLASS), WIN32)
 	# then uncomment the following two lines
 	iocxxxWin32_DBD += dxpSupport.dbd
 	xxx_LIBS_WIN32 += dxp handel
-
-	# areaDetector
-	iocxxxWin32_DBD += pluginSupport.dbd
-
 endif
 
 ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
@@ -61,10 +57,6 @@ ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
 	# then uncomment the following two lines
 	iocxxxCygwin_DBD += dxpSupport.dbd
 	xxx_LIBS_cygwin32 += dxp handel
-
-	# areaDetector
-	iocxxxCygwin_DBD += pluginSupport.dbd
-
 endif
 
 ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
@@ -98,9 +90,6 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 	# from motor
 	iocxxxVX_DBD += devDeltaTau.dbd
 	iocxxxVX_DBD += devOms.dbd
-
-	# locally defined subset of pluginSupport.dbd from areaDetector
-	iocxxxVX_DBD += AD_pluginSupportVX.dbd
 endif
 
 ifeq ($(OS_CLASS), Linux)
@@ -119,17 +108,11 @@ ifeq ($(OS_CLASS), Linux)
 		iocxxxLinux_DBD += dxpSupport.dbd
 		xxx_LIBS_Linux  += dxp handel
 	endif
-
-	# areaDetector
-	iocxxxLinux_DBD += pluginSupport.dbd
 endif
 
 ifeq ($(OS_CLASS), solaris)
 	DBD  += iocxxx_solaris.dbd
 	iocxxx_solaris_DBD += xxxCommonInclude.dbd
-
-	# areaDetector
-	iocxxx_solaris_DBD += pluginSupport.dbd
 endif
 
 
