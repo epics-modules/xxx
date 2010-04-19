@@ -1,0 +1,158 @@
+file "$(SOFTGLUE)/softGlueApp/Db/softGlue_Input.db"
+{
+pattern {P  H 	SIG					PORT	ADDR}
+
+{xxx: softGlue: AND-1_IN1			SOFTGLUE 0x8000B0}
+{xxx: softGlue: AND-1_IN2			SOFTGLUE 0x8000B8}
+
+{xxx: softGlue: AND-2_IN1			SOFTGLUE 0x8000D0}
+{xxx: softGlue: AND-2_IN2			SOFTGLUE 0x8000D8}
+#
+{xxx: softGlue: OR-1_IN1			SOFTGLUE 0x8000F0}
+{xxx: softGlue: OR-1_IN2			SOFTGLUE 0x8000F8}
+#
+{xxx: softGlue: OR-2_IN1			SOFTGLUE 0x800110}
+{xxx: softGlue: OR-2_IN2			SOFTGLUE 0x800118}
+#
+{xxx: softGlue: XOR-1_IN1			SOFTGLUE 0x800130}
+{xxx: softGlue: XOR-1_IN2			SOFTGLUE 0x800138}
+#
+{xxx: softGlue: XOR-2_IN1			SOFTGLUE 0x800150}
+{xxx: softGlue: XOR-2_IN2			SOFTGLUE 0x800158}
+#
+{xxx: softGlue: DEMUX2-1_IN			SOFTGLUE 0x800170}
+{xxx: softGlue: DEMUX2-1_SEL		SOFTGLUE 0x800178}
+#
+{xxx: softGlue: DEMUX2-2_IN			SOFTGLUE 0x800190}
+{xxx: softGlue: DEMUX2-2_SEL		SOFTGLUE 0x800198}
+#
+{xxx: softGlue: DFF-1_D				SOFTGLUE 0x800270}
+{xxx: softGlue: DFF-1_CLOCK			SOFTGLUE 0x800278}
+{xxx: softGlue: DFF-1_SET			SOFTGLUE 0x800280}
+{xxx: softGlue: DFF-1_CLEAR			SOFTGLUE 0x800288}
+#
+{xxx: softGlue: DFF-2_D				SOFTGLUE 0x8002A0}
+{xxx: softGlue: DFF-2_CLOCK			SOFTGLUE 0x8002A8}
+{xxx: softGlue: DFF-2_SET			SOFTGLUE 0x8002B0}
+{xxx: softGlue: DFF-2_CLEAR			SOFTGLUE 0x8002B8}
+#
+{xxx: softGlue: DivByN-1_ENABLE		SOFTGLUE 0x8001e0}
+{xxx: softGlue: DivByN-1_CLOCK		SOFTGLUE 0x8001e8}
+{xxx: softGlue: DivByN-1_RESET		SOFTGLUE 0x8001f0}
+#
+{xxx: softGlue: DivByN-2_ENABLE		SOFTGLUE 0x800240}
+{xxx: softGlue: DivByN-2_CLOCK		SOFTGLUE 0x800248}
+{xxx: softGlue: DivByN-2_RESET		SOFTGLUE 0x800250}
+#
+{xxx: softGlue: DnCntr-1_ENABLE		SOFTGLUE 0x8001B8}
+{xxx: softGlue: DnCntr-1_CLOCK		SOFTGLUE 0x8001B0}
+{xxx: softGlue: DnCntr-1_LOAD		SOFTGLUE 0x8001C0}
+#
+{xxx: softGlue: DnCntr-2_ENABLE		SOFTGLUE 0x800218}
+{xxx: softGlue: DnCntr-2_CLOCK		SOFTGLUE 0x800210}
+{xxx: softGlue: DnCntr-2_LOAD		SOFTGLUE 0x800220}
+#
+{xxx: softGlue: MUX2-1_IN0			SOFTGLUE 0x8002D0}
+{xxx: softGlue: MUX2-1_IN1			SOFTGLUE 0x8002D8}
+{xxx: softGlue: MUX2-1_SEL			SOFTGLUE 0x8002E0}
+#
+{xxx: softGlue: MUX2-2_IN0			SOFTGLUE 0x8002F0}
+{xxx: softGlue: MUX2-2_IN1			SOFTGLUE 0x8002F8}
+{xxx: softGlue: MUX2-2_SEL			SOFTGLUE 0x800300}
+#
+{xxx: softGlue: FI1				SOFTGLUE 0x800030}
+{xxx: softGlue: FI2				SOFTGLUE 0x800038}
+{xxx: softGlue: FI3				SOFTGLUE 0x800040}
+{xxx: softGlue: FI4				SOFTGLUE 0x800048}
+{xxx: softGlue: FI5				SOFTGLUE 0x800050}
+{xxx: softGlue: FI6				SOFTGLUE 0x800058}
+{xxx: softGlue: FI7				SOFTGLUE 0x800060}
+{xxx: softGlue: FI8				SOFTGLUE 0x800068}
+}
+
+file "$(SOFTGLUE)/softGlueApp/Db/softGlue_Output.db"
+{
+pattern {P  H 	SIG					PORT	ADDR}
+
+{xxx: softGlue: AND-1_POUT			SOFTGLUE 0x8000C0}
+{xxx: softGlue: AND-1_NOUT			SOFTGLUE 0x8000C8}
+
+{xxx: softGlue: AND-2_POUT			SOFTGLUE 0x8000E0}
+{xxx: softGlue: AND-2_NOUT			SOFTGLUE 0x8000E8}
+#
+{xxx: softGlue: OR-1_POUT			SOFTGLUE 0x800100}
+{xxx: softGlue: OR-1_NOUT			SOFTGLUE 0x800108}
+#
+{xxx: softGlue: OR-2_POUT			SOFTGLUE 0x800120}
+{xxx: softGlue: OR-2_NOUT			SOFTGLUE 0x800128}
+#
+{xxx: softGlue: XOR-1_POUT			SOFTGLUE 0x800140}
+{xxx: softGlue: XOR-1_NOUT			SOFTGLUE 0x800148}
+#
+{xxx: softGlue: XOR-2_POUT			SOFTGLUE 0x800160}
+{xxx: softGlue: XOR-2_NOUT			SOFTGLUE 0x800168}
+#
+{xxx: softGlue: DEMUX2-1_OUT0		SOFTGLUE 0x800180}
+{xxx: softGlue: DEMUX2-1_OUT1		SOFTGLUE 0x800188}
+#
+{xxx: softGlue: DEMUX2-2_OUT0		SOFTGLUE 0x8001A0}
+{xxx: softGlue: DEMUX2-2_OUT1		SOFTGLUE 0x8001A8}
+#
+{xxx: softGlue: DFF-1_POUT			SOFTGLUE 0x800290}
+{xxx: softGlue: DFF-1_NOUT			SOFTGLUE 0x800298}
+#
+{xxx: softGlue: DFF-2_POUT			SOFTGLUE 0x8002C0}
+{xxx: softGlue: DFF-2_NOUT			SOFTGLUE 0x8002C8}
+#
+{xxx: softGlue: DivByN-1_POUT		SOFTGLUE 0x8001f8}
+{xxx: softGlue: DivByN-1_NOUT		SOFTGLUE 0x800200}
+#
+{xxx: softGlue: DivByN-2_POUT		SOFTGLUE 0x800258}
+{xxx: softGlue: DivByN-2_NOUT		SOFTGLUE 0x800260}
+#
+{xxx: softGlue: DnCntr-1_POUT		SOFTGLUE 0x8001C8}
+{xxx: softGlue: DnCntr-1_NOUT		SOFTGLUE 0x8001D0}
+#
+{xxx: softGlue: DnCntr-2_POUT		SOFTGLUE 0x800228}
+{xxx: softGlue: DnCntr-2_NOUT		SOFTGLUE 0x800230}
+#
+{xxx: softGlue: MUX2-1_OUT			SOFTGLUE 0x8002E8}
+#
+{xxx: softGlue: MUX2-2_OUT			SOFTGLUE 0x800308}
+#
+{xxx: softGlue: FO1				SOFTGLUE 0x800070}
+{xxx: softGlue: FO2				SOFTGLUE 0x800078}
+{xxx: softGlue: FO3				SOFTGLUE 0x800080}
+{xxx: softGlue: FO4				SOFTGLUE 0x800088}
+{xxx: softGlue: FO5				SOFTGLUE 0x800090}
+{xxx: softGlue: FO6				SOFTGLUE 0x800098}
+{xxx: softGlue: FO7				SOFTGLUE 0x8000A0}
+{xxx: softGlue: FO8				SOFTGLUE 0x8000A8}
+
+}
+
+
+file "$(SOFTGLUE)/softGlueApp/Db/softGlue_Register.db"
+{
+pattern {P  H 	SIG					PORT	ADDR	CALC}
+
+#{xxx: softGlue: Test_Reg		SOFTGLUE 0x800070}
+#{xxx: softGlue: Test_Reg2		SOFTGLUE 0x800078}
+#{xxx: softGlue: Test_Reg3		SOFTGLUE 0x800080}
+
+#{xxx: softGlue: Sel_IN0		SOFTGLUE 0x800030}
+#{xxx: softGlue: Sel_IN1		SOFTGLUE 0x800038}
+#{xxx: softGlue: Sel_IN2		SOFTGLUE 0x800040}
+#{xxx: softGlue: Sel_IN3		SOFTGLUE 0x800048}
+#{xxx: softGlue: Sel_OUT0		SOFTGLUE 0x800050}
+#{xxx: softGlue: Sel_OUT1		SOFTGLUE 0x800058}
+#{xxx: softGlue: Sel_OUT2		SOFTGLUE 0x800060}
+#{xxx: softGlue: Sel_OUT3		SOFTGLUE 0x800068}
+#
+{xxx: softGlue: DnCntr-1_PRESET		SOFTGLUE 0x8001D8	'A'}
+{xxx: softGlue: DnCntr-2_PRESET		SOFTGLUE 0x800238	'A'}
+#
+{xxx: softGlue: DivByN-1_N			SOFTGLUE 0x800208	'A-1'}
+{xxx: softGlue: DivByN-2_N			SOFTGLUE 0x800268	'A-1'}
+#
+}

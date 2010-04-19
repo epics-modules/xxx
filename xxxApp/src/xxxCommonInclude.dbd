@@ -70,5 +70,4 @@ include "streamSynApps.dbd"
 # areaDetector
 include "ADSupport.dbd"
 include "simDetectorSupport.dbd"
-# platform dependent; done in Makefile
-#include "pluginSupport.dbd"
+include "pluginSupport.dbd"

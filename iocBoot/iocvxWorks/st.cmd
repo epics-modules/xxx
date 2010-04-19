@@ -44,7 +44,7 @@ recDynLinkQsize = 1024
 # Specify largest array CA will transport
 # Note for N sscanRecord data points, need (N+1)*8 bytes, else MEDM
 # plot doesn't display
-#putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"
+putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"
 
 # set the protocol path for streamDevice
 #epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
@@ -230,13 +230,13 @@ iocInit
 ### Startup State Notation Language (SNL) programs
 # NOTE: Command line limited to 128 characters
 
-#seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=2, logfile=kohzuCtl.log"
+seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=2, logfile=kohzuCtl.log"
 ### Example of specifying offset limits
 ##taskDelay(300)
 ##dbpf xxx:kohzu_yOffsetAO.DRVH 17.51
 ##dbpf xxx:kohzu_yOffsetAO.DRVL 17.49
 
-seq &ml_monoCtl, "P=xxx:, M_THETA=m7, M_THETA2=m10, M_Y=m9, M_Z=m8, Y_OFF=35., GEOM=1"
+#seq &ml_monoCtl, "P=xxx:, M_THETA=m7, M_THETA2=m10, M_Y=m9, M_Z=m8, Y_OFF=35., GEOM=1"
 
 #seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
 
