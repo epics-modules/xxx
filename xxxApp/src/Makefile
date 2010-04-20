@@ -76,7 +76,9 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 	iocxxxVX_DBD += camacSupport.dbd
 	iocxxxVX_DBD += devCamacSupport.dbd
 	iocxxxVX_DBD += dxpSupport.dbd
+ifdef ALLEN_BRADLEY
 	iocxxxVX_DBD += allenBradley.dbd
+endif
 	iocxxxVX_DBD += quadEMSupport.dbd
 	iocxxxVX_DBD += mcaCanberraSupport.dbd
 	iocxxxVX_DBD += devLove.dbd
@@ -143,7 +145,9 @@ xxx_Common_LIBS += stream streamSynApps
 xxx_Common_LIBS += seqDev seq pv
 xxx_Common_LIBS += $(EPICS_BASE_IOC_LIBS)
 
+ifdef ALLEN_BRADLEY
 xxx_LIBS_vxWorks += allenBradley
+endif
 xxx_LIBS_vxWorks += mcaSIS
 xxx_LIBS_vxWorks += mcaCanberra
 xxx_LIBS_vxWorks += ip330
