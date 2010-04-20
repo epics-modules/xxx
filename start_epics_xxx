@@ -1,5 +1,5 @@
 #!/bin/csh
-setenv EPICS_APP /home/oxygen/MOONEY/epics/synAppsSVN/support/xxx
+setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps_5_5/support/xxx
 
 set output = `perl $EPICS_APP/release.pl $EPICS_APP`
 $output
