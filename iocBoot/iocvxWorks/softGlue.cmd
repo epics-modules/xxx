@@ -1,6 +1,10 @@
 # BEGIN softGlue.cmd ----------------------------------------------------------
 # This must run after industryPack.cmd
 #
+# Write content to the FPGA
+# initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filename)
+initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/db/EP200_FPGA.hex")
+
 # Each instance of a fieldIO_registerSet component is initialized as follows:
 #
 #int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
@@ -24,12 +28,13 @@ initIp1k125("sg_out1",0,2,0,0x101, 0x10 ,0x81,0,0)
 	
 initIp1k125SingleRegisterPort("SOFTGLUE", 0, 2)
 
+
 # Load a single database that all database fragments supporting single-register
 # components can use to show which signals are connected together.  This
 # database is not needed for the functioning of the components, it's purely
 # for the user interface.
-dbLoadRecords("$(SOFTGLUE)/softGlueApp/Db/softGlue_SignalShow.db","P=xxx:,H=softGlue:")
+dbLoadRecords("$(SOFTGLUE)/db/softGlue_SignalShow.db","P=xxx:,H=softGlue:")
 
 # Load a set of database fragments for each single-register component.
-dbLoadTemplate("softGlue.substitutions")
+dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE")
 # END softGlue.cmd ------------------------------------------------------------
