@@ -68,7 +68,8 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 	iocxxxVX_DBD += vmeVXSupport.dbd
 	iocxxxVX_DBD += stdVXSupport.dbd
 	iocxxxVX_DBD += ipVXSupport.dbd
-	iocxxxVX_DBD += mcaSISSupport.dbd
+	iocxxxVX_DBD += mcaSTR7201Support.dbd
+	iocxxxVX_DBD += mcaSIS3820Support.dbd
 	iocxxxVX_DBD += ipUnidigSupport.dbd
 	iocxxxVX_DBD += dac128VSupport.dbd
 	iocxxxVX_DBD += ip330Support.dbd
