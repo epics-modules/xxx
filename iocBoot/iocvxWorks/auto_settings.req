@@ -144,10 +144,10 @@ $(P)userAveEnable.VAL
 #file icbDsp_settings.req P=$(P),DSP=dsp1
 
 # PVs loaded by vxStats.substitutions
-$(P):R_CA
-$(P):R_FD
-$(P):R_Load
-$(P):R_Mem
+$(P)R_CA
+$(P)R_FD
+$(P)R_Load
+$(P)R_Mem
 
 # pvHistory
 file pvHistory.req P=$(P),N=1
