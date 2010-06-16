@@ -29,7 +29,7 @@ sysCplusEnable=1
 
 ### Load synApps EPICS software
 ### doesn't work for tornado 2.2.2 ### ld < xxx.munch
-ld(0,0,"xxx.munch")
+load("xxx.munch")
 cd startup
 
 # Increase size of buffer for error logging from default 1256
