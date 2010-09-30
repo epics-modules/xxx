@@ -217,7 +217,7 @@ dbLoadTemplate("vxStats.substitutions")
 #dbLoadRecords("$(STD)/stdApp/Db/femto.db","P=xxx:,H=fem01:,F=seq01:")
 
 ### Load database records for transform record support for Femto amplifiers
-#dbLoadTemplate("$(STD)/stdApp/Db/femto_DxPCA_x00.substitutions")
+#dbLoadTemplate("femto_DxPCA_x00.substitutions")
 
 ### Load database records for dual PF4 filters
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4common.db","P=xxx:,H=pf4:,A=A,B=B")
