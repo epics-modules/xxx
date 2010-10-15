@@ -180,37 +180,9 @@ xxx_LIBS_WIN32    += $(xxx_Common_LIBS)
 # For USB support on Saturn uncomment the following line
 xxx_SYS_LIBS_Linux += usb
 
-# This is needed (and provided) by areaDetector on Linux and WIN32
-xxx_LIBS_WIN32        += PvAPI ImageLib
-xxx_LIBS_Linux        += PvAPI ImageLib
+# areaDetector provides a Makefile for things it needs and supplies
+include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
 
-# This is needed by dxp on cygwin and WIN32
-xxx_SYS_LIBS_cygwin32 += DLPORTIO PlxApi setupapi
-xxx_LIBS_WIN32        += DLPORTIO PlxApi
-xxx_SYS_LIBS_WIN32    += setupapi
-
-# This is needed by saveData and asyn VXI-11 on cygwin
-xxx_SYS_LIBS_cygwin32 += rpc
-
-# areaDetector needs these
-xxx_SYS_LIBS_solaris   += tiff
-xxx_LIBS_solaris   += jpeg sz z
-xxx_LIBS_solaris += NeXus hdf5_cpp hdf5
-
-# areaDetector needs (and provides) these
-xxx_LIBS_WIN32    += libtiff jpeg libNeXus.dll
-xxx_LIBS_cygwin32 += libtiff jpeg libNeXus.dll
-
-
-# To use versions of these libraries supplied with areaDetector use this line
-xxx_LIBS_Linux        += NeXus mfhdf df hdf5 mxml
-# To use system versions of these libraries use this line
-#xxx_SYS_LIBS_Linux    += NeXus mfhdf df hdf5 mxml
-
-# To use versions of these libraries supplied with areaDetector use this line
-xxx_LIBS_Linux        += tiff jpeg z
-# To use system versions of these libraries use this line
-#xxx_SYS_LIBS_Linux    += tiff jpeg z
 
 #===========================
 
