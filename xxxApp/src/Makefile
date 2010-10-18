@@ -47,6 +47,7 @@ ifeq ($(OS_CLASS), WIN32)
 	# then uncomment the following two lines
 	iocxxxWin32_DBD += dxpSupport.dbd
 	xxx_LIBS_WIN32 += dxp handel
+        xxx_LIBS_WIN32 += DLPORTIO PlxApi
 endif
 
 ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
@@ -57,6 +58,8 @@ ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
 	# then uncomment the following two lines
 	iocxxxCygwin_DBD += dxpSupport.dbd
 	xxx_LIBS_cygwin32 += dxp handel
+        xxx_SYS_LIBS_cygwin32 += DLPORTIO PlxApi
+        xxx_SYS_LIBS_cygwin32 += setupapi
 endif
 
 ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
