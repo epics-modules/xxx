@@ -48,6 +48,7 @@ ifeq ($(OS_CLASS), WIN32)
 	iocxxxWin32_DBD += dxpSupport.dbd
 	xxx_LIBS_WIN32 += dxp handel
         xxx_LIBS_WIN32 += DLPORTIO PlxApi
+        xxx_SYS_LIBS_WIN32 += setupapi
 endif
 
 ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
