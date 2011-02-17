@@ -115,7 +115,7 @@ dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
 #dbLoadRecords("$(VME)/vmeApp/Db/Acromag_16IO.db", "P=xxx:, A=1, C=0")
 
 # Acromag AVME9440 setup parameters:
-# devAvem9440Config (ncards,a16base,intvecbase)
+# devAvme9440Config (ncards,a16base,intvecbase)
 #devAvme9440Config(1,0x0400,0x78)
 
 # Bunch-clock generator
