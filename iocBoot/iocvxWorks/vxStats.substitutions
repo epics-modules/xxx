@@ -37,7 +37,7 @@
 
 file "$(VXSTATS)/db/stats.template"
 {
-    {P=xxx:,
+    {P=xxx,
 	HMM=50000000,WMM=500000,AMM=100000,
 	HCP=100,WCP=50,ACP=80,
 	HCL=200,WCL=100,ACL=175,
@@ -46,24 +46,24 @@ file "$(VXSTATS)/db/stats.template"
 }
 file "$(VXSTATS)/db/reboot.template"
 {
-    {P=xxx:,T=3}
+    {P=xxx,T=3}
 }
 file "$(VXSTATS)/db/ClusterLine.template"
 {
-    {P=xxx:,PO=0,SI=0,SC="10 second"}
-    {P=xxx:,PO=0,SI=1,SC="10 second"}
-    {P=xxx:,PO=0,SI=2,SC="10 second"}
-    {P=xxx:,PO=0,SI=3,SC="10 second"}
-    {P=xxx:,PO=0,SI=4,SC="10 second"}
-    {P=xxx:,PO=0,SI=5,SC="10 second"}
-    {P=xxx:,PO=0,SI=6,SC="10 second"}
-    {P=xxx:,PO=0,SI=7,SC="10 second"}
-    {P=xxx:,PO=1,SI=0,SC="10 second"}
-    {P=xxx:,PO=1,SI=1,SC="10 second"}
-    {P=xxx:,PO=1,SI=2,SC="10 second"}
-    {P=xxx:,PO=1,SI=3,SC="10 second"}
-    {P=xxx:,PO=1,SI=4,SC="10 second"}
-    {P=xxx:,PO=1,SI=5,SC="10 second"}
-    {P=xxx:,PO=1,SI=6,SC="10 second"}
-    {P=xxx:,PO=1,SI=7,SC="10 second"}
+    {P=xxx,PO=0,SI=0,SC="10 second"}
+    {P=xxx,PO=0,SI=1,SC="10 second"}
+    {P=xxx,PO=0,SI=2,SC="10 second"}
+    {P=xxx,PO=0,SI=3,SC="10 second"}
+    {P=xxx,PO=0,SI=4,SC="10 second"}
+    {P=xxx,PO=0,SI=5,SC="10 second"}
+    {P=xxx,PO=0,SI=6,SC="10 second"}
+    {P=xxx,PO=0,SI=7,SC="10 second"}
+    {P=xxx,PO=1,SI=0,SC="10 second"}
+    {P=xxx,PO=1,SI=1,SC="10 second"}
+    {P=xxx,PO=1,SI=2,SC="10 second"}
+    {P=xxx,PO=1,SI=3,SC="10 second"}
+    {P=xxx,PO=1,SI=4,SC="10 second"}
+    {P=xxx,PO=1,SI=5,SC="10 second"}
+    {P=xxx,PO=1,SI=6,SC="10 second"}
+    {P=xxx,PO=1,SI=7,SC="10 second"}
 }
