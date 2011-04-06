@@ -1,11 +1,14 @@
 # FILENAME...	release.pl
 #
 # USAGE... This PERL script is used in conjunction with a start_epics_xxx
-#           csh script to setup environment variables for medm.
+#          script to setup environment variables for medm.  It defaults to
+#          csh output, but a switch enables bash output (second form below).
 #
 # ORIGINAL AUTHOR: Ron Sluiter
 # 
-# SYNOPSIS...	release.pl(<ioctop> directory)
+# SYNOPSIS...	perl release.pl (<ioctop> directory)
+#               perl -s release.pl -form=bash (<ioctop> directory)  
+#
 #
 #
 # MODIFICATION LOG...
@@ -13,11 +16,12 @@
 # 04/08/04 rls Bug fix for spaces between macro and '=' sign; e.g. MPF = /home/mpf.
 # 01/25/08 rls Support "include" entries without a macro; e.g. "include /home/ioc/configure/MASTER_RELEASE"
 # 01/29/08 rls Bug fix; "($macro) =" line is wrong.
+# 04/06/11 daa Add bash output format support.
 
 #
-#Version:	$Revision: 1.7 $
-#Modified By:	$Author: sluiter $
-#Last Modified:	$Date: 2008-01-29 21:18:55 $
+#Version:	$Revision: 1.8 $
+#Modified By:	$Author: dohnarms $
+#Last Modified:	$Date: 2011-04-06 20:39:55 $
 
 use Env;
 
@@ -28,6 +32,12 @@ if ($ENV{GATEWAY} ne "")
 }
 
 $top = $ARGV[0];
+
+$format = 0;
+if ($form eq "bash")
+{
+    $format = 1;
+}
 
 $applications{TOP} = $top;
 
@@ -100,7 +110,14 @@ foreach $file (@files)
 		$applications{$prefix} = $post;
 		if ( -d "$post")
 		{
-		    print "set $prefix = $post\n";
+                    if ($format == 1)
+                    {
+                        print "$prefix=$post\n";
+                    }
+                    else
+                    {
+                        print "set $prefix = $post\n";
+                    }
 		}
 	    }
 	}
