@@ -122,6 +122,10 @@ ifeq ($(OS_CLASS), solaris)
 	iocxxx_solaris_DBD += xxxCommonInclude.dbd
 endif
 
+ifeq ($(OS_CLASS), Darwin)
+	DBD  += iocxxxDarwin.dbd
+	iocxxxDarwin_DBD += xxxCommonInclude.dbd
+endif
 
 
 
@@ -130,7 +134,8 @@ xxx_SRCS_vxWorks  += iocxxxVX_registerRecordDeviceDriver.cpp
 xxx_SRCS_Linux    += iocxxxLinux_registerRecordDeviceDriver.cpp     xxxMain.cpp
 xxx_SRCS_WIN32    += iocxxxWin32_registerRecordDeviceDriver.cpp     xxxMain.cpp
 xxx_SRCS_cygwin32 += iocxxxCygwin_registerRecordDeviceDriver.cpp    xxxMain.cpp
-xxx_SRCS_solaris  += iocxxx_solaris_registerRecordDeviceDriver.cppa xxxMain.cpp
+xxx_SRCS_solaris  += iocxxx_solaris_registerRecordDeviceDriver.cpp  xxxMain.cpp
+xxx_SRCS_Darwin   += iocxxxDarwin_registerRecordDeviceDriver.cpp    xxxMain.cpp
 
 xxx_Common_LIBS += mca
 xxx_Common_LIBS += calc
@@ -176,6 +181,7 @@ xxx_LIBS_Linux    += $(xxx_Common_LIBS)
 xxx_LIBS_solaris  += $(xxx_Common_LIBS)
 xxx_LIBS_cygwin32 += $(xxx_Common_LIBS)
 xxx_LIBS_WIN32    += $(xxx_Common_LIBS)
+xxx_LIBS_Darwin   += $(xxx_Common_LIBS)
 
 # If the host has libnet and libpcap for mca/Canberra support
 # uncomment the following line.
@@ -185,7 +191,7 @@ xxx_LIBS_WIN32    += $(xxx_Common_LIBS)
 xxx_SYS_LIBS_Linux += usb
 
 # areaDetector provides a Makefile for things it needs and supplies
-include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
+-include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
 
 
 #===========================
