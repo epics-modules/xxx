@@ -28,4 +28,6 @@ ifdef T_A
  -include $(TOP)/configure/O.$(T_A)/CONFIG_APP_INCLUDE
 endif
 
+ifneq ($(OS_CLASS), Darwin)
 STATIC_BUILD=YES
+endif
