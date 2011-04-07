@@ -1,4 +1,5 @@
 #!/bin/bash
+
 EPICS_APP=/home/oxygen/MOONEY/epics/synApps_5_5/support/xxx
 
 output=`perl -s $EPICS_APP/release.pl -form=bash $EPICS_APP`
@@ -32,7 +33,12 @@ EDP=$EDP:$ASYN/medm
 EDP=$EDP:$VAC/vacApp/op/adl
 EDP=$EDP:$SOFTGLUE/softGlueApp/op/adl
 
-export EPICS_DISPLAY_PATH=$EDP:$EPICS_DISPLAY_PATH
+if [ -z "$EPICS_DISPLAY_PATH" ] 
+then
+    export EPICS_DISPLAY_PATH=$EDP
+else
+    export EPICS_DISPLAY_PATH=$EDP:$EPICS_DISPLAY_PATH
+fi
 echo $EPICS_DISPLAY_PATH
 
 if [ -z "$MEDM_EXEC_LIST" ] 
