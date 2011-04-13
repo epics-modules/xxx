@@ -5,8 +5,9 @@ EPICS_APP=/home/oxygen/MOONEY/epics/synApps_5_5/support/xxx
 output=`perl -s $EPICS_APP/release.pl -form=bash $EPICS_APP`
 eval $output
 
-#####################
-# prepare MEDM path
+#######################################
+# Prepare MEDM path
+# EDP is temporary EPICS_DISPLAY_PATH
 #
 EDP=.
 EDP=$EDP:$EPICS_APP/xxxApp/op/adl
@@ -43,7 +44,7 @@ echo $EPICS_DISPLAY_PATH
 
 if [ -z "$MEDM_EXEC_LIST" ] 
 then
-export MEDM_EXEC_LIST='Probe;probe &P &'
+    export MEDM_EXEC_LIST='Probe;probe &P &'
 fi
 
 #export EPICS_CA_ADDR_LIST="164.54.53.126"
