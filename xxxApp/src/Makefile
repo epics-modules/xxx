@@ -72,8 +72,7 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 	iocxxxVX_DBD += vmeVXSupport.dbd
 	iocxxxVX_DBD += stdVXSupport.dbd
 	iocxxxVX_DBD += ipVXSupport.dbd
-	iocxxxVX_DBD += mcaSTR7201Support.dbd
-	iocxxxVX_DBD += mcaSIS3820Support.dbd
+	iocxxxVX_DBD += drvSIS38XXSupport.dbd
 	iocxxxVX_DBD += ipUnidigSupport.dbd
 	iocxxxVX_DBD += dac128VSupport.dbd
 	iocxxxVX_DBD += ip330Support.dbd
@@ -158,7 +157,7 @@ xxx_Common_LIBS += $(EPICS_BASE_IOC_LIBS)
 ifdef ALLEN_BRADLEY
 xxx_LIBS_vxWorks += allenBradley
 endif
-xxx_LIBS_vxWorks += mcaSIS
+xxx_LIBS_vxWorks += SIS38XX
 xxx_LIBS_vxWorks += mcaCanberra
 xxx_LIBS_vxWorks += ip330
 xxx_LIBS_vxWorks += ipUnidig
