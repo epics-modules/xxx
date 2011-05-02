@@ -24,3 +24,6 @@
 # define INSTALL_LOCATION here
 #INSTALL_LOCATION=<fullpathname>
 
+# uncomment both of the following to override release check
+#CHECK_RELEASE_YES = 
+#CHECK_RELEASE_NO = checkRelease
