@@ -7,7 +7,8 @@ then edit configure/CONFIG to set the variable CROSS_COMPILER_TARGET_ARCHS.
 
 Edit iocBoot/ioc*/Makefile to set the variable ARCH
 
-Edit start_epics_xxx to set the variable EPICS_APP
+Edit start_epics_xxx, start_epics_xxx.bash, and setup_epics_common
+to set the variables EPICS_APP and EPICS_APP_ADL_DIR
 
 Edit iocBoot/ioc*/*.cmd and iocBoot/ioc*/*.substitutions
 to agree with your hardware

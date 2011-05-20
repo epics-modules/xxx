@@ -1,53 +1,17 @@
 #!/bin/csh
+
+# this definition is optional
+setenv EPICS_DISPLAY_PATH .
+
+# MUST be defined before calling ./setup_epics_common
 setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps_5_5/support/xxx
+setenv EPICS_APP_ADL_DIR ${EPICS_APP}/xxxApp/op/adl
 
-set output = `perl $EPICS_APP/release.pl $EPICS_APP`
-$output
+# define environment variables for MEDM and Probe
+source ./setup_epics_common
 
-#######################################
-# Prepare MEDM path
-# EDP is temporary EPICS_DISPLAY_PATH
-#
-setenv EDP '.'
-setenv EDP $EDP':'$EPICS_APP/xxxApp/op/adl
-setenv EDP $EDP':'$AREA_DETECTOR/ADApp/op/adl
-setenv EDP $EDP':'$AUTOSAVE/asApp/op/adl
-setenv EDP $EDP':'$BUSY/busyApp/op/adl
-setenv EDP $EDP':'$CALC/calcApp/op/adl
-setenv EDP $EDP':'$CAMAC/camacApp/op/adl
-setenv EDP $EDP':'$DAC128V/dac128VApp/op/adl
-setenv EDP $EDP':'$DELAYGEN/delaygenApp/op/adl
-setenv EDP $EDP':'$DXP/dxpApp/op/adl
-setenv EDP $EDP':'$IP/ipApp/op/adl
-setenv EDP $EDP':'$IP330/ip330App/op/adl
-setenv EDP $EDP':'$IPUNIDIG/ipUnidigApp/op/adl
-setenv EDP $EDP':'$LOVE/loveApp/op/adl
-setenv EDP $EDP':'$MCA/mcaApp/op/adl
-setenv EDP $EDP':'$MOTOR/motorApp/op/adl
-setenv EDP $EDP':'$OPTICS/opticsApp/op/adl
-setenv EDP $EDP':'$QUADEM/quadEMApp/op/adl
-setenv EDP $EDP':'$SSCAN/sscanApp/op/adl
-setenv EDP $EDP':'$STD/stdApp/op/adl
-setenv EDP $EDP':'$VME/vmeApp/op/adl
-setenv EDP $EDP':'$ASYN/medm
-setenv EDP $EDP':'$VAC/vacApp/op/adl
-setenv EDP $EDP':'$SOFTGLUE/softGlueApp/op/adl
+echo ${EPICS_DISPLAY_PATH}
+cd ${EPICS_APP_ADL_DIR}
 
-if (! ${?EPICS_DISPLAY_PATH}) then
-setenv EPICS_DISPLAY_PATH $EDP
-else
-setenv EPICS_DISPLAY_PATH $EDP':'$EPICS_DISPLAY_PATH
-endif
-
-echo $EPICS_DISPLAY_PATH
-
-if (! ${?MEDM_EXEC_LIST}) setenv MEDM_EXEC_LIST 'Probe;probe &P &'
-
-#setenv EPICS_CA_ADDR_LIST "164.54.53.126"
-
-# This should agree with the environment variable set by the ioc
-# see 'putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"' in iocBoot/ioc<target>/st.cmd
-setenv EPICS_CA_MAX_ARRAY_BYTES 64008
-
-cd $EPICS_APP/xxxApp/op/adl
-medm xxx.adl&
+# start MEDM
+medm xxx.adl &

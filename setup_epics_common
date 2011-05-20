@@ -1,32 +1,52 @@
-setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps_5_5/support/xxx
+#!/bin/csh
+
+# caller (typically: start_epics) MUST make these definitions
+# setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps_5_5/support/xxx
+# setenv EPICS_APP_ADL_DIR ${EPICS_APP}/xxxApp/op/adl
+
 set output = `perl $EPICS_APP/release.pl $EPICS_APP`
 $output
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$EPICS_APP/xxxApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$AREA_DETECTOR/ADApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$AUTOSAVE/asApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$BUSY/busyApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$CALC/calcApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$CAMAC/camacApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$DAC128V/dac128VApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$DELAYGEN/delaygenApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$DXP/dxpApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$IP/ipApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$IP330/ip330App/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$IPUNIDIG/ipUnidigApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$LOVE/loveApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$MCA/mcaApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$MOTOR/motorApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$OPTICS/opticsApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$QUADEM/quadEMApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$SSCAN/sscanApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$STD/stdApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$VME/vmeApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$ASYN/medm
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$VAC/vacApp/op/adl
-setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$SOFTGLUE/softGlueApp/op/adl
+
+#######################################
+# Prepare MEDM path
+# EDP is temporary EPICS_DISPLAY_PATH
+#
+alias append_EDP 'setenv EDP ${EDP}:\!*'
+setenv EDP  .
+append_EDP  ${EPICS_APP_ADL_DIR}
+append_EDP  ${AREA_DETECTOR}/ADApp/op/adl
+append_EDP  ${AUTOSAVE}/asApp/op/adl
+append_EDP  ${BUSY}/busyApp/op/adl
+append_EDP  ${CALC}/calcApp/op/adl
+append_EDP  ${CAMAC}/camacApp/op/adl
+append_EDP  ${DAC128V}/dac128VApp/op/adl
+append_EDP  ${DELAYGEN}/delaygenApp/op/adl
+append_EDP  ${DXP}/dxpApp/op/adl
+append_EDP  ${IP}/ipApp/op/adl
+append_EDP  ${IP330}/ip330App/op/adl
+append_EDP  ${IPUNIDIG}/ipUnidigApp/op/adl
+append_EDP  ${LOVE}/loveApp/op/adl
+append_EDP  ${MCA}/mcaApp/op/adl
+append_EDP  ${MOTOR}/motorApp/op/adl
+append_EDP  ${OPTICS}/opticsApp/op/adl
+append_EDP  ${QUADEM}/quadEMApp/op/adl
+append_EDP  ${SSCAN}/sscanApp/op/adl
+append_EDP  ${STD}/stdApp/op/adl
+append_EDP  ${VME}/vmeApp/op/adl
+append_EDP  ${ASYN}/medm
+append_EDP  ${VAC}/vacApp/op/adl
+append_EDP  ${SOFTGLUE}/softGlueApp/op/adl
+
+if (! ${?EPICS_DISPLAY_PATH}) then
+setenv EPICS_DISPLAY_PATH ${EDP}
+else
+setenv EPICS_DISPLAY_PATH ${EDP}:${EPICS_DISPLAY_PATH}
+endif
+
+if (! ${?MEDM_EXEC_LIST}) setenv MEDM_EXEC_LIST 'Probe;probe &P &'
+
+#setenv EPICS_CA_ADDR_LIST "164.54.53.126"
 
 # This should agree with the environment variable set by the ioc
 # see 'putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"' in iocBoot/ioc<target>/st.cmd
 setenv EPICS_CA_MAX_ARRAY_BYTES 64008
-
-if (! ${?MEDM_EXEC_LIST}) setenv MEDM_EXEC_LIST 'Probe;probe &P &'
