@@ -21,6 +21,7 @@ append_EDP  ${CALC}/calcApp/op/adl
 append_EDP  ${CAMAC}/camacApp/op/adl
 append_EDP  ${DAC128V}/dac128VApp/op/adl
 append_EDP  ${DELAYGEN}/delaygenApp/op/adl
+append_EDP  ${DEVIOCSTATS}/op/adl
 append_EDP  ${DXP}/dxpApp/op/adl
 append_EDP  ${IP}/ipApp/op/adl
 append_EDP  ${IP330}/ip330App/op/adl
