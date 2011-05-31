@@ -35,7 +35,7 @@ PROD_IOC = xxx
 # doesn't matter, but the order of libraries does.
 
 # <name>.dbd will be created from <name>Include.dbd
-ifeq ($(OS_CLASS), WIN32)
+ifeq ($(T_A), win32-x86)
 	DBD  += iocxxxWin32.dbd
 	iocxxxWin32_DBD += xxxCommonInclude.dbd
 
@@ -44,11 +44,21 @@ ifeq ($(OS_CLASS), WIN32)
 	#iocxxxWin32_DBD += mcaCanberraSupport.dbd
 
 	# If you want to build parallel port or USB interfaces to Saturn and/or xMAP DXP
-	# then uncomment the following two lines
+	# then uncomment the following lines
 	iocxxxWin32_DBD += dxpSupport.dbd
 	xxx_LIBS_WIN32 += dxp handel
         xxx_LIBS_WIN32 += DLPORTIO PlxApi
         xxx_SYS_LIBS_WIN32 += setupapi
+endif
+
+ifeq ($(T_A), windows-x64)
+	DBD  += iocxxxWin64.dbd
+	iocxxxWin64_DBD += xxxCommonInclude.dbd
+
+	# If your host supports libpcap and libnet and you want to build Canberra network
+	# support uncomment the following line
+	#iocxxxWin32_DBD += mcaCanberraSupport.dbd
+
 endif
 
 ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
@@ -131,7 +141,12 @@ endif
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
 xxx_SRCS_vxWorks  += iocxxxVX_registerRecordDeviceDriver.cpp
 xxx_SRCS_Linux    += iocxxxLinux_registerRecordDeviceDriver.cpp     xxxMain.cpp
+ifeq ($(T_A),win32-x86)
 xxx_SRCS_WIN32    += iocxxxWin32_registerRecordDeviceDriver.cpp     xxxMain.cpp
+endif
+ifeq ($(T_A),windows-x64)
+xxx_SRCS_WIN32    += iocxxxWin64_registerRecordDeviceDriver.cpp     xxxMain.cpp
+endif
 xxx_SRCS_cygwin32 += iocxxxCygwin_registerRecordDeviceDriver.cpp    xxxMain.cpp
 xxx_SRCS_solaris  += iocxxx_solaris_registerRecordDeviceDriver.cpp  xxxMain.cpp
 xxx_SRCS_Darwin   += iocxxxDarwin_registerRecordDeviceDriver.cpp    xxxMain.cpp
