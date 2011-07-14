@@ -48,7 +48,6 @@ VAC=$(SUPPORT)/vac-1-3
 VME=$(SUPPORT)/vme-2-7
 VXSTATS=$(SUPPORT)/vxStats-1-7-2h
 XXX=$(SUPPORT)/xxx-5-5
-CARS=$(SUPPORT)/CARS
 
 EPICS_BASE=/corvette/usr/local/epics/base-3.14.12.1
 -include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH) 
