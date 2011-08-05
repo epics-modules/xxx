@@ -162,8 +162,8 @@ xxx_Common_LIBS += ip
 xxx_Common_LIBS += Acs acsTech80 Aerotech Attocube Faulhaber Ims KohzuMotor Mclennan
 xxx_Common_LIBS += Micos MicroMo NewFocus NewportModel2 Newport Oriel PI PIJena Parker SmartMotor
 xxx_Common_LIBS += ThorLabs softMotor motorSimSupport motor
-#xxx_Common_LIBS += ADBase NDPlugin netCDF
-xxx_Common_LIBS += simDetector NDPlugin netCDF ADBase
+#xxx_Common_LIBS += simDetector
+#include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
 xxx_Common_LIBS += asyn
 xxx_Common_LIBS += stream streamSynApps
 xxx_Common_LIBS += seqDev seq pv
