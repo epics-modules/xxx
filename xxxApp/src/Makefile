@@ -49,6 +49,10 @@ ifeq ($(T_A), win32-x86)
 	xxx_LIBS_WIN32 += dxp handel
         xxx_LIBS_WIN32 += DLPORTIO PlxApi
         xxx_SYS_LIBS_WIN32 += setupapi
+
+	ifdef DEVIOCSTATS
+		iocxxxWin32_DBD += devIocStats.dbd iocAdmin.dbd
+	endif
 endif
 
 ifeq ($(T_A), windows-x64)
@@ -59,6 +63,9 @@ ifeq ($(T_A), windows-x64)
 	# support uncomment the following line
 	#iocxxxWin32_DBD += mcaCanberraSupport.dbd
 
+	ifdef DEVIOCSTATS
+		iocxxxWin32_DBD += devIocStats.dbd iocAdmin.dbd
+	endif
 endif
 
 ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
@@ -71,6 +78,11 @@ ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
 	xxx_LIBS_cygwin32 += dxp handel
         xxx_SYS_LIBS_cygwin32 += DLPORTIO PlxApi
         xxx_SYS_LIBS_cygwin32 += setupapi
+
+	ifdef DEVIOCSTATS
+		iocxxxCygwin_DBD += devIocStats.dbd iocAdmin.dbd
+	endif
+
 endif
 
 ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
@@ -89,7 +101,9 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 
 	iocxxxVX_DBD += camacSupport.dbd
 	iocxxxVX_DBD += devCamacSupport.dbd
+ifdef DXP
 	iocxxxVX_DBD += dxpSupport.dbd
+endif
 ifdef ALLEN_BRADLEY
 	iocxxxVX_DBD += allenBradley.dbd
 endif
@@ -101,11 +115,18 @@ endif
 	iocxxxVX_DBD += drvIpac.dbd
 	# from asyn
 	iocxxxVX_DBD += drvGsIP488.dbd
-	iocxxxVX_DBD += vxStats.dbd
+	ifndef DEVIOCSTATS
+		iocxxxVX_DBD += vxStats.dbd
+	endif
 	iocxxxVX_DBD += softGlueSupport.dbd
 	# from motor
 	iocxxxVX_DBD += devDeltaTau.dbd
 	iocxxxVX_DBD += devOms.dbd
+
+	ifdef DEVIOCSTATS
+		iocxxxVX_DBD += devIocStats.dbd iocAdmin.dbd
+		iocxxxVX_DBD += devVxStats.dbd
+	endif
 endif
 
 ifeq ($(OS_CLASS), Linux)
@@ -124,16 +145,27 @@ ifeq ($(OS_CLASS), Linux)
 		iocxxxLinux_DBD += dxpSupport.dbd
 		xxx_LIBS_Linux  += dxp handel
 	endif
+
+	ifdef DEVIOCSTATS
+		iocxxxLinux_DBD += devIocStats.dbd iocAdmin.dbd
+	endif
 endif
 
 ifeq ($(OS_CLASS), solaris)
 	DBD  += iocxxx_solaris.dbd
 	iocxxx_solaris_DBD += xxxCommonInclude.dbd
+	ifdef DEVIOCSTATS
+		iocxxx_solaris_DBD += devIocStats.dbd iocAdmin.dbd
+		xxx_SYS_LIBS_solaris += kstat
+	endif
 endif
 
 ifeq ($(OS_CLASS), Darwin)
 	DBD  += iocxxxDarwin.dbd
 	iocxxxDarwin_DBD += xxxCommonInclude.dbd
+	ifdef DEVIOCSTATS
+		iocxxxDarwin_DBD += devIocStats.dbd iocAdmin.dbd
+	endif
 endif
 
 
@@ -162,12 +194,14 @@ xxx_Common_LIBS += ip
 xxx_Common_LIBS += Acs acsTech80 Aerotech Attocube Faulhaber Ims KohzuMotor Mclennan
 xxx_Common_LIBS += Micos MicroMo NewFocus NewportModel2 Newport Oriel PI PIJena Parker SmartMotor
 xxx_Common_LIBS += ThorLabs softMotor motorSimSupport motor
-#xxx_Common_LIBS += simDetector
-#include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
+#xxx_Common_LIBS += simDetector NDPlugin netCDF ADBase
 xxx_Common_LIBS += asyn
 xxx_Common_LIBS += stream streamSynApps
 xxx_Common_LIBS += seqDev seq pv
 xxx_Common_LIBS += $(EPICS_BASE_IOC_LIBS)
+ifdef DEVIOCSTATS
+	xxx_Common_LIBS += devIocStats
+endif
 
 ifdef ALLEN_BRADLEY
 xxx_LIBS_vxWorks += allenBradley
@@ -179,9 +213,14 @@ xxx_LIBS_vxWorks += ipUnidig
 xxx_LIBS_vxWorks += dac128V
 xxx_LIBS_vxWorks += quadEM
 xxx_LIBS_vxWorks += camac devCamac
-xxx_LIBS_vxWorks += dxp handel
+xxx_LIBS_vxWorks += NewportModel3
+ifdef DXP
+	xxx_LIBS_vxWorks += dxp handel
+endif
 xxx_LIBS_vxWorks += love
-xxx_LIBS_vxWorks += vxStats
+ifndef DEVIOCSTATS
+	xxx_LIBS_vxWorks += vxStats
+endif
 xxx_LIBS_vxWorks += vme
 xxx_LIBS_vxWorks += TyGSOctal Ipac
 xxx_LIBS_vxWorks += oms DeltaTau
@@ -205,8 +244,7 @@ xxx_LIBS_Darwin   += $(xxx_Common_LIBS)
 xxx_SYS_LIBS_Linux += usb
 
 # areaDetector provides a Makefile for things it needs and supplies
--include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
-
+#	-include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
 
 #===========================
 
