@@ -1,5 +1,9 @@
 # Linux startup script
 
+# For devIocStats
+epicsEnvSet("ENGINEER","engineer")
+epicsEnvSet("LOCATION","location")
+
 < envPaths
 
 # save_restore.cmd needs the full path to the startup directory, which
@@ -26,7 +30,7 @@ iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 < save_restore.cmd
 
 # serial support
-< serial.cmd
+#< serial.cmd
 
 # Motors
 #dbLoadTemplate("basic_motor.substitutions")
@@ -38,15 +42,10 @@ dbLoadTemplate("softMotor.substitutions")
 #< areaDetector.cmd
 
 ### Allstop, alldone
-# This database must agree with the motors and other positioners you've actually loaded.
-# Several versions (e.g., all_com_32.db) are in stdApp/Db
 dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=xxx:")
 
 ### Insertion-device control
 #dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=xxx:,xx=02us")
-
-# sample-wheel
-#dbLoadRecords("$(STD)/stdApp/Db/sampleWheel.db", "P=xxx:,ROWMOTOR=xxx:m7,ANGLEMOTOR=xxx:m8")
 
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
@@ -56,15 +55,11 @@ dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db","P=xxx:,MAXPTS1=8000,MAXPTS2=1000,M
 # A set of scan parameters for each positioner.  This is a convenience
 # for the user.  It can contain an entry for each scannable thing in the
 # crate.
-#dbLoadTemplate("scanParms.substitutions")
+dbLoadTemplate("scanParms.substitutions")
 
 ### Slits
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1V,mXp=m3,mXn=m4")
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m6")
-
-# under development...
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2V,mXp=m13,mXn=m14")
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2H,mXp=m15,mXn=m16")
 
 # X-ray Instrumentation Associates Huber Slit Controller
 # supported by a customized version of the SNL program written by Pete Jemian
@@ -119,26 +114,29 @@ dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
 var aCalcArraySize, 2000
 dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
-# extra userCalcs (must also load userCalcs10.db for the enable switch)
-dbLoadRecords("$(CALC)/calcApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
 dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
-# string sequence (sseq) record
-dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq1")
-dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq2")
-dbLoadRecords("$(STD)/stdApp/Db/yySseq.db","P=xxx:,S=Sseq3")
+# string sequence (sseq) records
+dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")
 # 4-step measurement
 dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 # interpolation
 dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
+dbLoadRecords("$(CALC)/calcApp/Db/interpNew.db", "P=xxx:,Q=1,N=2000")
 # array test
 dbLoadRecords("$(CALC)/calcApp/Db/arrayTest.db", "P=xxx:,N=2000")
+# busy record
+dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db", "P=xxx:,R=mybusy")
 
 # Slow feedback
 #dbLoadTemplate "pid_slow.substitutions"
 
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
-#dbLoadRecords("$(STD)/stdApp/Db/VXstats.db","P=xxx:")
+
+dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=xxx, TODFORMAT=%A %b %d %j")
+#dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
+#dbLoadRecords("$(DEVIOCSTATS)/db/iocEnvVar.db","IOCNAME=xxx,ENVNAME=WHATEVER")
+dbLoadRecords("$(DEVIOCSTATS)/db/iocGeneralTime.db","IOCNAME=xxx")
 
 ### Queensgate piezo driver
 #dbLoadRecords("$(IP)/ipApp/Db/pzt_3id.db","P=xxx:")
