@@ -1,17 +1,27 @@
+$(P)saveData_config
+
 file motor_settings.req P=$(P),M=m1
 file motor_settings.req P=$(P),M=m2
 file motor_settings.req P=$(P),M=m3
 file motor_settings.req P=$(P),M=m4
+file motor_settings.req P=$(P),M=m5
+file motor_settings.req P=$(P),M=m6
+file motor_settings.req P=$(P),M=m7
+file motor_settings.req P=$(P),M=m8
 
-file pseudoMotor_settings.req P=$(P),M=pm1
-file pseudoMotor_settings.req P=$(P),M=pm2
-file pseudoMotor_settings.req P=$(P),M=pm3
-file pseudoMotor_settings.req P=$(P),M=pm4
+#file pseudoMotor_settings.req P=$(P),M=pm1
+#file pseudoMotor_settings.req P=$(P),M=pm2
+#file pseudoMotor_settings.req P=$(P),M=pm3
+#file pseudoMotor_settings.req P=$(P),M=pm4
 
 file scanParms_settings.req P=$(P),M=m1
 file scanParms_settings.req P=$(P),M=m2
 file scanParms_settings.req P=$(P),M=m3
 file scanParms_settings.req P=$(P),M=m4
+file scanParms_settings.req P=$(P),M=m5
+file scanParms_settings.req P=$(P),M=m6
+file scanParms_settings.req P=$(P),M=m7
+file scanParms_settings.req P=$(P),M=m8
 
 #file table_settings.req P=$(P),T=table1,Q=table1
 
@@ -25,25 +35,24 @@ file saveData_settings.req P=$(P)
 #file hrSeq_settings.req P=$(P),N=1
 
 # Io calc
-file Io_settings.req P=xxx:Io:
+#file Io_settings.req P=xxx:Io:
 
 ### user calcs.  Disabled on startup unless the xxxEnable PV is
 ### autosaved.
 file userCalcs10_settings.req P=$(P)
-file userCalcN_settings.req P=$(P),N=I_Detector
-#$(P)userCalcEnable
+$(P)userCalcEnable
 
 file userTransforms10_settings.req P=$(P)
-#$(P)userTranEnable
+$(P)userTranEnable
 
 file userStringCalcs10_settings.req P=$(P)
-#$(P)userStringCalcEnable
+$(P)userStringCalcEnable
 
 file userArrayCalcs10_settings.req P=$(P)
-#$(P)userArrayCalcEnable
+$(P)userArrayCalcEnable
 
 file userStringSeqs10_settings.req P=$(P)
-#$(P)userStringSeqEnable
+$(P)userStringSeqEnable
 
 # 4-step measurement
 file auto_4step_settings.req P=$(P),Q=4step
@@ -53,7 +62,6 @@ file userAve10_settings.req P=$(P)
 # orientation matrix
 #file orient_settings.req P=$(P),O=1
 #file orient_xtals_settings.req P=$(P),O=1
-
 
 ## Femto amplifier 4
 #file femto.req P=$(P),H=fem01:,F=seq01:
