@@ -19,6 +19,9 @@ $(P)saveData_fileSystem
 [subdir]	# scan file subdirectory
 $(P)saveData_subDir
 
+[basename]	# PV containing the desired data-file base name
+$(P)saveData_baseName
+
 [fullPathName]
 $(P)saveData_fullPathName
 
