@@ -10,12 +10,6 @@
 # slot c: IP-EP201 (FPGA)
 # slot d: Dac128V (D/A converter)
 
-# Second carrier
-# slot a: Empty
-# slob b: IP-488 (GPIB)
-# slot c: IP-Octal (serial RS-232)
-# slot d: Empty
-
 ###############################################################################
 # Initialize IP carrier
 # ipacAddCarrier(ipac_carrier_t *pcarrier, char *cardParams)
@@ -31,7 +25,7 @@
 #    OR
 # ipacAddVIPC616_01("<a16 address>, <a24 address>, <size (kB) of a24 per module>")
 #
-#ipacAddVIPC616_01("0x3000,0xa0000000")
+ipacAddVIPC616_01("0x3000,0xa0000000")
 #ipacAddVIPC616_01("0x3400,0xa2000000")
 
 # Select for Tews TVME-200 (also sold by SBS as VIPC626) version IP carrier.
@@ -39,25 +33,26 @@
 # In this example, the card is at a16 address 0x3000 ("30"), uses the interrupt
 # assignment ("1"), uses the 32-bit address space for module memory
 # ("f"), and maps that memory to A32 address 0xa000000 ("a0")
-ipacAddTVME200("301fa0")
+#ipacAddTVME200("301fa0")
 #ipacAddTVME200("341fa2")
 
 # Print out report of IP modules
 ipacReport(2)
 
-# Note: the SBS Octal-232 modules are configured in serial.cmd
-# and the SBS IP-488 modules are configured in gpib.cmd
+
+# serial support
+< serial.cmd
+
+# user programmable glue electronics (requires Acromag IP-EP20x)
+< softGlue.cmd
 
 # Systran DAC128V
-< dac128V.cmd
+#< dac128V.cmd
 
 # Analog I/O (Acromag IP330 ADC)
 #< ip330.cmd
 
 # SBS IpUnidig digital I/O
 < ipUnidig.cmd
-
-# user programmable glue electronics (requires Acromag IP-EP201)
-< softGlue.cmd
 
 # END industryPack.cmd --------------------------------------------------------
