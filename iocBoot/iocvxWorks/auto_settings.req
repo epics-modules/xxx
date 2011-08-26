@@ -2,7 +2,6 @@
 # this file.  Normally, this means a command like the following is in st.cmd
 # create_monitor_set("auto_settings.req",30,"P=xxx:")
 # This requires save_restore v2.8 or later.
-
 file motor_settings.req P=$(P),M=m1
 file motor_settings.req P=$(P),M=m2
 file motor_settings.req P=$(P),M=m3
@@ -20,16 +19,16 @@ file motor_settings.req P=$(P),M=m14
 file motor_settings.req P=$(P),M=m15
 file motor_settings.req P=$(P),M=m16
 
-file softMotor_settings.req P=$(P),SM=SM1
-file softMotor_settings.req P=$(P),SM=SM2
-file softMotor_settings.req P=$(P),SM=SM3
-file softMotor_settings.req P=$(P),SM=SM4
-file softMotor_settings.req P=$(P),SM=SM5
-file softMotor_settings.req P=$(P),SM=SM6
-file softMotor_settings.req P=$(P),SM=SM7
-file softMotor_settings.req P=$(P),SM=SM8
-file softMotor_settings.req P=$(P),SM=SM9
-file softMotor_settings.req P=$(P),SM=SM10
+#file softMotor_settings.req P=$(P),SM=SM1
+#file softMotor_settings.req P=$(P),SM=SM2
+#file softMotor_settings.req P=$(P),SM=SM3
+#file softMotor_settings.req P=$(P),SM=SM4
+#file softMotor_settings.req P=$(P),SM=SM5
+#file softMotor_settings.req P=$(P),SM=SM6
+#file softMotor_settings.req P=$(P),SM=SM7
+#file softMotor_settings.req P=$(P),SM=SM8
+#file softMotor_settings.req P=$(P),SM=SM9
+#file softMotor_settings.req P=$(P),SM=SM10
 
 file scanParms_settings.req P=$(P),M=m1
 file scanParms_settings.req P=$(P),M=m2
@@ -48,18 +47,18 @@ file scanParms_settings.req P=$(P),M=m14
 file scanParms_settings.req P=$(P),M=m15
 file scanParms_settings.req P=$(P),M=m16
 
-file scanParms_settings.req P=$(P),M=SM1
-file scanParms_settings.req P=$(P),M=SM2
-file scanParms_settings.req P=$(P),M=SM3
-file scanParms_settings.req P=$(P),M=SM4
-file scanParms_settings.req P=$(P),M=SM5
-file scanParms_settings.req P=$(P),M=SM6
-file scanParms_settings.req P=$(P),M=SM7
-file scanParms_settings.req P=$(P),M=SM8
-file scanParms_settings.req P=$(P),M=SM9
-file scanParms_settings.req P=$(P),M=SM10
+#file scanParms_settings.req P=$(P),M=SM1
+#file scanParms_settings.req P=$(P),M=SM2
+#file scanParms_settings.req P=$(P),M=SM3
+#file scanParms_settings.req P=$(P),M=SM4
+#file scanParms_settings.req P=$(P),M=SM5
+#file scanParms_settings.req P=$(P),M=SM6
+#file scanParms_settings.req P=$(P),M=SM7
+#file scanParms_settings.req P=$(P),M=SM8
+#file scanParms_settings.req P=$(P),M=SM9
+#file scanParms_settings.req P=$(P),M=SM10
 
-file table_settings.req P=$(P),T=table1,Q=Table1
+#file table_settings.req P=$(P),T=table1,Q=Table1
 
 file scaler16m_settings.req P=$(P),S=scaler1
 #file scaler_8ch_settings.req P=$(P),S=scaler2
@@ -69,7 +68,7 @@ file standardScans_settings.req P=$(P)
 file saveData_settings.req P=$(P)
 
 # Kohzu monochromator
-file kohzuSeq_settings.req P=$(P)
+#file kohzuSeq_settings.req P=$(P)
 
 # High resolution monochromator
 #file hrSeq_settings.req P=$(P),N=1
@@ -78,7 +77,7 @@ file kohzuSeq_settings.req P=$(P)
 #file ml_monoSeq_settings.req P=$(P)
 
 # Io calc
-file Io_settings.req P=xxx:Io:
+#file Io_settings.req P=xxx:Io:
 
 #$(P)fltr1:name5.VAL
 #$(P)fltr1:name4.VAL
@@ -130,7 +129,7 @@ $(P)userArrayCalcEnable.VAL
 file saveData_settings.req P=$(P)
 
 # 4-step measurement
-file auto_4step_settings.req P=$(P),Q=4step
+#file auto_4step_settings.req P=$(P),Q=4step
 
 file userAve10_settings.req P=$(P)
 $(P)userAveEnable.VAL
@@ -144,15 +143,19 @@ $(P)userAveEnable.VAL
 #file icbDsp_settings.req P=$(P),DSP=dsp1
 
 # PVs loaded by vxStats.substitutions
-$(P)R_CA
-$(P)R_FD
-$(P)R_Load
-$(P)R_Mem
+#$(P)R_CA
+#$(P)R_FD
+#$(P)R_Load
+#$(P)R_Mem
 
 # pvHistory
-file pvHistory.req P=$(P),N=1
+#file pvHistory.req P=$(P),N=1
 
 #file CoarseFineMotor_settings.req P=xxx:cf1:
+
+# 2slit database
+file 2slit_settings.req P=$(P),SLIT=Slit1V
+file 2slit_settings.req P=$(P),SLIT=Slit1H
 
 # XIA slit
 #$(P)hsc1:hID
@@ -164,21 +167,28 @@ file pvHistory.req P=$(P),N=1
 #file femto.req P=$(P),H=fem01:,F=seq01:
 
 ## PF4 dual filter
-#file pf4common.req P=$(P),H=pf4:
-#file pf4bank.req   P=$(P),H=pf4:,B=A
-#file pf4bank.req   P=$(P),H=pf4:,B=B
+file pf4common.req P=$(P),H=pf4:
+file pf4bank.req   P=$(P),H=pf4:,B=A
+file pf4bank.req   P=$(P),H=pf4:,B=B
 
 ## 
 file deviceCmdReply_settings.req P=$(P),N=1
 file deviceCmdReply_settings.req P=$(P),N=2
 file deviceCmdReply_settings.req P=$(P),N=3
 
-file timer.req P=$(P),N=1
+#file timer.req P=$(P),N=1
 
-file ramp_tweak_settings.req P=$(P) Q=rt1
+#file ramp_tweak_settings.req P=$(P) Q=rt1
 
-file pid_control_settings.req P=$(P) PID=pid_slow
+#file pid_control_settings.req P=$(P) PID=pid_slow
 
-file softGlue_settings.req P=$(P) H=softGlue:
+# softGlue
+file softGlue_settings.req  P=$(P) H=softGlue:
+#file softGlue_FPGAContent_octupole_settings.req   P=$(P) H=softGlue:
 
-file FuncGen_settings.req P=$(P) Q=fgen
+#file FuncGen_settings.req P=$(P) Q=fgen
+#file interp_settings.req P=xxx:
+
+#file octupole_settings.req P=$(P),Q=octupole:
+
+file trajectoryScan_settings.req P=$(P),R=traj1:
