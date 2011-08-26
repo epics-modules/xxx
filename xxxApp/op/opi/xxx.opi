@@ -333,7 +333,7 @@ $(pv_value)</tooltip>
         <description>41-48</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../motor/softMotors10.opi</path>
+        <path>../std/softMotors10.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
@@ -1087,7 +1087,7 @@ $(pv_value)</tooltip>
         <description>IOC Status</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../vxStats/IOC_Status.opi</path>
+        <path>../std/IOC_Status.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx</P>
@@ -1306,7 +1306,7 @@ $(pv_value)</tooltip>
         <description>1 ID BPM info</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../UndulatorCtl.opi</path>
+        <path>../std/UndulatorCtl.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <xx>01</xx>
@@ -1315,7 +1315,7 @@ $(pv_value)</tooltip>
         <description>1 ID basic control</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../OPS/UndulatorSyncCtl.opi</path>
+        <path>../std/UndulatorSyncCtl.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <xx>01</xx>
@@ -1324,7 +1324,7 @@ $(pv_value)</tooltip>
         <description>1 ID sync-scan control</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../OPS/xxIDCtrl.opi</path>
+        <path>../std/xxIDCtrl.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
@@ -1334,7 +1334,7 @@ $(pv_value)</tooltip>
         <description>new ID control</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../OPS/xxIDCtrl.opi</path>
+        <path>../std/xxIDCtrl.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
@@ -1344,7 +1344,7 @@ $(pv_value)</tooltip>
         <description>new ID control (us)</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../OPS/beamHistory.opi</path>
+        <path>../std/beamHistory.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -1352,7 +1352,7 @@ $(pv_value)</tooltip>
         <description>24 hr. Beam History</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../OPS/beamHistory_full.opi</path>
+        <path>../std/beamHistory_full.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
@@ -1460,7 +1460,7 @@ $(pv_value)</tooltip>
     <y>40</y>
     <actions hook="false">
       <action type="OPEN_OPI_IN_VIEW">
-        <path>BunchClkGen.opi</path>
+        <path>../vme/BunchClkGen.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <UNIT>xxx:BnchClkGen</UNIT>
@@ -1943,7 +1943,7 @@ $(pv_value)</tooltip>
         <description>MCA with ROI's</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../xxIcbAdc.opi</path>
+        <path>../mca/xxIcbAdc.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
@@ -1963,7 +1963,7 @@ $(pv_value)</tooltip>
         <description>TCA 1</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../xxIcbHVPS.opi</path>
+        <path>../mca/xxIcbHVPS.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
@@ -2280,13 +2280,14 @@ $(pv_value)</tooltip>
     <y>60</y>
     <actions hook="false">
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../calc/interp.opi</path>
+        <path>../calc/interpNew.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
+          <Q>1</Q>
         </macros>
         <Position>1</Position>
-        <description>interp</description>
+        <description>interpNew</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
         <path>../calc/arrayTest.opi</path>
@@ -2306,6 +2307,15 @@ $(pv_value)</tooltip>
         </macros>
         <Position>1</Position>
         <description>pvHistory 1</description>
+      </action>
+      <action type="OPEN_OPI_IN_VIEW">
+        <path>../calc/interp.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+        </macros>
+        <Position>1</Position>
+        <description>interp</description>
       </action>
     </actions>
     <tooltip>$(pv_name)
@@ -2345,7 +2355,7 @@ $(pv_value)</tooltip>
     <y>60</y>
     <actions hook="false">
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../dac128V/VME_DAC8.opi</path>
+        <path>../std/VME_DAC8.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
@@ -2355,7 +2365,7 @@ $(pv_value)</tooltip>
         <description>vme DAC 1 Chans 1-8</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../dac128V/VME_DAC8.opi</path>
+        <path>../std/VME_DAC8.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
@@ -2562,7 +2572,7 @@ $(pv_value)</tooltip>
         <description>IpUnidig I/O</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../std/Acromag_8in.opi</path>
+        <path>../vme/Acromag_8in.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
@@ -2580,7 +2590,7 @@ $(pv_value)</tooltip>
         <description>Acromag 8 in</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../std/Acromag_8out.opi</path>
+        <path>../vme/Acromag_8out.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
@@ -2598,7 +2608,7 @@ $(pv_value)</tooltip>
         <description>Acromag 8 out</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../std/Acromag_16out.opi</path>
+        <path>../vme/Acromag_16out.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
@@ -2608,7 +2618,7 @@ $(pv_value)</tooltip>
         <description>Acromag 16 out</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../std/Acromag_16in.opi</path>
+        <path>../vme/Acromag_16in.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
@@ -2794,7 +2804,7 @@ $(pv_value)</tooltip>
         <description>asyn record serial3</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../asynOctet.opi</path>
+        <path>../asyn/asynOctet.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
@@ -2814,7 +2824,7 @@ $(pv_value)</tooltip>
         <description>asyn record serial5</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../asynOctet.opi</path>
+        <path>../asyn/asynOctet.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
@@ -2834,7 +2844,7 @@ $(pv_value)</tooltip>
         <description>asyn record serial7</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../asynOctet.opi</path>
+        <path>../asyn/asynOctet.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
@@ -3837,7 +3847,7 @@ $(pv_value)</tooltip>
         <description>ADC 2 sweep</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../mca_small.opi</path>
+        <path>../mca/mca_small.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
