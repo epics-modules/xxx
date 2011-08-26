@@ -73,9 +73,9 @@ file pvHistory.req P=$(P),N=1
 #file femto.req P=$(P),H=fem01:,F=seq01:
 
 ## PF4 dual filter
-file pf4common.req P=$(P),H=pf4:
-file pf4bank.req   P=$(P),H=pf4:,B=A
-file pf4bank.req   P=$(P),H=pf4:,B=B
+#file pf4common.req P=$(P),H=pf4:
+#file pf4bank.req   P=$(P),H=pf4:,B=A
+#file pf4bank.req   P=$(P),H=pf4:,B=B
 
 # pid
 file pid_control_settings.req P=$(P) PID=pid_slow
