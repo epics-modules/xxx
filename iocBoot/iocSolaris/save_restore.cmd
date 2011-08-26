@@ -1,6 +1,9 @@
 
 # BEGIN save_restore.cmd ------------------------------------------------------
 
+# Debug-output level
+save_restoreSet_Debug(0)
+
 ### save_restore setup
 #
 # This file does not require modification for standard use, but...
@@ -62,7 +65,5 @@ set_requestfile_path("$(STD)", "stdApp/Db")
 set_requestfile_path("$(VME)", "vmeApp/Db")
 set_requestfile_path("$(TOP)", "xxxApp/Db")
 
-# Debug-output level
-save_restoreSet_Debug(0)
 
 # END save_restore.cmd --------------------------------------------------------
