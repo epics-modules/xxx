@@ -1,4 +1,8 @@
-# vxWorks startup script
+# Solaris startup script
+
+# for devIocStats
+epicsEnvSet("ENGINEER","engineer")
+epicsEnvSet("LOCATION","location")
 
 # Read environment variables
 < envPaths
@@ -41,7 +45,10 @@ epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 # Motors
 #dbLoadTemplate("motor.substitutions")
 dbLoadTemplate("softMotor.substitutions")
-< motorSim.cmd
+#< motorSim.cmd
+
+# busy record
+#dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db","P=xxx:,R=mybusy")
 
 ### Allstop, alldone
 # This database must agree with the motors and other positioners you've actually loaded.
@@ -50,8 +57,8 @@ dbLoadTemplate("softMotor.substitutions")
 dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=xxx:")
 
 # interpolation
-dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
-
+#dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
+dbLoadRecords("$(CALC)/calcApp/Db/interpNew.db", "P=xxx:,Q=1,N=2000")
 
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
@@ -108,11 +115,12 @@ dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
 # extra userCalcs (must also load userCalcs10.db for the enable switch)
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
-#dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
+dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
 # string sequence (sseq) records
 dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")
 # ramp/tweak
 dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt1")
+dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt2")
 
 # pvHistory (in-crate archive of up to three PV's)
 dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
@@ -123,6 +131,11 @@ dbLoadTemplate "async_pid_slow.substitutions"
 
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
+
+dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=xxx")
+dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
+#dbLoadRecords("$(DEVIOCSTATS)/db/iocEnvVar.db","IOCNAME=xxx,ENVNAME=WHATEVER")
+dbLoadRecords("$(DEVIOCSTATS)/db/iocGeneralTime.db","IOCNAME=xxx")
 
 ### Load database records for Femto amplifiers
 #dbLoadRecords("$(STD)/stdApp/Db/femto.db","P=xxx:,H=fem01:,F=seq01:")
@@ -143,8 +156,21 @@ iocInit
 #seq &orient, "P=xxx:orient1:,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
 
 # Start PF4 filter sequence program
-#seq &pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:BraggEAO,B1=xxx:Unidig1Bo3,B2=xxx:Unidig1Bo4,B3=xxx:Unidig1Bo5,B4=xxx:Unidig1Bo6"
-#seq &pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:BraggEAO,B1=xxx:Unidig1Bo7,B2=xxx:Unidig1Bo8,B3=xxx:Unidig1Bo9,B4=xxx:Unidig1Bo10"
+#        name = what user will call it
+#        P    = prefix of database and sequencer
+#        H    = hardware (i.e. pf4)
+#        B    = bank indicator (i.e. A,B)
+#        M    = Monochromatic-beam energy PV
+#        BP   = Filter control bit PV prefix
+#        B1   = Filter control bit 0 number
+#        B2   = Filter control bit 1 number
+#        B3   = Filter control bit 2 number
+#        B4   = Fitler control bit 3 number
+#seq &pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:BraggEAO,BP=xxx:Unidig1Bo,B1=3,B2=4,B3=5,B4=6"
+#seq &pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:BraggEAO,BP=xxx:Unidig1Bo,B1=7,B2=8,B3=9,B4=10"
+seq(&pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:userCalc1,BP=xxx:userCalc1.,B1=A,B2=B,B3=C,B4=D")
+seq(&pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:userCalc1,BP=xxx:userCalc1.,B1=E,B2=F,B3=G,B4=H")
+
 
 # Start Femto amplifier sequence programs
 #seq femto,"name=fem1,P=xxx:,H=fem01:,F=seq01:,G1=xxx:Unidig1Bo6,G2=xxx:Unidig1Bo7,G3=xxx:Unidig1Bo8,NO=xxx:Unidig1Bo10"
@@ -167,6 +193,9 @@ create_monitor_set("auto_settings.req",30,"P=xxx:")
 #    sets this time.)
 # 3: if specified time has passed, wait for space in queue, then send message
 # else: don't send message
+
 saveData_Init("saveData.req", "P=xxx:")
 
 motorUtilInit("xxx:")
+#var sscanRecordDebug,1
+#var debug_saveData,1
