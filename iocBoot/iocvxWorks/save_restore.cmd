@@ -1,6 +1,9 @@
 
 # BEGIN save_restore.cmd ------------------------------------------------------
 
+# Debug-output level
+save_restoreSet_Debug(0)
+
 ### save_restore setup
 #
 # This file does not require modification for standard use, but...
@@ -12,13 +15,14 @@
 # If the NFS mount from nfsCommands is used, call set_savefile_path() with a
 # path as mounted by that file
 # That is, do this...
-set_savefile_path(startup, "autosave")
+#set_savefile_path(startup, "autosave")
 # ... or this...
-#save_restoreSet_NFSHost("oxygen", "164.54.52.4")
-#set_savefile_path("/export/oxygen4/MOONEY/epics/synApps/support/xxx/iocBoot/iocvxWorks", "autosave")
+save_restoreSet_NFSHost("oxygen", "164.54.52.4")
+set_savefile_path("/export/oxygen4/MOONEY/epics/synApps/support/xxx/iocBoot/iocvxWorks", "autosave")
 
-# status PVs
+# status PVs: default is to use them
 #save_restoreSet_UseStatusPVs(1)
+
 save_restoreSet_status_prefix("xxx:")
 dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=xxx:, DEAD_SECONDS=5")
 
@@ -34,6 +38,13 @@ save_restoreSet_NumSeqFiles(3)
 # Time interval between sequenced backups
 save_restoreSet_SeqPeriodInSeconds(300)
 
+# Ok to retry connecting to PVs whose initial connection attempt failed?
+save_restoreSet_CAReconnect(0)
+
+# Time interval in seconds between forced save-file writes.  (-1 means forever).
+# This is intended to get save files written even if the normal trigger mechanism is broken.
+save_restoreSet_CallbackTimeout(-1)
+
 ###
 # specify what save files should be restored.  Note these files must be
 # in the directory specified in set_savefile_path(), or, if that function
@@ -43,19 +54,21 @@ set_pass0_restoreFile("auto_settings.sav")
 set_pass1_restoreFile("auto_settings.sav")
 
 # Note that you can restore a .sav file without also autosaving to it.
-#set_pass0_restoreFile("myInitData.sav")
-#set_pass1_restoreFile("myInitData.sav")
+#set_pass0_restoreFile("octupole_settings.sav")
+#set_pass1_restoreFile("octupole_settings.sav")
 
 ###
 # specify directories in which to search for included request files
+# Note that the vxWorks variables (e.g., 'startup') are from cdCommands
 set_requestfile_path(startup, "")
 set_requestfile_path(startup, "autosave")
-set_requestfile_path("$(AREA_DETECTOR)", "ADApp/Db")
+set_requestfile_path("area_detector", "ADApp/Db")
 set_requestfile_path(autosave, "asApp/Db")
+set_requestfile_path(busy, "busyApp/Db")
 set_requestfile_path(calc, "calcApp/Db")
 set_requestfile_path(camac, "camacApp/Db")
 set_requestfile_path(dac128v, "dac128VApp/Db")
-set_requestfile_path(dxp, "dxpApp/Db")
+#set_requestfile_path(dxp, "dxpApp/Db")
 set_requestfile_path(ip, "ipApp/Db")
 set_requestfile_path(ip330, "ip330App/Db")
 set_requestfile_path(ipunidig, "ipUnidigApp/Db")
@@ -71,8 +84,5 @@ set_requestfile_path(std, "stdApp/Db")
 set_requestfile_path(vac, "vacApp/Db")
 set_requestfile_path(vme, "vmeApp/Db")
 set_requestfile_path(top, "xxxApp/Db")
-
-# Debug-output level
-save_restoreSet_Debug(0)
 
 # END save_restore.cmd --------------------------------------------------------
