@@ -1,13 +1,13 @@
 
 file {
 	name="/home/oxygen4/MOONEY/epics/synAppsSVN/support/xxx/xxxApp/op/adl/xxx.adl"
-	version=030104
+	version=030105
 }
 display {
 	object {
-		x=863
-		y=25
-		width=470
+		x=1134
+		y=26
+		width=440
 		height=160
 	}
 	clr=64
@@ -89,56 +89,6 @@ display {
 }
 "related display" {
 	object {
-		x=-113
-		y=525
-		width=136
-		height=22
-	}
-	display[0] {
-		label="TR_SLIT (S)"
-		name="trs.adl"
-		args="P=xxx:, M1=m7, M2=m8"
-	}
-	display[1] {
-		label="9-16"
-		name="topMotors8.adl"
-		args="P=xxx:,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16"
-	}
-	display[2] {
-		label="17-24"
-		name="topMotors8.adl"
-		args="P=xxx:,M1=m17,M2=m18,M3=m19,M4=m20,M5=m21,M6=m22,M7=m23,M8=m24"
-	}
-	display[3] {
-		label="25-32"
-		name="topMotors8.adl"
-		args="P=xxx:,M1=m25,M2=m26,M3=m27,M4=m28,M5=m29,M6=m30,M7=m31,M8=m32"
-	}
-	display[4] {
-		label="33-40"
-		name="topMotors8.adl"
-		args="P=xxx:,M1=m33,M2=m34,M3=m35,M4=m36,M5=m37,M6=m38,M7=m39,M8=m40"
-	}
-	display[5] {
-		label="41-48"
-		name="topMotors8.adl"
-		args="P=xxx:,M1=m41,M2=m42,M3=m43,M4=m44,M5=m45,M6=m46,M7=m47,M8=m48"
-	}
-	display[6] {
-		label="49-56"
-		name="topMotors8.adl"
-		args="P=xxx:,M1=m49,M2=m50,M3=m51,M4=m52,M5=m53,M6=m54,M7=m55,M8=m56"
-	}
-	display[7] {
-		label="57-64"
-		name="topMotors8.adl"
-		args="P=xxx:,M1=m57,M2=m58,M3=m59,M4=m60,M5=m61,M6=m62,M7=m63,M8=m64"
-	}
-	clr=54
-	bclr=52
-}
-"related display" {
-	object {
 		x=0
 		y=20
 		width=70
@@ -183,6 +133,11 @@ display {
 		label="Table4 (L) (no X or Z)"
 		name="table_full.adl"
 		args="P=xxx:,Q=Table4,T=table4,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=junk"
+	}
+	display[9] {
+		label="ASRP mirror table"
+		name="ASRPmirrorTable.adl"
+		args="P=xxx:,TBL=mt1,VERT=xxx:m7,PITCH=xxx:m8"
 	}
 	clr=0
 	bclr=17
@@ -465,7 +420,7 @@ display {
 	display[0] {
 		label="2-post Mirror"
 		name="2postMirror.adl"
-		args="P=xxx:,Q=M1,mDn=m11,mUp=m12"
+		args="P=xxx:,Q=M1,mDn=m1,mUp=m2"
 	}
 	display[1] {
 		label=" "
@@ -507,8 +462,13 @@ display {
 		width=70
 		height=20
 	}
+	display[0] {
+		label="IOC Status"
+		name="ioc_stats.adl"
+		args="P=xxx:"
+	}
 	display[1] {
-		label="IOC_Status.adl"
+		label="old IOC_Status.adl"
 		name="IOC_Status.adl"
 		args="P=xxx"
 	}
@@ -670,6 +630,21 @@ display {
 		label="PF4 Filter"
 		name="pf4.adl"
 		args="P=xxx:,H=pf4:,A=A,B=B,MONO=xxx:BraggEAO,B1=xxx:Unidig1Bo3,B2=xxx:Unidig1Bo4,B3=xxx:Unidig1Bo5,B4=xxx:Unidig1Bo6,B5=xxx:Unidig1Bo7,B6=xxx:Unidig1Bo8,B7=xxx:Unidig1Bo9,B8=xxx:Unidig1Bo10"
+	}
+	display[7] {
+		label="PF4 Filter small"
+		name="pf4small.adl"
+		args="P=xxx:,H=pf4:,A=A,B=B,MONO=xxx:BraggEAO,B1=xxx:Unidig1Bo3,B2=xxx:Unidig1Bo4,B3=xxx:Unidig1Bo5,B4=xxx:Unidig1Bo6,B5=xxx:Unidig1Bo7,B6=xxx:Unidig1Bo8,B7=xxx:Unidig1Bo9,B8=xxx:Unidig1Bo10"
+	}
+	display[9] {
+		label="PF4 Filter fake I/O"
+		name="pf4.adl"
+		args="P=xxx:,H=pf4:,A=A,B=B"
+	}
+	display[10] {
+		label="PF4 FilterBank A"
+		name="pf4Bank.adl"
+		args="P=xxx:,H=pf4:,B=A"
 	}
 	clr=0
 	bclr=17
@@ -934,7 +909,7 @@ display {
 	object {
 		x=350
 		y=108
-		width=100
+		width=90
 		height=29
 	}
 	control {
@@ -1025,6 +1000,11 @@ composite {
 		label="pvHistory 1"
 		name="pvHistory.adl"
 		args="P=xxx:,N=1"
+	}
+	display[3] {
+		label="interpNew"
+		name="interpNew.adl"
+		args="P=xxx:,Q=1"
 	}
 	clr=0
 	bclr=17
@@ -1272,7 +1252,7 @@ composite {
 	display[1] {
 		label="CoarseFine"
 		name="CoarseFineMotor.adl"
-		args="P=xxx:cf1:,M=MOT,PM=xxx:,CM=SM1,FM=SM2"
+		args="P=xxx:cf1:,M=MOT,PM=xxx:,CM=m7,FM=m8"
 	}
 	clr=0
 	bclr=17
@@ -1389,36 +1369,20 @@ composite {
 }
 "related display" {
 	object {
-		x=280
-		y=140
-		width=70
-		height=20
-	}
-	display[0] {
-		label="ASRP mirror table"
-		name="ASRPmirrorTable.adl"
-		args="P=xxx:,TBL=mt1,VERT=xxx:m7,PITCH=xxx:m8"
-	}
-	clr=0
-	bclr=17
-	label="-ASRPmt"
-}
-"related display" {
-	object {
 		x=140
 		y=140
 		width=70
 		height=20
 	}
 	display[0] {
-		label="ramp/tweak LaserDelay"
-		name="ramp_tweak.adl"
-		args="P=xxx:,Q=LaserDelay"
-	}
-	display[1] {
 		label="ramp/tweak rt1"
 		name="ramp_tweak.adl"
 		args="P=xxx:,Q=rt1"
+	}
+	display[1] {
+		label="ramp/tweak rt2"
+		name="ramp_tweak.adl"
+		args="P=xxx:,Q=rt2"
 	}
 	clr=0
 	bclr=17
@@ -1549,20 +1513,25 @@ composite {
 		width=70
 		height=20
 	}
-	display[2] {
+	display[0] {
 		label="softGlueMenu"
 		name="softGlueMenu.adl"
 		args="P=xxx:,H=softGlue:"
 	}
+	display[1] {
+		label="softGlue2 Menu"
+		name="softGlueMenu.adl"
+		args="P=xxx:,H=softGlue2:"
+	}
 	display[3] {
-		label="softGlueAll"
-		name="softGlueAll.adl"
-		args="P=xxx:,H=softGlue:"
+		label="shift 1"
+		name="softGlue_Shift32_bare.adl"
+		args="P=xxx:,H=softGlue:,N=1"
 	}
 	display[4] {
-		label="softGlueAllDebug"
-		name="softGlueAllDebug.adl"
-		args="P=xxx:,H=softGlue:"
+		label="shift 2"
+		name="softGlue_Shift32_bare.adl"
+		args="P=xxx:,H=softGlue:,N=2"
 	}
 	clr=0
 	bclr=17
@@ -1634,4 +1603,36 @@ composite {
 	clr=0
 	bclr=17
 	label="-ADC"
+}
+"related display" {
+	object {
+		x=350
+		y=60
+		width=70
+		height=20
+	}
+	display[1] {
+		label="OctupoleRamp"
+		name="OctupoleRamp.adl"
+		args="P=xxx:,Q=octupole:"
+	}
+	clr=0
+	bclr=17
+	label="-octupole"
+}
+"related display" {
+	object {
+		x=280
+		y=140
+		width=70
+		height=20
+	}
+	display[2] {
+		label="trajectoryScan"
+		name="MAX_trajectoryScan.adl"
+		args="P=xxx:,R=traj1:,TITLE=title,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+	}
+	clr=0
+	bclr=17
+	label="-trajectory"
 }
