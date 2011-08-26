@@ -89,15 +89,6 @@ dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=8,PORT=serial8,ADDR=0
 # Stanford Research Systems SR570 Current Preamplifier
 dbLoadRecords("$(IP)/ipApp/Db/SR570.db", "P=xxx:,A=A1,PORT=serial1")
 
-# Lakeshore DRC-93CA Temperature Controller
-#dbLoadRecords("$(IP)/ipApp/Db/LakeShoreDRC-93CA.db", "P=xxx:,Q=TC1,PORT=serial4")
-
-# Huber DMC9200 DC Motor Controller
-#dbLoadRecords("$(IP)/ipApp/Db/HuberDMC9200.db", "P=xxx:,Q=DMC1:,PORT=serial5")
-
-# Oriel 18011 Encoder Mike
-#dbLoadRecords("$(IP)/ipApp/Db/eMike.db", "P=xxx:,M=em1,PORT=serial3")
-
 # Keithley 2000 DMM
 #dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM_mf.db","P=xxx:,Dmm=D1,PORT=serial1")
 
@@ -106,27 +97,6 @@ dbLoadRecords("$(IP)/ipApp/Db/SR570.db", "P=xxx:,A=A1,PORT=serial1")
 
 # Oxford ILM202 Cryogen Level Meter (Serial)
 #dbLoadRecords("$(IP)/ipApp/Db/Oxford_ILM202.db","P=xxx:,S=s1,PORT=serial5")
-
-# Elcomat autocollimator
-#dbLoadRecords("$(IP)/ipApp/Db/Elcomat.db", "P=xxx:,PORT=serial8")
-
-# Eurotherm temp controller
-#dbLoadRecords("$(IP)/ipApp/Db/Eurotherm.db","P=xxx:,PORT=serial7")
-
-# MKS vacuum gauges
-#dbLoadRecords("$(IP)/ipApp/Db/MKS.db","P=xxx:,PORT=serial2,CC1=cc1,CC2=cc3,PR1=pr1,PR2=pr3")
-
-# PI Digitel 500/1500 pump
-#dbLoadRecords("$(IP)/ipApp/Db/Digitel.db","xxx:,PUMP=ip1,PORT=serial3")
-
-# PI MPC ion pump
-#dbLoadRecords("$(IP)/ipApp/Db/MPC.db","P=xxx:,PUMP=ip2,PORT=serial4,PA=0,PN=1")
-
-# PI MPC TSP (titanium sublimation pump)
-#dbLoadRecords("$(IP)/ipApp/Db/TSP.db","P=xxx:,TSP=tsp1,PORT=serial4,PA=0")
-
-# Heidenhain ND261 encoder (for PSL monochromator)
-#dbLoadRecords("$(IP)/ipApp/Db/heidND261.db", "P=xxx:,PORT=serial1")
 
 # Love Controllers
 #devLoveDebug=1
