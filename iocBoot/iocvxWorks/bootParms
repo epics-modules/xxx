@@ -3,11 +3,11 @@ EPICS processor: mv2700
 =======================
 boot device          : dc0 
 processor number     : 0 
-host name            : ozone 
-file name            : /usr/local/vxWorks/T222/mv2700-asd1 
+host name            : ozone (muon)
+file name            : /usr/local/vxWorks/T222/mv2700-asd4 
 inet on ethernet (e) : 164.54.53.99:fffffc00 
 inet on backplane (b): 
-host inet (h)        : 164.54.53.4 
+host inet (h)        : 164.54.53.4 (164.54.52.5)
 gateway inet (g)     : 
 user (u)             : <user>
 ftp password (pw)    : <password>
@@ -22,7 +22,7 @@ EPICS processor: mv5100
 boot device          : fei0
 processor number     : 0 
 host name            : ozone
-file name            : /usr/local/vxWorks/T222/mv2700-asd1 
+file name            : /usr/local/vxWorks/T222/mv5100-asd4 
 inet on ethernet (e) : 164.54.53.99:fffffc00
 inet on backplane (b): 
 host inet (h)        : 164.54.53.4 
