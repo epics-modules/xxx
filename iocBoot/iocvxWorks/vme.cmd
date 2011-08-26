@@ -7,7 +7,7 @@
 #     (1)cards, (2)base address(short, 16-byte boundary),
 #     (3)interrupt vector (0=disable or  64 - 255), (4)interrupt level (1 - 6),
 #     (5)motor task polling rate (min=1Hz,max=60Hz)
-omsSetup(2, 0xFC00, 180, 5, 10)
+#omsSetup(2, 0xFC00, 180, 5, 10)
 
 # OMS VME58 driver setup parameters:
 #     (1)cards, (2)base address(short, 4k boundary),                  
@@ -22,10 +22,10 @@ oms58Setup(2, 0x4000, 190, 5, 10)
 #     (4)interrupt vector (0=disable or  64 - 255).
 #     (5)interrupt level (1 - 6).
 #     (6)motor task polling rate (min=1Hz,max=60Hz).
-#!MAXvSetup(1, 16, 0xF000,     190, 5, 10)
-#!MAXvSetup(1, 24, 0xF00000,   190, 5, 10)
+#drvMAXvdebug=4
+MAXvSetup(1, 16, 0xF000,     180, 5, 10)
+#!MAXvSetup(1, 24, 0xF00000,   180, 5, 10)
 #!MAXvSetup(1, 32, 0xB0000000, 190, 5, 10)
-#!drvMAXvdebug=4
 
 # OMS MAXv configuration string:
 #     (1) number of card being configured (0-14).
@@ -36,8 +36,8 @@ oms58Setup(2, 0x4000, 190, 5, 10)
 #         User's Manual for LL/LH and PSO/PSE/PSM commands.
 #config0="AX LL PSO; AY LL PSO; AZ LL PSO; AT LL PSO; AU LH PSO; AV LH PSO; AR LH PSO; AS LH PSO;"
 
-#!config0="AX LH PSM; AY LL PSO; AZ LL PSO; AT LL PSO; AU LH PSO; AV LH PSO; AR LH PSO; AS LH PSO;"
-#!MAXvConfig(0, config0)
+config0="AX LL PSO; AY LL PSO; AZ LL PSO; AT LL PSO; AU LL PSO; AV LL PSO; AR LL PSO; AS LL PSO;"
+MAXvConfig(0, config0)
 
 ### Scalers: Joerger VSC8/16
 #dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,OUT=#C1 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
@@ -62,32 +62,35 @@ VSCSetup(2, 0xB0000000, 200)
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=2,switches=41344,irq=3")
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320group.db","P=xxx:,group=5")
 
-### Struck 7201 multichannel scaler (same as SIS 3806 multichannel scaler)
 
-#mcaRecordDebug = 10
-#devSTR7201Debug = 10
-#drvSTR7201Debug = 10
+# Struck 3820 MCS setup
+epicsEnvSet("PREFIX",                   "xxx:3820:")
+epicsEnvSet("RNAME",                    "mca")
+epicsEnvSet("MAX_SIGNALS",              "2")
+epicsEnvSet("MAX_CHANS",                "2000")
+epicsEnvSet("PORT",                     "SIS3820/1")
+# For MCA records FIELD=READ, for waveform records FIELD=PROC
+epicsEnvSet("FIELD",                    "READ")
+epicsEnvSet("MODEL",                    "SIS3820")
 
-#dbLoadRecords("$(MCA)/mcaApp/Db/Struck8.db","P=xxx:mcs:")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca1,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S0 @,CHANS=1000")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca2,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S1 @,CHANS=1000")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca3,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S2 @,CHANS=1000")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca4,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S3 @,CHANS=1000")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca5,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S4 @,CHANS=1000")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca6,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S5 @,CHANS=1000")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca7,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S6 @,CHANS=1000")
-#dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db","P=xxx:mcs:,M=mca8,DTYP=Struck STR7201 MCS,PREC=3,INP=#C0 S7 @,CHANS=1000")
+#drvSIS3820Config("Port name", baseAddress, interruptVector, interruptLevel, channels,
+#    signals, use DMA, fifoBufferWords)
+drvSIS3820Config("$(PORT)", 0xA8000000, 224, 6, $(MAX_CHANS), $(MAX_SIGNALS), 1, 0x2000)
 
-# Note the address 0x9000000 does not work on an MVME5100; try 0xA0000000
-# STR7201Setup(int numCards, int baseAddress, int interruptVector, int interruptLevel)
-#STR7201Setup(2, 0xA0000000, 220, 6)
-# STR7201Config(int card, int maxSignals, int maxChans, 
-#               int 1=enable internal 25MHZ clock, 
-#               int 1=enable initial software channel advance in MCS external advance mode)
-#STR7201Config(0, 8, 1000, 1, 1)
+# This loads the scaler record and supporting records
+dbLoadRecords("$(STD)/stdApp/Db/scaler32.db", "P=$(PREFIX), S=scaler1, DTYP=Asyn Scaler, OUT=@asyn($(PORT)), FREQ=50000000")
 
-# Struck as EPICS scaler
-#dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler2,OUT=#C0 S0 @,DTYP=Struck STR7201 Scaler,FREQ=25000000")
+# This database provides the support for the MCS functions
+dbLoadRecords("$(MCA)/mcaApp/Db/SIS38XX.template", "P=$(PREFIX), PORT=$(PORT), SCALER=$(PREFIX)scaler1")
+
+# Load either MCA or waveform records below
+# The number of records loaded must be the same as MAX_SIGNALS defined above
+
+# Load the MCA records
+dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db", "P=$(PREFIX), M=$(RNAME)1,  DTYP=asynMCA, INP=@asyn($(PORT) 0),  PREC=3, CHANS=$(MAX_CHANS)")
+dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db", "P=$(PREFIX), M=$(RNAME)2,  DTYP=asynMCA, INP=@asyn($(PORT) 1),  PREC=3, CHANS=$(MAX_CHANS)")
+
+# End Struck 3820 MCS setup
 
 # VMI4116 setup parameters: 
 #     (1)cards, (2)base address(short, 36-byte boundary), 
@@ -115,7 +118,7 @@ dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
 #dbLoadRecords("$(VME)/vmeApp/Db/Acromag_16IO.db", "P=xxx:, A=1, C=0")
 
 # Acromag AVME9440 setup parameters:
-# devAvme9440Config (ncards,a16base,intvecbase)
+# devAvem9440Config (ncards,a16base,intvecbase)
 #devAvme9440Config(1,0x0400,0x78)
 
 # Bunch-clock generator
