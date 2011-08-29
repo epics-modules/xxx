@@ -1,5 +1,9 @@
 # Cygwin startup script
 
+# For devIocStats
+epicsEnvSet("ENGINEER","engineer")
+epicsEnvSet("LOCATION","location")
+
 < envPaths
 
 # save_restore.cmd needs the full path to the startup directory, which
