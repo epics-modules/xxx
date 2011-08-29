@@ -192,7 +192,7 @@ xxx_Common_LIBS += optics
 xxx_Common_LIBS += std
 xxx_Common_LIBS += ip
 xxx_Common_LIBS += Acs acsTech80 Aerotech Attocube Faulhaber Ims KohzuMotor Mclennan
-xxx_Common_LIBS += Micos MicroMo NewFocus NewportModel2 Newport Oriel PI PIJena Parker SmartMotor
+xxx_Common_LIBS += Micos MicroMo NewFocus NewportModel3 Newport Oriel PI PIJena Parker SmartMotor
 xxx_Common_LIBS += ThorLabs softMotor motorSimSupport motor
 #xxx_Common_LIBS += simDetector NDPlugin netCDF ADBase
 xxx_Common_LIBS += asyn
@@ -213,7 +213,6 @@ xxx_LIBS_vxWorks += ipUnidig
 xxx_LIBS_vxWorks += dac128V
 xxx_LIBS_vxWorks += quadEM
 xxx_LIBS_vxWorks += camac devCamac
-xxx_LIBS_vxWorks += NewportModel3
 ifdef DXP
 	xxx_LIBS_vxWorks += dxp handel
 endif
@@ -240,8 +239,12 @@ xxx_LIBS_Darwin   += $(xxx_Common_LIBS)
 # uncomment the following line.
 #xxx_SYS_LIBS_Linux += net pcap
 
-# For USB support on Saturn uncomment the following line
-xxx_SYS_LIBS_Linux += usb
+# For USB support on Saturn uncomment the following:
+ifneq ("",$(findstring linux, $(T_A)))
+	ifeq ($(LINUX_USB_INSTALLED), YES)
+		xxx_SYS_LIBS_Linux += usb
+	endif
+endif
 
 # areaDetector provides a Makefile for things it needs and supplies
 #	-include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
