@@ -4,7 +4,7 @@
 setenv EPICS_DISPLAY_PATH .
 
 # MUST be defined before calling ./setup_epics_common
-setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps_5_5/support/xxx
+setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps/support/xxx
 setenv EPICS_APP_ADL_DIR ${EPICS_APP}/xxxApp/op/adl
 
 # define environment variables for MEDM and Probe
