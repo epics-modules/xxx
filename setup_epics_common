@@ -11,32 +11,82 @@ $output
 # Prepare MEDM path
 # EDP is temporary EPICS_DISPLAY_PATH
 #
-alias append_EDP 'setenv EDP ${EDP}:\!*'
 setenv EDP  .
-append_EDP  ${EPICS_APP_ADL_DIR}
-append_EDP  ${AREA_DETECTOR}/ADApp/op/adl
-append_EDP  ${AUTOSAVE}/asApp/op/adl
-append_EDP  ${BUSY}/busyApp/op/adl
-append_EDP  ${CALC}/calcApp/op/adl
-append_EDP  ${CAMAC}/camacApp/op/adl
-append_EDP  ${DAC128V}/dac128VApp/op/adl
-append_EDP  ${DELAYGEN}/delaygenApp/op/adl
-append_EDP  ${DEVIOCSTATS}/op/adl
-append_EDP  ${DXP}/dxpApp/op/adl
-append_EDP  ${IP}/ipApp/op/adl
-append_EDP  ${IP330}/ip330App/op/adl
-append_EDP  ${IPUNIDIG}/ipUnidigApp/op/adl
-append_EDP  ${LOVE}/loveApp/op/adl
-append_EDP  ${MCA}/mcaApp/op/adl
-append_EDP  ${MOTOR}/motorApp/op/adl
-append_EDP  ${OPTICS}/opticsApp/op/adl
-append_EDP  ${QUADEM}/quadEMApp/op/adl
-append_EDP  ${SSCAN}/sscanApp/op/adl
-append_EDP  ${STD}/stdApp/op/adl
-append_EDP  ${VME}/vmeApp/op/adl
-append_EDP  ${ASYN}/medm
-append_EDP  ${VAC}/vacApp/op/adl
-append_EDP  ${SOFTGLUE}/softGlueApp/op/adl
+if ( ${?EPICS_APP_ADL_DIR} ) then
+	setenv EDP ${EDP}:${EPICS_APP_ADL_DIR}
+endif
+if ( ${?AREA_DETECTOR} ) then
+	setenv EDP ${EDP}:${AREA_DETECTOR}/ADApp/op/adl
+endif
+if ( ${?ASYN} ) then
+	setenv EDP ${EDP}:${ASYN}/opi/medm
+endif
+if ( ${?AUTOSAVE} ) then
+	setenv EDP ${EDP}:${AUTOSAVE}/asApp/op/adl
+endif
+if ( ${?BUSY} ) then
+	setenv EDP ${EDP}:${BUSY}/busyApp/op/adl
+endif
+if ( ${?CALC} ) then
+	setenv EDP ${EDP}:${CALC}/calcApp/op/adl
+endif
+if ( ${?CAMAC} ) then
+	setenv EDP ${EDP}:${CAMAC}/camacApp/op/adl
+endif
+if ( ${?DAC128V} ) then
+	setenv EDP ${EDP}:${DAC128V}/dac128VApp/op/adl
+endif
+if ( ${?DELAYGEN} ) then
+	setenv EDP ${EDP}:${DELAYGEN}/delaygenApp/op/adl
+endif
+if ( ${?DEVIOCSTATS} ) then
+	setenv EDP ${EDP}:${DEVIOCSTATS}/op/adl
+endif
+if ( ${?DXP} ) then
+	setenv EDP ${EDP}:${DXP}/dxpApp/op/adl
+endif
+if ( ${?IP} ) then
+	setenv EDP ${EDP}:${IP}/ipApp/op/adl
+endif
+if ( ${?IP330} ) then
+	setenv EDP ${EDP}:${IP330}/ip330App/op/adl
+endif
+if ( ${?IPUNIDIG} ) then
+	setenv EDP ${EDP}:${IPUNIDIG}/ipUnidigApp/op/adl
+endif
+if ( ${?LOVE} ) then
+	setenv EDP ${EDP}:${LOVE}/loveApp/op/adl
+endif
+if ( ${?MCA} ) then
+	setenv EDP ${EDP}:${MCA}/mcaApp/op/adl
+endif
+if ( ${?MODBUS} ) then
+	setenv EDP ${EDP}:${MODBUS}/modbusApp/op/adl
+endif
+if ( ${?MOTOR} ) then
+	setenv EDP ${EDP}:${MOTOR}/motorApp/op/adl
+endif
+if ( ${?OPTICS} ) then
+	setenv EDP ${EDP}:${OPTICS}/opticsApp/op/adl
+endif
+if ( ${?QUADEM} ) then
+	setenv EDP ${EDP}:${QUADEM}/quadEMApp/op/adl
+endif
+if ( ${?SOFTGLUE} ) then
+	setenv EDP ${EDP}:${SOFTGLUE}/softGlueApp/op/adl
+endif
+if ( ${?SSCAN} ) then
+	setenv EDP ${EDP}:${SSCAN}/sscanApp/op/adl
+endif
+if ( ${?STD} ) then
+	setenv EDP ${EDP}:${STD}/stdApp/op/adl
+endif
+if ( ${?VAC} ) then
+	setenv EDP ${EDP}:${VAC}/vacApp/op/adl
+endif
+if ( ${?VME} ) then
+	setenv EDP ${EDP}:${VME}/vmeApp/op/adl
+endif
 
 if (! ${?EPICS_DISPLAY_PATH}) then
 setenv EPICS_DISPLAY_PATH ${EDP}
