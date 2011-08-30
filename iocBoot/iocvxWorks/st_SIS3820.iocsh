@@ -1,0 +1,26 @@
+# Note that this won't work from the vxWorks shell.  It ,must be executed by iocsh.
+epicsEnvSet("PREFIX",                   "xxx:3820:")
+epicsEnvSet("RNAME",                    "mca")
+epicsEnvSet("MAX_SIGNALS",              "2")
+epicsEnvSet("MAX_CHANS",                "2000")
+epicsEnvSet("PORT",                     "SIS3820/1")
+# For MCA records FIELD=READ, for waveform records FIELD=PROC
+epicsEnvSet("FIELD",                    "READ")
+epicsEnvSet("MODEL",                    "SIS3820")
+
+#drvSIS3820Config("Port name", baseAddress, interruptVector, interruptLevel, channels,
+#    signals, use DMA, fifoBufferWords)
+drvSIS3820Config($(PORT), 0xA8000000, 224, 6, $(MAX_CHANS), $(MAX_SIGNALS), 1, 0x2000)
+
+# This loads the scaler record and supporting records
+dbLoadRecords("$(STD)/stdApp/Db/scaler32.db", "P=$(PREFIX), S=scaler1, DTYP=Asyn Scaler, OUT=@asyn($(PORT)), FREQ=50000000")
+
+# This database provides the support for the MCS functions
+dbLoadRecords("$(MCA)/mcaApp/Db/SIS38XX.template", "P=$(PREFIX), PORT=$(PORT), SCALER=$(PREFIX)scaler1")
+
+# Load either MCA or waveform records below
+# The number of records loaded must be the same as MAX_SIGNALS defined above
+
+# Load the MCA records
+dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db", "P=$(PREFIX), M=$(RNAME)1,  DTYP=asynMCA, INP=@asyn($(PORT) 0),  PREC=3, CHANS=$(MAX_CHANS)")
+dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db", "P=$(PREFIX), M=$(RNAME)2,  DTYP=asynMCA, INP=@asyn($(PORT) 1),  PREC=3, CHANS=$(MAX_CHANS)")
