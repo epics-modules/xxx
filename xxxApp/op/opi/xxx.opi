@@ -1087,15 +1087,6 @@ $(pv_value)</tooltip>
         <description>IOC Status</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>../std/IOC_Status.opi</path>
-        <macros>
-          <include_parent_macros>true</include_parent_macros>
-          <P>xxx</P>
-        </macros>
-        <Position>1</Position>
-        <description>old IOC_Status.adl</description>
-      </action>
-      <action type="OPEN_OPI_IN_VIEW">
         <path>../autosave/save_restoreStatus.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
