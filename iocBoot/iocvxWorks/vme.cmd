@@ -40,7 +40,7 @@ config0="AX LL PSO; AY LL PSO; AZ LL PSO; AT LL PSO; AU LL PSO; AV LL PSO; AR LL
 MAXvConfig(0, config0)
 
 ### Scalers: Joerger VSC8/16
-#dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,OUT=#C1 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
+#dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler2,OUT=#C1 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
 # scaler database with modified calcs (user calcs for all 16 channels)
 dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=xxx:,S=scaler1,OUT=#C0 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
 # Joerger VSC setup parameters:
@@ -62,35 +62,8 @@ VSCSetup(2, 0xB0000000, 200)
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=2,switches=41344,irq=3")
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320group.db","P=xxx:,group=5")
 
-
-# Struck 3820 MCS setup
-epicsEnvSet("PREFIX",                   "xxx:3820:")
-epicsEnvSet("RNAME",                    "mca")
-epicsEnvSet("MAX_SIGNALS",              "2")
-epicsEnvSet("MAX_CHANS",                "2000")
-epicsEnvSet("PORT",                     "SIS3820/1")
-# For MCA records FIELD=READ, for waveform records FIELD=PROC
-epicsEnvSet("FIELD",                    "READ")
-epicsEnvSet("MODEL",                    "SIS3820")
-
-#drvSIS3820Config("Port name", baseAddress, interruptVector, interruptLevel, channels,
-#    signals, use DMA, fifoBufferWords)
-drvSIS3820Config("$(PORT)", 0xA8000000, 224, 6, $(MAX_CHANS), $(MAX_SIGNALS), 1, 0x2000)
-
-# This loads the scaler record and supporting records
-dbLoadRecords("$(STD)/stdApp/Db/scaler32.db", "P=$(PREFIX), S=scaler1, DTYP=Asyn Scaler, OUT=@asyn($(PORT)), FREQ=50000000")
-
-# This database provides the support for the MCS functions
-dbLoadRecords("$(MCA)/mcaApp/Db/SIS38XX.template", "P=$(PREFIX), PORT=$(PORT), SCALER=$(PREFIX)scaler1")
-
-# Load either MCA or waveform records below
-# The number of records loaded must be the same as MAX_SIGNALS defined above
-
-# Load the MCA records
-dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db", "P=$(PREFIX), M=$(RNAME)1,  DTYP=asynMCA, INP=@asyn($(PORT) 0),  PREC=3, CHANS=$(MAX_CHANS)")
-dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db", "P=$(PREFIX), M=$(RNAME)2,  DTYP=asynMCA, INP=@asyn($(PORT) 1),  PREC=3, CHANS=$(MAX_CHANS)")
-
-# End Struck 3820 MCS setup
+# Struck 3820 MCS setup.
+#iocsh "st_SIS3820.iocsh"
 
 # VMI4116 setup parameters: 
 #     (1)cards, (2)base address(short, 36-byte boundary), 
