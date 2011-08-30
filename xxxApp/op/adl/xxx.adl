@@ -467,11 +467,6 @@ display {
 		name="ioc_stats.adl"
 		args="P=xxx:"
 	}
-	display[1] {
-		label="old IOC_Status.adl"
-		name="IOC_Status.adl"
-		args="P=xxx"
-	}
 	display[2] {
 		label="save_restore Status"
 		name="save_restoreStatus.adl"
