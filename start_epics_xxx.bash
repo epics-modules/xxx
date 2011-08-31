@@ -11,7 +11,10 @@ eval $output
 # EDP is temporary EPICS_DISPLAY_PATH
 #
 function append_EDP { # note: in bash, macros are not expanded in aliases
-  EDP=${EDP}:$@ 
+  if [ -d $1 ]  # this will keep keep out nonexistent directories
+  then
+    EDP=${EDP}:$1
+  fi
 }
 EDP=.
 append_EDP  ${EPICS_APP_ADL_DIR}
