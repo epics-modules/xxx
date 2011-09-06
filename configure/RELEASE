@@ -25,6 +25,8 @@ CALC=$(SUPPORT)/calc-2-9
 CAMAC=$(SUPPORT)/camac-2-7
 DAC128V=$(SUPPORT)/dac128V-2-7
 DELAYGEN=$(SUPPORT)/delaygen-1-0-6
+#http://www.slac.stanford.edu/grp/cd/soft/epics/site/devIocStats/
+DEVIOCSTATS=$(SUPPORT)/devIocStats-3-1-6
 #DXP=$(SUPPORT)/dxp
 #EBRICK=$(SUPPORT)/ebrick
 IP=$(SUPPORT)/ip-2-11
@@ -35,18 +37,17 @@ IPUNIDIG=$(SUPPORT)/ipUnidig-2-8
 LOVE=$(SUPPORT)/love-3-2-5
 MCA=$(SUPPORT)/mca-7-0
 MODBUS=$(SUPPORT)/modbus-2-2
-MOTOR=$(SUPPORT)/motor
+MOTOR=$(SUPPORT)/motor-6-6-1
 OPTICS=$(SUPPORT)/optics-2-8
 QUADEM=$(SUPPORT)/quadEM-2-4-2
-#http://epics.web.psi.ch/software/sequencer/
+#http://www-csr.bessy.de/control/SoftDist/sequencer
 SNCSEQ=$(SUPPORT)/seq-2-1-2
 SOFTGLUE=$(SUPPORT)/softGlue-2-2
 SSCAN=$(SUPPORT)/sscan-2-7
 STD=$(SUPPORT)/std-3-0
-STREAM=$(SUPPORT)/stream-2-4-5
+STREAM=$(SUPPORT)/stream-20110224a
 VAC=$(SUPPORT)/vac-1-4
 VME=$(SUPPORT)/vme-2-8
-DEVIOCSTATS=$(SUPPORT)/devIocStats-3-1-6
 #VXSTATS=$(SUPPORT)/vxStats-1-7-2h
 XXX=$(SUPPORT)/xxx-5-6
 
