@@ -65,8 +65,3 @@ include "devSequencer.dbd"
 # stream
 include "stream.dbd"
 include "streamSynApps.dbd"
-
-# areaDetector
-#include "ADSupport.dbd"
-#include "simDetectorSupport.dbd"
-#include "NDPluginSupport.dbd"
