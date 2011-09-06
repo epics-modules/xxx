@@ -35,7 +35,7 @@ PROD_IOC = xxx
 # doesn't matter, but the order of libraries does.
 
 # <name>.dbd will be created from <name>Include.dbd
-ifeq ($(T_A), win32-x86)
+ifeq (win32-x86,$(findstring win32-x86, $(T_A)))
 	DBD  += iocxxxWin32.dbd
 	iocxxxWin32_DBD += xxxCommonInclude.dbd
 
@@ -46,7 +46,9 @@ ifeq ($(T_A), win32-x86)
 	# If you want to build parallel port or USB interfaces to Saturn and/or xMAP DXP
 	# then uncomment the following lines
 	iocxxxWin32_DBD += dxpSupport.dbd
+	iocxxxWin32_DBD += ADSupport.dbd  NDFileNetCDF.dbd
 	xxx_LIBS_WIN32 += dxp handel
+	xxx_LIBS_WIN32 += ADBase NDPlugin netCDF
         xxx_LIBS_WIN32 += DLPORTIO PlxApi
         xxx_SYS_LIBS_WIN32 += setupapi
 
@@ -55,13 +57,13 @@ ifeq ($(T_A), win32-x86)
 	endif
 endif
 
-ifeq ($(T_A), windows-x64)
+ifeq (windows-x64,$(findstring windows-x64, $(T_A)))
 	DBD  += iocxxxWin64.dbd
 	iocxxxWin64_DBD += xxxCommonInclude.dbd
 
 	# If your host supports libpcap and libnet and you want to build Canberra network
 	# support uncomment the following line
-	#iocxxxWin32_DBD += mcaCanberraSupport.dbd
+	iocxxxWin32_DBD += mcaCanberraSupport.dbd
 
 	ifdef DEVIOCSTATS
 		iocxxxWin32_DBD += devIocStats.dbd iocAdmin.dbd
@@ -73,11 +75,15 @@ ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
 	iocxxxCygwin_DBD += xxxCommonInclude.dbd
 
 	# If you want to build parallel port or USB interfaces to Saturn and/or xMAP DXP
-	# then uncomment the following two lines
+	# then uncomment the following six lines
 	iocxxxCygwin_DBD += dxpSupport.dbd
+	iocxxxCygwin_DBD += ADSupport.dbd NDFileNetCDF.dbd
 	xxx_LIBS_cygwin32 += dxp handel
+	xxx_LIBS_cygwin32 += ADBase NDPlugin netCDF
         xxx_SYS_LIBS_cygwin32 += DLPORTIO PlxApi
         xxx_SYS_LIBS_cygwin32 += setupapi
+
+        xxx_SYS_LIBS_cygwin32 += $(CYGWIN_RPC_LIB)
 
 	ifdef DEVIOCSTATS
 		iocxxxCygwin_DBD += devIocStats.dbd iocAdmin.dbd
@@ -194,7 +200,6 @@ xxx_Common_LIBS += ip
 xxx_Common_LIBS += Acs acsTech80 Aerotech Attocube Faulhaber Ims KohzuMotor Mclennan
 xxx_Common_LIBS += Micos MicroMo NewFocus Newport Oriel PI PIJena Parker SmartMotor
 xxx_Common_LIBS += ThorLabs softMotor motorSimSupport motor
-#xxx_Common_LIBS += simDetector NDPlugin netCDF ADBase
 xxx_Common_LIBS += asyn
 xxx_Common_LIBS += stream streamSynApps
 xxx_Common_LIBS += seqDev seq pv
