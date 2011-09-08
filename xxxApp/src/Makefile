@@ -135,9 +135,11 @@ endif
 	endif
 endif
 
-ifeq ($(OS_CLASS), Linux)
+ifeq (linux-x86,$(findstring linux-x86, $(T_A)))
 	DBD  += iocxxxLinux.dbd
 	iocxxxLinux_DBD += xxxCommonInclude.dbd
+	iocxxxLinux_DBD += ADSupport.dbd  NDFileNetCDF.dbd
+	xxx_LIBS_Linux += ADBase NDPlugin netCDF
 
 	# If your host supports libpcap and libnet and you want to build Canberra network
 	# support, set LINUX_NET_INSTALLED to YES in <synApps>/configure/CONFIG_SITE.
@@ -252,7 +254,7 @@ ifneq ("",$(findstring linux, $(T_A)))
 endif
 
 # areaDetector provides a Makefile for things it needs and supplies
-#	-include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
+	-include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
 
 #===========================
 
