@@ -24,6 +24,8 @@ epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 dbLoadDatabase("../../dbd/iocxxxLinux.dbd")
 iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 
+< areaDetector.cmd
+
 # Autosave info node example
 #dbLoadRecords("$(AUTOSAVE)/asApp/Db/infoExample.db","P=xxx:")
 
