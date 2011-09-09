@@ -1,3 +1,5 @@
+epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 2000100
+
 # Create a simDetector driver
 simDetectorConfig("SIM1", 640, 480, 1, 50, 50000000)
 dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/ADBase.template",     "P=xxx:,R=SIM1:cam1:,PORT=SIM1,ADDR=0,TIMEOUT=1")
