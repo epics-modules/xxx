@@ -1,12 +1,12 @@
 # Create a simDetector driver
 simDetectorConfig("SIM1", 640, 480, 1, 50, 50000000)
-dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/ADBase.template",     "P=xxx:,R=cam1:,PORT=SIM1,ADDR=0,TIMEOUT=1")
-dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/simDetector.template","P=xxx:,R=cam1:,PORT=SIM1,ADDR=0,TIMEOUT=1")
+dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/ADBase.template",     "P=xxx:,R=SIM1:cam1:,PORT=SIM1,ADDR=0,TIMEOUT=1")
+dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/simDetector.template","P=xxx:,R=SIM1:cam1:,PORT=SIM1,ADDR=0,TIMEOUT=1")
 
 # Create a second simDetector driver
 simDetectorConfig("SIM2", 300, 200, 1, 50, 50000000)
-dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/ADBase.template",     "P=xxx:,R=cam2:,PORT=SIM2,ADDR=0,TIMEOUT=1")
-dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/simDetector.template","P=xxx:,R=cam2:,PORT=SIM2,ADDR=0,TIMEOUT=1")
+dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/ADBase.template",     "P=xxx:,R=SIM1:cam2:,PORT=SIM2,ADDR=0,TIMEOUT=1")
+dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/simDetector.template","P=xxx:,R=SIM1:cam2:,PORT=SIM2,ADDR=0,TIMEOUT=1")
 
 # Create a standard arrays plugin, set it to get data from first simDetector driver.
 NDStdArraysConfigure("SIM1Image", 3, 0, "SIM1", 0, 2000000)
