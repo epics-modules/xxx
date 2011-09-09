@@ -1631,3 +1631,34 @@ composite {
 	bclr=17
 	label="-trajectory"
 }
+"related display" {
+	object {
+		x=350
+		y=140
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Simulator #1 General"
+		name="ADBase.adl"
+		args="P=xxx:, R=SIM1:cam1:"
+	}
+	display[1] {
+		label="Simulator #1 Specific"
+		name="simDetector.adl"
+		args="P=xxx:, R=SIM1:cam1:"
+	}
+	display[2] {
+		label="Simulator #2 General"
+		name="ADBase.adl"
+		args="P=xxx:, R=SIM1:cam2:"
+	}
+	display[3] {
+		label="Simulator #2 Specific"
+		name="simDetector.adl"
+		args="P=xxx:, R=SIM1:cam2:"
+	}
+	clr=0
+	bclr=63
+	label="-AD simDet"
+}
