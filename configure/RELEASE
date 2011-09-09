@@ -16,7 +16,7 @@ SUPPORT=/home/oxygen/MOONEY/epics/synAppsSVN/support
 
 #/usr/local/iocapps/cvsroot/modules/bus/allenBradley
 ALLEN_BRADLEY=$(SUPPORT)/allenBradley-2-2
-#AREA_DETECTOR=$(SUPPORT)/areaDetector-1-7
+AREA_DETECTOR=$(SUPPORT)/areaDetector
 #https://svn.aps.anl.gov/epics/asyn/
 ASYN=$(SUPPORT)/asyn-4-17
 AUTOSAVE=$(SUPPORT)/autosave-4-8
@@ -37,7 +37,7 @@ IPUNIDIG=$(SUPPORT)/ipUnidig-2-8
 LOVE=$(SUPPORT)/love-3-2-5
 MCA=$(SUPPORT)/mca-7-0
 MODBUS=$(SUPPORT)/modbus-2-2
-MOTOR=$(SUPPORT)/motor-6-6-1
+MOTOR=$(SUPPORT)/motor-6-6-2
 OPTICS=$(SUPPORT)/optics-2-8
 QUADEM=$(SUPPORT)/quadEM-2-4-2
 #http://www-csr.bessy.de/control/SoftDist/sequencer
