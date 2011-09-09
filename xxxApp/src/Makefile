@@ -140,6 +140,8 @@ ifeq (linux-x86,$(findstring linux-x86, $(T_A)))
 	iocxxxLinux_DBD += xxxCommonInclude.dbd
 	iocxxxLinux_DBD += ADSupport.dbd  NDFileNetCDF.dbd
 	xxx_LIBS_Linux += ADBase NDPlugin netCDF
+	iocxxxLinux_DBD += simDetectorSupport.dbd commonDriverSupport.dbd
+	xxx_LIBS_Linux += simDetector
 
 	# If your host supports libpcap and libnet and you want to build Canberra network
 	# support, set LINUX_NET_INSTALLED to YES in <synApps>/configure/CONFIG_SITE.
