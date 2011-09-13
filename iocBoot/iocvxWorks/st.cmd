@@ -318,8 +318,8 @@ create_monitor_set("auto_settings.req",30,"P=xxx:")
 # If the path does not begin with '/', autosave will prepend the path that was specified in a
 # call to set_savefile_path().
 #create_triggered_set(<request file>,<trigger PV>,<macrostring>)
-macro="P=xxx:,SAVENAMEPV=xxx:userStringCalc1.SVAL,SAVEPATHPV=xxx:userStringCalc2.SVAL"
-create_triggered_set("trigSet.req","xxx:userStringCalc1.A",macro)
+#macro="P=xxx:,SAVENAMEPV=xxx:userStringCalc1.SVAL,SAVEPATHPV=xxx:userStringCalc2.SVAL"
+#create_triggered_set("trigSet.req","xxx:userStringCalc1.A",macro)
 
 ### Start the saveData task.  If you start this task, scan records mentioned
 # in saveData.req will *always* write data files.  There is no programmable
