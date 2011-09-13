@@ -16,7 +16,7 @@ SUPPORT=/home/oxygen/MOONEY/epics/synAppsSVN/support
 
 #/usr/local/iocapps/cvsroot/modules/bus/allenBradley
 ALLEN_BRADLEY=$(SUPPORT)/allenBradley-2-2
-AREA_DETECTOR=$(SUPPORT)/areaDetector
+AREA_DETECTOR=$(SUPPORT)/areaDetector-1-7-1
 #https://svn.aps.anl.gov/epics/asyn/
 ASYN=$(SUPPORT)/asyn-4-17
 AUTOSAVE=$(SUPPORT)/autosave-4-8
@@ -27,7 +27,7 @@ DAC128V=$(SUPPORT)/dac128V-2-7
 DELAYGEN=$(SUPPORT)/delaygen-1-0-6
 #http://www.slac.stanford.edu/grp/cd/soft/epics/site/devIocStats/
 DEVIOCSTATS=$(SUPPORT)/devIocStats-3-1-6
-#DXP=$(SUPPORT)/dxp
+DXP=$(SUPPORT)/dxp-3-1
 #EBRICK=$(SUPPORT)/ebrick
 IP=$(SUPPORT)/ip-2-11
 IP330=$(SUPPORT)/ip330-2-7
@@ -39,7 +39,7 @@ MCA=$(SUPPORT)/mca-7-0
 MODBUS=$(SUPPORT)/modbus-2-2
 MOTOR=$(SUPPORT)/motor-6-6-2
 OPTICS=$(SUPPORT)/optics-2-8
-QUADEM=$(SUPPORT)/quadEM-2-4-2
+QUADEM=$(SUPPORT)/quadEM-2-5
 #http://www-csr.bessy.de/control/SoftDist/sequencer
 SNCSEQ=$(SUPPORT)/seq-2-1-2
 SOFTGLUE=$(SUPPORT)/softGlue-2-2
