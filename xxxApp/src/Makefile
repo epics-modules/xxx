@@ -107,9 +107,6 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 
 	iocxxxVX_DBD += camacSupport.dbd
 	iocxxxVX_DBD += devCamacSupport.dbd
-ifdef DXP
-	iocxxxVX_DBD += dxpSupport.dbd
-endif
 ifdef ALLEN_BRADLEY
 	iocxxxVX_DBD += allenBradley.dbd
 endif
@@ -222,9 +219,6 @@ xxx_LIBS_vxWorks += ipUnidig
 xxx_LIBS_vxWorks += dac128V
 xxx_LIBS_vxWorks += quadEM
 xxx_LIBS_vxWorks += camac devCamac
-ifdef DXP
-	xxx_LIBS_vxWorks += dxp handel
-endif
 xxx_LIBS_vxWorks += love
 ifndef DEVIOCSTATS
 	xxx_LIBS_vxWorks += vxStats
@@ -256,8 +250,11 @@ ifneq ("",$(findstring linux, $(T_A)))
 endif
 
 # areaDetector provides a Makefile for things it needs and supplies
+ifneq (solaris,$(findstring solaris, $(T_A)))
+ifneq (vxWorks,$(findstring vxWorks, $(T_A)))
 	-include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
-
+endif
+endif
 #===========================
 
 include $(TOP)/configure/RULES
