@@ -132,7 +132,7 @@ endif
 	endif
 endif
 
-ifeq (linux-x86,$(findstring linux-x86, $(T_A)))
+ifneq ("",$(findstring linux, $(T_A)))
 	DBD  += iocxxxLinux.dbd
 	iocxxxLinux_DBD += xxxCommonInclude.dbd
 	iocxxxLinux_DBD += ADSupport.dbd  NDFileNetCDF.dbd
@@ -145,12 +145,14 @@ ifeq (linux-x86,$(findstring linux-x86, $(T_A)))
 	ifeq ($(LINUX_NET_INSTALLED), YES)
 		iocxxxLinux_DBD += mcaCanberraSupport.dbd
 		xxx_LIBS_Linux += mcaCanberra
+		xxx_SYS_LIBS_Linux += net pcap
 	endif
 	# If your host supports parallel port or USB interfaces to Saturn DXP, set
 	# LINUX_USB_INSTALLED to YES in <synApps>/configure/CONFIG_SITE.
 	ifeq ($(LINUX_USB_INSTALLED), YES)
 		iocxxxLinux_DBD += dxpSupport.dbd
 		xxx_LIBS_Linux  += dxp handel
+		xxx_SYS_LIBS_Linux += usb
 	endif
 
 	ifdef DEVIOCSTATS
@@ -238,16 +240,6 @@ xxx_LIBS_cygwin32 += $(xxx_Common_LIBS)
 xxx_LIBS_WIN32    += $(xxx_Common_LIBS)
 xxx_LIBS_Darwin   += $(xxx_Common_LIBS)
 
-# If the host has libnet and libpcap for mca/Canberra support
-# uncomment the following line.
-#xxx_SYS_LIBS_Linux += net pcap
-
-# For USB support on Saturn uncomment the following:
-ifneq ("",$(findstring linux, $(T_A)))
-	ifeq ($(LINUX_USB_INSTALLED), YES)
-		xxx_SYS_LIBS_Linux += usb
-	endif
-endif
 
 # areaDetector provides a Makefile for things it needs and supplies
 ifneq (solaris,$(findstring solaris, $(T_A)))
