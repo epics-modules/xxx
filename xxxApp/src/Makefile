@@ -49,8 +49,8 @@ ifeq (win32-x86,$(findstring win32-x86, $(T_A)))
 	iocxxxWin32_DBD += ADSupport.dbd  NDFileNetCDF.dbd
 	xxx_LIBS_WIN32 += dxp handel
 	xxx_LIBS_WIN32 += ADBase NDPlugin netCDF
-        xxx_LIBS_WIN32 += DLPORTIO PlxApi
-        xxx_SYS_LIBS_WIN32 += setupapi
+	xxx_LIBS_WIN32 += DLPORTIO PlxApi
+	xxx_SYS_LIBS_WIN32 += setupapi
 
 	ifdef DEVIOCSTATS
 		iocxxxWin32_DBD += devIocStats.dbd iocAdmin.dbd
@@ -76,14 +76,14 @@ ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
 
 	# If you want to build parallel port or USB interfaces to Saturn and/or xMAP DXP
 	# then uncomment the following six lines
-	iocxxxCygwin_DBD += dxpSupport.dbd
-	iocxxxCygwin_DBD += ADSupport.dbd NDFileNetCDF.dbd
-	xxx_LIBS_cygwin32 += dxp handel
-	xxx_LIBS_cygwin32 += ADBase NDPlugin netCDF
-        xxx_SYS_LIBS_cygwin32 += DLPORTIO PlxApi
-        xxx_SYS_LIBS_cygwin32 += setupapi
+	#iocxxxCygwin_DBD += dxpSupport.dbd
+	#iocxxxCygwin_DBD += ADSupport.dbd NDFileNetCDF.dbd
+	#xxx_LIBS_cygwin32 += dxp handel
+	#xxx_LIBS_cygwin32 += ADBase NDPlugin netCDF
+	#xxx_SYS_LIBS_cygwin32 += DLPORTIO PlxApi
+	#xxx_SYS_LIBS_cygwin32 += setupapi
 
-        xxx_SYS_LIBS_cygwin32 += $(CYGWIN_RPC_LIB)
+	xxx_SYS_LIBS_cygwin32 += $(CYGWIN_RPC_LIB)
 
 	ifdef DEVIOCSTATS
 		iocxxxCygwin_DBD += devIocStats.dbd iocAdmin.dbd
