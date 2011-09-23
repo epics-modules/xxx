@@ -27,6 +27,8 @@ epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
 dbLoadDatabase("../../dbd/iocxxxCygwin.dbd")
 iocxxxCygwin_registerRecordDeviceDriver(pdbbase)
 
+#< areaDetector.cmd
+
 ### save_restore setup
 # We presume a suitable initHook routine was compiled into xxx.munch.
 # See also create_monitor_set(), after iocInit() .
@@ -39,16 +41,8 @@ iocxxxCygwin_registerRecordDeviceDriver(pdbbase)
 #dbLoadTemplate("basic_motor.substitutions")
 #dbLoadTemplate("motor.substitutions")
 dbLoadTemplate("softMotor.substitutions")
-dbLoadTemplate("pseudoMotor.substitutions")
+#dbLoadTemplate("pseudoMotor.substitutions")
 < motorSim.cmd
-
-# autoshutter test
-dbLoadRecords("$(TOP)/xxxApp/Db/myBO.db", "P=xxx:")
-
-# autoshutter test
-dbLoadRecords("$(TOP)/xxxApp/Db/alarmClockTest.vdb", "P=xxx:,N=1")
-
-#dbLoadRecords("$(TOP)/xxxApp/Db/IDBLTest.db", "real=xxx:m1,soft=xxx:softTest")
 
 ### Allstop, alldone
 #var motorUtil_debug,1
@@ -56,12 +50,6 @@ dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=xxx:")
 
 ### streamDevice example
 #dbLoadRecords("$(TOP)/xxxApp/Db/streamExample.db","P=xxx:,PORT=serial1")
-
-### Insertion-device control
-#dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=xxx:,xx=02us")
-
-# sample-wheel
-dbLoadRecords("$(STD)/stdApp/Db/sampleWheel.db", "P=xxx:,ROWMOTOR=xxx:m7,ANGLEMOTOR=xxx:m8")
 
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
@@ -77,10 +65,6 @@ dbLoadTemplate("scanParms.substitutions")
 ### Slits
 dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1V,mXp=m3,mXn=m4")
 dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m6")
-
-# under development...
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2V,mXp=m13,mXn=m14")
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2H,mXp=m15,mXn=m16")
 
 # X-ray Instrumentation Associates Huber Slit Controller
 # supported by a customized version of the SNL program written by Pete Jemian
@@ -105,7 +89,7 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m
 dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
 
 # Io calculation
-dbLoadRecords("$(OPTICS)/opticsApp/Db/Io.db","P=xxx:Io:")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/Io.db","P=xxx:Io:")
 
 ### Monochromator support ###
 # Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
@@ -141,8 +125,6 @@ dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
 dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
-# extra userCalcs (must also load userCalcs10.db for the enable switch)
-dbLoadRecords("$(CALC)/calcApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
 dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
 # 4-step measurement
 dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
@@ -163,21 +145,8 @@ dbLoadTemplate "pid_slow.substitutions"
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
 #dbLoadRecords("$(STD)/stdApp/Db/VXstats.db","P=xxx:")
+dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=xxx, TODFORMAT=%m/%d/%Y %H:%M:%S")
 
-### Queensgate piezo driver
-#dbLoadRecords("$(IP)/ipApp/Db/pzt_3id.db","P=xxx:")
-#dbLoadRecords("$(IP)/ipApp/Db/pzt.db","P=xxx:")
-
-### Queensgate Nano2k piezo controller
-#dbLoadRecords("$(STD)/stdApp/Db/Nano2k.db","P=xxx:,S=s1")
-
-### Load database records for Femto amplifiers
-#dbLoadRecords("$(STD)/stdApp/Db/femto.db","P=xxx:,H=fem01:,F=seq01:")
-
-### Load database records for PF4 filters
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4common.db","P=xxx:,H=pf4:,A=A,B=B")
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=A")
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=B")
 
 ###############################################################################
 iocInit
@@ -199,7 +168,7 @@ iocInit
 #seq &orient, "P=xxx:orient1:,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
 
 # Io calculation
-seq &Io, "P=xxx:Io:,MONO=xxx:BraggEAO,VSC=xxx:scaler1"
+#seq &Io, "P=xxx:Io:,MONO=xxx:BraggEAO,VSC=xxx:scaler1"
 
 # Start PF4 filter sequence program
 #seq pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:BraggEAO,B1=xxx:Unidig1Bo3,B2=xxx:Unidig1Bo4,B3=xxx:Unidig1Bo5,B4=xxx:Unidig1Bo6"
