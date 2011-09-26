@@ -212,7 +212,7 @@ dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db","P=xxx:,R=mybusy")
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
 
 # devIocStats
-dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=xxx")
+dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=xxx, TODFORMAT=%m/%d/%y %H:%M:%S")
 
 ### Queensgate piezo driver
 #dbLoadRecords("$(IP)/ipApp/Db/pzt_3id.db","P=xxx:")
