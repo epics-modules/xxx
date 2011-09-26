@@ -45,7 +45,7 @@ epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 # Motors
 #dbLoadTemplate("motor.substitutions")
 dbLoadTemplate("softMotor.substitutions")
-#< motorSim.cmd
+< motorSim.cmd
 
 # busy record
 #dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db","P=xxx:,R=mybusy")
@@ -132,10 +132,10 @@ dbLoadTemplate "async_pid_slow.substitutions"
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
 
-dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=xxx")
-dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
+dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=xxx, TODFORMAT=%m/%d/%y %H:%M:%S")
+#dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
 #dbLoadRecords("$(DEVIOCSTATS)/db/iocEnvVar.db","IOCNAME=xxx,ENVNAME=WHATEVER")
-dbLoadRecords("$(DEVIOCSTATS)/db/iocGeneralTime.db","IOCNAME=xxx")
+#dbLoadRecords("$(DEVIOCSTATS)/db/iocGeneralTime.db","IOCNAME=xxx")
 
 ### Load database records for Femto amplifiers
 #dbLoadRecords("$(STD)/stdApp/Db/femto.db","P=xxx:,H=fem01:,F=seq01:")
