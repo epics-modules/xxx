@@ -73,6 +73,11 @@ endif
 ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
 	DBD  += iocxxxCygwin.dbd
 	iocxxxCygwin_DBD += xxxCommonInclude.dbd
+	# for simDetector
+	iocxxxCygwin_DBD += ADSupport.dbd  NDFileNetCDF.dbd
+	xxx_LIBS_cygwin32 += ADBase NDPlugin netCDF
+	iocxxxCygwin_DBD += simDetectorSupport.dbd commonDriverSupport.dbd
+	xxx_LIBS_cygwin32 += simDetector
 
 	# If you want to build parallel port or USB interfaces to Saturn and/or xMAP DXP
 	# then uncomment the following six lines
@@ -132,7 +137,7 @@ endif
 	endif
 endif
 
-ifneq ("",$(findstring linux, $(T_A)))
+ifneq (,$(findstring linux, $(T_A)))
 	DBD  += iocxxxLinux.dbd
 	iocxxxLinux_DBD += xxxCommonInclude.dbd
 	iocxxxLinux_DBD += ADSupport.dbd  NDFileNetCDF.dbd
