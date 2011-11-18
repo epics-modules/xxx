@@ -55,8 +55,6 @@ epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
 dbLoadDatabase("$(TOP)/dbd/iocxxxVX.dbd")
 iocxxxVX_registerRecordDeviceDriver(pdbbase)
 
-#dbLoadTemplate("octupole.substitutions")
-
 # Autosave info node example
 dbLoadRecords("$(AUTOSAVE)/asApp/Db/infoExample.db","P=xxx:")
 
@@ -296,7 +294,7 @@ seq(&pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:userCalc1,BP=xxx:Unidig1Bo,B1=7,B2=8,
 #seq &octupole, "P=xxx:, Q=octupole:, S=softGlue:"
 
 # MAXV trajectory scan 
-seq &MAX_trajectoryScan, "P=xxx:,R=traj1:,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8,PORT=none"
+#seq &MAX_trajectoryScan, "P=xxx:,R=traj1:,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8,PORT=none"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".
