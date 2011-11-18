@@ -20,13 +20,8 @@ iocxxx_solaris_registerRecordDeviceDriver(pdbbase)
 # Increase size of buffer for error logging from default 1256
 errlogInit(5000)
 
-# debug sseq record
-#var sseqRecDebug,10
 # need more entries in wait/scan-record channel-access queue?
 #var recDynLinkQsize, 1024
-
-#epicsEnvSet("EPICS_CA_ADDR_LIST", "164.54.53.99")
-#epicsEnvSet("EPICS_CA_AUTO_ADDR_LIST", "NO")
 
 # Specify largest array CA will transport
 # Note for N sscanRecord data points, need (N+1)*8 bytes, else MEDM
@@ -45,7 +40,7 @@ epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64008
 # Motors
 #dbLoadTemplate("motor.substitutions")
 dbLoadTemplate("softMotor.substitutions")
-< motorSim.cmd
+#< motorSim.cmd
 
 # busy record
 #dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db","P=xxx:,R=mybusy")
