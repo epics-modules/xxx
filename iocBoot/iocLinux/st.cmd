@@ -145,7 +145,7 @@ dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db", "P=xxx:,R=mybusy")
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
 
-dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=xxx, TODFORMAT=%A %b %d %j")
+dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=xxx, TODFORMAT=%m/%d/%y %H:%M:%S")
 #dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
 #dbLoadRecords("$(DEVIOCSTATS)/db/iocEnvVar.db","IOCNAME=xxx,ENVNAME=WHATEVER")
 dbLoadRecords("$(DEVIOCSTATS)/db/iocGeneralTime.db","IOCNAME=xxx")

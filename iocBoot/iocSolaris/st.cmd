@@ -20,13 +20,8 @@ iocxxx_solaris_registerRecordDeviceDriver(pdbbase)
 # Increase size of buffer for error logging from default 1256
 errlogInit(5000)
 
-# debug sseq record
-#var sseqRecDebug,10
 # need more entries in wait/scan-record channel-access queue?
 #var recDynLinkQsize, 1024
-
-#epicsEnvSet("EPICS_CA_ADDR_LIST", "164.54.53.99")
-#epicsEnvSet("EPICS_CA_AUTO_ADDR_LIST", "NO")
 
 # Specify largest array CA will transport
 # Note for N sscanRecord data points, need (N+1)*8 bytes, else MEDM
@@ -132,10 +127,10 @@ dbLoadTemplate "async_pid_slow.substitutions"
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
 
-dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=xxx")
-dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
+dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=xxx, TODFORMAT=%m/%d/%y %H:%M:%S")
+#dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
 #dbLoadRecords("$(DEVIOCSTATS)/db/iocEnvVar.db","IOCNAME=xxx,ENVNAME=WHATEVER")
-dbLoadRecords("$(DEVIOCSTATS)/db/iocGeneralTime.db","IOCNAME=xxx")
+#dbLoadRecords("$(DEVIOCSTATS)/db/iocGeneralTime.db","IOCNAME=xxx")
 
 ### Load database records for Femto amplifiers
 #dbLoadRecords("$(STD)/stdApp/Db/femto.db","P=xxx:,H=fem01:,F=seq01:")
