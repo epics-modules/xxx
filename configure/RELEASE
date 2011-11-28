@@ -1,56 +1,38 @@
-#FILENAME:      RELEASE
-#USAGE:         Specify directory paths to synApps support modules
-#Version:       $Revision$
-#Modified By:   $Author$
-#Last Modified: $Date$
-#HeadURL:       $URL$
+#RELEASE Location of external products
+#
+# IF YOU MAKE ANY CHANGES to this file you MUST at least run
+# "gnumake" in this directory afterwards; you usually need
+# to run "gnumake rebuild" in the application's top level
+# directory each time this file is changed.
+#
+# NOTE: The build does not check dependencies against files
+# that are outside this application, thus you should run
+# "gnumake distclean install" in the top directory each time
+# EPICS_BASE, SNCSEQ, or any other external module defined
+# in the RELEASE file is rebuilt.
+#
+# Host/target specific settings can be specified in files named
+#  RELEASE.$(EPICS_HOST_ARCH).Common
+#  RELEASE.Common.$(T_A)
+#  RELEASE.$(EPICS_HOST_ARCH).$(T_A)
 
-# Status: working toward synApps 5.6
+##############################################################################
 
-#NOTES
-#     - To remove modules from the build, delete or comment out the
-#       module name.
-
-SUPPORT=/home/oxygen/MOONEY/epics/synAppsSVN/support
+# Define the path to the synApps support directory and uncomment.
+SUPPORT=/home/oxygen/MOONEY/epics/synApps/support
 -include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
 
-#/usr/local/iocapps/cvsroot/modules/bus/allenBradley
-ALLEN_BRADLEY=$(SUPPORT)/allenBradley-2-2
-AREA_DETECTOR=$(SUPPORT)/areaDetector-1-7-1
-#https://svn.aps.anl.gov/epics/asyn/
-ASYN=$(SUPPORT)/asyn-4-18
-AUTOSAVE=$(SUPPORT)/autosave-4-8
-BUSY=$(SUPPORT)/busy-1-4
-CALC=$(SUPPORT)/calc-2-9
-CAMAC=$(SUPPORT)/camac-2-7
-DAC128V=$(SUPPORT)/dac128V-2-7
-DELAYGEN=$(SUPPORT)/delaygen-1-0-7
-#http://www.slac.stanford.edu/grp/cd/soft/epics/site/devIocStats/
-DEVIOCSTATS=$(SUPPORT)/devIocStats-3-1-6
-DXP=$(SUPPORT)/dxp-3-1
-#EBRICK=$(SUPPORT)/ebrick
-IP=$(SUPPORT)/ip-2-13
-IP330=$(SUPPORT)/ip330-2-7
-#https://svn.aps.anl.gov/epics/ipac/
-IPAC=$(SUPPORT)/ipac-2-11
-IPUNIDIG=$(SUPPORT)/ipUnidig-2-9
-LOVE=$(SUPPORT)/love-3-2-5
-MCA=$(SUPPORT)/mca-7-1
-MODBUS=$(SUPPORT)/modbus-2-3
-MOTOR=$(SUPPORT)/motor-6-6-2
-OPTICS=$(SUPPORT)/optics-2-8
-QUADEM=$(SUPPORT)/quadEM-2-6
-#http://www-csr.bessy.de/control/SoftDist/sequencer
-SNCSEQ=$(SUPPORT)/seq-2-1-3
-SOFTGLUE=$(SUPPORT)/softGlue-2-2
-SSCAN=$(SUPPORT)/sscan-2-7
-STD=$(SUPPORT)/std-3-1
-STREAM=$(SUPPORT)/stream-2-5-1
-VAC=$(SUPPORT)/vac-1-4
-VME=$(SUPPORT)/vme-2-8
-#VXSTATS=$(SUPPORT)/vxStats-1-7-2h
-XXX=$(SUPPORT)/xxx-5-6
+# Specify the standard synApps configuration.
+include $(SUPPORT)/configure/RELEASE
+
+# For a local, custom configuration; copy $(SUPPORT)/configure/RELEASE
+# to this directory as the file MASTER_RELEASE, edit the file, comment out
+# the above include, and uncomment the following line.
+#!include $(TOP)/configure/MASTER_RELEASE
 
 EPICS_BASE=/home/oxygen/MOONEY/epics/base-3.14.12.1
 -include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH) 
+
+TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
+
 
