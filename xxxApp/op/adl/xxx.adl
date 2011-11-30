@@ -463,9 +463,14 @@ display {
 		height=20
 	}
 	display[0] {
-		label="IOC Status"
-		name="ioc_stats.adl"
-		args="P=xxx:"
+		label="IOC Status soft ioc"
+		name="ioc_stats_soft.adl"
+		args="ioc=xxx"
+	}
+	display[1] {
+		label="IOC Status vxworks ioc"
+		name="ioc_stats_vxworks.adl"
+		args="ioc=xxx"
 	}
 	display[2] {
 		label="save_restore Status"
@@ -1229,13 +1234,18 @@ composite {
 		height=20
 	}
 	display[0] {
-		label="beamFinder"
-		name="beamFinder.adl"
-		args="P=xxx:bf1:,PM=xxx:,m_sX=SM1,m_sY=SM2,m_zpX=SM3,m_zpY=SM4,m_zpZ=SM5"
+		label="ZTEC 2 channel"
+		name="main2.adl"
+		args="ZT=ztec"
+	}
+	display[1] {
+		label="ZTEC 4 channel"
+		name="main4.adl"
+		args="ZT=ztec"
 	}
 	clr=0
 	bclr=17
-	label="-beamFind"
+	label="-ZTEC"
 }
 "related display" {
 	object {
