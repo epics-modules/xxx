@@ -34,10 +34,13 @@ MAXvSetup(1, 16, 0xF000,     180, 5, 10)
 #         an active limit switch.  Set X,Y,Z,T to active low and set U,V,R,S
 #         to active high.  Set all axes to open-loop stepper (PSO). See MAXv
 #         User's Manual for LL/LH and PSO/PSE/PSM commands.
+#     (3) SSI based absolute encoder bit flag. Bit #0 for Axis X, bit #1 for
+#         Axis Y, etc.. Set a bit flag to '1' for absolute encoder values; '0'
+#         for the standard incremental encoder values.
 #config0="AX LL PSO; AY LL PSO; AZ LL PSO; AT LL PSO; AU LH PSO; AV LH PSO; AR LH PSO; AS LH PSO;"
 
 config0="AX LL PSO; AY LL PSO; AZ LL PSO; AT LL PSO; AU LL PSO; AV LL PSO; AR LL PSO; AS LL PSO;"
-MAXvConfig(0, config0)
+MAXvConfig(0, config0, 0x00)
 
 ### Scalers: Joerger VSC8/16
 #dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler2,OUT=#C1 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
