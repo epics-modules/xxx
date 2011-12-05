@@ -26,7 +26,7 @@ CAMAC=$(SUPPORT)/camac-2-7
 DAC128V=$(SUPPORT)/dac128V-2-7
 DELAYGEN=$(SUPPORT)/delaygen-1-0-7
 #http://www.slac.stanford.edu/grp/cd/soft/epics/site/devIocStats/
-DEVIOCSTATS=$(SUPPORT)/devIocStats-3-1-6
+DEVIOCSTATS=$(SUPPORT)/devIocStats-3-1-7
 DXP=$(SUPPORT)/dxp-3-1
 #EBRICK=$(SUPPORT)/ebrick
 IP=$(SUPPORT)/ip-2-13
@@ -37,7 +37,7 @@ IPUNIDIG=$(SUPPORT)/ipUnidig-2-9
 LOVE=$(SUPPORT)/love-3-2-5
 MCA=$(SUPPORT)/mca-7-1
 MODBUS=$(SUPPORT)/modbus-2-3
-MOTOR=$(SUPPORT)/motor-6-6-2
+MOTOR=$(SUPPORT)/motor-6-6-3
 OPTICS=$(SUPPORT)/optics-2-8-1
 QUADEM=$(SUPPORT)/quadEM-2-6
 #http://www-csr.bessy.de/control/SoftDist/sequencer
