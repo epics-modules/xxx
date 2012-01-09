@@ -23,9 +23,9 @@ oms58Setup(2, 0x4000, 190, 5, 10)
 #     (5)interrupt level (1 - 6).
 #     (6)motor task polling rate (min=1Hz,max=60Hz).
 #drvMAXvdebug=4
-MAXvSetup(1, 16, 0xF000,     180, 5, 10)
-#!MAXvSetup(1, 24, 0xF00000,   180, 5, 10)
-#!MAXvSetup(1, 32, 0xB0000000, 190, 5, 10)
+MAXvSetup(1, 16, 0xF000,     200, 5, 10)
+#!MAXvSetup(1, 24, 0xF00000,   200, 5, 10)
+#!MAXvSetup(1, 32, 0xB0000000, 200, 5, 10)
 
 # OMS MAXv configuration string:
 #     (1) number of card being configured (0-14).
