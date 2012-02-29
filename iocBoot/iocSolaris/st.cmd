@@ -124,6 +124,9 @@ dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
 dbLoadTemplate "pid_slow.substitutions"
 dbLoadTemplate "async_pid_slow.substitutions"
 
+# PID-based feedback
+#dbLoadTemplate "fb_epid.substitutions"
+
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
 

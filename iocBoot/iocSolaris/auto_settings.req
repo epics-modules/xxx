@@ -84,3 +84,6 @@ file pid_control_settings.req P=$(P) PID=pid_slow
 file pid_control_settings.req P=$(P) PID=async_pid_slow
 $(P)async_pid_slow.TRIG
 $(P)async_pid_slow.TVAL
+
+### PID_based feedback
+#file fb_epid.req P=$(P)epid1

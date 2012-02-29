@@ -192,3 +192,6 @@ file softGlue_settings.req  P=$(P) H=softGlue:
 #file octupole_settings.req P=$(P),Q=octupole:
 
 file trajectoryScan_settings.req P=$(P),R=traj1:
+
+### PID_based feedback
+#file fb_epid.req P=$(P)epid1

@@ -142,6 +142,9 @@ dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db", "P=xxx:,R=mybusy")
 # Slow feedback
 #dbLoadTemplate "pid_slow.substitutions"
 
+# PID-based feedback
+#dbLoadTemplate "fb_epid.substitutions"
+
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
 
