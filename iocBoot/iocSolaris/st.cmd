@@ -112,7 +112,7 @@ dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
 dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
 # string sequence (sseq) records
-dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")
+dbLoadRecords("$(CALC)/calcApp/Db/userStringSeqs10.db","P=xxx:")
 # ramp/tweak
 dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt1")
 dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt2")

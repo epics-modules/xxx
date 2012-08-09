@@ -126,7 +126,7 @@ dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
 # string sequence (sseq) records
-dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")
+dbLoadRecords("$(CALC)/calcApp/Db/userStringSeqs10.db","P=xxx:")
 # 4-step measurement
 dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 # interpolation
