@@ -122,7 +122,6 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
-dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
