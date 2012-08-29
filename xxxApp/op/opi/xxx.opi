@@ -3,7 +3,11 @@
   <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
   <macros>
     <include_parent_macros>true</include_parent_macros>
+    <PV_PREFIX>xxx:</PV_PREFIX>
+    <P>$(PV_PREFIX)</P>
   </macros>
+  <wuid>-7f9f9a2c:1396f15eefb:-8000</wuid>
+  <boy_version>3.1.2.20120828</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
   <height>160</height>
@@ -11,10 +15,10 @@
   <snap_to_geometry>false</snap_to_geometry>
   <show_grid>false</show_grid>
   <background_color>
-    <color name="MEDM_COLOR_1" />
+    <color name="MEDM_COLOR_1" red="236" green="236" blue="236" />
   </background_color>
   <foreground_color>
-    <color name="MEDM_COLOR_64" />
+    <color name="MEDM_COLOR_64" red="26" green="115" blue="9" />
   </foreground_color>
   <widget_type>Display</widget_type>
   <show_close_button>true</show_close_button>
@@ -22,46 +26,57 @@
   <rules />
   <show_edit_range>true</show_edit_range>
   <grid_space>10</grid_space>
-  <actions hook="false" />
+  <auto_scale_widgets>
+    <auto_scale_widgets>false</auto_scale_widgets>
+    <min_width>-1</min_width>
+    <min_height>-1</min_height>
+  </auto_scale_widgets>
+  <actions hook="false" hook_all="false" />
   <y>26</y>
   <x>1134</x>
   <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fff</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Tables</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>20</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../optics/table.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>Table1</Q>
           <T>table1</T>
           <M0X>m9</M0X>
@@ -78,7 +93,6 @@
         <path>../optics/table_full.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>Table1</Q>
           <T>table1</T>
           <M0X>m9</M0X>
@@ -95,7 +109,6 @@
         <path>../optics/table.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>Table2</Q>
           <T>table2</T>
           <M0X>m1</M0X>
@@ -112,7 +125,6 @@
         <path>../optics/table_full.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>Table2</Q>
           <T>table2</T>
           <M0X>m1</M0X>
@@ -129,7 +141,6 @@
         <path>../optics/table.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>Table3</Q>
           <T>table3</T>
           <M0X>junk</M0X>
@@ -146,7 +157,6 @@
         <path>../optics/table_full.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>Table3</Q>
           <T>table3</T>
           <M0X>junk</M0X>
@@ -163,7 +173,6 @@
         <path>../optics/table.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>Table4</Q>
           <T>table4</T>
           <M0X>junk</M0X>
@@ -180,7 +189,6 @@
         <path>../optics/table_full.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>Table4</Q>
           <T>table4</T>
           <M0X>junk</M0X>
@@ -202,39 +210,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7ffe</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Motors</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>0</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../motor/topMotors8.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <M1>m1</M1>
           <M2>m2</M2>
           <M3>m3</M3>
@@ -251,7 +265,6 @@ $(pv_value)</tooltip>
         <path>../motor/topMotors8.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <M1>m9</M1>
           <M2>m10</M2>
           <M3>m11</M3>
@@ -268,7 +281,6 @@ $(pv_value)</tooltip>
         <path>../motor/topMotors8.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <M1>m17</M1>
           <M2>m18</M2>
           <M3>m19</M3>
@@ -285,7 +297,6 @@ $(pv_value)</tooltip>
         <path>../motor/topMotors8.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <M1>m25</M1>
           <M2>m26</M2>
           <M3>m27</M3>
@@ -302,7 +313,6 @@ $(pv_value)</tooltip>
         <path>../motor/topMotors8.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <M1>m33</M1>
           <M2>m34</M2>
           <M3>m35</M3>
@@ -319,7 +329,6 @@ $(pv_value)</tooltip>
         <path>../motor/topMotors8.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <M1>m41</M1>
           <M2>m42</M2>
           <M3>m43</M3>
@@ -336,7 +345,6 @@ $(pv_value)</tooltip>
         <path>../std/softMotors10.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <SM1>SM1</SM1>
           <SM2>SM2</SM2>
           <SM3>SM3</SM3>
@@ -355,7 +363,6 @@ $(pv_value)</tooltip>
         <path>../motor/topMotors4.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <M1>pm1</M1>
           <M2>pm2</M2>
           <M3>pm3</M3>
@@ -368,7 +375,6 @@ $(pv_value)</tooltip>
         <path>../motor/motorStatus16.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>motor status 16</description>
@@ -382,39 +388,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7ffd</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Monochrom</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>60</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../optics/kohzuGraphic.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <mTH>m9</mTH>
           <mY1>m10</mY1>
           <mZ2>m11</mZ2>
@@ -437,7 +449,6 @@ $(pv_value)</tooltip>
         <path>../optics/kohzu2Graphic.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <mTH>m9</mTH>
           <mY2>m10</mY2>
           <mZ2>m11</mZ2>
@@ -460,7 +471,6 @@ $(pv_value)</tooltip>
         <path>../optics/kohzuSeqCtl_tiny.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>KohzuSeq (tiny)</description>
@@ -469,7 +479,6 @@ $(pv_value)</tooltip>
         <path>../optics/kohzuSeqCtl.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>KohzuSeq</description>
@@ -478,7 +487,6 @@ $(pv_value)</tooltip>
         <path>../optics/kohzuSeqCtl_All.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>KohzuSeq (All)</description>
@@ -487,7 +495,6 @@ $(pv_value)</tooltip>
         <path>../sscan/scanParms.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>BraggE</Q>
           <PV>BraggEAO</PV>
         </macros>
@@ -498,7 +505,6 @@ $(pv_value)</tooltip>
         <path>../sscan/scanParms.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>BraggTheta</Q>
           <PV>BraggThetaAO</PV>
         </macros>
@@ -509,7 +515,6 @@ $(pv_value)</tooltip>
         <path>../sscan/scanParms.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>BraggLambda</Q>
           <PV>BraggLambdaAO</PV>
         </macros>
@@ -525,39 +530,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7ffc</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Scan</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>0</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../sscan/scan.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>1</N>
           <S>scan1</S>
         </macros>
@@ -568,7 +579,6 @@ $(pv_value)</tooltip>
         <path>../sscan/scan.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>2</N>
           <S>scan2</S>
         </macros>
@@ -579,7 +589,6 @@ $(pv_value)</tooltip>
         <path>../sscan/scan.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>3</N>
           <S>scan3</S>
         </macros>
@@ -590,7 +599,6 @@ $(pv_value)</tooltip>
         <path>../sscan/scan.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>4</N>
           <S>scan4</S>
         </macros>
@@ -601,7 +609,6 @@ $(pv_value)</tooltip>
         <path>../sscan/scan.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>H</N>
           <S>scanH</S>
         </macros>
@@ -612,11 +619,10 @@ $(pv_value)</tooltip>
         <path>../sscan/scanParms2Pos.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>m7_8</Q>
-          <SCAN>xxx:scan1</SCAN>
-          <PV1>xxx:m7</PV1>
-          <PV2>xxx:m8</PV2>
+          <SCAN>$(PV_PREFIX)scan1</SCAN>
+          <PV1>$(PV_PREFIX)m7</PV1>
+          <PV2>$(PV_PREFIX)m8</PV2>
         </macros>
         <Position>1</Position>
         <description>test scanParms2Pos</description>
@@ -625,7 +631,6 @@ $(pv_value)</tooltip>
         <path>../sscan/scan_saveData.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>saveData controls</description>
@@ -634,7 +639,6 @@ $(pv_value)</tooltip>
         <path>../sscan/scanAux.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <S>scantest</S>
         </macros>
         <Position>1</Position>
@@ -649,39 +653,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7ffb</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Scalers</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>100</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../std/scaler16m.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <S>scaler1</S>
         </macros>
         <Position>1</Position>
@@ -691,7 +701,6 @@ $(pv_value)</tooltip>
         <path>../std/scaler.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <S>scaler2</S>
         </macros>
         <Position>1</Position>
@@ -701,7 +710,6 @@ $(pv_value)</tooltip>
         <path>../std/scaler.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <S>scaler3</S>
         </macros>
         <Position>1</Position>
@@ -711,7 +719,6 @@ $(pv_value)</tooltip>
         <path>../std/scaler16.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <S>scaler1</S>
         </macros>
         <Position>1</Position>
@@ -721,7 +728,6 @@ $(pv_value)</tooltip>
         <path>../std/scaler32.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <S>scaler1</S>
         </macros>
         <Position>1</Position>
@@ -731,7 +737,6 @@ $(pv_value)</tooltip>
         <path>../std/scaler64.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <S>scaler1</S>
         </macros>
         <Position>1</Position>
@@ -741,7 +746,6 @@ $(pv_value)</tooltip>
         <path>../std/scaler16m.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <S>scaler1</S>
         </macros>
         <Position>1</Position>
@@ -756,39 +760,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7ffa</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="callup_bg" />
+      <color name="callup_bg" red="40" green="147" blue="21" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>DMM</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>100</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../ip/Keithley2kDMM_mf.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Dmm>D1</Dmm>
         </macros>
         <Position>1</Position>
@@ -798,7 +808,6 @@ $(pv_value)</tooltip>
         <path>../ip/Keithley2kDMM_mf.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Dmm>D2</Dmm>
         </macros>
         <Position>1</Position>
@@ -813,39 +822,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7ff9</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>HP</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>120</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../vme/HPLaserAxis.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>HPLaser1</Q>
         </macros>
         <Position>1</Position>
@@ -855,7 +870,6 @@ $(pv_value)</tooltip>
         <path>../vme/HPLaserAxis.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>HPLaser2</Q>
         </macros>
         <Position>1</Position>
@@ -870,39 +884,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7ff8</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>SGM mono</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>100</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../optics/SGM_tiny.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>1</N>
           <M_x>m7</M_x>
           <M_rIn>m6</M_rIn>
@@ -915,7 +935,6 @@ $(pv_value)</tooltip>
         <path>../optics/SGM.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>1</N>
           <M_x>m7</M_x>
           <M_rIn>m6</M_rIn>
@@ -933,39 +952,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7ff7</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Mirror</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>40</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../optics/2postMirror.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>M1</Q>
           <mDn>m11</mDn>
           <mUp>m12</mUp>
@@ -982,39 +1007,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7ff6</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>HR mono</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>80</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../optics/hr_nested.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>1</N>
         </macros>
         <Position>1</Position>
@@ -1024,7 +1055,6 @@ $(pv_value)</tooltip>
         <path>../optics/hr_symmetric.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>1</N>
         </macros>
         <Position>1</Position>
@@ -1034,7 +1064,6 @@ $(pv_value)</tooltip>
         <path>../optics/hrSeqCtl_All.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>1</N>
         </macros>
         <Position>1</Position>
@@ -1049,39 +1078,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7ff5</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Status</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>60</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../devIocStats/ioc_stats.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>IOC Status</description>
@@ -1090,7 +1125,6 @@ $(pv_value)</tooltip>
         <path>../autosave/save_restoreStatus.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>save_restore Status</description>
@@ -1104,39 +1138,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7ff4</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>GenericIO</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>40</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../vme/recVme.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>vme1</Q>
         </macros>
         <Position>1</Position>
@@ -1146,7 +1186,7 @@ $(pv_value)</tooltip>
         <path>../camac/CAMAC_IO.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <REC>xxx:camac1</REC>
+          <REC>$(PV_PREFIX)camac1</REC>
         </macros>
         <Position>1</Position>
         <description>generic CAMAC</description>
@@ -1155,7 +1195,6 @@ $(pv_value)</tooltip>
         <path>../asyn/asynOctet.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <R>gpib1</R>
         </macros>
         <Position>1</Position>
@@ -1165,7 +1204,6 @@ $(pv_value)</tooltip>
         <path>../ip/deviceCmdReply.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>1</N>
         </macros>
         <Position>1</Position>
@@ -1175,7 +1213,6 @@ $(pv_value)</tooltip>
         <path>../ip/deviceCmdReply.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>2</N>
         </macros>
         <Position>1</Position>
@@ -1185,7 +1222,6 @@ $(pv_value)</tooltip>
         <path>../ip/deviceCmdReply.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>3</N>
         </macros>
         <Position>1</Position>
@@ -1195,7 +1231,6 @@ $(pv_value)</tooltip>
         <path>../ip/deviceCmdReply.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>4</N>
         </macros>
         <Position>1</Position>
@@ -1205,7 +1240,6 @@ $(pv_value)</tooltip>
         <path>../ip/deviceCmdReply.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>5</N>
         </macros>
         <Position>1</Position>
@@ -1215,7 +1249,6 @@ $(pv_value)</tooltip>
         <path>../ip/deviceCmdReply.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>6</N>
         </macros>
         <Position>1</Position>
@@ -1225,7 +1258,6 @@ $(pv_value)</tooltip>
         <path>../ip/deviceCmdReply.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>7</N>
         </macros>
         <Position>1</Position>
@@ -1235,7 +1267,6 @@ $(pv_value)</tooltip>
         <path>../ip/deviceCmdReply.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>8</N>
         </macros>
         <Position>1</Position>
@@ -1250,34 +1281,41 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7ff3</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>OPS</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>20</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../OPS/xx_BM_BPM.opi</path>
         <macros>
@@ -1318,7 +1356,6 @@ $(pv_value)</tooltip>
         <path>../std/xxIDCtrl.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <xx>01</xx>
         </macros>
         <Position>1</Position>
@@ -1328,7 +1365,6 @@ $(pv_value)</tooltip>
         <path>../std/xxIDCtrl.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <xx>01us</xx>
         </macros>
         <Position>1</Position>
@@ -1359,39 +1395,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7ff2</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Filter</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>0</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../optics/2filter.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q1>fltr1:</Q1>
           <Q2>fltr2:</Q2>
           <LOCK1>fltr_1_2:</LOCK1>
@@ -1404,7 +1446,6 @@ $(pv_value)</tooltip>
         <path>../optics/2filter_setup.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q1>fltr1:</Q1>
           <Q2>fltr2:</Q2>
           <LOCK1>fltr_1_2:</LOCK1>
@@ -1422,39 +1463,46 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7ff1</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>BunchClk</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>40</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../vme/BunchClkGen.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <UNIT>xxx:BnchClkGen</UNIT>
+          <UNIT>$(PV_PREFIX)BnchClkGen</UNIT>
         </macros>
         <Position>1</Position>
         <description>Bunch Clock Generator</description>
@@ -1463,7 +1511,7 @@ $(pv_value)</tooltip>
         <path>../vme/BunchClkGenA.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <UNIT>xxx:BnchClkGen</UNIT>
+          <UNIT>$(PV_PREFIX)BnchClkGen</UNIT>
         </macros>
         <Position>1</Position>
         <description>Bunch Clock display A</description>
@@ -1485,39 +1533,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7ff0</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Piezo</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>40</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../ip/pzt_3id.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>Queensgate piezo (3id)</description>
@@ -1526,7 +1580,6 @@ $(pv_value)</tooltip>
         <path>../ip/pzt.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>Queensgate piezo (std)</description>
@@ -1535,7 +1588,6 @@ $(pv_value)</tooltip>
         <path>../std/Nano2k.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <S>nano</S>
           <p>1</p>
         </macros>
@@ -1546,7 +1598,6 @@ $(pv_value)</tooltip>
         <path>../std/Nano2k.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <S>nano</S>
           <p>2</p>
         </macros>
@@ -1557,7 +1608,6 @@ $(pv_value)</tooltip>
         <path>../ip/HuberDMC4.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>DMC1:</Q>
           <M1>1</M1>
           <M2>2</M2>
@@ -1576,39 +1626,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fef</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>userCalc</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>20</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../calc/userCalcs10.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>user calcs 1-10</description>
@@ -1617,7 +1673,6 @@ $(pv_value)</tooltip>
         <path>../calc/userStringCalcs10.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>user stringCalcs 1-10</description>
@@ -1626,7 +1681,6 @@ $(pv_value)</tooltip>
         <path>../calc/userTransforms10.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>user transforms 1-10</description>
@@ -1635,7 +1689,6 @@ $(pv_value)</tooltip>
         <path>../std/userStringSeqs10.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>user string seqs 1-10</description>
@@ -1644,7 +1697,6 @@ $(pv_value)</tooltip>
         <path>../calc/userArrayCalcs10.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>user arrayCalcs 1-10</description>
@@ -1653,7 +1705,6 @@ $(pv_value)</tooltip>
         <path>../calc/userAve10.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>user average 1-10</description>
@@ -1662,7 +1713,6 @@ $(pv_value)</tooltip>
         <path>../calc/userCalcOuts10.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>user calcOuts</description>
@@ -1671,7 +1721,6 @@ $(pv_value)</tooltip>
         <path>../std/timer.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>1</N>
         </macros>
         <Position>1</Position>
@@ -1681,7 +1730,6 @@ $(pv_value)</tooltip>
         <path>../busy/xxBusyRecord.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <R>mybusy</R>
         </macros>
         <Position>1</Position>
@@ -1696,39 +1744,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fee</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Encoders</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>60</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../ip/HeidEncoder.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <A>6</A>
         </macros>
         <Position>1</Position>
@@ -1738,7 +1792,6 @@ $(pv_value)</tooltip>
         <path>../ip/HeidEncoder.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <A>7</A>
         </macros>
         <Position>1</Position>
@@ -1748,7 +1801,6 @@ $(pv_value)</tooltip>
         <path>../ip/HeidND261.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>Heidenhain ND261</description>
@@ -1757,7 +1809,6 @@ $(pv_value)</tooltip>
         <path>../vme/HeidIK320_group.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <card>card0</card>
           <group>5</group>
         </macros>
@@ -1773,39 +1824,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fed</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Autocoll</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>100</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../ip/Elcomat.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>Autocollimator</description>
@@ -1819,41 +1876,47 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fec</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>4 Circle</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>0</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../optics/orient.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <O>_0</O>
-          <PM>xxx:</PM>
+          <PM>$(PV_PREFIX)</PM>
           <mTTH>SM1</mTTH>
           <mTH>SM2</mTH>
           <mCHI>SM3</mCHI>
@@ -1866,8 +1929,7 @@ $(pv_value)</tooltip>
         <path>../optics/orient9.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
-          <PM>xxx:</PM>
+          <PM>$(PV_PREFIX)</PM>
           <mTTH>SM1</mTTH>
           <mTH>SM2</mTH>
           <mCHI>SM3</mCHI>
@@ -1885,39 +1947,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7feb</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>MCA</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>0</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../mca/mca_small.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <M>aim_adc1</M>
         </macros>
         <Position>1</Position>
@@ -1927,7 +1995,6 @@ $(pv_value)</tooltip>
         <path>../mca/mca.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <M>aim_adc1</M>
         </macros>
         <Position>1</Position>
@@ -1937,7 +2004,6 @@ $(pv_value)</tooltip>
         <path>../mca/xxIcbAdc.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <ADC>adc1</ADC>
         </macros>
         <Position>1</Position>
@@ -1947,7 +2013,6 @@ $(pv_value)</tooltip>
         <path>../mca/xxIcbTCA.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <TCA>tca1</TCA>
         </macros>
         <Position>1</Position>
@@ -1957,7 +2022,6 @@ $(pv_value)</tooltip>
         <path>../mca/xxIcbHVPS.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <HVPS>hvps1</HVPS>
         </macros>
         <Position>1</Position>
@@ -1967,7 +2031,6 @@ $(pv_value)</tooltip>
         <path>../mca/xxIcbAmp.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <AMP>amp1</AMP>
         </macros>
         <Position>1</Position>
@@ -1977,7 +2040,6 @@ $(pv_value)</tooltip>
         <path>../mca/dsp9660Gain.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <DSP>dsp1</DSP>
         </macros>
         <Position>1</Position>
@@ -1992,39 +2054,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fea</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>4-step</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>80</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../std/4step.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>4-step measurement</description>
@@ -2037,41 +2105,48 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="1.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fe9</wuid>
     <scripts />
     <height>29</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Action Button</name>
-    <pv_name>xxx:allstop.VAL</pv_name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <pv_name>$(PV_PREFIX)allstop.VAL</pv_name>
     <background_color>
-      <color name="alarm" />
+      <color name="alarm" red="253" green="0" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="warning" />
+      <color name="warning" red="251" green="243" blue="74" />
     </foreground_color>
     <widget_type>Action Button</widget_type>
     <enabled>true</enabled>
     <text>All Stop</text>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>90</width>
-    <push_action_index>0</push_action_index>
     <border_style>0</border_style>
-    <image />
+    <push_action_index>0</push_action_index>
+    <image></image>
     <rules />
+    <pv_value />
     <toggle_button>false</toggle_button>
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>108</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="WRITE_PV">
-        <pv_name>xxx:allstop.VAL</pv_name>
+        <pv_name>$(PV_PREFIX)allstop.VAL</pv_name>
         <value>1</value>
         <timeout>10</timeout>
-        <description />
+        <description></description>
       </action>
     </actions>
     <tooltip>$(pv_name)
@@ -2079,52 +2154,64 @@ $(pv_value)</tooltip>
     <x>350</x>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
-    <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fe8</wuid>
+    <scripts />
+    <height>27</height>
+    <name>Grouping Container</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <transparent>false</transparent>
+    <show_scrollbar>false</show_scrollbar>
+    <background_color>
+      <color red="236" green="236" blue="236" />
+    </background_color>
+    <foreground_color>
+      <color red="26" green="115" blue="9" />
+    </foreground_color>
+    <widget_type>Grouping Container</widget_type>
+    <enabled>true</enabled>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>82</width>
     <border_style>0</border_style>
     <rules />
     <lock_children>false</lock_children>
-    <scripts />
-    <height>27</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>false</show_scrollbar>
+    <actions hook="false" hook_all="false" />
     <y>78</y>
-    <actions hook="false" />
-    <foreground_color>
-      <color red="26" green="115" blue="9" />
-    </foreground_color>
-    <background_color>
-      <color red="236" green="236" blue="236" />
-    </background_color>
+    <tooltip></tooltip>
     <x>350</x>
-    <tooltip />
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
+      <wuid>-7f9f9a2c:1396f15eefb:-7fe7</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>25</height>
       <name>Label</name>
+      <scale_options>
+        <width_scalable>true</width_scalable>
+        <height_scalable>true</height_scalable>
+        <keep_wh_ratio>false</keep_wh_ratio>
+      </scale_options>
       <transparent>true</transparent>
       <show_scrollbar>false</show_scrollbar>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="ioc_read_fg" />
+        <color name="ioc_read_fg" red="10" green="0" blue="184" />
       </foreground_color>
       <widget_type>Label</widget_type>
       <enabled>true</enabled>
@@ -2139,7 +2226,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="!(pv0==0)">
             <value>false</value>
           </exp>
-          <pv trig="true">xxx:alldone.VAL</pv>
+          <pv trig="true">$(PV_PREFIX)alldone.VAL</pv>
         </rule>
       </rules>
       <border_width>1</border_width>
@@ -2147,26 +2234,32 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false" />
+      <actions hook="false" hook_all="false" />
       <y>1</y>
       <wrap_words>true</wrap_words>
-      <tooltip />
+      <tooltip></tooltip>
       <x>1</x>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
+      <wuid>-7f9f9a2c:1396f15eefb:-7fe6</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>25</height>
       <name>Label</name>
+      <scale_options>
+        <width_scalable>true</width_scalable>
+        <height_scalable>true</height_scalable>
+        <keep_wh_ratio>false</keep_wh_ratio>
+      </scale_options>
       <transparent>true</transparent>
       <show_scrollbar>false</show_scrollbar>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="ioc_read_fg" />
+        <color name="ioc_read_fg" red="10" green="0" blue="184" />
       </foreground_color>
       <widget_type>Label</widget_type>
       <enabled>true</enabled>
@@ -2181,7 +2274,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="pv0==0">
             <value>false</value>
           </exp>
-          <pv trig="true">xxx:alldoneBlink.VAL</pv>
+          <pv trig="true">$(PV_PREFIX)alldoneBlink.VAL</pv>
         </rule>
       </rules>
       <border_width>1</border_width>
@@ -2189,26 +2282,32 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false" />
+      <actions hook="false" hook_all="false" />
       <y>2</y>
       <wrap_words>true</wrap_words>
-      <tooltip />
+      <tooltip></tooltip>
       <x>2</x>
     </widget>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
+      <wuid>-7f9f9a2c:1396f15eefb:-7fe5</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>25</height>
       <name>Label</name>
+      <scale_options>
+        <width_scalable>true</width_scalable>
+        <height_scalable>true</height_scalable>
+        <keep_wh_ratio>false</keep_wh_ratio>
+      </scale_options>
       <transparent>true</transparent>
       <show_scrollbar>false</show_scrollbar>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="MEDM_COLOR_50" />
+        <color name="MEDM_COLOR_50" red="153" green="255" blue="255" />
       </foreground_color>
       <widget_type>Label</widget_type>
       <enabled>true</enabled>
@@ -2223,7 +2322,7 @@ $(pv_value)</tooltip>
           <exp bool_exp="!(pv0==0)">
             <value>false</value>
           </exp>
-          <pv trig="true">xxx:alldone.VAL</pv>
+          <pv trig="true">$(PV_PREFIX)alldone.VAL</pv>
         </rule>
       </rules>
       <border_width>1</border_width>
@@ -2231,10 +2330,10 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false" />
+      <actions hook="false" hook_all="false" />
       <y>0</y>
       <wrap_words>true</wrap_words>
-      <tooltip />
+      <tooltip></tooltip>
       <x>0</x>
     </widget>
   </widget>
@@ -2242,39 +2341,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fe4</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Array</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>60</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../calc/interpNew.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>1</Q>
         </macros>
         <Position>1</Position>
@@ -2284,7 +2389,6 @@ $(pv_value)</tooltip>
         <path>../calc/arrayTest.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>arrayTest</description>
@@ -2293,7 +2397,6 @@ $(pv_value)</tooltip>
         <path>../std/pvHistory.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <N>1</N>
         </macros>
         <Position>1</Position>
@@ -2303,7 +2406,6 @@ $(pv_value)</tooltip>
         <path>../calc/interp.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>interp</description>
@@ -2317,39 +2419,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fe3</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>DAC</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>60</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../std/VME_DAC8.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <D>1</D>
         </macros>
         <Position>1</Position>
@@ -2359,7 +2467,6 @@ $(pv_value)</tooltip>
         <path>../std/VME_DAC8.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <D>2</D>
         </macros>
         <Position>1</Position>
@@ -2369,7 +2476,6 @@ $(pv_value)</tooltip>
         <path>../dac128V/topDAC8.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <D>3</D>
         </macros>
         <Position>1</Position>
@@ -2379,7 +2485,6 @@ $(pv_value)</tooltip>
         <path>../dac128V/topDAC8.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <D>1</D>
         </macros>
         <Position>1</Position>
@@ -2394,39 +2499,46 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fe2</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>multiMCA</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>20</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../mca/3element.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:med:</P>
+          <P>$(PV_PREFIX)med:</P>
         </macros>
         <Position>1</Position>
         <description>3 element detector</description>
@@ -2435,7 +2547,7 @@ $(pv_value)</tooltip>
         <path>../mca/mca_small.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:med:</P>
+          <P>$(PV_PREFIX)med:</P>
           <M>mca0</M>
         </macros>
         <Position>1</Position>
@@ -2445,7 +2557,7 @@ $(pv_value)</tooltip>
         <path>../mca/mcaSum3.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:med:</P>
+          <P>$(PV_PREFIX)med:</P>
         </macros>
         <Position>1</Position>
         <description>sum control</description>
@@ -2454,7 +2566,7 @@ $(pv_value)</tooltip>
         <path>../mca/xxIcbHVPS.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:med:</P>
+          <P>$(PV_PREFIX)med:</P>
           <HVPS>hvps1</HVPS>
         </macros>
         <Position>1</Position>
@@ -2469,39 +2581,46 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fe1</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Struck</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>40</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../mca/Struck8.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:mcs:</P>
+          <P>$(PV_PREFIX)mcs:</P>
         </macros>
         <Position>1</Position>
         <description>8-Channel MCS Control</description>
@@ -2510,7 +2629,7 @@ $(pv_value)</tooltip>
         <path>../mca/Struck32.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:mcs:</P>
+          <P>$(PV_PREFIX)mcs:</P>
         </macros>
         <Position>1</Position>
         <description>32-Channel MCS Control</description>
@@ -2524,39 +2643,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fe0</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="callup_bg" />
+      <color name="callup_bg" red="40" green="147" blue="21" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Digital</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>120</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../ipUnidig/IpUnidig_top.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <R>Unidig1</R>
         </macros>
         <Position>1</Position>
@@ -2566,7 +2691,6 @@ $(pv_value)</tooltip>
         <path>../vme/Acromag_8in.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <A>1</A>
           <CH0>0</CH0>
           <CH1>1</CH1>
@@ -2584,7 +2708,6 @@ $(pv_value)</tooltip>
         <path>../vme/Acromag_8out.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <A>1</A>
           <CH0>0</CH0>
           <CH1>1</CH1>
@@ -2602,7 +2725,6 @@ $(pv_value)</tooltip>
         <path>../vme/Acromag_16out.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <A>1</A>
         </macros>
         <Position>1</Position>
@@ -2612,7 +2734,6 @@ $(pv_value)</tooltip>
         <path>../vme/Acromag_16in.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <A>1</A>
         </macros>
         <Position>1</Position>
@@ -2627,39 +2748,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fdf</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="callup_bg" />
+      <color name="callup_bg" red="40" green="147" blue="21" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>quadEM</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>100</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../quadEM/quadEM.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <EM>EM1</EM>
         </macros>
         <Position>1</Position>
@@ -2669,7 +2796,6 @@ $(pv_value)</tooltip>
         <path>../quadEM/quadEM.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <EM>EM2</EM>
         </macros>
         <Position>1</Position>
@@ -2679,7 +2805,6 @@ $(pv_value)</tooltip>
         <path>../quadEM/quadEM.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <EM>EM3</EM>
         </macros>
         <Position>1</Position>
@@ -2689,7 +2814,6 @@ $(pv_value)</tooltip>
         <path>../quadEM/quadEM.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <EM>EM4</EM>
         </macros>
         <Position>1</Position>
@@ -2699,8 +2823,8 @@ $(pv_value)</tooltip>
         <path>../quadEM/quadEM_med.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:quadEM:</P>
-          <P_FFT>xxx:quadEM_FFT:</P_FFT>
+          <P>$(PV_PREFIX)quadEM:</P>
+          <P_FFT>$(PV_PREFIX)quadEM_FFT:</P_FFT>
         </macros>
         <Position>1</Position>
         <description>Quad Electrometer MCAs</description>
@@ -2709,7 +2833,6 @@ $(pv_value)</tooltip>
         <path>../std/pid_control.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <PID>quadEMVertical</PID>
           <TITLE>Vertical_Feedback</TITLE>
         </macros>
@@ -2720,7 +2843,6 @@ $(pv_value)</tooltip>
         <path>../std/pid_control.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <PID>quadEMHorizontal</PID>
           <TITLE>Horizontal_Feedback</TITLE>
         </macros>
@@ -2736,39 +2858,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fde</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>serial</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>120</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../asyn/asynOctet.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <R>asyn_1</R>
         </macros>
         <Position>1</Position>
@@ -2778,7 +2906,6 @@ $(pv_value)</tooltip>
         <path>../asyn/asynOctet.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <R>asyn_2</R>
         </macros>
         <Position>1</Position>
@@ -2788,7 +2915,6 @@ $(pv_value)</tooltip>
         <path>../asyn/asynOctet.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <R>asyn_3</R>
         </macros>
         <Position>1</Position>
@@ -2798,7 +2924,6 @@ $(pv_value)</tooltip>
         <path>../asyn/asynOctet.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <R>asyn_4</R>
         </macros>
         <Position>1</Position>
@@ -2808,7 +2933,6 @@ $(pv_value)</tooltip>
         <path>../asyn/asynOctet.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <R>asyn_5</R>
         </macros>
         <Position>1</Position>
@@ -2818,7 +2942,6 @@ $(pv_value)</tooltip>
         <path>../asyn/asynOctet.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <R>asyn_6</R>
         </macros>
         <Position>1</Position>
@@ -2828,7 +2951,6 @@ $(pv_value)</tooltip>
         <path>../asyn/asynOctet.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <R>asyn_7</R>
         </macros>
         <Position>1</Position>
@@ -2838,7 +2960,6 @@ $(pv_value)</tooltip>
         <path>../asyn/asynOctet.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <R>asyn_8</R>
         </macros>
         <Position>1</Position>
@@ -2853,40 +2974,47 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fdd</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>beamFind</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>140</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../beamFinder.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:bf1:</P>
-          <PM>xxx:</PM>
+          <P>$(PV_PREFIX)bf1:</P>
+          <PM>$(PV_PREFIX)</PM>
           <m_sX>SM1</m_sX>
           <m_sY>SM2</m_sY>
           <m_zpX>SM3</m_zpX>
@@ -2905,41 +3033,48 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fdc</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>CF</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>120</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../optics/CoarseFineMotor.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:cf1:</P>
+          <P>$(PV_PREFIX)cf1:</P>
           <M>MOT</M>
-          <PM>xxx:</PM>
+          <PM>$(PV_PREFIX)</PM>
           <CM>m7</CM>
           <FM>m8</FM>
         </macros>
@@ -2955,39 +3090,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fdb</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>XIA shutter</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>140</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../optics/XIA_shutter.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <S>shutter1</S>
         </macros>
         <Position>1</Position>
@@ -2997,7 +3138,6 @@ $(pv_value)</tooltip>
         <path>../optics/XIA_shutterTry.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <S>shutter2</S>
         </macros>
         <Position>1</Position>
@@ -3012,41 +3152,48 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fda</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Io</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>140</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../optics/Io.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:Io:</P>
-          <S>xxx:scaler1</S>
-          <MONO>xxx:BraggEAO</MONO>
+          <P>$(PV_PREFIX)Io:</P>
+          <S>$(PV_PREFIX)scaler1</S>
+          <MONO>$(PV_PREFIX)BraggEAO</MONO>
         </macros>
         <Position>1</Position>
         <description>Io</description>
@@ -3060,39 +3207,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fd9</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Slits</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>20</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../optics/2slit.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <SLIT>Slit1H</SLIT>
           <mXp>m5</mXp>
           <mXn>m6</mXn>
@@ -3104,7 +3257,6 @@ $(pv_value)</tooltip>
         <path>../optics/2slit.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <SLIT>Slit1V</SLIT>
           <mXp>m3</mXp>
           <mXn>m4</mXn>
@@ -3116,7 +3268,6 @@ $(pv_value)</tooltip>
         <path>../optics/4slitGraphic.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <SLIT>Slit_1</SLIT>
           <H>Slit1H</H>
           <mXp>m3</mXp>
@@ -3132,7 +3283,6 @@ $(pv_value)</tooltip>
         <path>../motor/motor4x.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <M1>m3</M1>
           <M2>m4</M2>
           <M3>m5</M3>
@@ -3145,7 +3295,6 @@ $(pv_value)</tooltip>
         <path>../optics/2slit_soft.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <SLIT>Slit2H</SLIT>
           <mXp>m15</mXp>
           <mXn>m16</mXn>
@@ -3157,7 +3306,6 @@ $(pv_value)</tooltip>
         <path>../optics/2slit_soft.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <SLIT>Slit2V</SLIT>
           <mXp>m13</mXp>
           <mXn>m14</mXn>
@@ -3169,7 +3317,6 @@ $(pv_value)</tooltip>
         <path>../optics/4slitGraphic_soft.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <SLIT>Slit_2</SLIT>
           <H>Slit2H</H>
           <mXp>m15</mXp>
@@ -3185,7 +3332,6 @@ $(pv_value)</tooltip>
         <path>../optics/xia_slit.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <HSC>hsc1:</HSC>
         </macros>
         <Position>1</Position>
@@ -3195,7 +3341,6 @@ $(pv_value)</tooltip>
         <path>../optics/xia_slit.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <HSC>hsc2:</HSC>
         </macros>
         <Position>1</Position>
@@ -3210,39 +3355,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fd8</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Love</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>80</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../love/LoveList4.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q1>Love1</Q1>
           <Q2>Love2</Q2>
           <Q3>Love3</Q3>
@@ -3260,42 +3411,48 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fd7</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>ASRPmt</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>140</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../optics/ASRPmirrorTable.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <TBL>mt1</TBL>
-          <VERT>xxx:m7</VERT>
-          <PITCH>xxx:m8</PITCH>
+          <VERT>$(PV_PREFIX)m7</VERT>
+          <PITCH>$(PV_PREFIX)m8</PITCH>
         </macros>
         <Position>1</Position>
         <description>ASRP mirror table</description>
@@ -3309,39 +3466,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fd6</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>ramp_tweak</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>140</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../std/ramp_tweak.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>LaserDelay</Q>
         </macros>
         <Position>1</Position>
@@ -3351,7 +3514,6 @@ $(pv_value)</tooltip>
         <path>../std/ramp_tweak.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>rt1</Q>
         </macros>
         <Position>1</Position>
@@ -3366,39 +3528,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fd5</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>Preamps</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>120</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../ip/SR570_tiny.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <A>A1</A>
         </macros>
         <Position>1</Position>
@@ -3408,7 +3576,6 @@ $(pv_value)</tooltip>
         <path>../ip/SR570_tiny.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <A>A2</A>
         </macros>
         <Position>1</Position>
@@ -3418,7 +3585,6 @@ $(pv_value)</tooltip>
         <path>../ip/SR570_tiny.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <A>A3</A>
         </macros>
         <Position>1</Position>
@@ -3428,7 +3594,6 @@ $(pv_value)</tooltip>
         <path>../ip/SR570_tiny.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <A>A4</A>
         </macros>
         <Position>1</Position>
@@ -3438,7 +3603,6 @@ $(pv_value)</tooltip>
         <path>../ip/SR570_tiny.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <A>A5</A>
         </macros>
         <Position>1</Position>
@@ -3448,10 +3612,9 @@ $(pv_value)</tooltip>
         <path>../std/femto.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <H>fem01:</H>
           <F>seq01:</F>
-          <AC>xxx:Unidig1Bo9</AC>
+          <AC>$(PV_PREFIX)Unidig1Bo9</AC>
         </macros>
         <Position>1</Position>
         <description>Femto Current Preamplifier</description>
@@ -3465,39 +3628,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fd4</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>TempCtrl</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>80</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../ip/LakeShore.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>TC1</Q>
         </macros>
         <Position>1</Position>
@@ -3507,7 +3676,6 @@ $(pv_value)</tooltip>
         <path>../ip/KeithleyDMM.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>Keithley DMM (thermistors)</description>
@@ -3516,7 +3684,6 @@ $(pv_value)</tooltip>
         <path>../ip/Eurotherm.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>Eurotherm</description>
@@ -3525,7 +3692,6 @@ $(pv_value)</tooltip>
         <path>../ip/Eurotherm2k.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <TC>1</TC>
         </macros>
         <Position>1</Position>
@@ -3540,39 +3706,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fd3</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>ML Mono</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>20</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../optics/ml_monoGraphic.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <mY1>m1</mY1>
           <mZ1>m2</mZ1>
           <mY2>m9</mY2>
@@ -3588,7 +3760,6 @@ $(pv_value)</tooltip>
         <path>../optics/ml_monoSeqCtl_tiny.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>ml_monoSeq (tiny)</description>
@@ -3597,7 +3768,6 @@ $(pv_value)</tooltip>
         <path>../optics/ml_monoSeqCtl.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>ml_monoSeq</description>
@@ -3606,7 +3776,6 @@ $(pv_value)</tooltip>
         <path>../optics/ml_monoSeqCtl_All.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>ml_monoSeq (All)</description>
@@ -3615,7 +3784,6 @@ $(pv_value)</tooltip>
         <path>../sscan/scanParms.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>ml_monoE</Q>
           <PV>ml_monoE</PV>
         </macros>
@@ -3626,7 +3794,6 @@ $(pv_value)</tooltip>
         <path>../sscan/scanParms.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>ml_monoTheta</Q>
           <PV>ml_monoTheta</PV>
         </macros>
@@ -3637,7 +3804,6 @@ $(pv_value)</tooltip>
         <path>../sscan/scanParms.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>ml_monoLambda</Q>
           <PV>ml_monoLambda</PV>
         </macros>
@@ -3653,39 +3819,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fd2</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>softGlue</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>0</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../softGlue/softGlueMenu.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <H>softGlue:</H>
         </macros>
         <Position>1</Position>
@@ -3695,7 +3867,6 @@ $(pv_value)</tooltip>
         <path>../softGlue/softGlueMenu.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <H>softGlue2:</H>
         </macros>
         <Position>1</Position>
@@ -3705,7 +3876,6 @@ $(pv_value)</tooltip>
         <path>../softGlue/softGlue_Shift32.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <H>softGlue:</H>
           <N>1</N>
         </macros>
@@ -3716,7 +3886,6 @@ $(pv_value)</tooltip>
         <path>../softGlue/softGlue_Shift32.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <H>softGlue:</H>
           <N>2</N>
         </macros>
@@ -3732,39 +3901,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fd1</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>FuncGen</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>40</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../calc/FuncGen.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>fgen</Q>
         </macros>
         <Position>1</Position>
@@ -3779,39 +3954,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fd0</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>ADC</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>80</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../ip330/Ip330Scan.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <R>IP330_</R>
         </macros>
         <Position>1</Position>
@@ -3821,7 +4002,6 @@ $(pv_value)</tooltip>
         <path>../mca/mca_small.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <M>mip330_1</M>
         </macros>
         <Position>1</Position>
@@ -3831,7 +4011,6 @@ $(pv_value)</tooltip>
         <path>../mca/mca_small.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <M>mip330_2</M>
         </macros>
         <Position>1</Position>
@@ -3841,7 +4020,6 @@ $(pv_value)</tooltip>
         <path>../mca/mca_small.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <M>mip330_3</M>
         </macros>
         <Position>1</Position>
@@ -3851,7 +4029,6 @@ $(pv_value)</tooltip>
         <path>../mca/mca_small.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <M>mip330_4</M>
         </macros>
         <Position>1</Position>
@@ -3861,7 +4038,6 @@ $(pv_value)</tooltip>
         <path>../std/pid_control.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <PID>pid_slow</PID>
           <TITLE>Slow_Feedback</TITLE>
         </macros>
@@ -3872,7 +4048,6 @@ $(pv_value)</tooltip>
         <path>../std/pid_control.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <PID>ip330PIDFast</PID>
           <TITLE>Fast_Feedback</TITLE>
         </macros>
@@ -3883,7 +4058,6 @@ $(pv_value)</tooltip>
         <path>../std/async_pid_control.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <PID>async_pid_slow</PID>
           <TITLE>Slow_Feedback</TITLE>
         </macros>
@@ -3899,39 +4073,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fcf</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>octupole</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>60</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../OctupoleRamp.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Q>octupole:</Q>
         </macros>
         <Position>1</Position>
@@ -3946,39 +4126,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fce</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>70</width>
     <border_style>6</border_style>
     <label>trajectory</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>140</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../motor/MAX_trajectoryScan.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <R>traj1:</R>
           <TITLE>title</TITLE>
           <M1>m1</M1>
@@ -4002,39 +4188,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fcd</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>35</width>
     <border_style>6</border_style>
     <label>wf</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>140</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../testCharWF.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
         </macros>
         <Position>1</Position>
         <description>testCharWF</description>
@@ -4048,39 +4240,45 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
+    <wuid>-7f9f9a2c:1396f15eefb:-7fcc</wuid>
     <scripts />
     <height>20</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
     <transparent>false</transparent>
-    <pv_name />
+    <pv_name></pv_name>
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="callup_fg" red="255" green="255" blue="255" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>35</width>
     <border_style>6</border_style>
     <label>ztec</label>
     <rules />
+    <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>80</y>
-    <actions hook="false">
+    <actions hook="false" hook_all="false">
       <action type="OPEN_OPI_IN_VIEW">
         <path>../ztec_admin.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
           <Z>ztec:</Z>
         </macros>
         <Position>1</Position>
