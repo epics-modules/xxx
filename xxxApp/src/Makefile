@@ -115,7 +115,7 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 ifdef ALLEN_BRADLEY
 	iocxxxVX_DBD += allenBradley.dbd
 endif
-	iocxxxVX_DBD += quadEMSupport.dbd
+	iocxxxVX_DBD += drvAPS_EM.dbd
 	iocxxxVX_DBD += mcaCanberraSupport.dbd
 	iocxxxVX_DBD += devLove.dbd
 	# from ipac
@@ -205,6 +205,7 @@ xxx_Common_LIBS += autosave
 xxx_Common_LIBS += optics
 xxx_Common_LIBS += std
 xxx_Common_LIBS += ip
+xxx_Common_LIBS += quadEM
 xxx_Common_LIBS += Acs acsTech80 Aerotech Attocube Faulhaber Ims KohzuMotor Mclennan
 xxx_Common_LIBS += Micos MicroMo NewFocus Newport Oriel PI PIJena Parker SmartMotor
 xxx_Common_LIBS += ThorLabs softMotor motorSimSupport motor
@@ -224,7 +225,6 @@ xxx_LIBS_vxWorks += mcaCanberra
 xxx_LIBS_vxWorks += ip330
 xxx_LIBS_vxWorks += ipUnidig
 xxx_LIBS_vxWorks += dac128V
-xxx_LIBS_vxWorks += quadEM
 xxx_LIBS_vxWorks += camac devCamac
 xxx_LIBS_vxWorks += love
 ifndef DEVIOCSTATS

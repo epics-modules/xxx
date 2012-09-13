@@ -33,6 +33,9 @@ include "mcaSupport.dbd"
 # ip
 include "ipSupport.dbd"
 
+# quadEM
+include "drvAHxxx.dbd"
+
 # motor
 include "motorSupport.dbd"
 include "devAcsMotor.dbd"
