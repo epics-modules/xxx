@@ -154,6 +154,10 @@ dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=xxx, TODFORMAT=%m/%d/%Y %H:%M:
 
 ###############################################################################
 iocInit
+###############################################################################
+
+# write all the PV names to a local file
+dbl > dbl-all.txt
 
 ### startup State Notation Language programs
 #seq &kohzuCtl, "P=xxx:, M_THETA=m9, M_Y=m10, M_Z=m11, GEOM=1, logfile=kohzuCtl.log"
@@ -200,3 +204,5 @@ motorUtilInit("xxx:")
 
 dbcar(0,1)
 
+# print the time our boot was finished
+date

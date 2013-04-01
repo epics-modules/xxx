@@ -238,6 +238,10 @@ dbLoadRecords("$(MOTOR)/motorApp/Db/trajectoryScan.db","P=xxx:,R=traj1:,NAXES=8,
 shellPromptSet "iocvxWorks> "
 iocLogDisable=0
 iocInit
+###############################################################################
+
+# write all the PV names to a local file
+dbl > dbl-all.txt
 
 ### Startup State Notation Language (SNL) programs
 # NOTE: Command line limited to 128 characters
@@ -334,3 +338,6 @@ dbcar(0,1)
 
 # motorUtil (allstop & alldone)
 motorUtilInit("xxx:")
+
+# print the time our boot was finished
+date
