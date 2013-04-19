@@ -102,6 +102,12 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 
 	iocxxxVX_DBD += xxxCommonInclude.dbd
 
+	iocxxxVX_DBD += NDFileNetCDF.dbd
+	iocxxxVX_DBD += simDetectorSupport.dbd ADSupport.dbd NDPluginSupport.dbd
+	xxx_LIBS_vxWorks += ADBase NDPlugin netCDF ADBase
+	xxx_LIBS_vxWorks += simDetector
+
+
 	iocxxxVX_DBD += vmeVXSupport.dbd
 	iocxxxVX_DBD += stdVXSupport.dbd
 	iocxxxVX_DBD += ipVXSupport.dbd
@@ -109,9 +115,10 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 	iocxxxVX_DBD += ipUnidigSupport.dbd
 	iocxxxVX_DBD += dac128VSupport.dbd
 	iocxxxVX_DBD += ip330Support.dbd
-
+ifdef CAMAC
 	iocxxxVX_DBD += camacSupport.dbd
 	iocxxxVX_DBD += devCamacSupport.dbd
+endif
 ifdef ALLEN_BRADLEY
 	iocxxxVX_DBD += allenBradley.dbd
 endif
@@ -200,7 +207,7 @@ xxx_SRCS_Darwin   += iocxxxDarwin_registerRecordDeviceDriver.cpp    xxxMain.cpp
 xxx_Common_LIBS += mca
 xxx_Common_LIBS += calc
 xxx_Common_LIBS += busy
-xxx_Common_LIBS += sscan
+xxx_Common_LIBS += sscan scanProgress
 xxx_Common_LIBS += autosave
 xxx_Common_LIBS += optics
 xxx_Common_LIBS += std
@@ -225,7 +232,9 @@ xxx_LIBS_vxWorks += mcaCanberra
 xxx_LIBS_vxWorks += ip330
 xxx_LIBS_vxWorks += ipUnidig
 xxx_LIBS_vxWorks += dac128V
+ifdef CAMAC
 xxx_LIBS_vxWorks += camac devCamac
+endif
 xxx_LIBS_vxWorks += love
 ifndef DEVIOCSTATS
 	xxx_LIBS_vxWorks += vxStats
@@ -247,11 +256,8 @@ xxx_LIBS_Darwin   += $(xxx_Common_LIBS)
 
 
 # areaDetector provides a Makefile for things it needs and supplies
-ifneq (solaris,$(findstring solaris, $(T_A)))
-ifneq (vxWorks,$(findstring vxWorks, $(T_A)))
-	-include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
-endif
-endif
+-include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
+
 #===========================
 
 include $(TOP)/configure/RULES
