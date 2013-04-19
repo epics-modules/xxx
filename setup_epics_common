@@ -1,4 +1,4 @@
-#!/bin/csh
+#!/bin/csh -f
 
 # caller (typically: start_epics) MUST make these definitions
 # setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps_5_5/support/xxx
@@ -87,6 +87,9 @@ endif
 if ( ${?VME} ) then
 	setenv EDP ${EDP}:${VME}/vmeApp/op/adl
 endif
+
+# APS accelerator-controls displays
+setenv EDP ${EDP}:/APSshare/adlsys/sr/id
 
 if (! ${?EPICS_DISPLAY_PATH}) then
 setenv EPICS_DISPLAY_PATH ${EDP}
