@@ -1,16 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <display typeId="org.csstudio.opibuilder.Display" version="1.0">
   <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
   <macros>
     <include_parent_macros>true</include_parent_macros>
-    <PV_PREFIX>xxx:</PV_PREFIX>
-    <P>$(PV_PREFIX)</P>
   </macros>
-  <wuid>-35547c25:13a0384ab1a:-2fd7</wuid>
+  <wuid>39872d87:13e195515d3:-5a3d</wuid>
   <boy_version>3.1.2.20120830</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
-  <height>160</height>
+  <height>180</height>
   <name>xxx</name>
   <snap_to_geometry>false</snap_to_geometry>
   <show_grid>false</show_grid>
@@ -33,13 +30,13 @@
   </auto_scale_widgets>
   <actions hook="false" hook_all="false" />
   <y>26</y>
-  <x>1134</x>
+  <x>1175</x>
   <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>-35547c25:13a0384ab1a:-2fbf</wuid>
+    <wuid>39872d87:13e195515d3:-5a25</wuid>
     <scripts />
     <height>27</height>
     <name>Grouping Container</name>
@@ -76,7 +73,7 @@
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>-35547c25:13a0384ab1a:-2fbe</wuid>
+      <wuid>39872d87:13e195515d3:-5a24</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>25</height>
@@ -127,7 +124,7 @@
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>-35547c25:13a0384ab1a:-2fbd</wuid>
+      <wuid>39872d87:13e195515d3:-5a23</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>25</height>
@@ -178,7 +175,7 @@
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>-35547c25:13a0384ab1a:-2fbc</wuid>
+      <wuid>39872d87:13e195515d3:-5a22</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>25</height>
@@ -231,7 +228,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fd6</wuid>
+    <wuid>39872d87:13e195515d3:-5a3c</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -423,7 +420,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fd5</wuid>
+    <wuid>39872d87:13e195515d3:-5a3b</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -610,7 +607,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fd4</wuid>
+    <wuid>39872d87:13e195515d3:-5a3a</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -760,7 +757,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fd3</wuid>
+    <wuid>39872d87:13e195515d3:-5a39</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -882,6 +879,26 @@ $(pv_value)</tooltip>
         <replace>0</replace>
         <description>aux scan</description>
       </action>
+      <action type="OPEN_DISPLAY">
+        <path>ProgressBar.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <B>xxx:scanProgress:</B>
+        </macros>
+        <replace>0</replace>
+        <description>scanProgress</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>configMenu.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <CONFIG>scan1</CONFIG>
+        </macros>
+        <replace>0</replace>
+        <description>scan1Menu</description>
+      </action>
     </actions>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
@@ -891,7 +908,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fd2</wuid>
+    <wuid>39872d87:13e195515d3:-5a38</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -996,6 +1013,26 @@ $(pv_value)</tooltip>
         <replace>0</replace>
         <description>Scaler 1 modCalc</description>
       </action>
+      <action type="OPEN_DISPLAY">
+        <path>scaler32.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:3820:</P>
+          <S>scaler1</S>
+        </macros>
+        <replace>0</replace>
+        <description>SIS3820 scaler32</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>scaler.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:3820:</P>
+          <S>scaler1</S>
+        </macros>
+        <replace>0</replace>
+        <description>SIS3820 scaler8</description>
+      </action>
     </actions>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
@@ -1005,7 +1042,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fd1</wuid>
+    <wuid>39872d87:13e195515d3:-5a37</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1069,7 +1106,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fd0</wuid>
+    <wuid>39872d87:13e195515d3:-5a36</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1133,7 +1170,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fcf</wuid>
+    <wuid>39872d87:13e195515d3:-5a35</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1203,7 +1240,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fce</wuid>
+    <wuid>39872d87:13e195515d3:-5a34</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1259,7 +1296,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fcd</wuid>
+    <wuid>39872d87:13e195515d3:-5a33</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1333,7 +1370,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fcc</wuid>
+    <wuid>39872d87:13e195515d3:-5a32</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1404,7 +1441,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fcb</wuid>
+    <wuid>39872d87:13e195515d3:-5a31</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1557,7 +1594,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fca</wuid>
+    <wuid>39872d87:13e195515d3:-5a30</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1596,7 +1633,7 @@ $(pv_value)</tooltip>
         <path>xx_BM_BPM.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <xx>01</xx>
+          <xx>28us</xx>
         </macros>
         <replace>0</replace>
         <description>1 BM BPM info</description>
@@ -1605,25 +1642,25 @@ $(pv_value)</tooltip>
         <path>xx_ID_BPM.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <xx>01</xx>
+          <xx>28us</xx>
         </macros>
         <replace>0</replace>
         <description>1 ID BPM info</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>UndulatorCtl.opi</path>
+        <path>IDControl.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <xx>01</xx>
+          <ID>28us</ID>
         </macros>
         <replace>0</replace>
         <description>1 ID basic control</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>UndulatorSyncCtl.opi</path>
+        <path>IDSyncScan.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <xx>01</xx>
+          <ID>28us</ID>
         </macros>
         <replace>0</replace>
         <description>1 ID sync-scan control</description>
@@ -1633,7 +1670,7 @@ $(pv_value)</tooltip>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
-          <xx>01</xx>
+          <xx>28</xx>
         </macros>
         <replace>0</replace>
         <description>new ID control</description>
@@ -1643,7 +1680,7 @@ $(pv_value)</tooltip>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
-          <xx>01us</xx>
+          <xx>28us</xx>
         </macros>
         <replace>0</replace>
         <description>new ID control (us)</description>
@@ -1673,7 +1710,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fc9</wuid>
+    <wuid>39872d87:13e195515d3:-5a2f</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1699,7 +1736,7 @@ $(pv_value)</tooltip>
     </font>
     <width>70</width>
     <border_style>6</border_style>
-    <label>Filter</label>
+    <label></label>
     <rules />
     <pv_value />
     <border_width>1</border_width>
@@ -1743,7 +1780,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fc8</wuid>
+    <wuid>39872d87:13e195515d3:-5a2e</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1813,7 +1850,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fc7</wuid>
+    <wuid>39872d87:13e195515d3:-5a2d</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1911,7 +1948,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fc6</wuid>
+    <wuid>39872d87:13e195515d3:-5a2c</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2039,6 +2076,17 @@ $(pv_value)</tooltip>
         <replace>0</replace>
         <description>IDisableTransforms</description>
       </action>
+      <action type="OPEN_DISPLAY">
+        <path>while.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <Q>while1:</Q>
+          <TARGETPV>xxx:userCalc10.VAL</TARGETPV>
+        </macros>
+        <replace>0</replace>
+        <description>while</description>
+      </action>
     </actions>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
@@ -2048,7 +2096,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fc5</wuid>
+    <wuid>39872d87:13e195515d3:-5a2b</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2132,7 +2180,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fc4</wuid>
+    <wuid>39872d87:13e195515d3:-5a2a</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2185,7 +2233,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fc3</wuid>
+    <wuid>39872d87:13e195515d3:-5a29</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2258,7 +2306,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fc2</wuid>
+    <wuid>39872d87:13e195515d3:-5a28</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2372,7 +2420,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fc1</wuid>
+    <wuid>39872d87:13e195515d3:-5a27</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2424,7 +2472,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="1.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
-    <wuid>-35547c25:13a0384ab1a:-2fc0</wuid>
+    <wuid>39872d87:13e195515d3:-5a26</wuid>
     <scripts />
     <height>29</height>
     <name>Action Button</name>
@@ -2476,7 +2524,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fbb</wuid>
+    <wuid>39872d87:13e195515d3:-5a21</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2558,7 +2606,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fba</wuid>
+    <wuid>39872d87:13e195515d3:-5a20</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2642,7 +2690,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fb9</wuid>
+    <wuid>39872d87:13e195515d3:-5a1f</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2724,7 +2772,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fb8</wuid>
+    <wuid>39872d87:13e195515d3:-5a1e</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2763,7 +2811,7 @@ $(pv_value)</tooltip>
         <path>Struck8.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:mcs:</P>
+          <P>xxx:3820:</P>
         </macros>
         <replace>0</replace>
         <description> 8-Channel MCS Control</description>
@@ -2772,10 +2820,19 @@ $(pv_value)</tooltip>
         <path>Struck32.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <P>xxx:mcs:</P>
+          <P>xxx:3820:</P>
         </macros>
         <replace>0</replace>
         <description>32-Channel MCS Control</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>SIS38XX.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:3820:</P>
+        </macros>
+        <replace>0</replace>
+        <description>SIS38XX</description>
       </action>
     </actions>
     <tooltip>$(pv_name)
@@ -2786,7 +2843,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fb7</wuid>
+    <wuid>39872d87:13e195515d3:-5a1d</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2896,7 +2953,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fb6</wuid>
+    <wuid>39872d87:13e195515d3:-5a1c</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3012,7 +3069,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fb5</wuid>
+    <wuid>39872d87:13e195515d3:-5a1b</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3136,7 +3193,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fb4</wuid>
+    <wuid>39872d87:13e195515d3:-5a1a</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3198,7 +3255,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fb3</wuid>
+    <wuid>39872d87:13e195515d3:-5a19</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3255,7 +3312,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fb2</wuid>
+    <wuid>39872d87:13e195515d3:-5a18</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3319,7 +3376,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fb1</wuid>
+    <wuid>39872d87:13e195515d3:-5a17</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3374,7 +3431,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fb0</wuid>
+    <wuid>39872d87:13e195515d3:-5a16</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3531,7 +3588,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2faf</wuid>
+    <wuid>39872d87:13e195515d3:-5a15</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3588,7 +3645,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fae</wuid>
+    <wuid>39872d87:13e195515d3:-5a14</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3652,7 +3709,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fad</wuid>
+    <wuid>39872d87:13e195515d3:-5a13</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3758,7 +3815,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fac</wuid>
+    <wuid>39872d87:13e195515d3:-5a12</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3840,7 +3897,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fab</wuid>
+    <wuid>39872d87:13e195515d3:-5a11</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3960,7 +4017,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2faa</wuid>
+    <wuid>39872d87:13e195515d3:-5a10</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4037,6 +4094,16 @@ $(pv_value)</tooltip>
         <replace>0</replace>
         <description>shift 2</description>
       </action>
+      <action type="OPEN_DISPLAY">
+        <path>configMenu_small.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <CONFIG>SG</CONFIG>
+        </macros>
+        <replace>0</replace>
+        <description>SoftGlue Circuits</description>
+      </action>
     </actions>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
@@ -4046,7 +4113,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fa9</wuid>
+    <wuid>39872d87:13e195515d3:-5a0f</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4100,7 +4167,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fa8</wuid>
+    <wuid>39872d87:13e195515d3:-5a0e</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4227,7 +4294,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fa7</wuid>
+    <wuid>39872d87:13e195515d3:-5a0d</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4272,6 +4339,16 @@ $(pv_value)</tooltip>
         <replace>0</replace>
         <description>OctupoleRamp</description>
       </action>
+      <action type="OPEN_DISPLAY">
+        <path>octupoleTempRead.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <Q>Oct:</Q>
+        </macros>
+        <replace>0</replace>
+        <description>temp</description>
+      </action>
     </actions>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
@@ -4281,7 +4358,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fa6</wuid>
+    <wuid>39872d87:13e195515d3:-5a0c</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4322,7 +4399,7 @@ $(pv_value)</tooltip>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
           <R>traj1:</R>
-          <TITLE>title</TITLE>
+          <TITLE>traj1</TITLE>
           <M1>m1</M1>
           <M2>m2</M2>
           <M3>m3</M3>
@@ -4333,7 +4410,26 @@ $(pv_value)</tooltip>
           <M8>m8</M8>
         </macros>
         <replace>0</replace>
-        <description>trajectoryScan</description>
+        <description>trajectoryScan1</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>MAX_trajectoryScan.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <R>traj2:</R>
+          <TITLE>traj2</TITLE>
+          <M1>m9</M1>
+          <M2>m10</M2>
+          <M3>m11</M3>
+          <M4>m12</M4>
+          <M5>m13</M5>
+          <M6>m14</M6>
+          <M7>m15</M7>
+          <M8>m16</M8>
+        </macros>
+        <replace>0</replace>
+        <description>trajectoryScan2</description>
       </action>
     </actions>
     <tooltip>$(pv_name)
@@ -4344,7 +4440,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-35547c25:13a0384ab1a:-2fa5</wuid>
+    <wuid>39872d87:13e195515d3:-5a0b</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4423,5 +4519,379 @@ $(pv_value)</tooltip>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
     <x>350</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <visible>true</visible>
+    <actions_from_pv>false</actions_from_pv>
+    <wuid>39872d87:13e195515d3:-5a0a</wuid>
+    <scripts />
+    <height>20</height>
+    <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <transparent>false</transparent>
+    <pv_name></pv_name>
+    <background_color>
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
+    </background_color>
+    <foreground_color>
+      <color name="Gray_0" red="255" green="255" blue="255" />
+    </foreground_color>
+    <widget_type>Menu Button</widget_type>
+    <enabled>true</enabled>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>70</width>
+    <border_style>6</border_style>
+    <label>countDown</label>
+    <rules />
+    <pv_value />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>160</y>
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>countDownTimer.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <N>1</N>
+        </macros>
+        <replace>0</replace>
+        <description>count down timer</description>
+      </action>
+    </actions>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <x>0</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <visible>true</visible>
+    <actions_from_pv>false</actions_from_pv>
+    <wuid>39872d87:13e195515d3:-5a09</wuid>
+    <scripts />
+    <height>20</height>
+    <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <transparent>false</transparent>
+    <pv_name></pv_name>
+    <background_color>
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
+    </background_color>
+    <foreground_color>
+      <color name="Gray_0" red="255" green="255" blue="255" />
+    </foreground_color>
+    <widget_type>Menu Button</widget_type>
+    <enabled>true</enabled>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>70</width>
+    <border_style>6</border_style>
+    <label>alarmClock</label>
+    <rules />
+    <pv_value />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>160</y>
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>alarmClock.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <A>1</A>
+        </macros>
+        <replace>0</replace>
+        <description>alarm clock</description>
+      </action>
+    </actions>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <x>70</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <visible>true</visible>
+    <actions_from_pv>false</actions_from_pv>
+    <wuid>39872d87:13e195515d3:-5a08</wuid>
+    <scripts />
+    <height>20</height>
+    <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <transparent>false</transparent>
+    <pv_name></pv_name>
+    <background_color>
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
+    </background_color>
+    <foreground_color>
+      <color name="Gray_0" red="255" green="255" blue="255" />
+    </foreground_color>
+    <widget_type>Menu Button</widget_type>
+    <enabled>true</enabled>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>70</width>
+    <border_style>6</border_style>
+    <label>timer</label>
+    <rules />
+    <pv_value />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>160</y>
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>timer.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <N>1</N>
+        </macros>
+        <replace>0</replace>
+        <description>timer</description>
+      </action>
+    </actions>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <x>140</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <visible>true</visible>
+    <actions_from_pv>false</actions_from_pv>
+    <wuid>39872d87:13e195515d3:-5a07</wuid>
+    <scripts />
+    <height>20</height>
+    <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <transparent>false</transparent>
+    <pv_name></pv_name>
+    <background_color>
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
+    </background_color>
+    <foreground_color>
+      <color name="Gray_0" red="255" green="255" blue="255" />
+    </foreground_color>
+    <widget_type>Menu Button</widget_type>
+    <enabled>true</enabled>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>70</width>
+    <border_style>6</border_style>
+    <label>shutterDo</label>
+    <rules />
+    <pv_value />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>160</y>
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>shutterDo.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <Q>s2:</Q>
+          <SHUTTER_STATUS>xxx:sim2:B_SHTRS_CLOSED</SHUTTER_STATUS>
+          <OPEN_PV>xxx:sim2:open</OPEN_PV>
+          <CLOSE_PV>xxx:sim2:close</CLOSE_PV>
+        </macros>
+        <replace>0</replace>
+        <description>shutterDo</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>shutterSim.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <Q>sim2:</Q>
+          <SHUTTER_STATUS>xxx:sim2:B_SHTRS_CLOSED</SHUTTER_STATUS>
+          <OPEN_PV>xxx:sim2:openCmd</OPEN_PV>
+          <CLOSE_PV>xxx:sim2:closeCmd</CLOSE_PV>
+        </macros>
+        <replace>0</replace>
+        <description>shutterSim</description>
+      </action>
+    </actions>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <x>210</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <visible>true</visible>
+    <actions_from_pv>false</actions_from_pv>
+    <wuid>39872d87:13e195515d3:-5a06</wuid>
+    <scripts />
+    <height>20</height>
+    <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <transparent>false</transparent>
+    <pv_name></pv_name>
+    <background_color>
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
+    </background_color>
+    <foreground_color>
+      <color name="Gray_0" red="255" green="255" blue="255" />
+    </foreground_color>
+    <widget_type>Menu Button</widget_type>
+    <enabled>true</enabled>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>70</width>
+    <border_style>6</border_style>
+    <label>test</label>
+    <rules />
+    <pv_value />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>160</y>
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>CR74x.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <Q>test:</Q>
+        </macros>
+        <replace>0</replace>
+        <description>CR74x</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>fieldVector.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>4idc2:</P>
+          <Q>8p:</Q>
+        </macros>
+        <replace>0</replace>
+        <description>fieldVector</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>selector.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <R>obj</R>
+        </macros>
+        <replace>0</replace>
+        <description>selector</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>beamEnergy.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+        </macros>
+        <replace>0</replace>
+        <description>beamEnergy</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>yySseq.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <S>PresetHistoryAdd</S>
+        </macros>
+        <replace>0</replace>
+        <description>muir</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>tomoFly.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <Q>tomoFly:</Q>
+        </macros>
+        <replace>0</replace>
+        <description>tomography fly</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>hexFly.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <Q>hexFly:</Q>
+        </macros>
+        <replace>0</replace>
+        <description>hexFly</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>hexFlyTry.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <Q>hexFlyTry:</Q>
+        </macros>
+        <replace>0</replace>
+        <description>hexFlyTry</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>EnsemblePSOFly.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <Q>PSOFly:</Q>
+        </macros>
+        <replace>0</replace>
+        <description>Ensemble PSO Fly</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>calcTest.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+        </macros>
+        <replace>0</replace>
+        <description>calcTest</description>
+      </action>
+    </actions>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <x>280</x>
   </widget>
 </display>
