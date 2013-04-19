@@ -1,14 +1,14 @@
 
 file {
 	name="/home/oxygen4/MOONEY/epics/synAppsSVN/support/xxx/xxxApp/op/adl/xxx.adl"
-	version=030105
+	version=030107
 }
 display {
 	object {
-		x=1134
+		x=1175
 		y=26
 		width=440
-		height=160
+		height=180
 	}
 	clr=64
 	bclr=1
@@ -297,6 +297,16 @@ display {
 		name="scanAux.adl"
 		args="P=xxx:,S=scantest"
 	}
+	display[11] {
+		label="scanProgress"
+		name="ProgressBar.adl"
+		args="P=xxx:,B=xxx:scanProgress:"
+	}
+	display[14] {
+		label="scan1Menu"
+		name="configMenu.adl"
+		args="P=xxx:,CONFIG=scan1"
+	}
 	clr=0
 	bclr=17
 	label="-Scan"
@@ -342,6 +352,16 @@ display {
 		label="Scaler 1 modCalc"
 		name="scaler16m.adl"
 		args="P=xxx:,S=scaler1"
+	}
+	display[8] {
+		label="SIS3820 scaler32"
+		name="scaler32.adl"
+		args="P=xxx:3820:,S=scaler1"
+	}
+	display[9] {
+		label="SIS3820 scaler8"
+		name="scaler.adl"
+		args="P=xxx:3820:,S=scaler1"
 	}
 	clr=0
 	bclr=17
@@ -557,32 +577,32 @@ display {
 	display[0] {
 		label="1 BM BPM info"
 		name="xx_BM_BPM.adl"
-		args="xx=01"
+		args="xx=28us"
 	}
 	display[1] {
 		label="1 ID BPM info"
 		name="xx_ID_BPM.adl"
-		args="xx=01"
+		args="xx=28us"
 	}
 	display[2] {
 		label="1 ID basic control"
-		name="UndulatorCtl.adl"
-		args="xx=01"
+		name="IDControl.adl"
+		args="ID=28us"
 	}
 	display[3] {
 		label="1 ID sync-scan control"
-		name="UndulatorSyncCtl.adl"
-		args="xx=01"
+		name="IDSyncScan.adl"
+		args="ID=28us"
 	}
 	display[4] {
 		label="new ID control"
 		name="xxIDCtrl.adl"
-		args="P=xxx:,xx=01"
+		args="P=xxx:,xx=28"
 	}
 	display[5] {
 		label="new ID control (us)"
 		name="xxIDCtrl.adl"
-		args="P=xxx:,xx=01us"
+		args="P=xxx:,xx=28us"
 	}
 	display[6] {
 		label="24 hr. Beam History"
@@ -645,6 +665,16 @@ display {
 		label="PF4 FilterBank A"
 		name="pf4Bank.adl"
 		args="P=xxx:,H=pf4:,B=A"
+	}
+	display[12] {
+		label="Alt PF4 filter 16"
+		name="filter_8_8_more.adl"
+		args="P=xxx:,R=filter:"
+	}
+	display[13] {
+		label="Alt PF4 filter 8"
+		name="filter_8_0_more.adl"
+		args="P=xxx:,R=filter:"
 	}
 	clr=0
 	bclr=17
@@ -767,6 +797,11 @@ display {
 		label="IDisableTransforms"
 		name="Transforms10.adl"
 		args="P=xxx:,N=1"
+	}
+	display[12] {
+		label="while"
+		name="while.adl"
+		args="P=xxx:,Q=while1:,TARGETPV=xxx:userCalc10.VAL"
 	}
 	clr=0
 	bclr=17
@@ -1082,12 +1117,17 @@ composite {
 	display[0] {
 		label=" 8-Channel MCS Control"
 		name="Struck8.adl"
-		args="P=xxx:mcs:"
+		args="P=xxx:3820:"
 	}
 	display[1] {
 		label="32-Channel MCS Control"
 		name="Struck32.adl"
-		args="P=xxx:mcs:"
+		args="P=xxx:3820:"
+	}
+	display[2] {
+		label="SIS38XX"
+		name="SIS38XX.adl"
+		args="P=xxx:3820:"
 	}
 	clr=0
 	bclr=17
@@ -1538,6 +1578,11 @@ composite {
 		name="softGlue_Shift32_bare.adl"
 		args="P=xxx:,H=softGlue:,N=2"
 	}
+	display[5] {
+		label="SoftGlue Circuits"
+		name="configMenu_small.adl"
+		args="P=xxx:,CONFIG=SG"
+	}
 	clr=0
 	bclr=17
 	label="-softGlue"
@@ -1621,6 +1666,11 @@ composite {
 		name="OctupoleRamp.adl"
 		args="P=xxx:,Q=octupole:"
 	}
+	display[2] {
+		label="temp"
+		name="octupoleTempRead.adl"
+		args="P=xxx:,Q=Oct:"
+	}
 	clr=0
 	bclr=17
 	label="-octupole"
@@ -1632,10 +1682,15 @@ composite {
 		width=70
 		height=20
 	}
-	display[2] {
-		label="trajectoryScan"
+	display[1] {
+		label="trajectoryScan1"
 		name="MAX_trajectoryScan.adl"
-		args="P=xxx:,R=traj1:,TITLE=title,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+		args="P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+	}
+	display[2] {
+		label="trajectoryScan2"
+		name="MAX_trajectoryScan.adl"
+		args="P=xxx:,R=traj2:,TITLE=traj2,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16"
 	}
 	clr=0
 	bclr=17
@@ -1671,4 +1726,134 @@ composite {
 	clr=0
 	bclr=63
 	label="-AD simDet"
+}
+"related display" {
+	object {
+		x=0
+		y=160
+		width=70
+		height=20
+	}
+	display[0] {
+		label="count down timer"
+		name="countDownTimer.adl"
+		args="P=xxx:,N=1"
+	}
+	clr=0
+	bclr=17
+	label="-countDown"
+}
+"related display" {
+	object {
+		x=70
+		y=160
+		width=70
+		height=20
+	}
+	display[0] {
+		label="alarm clock"
+		name="alarmClock.adl"
+		args="P=xxx:,A=1"
+	}
+	clr=0
+	bclr=17
+	label="-alarmClock"
+}
+"related display" {
+	object {
+		x=140
+		y=160
+		width=70
+		height=20
+	}
+	display[0] {
+		label="timer"
+		name="timer.adl"
+		args="P=xxx:,N=1"
+	}
+	clr=0
+	bclr=17
+	label="-timer"
+}
+"related display" {
+	object {
+		x=210
+		y=160
+		width=70
+		height=20
+	}
+	display[3] {
+		label="shutterDo"
+		name="shutterDo.adl"
+		args="P=xxx:,Q=s2:,SHUTTER_STATUS=xxx:sim2:B_SHTRS_CLOSED,OPEN_PV=xxx:sim2:open,CLOSE_PV=xxx:sim2:close"
+	}
+	display[4] {
+		label="shutterSim"
+		name="shutterSim.adl"
+		args="P=xxx:,Q=sim2:,SHUTTER_STATUS=xxx:sim2:B_SHTRS_CLOSED,OPEN_PV=xxx:sim2:openCmd,CLOSE_PV=xxx:sim2:closeCmd"
+	}
+	clr=0
+	bclr=17
+	label="-shutterDo"
+}
+"related display" {
+	object {
+		x=280
+		y=160
+		width=70
+		height=20
+	}
+	display[0] {
+		label="CR74x"
+		name="CR74x.adl"
+		args="P=xxx:,Q=test:"
+	}
+	display[1] {
+		label="fieldVector"
+		name="fieldVector.adl"
+		args="P=4idc2:,Q=8p:"
+	}
+	display[2] {
+		label="selector"
+		name="selector.adl"
+		args="P=xxx:,R=obj"
+	}
+	display[3] {
+		label="beamEnergy"
+		name="beamEnergy.adl"
+		args="P=xxx:"
+	}
+	display[4] {
+		label="muir"
+		name="yySseq.adl"
+		args="P=xxx:,S=PresetHistoryAdd"
+	}
+	display[5] {
+		label="tomography fly"
+		name="tomoFly.adl"
+		args="P=xxx:,Q=tomoFly:"
+	}
+	display[6] {
+		label="hexFly"
+		name="hexFly.adl"
+		args="P=xxx:,Q=hexFly:"
+	}
+	display[7] {
+		label="hexFlyTry"
+		name="hexFlyTry.adl"
+		args="P=xxx:,Q=hexFlyTry:"
+	}
+	display[8] {
+		label="Ensemble PSO Fly"
+		name="EnsemblePSOFly.adl"
+		args="P=xxx:,Q=PSOFly:"
+	}
+	display[9] {
+		label="calcTest"
+		name="calcTest.adl"
+		args="P=xxx:"
+	}
+	clr=0
+	bclr=17
+	label="-test"
 }
