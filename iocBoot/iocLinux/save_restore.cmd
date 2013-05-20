@@ -22,6 +22,13 @@ save_restoreSet_NumSeqFiles(3)
 # Time interval between sequenced backups
 save_restoreSet_SeqPeriodInSeconds(300)
 
+# Ok to retry connecting to PVs whose initial connection attempt failed?
+save_restoreSet_CAReconnect(1)
+
+# Time interval in seconds between forced save-file writes.  (-1 means forever).
+# This is intended to get save files written even if the normal trigger mechanism is broken.
+save_restoreSet_CallbackTimeout(-1)
+
 # specify where save files should be
 set_savefile_path("$(TOP)/iocBoot/$(IOC)", "autosave")
 
