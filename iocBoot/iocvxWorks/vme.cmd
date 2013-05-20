@@ -13,7 +13,7 @@
 #     (1)cards, (2)base address(short, 4k boundary),                  
 #     (3)interrupt vector (0=disable or  64 - 255), (4)interrupt level (1 - 6),
 #     (5)motor task polling rate (min=1Hz,max=60Hz)
-oms58Setup(2, 0x4000, 190, 5, 10)
+#oms58Setup(2, 0x4000, 190, 5, 10)
 
 # OMS MAXv driver setup parameters: 
 #     (1)number of cards in array.
@@ -23,9 +23,7 @@ oms58Setup(2, 0x4000, 190, 5, 10)
 #     (5)interrupt level (1 - 6).
 #     (6)motor task polling rate (min=1Hz,max=60Hz).
 #drvMAXvdebug=4
-MAXvSetup(1, 16, 0xF000,     200, 5, 10)
-#!MAXvSetup(1, 24, 0xF00000,   200, 5, 10)
-#!MAXvSetup(1, 32, 0xB0000000, 200, 5, 10)
+MAXvSetup(2, 16, 0xE000,     180, 5, 10)
 
 # OMS MAXv configuration string:
 #     (1) number of card being configured (0-14).
@@ -41,6 +39,7 @@ MAXvSetup(1, 16, 0xF000,     200, 5, 10)
 
 config0="AX LL PSO; AY LL PSO; AZ LL PSO; AT LL PSO; AU LL PSO; AV LL PSO; AR LL PSO; AS LL PSO;"
 MAXvConfig(0, config0, 0x00)
+MAXvConfig(1, config0, 0x00)
 
 ### Scalers: Joerger VSC8/16
 #dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler2,OUT=#C1 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
@@ -65,8 +64,12 @@ VSCSetup(2, 0xB0000000, 200)
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=2,switches=41344,irq=3")
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320group.db","P=xxx:,group=5")
 
-# Struck 3820 MCS setup.
-#iocsh "st_SIS3820.iocsh"
+# Struck 3801 MCS setup. mca 7-3-1
+iocsh "st_SIS38-1.iocsh"
+
+# Struck 3820 MCS setup. mca 7-3-1
+iocsh "st_SIS3820.iocsh"
+
 
 # VMI4116 setup parameters: 
 #     (1)cards, (2)base address(short, 36-byte boundary), 
