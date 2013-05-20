@@ -61,7 +61,13 @@ dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=xxx:")
 ### Scan-support software
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
-dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db","P=xxx:,MAXPTS1=8000,MAXPTS2=1000,MAXPTS3=100,MAXPTS4=100,MAXPTSH=8000")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/standardScans.db","P=xxx:,MAXPTS1=1000,MAXPTS2=1000,MAXPTS3=1000,MAXPTS4=1000,MAXPTSH=1000")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/saveData.db","P=xxx:")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/scanProgress.db","P=xxx:scanProgress:")
+# configMenu example.  See create_manual_set() command after iocInit.
+dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=xxx:,CONFIG=scan1")
+# You could make scan configurations read-only:
+#dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=xxx:,CONFIG=scan1,ENABLE_SAVE=0")
 
 # A set of scan parameters for each positioner.  This is a convenience
 # for the user.  It can contain an entry for each scannable thing in the
@@ -90,6 +96,9 @@ dbLoadTemplate("scanParms.substitutions")
 ### Optical tables
 #tableRecordDebug=1
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
+
+# Io calculation
+dbLoadRecords("$(OPTICS)/opticsApp/Db/Io.db","P=xxx:Io:")
 
 ### Monochromator support ###
 # Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
@@ -121,7 +130,6 @@ dbLoadTemplate("scanParms.substitutions")
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
-var aCalcArraySize, 2000
 dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
@@ -140,7 +148,8 @@ dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
 dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db", "P=xxx:,R=mybusy")
 
 # Slow feedback
-#dbLoadTemplate "pid_slow.substitutions"
+dbLoadTemplate "pid_slow.substitutions"
+dbLoadTemplate "async_pid_slow.substitutions"
 
 # PID-based feedback
 #dbLoadTemplate "fb_epid.substitutions"
@@ -190,11 +199,16 @@ dbl > dbl-all.txt
 #seq &orient, "P=xxx:orient1:,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
 
 # Start PF4 filter sequence program
-#seq pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:BraggEAO,B1=xxx:Unidig1Bo3,B2=xxx:Unidig1Bo4,B3=xxx:Unidig1Bo5,B4=xxx:Unidig1Bo6"
-#seq pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:BraggEAO,B1=xxx:Unidig1Bo7,B2=xxx:Unidig1Bo8,B3=xxx:Unidig1Bo9,B4=xxx:Unidig1Bo10"
+#seq pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:userTran10.I,B1=xxx:userTran10.A,B2=xxx:userTran10.B,B3=xxx:userTran10.C,B4=xxx:userTran10.D"
+#seq pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:userTran10.I,B1=xxx:userTran10.E,B2=xxx:userTran10.F,B3=xxx:userTran10.G,B4=xxx:userTran10.H"
+
+# Alternative pf4 filter seq program
+#seq filterDrive,"NAME=filterDrive,P=xxx:,R=filter:,NUM_FILTERS=16"
 
 # Start Femto amplifier sequence programs
 #seq femto,"name=fem1,P=xxx:,H=fem01:,F=seq01:,G1=xxx:Unidig1Bo6,G2=xxx:Unidig1Bo7,G3=xxx:Unidig1Bo8,NO=xxx:Unidig1Bo10"
+
+seq &scanProgress, "S=xxx:, P=xxx:scanProgress:"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".
@@ -206,6 +220,12 @@ dbl > dbl-all.txt
 create_monitor_set("auto_positions.req",5,"P=xxx:")
 # save other things every thirty seconds
 create_monitor_set("auto_settings.req",30,"P=xxx:")
+
+# configMenu example
+# Note that auto_settings.req includes scan1MenuNames.req, so the names of
+# configurations will be saved and restored.  
+# Also note that the request file MUST be named $(CONFIG)Menu.req
+create_manual_set("scan1Menu.req","P=xxx:,CONFIG=scan1")
 
 ### Start the saveData task.
 saveData_Init("saveData.req", "P=xxx:")
