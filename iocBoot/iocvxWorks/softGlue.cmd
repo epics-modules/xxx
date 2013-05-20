@@ -70,7 +70,7 @@ initIP_EP200_Int(0, 2, 0x90, 0x0, 0x0, 0x0, 0x0)
 #                203 module, pins 25/26 through 47/48 are differential pairs.
 #
 #    -------------------------------------------------------------------
-#    |  Correspondence between dataDir bits (0-8) and I/O pins (1-48)  | this ioc
+#    |  Correspondence between dataDir bits (0-8) and I/O pins (1-48)  |
 #    -------------------------------------------------------------------
 #    |             |  201          |  202/204           |  203         | 
 #    -------------------------------------------------------------------
@@ -174,11 +174,17 @@ dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_s1ID_Vgate.db", "P=xxx:,H=sof
 
 #    Interrupt support.
 #    ('putenv' is used to fit the command into the vxWorks command line space.)
-putenv "SDB=$(SOFTGLUE)/db/softGlue_FPGAInt.db"
-dbLoadRecords("$(SDB)","P=xxx:,H=softGlue:,PORT1=SGIO_1,PORT2=SGIO_2,PORT3=SGIO_3,FIFO=10")
+putenv "SFDB=$(SOFTGLUE)/db/softGlue_FPGAInt.db"
+dbLoadRecords("$(SFDB)","P=xxx:,H=softGlue:,PORT1=SGIO_1,PORT2=SGIO_2,PORT3=SGIO_3,FIFO=10")
+
+taskDelay(50)
 
 #    Some stuff just for convenience: software clock and pulse generators, and
 #    a couple of busy records.
 dbLoadRecords("$(SOFTGLUE)/db/softGlue_convenience.db", "P=xxx:,H=softGlue:")
+
+# Menu of softGlue circuits
+# configMenu example.  See create_manual_set() command after iocInit.
+dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=xxx:,CONFIG=SG")
 
 # END softGlue.cmd ------------------------------------------------------------
