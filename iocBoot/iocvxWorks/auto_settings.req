@@ -30,22 +30,22 @@ file motor_settings.req P=$(P),M=m16
 #file softMotor_settings.req P=$(P),SM=SM9
 #file softMotor_settings.req P=$(P),SM=SM10
 
-file scanParms_settings.req P=$(P),M=m1
-file scanParms_settings.req P=$(P),M=m2
-file scanParms_settings.req P=$(P),M=m3
-file scanParms_settings.req P=$(P),M=m4
-file scanParms_settings.req P=$(P),M=m5
-file scanParms_settings.req P=$(P),M=m6
-file scanParms_settings.req P=$(P),M=m7
-file scanParms_settings.req P=$(P),M=m8
-file scanParms_settings.req P=$(P),M=m9
-file scanParms_settings.req P=$(P),M=m10
-file scanParms_settings.req P=$(P),M=m11
-file scanParms_settings.req P=$(P),M=m12
-file scanParms_settings.req P=$(P),M=m13
-file scanParms_settings.req P=$(P),M=m14
-file scanParms_settings.req P=$(P),M=m15
-file scanParms_settings.req P=$(P),M=m16
+#file scanParms_settings.req P=$(P),M=m1
+#file scanParms_settings.req P=$(P),M=m2
+#file scanParms_settings.req P=$(P),M=m3
+#file scanParms_settings.req P=$(P),M=m4
+#file scanParms_settings.req P=$(P),M=m5
+#file scanParms_settings.req P=$(P),M=m6
+#file scanParms_settings.req P=$(P),M=m7
+#file scanParms_settings.req P=$(P),M=m8
+#file scanParms_settings.req P=$(P),M=m9
+#file scanParms_settings.req P=$(P),M=m10
+#file scanParms_settings.req P=$(P),M=m11
+#file scanParms_settings.req P=$(P),M=m12
+#file scanParms_settings.req P=$(P),M=m13
+#file scanParms_settings.req P=$(P),M=m14
+#file scanParms_settings.req P=$(P),M=m15
+#file scanParms_settings.req P=$(P),M=m16
 
 #file scanParms_settings.req P=$(P),M=SM1
 #file scanParms_settings.req P=$(P),M=SM2
@@ -60,7 +60,7 @@ file scanParms_settings.req P=$(P),M=m16
 
 #file table_settings.req P=$(P),T=table1,Q=Table1
 
-file scaler16m_settings.req P=$(P),S=scaler1
+#file scaler16m_settings.req P=$(P),S=scaler1
 #file scaler_8ch_settings.req P=$(P),S=scaler2
 #file scaler_64ch_settings.req P=$(P),S=scaler3
 
@@ -142,12 +142,6 @@ $(P)userAveEnable.VAL
 #file icb_tca_settings.req P=$(P),TCA=tca1
 #file icbDsp_settings.req P=$(P),DSP=dsp1
 
-# PVs loaded by vxStats.substitutions
-#$(P)R_CA
-#$(P)R_FD
-#$(P)R_Load
-#$(P)R_Mem
-
 # pvHistory
 #file pvHistory.req P=$(P),N=1
 
@@ -167,9 +161,9 @@ file 2slit_settings.req P=$(P),SLIT=Slit1H
 #file femto.req P=$(P),H=fem01:,F=seq01:
 
 ## PF4 dual filter
-file pf4common.req P=$(P),H=pf4:
-file pf4bank.req   P=$(P),H=pf4:,B=A
-file pf4bank.req   P=$(P),H=pf4:,B=B
+#file pf4common.req P=$(P),H=pf4:
+#file pf4bank.req   P=$(P),H=pf4:,B=A
+#file pf4bank.req   P=$(P),H=pf4:,B=B
 
 ## 
 file deviceCmdReply_settings.req P=$(P),N=1
@@ -180,18 +174,41 @@ file deviceCmdReply_settings.req P=$(P),N=3
 
 #file ramp_tweak_settings.req P=$(P) Q=rt1
 
-#file pid_control_settings.req P=$(P) PID=pid_slow
+file pid_control_settings.req P=$(P) PID=pid_slow
+file async_pid_control_settings.req P=$(P) PID=async_pid_slow
 
 # softGlue
 file softGlue_settings.req  P=$(P) H=softGlue:
-#file softGlue_FPGAContent_octupole_settings.req   P=$(P) H=softGlue:
+# Menu of softGlue circuits
+file configMenu_settings.req P=$(P),CONFIG=SG
 
 #file FuncGen_settings.req P=$(P) Q=fgen
 #file interp_settings.req P=xxx:
 
-#file octupole_settings.req P=$(P),Q=octupole:
 
 file trajectoryScan_settings.req P=$(P),R=traj1:
 
-### PID_based feedback
-#file fb_epid.req P=$(P)epid1
+file SIS38XX_settings.req P=xxx:3820:
+
+file SGM_settings.req P=$(P),SGM=SGM1
+xxx:SGM1:auto
+
+file filterDrive.req "P=xxx:,R=filter:"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=1"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=2"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=3"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=4"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=5"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=6"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=7"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=8"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=9"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=10"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=11"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=12"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=13"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=14"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=15"
+file filterBladeNoSensor.req "P=xxx:,R=filter:,N=16"
+
+file configMenu_settings.req P=$(P),CONFIG=SG,H=softGlue:
