@@ -1,4 +1,4 @@
-epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 2000100
+#epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 2000100
 
 # Create a simDetector driver
 simDetectorConfig("SIM1", 640, 480, 1, 50, 50000000)
