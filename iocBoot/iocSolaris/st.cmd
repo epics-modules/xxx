@@ -60,6 +60,7 @@ dbLoadRecords("$(CALC)/calcApp/Db/interpNew.db", "P=xxx:,Q=1,N=2000")
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
 dbLoadRecords("$(SSCAN)/sscanApp/Db/standardScans.db","P=xxx:,MAXPTS1=8000,MAXPTS2=1000,MAXPTS3=1000,MAXPTS4=1000,MAXPTSH=2000")
 dbLoadRecords("$(SSCAN)/sscanApp/Db/saveData.db","P=xxx:")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/scanProgress.db","P=xxx:scanProgress:")
 
 # A set of scan parameters for each positioner.  This is a convenience
 # for the user.  It can contain an entry for each scannable thing in the
@@ -111,11 +112,30 @@ dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
 # extra userCalcs (must also load userCalcs10.db for the enable switch)
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcN.db","P=xxx:,N=I_Detector")
 dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
-# string sequence (sseq) records
+# string sequence (sseq) records from wherever they are
 dbLoadRecords("$(CALC)/calcApp/Db/userStringSeqs10.db","P=xxx:")
+#dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")
 # ramp/tweak
 dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt1")
 dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt2")
+
+# busy record
+dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db","P=xxx:,R=mybusy")
+
+# count-down timer
+dbLoadRecords("$(STD)/stdApp/Db/countDownTimer.vdb", "P=xxx:,N=1")
+
+# alarm clock
+#dbLoadRecords("$(STD)/stdApp/Db/alarmClock.vdb", "P=xxx:,N=1")
+
+# timer
+dbLoadRecords("$(STD)/stdApp/Db/timer.db", "P=xxx:,N=1")
+
+# trend
+#dbLoadRecords("$(STD)/stdApp/Db/trend.db", "P=xxx:")
+
+# 4-step measurement
+dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
 
 # pvHistory (in-crate archive of up to three PV's)
 dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
@@ -123,9 +143,6 @@ dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
 # Slow feedback
 dbLoadTemplate "pid_slow.substitutions"
 dbLoadTemplate "async_pid_slow.substitutions"
-
-# PID-based feedback
-#dbLoadTemplate "fb_epid.substitutions"
 
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
@@ -173,9 +190,13 @@ dbl > dbl-all.txt
 seq(&pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:userCalc1,BP=xxx:userCalc1.,B1=A,B2=B,B3=C,B4=D")
 seq(&pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:userCalc1,BP=xxx:userCalc1.,B1=E,B2=F,B3=G,B4=H")
 
+# Alternative filter seq program
+seq filterDrive,"NAME=filterDrive,P=xxx:,R=filter:,NUM_FILTERS=16"
 
 # Start Femto amplifier sequence programs
 #seq femto,"name=fem1,P=xxx:,H=fem01:,F=seq01:,G1=xxx:Unidig1Bo6,G2=xxx:Unidig1Bo7,G3=xxx:Unidig1Bo8,NO=xxx:Unidig1Bo10"
+
+seq &scanProgress, "S=xxx:, P=xxx:scanProgress:"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".
