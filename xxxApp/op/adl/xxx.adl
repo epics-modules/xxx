@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=1175
-		y=26
+		x=1177
+		y=52
 		width=440
 		height=180
 	}
@@ -1580,7 +1580,7 @@ composite {
 	}
 	display[5] {
 		label="SoftGlue Circuits"
-		name="configMenu_small.adl"
+		name="configMenu.adl"
 		args="P=xxx:,CONFIG=SG"
 	}
 	clr=0
