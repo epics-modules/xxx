@@ -65,7 +65,7 @@ VSCSetup(2, 0xB0000000, 200)
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320group.db","P=xxx:,group=5")
 
 # Struck 3801 MCS setup. mca 7-3-1
-iocsh "st_SIS38-1.iocsh"
+#iocsh "st_SIS38-1.iocsh"
 
 # Struck 3820 MCS setup. mca 7-3-1
 iocsh "st_SIS3820.iocsh"

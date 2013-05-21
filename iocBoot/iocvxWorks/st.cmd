@@ -35,9 +35,6 @@ cd startup
 # Increase size of buffer for error logging from default 1256
 errlogInit(20000)
 
-# override address, interrupt vector, etc. information in module_types.h
-#module_types()
-
 # need more entries in wait/scan-record channel-access queue?
 recDynLinkQsize = 1024
 
@@ -55,14 +52,8 @@ epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
 dbLoadDatabase("$(TOP)/dbd/iocxxxVX.dbd")
 iocxxxVX_registerRecordDeviceDriver(pdbbase)
 
-# Autosave info node example
-dbLoadRecords("$(AUTOSAVE)/asApp/Db/infoExample.db","P=xxx:")
-
 # Soft function generator
 #dbLoadRecords("$(CALC)/calcApp/Db/FuncGen.db","P=xxx:,Q=fgen,OUT=xxx:m7.VAL")
-
-# user-assignable ramp/tweak
-#dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt1")
 
 ### save_restore setup
 # We presume a suitable initHook routine was compiled into xxx.munch.
@@ -105,6 +96,7 @@ dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=xxx:")
 putenv "SDB=$(SSCAN)/sscanApp/Db/standardScans.db"
 dbLoadRecords("$(SDB)","P=xxx:,MAXPTS1=1000,MAXPTS2=1000,MAXPTS3=1000,MAXPTS4=1000,MAXPTSH=1000")
 dbLoadRecords("$(SSCAN)/sscanApp/Db/saveData.db","P=xxx:")
+dbLoadRecords("$(SSCAN)/sscanApp/Db/scanProgress.db","P=xxx:scanProgress:")
 
 # A set of scan parameters for each positioner.  This is a convenience
 # for the user.  It can contain an entry for each scannable thing in the
@@ -176,11 +168,11 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/CoarseFineMotor.db","P=xxx:cf1:,PM=xxx:,CM
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
-aCalcArraySize=1000
 dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
 # string sequence (sseq) records
+#dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")
 dbLoadRecords("$(CALC)/calcApp/Db/userStringSeqs10.db","P=xxx:")
 
 # 4-step measurement
@@ -188,26 +180,23 @@ dbLoadRecords("$(CALC)/calcApp/Db/userStringSeqs10.db","P=xxx:")
 
 # interpolation
 #dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
+dbLoadRecords("$(CALC)/calcApp/Db/interpNew.db", "P=xxx:,Q=1,N=100")
 
-#dbLoadRecords("$(TOP)/xxxApp/Db/interpNew.db", "P=xxx:,Q=1,N=100")
-
-# array test
-#dbLoadRecords("$(CALC)/calcApp/Db/arrayTest.db", "P=xxx:,N=2000")
+# user-assignable ramp/tweak
+dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt1")
 
 # pvHistory (in-crate archive of up to three PV's)
-#dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
+dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
 
 # software timer
-#dbLoadRecords("$(STD)/stdApp/Db/timer.db","P=xxx:,N=1")
+dbLoadRecords("$(STD)/stdApp/Db/timer.db","P=xxx:,N=1")
 
 # busy record
-dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db","P=xxx:,R=mybusy")
+#dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db","P=xxx:,R=mybusy")
 
 # Slow feedback
-#dbLoadTemplate "pid_slow.substitutions"
-
-# PID-based feedback
-#dbLoadTemplate "fb_epid.substitutions"
+dbLoadTemplate "pid_slow.substitutions"
+dbLoadTemplate "async_pid_slow.substitutions"
 
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
@@ -226,12 +215,16 @@ dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=xxx")
 #dbLoadRecords("$(STD)/stdApp/Db/femto.db","P=xxx:,H=fem01:,F=seq01:")
 
 ### Load database records for dual PF4 filters
-dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4common.db","P=xxx:,H=pf4:,A=A,B=B")
-dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=A")
-dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=B")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4common.db","P=xxx:,H=pf4:,A=A,B=B")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=A")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=B")
+
+### Load database records for alternative PF4-filter support
+dbLoadTemplate "filter.substitutions"
 
 # trajectory scan
-dbLoadRecords("$(MOTOR)/motorApp/Db/trajectoryScan.db","P=xxx:,R=traj1:,NAXES=8,NELM=100,NPULSE=1000")
+dbLoadRecords("$(MOTOR)/motorApp/Db/trajectoryScan.db","P=xxx:,R=traj1:,NAXES=8,NELM=200,NPULSE=200")
+#dbLoadRecords("$(MOTOR)/motorApp/Db/trajectoryScan.db","P=xxx:,R=traj2:,NAXES=8,NELM=200,NPULSE=200")
 
 ###############################################################################
 # Set shell prompt (otherwise it is left at mv167 or mv162)
@@ -294,14 +287,20 @@ putenv "FBO=xxx:Unidig1Bo"
 #        B4   = Fitler control bit 3 number
 #seq &pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:BraggEAO,BP=xxx:Unidig1Bo,B1=3,B2=4,B3=5,B4=6"
 #seq &pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:BraggEAO,BP=xxx:Unidig1Bo,B1=7,B2=8,B3=9,B4=10"
-seq(&pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:userCalc1,BP=xxx:Unidig1Bo,B1=3,B2=4,B3=5,B4=6")
-seq(&pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:userCalc1,BP=xxx:Unidig1Bo,B1=7,B2=8,B3=9,B4=10")
+#seq(&pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:userCalc1,BP=xxx:Unidig1Bo,B1=3,B2=4,B3=5,B4=6")
+#seq(&pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:userCalc1,BP=xxx:Unidig1Bo,B1=7,B2=8,B3=9,B4=10")
+
+# Alternative pf4 filter seq program
+seq filterDrive,"NAME=filterDrive,P=xxx:,R=filter:,NUM_FILTERS=16"
 
 ### Octupole power-supply
 #seq &octupole, "P=xxx:, Q=octupole:, S=softGlue:"
 
-# MAXV trajectory scan 
+# MAXV trajectory scan
 #seq &MAX_trajectoryScan, "P=xxx:,R=traj1:,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8,PORT=none"
+
+seq(&SIS38XX_SNL, "P=xxx:3820:, R=mca, NUM_SIGNALS=8, FIELD=READ")
+seq &scanProgress, "S=xxx:, P=xxx:scanProgress:"
 
 ### Start up the autosave task and tell it what to do.
 # The task is actually named "save_restore".
@@ -325,6 +324,11 @@ create_monitor_set("auto_settings.req",30,"P=xxx:")
 #create_triggered_set(<request file>,<trigger PV>,<macrostring>)
 #macro="P=xxx:,SAVENAMEPV=xxx:userStringCalc1.SVAL,SAVEPATHPV=xxx:userStringCalc2.SVAL"
 #create_triggered_set("trigSet.req","xxx:userStringCalc1.A",macro)
+
+# configMenu example
+# This autosave command cooperates with the configMenu.db database loaded by
+# softGlue.cmd.  Note that the request file MUST be named $(CONFIG)Menu.req
+create_manual_set("SGMenu.req","P=xxx:,CONFIG=SG,H=softGlue:")
 
 ### Start the saveData task.  If you start this task, scan records mentioned
 # in saveData.req will *always* write data files.  There is no programmable

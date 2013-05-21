@@ -143,7 +143,7 @@ $(P)userAveEnable.VAL
 #file icbDsp_settings.req P=$(P),DSP=dsp1
 
 # pvHistory
-#file pvHistory.req P=$(P),N=1
+file pvHistory.req P=$(P),N=1
 
 #file CoarseFineMotor_settings.req P=xxx:cf1:
 
@@ -172,7 +172,7 @@ file deviceCmdReply_settings.req P=$(P),N=3
 
 #file timer.req P=$(P),N=1
 
-#file ramp_tweak_settings.req P=$(P) Q=rt1
+file ramp_tweak_settings.req P=$(P) Q=rt1
 
 file pid_control_settings.req P=$(P) PID=pid_slow
 file async_pid_control_settings.req P=$(P) PID=async_pid_slow
@@ -184,14 +184,15 @@ file configMenu_settings.req P=$(P),CONFIG=SG
 
 #file FuncGen_settings.req P=$(P) Q=fgen
 #file interp_settings.req P=xxx:
+file interpNew_settings.req P=xxx:
 
 
 file trajectoryScan_settings.req P=$(P),R=traj1:
 
 file SIS38XX_settings.req P=xxx:3820:
 
-file SGM_settings.req P=$(P),SGM=SGM1
-xxx:SGM1:auto
+#file SGM_settings.req P=$(P),SGM=SGM1
+#xxx:SGM1:auto
 
 file filterDrive.req "P=xxx:,R=filter:"
 file filterBladeNoSensor.req "P=xxx:,R=filter:,N=1"
