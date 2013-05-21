@@ -39,7 +39,7 @@ save_restoreSet_NumSeqFiles(3)
 save_restoreSet_SeqPeriodInSeconds(300)
 
 # Ok to retry connecting to PVs whose initial connection attempt failed?
-save_restoreSet_CAReconnect(0)
+save_restoreSet_CAReconnect(1)
 
 # Time interval in seconds between forced save-file writes.  (-1 means forever).
 # This is intended to get save files written even if the normal trigger mechanism is broken.
@@ -68,12 +68,13 @@ set_requestfile_path(busy, "busyApp/Db")
 set_requestfile_path(calc, "calcApp/Db")
 set_requestfile_path(camac, "camacApp/Db")
 set_requestfile_path(dac128v, "dac128VApp/Db")
-#set_requestfile_path(dxp, "dxpApp/Db")
+set_requestfile_path(dxp, "dxpApp/Db")
 set_requestfile_path(ip, "ipApp/Db")
 set_requestfile_path(ip330, "ip330App/Db")
 set_requestfile_path(ipunidig, "ipUnidigApp/Db")
 set_requestfile_path(love, "loveApp/Db")
 set_requestfile_path(mca, "mcaApp/Db")
+set_requestfile_path(meascomp, "measCompApp/Db")
 set_requestfile_path(modbus, "modbusApp/Db")
 set_requestfile_path(motor, "motorApp/Db")
 set_requestfile_path(optics, "opticsApp/Db")
