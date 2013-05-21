@@ -97,6 +97,8 @@ putenv "SDB=$(SSCAN)/sscanApp/Db/standardScans.db"
 dbLoadRecords("$(SDB)","P=xxx:,MAXPTS1=1000,MAXPTS2=1000,MAXPTS3=1000,MAXPTS4=1000,MAXPTSH=1000")
 dbLoadRecords("$(SSCAN)/sscanApp/Db/saveData.db","P=xxx:")
 dbLoadRecords("$(SSCAN)/sscanApp/Db/scanProgress.db","P=xxx:scanProgress:")
+# configMenu example.  See create_manual_set() command after iocInit.
+dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=xxx:,CONFIG=scan1")
 
 # A set of scan parameters for each positioner.  This is a convenience
 # for the user.  It can contain an entry for each scannable thing in the
@@ -291,7 +293,7 @@ putenv "FBO=xxx:Unidig1Bo"
 #seq(&pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:userCalc1,BP=xxx:Unidig1Bo,B1=7,B2=8,B3=9,B4=10")
 
 # Alternative pf4 filter seq program
-seq filterDrive,"NAME=filterDrive,P=xxx:,R=filter:,NUM_FILTERS=16"
+seq &filterDrive,"NAME=filterDrive,P=xxx:,R=filter:,NUM_FILTERS=16"
 
 ### Octupole power-supply
 #seq &octupole, "P=xxx:, Q=octupole:, S=softGlue:"
@@ -299,7 +301,10 @@ seq filterDrive,"NAME=filterDrive,P=xxx:,R=filter:,NUM_FILTERS=16"
 # MAXV trajectory scan
 #seq &MAX_trajectoryScan, "P=xxx:,R=traj1:,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8,PORT=none"
 
+# This SNL programs reads the MCS
 seq(&SIS38XX_SNL, "P=xxx:3820:, R=mca, NUM_SIGNALS=8, FIELD=READ")
+
+# Implements for scanProgress.db
 seq &scanProgress, "S=xxx:, P=xxx:scanProgress:"
 
 ### Start up the autosave task and tell it what to do.
@@ -325,10 +330,13 @@ create_monitor_set("auto_settings.req",30,"P=xxx:")
 #macro="P=xxx:,SAVENAMEPV=xxx:userStringCalc1.SVAL,SAVEPATHPV=xxx:userStringCalc2.SVAL"
 #create_triggered_set("trigSet.req","xxx:userStringCalc1.A",macro)
 
-# configMenu example
+# configMenu for softGlue
 # This autosave command cooperates with the configMenu.db database loaded by
 # softGlue.cmd.  Note that the request file MUST be named $(CONFIG)Menu.req
 create_manual_set("SGMenu.req","P=xxx:,CONFIG=SG,H=softGlue:")
+
+# configMenu for scans
+create_manual_set("scan1Menu.req","P=xxx:,CONFIG=scan1")
 
 ### Start the saveData task.  If you start this task, scan records mentioned
 # in saveData.req will *always* write data files.  There is no programmable
@@ -338,7 +346,8 @@ saveData_Init("saveData.req", "P=xxx:")
 # If memory allocated at beginning free it now
 ##free(mem)
 
-dbcar(0,1)
+# Diagnostic: CA links in all records
+#dbcar(0,1)
 
 # motorUtil (allstop & alldone)
 motorUtilInit("xxx:")
