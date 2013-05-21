@@ -1,0 +1,26 @@
+# filter.substitutions
+
+file "$(OPTICS)/opticsApp/Db/filterBladeNoSensor.db" {
+  pattern
+  {P,           R,        N,   DESC,           OUT}
+  {xxx:,   filter:,  1,   "Filter 1",     "xxx:Unidig1Bo0"}
+  {xxx:,   filter:,  2,   "Filter 2",     "xxx:Unidig1Bo1"}
+  {xxx:,   filter:,  3,   "Filter 3",     "xxx:Unidig1Bo2"}
+  {xxx:,   filter:,  4,   "Filter 4",     "xxx:Unidig1Bo3"}
+  {xxx:,   filter:,  5,   "Filter 5",     "xxx:Unidig1Bo4"}
+  {xxx:,   filter:,  6,   "Filter 6",     "xxx:Unidig1Bo5"}
+  {xxx:,   filter:,  7,   "Filter 7",     "xxx:Unidig1Bo6"}
+  {xxx:,   filter:,  8,   "Filter 8",     "xxx:Unidig1Bo7"}
+  {xxx:,   filter:,  9,   "Filter 9",     "xxx:Unidig1Bo8"}
+  {xxx:,   filter:,  10,  "Filter 10",    "xxx:Unidig1Bo9"}
+  {xxx:,   filter:,  11,  "Filter 11",    "xxx:Unidig1Bo10"}
+  {xxx:,   filter:,  12,  "Filter 12",    "xxx:Unidig1Bo11"}
+  {xxx:,   filter:,  13,  "Filter 13",    "xxx:Unidig1Bo12"}
+  {xxx:,   filter:,  14,  "Filter 14",    "xxx:Unidig1Bo13"}
+  {xxx:,   filter:,  15,  "Filter 15",    "xxx:Unidig1Bo14"}
+  {xxx:,   filter:,  16,  "Filter 16",    "xxx:Unidig1Bo15"}
+}
+
+file "$(OPTICS)/opticsApp/Db/filterDrive.db" {
+  {P="xxx:", R="filter:", DESC="Filters", KEV="xxx:BraggEAO"}
+}
