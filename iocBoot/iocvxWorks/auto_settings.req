@@ -10,14 +10,14 @@ file motor_settings.req P=$(P),M=m5
 file motor_settings.req P=$(P),M=m6
 file motor_settings.req P=$(P),M=m7
 file motor_settings.req P=$(P),M=m8
-file motor_settings.req P=$(P),M=m9
-file motor_settings.req P=$(P),M=m10
-file motor_settings.req P=$(P),M=m11
-file motor_settings.req P=$(P),M=m12
-file motor_settings.req P=$(P),M=m13
-file motor_settings.req P=$(P),M=m14
-file motor_settings.req P=$(P),M=m15
-file motor_settings.req P=$(P),M=m16
+#file motor_settings.req P=$(P),M=m9
+#file motor_settings.req P=$(P),M=m10
+#file motor_settings.req P=$(P),M=m11
+#file motor_settings.req P=$(P),M=m12
+#file motor_settings.req P=$(P),M=m13
+#file motor_settings.req P=$(P),M=m14
+#file motor_settings.req P=$(P),M=m15
+#file motor_settings.req P=$(P),M=m16
 
 #file softMotor_settings.req P=$(P),SM=SM1
 #file softMotor_settings.req P=$(P),SM=SM2
@@ -184,7 +184,7 @@ file configMenu_settings.req P=$(P),CONFIG=SG
 
 #file FuncGen_settings.req P=$(P) Q=fgen
 #file interp_settings.req P=xxx:
-file interpNew_settings.req P=xxx:
+file interpNew_settings.req P=xxx:,Q=1
 
 
 file trajectoryScan_settings.req P=$(P),R=traj1:
