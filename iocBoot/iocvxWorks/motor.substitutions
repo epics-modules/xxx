@@ -10,12 +10,12 @@ pattern
 {xxx:,	6,	"m$(N)",	"OMS MAXv",		0,	5,	"M2Z",			mm,			Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
 {xxx:,	7,	"m$(N)",	"OMS MAXv",		0,	6,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
 {xxx:,	8,	"m$(N)",	"OMS MAXv",		0,	7,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
-{xxx:,	9,	"m$(N)",	"OMS VME58",	0,	0,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
-{xxx:,	10,	"m$(N)",	"OMS VME58",	0,	1,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
-{xxx:,	11,	"m$(N)",	"OMS VME58",	0,	2,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
-{xxx:,	12,	"m$(N)",	"OMS VME58",	0,	3,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
-{xxx:,	13,	"m$(N)",	"OMS VME58",	0,	4,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
-{xxx:,	14,	"m$(N)",	"OMS VME58",	0,	5,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
-{xxx:,	15,	"m$(N)",	"OMS VME58",	0,	6,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
-{xxx:,	16,	"m$(N)",	"OMS VME58",	0,	7,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
+#{xxx:,	9,	"m$(N)",	"OMS MAXv",	1,	0,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
+#{xxx:,	10,	"m$(N)",	"OMS MAXv",	1,	1,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
+#{xxx:,	11,	"m$(N)",	"OMS MAXv",	1,	2,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
+#{xxx:,	12,	"m$(N)",	"OMS MAXv",	1,	3,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
+#{xxx:,	13,	"m$(N)",	"OMS MAXv",	1,	4,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
+#{xxx:,	14,	"m$(N)",	"OMS MAXv",	1,	5,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
+#{xxx:,	15,	"m$(N)",	"OMS MAXv",	1,	6,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
+#{xxx:,	16,	"m$(N)",	"OMS MAXv",	1,	7,	"motor $(N)",	degrees,	Pos,	1,		.1,		.2,		0,		1,		.2,		2.5e-4,	5,		100,	-100,	""}
 }
