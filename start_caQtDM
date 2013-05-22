@@ -1,0 +1,115 @@
+#!/bin/csh -f
+
+setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps/support/xxx
+setenv EPICS_APP_UI_DIR ${EPICS_APP}/xxxApp/op/ui
+
+set output = `perl $EPICS_APP/release.pl $EPICS_APP`
+$output
+
+#######################################
+# Prepare CAQTDM_DISPLAY_PATH
+# QTDMDP is temporary CAQTDM_DISPLAY_PATH
+#
+setenv QTDMDP  .
+if ( ${?EPICS_APP_UI_DIR} ) then
+	setenv QTDMDP ${QTDMDP}:${EPICS_APP_UI_DIR}
+endif
+if ( ${?AREA_DETECTOR} ) then
+	setenv QTDMDP ${QTDMDP}:${AREA_DETECTOR}/ADApp/op/ui
+endif
+if ( ${?ASYN} ) then
+	setenv QTDMDP ${QTDMDP}:${ASYN}/opi/caqtdm
+endif
+if ( ${?AUTOSAVE} ) then
+	setenv QTDMDP ${QTDMDP}:${AUTOSAVE}/asApp/op/ui
+endif
+if ( ${?BUSY} ) then
+	setenv QTDMDP ${QTDMDP}:${BUSY}/busyApp/op/ui
+endif
+if ( ${?CALC} ) then
+	setenv QTDMDP ${QTDMDP}:${CALC}/calcApp/op/ui
+endif
+if ( ${?CAMAC} ) then
+	setenv QTDMDP ${QTDMDP}:${CAMAC}/camacApp/op/ui
+endif
+if ( ${?DAC128V} ) then
+	setenv QTDMDP ${QTDMDP}:${DAC128V}/dac128VApp/op/ui
+endif
+if ( ${?DELAYGEN} ) then
+	setenv QTDMDP ${QTDMDP}:${DELAYGEN}/delaygenApp/op/ui
+endif
+if ( ${?DEVIOCSTATS} ) then
+	setenv QTDMDP ${QTDMDP}:${DEVIOCSTATS}/op/ui
+endif
+if ( ${?DXP} ) then
+	setenv QTDMDP ${QTDMDP}:${DXP}/dxpApp/op/ui
+endif
+if ( ${?IP} ) then
+	setenv QTDMDP ${QTDMDP}:${IP}/ipApp/op/ui
+endif
+if ( ${?IP330} ) then
+	setenv QTDMDP ${QTDMDP}:${IP330}/ip330App/op/ui
+endif
+if ( ${?IPUNIDIG} ) then
+	setenv QTDMDP ${QTDMDP}:${IPUNIDIG}/ipUnidigApp/op/ui
+endif
+if ( ${?LOVE} ) then
+	setenv QTDMDP ${QTDMDP}:${LOVE}/loveApp/op/ui
+endif
+if ( ${?MCA} ) then
+	setenv QTDMDP ${QTDMDP}:${MCA}/mcaApp/op/ui
+endif
+if ( ${?MODBUS} ) then
+	setenv QTDMDP ${QTDMDP}:${MODBUS}/modbusApp/op/ui
+endif
+if ( ${?MOTOR} ) then
+	setenv QTDMDP ${QTDMDP}:${MOTOR}/motorApp/op/ui
+endif
+if ( ${?OPTICS} ) then
+	setenv QTDMDP ${QTDMDP}:${OPTICS}/opticsApp/op/ui
+endif
+if ( ${?QUADEM} ) then
+	setenv QTDMDP ${QTDMDP}:${QUADEM}/quadEMApp/op/ui
+endif
+if ( ${?SOFTGLUE} ) then
+	setenv QTDMDP ${QTDMDP}:${SOFTGLUE}/softGlueApp/op/ui
+endif
+if ( ${?SSCAN} ) then
+	setenv QTDMDP ${QTDMDP}:${SSCAN}/sscanApp/op/ui
+endif
+if ( ${?STD} ) then
+	setenv QTDMDP ${QTDMDP}:${STD}/stdApp/op/ui
+endif
+if ( ${?VAC} ) then
+	setenv QTDMDP ${QTDMDP}:${VAC}/vacApp/op/ui
+endif
+if ( ${?VME} ) then
+	setenv QTDMDP ${QTDMDP}:${VME}/vmeApp/op/ui
+endif
+
+setenv QTDMDP ${QTDMDP}:/APSshare/uisys/sr/id
+
+if (! ${?CAQTDM_DISPLAY_PATH}) then
+setenv CAQTDM_DISPLAY_PATH ${QTDMDP}
+else
+setenv CAQTDM_DISPLAY_PATH ${QTDMDP}:${CAQTDM_DISPLAY_PATH}
+endif
+
+# access to ioctim and bcdapc15
+setenv EPICS_CA_ADDR_LIST "164.54.53.99 164.54.54.88"
+
+# This should agree with the environment variable set by the ioc
+# see 'putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"' in iocBoot/ioc<target>/st.cmd
+#setenv EPICS_CA_MAX_ARRAY_BYTES 64008
+setenv EPICS_CA_MAX_ARRAY_BYTES 8000100
+
+cd ${EPICS_APP_UI_DIR}
+
+# start caQtDM.  Because I'm using a local copy of Qt/Qwt, and not the system
+# copy, I need to set some environment variables
+#setenv QTDIR /home/oxygen/MOONEY/Download/Qt/qt-4.8.4
+setenv QT_PLUGIN_PATH /home/oxygen/MOONEY/Download/Qt/qt-4.8.4/plugins:/home/oxygen/MOONEY/Download/Qt/qwt-6.0/designer/plugins/designer
+
+
+#caQtDM -noMsg xxx.ui&
+caQtDM xxx.ui&
