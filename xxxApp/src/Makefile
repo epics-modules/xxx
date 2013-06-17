@@ -317,3 +317,10 @@ xxx_LIBS_Darwin   += $(xxx_Common_LIBS)
 include $(TOP)/configure/RULES
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE
+
+$(COMMON_DIR)/iocxxxWin32Include.dbd: $(COMMON_DIR)/xxx_Common.dbd
+$(COMMON_DIR)/iocxxxWin64Include.dbd: $(COMMON_DIR)/xxx_Common.dbd
+$(COMMON_DIR)/iocxxxCygwinInclude.dbd: $(COMMON_DIR)/xxx_Common.dbd
+$(COMMON_DIR)/iocxxxVXInclude.dbd: $(COMMON_DIR)/xxx_Common.dbd
+$(COMMON_DIR)/iocxxxLinuxInclude.dbd: $(COMMON_DIR)/xxx_Common.dbd
+$(COMMON_DIR)/iocxxxDarwinInclude.dbd: $(COMMON_DIR)/xxx_Common.dbd
