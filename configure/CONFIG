@@ -28,6 +28,7 @@ ifdef T_A
  -include $(TOP)/configure/O.$(T_A)/CONFIG_APP_INCLUDE
 endif
 
-ifneq ($(OS_CLASS), Darwin)
+# We need to build statically on Linux because we are linking with old version of some libraries from areaDetector
+ifeq ($(OS_CLASS), Linux)
 STATIC_BUILD=YES
 endif
