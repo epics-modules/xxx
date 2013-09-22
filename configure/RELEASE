@@ -10,10 +10,10 @@
 #       module name.
 
 SUPPORT=/home/oxygen/MOONEY/epics/synAppsSVN/support
--include $(TOP)/configure/SUPPORT.$(EPICS_HOST_ARCH)
+-include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
 EPICS_BASE=/home/oxygen/MOONEY/epics/bazaar/base-3.14
--include $(TOP)/configure/EPICS_BASE 
--include $(TOP)/configure/EPICS_BASE.$(EPICS_HOST_ARCH) 
+-include $(TOP)/../configure/EPICS_BASE 
+-include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH) 
 
 #/usr/local/iocapps/cvsroot/modules/bus/allenBradley
 ALLEN_BRADLEY=$(SUPPORT)/allenBradley-2-2
