@@ -42,10 +42,12 @@ DBD += xxx_Common.dbd
 xxx_Common_DBD += base.dbd
 
 ifdef AREA_DETECTOR
-	xxx_Common_DBD += ADSupport.dbd  NDFileNetCDF.dbd
-	xxx_Common_LIBS += ADBase NDPlugin netCDF ADBase
-	xxx_Common_DBD += simDetectorSupport.dbd commonDriverSupport.dbd
-	xxx_Common_LIBS += simDetector
+        # areaDetector provides a Makefile for things it needs and supplies
+        PROD_NAME = xxx_Common
+        -include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
+        # To add the simDetector uncomment the following lines
+	#xxx_Common_DBD += simDetectorSupport.dbd
+	#xxx_Common_LIBS += simDetector
 endif
 ifdef ASYN
 	xxx_Common_DBD += asyn.dbd drvAsynSerialPort.dbd
@@ -287,10 +289,10 @@ endif
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
 xxx_SRCS_vxWorks  += iocxxxVX_registerRecordDeviceDriver.cpp
 xxx_SRCS_Linux    += iocxxxLinux_registerRecordDeviceDriver.cpp     xxxMain.cpp
-ifeq ($(T_A),win32-x86)
+ifeq (win32-x86,$(findstring win32-x86, $(T_A)))
 xxx_SRCS_WIN32    += iocxxxWin32_registerRecordDeviceDriver.cpp     xxxMain.cpp
 endif
-ifeq ($(T_A),windows-x64)
+ifeq (windows-x64,$(findstring windows-x64, $(T_A)))
 xxx_SRCS_WIN32    += iocxxxWin64_registerRecordDeviceDriver.cpp     xxxMain.cpp
 endif
 xxx_SRCS_cygwin32 += iocxxxCygwin_registerRecordDeviceDriver.cpp    xxxMain.cpp
@@ -309,9 +311,6 @@ xxx_LIBS_cygwin32 += $(xxx_Common_LIBS)
 xxx_LIBS_WIN32    += $(xxx_Common_LIBS)
 xxx_LIBS_Darwin   += $(xxx_Common_LIBS)
 
-
-# areaDetector provides a Makefile for things it needs and supplies
--include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
 
 #===========================
 
