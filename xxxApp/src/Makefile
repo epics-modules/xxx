@@ -115,8 +115,10 @@ ifdef STREAM
 	xxx_Common_LIBS += stream streamSynApps
 endif
 ifdef DEVIOCSTATS
+  ifneq ($(OS_CLASS), WIN32)
 	xxx_Common_DBD += devIocStats.dbd iocAdmin.dbd
 	xxx_Common_LIBS += devIocStats
+  endif
 endif
 xxx_Common_LIBS += $(EPICS_BASE_IOC_LIBS)
 
@@ -133,13 +135,12 @@ ifeq (win32-x86,$(findstring win32-x86, $(T_A)))
 		# Canberra network support uncomment the following lines
 		#iocxxxWin32_DBD += mcaCanberraSupport.dbd
 		#xxx_LIBS_WIN32 += mcaCanberra
-		#xxx_SYS_LIBS_WIN32 += net pcap
+		#xxx_LIBS_WIN32 += wpcap Packet
 	endif
 
 	ifdef DXP
 		# If you want to build parallel port or USB interfaces to Saturn and/or
-		# xMAP DXP,
-		 then uncomment the following lines
+		# xMAP DXP, then uncomment the following lines
 		iocxxxWin32_DBD += dxpSupport.dbd
 		xxx_LIBS_WIN32 += dxp handel
 		xxx_LIBS_WIN32 += DLPORTIO PlxApi
@@ -156,8 +157,8 @@ ifeq (windows-x64,$(findstring windows-x64, $(T_A)))
 		# If your host supports libpcap and libnet and you want to build Canberra network
 		# support uncomment the following line
 		iocxxxWin64_DBD += mcaCanberraSupport.dbd
-		xxx_LIBS_WIN64 += mcaCanberra
-		xxx_SYS_LIBS_WIN64 += net pcap
+		xxx_LIBS_WIN32 += mcaCanberra
+		xxx_LIBS_WIN32 += wpcap Packet
 	endif
 
 endif
