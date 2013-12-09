@@ -126,8 +126,6 @@ $(P)userStringSeqEnable
 file userArrayCalcs10_settings.req P=$(P)
 $(P)userArrayCalcEnable.VAL
 
-file saveData_settings.req P=$(P)
-
 # 4-step measurement
 #file auto_4step_settings.req P=$(P),Q=4step
 
