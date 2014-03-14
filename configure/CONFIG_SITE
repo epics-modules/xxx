@@ -34,3 +34,4 @@ CHECK_RELEASE = YES
 #   take effect.
 #IOCS_APPL_TOP = </IOC/path/to/application/top>
 
+-include $(AREA_DETECTOR)/configure/CONFIG_SITE
