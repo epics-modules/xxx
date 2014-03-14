@@ -44,7 +44,7 @@ xxx_Common_DBD += base.dbd
 ifdef AREA_DETECTOR
         # areaDetector provides a Makefile for things it needs and supplies
         PROD_NAME = xxx_Common
-        -include $(AREA_DETECTOR)/ADApp/commonDriverMakefile
+        -include $(AREA_DETECTOR)/ADCore/ADApp/commonDriverMakefile
         # To add the simDetector uncomment the following lines
 	#xxx_Common_DBD += simDetectorSupport.dbd
 	#xxx_Common_LIBS += simDetector
