@@ -17,7 +17,9 @@ EPICS_BASE=/home/oxygen/MOONEY/epics/bazaar/base-3.14
 
 #/usr/local/iocapps/cvsroot/modules/bus/allenBradley
 ALLEN_BRADLEY=$(SUPPORT)/allenBradley-2-2
-AREA_DETECTOR=$(SUPPORT)/areaDetector-1-9-1
+AREA_DETECTOR=$(SUPPORT)/areaDetector-2-0
+ADCORE=$(SUPPORT)/areaDetector-2-0/ADCore
+ADBINARIES=$(SUPPORT)/areaDetector-2-0/ADBinaries
 #https://svn.aps.anl.gov/epics/asyn/
 ASYN=$(SUPPORT)/asyn-4-21
 AUTOSAVE=$(SUPPORT)/autosave-5-1
