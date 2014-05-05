@@ -15,6 +15,9 @@ setenv EDP  .
 if ( ${?EPICS_APP_ADL_DIR} ) then
 	setenv EDP ${EDP}:${EPICS_APP_ADL_DIR}
 endif
+if ( ${?ALIVE} ) then
+	setenv EDP ${EDP}:${ALIVE}/aliveApp/op/adl
+endif
 if ( ${?AREA_DETECTOR} ) then
 	setenv EDP ${EDP}:${AREA_DETECTOR}/ADApp/op/adl
 endif
