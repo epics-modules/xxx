@@ -3,7 +3,7 @@
 # ensure that multiple, simultaneous IOCs are not started by this user ID
 
 MY_UID=`id -u`
-IOC_PID="`/usr/bin/pgrep xxx -u ${MY_UID}`"
+IOC_PID="`/usr/bin/pgrep xxx\$ -u ${MY_UID}`"
 
 if [ "" != "${IOC_PID}" ] ; then
   echo "xxx IOC is already running, won't start a new one, PID=${IOC_PID}"

@@ -2,7 +2,7 @@
 
 # $Id$
 
-/usr/bin/screen -d -m ./run
+/usr/bin/screen -dm -S xxx -h 5000 ./run
 
 # start the IOC in a screen session
 #  type:
