@@ -3,8 +3,8 @@
 # description: start/stop/restart an EPICS IOC in a screen session
 #
 
-# Make sure this path to the IOC is set correctly
-IOC_STARTUP_DIR=/home/username/epics/ioc/synApps/xxx/iocBoot/iocxxx
+# Manually set IOC_STARTUP_DIR if xxx.sh will reside somewhere other than iocxxx
+#!IOC_STARTUP_DIR=/home/username/epics/ioc/synApps/xxx/iocBoot/iocxxx
 IOC_NAME=xxx
 
 # Commands needed by this script
@@ -13,17 +13,28 @@ ID=id
 PGREP=pgrep
 SCREEN=screen
 KILL=kill
+BASENAME=basename
+DIRNAME=dirname
 # Explicitly define paths to commands if commands aren't found
 #!ECHO=/bin/echo
 #!ID=/usr/bin/id
 #!PGREP=/usr/bin/pgrep
 #!SCREEN=/usr/bin/screen
 #!KILL=/bin/kill
+#!BASENAME=/bin/basename
+#!DIRNAME=/usr/bin/dirname
 
 #####################################################################
 
 SNAME=$0
 SELECTION=$1
+
+if [ -z "$IOC_STARTUP_DIR" ]
+then
+    # If no startup dir is specified, assume this script resides in the IOC's startup directory
+    IOC_STARTUP_DIR="$(${DIRNAME} ${SNAME})"
+fi
+#!${ECHO} ${IOC_STARTUP_DIR}
 
 #####################################################################
 
@@ -89,7 +100,7 @@ console() {
 }
 
 usage() {
-    ${ECHO} "Usage: $(basename ${SNAME}) {start|stop|restart|status|console}"
+    ${ECHO} "Usage: $(${BASENAME} ${SNAME}) {start|stop|restart|status|console}"
 }
 
 #####################################################################
