@@ -17,6 +17,9 @@ endif
 if ( ${?AREA_DETECTOR} ) then
 	setenv QTDMDP ${QTDMDP}:${AREA_DETECTOR}/ADApp/op/ui
 endif
+if ( ${?ADCORE} ) then
+	setenv EDP ${EDP}:${ADCORE}/ADApp/op/ui
+endif
 if ( ${?ASYN} ) then
 	setenv QTDMDP ${QTDMDP}:${ASYN}/opi/caqtdm
 endif
