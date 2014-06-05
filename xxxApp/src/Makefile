@@ -42,57 +42,58 @@ DBD += xxx_Common.dbd
 xxx_Common_DBD += base.dbd
 
 ifdef AREA_DETECTOR
-        # areaDetector provides a Makefile for things it needs and supplies
-        PROD_NAME = xxx_Common
-        -include $(AREA_DETECTOR)/ADCore/ADApp/commonDriverMakefile
-        # To add the simDetector uncomment the following lines
-	#xxx_Common_DBD += simDetectorSupport.dbd
-	#xxx_Common_LIBS += simDetector
+	# areaDetector provides a Makefile for things it needs and supplies
+	PROD_NAME = xxx_Common
+	-include $(AREA_DETECTOR)/ADCore/ADApp/commonDriverMakefile
+	# To add the simDetector uncomment the following lines
+	xxx_Common_DBD += simDetectorSupport.dbd
+	xxx_Common_LIBS := simDetector $(xxx_Common_LIBS)
+
 endif
 ifdef ASYN
 	xxx_Common_DBD += asyn.dbd drvAsynSerialPort.dbd
 	xxx_Common_DBD += drvAsynIPPort.dbd drvVxi11.dbd devGpib.dbd
-	xxx_Common_LIBS += asyn
+	xxx_Common_LIBS := asyn $(xxx_Common_LIBS)
 endif
 ifdef STD
 	xxx_Common_DBD += stdSupport.dbd
-	xxx_Common_LIBS += std
+	xxx_Common_LIBS := std $(xxx_Common_LIBS)
 endif
 ifdef CALC
 	xxx_Common_DBD += calcSupport.dbd
-	xxx_Common_LIBS += calc
+	xxx_Common_LIBS := calc $(xxx_Common_LIBS)
 endif
 ifdef BUSY
 	xxx_Common_DBD += busySupport.dbd
-	xxx_Common_LIBS += busy
+	xxx_Common_LIBS := busy $(xxx_Common_LIBS)
 endif
 ifdef SSCAN
 	xxx_Common_DBD += sscanSupport.dbd
-	xxx_Common_LIBS += sscan
+	xxx_Common_LIBS := sscan $(xxx_Common_LIBS)
 	ifdef SNCSEQ
 		xxx_Common_DBD += sscanProgressSupport.dbd
-		xxx_Common_LIBS += scanProgress
+		xxx_Common_LIBS := scanProgress $(xxx_Common_LIBS)
 	endif
 endif
 ifdef AUTOSAVE
 	xxx_Common_DBD += asSupport.dbd
-	xxx_Common_LIBS += autosave
+	xxx_Common_LIBS := autosave $(xxx_Common_LIBS)
 endif
 ifdef OPTICS
 	xxx_Common_DBD += opticsSupport.dbd
-	xxx_Common_LIBS += optics
+	xxx_Common_LIBS := optics $(xxx_Common_LIBS)
 endif
 ifdef MCA
 	xxx_Common_DBD += mcaSupport.dbd
-	xxx_Common_LIBS += mca
+	xxx_Common_LIBS := mca $(xxx_Common_LIBS)
 endif
 ifdef IP
 	xxx_Common_DBD += ipSupport.dbd
-	xxx_Common_LIBS += ip
+	xxx_Common_LIBS := ip $(xxx_Common_LIBS)
 endif
 ifdef QUADEM
 	xxx_Common_DBD += drvAHxxx.dbd
-	xxx_Common_LIBS += quadEM
+	xxx_Common_LIBS := quadEM $(xxx_Common_LIBS)
 endif
 ifdef MOTOR
 	xxx_Common_DBD += motorSupport.dbd devAcsMotor.dbd devAerotech.dbd
@@ -103,26 +104,26 @@ ifdef MOTOR
 	xxx_Common_DBD += devSPiiPlus.dbd devSmartMotorMotor.dbd devSoftMotor.dbd
 	xxx_Common_DBD += devThorLabs.dbd motorRecord.dbd motorSimSupport.dbd
 
-	xxx_Common_LIBS += Acs acsTech80 Aerotech Attocube Faulhaber Ims KohzuMotor
-	xxx_Common_LIBS += Mclennan Micos MicroMo NewFocus Newport Oriel PI PIJena
-	xxx_Common_LIBS += Parker SmartMotor ThorLabs softMotor motorSimSupport
-	xxx_Common_LIBS += motor
+	xxx_Common_LIBS := motor $(xxx_Common_LIBS)
+	xxx_Common_LIBS := Acs acsTech80 Aerotech Attocube Faulhaber Ims KohzuMotor $(xxx_Common_LIBS)
+	xxx_Common_LIBS := Mclennan Micos MicroMo NewFocus Newport Oriel PI PIJena $(xxx_Common_LIBS)
+	xxx_Common_LIBS := Parker SmartMotor ThorLabs softMotor motorSimSupport $(xxx_Common_LIBS)
 endif
 ifdef SNCSEQ
 	xxx_Common_DBD += devSequencer.dbd
-	xxx_Common_LIBS += seqDev seq pv
+	xxx_Common_LIBS := seqDev seq pv $(xxx_Common_LIBS)
 endif
 ifdef STREAM
 	xxx_Common_DBD += stream.dbd streamSynApps.dbd
-	xxx_Common_LIBS += stream streamSynApps
+	xxx_Common_LIBS := stream streamSynApps $(xxx_Common_LIBS)
 endif
 ifdef DEVIOCSTATS
   ifneq ($(OS_CLASS), WIN32)
-	xxx_Common_DBD += devIocStats.dbd iocAdmin.dbd
-	xxx_Common_LIBS += devIocStats
+  	xxx_Common_DBD += devIocStats.dbd iocAdmin.dbd
+	xxx_Common_LIBS := devIocStats $(xxx_Common_LIBS)
   endif
 endif
-xxx_Common_LIBS += $(EPICS_BASE_IOC_LIBS)
+xxx_Common_LIBS := $(xxx_Common_LIBS) $(EPICS_BASE_IOC_LIBS)
 
 ##################################################################
 
@@ -290,10 +291,10 @@ endif
 xxx_SRCS_vxWorks  += iocxxxVX_registerRecordDeviceDriver.cpp
 xxx_SRCS_Linux    += iocxxxLinux_registerRecordDeviceDriver.cpp     xxxMain.cpp
 ifeq (win32-x86,$(findstring win32-x86, $(T_A)))
-xxx_SRCS_WIN32    += iocxxxWin32_registerRecordDeviceDriver.cpp     xxxMain.cpp
+	xxx_SRCS_WIN32    += iocxxxWin32_registerRecordDeviceDriver.cpp     xxxMain.cpp
 endif
 ifeq (windows-x64,$(findstring windows-x64, $(T_A)))
-xxx_SRCS_WIN32    += iocxxxWin64_registerRecordDeviceDriver.cpp     xxxMain.cpp
+	xxx_SRCS_WIN32    += iocxxxWin64_registerRecordDeviceDriver.cpp     xxxMain.cpp
 endif
 xxx_SRCS_cygwin32 += iocxxxCygwin_registerRecordDeviceDriver.cpp    xxxMain.cpp
 xxx_SRCS_solaris  += iocxxx_solaris_registerRecordDeviceDriver.cpp  xxxMain.cpp
