@@ -21,6 +21,9 @@ endif
 if ( ${?AREA_DETECTOR} ) then
 	setenv EDP ${EDP}:${AREA_DETECTOR}/ADApp/op/adl
 endif
+if ( ${?ADCORE} ) then
+	setenv EDP ${EDP}:${ADCORE}/ADApp/op/adl
+endif
 if ( ${?ASYN} ) then
 	setenv EDP ${EDP}:${ASYN}/opi/medm
 endif
