@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=1177
-		y=52
+		x=1139
+		y=25
 		width=440
 		height=180
 	}
@@ -295,7 +295,7 @@ display {
 	display[9] {
 		label="aux scan"
 		name="scanAux.adl"
-		args="P=xxx:,S=scantest"
+		args="P=xxx:,S=scanAux"
 	}
 	display[11] {
 		label="scanProgress"
@@ -789,11 +789,16 @@ display {
 		args="P=xxx:,N=1"
 	}
 	display[9] {
-		label="busyRecord"
+		label="busyRecord 1"
 		name="xxBusyRecord.adl"
-		args="P=xxx:,R=mybusy"
+		args="P=xxx:,R=mybusy1"
 	}
 	display[10] {
+		label="busyRecord 2"
+		name="xxBusyRecord.adl"
+		args="P=xxx:,R=mybusy2"
+	}
+	display[11] {
 		label="IDisableTransforms"
 		name="Transforms10.adl"
 		args="P=xxx:,N=1"
@@ -1115,16 +1120,6 @@ composite {
 		height=20
 	}
 	display[0] {
-		label=" 8-Channel MCS Control"
-		name="Struck8.adl"
-		args="P=xxx:3820:"
-	}
-	display[1] {
-		label="32-Channel MCS Control"
-		name="Struck32.adl"
-		args="P=xxx:3820:"
-	}
-	display[2] {
 		label="SIS38XX"
 		name="SIS38XX.adl"
 		args="P=xxx:3820:"
@@ -1692,6 +1687,16 @@ composite {
 		name="MAX_trajectoryScan.adl"
 		args="P=xxx:,R=traj2:,TITLE=traj2,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16"
 	}
+	display[3] {
+		label="trajectoryScan1 (2 mot)"
+		name="MAX_trajectoryScan2.adl"
+		args="P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+	}
+	display[5] {
+		label="MM4000 XPS trajectory"
+		name="trajectoryScan.adl"
+		args="P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+	}
 	clr=0
 	bclr=17
 	label="-trajectory"
@@ -1853,7 +1858,53 @@ composite {
 		name="calcTest.adl"
 		args="P=xxx:"
 	}
+	display[10] {
+		label="interlaceFly"
+		name="interlaceFly.adl"
+		args="P=xxx:,Q=iFly:,QT=tableFly:"
+	}
+	display[11] {
+		label="compress"
+		name="compress.adl"
+		args="P=xxx:"
+	}
+	display[12] {
+		label="tablePSOFly"
+		name="tablePSOFly.adl"
+		args="P=xxx:,Q=tableFly:"
+	}
 	clr=0
 	bclr=17
 	label="-test"
+}
+"related display" {
+	object {
+		x=350
+		y=160
+		width=70
+		height=20
+	}
+	display[0] {
+		label="MLLH"
+		name="MLLH.adl"
+		args="P=xxx:,Q=MLLH:"
+	}
+	display[1] {
+		label="MLLH hard motors"
+		name="motor3x.adl"
+		args="P=xxx:,M1=m2,M2=m1,M3=m3"
+	}
+	display[2] {
+		label="MLLV"
+		name="MLLV.adl"
+		args="P=xxx:,Q=MLLV:"
+	}
+	display[3] {
+		label="MLLH hard motors"
+		name="motor5x.adl"
+		args="P=xxx:,M1=m4,M2=m5,M3=m6,M4=m7,M5=m8"
+	}
+	clr=0
+	bclr=17
+	label="-MLL"
 }
