@@ -1,4 +1,6 @@
 file configMenu.req P=$(P),CONFIG=$(CONFIG)
 file softGlue_settings.req  P=$(P),H=$(H)
-# for testing remote PV handling
-#yyy:userArrayCalc1.DESC
+# If you're loading an add-on package into softGlue, save its PVs too.
+file softGlue_FPGAContent_Encoder_settings.req P=$(P),H=$(H)
+#file softGlue_FPGAContent_octupole_settings.req P=$(P),H=$(H)
+#file softGlue_FPGAContent_Encoder_settings.req P=$(P) H=softGlue:
