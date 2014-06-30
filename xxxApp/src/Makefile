@@ -119,10 +119,31 @@ ifdef STREAM
 endif
 ifdef DEVIOCSTATS
   ifneq ($(OS_CLASS), WIN32)
-  	xxx_Common_DBD += devIocStats.dbd iocAdmin.dbd
+	xxx_Common_DBD += devIocStats.dbd iocAdmin.dbd
 	xxx_Common_LIBS := devIocStats $(xxx_Common_LIBS)
   endif
 endif
+
+ifdef ETHERIP
+	xxx_Common_DBD += ether_ip.dbd
+	xxx_Common_LIBS := ether_ip $(xxx_Common_LIBS)
+endif
+
+ifdef ALIVE
+	xxx_Common_DBD += aliveSupport.dbd
+	xxx_Common_LIBS := alive $(xxx_Common_LIBS)
+endif
+
+ifdef DELAYGEN
+	xxx_Common_DBD += delaygenSupport.dbd
+	xxx_Common_LIBS := delaygen $(xxx_Common_LIBS)
+endif
+
+ifdef VAC
+	xxx_Common_DBD += vacSupport.dbd
+	xxx_Common_LIBS := vac $(xxx_Common_LIBS)
+endif
+
 xxx_Common_LIBS := $(xxx_Common_LIBS) $(EPICS_BASE_IOC_LIBS)
 
 ##################################################################
