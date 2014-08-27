@@ -7,6 +7,9 @@ setenv EPICS_DISPLAY_PATH .
 setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps/support/xxx
 setenv EPICS_APP_ADL_DIR ${EPICS_APP}/xxxApp/op/adl
 
+# Allow script to be run from any directory
+cd ${EPICS_APP}
+
 # define environment variables for MEDM and Probe
 source ./setup_epics_common
 
