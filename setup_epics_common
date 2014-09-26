@@ -66,6 +66,9 @@ endif
 if ( ${?MCA} ) then
 	setenv EDP ${EDP}:${MCA}/mcaApp/op/adl
 endif
+if ( ${?MEASCOMP} ) then
+	setenv EDP ${EDP}:${MEASCOMP}/measCompApp/op/adl
+endif
 if ( ${?MODBUS} ) then
 	setenv EDP ${EDP}:${MODBUS}/modbusApp/op/adl
 endif
