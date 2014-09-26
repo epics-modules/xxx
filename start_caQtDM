@@ -1,5 +1,11 @@
 #!/bin/csh -f
 
+# For drag-and-drop workaround:
+# need /APSshare/bin/xclip
+setenv PATH ${PATH}:/APSshare/bin
+unsetenv MEDM_EXEC_LIST
+setenv CAQTDM_EXEC_LIST 'Probe;probe &P &:UI File;echo &A:PV Name(s);echo &P:Copy PV name; echo -n &P| xclip -i -sel clip:Paste PV name;caput &P `xclip -o -sel clip`'
+
 setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps/support/xxx
 setenv EPICS_APP_UI_DIR ${EPICS_APP}/xxxApp/op/ui
 
@@ -101,11 +107,7 @@ else
 setenv CAQTDM_DISPLAY_PATH ${QTDMDP}:${CAQTDM_DISPLAY_PATH}
 endif
 
-# access to ioctim and bcdapc15
-#setenv EPICS_CA_ADDR_LIST "164.54.53.99 164.54.54.88"
-
 # This should agree with the environment variable set by the ioc
-# see 'putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"' in iocBoot/ioc<target>/st.cmd
 setenv EPICS_CA_MAX_ARRAY_BYTES 64008
 # for areaDetector
 #setenv EPICS_CA_MAX_ARRAY_BYTES 2000100
