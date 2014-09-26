@@ -18,7 +18,7 @@ if ( ${?AREA_DETECTOR} ) then
 	setenv QTDMDP ${QTDMDP}:${AREA_DETECTOR}/ADApp/op/ui
 endif
 if ( ${?ADCORE} ) then
-	setenv EDP ${EDP}:${ADCORE}/ADApp/op/ui
+	setenv QTDMDP ${QTDMDP}:${ADCORE}/ADApp/op/ui
 endif
 if ( ${?ASYN} ) then
 	setenv QTDMDP ${QTDMDP}:${ASYN}/opi/caqtdm
@@ -61,6 +61,9 @@ if ( ${?LOVE} ) then
 endif
 if ( ${?MCA} ) then
 	setenv QTDMDP ${QTDMDP}:${MCA}/mcaApp/op/ui
+endif
+if ( ${?MEASCOMP} ) then
+	setenv QTDMDP ${QTDMDP}:${MEASCOMP}/measCompApp/op/ui
 endif
 if ( ${?MODBUS} ) then
 	setenv QTDMDP ${QTDMDP}:${MODBUS}/modbusApp/op/ui
