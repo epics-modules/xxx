@@ -22,7 +22,9 @@
 #    standard softGlue 2.2 plus two shift registers
 #initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_Octupole_0_0.hex")
 #    standard softGlue 2.2 plus two up/down counters
-initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_1ID_Vgate_0_1.hex")
+#initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_1ID_Vgate_0_1.hex")
+#    standard softGlue 2.2 plus two up/down counters plus two quadrature decoders
+initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_Encoder.hex")
 
 ################################################################################
 #    Initialize basic field I/O 
@@ -170,7 +172,11 @@ dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent.db", "P=xxx:,H=softGlue:,PORT
 
 # This database contains the additional records needed for
 # SoftGlue_2_2_1ID_Vgate_0_1.hex
-dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_s1ID_Vgate.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE,READEVENT=10")
+#dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_s1ID_Vgate.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE,READEVENT=10")
+
+# This database contains the additional records needed for
+# SoftGlue_2_2_Encoder.hex
+dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_Encoder.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE,READEVENT=10")
 
 #    Interrupt support.
 #    ('putenv' is used to fit the command into the vxWorks command line space.)
@@ -183,8 +189,16 @@ taskDelay(50)
 #    a couple of busy records.
 dbLoadRecords("$(SOFTGLUE)/db/softGlue_convenience.db", "P=xxx:,H=softGlue:")
 
-# Menu of softGlue circuits
-# configMenu example.  See create_manual_set() command after iocInit.
+# configMenu Menu of softGlue circuits
 dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=xxx:,CONFIG=SG")
+# Note that the request file MUST be named $(CONFIG)Menu.req.  If the macro
+# CONFIGMENU is defined with any value, backup (".savB") and sequence files
+# (".savN") will not be written.  We don't want these for configMenu.
+doAfterIocInit("create_manual_set('SGMenu.req','P=xxx:,CONFIG=SG,H=softGlue:,CONFIGMENU=1')")
+
+# Register included example of a custom softGlue interrupt-service routine.
+# This is for interrupts that occur too closely spaced in time for softGlue's
+# normal interrupt service (an output link to an EPICS record) to handle.
+#sampleCustomInterruptPrepare(0, 2, 0x800010, 0x1)
 
 # END softGlue.cmd ------------------------------------------------------------
