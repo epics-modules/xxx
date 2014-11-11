@@ -1,5 +1,5 @@
 TOP = ../..
 include $(TOP)/configure/CONFIG
-ARCH = vxWorks-ppc604_long
+ARCH = vxWorks-ppc32
 TARGETS = cdCommands
 include $(TOP)/configure/RULES.ioc
