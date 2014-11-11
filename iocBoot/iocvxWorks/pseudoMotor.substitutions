@@ -5,7 +5,7 @@
 # SUM which moves both motors together, and DIFF which moves them in opposite directions.
 # It can be used for slits, for K/B mirror benders, etc.
 
-file "$(TOP)/xxxApp/Db/pseudoMotor.db"
+file "$(MOTOR)/motorApp/Db/pseudoMotor.db"
 {
 pattern
 {P,       M,           DINP,                        OUT,                     RDBL,                          STOO,     DESC, EGU, DIR, VELO, VBAS, ACCL, BDST, BVEL,                    BACC, MRES,   RRES, PREC,  DHLM, DLLM}
@@ -15,7 +15,7 @@ pattern
 {xxx:,  pm4, "xxx:KBH:Done NPP NMS", "xxx:pm4DVAL.VAL PP MS", "xxx:KBH:Readback.H NPP NMS", "xxx:KBH:Stop PP MS",    "Hor. ellipticity",        mm,  Pos,   1,    .1,   .1,    0,    1,   .1, .1,     1.0,  3,    10000, -10000}
 }
 
-file "$(TOP)/xxxApp/Db/sumDiff2D.db"
+file "$(MOTOR)/motorApp/Db/sumDiff2D.db"
 {
 pattern
 {P,      T,   SUM, DIFF,      M1DRV,     M1RBV,    M2DRV,    M2RBV,    M1STOP,    M1DONE,    M2STOP,    M2DONE,  PREC}
