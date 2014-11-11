@@ -21,6 +21,8 @@ dbLoadRecords("$(STD)/stdApp/Db/scaler32.db", "P=$(PREFIX), S=scaler1, DTYP=Asyn
 
 # This database provides the support for the MCS functions
 dbLoadRecords("$(MCA)/mcaApp/Db/SIS38XX.template", "P=$(PREFIX), PORT=$(PORT), SCALER=$(PREFIX)scaler1")
+# This SNL programs reads the MCS
+doAfterIocInit("seq(&SIS38XX_SNL, 'P=$(PREFIX), R=$(RNAME), NUM_SIGNALS=$(MAX_SIGNALS), FIELD=READ')")
 
 # Load either MCA or waveform records below
 # The number of records loaded must be the same as MAX_SIGNALS defined above
@@ -96,8 +98,4 @@ dbLoadRecords("$(MCA)/mcaApp/Db/simple_mca.db", "P=$(PREFIX), M=$(RNAME)32, DTYP
 asynSetTraceIOMask($(PORT),0,2)
 #asynSetTraceFile("$(PORT)",0,"$(MODEL).out")
 #asynSetTraceMask("$(PORT)",0,0xff)
-
-
-# !!! Don't firget to include the following command in st.cmd, after iocInit
-#seq(&SIS38XX_SNL, "P=$(PREFIX), R=$(RNAME), NUM_SIGNALS=$(MAX_SIGNALS), FIELD=$(FIELD)")
 
