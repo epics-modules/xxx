@@ -65,7 +65,7 @@ VSCSetup(2, 0xB0000000, 200)
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320group.db","P=xxx:,group=5")
 
 # Struck 3801 MCS setup. mca 7-3-1
-#iocsh "st_SIS38-1.iocsh"
+#iocsh "st_SIS3801.iocsh"
 
 # Struck 3820 MCS setup. mca 7-3-1
 iocsh "st_SIS3820.iocsh"
@@ -106,6 +106,8 @@ dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
 # hardware configuration
 # example: BunchClkGenConfigure(intCard, unsigned long CardAddress)
 #BunchClkGenConfigure(0, 0x8c00)
+# sequence program
+#doAfterIocInit("seq &getFillPat, 'unit=xxx'")
 
 ### GP307 Vacuum Controller
 #dbLoadRecords("$(VME)/vmeApp/Db/gp307.db","P=xxx:")
