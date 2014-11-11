@@ -31,8 +31,10 @@ include $(TOP)/configure/CONFIG
 
 PROD_IOC = xxx
 
-# Note that the order in which .dbd files are added to a list variable
-# doesn't matter, but the order of libraries does.
+# Note that the order in which .dbd files and libraries are added to a list
+# variable is important.  For .dbd files, things must be defined before they
+# are referenced by a later .dbd file.  For libraries, things must be referenced
+# before they are searched for; otherwise they won't be included.
 
 ##################################################################
 # First, define xxx_Common_DBD and xxx_Common_LIBS from the modules
@@ -40,6 +42,19 @@ PROD_IOC = xxx
 ##################################################################
 DBD += xxx_Common.dbd
 xxx_Common_DBD += base.dbd
+
+ifdef SNCSEQ
+	ifeq (seq-2-1, $(findstring seq-2-1, $(SNCSEQ)))
+		xxx_Common_DBD += devSequencer.dbd
+		xxx_Common_LIBS := seqDev seq pv $(xxx_Common_LIBS)
+	else ifeq (seq-2.1, $(findstring seq-2.1, $(SNCSEQ)))
+		xxx_Common_DBD += devSequencer.dbd
+		xxx_Common_LIBS := seqDev seq pv $(xxx_Common_LIBS)
+	else
+		# seq 2.2.
+		xxx_Common_LIBS := seq pv $(xxx_Common_LIBS)
+	endif
+endif
 
 ifdef AREA_DETECTOR
 	# areaDetector provides a Makefile for things it needs and supplies
@@ -109,17 +124,14 @@ ifdef MOTOR
 	xxx_Common_LIBS := Mclennan Micos MicroMo NewFocus Newport Oriel PI PIJena $(xxx_Common_LIBS)
 	xxx_Common_LIBS := Parker SmartMotor ThorLabs softMotor motorSimSupport $(xxx_Common_LIBS)
 endif
-ifdef SNCSEQ
-	xxx_Common_DBD += devSequencer.dbd
-	xxx_Common_LIBS := seqDev seq pv $(xxx_Common_LIBS)
-endif
+
 ifdef STREAM
 	xxx_Common_DBD += stream.dbd streamSynApps.dbd
 	xxx_Common_LIBS := stream streamSynApps $(xxx_Common_LIBS)
 endif
 ifdef DEVIOCSTATS
   ifneq ($(OS_CLASS), WIN32)
-	xxx_Common_DBD += devIocStats.dbd iocAdmin.dbd
+  	xxx_Common_DBD += devIocStats.dbd iocAdmin.dbd
 	xxx_Common_LIBS := devIocStats $(xxx_Common_LIBS)
   endif
 endif
