@@ -2,8 +2,6 @@
 # BEGIN save_restore.cmd ------------------------------------------------------
 
 ### save_restore setup
-#
-# This file does not require modification for standard use, but...
 
 # status PVs
 #save_restoreSet_UseStatusPVs(1)
@@ -36,20 +34,35 @@ set_savefile_path("$(TOP)/iocBoot/$(IOC)", "autosave")
 # specify what save files should be restored.  Note these files must be
 # in the directory specified in set_savefile_path(), or, if that function
 # has not been called, from the directory current when iocInit is invoked
-set_pass0_restoreFile("auto_positions.sav")
-set_pass0_restoreFile("auto_settings.sav")
-set_pass1_restoreFile("auto_settings.sav")
+
+set_pass0_restoreFile("auto_positions.sav", "P=xxx:")
+# Save positions every five seconds
+doAfterIocInit("create_monitor_set('auto_positions.req',5,'P=xxx:')")
+
+set_pass0_restoreFile("auto_settings.sav", "P=xxx:")
+set_pass1_restoreFile("auto_settings.sav", "P=xxx:")
+# save settings every thirty seconds
+doAfterIocInit("create_monitor_set('auto_settings.req',30,'P=xxx:')")
+
+# Note that you can reload these sets after creating them: e.g., 
+# reload_monitor_set("auto_settings.req",30,"P=xxx:")
 
 # Note that you can restore a .sav file without also autosaving to it.
 #set_pass0_restoreFile("myInitData.sav")
 #set_pass1_restoreFile("myInitData.sav")
+
+# Also, you can restore a .sav file that contains macros. (autosave R5-4-2)
+#set_pass0_restoreFile("myGenericData.sav", "P=xxx:")
+#set_pass1_restoreFile("myGenericData.sav", "P=xxx:")
 
 ###
 # specify directories in which to to search for included request files
 set_requestfile_path("$(TOP)/iocBoot/$(IOC)", "")
 set_requestfile_path("$(TOP)/iocBoot/$(IOC)", "autosave")
 set_requestfile_path("$(AREA_DETECTOR)", "ADApp/Db")
+set_requestfile_path("$(ADCORE)", "ADApp/Db")
 set_requestfile_path("$(AUTOSAVE)", "asApp/Db")
+set_requestfile_path("$(BUSY)", "busyApp/Db")
 set_requestfile_path("$(CALC)", "calcApp/Db")
 set_requestfile_path("$(CAMAC)", "camacApp/Db")
 set_requestfile_path("$(DAC128V)", "dac128VApp/Db")
@@ -59,6 +72,7 @@ set_requestfile_path("$(IP330)", "ip330App/Db")
 set_requestfile_path("$(IPUNIDIG)", "ipUnidigApp/Db")
 set_requestfile_path("$(LOVE)", "loveApp/Db")
 set_requestfile_path("$(MCA)", "mcaApp/Db")
+set_requestfile_path("$(MEASCOMP)", "measCompApp/Db")
 set_requestfile_path("$(MODBUS)", "modbusApp/Db")
 set_requestfile_path("$(MOTOR)", "motorApp/Db")
 set_requestfile_path("$(OPTICS)", "opticsApp/Db")
@@ -71,5 +85,13 @@ set_requestfile_path("$(TOP)", "xxxApp/Db")
 
 # Debug-output level
 save_restoreSet_Debug(0)
+
+# Tell autosave to automatically build built_settings.req and
+# built_positions.req from databases and macros supplied to dbLoadRecords()
+# (and dbLoadTemplate(), which calls dbLoadRecords()).
+epicsEnvSet("BUILT_SETTINGS", "built_settings.req")
+epicsEnvSet("BUILT_POSITIONS", "built_positions.req")
+autosaveBuild("$(BUILT_SETTINGS)", "_settings.req", 1)
+autosaveBuild("$(BUILT_POSITIONS)", "_positions.req", 1)
 
 # END save_restore.cmd --------------------------------------------------------
