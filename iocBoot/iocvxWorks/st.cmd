@@ -29,6 +29,7 @@ sysCplusEnable=1
 
 ### Load synApps EPICS software
 load("xxx.munch")
+#ld(0,0,"xxx.munch")
 cd startup
 
 # Increase size of buffer for error logging from default 1256
@@ -51,13 +52,13 @@ epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
 dbLoadDatabase("$(TOP)/dbd/iocxxxVX.dbd")
 iocxxxVX_registerRecordDeviceDriver(pdbbase)
 
-# Soft function generator
-#dbLoadRecords("$(CALC)/calcApp/Db/FuncGen.db","P=xxx:,Q=fgen,OUT=xxx:m7.VAL")
-
 ### save_restore setup
-# We presume a suitable initHook routine was compiled into xxx.munch.
-# See also create_monitor_set(), after iocInit() .
 < save_restore.cmd
+
+### Access Security
+#dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=xxx:")
+#asSetFilename("../accessSecurity.acf")
+#asSetSubstitutions("P=xxx:")
 
 # Industry Pack support
 < industryPack.cmd
@@ -82,6 +83,7 @@ dbLoadTemplate("motor.substitutions")
 
 ### Allstop, alldone
 dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=xxx:")
+doAfterIocInit("motorUtilInit('xxx:')")
 
 ### streamDevice example
 #dbLoadRecords("$(TOP)/xxxApp/Db/streamExample.db","P=xxx:,PORT=serial1")
@@ -93,11 +95,21 @@ dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=xxx:")
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
 putenv "SDB=$(SSCAN)/sscanApp/Db/standardScans.db"
-dbLoadRecords("$(SDB)","P=xxx:,MAXPTS1=1000,MAXPTS2=1000,MAXPTS3=1000,MAXPTS4=1000,MAXPTSH=1000")
+dbLoadRecords("$(SDB)","P=xxx:,MAXPTS1=1000,MAXPTS2=1000,MAXPTS3=100,MAXPTS4=100,MAXPTSH=100")
+#dbLoadRecords("$(SSCAN)/sscanApp/Db/scanAux.db","P=xxx:,S=scanAux,MAXPTS=100")
+
+# Start the saveData task.  If you start this task, scan records mentioned
+# in saveData.req will *always* write data files.  There is no programmable
+# disable for this software.
 dbLoadRecords("$(SSCAN)/sscanApp/Db/saveData.db","P=xxx:")
+doAfterIocInit("saveData_Init('saveData.req', 'P=xxx:')")
+
 dbLoadRecords("$(SSCAN)/sscanApp/Db/scanProgress.db","P=xxx:scanProgress:")
+doAfterIocInit("seq &scanProgress, 'S=xxx:, P=xxx:scanProgress:'")
+
 # configMenu example.  See create_manual_set() command after iocInit.
-dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=xxx:,CONFIG=scan1")
+#dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=xxx:,CONFIG=scan1")
+#doAfterIocInit("create_manual_set('scan1Menu.req','P=xxx:,CONFIG=scan1,CONFIGMENU=1')")
 
 # A set of scan parameters for each positioner.  This is a convenience
 # for the user.  It can contain an entry for each scannable thing in the
@@ -107,14 +119,14 @@ dbLoadTemplate("scanParms.substitutions")
 ### Slits (If not supplied, RELTOCENTER defaults to zero)
 dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1V,mXp=m3,mXn=m4,RELTOCENTER=0")
 dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m6,RELTOCENTER=0")
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2V,mXp=m3,mXn=m4")
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit_soft.db","P=xxx:,SLIT=Slit2H,mXp=m5,mXn=m6")
 
-# X-ray Instrumentation Associates Huber Slit Controller
+### X-ray Instrumentation Associates Huber Slit Controller
 # supported by a customized version of the SNL program written by Pete Jemian
 # (Uses asyn record loaded separately)
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/xia_slit.db", "P=xxx:, HSC=hsc1:")
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/xia_slit.db", "P=xxx:, HSC=hsc2:")
+#doAfterIocInit("seq  &xia_slit, 'name=hsc1, P=xxx:, HSC=hsc1:, S=xxx:asyn_6'")
+#doAfterIocInit("seq  &xia_slit, 'name=hsc2, P=xxx:, HSC=hsc2:, S=xxx:asyn_6'")
 
 ### 2-post mirror
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/2postMirror.db","P=xxx:,Q=M1,mDn=m1,mUp=m2,LENGTH=0.3")
@@ -125,33 +137,45 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/filterLock.db","P=xxx:,Q=fltr2:,LOCK=fltr_1_2:,LOCK_PV=xxx:DAC1_1.VAL")
 
 ### Optical tables
-#tableRecordDebug=1
 putenv "DIR=$(OPTICS)/opticsApp/Db"
 dbLoadRecords("$(DIR)/table.db","P=xxx:,Q=Table1,T=table1,M0X=m9,M0Y=m10,M1Y=m11,M2X=m12,M2Y=m13,M2Z=m14,GEOM=SRI")
 
-# Io calculation
+### Io calculation
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/Io.db","P=xxx:Io:")
+#doAfterIocInit("seq &Io, 'P=xxx:Io:,MONO=xxx:BraggEAO,VSC=xxx:scaler1'")
 
 ### Monochromator support ###
-# Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
-# standard geometry (geometry 1)
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m1,M_Y=m2,M_Z=m3,yOffLo=17.4999,yOffHi=17.5001")
-# modified geometry (geometry 2)
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m9,M_Y=m10,M_Z=m11,yOffLo=4,yOffHi=36")
 
-# Spherical grating monochromator
+### Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
+# standard geometry (geometry 1)
+dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m1,M_Y=m2,M_Z=m3,yOffLo=17.4999,yOffHi=17.5001")
+doAfterIocInit("seq &kohzuCtl, 'P=xxx:, M_THETA=m1, M_Y=m2, M_Z=m3, GEOM=1, logfile=kohzuCtl.log'")
+
+# modified geometry (geometry 2)
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m1,M_Y=m2,M_Z=m3,yOffLo=4,yOffHi=36")
+#doAfterIocInit("seq &kohzuCtl, 'P=xxx:, M_THETA=m1, M_Y=m2, M_Z=m3, GEOM=2, logfile=kohzuCtl.log'")
+# Example of specifying offset limits
+#doAfterIocInit("epicsThreadSleep(5.)")
+#doAfterIocInit("dbpf xxx:kohzu_yOffsetAO.DRVH 17.51")
+#doAfterIocInit("dbpf xxx:kohzu_yOffsetAO.DRVL 17.49")
+
+### Spherical grating monochromator
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/SGM.db","P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8,M_g=m9")
 
-# 4-bounce high-resolution monochromator
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m9,M_PHI2=m10")
+### 4-bounce high-resolution monochromator
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m1,M_PHI2=m2")
+#doAfterIocInit("dbpf 'xxx:HR1CtlDebug','1'")
+#doAfterIocInit("seq &hrCtl1, 'P=xxx:, N=1, M_PHI1=m4, M_PHI2=m5, logfile=hrCtl1.log'")
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=2,M_PHI1=m11,M_PHI2=m12")
 
-# multilayer monochromator: Bragg and theta/Y/Z motors
+### multilayer monochromator: Bragg and theta/Y/Z motors
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/ml_monoSeq.db","P=xxx:")
+#doAfterIocInit("seq &ml_monoCtl, 'P=xxx:, M_THETA=m1, M_THETA2=m2, M_Y=m3, M_Z=m4, Y_OFF=35., GEOM=1'")
 
 ### Orientation matrix, four-circle diffractometer (see seq program 'orient' below)
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/orient.db", "P=xxx:,O=1,PREC=6")
 #dbLoadTemplate("orient_xtals.substitutions")
+#doAfterIocInit("seq &orient, 'P=xxx:orient1:,PM=xxx:,mTTH=m13,mTH=m14,mCHI=m15,mPHI=m16'")
 
 # Coarse/Fine stage
 dbLoadRecords("$(OPTICS)/opticsApp/Db/CoarseFineMotor.db","P=xxx:cf1:,PM=xxx:,CM=m7,FM=m8")
@@ -166,22 +190,10 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/CoarseFineMotor.db","P=xxx:cf1:,PM=xxx:,CM
 #< canberra_3.cmd
 
 ### Stuff for user programming ###
-dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=xxx:")
-dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db","P=xxx:")
-dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=xxx:")
-dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=xxx:,N=2000")
-dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=xxx:")
-dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=xxx:")
-# string sequence (sseq) records
-#dbLoadRecords("$(STD)/stdApp/Db/userStringSeqs10.db","P=xxx:")
-dbLoadRecords("$(CALC)/calcApp/Db/userStringSeqs10.db","P=xxx:")
+< calc.cmd
 
 # 4-step measurement
-#dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:")
-
-# interpolation
-#dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=xxx:,N=2000")
-dbLoadRecords("$(CALC)/calcApp/Db/interpNew.db", "P=xxx:,Q=1,N=100")
+dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=xxx:,Q=4step:")
 
 # user-assignable ramp/tweak
 dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt1")
@@ -191,9 +203,6 @@ dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=xxx:,N=1,MAXSAMPLES=1440")
 
 # software timer
 dbLoadRecords("$(STD)/stdApp/Db/timer.db","P=xxx:,N=1")
-
-# busy record
-#dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db","P=xxx:,R=mybusy")
 
 # Slow feedback
 dbLoadTemplate "pid_slow.substitutions"
@@ -214,68 +223,14 @@ dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=xxx")
 
 ### Load database records for Femto amplifiers
 #dbLoadRecords("$(STD)/stdApp/Db/femto.db","P=xxx:,H=fem01:,F=seq01:")
+putenv "FBO=xxx:Unidig1Bo"
+#doAfterIocInit("seq &femto,'name=fem1,P=xxx:,H=fem01:,F=seq01:,G1=$(FBO)6,G2=$(FBO)7,G3=$(FBO)8,NO=$(FBO)10'")
 
 ### Load database records for dual PF4 filters
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4common.db","P=xxx:,H=pf4:,A=A,B=B")
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=A")
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=B")
-
-### Load database records for alternative PF4-filter support
-dbLoadTemplate "filter.substitutions"
-
-# trajectory scan
-dbLoadRecords("$(MOTOR)/motorApp/Db/trajectoryScan.db","P=xxx:,R=traj1:,NAXES=8,NELM=200,NPULSE=200")
-#dbLoadRecords("$(MOTOR)/motorApp/Db/trajectoryScan.db","P=xxx:,R=traj2:,NAXES=8,NELM=200,NPULSE=200")
-
-###############################################################################
-# Set shell prompt (otherwise it is left at mv167 or mv162)
-shellPromptSet "iocvxWorks> "
-iocLogDisable=0
-iocInit
-###############################################################################
-
-# write all the PV names to a local file
-dbl > dbl-all.txt
-
-### Startup State Notation Language (SNL) programs
-# NOTE: Command line limited to 128 characters
-
-#seq &kohzuCtl, "P=xxx:, M_THETA=m1, M_Y=m2, M_Z=m3, GEOM=2, logfile=kohzuCtl.log"
-### Example of specifying offset limits
-##taskDelay(300)
-##dbpf xxx:kohzu_yOffsetAO.DRVH 17.51
-##dbpf xxx:kohzu_yOffsetAO.DRVL 17.49
-
-# multilayer monochromator
-#seq &ml_monoCtl, "P=xxx:, M_THETA=m1, M_THETA2=m2, M_Y=m3, M_Z=m4, Y_OFF=35., GEOM=1"
-
-# 4-bounce high-resolution monochromator
-#seq &hrCtl, "P=xxx:, N=1, M_PHI1=m9, M_PHI2=m10, logfile=hrCtl1.log"
-
-# Keithley 2000 series DMM
-# channels: 10, 20, or 22;  model: 2000 or 2700
-#seq &Keithley2kDMM,("P=xxx:, Dmm=D1, channels=22, model=2700")
-#seq &Keithley2kDMM,("P=xxx:, Dmm=D2, channels=10, model=2000")
-
-# Bunch clock generator
-#seq &getFillPat, "unit=xxx"
-
-# X-ray Instrumentation Associates Huber Slit Controller
-# supported by a SNL program written by Pete Jemian and modified (TMM) for use with the
-# sscan record
-#seq  &xia_slit, "name=hsc1, P=xxx:, HSC=hsc1:, S=xxx:asyn_6"
-
-# Orientation-matrix
-#seq &orient, "P=xxx:orient1:,PM=xxx:,mTTH=m13,mTH=m14,mCHI=m15,mPHI=m16"
-
-# Io calculation
-#seq &Io, "P=xxx:Io:,MONO=xxx:BraggEAO,VSC=xxx:scaler1"
-
-# Start Femto amplifier sequence programs
-putenv "FBO=xxx:Unidig1Bo"
-#seq &femto,"name=fem1,P=xxx:,H=fem01:,F=seq01:,G1=$(FBO)6,G2=$(FBO)7,G3=$(FBO)8,NO=$(FBO)10"
-
-# Start PF4 filter sequence program
+# Start PF4 filter sequence programs
 #        name = what user will call it
 #        P    = prefix of database and sequencer
 #        H    = hardware (i.e. pf4)
@@ -285,62 +240,28 @@ putenv "FBO=xxx:Unidig1Bo"
 #        B1   = Filter control bit 0 number
 #        B2   = Filter control bit 1 number
 #        B3   = Filter control bit 2 number
-#        B4   = Fitler control bit 3 number
-#seq &pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:BraggEAO,BP=xxx:Unidig1Bo,B1=3,B2=4,B3=5,B4=6"
-#seq &pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:BraggEAO,BP=xxx:Unidig1Bo,B1=7,B2=8,B3=9,B4=10"
-#seq(&pf4,"name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:userCalc1,BP=xxx:Unidig1Bo,B1=3,B2=4,B3=5,B4=6")
-#seq(&pf4,"name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:userCalc1,BP=xxx:Unidig1Bo,B1=7,B2=8,B3=9,B4=10")
+#        B4   = Filter control bit 3 number
+#doAfterIocInit("seq &pf4,'name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:BraggEAO,BP=xxx:Unidig1Bo,B1=3,B2=4,B3=5,B4=6'")
+#doAfterIocInit("seq &pf4,'name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:BraggEAO,BP=xxx:Unidig1Bo,B1=7,B2=8,B3=9,B4=10'")
 
-# Alternative pf4 filter seq program
-seq &filterDrive,"NAME=filterDrive,P=xxx:,R=filter:,NUM_FILTERS=16"
+### Load database records for alternative PF4-filter support
+dbLoadTemplate "filter.substitutions"
+#doAfterIocInit("seq &filterDrive,'NAME=filterDrive,P=xxx:,R=filter:,NUM_FILTERS=16'")
 
-### Octupole power-supply
-#seq &octupole, "P=xxx:, Q=octupole:, S=softGlue:"
+# trajectory scan
+#dbLoadRecords("$(MOTOR)/motorApp/Db/trajectoryScan.db","P=xxx:,R=traj1:,NAXES=2,NELM=300,NPULSE=300")
+#doAfterIocInit("seq &MAX_trajectoryScan, 'P=xxx:,R=traj1:,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8,PORT=none'")
 
-# MAXV trajectory scan
-#seq &MAX_trajectoryScan, "P=xxx:,R=traj1:,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8,PORT=none"
+###############################################################################
+# Set shell prompt
+shellPromptSet "iocvxWorks> "
+iocLogDisable=0
+iocInit
+###############################################################################
 
-# This SNL programs reads the MCS
-seq(&SIS38XX_SNL, "P=xxx:3820:, R=mca, NUM_SIGNALS=8, FIELD=READ")
-
-# Implements for scanProgress.db
-seq &scanProgress, "S=xxx:, P=xxx:scanProgress:"
-
-### Start up the autosave task and tell it what to do.
-# The task is actually named "save_restore".
-
-# test starting the save_restore task without loading any save sets
-#create_monitor_set("dummy.req",0,"")
-
-# Note that you can reload these sets after creating them: e.g., 
-# reload_monitor_set("auto_settings.req",30,"P=xxx:")
-#
-# save positions every five seconds
-create_monitor_set("auto_positions.req",5,"P=xxx:")
-# save other things every thirty seconds
-create_monitor_set("auto_settings.req",30,"P=xxx:")
-
-# You can have a save set triggered by a PV, and specify the path and/or name of the file it
-# will write to via PVs.  If you specify a path PV, the path must already exist; autosave won't
-# create a directory.  If the path begins with '/', autosave will use it exactly as read.
-# If the path does not begin with '/', autosave will prepend the path that was specified in a
-# call to set_savefile_path().
-#create_triggered_set(<request file>,<trigger PV>,<macrostring>)
-#macro="P=xxx:,SAVENAMEPV=xxx:userStringCalc1.SVAL,SAVEPATHPV=xxx:userStringCalc2.SVAL"
-#create_triggered_set("trigSet.req","xxx:userStringCalc1.A",macro)
-
-# configMenu for softGlue
-# This autosave command cooperates with the configMenu.db database loaded by
-# softGlue.cmd.  Note that the request file MUST be named $(CONFIG)Menu.req
-create_manual_set("SGMenu.req","P=xxx:,CONFIG=SG,H=softGlue:")
-
-# configMenu for scans
-create_manual_set("scan1Menu.req","P=xxx:,CONFIG=scan1")
-
-### Start the saveData task.  If you start this task, scan records mentioned
-# in saveData.req will *always* write data files.  There is no programmable
-# disable for this software.
-saveData_Init("saveData.req", "P=xxx:")
+# write all the PV names to a local file
+dbl > dbl-all.txt
+memShow
 
 # If memory allocated at beginning free it now
 ##free(mem)
@@ -348,8 +269,6 @@ saveData_Init("saveData.req", "P=xxx:")
 # Diagnostic: CA links in all records
 #dbcar(0,1)
 
-# motorUtil (allstop & alldone)
-motorUtilInit("xxx:")
 
 # print the time our boot was finished
 date
