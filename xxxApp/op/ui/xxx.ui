@@ -4,7 +4,7 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>1175</x>
+            <x>1191</x>
             <y>25</y>
             <width>440</width>
             <height>180</height>
@@ -14,6 +14,7 @@
         <string>
 
 QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
+QPushButton::menu-indicator {image: url(none.png); width: 0}
 
 </string>
     </property>
@@ -177,10 +178,10 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>Scan1 (for all scans);Scan2 (for 2D &amp; higher scans);Scan3 (for 3D &amp; higher scans);Scan4 (for 4D scans);ScanH (for Hardware-assisted scans);test scanParms2Pos;saveData controls;aux scan;scanProgress;scan1Menu</string>
             </property>
             <property name="files">
-                <string>scan.adl;scan.adl;scan.adl;scan.adl;scan.adl;scanParms2Pos.adl;scan_saveData.adl;scanAux.adl;ProgressBar.adl;configMenu_small.adl</string>
+                <string>scan.adl;scan.adl;scan.adl;scan.adl;scan.adl;scanParms2Pos.adl;scan_saveData.adl;scanAux.adl;ProgressBar.adl;configMenu.adl</string>
             </property>
             <property name="args">
-                <string>P=xxx:,N=1,S=scan1;P=xxx:,N=2,S=scan2;P=xxx:,N=3,S=scan3;P=xxx:,N=4,S=scan4;P=xxx:,N=H,S=scanH;P=xxx:,Q=m7_8,SCAN=xxx:scan1,PV1=xxx:m7,PV2=xxx:m8;P=xxx:;P=xxx:,S=scantest;P=xxx:,B=xxx:scanProgress:;P=xxx:,CONFIG=scan1</string>
+                <string>P=xxx:,N=1,S=scan1;P=xxx:,N=2,S=scan2;P=xxx:,N=3,S=scan3;P=xxx:,N=4,S=scan4;P=xxx:,N=H,S=scanH;P=xxx:,Q=m7_8,SCAN=xxx:scan1,PV1=xxx:m7,PV2=xxx:m8;P=xxx:;P=xxx:,S=scanAux;P=xxx:,B=xxx:scanProgress:;P=xxx:,CONFIG=scan1</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false;false;false;false;false;false;false;false</string>
@@ -720,16 +721,16 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>user calcs 1-10;user stringCalcs 1-10;user transforms 1-10;user string seqs 1-10;user arrayCalcs 1-10;user average 1-10;user calcOuts;timer;busyRecord;IDisableTransforms;while</string>
+                <string>user calcs 1-10;user stringCalcs 1-10;user transforms 1-10;user string seqs 1-10;user arrayCalcs 1-10;user average 1-10;user calcOuts;timer;busyRecord 1;busyRecord 2;IDisableTransforms;while</string>
             </property>
             <property name="files">
-                <string>userCalcs10.adl;userStringCalcs10.adl;userTransforms10.adl;userStringSeqs10.adl;userArrayCalcs10.adl;userAve10.adl;userCalcOuts10.adl;timer.adl;xxBusyRecord.adl;Transforms10.adl;while.adl</string>
+                <string>userCalcs10.adl;userStringCalcs10.adl;userTransforms10.adl;userStringSeqs10.adl;userArrayCalcs10.adl;userAve10.adl;userCalcOuts10.adl;timer.adl;xxBusyRecord.adl;xxBusyRecord.adl;Transforms10.adl;while.adl</string>
             </property>
             <property name="args">
-                <string>P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:,N=1;P=xxx:,R=mybusy;P=xxx:,N=1;P=xxx:,Q=while1:,TARGETPV=xxx:userCalc10.VAL</string>
+                <string>P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:,N=1;P=xxx:,R=mybusy1;P=xxx:,R=mybusy2;P=xxx:,N=1;P=xxx:,Q=while1:,TARGETPV=xxx:userCalc10.VAL</string>
             </property>
             <property name="removeParent">
-                <string>false;false;false;false;false;false;false;false;false;false;false</string>
+                <string>false;false;false;false;false;false;false;false;false;false;false;false</string>
             </property>
         </widget>
         <widget class="caRelatedDisplay" name="caRelatedDisplay_17">
@@ -952,7 +953,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 </rect>
             </property>
             <property name="fontScaleMode">
-                <enum>EPushButton::Height</enum>
+                <enum>EPushButton::WidthAndHeight</enum>
             </property>
             <property name="channel">
                 <string>xxx:allstop.VAL</string>
@@ -994,14 +995,6 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
-                <property name="geometry">
-                    <rect>
-                        <x>1</x>
-                        <y>1</y>
-                        <width>80</width>
-                        <height>25</height>
-                    </rect>
-                </property>
                 <property name="foreground">
                     <color alpha="255">
                         <red>10</red>
@@ -1026,7 +1019,15 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <string>Moving</string>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>ESimpleLabel::Height</enum>
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>1</x>
+                        <y>1</y>
+                        <width>90</width>
+                        <height>25</height>
+                    </rect>
                 </property>
                 <property name="alignment">
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1035,14 +1036,6 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
             <widget class="caLabel" name="caLabel_1">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>2</x>
-                        <y>2</y>
-                        <width>80</width>
-                        <height>25</height>
-                    </rect>
                 </property>
                 <property name="foreground">
                     <color alpha="255">
@@ -1068,7 +1061,15 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <string>Moving</string>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>ESimpleLabel::Height</enum>
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>2</x>
+                        <y>2</y>
+                        <width>90</width>
+                        <height>25</height>
+                    </rect>
                 </property>
                 <property name="alignment">
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1077,14 +1078,6 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
             <widget class="caLabel" name="caLabel_2">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>0</y>
-                        <width>80</width>
-                        <height>25</height>
-                    </rect>
                 </property>
                 <property name="foreground">
                     <color alpha="255">
@@ -1110,7 +1103,15 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <string>Moving</string>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>ESimpleLabel::Height</enum>
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>90</width>
+                        <height>25</height>
+                    </rect>
                 </property>
                 <property name="alignment">
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1273,10 +1274,10 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string> 8-Channel MCS Control;32-Channel MCS Control;SIS38XX</string>
+                <string>SIS38XX;SIS38XX;SIS38XX</string>
             </property>
             <property name="files">
-                <string>Struck8.adl;Struck32.adl;SIS38XX.adl</string>
+                <string>SIS38XX.adl;SIS38XX.adl;SIS38XX.adl</string>
             </property>
             <property name="args">
                 <string>P=xxx:3820:;P=xxx:3820:;P=xxx:3820:</string>
@@ -1864,7 +1865,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <string>softGlueMenu;softGlue2 Menu;shift 1;shift 2;SoftGlue Circuits</string>
             </property>
             <property name="files">
-                <string>softGlueMenu.adl;softGlueMenu.adl;softGlue_Shift32_bare.adl;softGlue_Shift32_bare.adl;configMenu_small.adl</string>
+                <string>softGlueMenu.adl;softGlueMenu.adl;softGlue_Shift32_bare.adl;softGlue_Shift32_bare.adl;configMenu.adl</string>
             </property>
             <property name="args">
                 <string>P=xxx:,H=softGlue:;P=xxx:,H=softGlue2:;P=xxx:,H=softGlue:,N=1;P=xxx:,H=softGlue:,N=2;P=xxx:,CONFIG=SG</string>
@@ -2029,16 +2030,16 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>trajectoryScan1;trajectoryScan2</string>
+                <string>trajectoryScan1;trajectoryScan2;trajectoryScan1 (2 mot);MM4000 XPS trajectory</string>
             </property>
             <property name="files">
-                <string>MAX_trajectoryScan.adl;MAX_trajectoryScan.adl</string>
+                <string>MAX_trajectoryScan.adl;MAX_trajectoryScan.adl;MAX_trajectoryScan2.adl;trajectoryScan.adl</string>
             </property>
             <property name="args">
-                <string>P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8;P=xxx:,R=traj2:,TITLE=traj2,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16</string>
+                <string>P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8;P=xxx:,R=traj2:,TITLE=traj2,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16;P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8;P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8</string>
             </property>
             <property name="removeParent">
-                <string>false;false</string>
+                <string>false;false;false;false</string>
             </property>
         </widget>
         <widget class="caRelatedDisplay" name="caRelatedDisplay_44">
@@ -2281,16 +2282,58 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>CR74x;fieldVector;selector;beamEnergy;muir;tomography fly;hexFly;hexFlyTry;Ensemble PSO Fly;calcTest</string>
+                <string>CR74x;fieldVector;selector;beamEnergy;muir;tomography fly;hexFly;hexFlyTry;Ensemble PSO Fly;calcTest;interlaceFly;compress;tablePSOFly;accessSecurity;waveformTypes menu</string>
             </property>
             <property name="files">
-                <string>CR74x.adl;fieldVector.adl;selector.adl;beamEnergy.adl;yySseq.adl;tomoFly.adl;hexFly.adl;hexFlyTry.adl;EnsemblePSOFly.adl;calcTest.adl</string>
+                <string>CR74x.adl;fieldVector.adl;selector.adl;beamEnergy.adl;yySseq.adl;tomoFly.adl;hexFly.adl;hexFlyTry.adl;EnsemblePSOFly.adl;calcTest.adl;interlaceFly.adl;compress.adl;tablePSOFly.adl;ASsecurity.adl;configMenu.adl</string>
             </property>
             <property name="args">
-                <string>P=xxx:,Q=test:;P=4idc2:,Q=8p:;P=xxx:,R=obj;P=xxx:;P=xxx:,S=PresetHistoryAdd;P=xxx:,Q=tomoFly:;P=xxx:,Q=hexFly:;P=xxx:,Q=hexFlyTry:;P=xxx:,Q=PSOFly:;P=xxx:</string>
+                <string>P=xxx:,Q=test:;P=4idc2:,Q=8p:;P=xxx:,R=obj;P=xxx:;P=xxx:,S=PresetHistoryAdd;P=xxx:,Q=tomoFly:;P=xxx:,Q=hexFly:;P=xxx:,Q=hexFlyTry:;P=xxx:,Q=PSOFly:;P=xxx:;P=xxx:,Q=iFly:,QT=tableFly:;P=xxx:;P=xxx:,Q=tableFly:;P=xxx:;P=xxx:,CONFIG=waveformTypes</string>
             </property>
             <property name="removeParent">
-                <string>false;false;false;false;false;false;false;false;false;false</string>
+                <string>false;false;false;false;false;false;false;false;false;false;false;false;false;false;false</string>
+            </property>
+        </widget>
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_50">
+            <property name="geometry">
+                <rect>
+                    <x>350</x>
+                    <y>160</y>
+                    <width>70</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>51</red>
+                    <green>153</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="label">
+                <string>-MLL</string>
+            </property>
+            <property name="stackingMode">
+                <enum>Menu</enum>
+            </property>
+            <property name="labels">
+                <string>MLLH;MLLH hard motors;MLLV;MLLV hard motors</string>
+            </property>
+            <property name="files">
+                <string>MLLH.adl;motor3x.adl;MLLV.adl;motor5x.adl</string>
+            </property>
+            <property name="args">
+                <string>P=xxx:,Q=MLLH:;P=xxx:,M1=m2,M2=m1,M3=m3;P=xxx:,Q=MLLV:;P=xxx:,M1=m4,M2=m5,M3=m6,M4=m7,M5=m8</string>
+            </property>
+            <property name="removeParent">
+                <string>false;false;false;false</string>
             </property>
         </widget>
         <zorder>caLabel_0</zorder>
@@ -2348,6 +2391,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
         <zorder>caRelatedDisplay_47</zorder>
         <zorder>caRelatedDisplay_48</zorder>
         <zorder>caRelatedDisplay_49</zorder>
+        <zorder>caRelatedDisplay_50</zorder>
     </widget>
 </widget>
 </ui>
