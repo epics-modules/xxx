@@ -36,8 +36,5 @@ $(P)scan3
 $(P)scan4
 
 [extraPV]
-$(P)userCalc1.CALC	"string"
-$(P)saveData_realTime1D "enum"
-$(P)saveData_scanNumber	"long"
-$(P)saveData_fileSystem	"filesystem"
-$(P)scan1.P1SM		"scan mode"
+$(P)saveData_comment1
+$(P)saveData_comment2
