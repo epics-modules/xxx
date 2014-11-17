@@ -1,11 +1,11 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synAppsSVN/support/xxx/xxxApp/op/adl/xxx.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/xxx/xxxApp/op/adl/xxx.adl"
 	version=030107
 }
 display {
 	object {
-		x=1139
+		x=1191
 		y=25
 		width=440
 		height=180
@@ -1873,6 +1873,21 @@ composite {
 		name="tablePSOFly.adl"
 		args="P=xxx:,Q=tableFly:"
 	}
+	display[13] {
+		label="Security Control"
+		name="Security_Control.adl"
+		args="P=xxx:"
+	}
+	display[14] {
+		label="waveformTypes menu"
+		name="configMenu.adl"
+		args="P=xxx:,CONFIG=waveformTypes"
+	}
+	display[15] {
+		label="rock"
+		name="rock.adl"
+		args="P=xxx:,Q=rock:"
+	}
 	clr=0
 	bclr=17
 	label="-test"
@@ -1900,7 +1915,7 @@ composite {
 		args="P=xxx:,Q=MLLV:"
 	}
 	display[3] {
-		label="MLLH hard motors"
+		label="MLLV hard motors"
 		name="motor5x.adl"
 		args="P=xxx:,M1=m4,M2=m5,M3=m6,M4=m7,M5=m8"
 	}
