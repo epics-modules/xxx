@@ -112,7 +112,8 @@ dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=3,PORT=serial3,ADDR=0
 #dbLoadRecords("$(IP)/ipApp/Db/eMike.db", "P=xxx:,M=em1,PORT=serial3")
 
 # Keithley 2000 DMM
-dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM_mf.db","P=xxx:,Dmm=D1,PORT=serial1")
+#dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM_mf.db","P=xxx:,Dmm=D1,PORT=serial1")
+#doAfterIocInit("seq &Keithley2kDMM, 'P=xxx:, Dmm=D1, channels=22, model=2700'")
 
 # Oxford Cyberstar X1000 Scintillation detector and pulse processing unit
 #dbLoadRecords("$(IP)/ipApp/Db/Oxford_X1k.db","P=xxx:,S=s1,PORT=serial4")
