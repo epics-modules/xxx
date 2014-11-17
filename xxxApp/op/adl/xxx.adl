@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=1191
-		y=25
+		x=1121
+		y=234
 		width=440
 		height=180
 	}
@@ -740,77 +740,6 @@ display {
 	clr=0
 	bclr=17
 	label="-Piezo"
-}
-"related display" {
-	object {
-		x=140
-		y=20
-		width=70
-		height=20
-	}
-	display[0] {
-		label="user calcs 1-10"
-		name="userCalcs10.adl"
-		args="P=xxx:"
-	}
-	display[1] {
-		label="user stringCalcs 1-10"
-		name="userStringCalcs10.adl"
-		args="P=xxx:"
-	}
-	display[2] {
-		label="user transforms 1-10"
-		name="userTransforms10.adl"
-		args="P=xxx:"
-	}
-	display[3] {
-		label="user string seqs 1-10"
-		name="userStringSeqs10.adl"
-		args="P=xxx:"
-	}
-	display[4] {
-		label="user arrayCalcs 1-10"
-		name="userArrayCalcs10.adl"
-		args="P=xxx:"
-	}
-	display[6] {
-		label="user average 1-10"
-		name="userAve10.adl"
-		args="P=xxx:"
-	}
-	display[7] {
-		label="user calcOuts"
-		name="userCalcOuts10.adl"
-		args="P=xxx:"
-	}
-	display[8] {
-		label="timer"
-		name="timer.adl"
-		args="P=xxx:,N=1"
-	}
-	display[9] {
-		label="busyRecord 1"
-		name="xxBusyRecord.adl"
-		args="P=xxx:,R=mybusy1"
-	}
-	display[10] {
-		label="busyRecord 2"
-		name="xxBusyRecord.adl"
-		args="P=xxx:,R=mybusy2"
-	}
-	display[11] {
-		label="IDisableTransforms"
-		name="Transforms10.adl"
-		args="P=xxx:,N=1"
-	}
-	display[12] {
-		label="while"
-		name="while.adl"
-		args="P=xxx:,Q=while1:,TARGETPV=xxx:userCalc10.VAL"
-	}
-	clr=0
-	bclr=17
-	label="-userCalc"
 }
 "related display" {
 	object {
@@ -1677,6 +1606,11 @@ composite {
 		width=70
 		height=20
 	}
+	display[0] {
+		label="standard trajectoryScan"
+		name="trajectoryScan.adl"
+		args="P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+	}
 	display[1] {
 		label="trajectoryScan1"
 		name="MAX_trajectoryScan.adl"
@@ -1844,9 +1778,9 @@ composite {
 		args="P=xxx:,Q=hexFly:"
 	}
 	display[7] {
-		label="hexFlyTry"
-		name="hexFlyTry.adl"
-		args="P=xxx:,Q=hexFlyTry:"
+		label="rock"
+		name="rock.adl"
+		args="P=xxx:,Q=rock:"
 	}
 	display[8] {
 		label="Ensemble PSO Fly"
@@ -1864,9 +1798,9 @@ composite {
 		args="P=xxx:,Q=iFly:,QT=tableFly:"
 	}
 	display[11] {
-		label="compress"
+		label="compressGain"
 		name="compress.adl"
-		args="P=xxx:"
+		args="P=xxx:,Q=gain"
 	}
 	display[12] {
 		label="tablePSOFly"
@@ -1922,4 +1856,95 @@ composite {
 	clr=0
 	bclr=17
 	label="-MLL"
+}
+"related display" {
+	object {
+		x=140
+		y=20
+		width=70
+		height=20
+	}
+	display[0] {
+		label="user calcs 1-10"
+		name="userCalcs10.adl"
+		args="P=xxx:"
+	}
+	display[1] {
+		label="user stringCalcs 1-10"
+		name="userStringCalcs10.adl"
+		args="P=xxx:"
+	}
+	display[2] {
+		label="user transforms 1-10"
+		name="userTransforms10.adl"
+		args="P=xxx:"
+	}
+	display[3] {
+		label="user string seqs 1-10"
+		name="userStringSeqs10.adl"
+		args="P=xxx:"
+	}
+	display[4] {
+		label="user arrayCalcs 1-10"
+		name="userArrayCalcs10.adl"
+		args="P=xxx:"
+	}
+	display[5] {
+		label="user average 1-10"
+		name="userAve10.adl"
+		args="P=xxx:"
+	}
+	display[6] {
+		label="user calcOuts"
+		name="userCalcOuts10.adl"
+		args="P=xxx:"
+	}
+	display[7] {
+		label="user stringCalcs 11-20"
+		name="userStringCalcs10more.adl"
+		args="P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+	}
+	display[8] {
+		label="user transforms 11-20"
+		name="userTransforms10more.adl"
+		args="P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+	}
+	display[9] {
+		label="user string seqs 11-20"
+		name="userStringSeqs10more.adl"
+		args="P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+	}
+	display[10] {
+		label="user arrayCalcs 11-20"
+		name="userArrayCalcs10more.adl"
+		args="P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+	}
+	display[11] {
+		label="user average 11-20"
+		name="userAve10more.adl"
+		args="P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+	}
+	display[12] {
+		label="user calcOuts 11-20"
+		name="userCalcOuts10more.adl"
+		args="P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+	}
+	display[13] {
+		label="busyRecord"
+		name="xxBusyRecord.adl"
+		args="P=xxx:,R=mybusy"
+	}
+	display[14] {
+		label="busyRecord2"
+		name="xxBusyRecord.adl"
+		args="P=xxx:,R=mybusy2"
+	}
+	display[15] {
+		label="editSseq"
+		name="editSseq.adl"
+		args="P=xxx:,Q=ES:"
+	}
+	clr=0
+	bclr=17
+	label="-userCalc"
 }
