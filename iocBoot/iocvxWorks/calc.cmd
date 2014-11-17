@@ -18,3 +18,7 @@ dbLoadRecords("$(CALC)/calcApp/Db/interpNew.db", "P=xxx:,Q=1,N=2000")
 # busy record
 dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db", "P=xxx:,R=mybusy1")
 dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db", "P=xxx:,R=mybusy2")
+
+# Soft function generator
+#dbLoadRecords("$(CALC)/calcApp/Db/FuncGen.db","P=xxx:,Q=fgen,OUT=xxx:m7.VAL")
+
