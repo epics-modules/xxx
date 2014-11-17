@@ -55,11 +55,12 @@ ifdef SNCSEQ
 		xxx_Common_LIBS := seq pv $(xxx_Common_LIBS)
 	endif
 endif
-
 ifdef AREA_DETECTOR
 	# areaDetector provides a Makefile for things it needs and supplies
-	PROD_NAME = xxx_Common
+	PROD_NAME = AD
 	-include $(AREA_DETECTOR)/ADCore/ADApp/commonDriverMakefile
+	xxx_Common_DBD += ADSupport.dbd NDPluginSupport.dbd
+	xxx_Common_LIBS := $(AD_LIBS) $(xxx_Common_LIBS)
 	# To add the simDetector uncomment the following lines
 	xxx_Common_DBD += simDetectorSupport.dbd
 	xxx_Common_LIBS := simDetector $(xxx_Common_LIBS)
@@ -358,3 +359,17 @@ $(COMMON_DIR)/iocxxxCygwinInclude.dbd: $(COMMON_DIR)/xxx_Common.dbd
 $(COMMON_DIR)/iocxxxVXInclude.dbd: $(COMMON_DIR)/xxx_Common.dbd
 $(COMMON_DIR)/iocxxxLinuxInclude.dbd: $(COMMON_DIR)/xxx_Common.dbd
 $(COMMON_DIR)/iocxxxDarwinInclude.dbd: $(COMMON_DIR)/xxx_Common.dbd
+
+$(COMMON_DIR)/iocxxxWin32.dbd: $(COMMON_DIR)/xxx_Common.dbd
+$(COMMON_DIR)/iocxxxWin64.dbd: $(COMMON_DIR)/xxx_Common.dbd
+$(COMMON_DIR)/iocxxxCygwin.dbd: $(COMMON_DIR)/xxx_Common.dbd
+$(COMMON_DIR)/iocxxxVX.dbd: $(COMMON_DIR)/xxx_Common.dbd
+$(COMMON_DIR)/iocxxxLinux.dbd: $(COMMON_DIR)/xxx_Common.dbd
+$(COMMON_DIR)/iocxxxDarwin.dbd: $(COMMON_DIR)/xxx_Common.dbd
+
+iocxxxWin32.dbd$(DEP): $(COMMON_DIR)/xxx_Common.dbd
+iocxxxWin64.dbd$(DEP): $(COMMON_DIR)/xxx_Common.dbd
+iocxxxCygwin.dbd$(DEP): $(COMMON_DIR)/xxx_Common.dbd
+iocxxxVX.dbd$(DEP): $(COMMON_DIR)/xxx_Common.dbd
+iocxxxLinux.dbd$(DEP): $(COMMON_DIR)/xxx_Common.dbd
+iocxxxDarwin.dbd$(DEP): $(COMMON_DIR)/xxx_Common.dbd
