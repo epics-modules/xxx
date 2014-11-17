@@ -18,7 +18,7 @@ tyGSOctalModuleInit("UART_0", "232", 0x80, 0, 0)
 # char parity, int sbits, int dbits, char handshake, 
 # char *inputEos, char *outputEos)
 tyGSAsynInit("serial1",  "UART_0", 0, 9600,'N',2,8,'N',"\r","\r")  /* SRS570 */
-tyGSAsynInit("serial2",  "UART_0", 1,19200,'N',1,8,'N',"\r\n","\r")  /* Keithley 2000 */
+tyGSAsynInit("serial2",  "UART_0", 1, 9600,'E',1,7,'N',"\r\n","\r\n")  /*  */
 tyGSAsynInit("serial3",  "UART_0", 2, 9600,'E',1,7,'N',"","\n")  /* Digitel */
 tyGSAsynInit("serial4",  "UART_0", 3, 9600,'N',1,8,'N',"\n","\n")  /* MPC */
 tyGSAsynInit("serial5",  "UART_0", 4,19200,'N',1,8,'N',"\r","\r")  /* ACS MCB-4B */
@@ -78,19 +78,15 @@ dbLoadTemplate("asynRecord.substitutions")
 # send impromptu message to serial device, parse reply
 # (was serial_OI_block)
 dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=1,PORT=serial1,ADDR=0,OMAX=100,IMAX=100")
-dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=2,PORT=serial2,ADDR=0,OMAX=100,IMAX=100")
-dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=3,PORT=serial3,ADDR=0,OMAX=100,IMAX=100")
-dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=4,PORT=serial4,ADDR=0,OMAX=100,IMAX=100")
-dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=5,PORT=serial5,ADDR=0,OMAX=100,IMAX=100")
-dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=6,PORT=serial6,ADDR=0,OMAX=100,IMAX=100")
-dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=7,PORT=serial7,ADDR=0,OMAX=100,IMAX=100")
-dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=8,PORT=serial8,ADDR=0,OMAX=100,IMAX=100")
 
 # Stanford Research Systems SR570 Current Preamplifier
-dbLoadRecords("$(IP)/ipApp/Db/SR570.db", "P=xxx:,A=A1,PORT=serial1")
+#dbLoadRecords("$(IP)/ipApp/Db/SR570.db", "P=xxx:,A=A1,PORT=serial1")
 
 # Keithley 2000 DMM
 #dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM_mf.db","P=xxx:,Dmm=D1,PORT=serial1")
+# channels: 10, 20, or 22;  model: 2000 or 2700
+#doAfterIocInit("seq &Keithley2kDMM,('P=xxx:, Dmm=D1, channels=22, model=2700')")
+#doAfterIocInit("seq &Keithley2kDMM,('P=xxx:, Dmm=D2, channels=10, model=2000')")
 
 # Oxford Cyberstar X1000 Scintillation detector and pulse processing unit
 #dbLoadRecords("$(IP)/ipApp/Db/Oxford_X1k.db","P=xxx:,S=s1,PORT=serial4")
