@@ -25,7 +25,7 @@
 #    OR
 # ipacAddVIPC616_01("<a16 address>, <a24 address>, <size (kB) of a24 per module>")
 #
-ipacAddVIPC616_01("0x3000,0xa0000000")
+#ipacAddVIPC616_01("0x3000,0xa0000000")
 #ipacAddVIPC616_01("0x3400,0xa2000000")
 
 # Select for Tews TVME-200 (also sold by SBS as VIPC626) version IP carrier.
@@ -33,7 +33,8 @@ ipacAddVIPC616_01("0x3000,0xa0000000")
 # In this example, the card is at a16 address 0x3000 ("30"), uses the interrupt
 # assignment ("1"), uses the 32-bit address space for module memory
 # ("f"), and maps that memory to A32 address 0xa000000 ("a0")
-#ipacAddTVME200("301fa0")
+#
+ipacAddTVME200("301fa0")
 #ipacAddTVME200("341fa2")
 
 # Print out report of IP modules
