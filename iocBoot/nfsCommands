@@ -1,12 +1,7 @@
 # Set the default gateway (the address to which IP datagrams will be sent
 # when there is no specific specific routing table entry available for the
 # actual destination address.)
-routeAdd "0","164.54.52.1"
-
-# Something like this is needed for proc 0 if "inet on backplane" is defined
-# Here, 164.54.53.226 is the backplane address, and it's actually not the
-# gateway for everything in the world.
-routeDelete "164.54.0.0", "164.54.53.226"
+routeAdd "0","164.54.48.1"
 
 routeShow
 
@@ -14,12 +9,11 @@ routeShow
 # rather than FTP, for booting the VME crate, and generally for reading
 # and writing files on the server.
 #
-hostAdd("oxygen","164.54.52.4")
+hostAdd("oxygen","164.54.22.10")
 nfsMount("oxygen","/export/oxygen","/home/oxygen")
 nfsMount("oxygen","/export/oxygen4","/home/oxygen4")
-hostAdd("wheaties","164.54.53.101")
-nfsMount("wheaties","/local","/local")
-hostAdd("oxygennfs52","164.54.54.136")
+hostAdd("mooneylinux","164.54.51.75")
+nfsMount("mooneylinux","/local","/local")
 
 # The following line eliminates "cksum: out of data" messages due to DHCP
 #proxyPortFwdOff(67)
