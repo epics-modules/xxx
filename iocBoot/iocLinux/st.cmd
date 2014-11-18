@@ -14,8 +14,8 @@ epicsEnvSet(STARTUP,$(TOP)/iocBoot/$(IOC))
 errlogInit(20000)
 
 # Specify largest array CA will transport
-# Note for N doubles, need N*8 bytes
-epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64000
+# Note for N doubles, need N*8 bytes+some overhead
+epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64010
 
 ################################################################################
 # Tell EPICS all about the record types, device-support modules, drivers,
