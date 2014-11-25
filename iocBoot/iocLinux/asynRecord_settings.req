@@ -1,5 +1,5 @@
 $(P)$(R).SCAN
-$(P).TMOD
+$(P)$(R).TMOD
 $(P)$(R).OEOS
 $(P)$(R).IEOS
 $(P)$(R).OFMT
