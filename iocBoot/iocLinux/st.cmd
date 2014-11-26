@@ -102,6 +102,8 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m
 
 ### Optical tables
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
+dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=NEWPORT")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/table.db","P=xxx:,Q=Table2,T=table2,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
 
 # Io calculation
 dbLoadRecords("$(OPTICS)/opticsApp/Db/Io.db","P=xxx:Io:")
@@ -109,9 +111,9 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/Io.db","P=xxx:Io:")
 ### Monochromator support ###
 # Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
 # standard geometry (geometry 1)
-dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m1,M_Y=m2,M_Z=m3,yOffLo=17.4999,yOffHi=17.5001")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m1,M_Y=m2,M_Z=m3,yOffLo=17.4999,yOffHi=17.5001")
 # Run this after iocInit:
-doAfterIocInit("seq &kohzuCtl, 'P=xxx:, M_THETA=m1, M_Y=m2, M_Z=m3, GEOM=1, logfile=kohzuCtl.log'")
+#doAfterIocInit("seq &kohzuCtl, 'P=xxx:, M_THETA=m1, M_Y=m2, M_Z=m3, GEOM=1, logfile=kohzuCtl.log'")
 # modified geometry (geometry 2)
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=xxx:,M_THETA=m1,M_Y=m2,M_Z=m2,yOffLo=4,yOffHi=36")
 # Run this after iocInit:
@@ -164,22 +166,22 @@ dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
 #dbLoadRecords("$(STD)/stdApp/Db/Nano2k.db","P=xxx:,S=s1")
 
 ### Load database records for Femto amplifiers
-dbLoadRecords("$(STD)/stdApp/Db/femto.db","P=xxx:,H=fem01:,F=seq01:")
+#dbLoadRecords("$(STD)/stdApp/Db/femto.db","P=xxx:,H=fem01:,F=seq01:")
 # Run this after iocInit:
-doAfterIocInit("seq femto,'name=fem1,P=xxx:,H=fem01:,F=seq01:,G1=xxx:Unidig1Bo6,G2=xxx:Unidig1Bo7,G3=xxx:Unidig1Bo8,NO=xxx:Unidig1Bo10'")
+#doAfterIocInit("seq femto,'name=fem1,P=xxx:,H=fem01:,F=seq01:,G1=xxx:Unidig1Bo6,G2=xxx:Unidig1Bo7,G3=xxx:Unidig1Bo8,NO=xxx:Unidig1Bo10'")
 
 ### Load database records for dual PF4 filters
-dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4common.db","P=xxx:,H=pf4:,A=A,B=B")
-dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=A")
-dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=B")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4common.db","P=xxx:,H=pf4:,A=A,B=B")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=A")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/pf4bank.db","P=xxx:,H=pf4:,B=B")
 # Run this after iocInit:
-doAfterIocInit("seq pf4,'name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:userTran10.I,B1=xxx:userTran10.A,B2=xxx:userTran10.B,B3=xxx:userTran10.C,B4=xxx:userTran10.D'")
-doAfterIocInit("seq pf4,'name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:userTran10.I,B1=xxx:userTran10.E,B2=xxx:userTran10.F,B3=xxx:userTran10.G,B4=xxx:userTran10.H'")
+#doAfterIocInit("seq pf4,'name=pf1,P=xxx:,H=pf4:,B=A,M=xxx:userTran10.I,B1=xxx:userTran10.A,B2=xxx:userTran10.B,B3=xxx:userTran10.C,B4=xxx:userTran10.D'")
+#doAfterIocInit("seq pf4,'name=pf2,P=xxx:,H=pf4:,B=B,M=xxx:userTran10.I,B1=xxx:userTran10.E,B2=xxx:userTran10.F,B3=xxx:userTran10.G,B4=xxx:userTran10.H'")
 
 ### Load database records for alternative PF4-filter support
-dbLoadTemplate "filter.substitutions"
+#dbLoadTemplate "filter.substitutions"
 # Run this after iocInit:
-doAfterIocInit("seq filterDrive,'NAME=filterDrive,P=xxx:,R=filter:,NUM_FILTERS=16'")
+#doAfterIocInit("seq filterDrive,'NAME=filterDrive,P=xxx:,R=filter:,NUM_FILTERS=16'")
 
 ###############################################################################
 iocInit
