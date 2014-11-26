@@ -118,7 +118,7 @@ ifdef MOTOR
 	xxx_Common_DBD += devMicroMo.dbd devNewFocus.dbd devNewport.dbd
 	xxx_Common_DBD += devOriel.dbd devPC6K.dbd devPIJena.dbd devPIMotor.dbd
 	xxx_Common_DBD += devSPiiPlus.dbd devSmartMotorMotor.dbd devSoftMotor.dbd
-	xxx_Common_DBD += devThorLabs.dbd motorRecord.dbd motorSimSupport.dbd
+	xxx_Common_DBD += devThorLabs.dbd motorSimSupport.dbd
 
 	xxx_Common_LIBS := motor $(xxx_Common_LIBS)
 	xxx_Common_LIBS := Acs acsTech80 Aerotech Attocube Faulhaber Ims KohzuMotor $(xxx_Common_LIBS)
@@ -311,6 +311,14 @@ ifneq (,$(findstring linux, $(T_A)))
 			xxx_LIBS_Linux  += dxp handel
 			xxx_SYS_LIBS_Linux += usb
 		endif
+	endif
+	ifdef IPAC
+		iocxxxLinux_DBD += drvIpac.dbd
+		xxx_LIBS_Linux += Ipac
+	endif
+	ifdef SOFTGLUE
+		iocxxxLinux_DBD += softGlueSupport.dbd
+		xxx_LIBS_Linux += softGlue
 	endif
 endif
 
