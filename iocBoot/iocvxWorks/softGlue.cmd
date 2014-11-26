@@ -21,8 +21,6 @@
 #initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2.hex")
 #    standard softGlue 2.2 plus two shift registers
 #initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_Octupole_0_0.hex")
-#    standard softGlue 2.2 plus two up/down counters
-#initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_1ID_Vgate_0_1.hex")
 #    standard softGlue 2.2 plus two up/down counters plus two quadrature decoders
 initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_Encoder.hex")
 
@@ -171,10 +169,6 @@ dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent.db", "P=xxx:,H=softGlue:,PORT
 #!dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_octupole.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE,READEVENT=10")
 
 # This database contains the additional records needed for
-# SoftGlue_2_2_1ID_Vgate_0_1.hex
-#dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_s1ID_Vgate.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE,READEVENT=10")
-
-# This database contains the additional records needed for
 # SoftGlue_2_2_Encoder.hex
 dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_Encoder.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE,READEVENT=10")
 
@@ -189,7 +183,8 @@ taskDelay(50)
 #    a couple of busy records.
 dbLoadRecords("$(SOFTGLUE)/db/softGlue_convenience.db", "P=xxx:,H=softGlue:")
 
-# configMenu Menu of softGlue circuits
+# Menu of softGlue circuits
+# configMenu example.  See create_manual_set() command after iocInit.
 dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=xxx:,CONFIG=SG")
 # Note that the request file MUST be named $(CONFIG)Menu.req.  If the macro
 # CONFIGMENU is defined with any value, backup (".savB") and sequence files
