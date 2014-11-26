@@ -26,10 +26,12 @@ iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 ### save_restore setup
 < save_restore.cmd
 
+#< softGlue.cmd
+
 # Access Security
-dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=xxx:")
-asSetFilename("$(TOP)/iocBoot/accessSecurity.acf")
-asSetSubstitutions("P=xxx:")
+#dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=xxx:")
+#asSetFilename("$(TOP)/iocBoot/accessSecurity.acf")
+#asSetSubstitutions("P=xxx:")
 # Can modify file and reinit with "asInit"
 
 < areaDetector.cmd
