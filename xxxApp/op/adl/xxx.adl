@@ -854,6 +854,11 @@ display {
 		name="dsp9660Gain.adl"
 		args="P=xxx:,DSP=dsp1"
 	}
+	display[8] {
+		label="soft MCA"
+		name="mca_small.adl"
+		args="P=xxx:,M=softMCA"
+	}
 	clr=0
 	bclr=17
 	label="-MCA"
