@@ -4,8 +4,8 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>1191</x>
-            <y>25</y>
+            <x>1121</x>
+            <y>234</y>
             <width>440</width>
             <height>180</height>
         </rect>
@@ -694,48 +694,6 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caRelatedDisplay" name="caRelatedDisplay_16">
             <property name="geometry">
                 <rect>
-                    <x>140</x>
-                    <y>20</y>
-                    <width>70</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>51</red>
-                    <green>153</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-userCalc</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>user calcs 1-10;user stringCalcs 1-10;user transforms 1-10;user string seqs 1-10;user arrayCalcs 1-10;user average 1-10;user calcOuts;timer;busyRecord 1;busyRecord 2;IDisableTransforms;while</string>
-            </property>
-            <property name="files">
-                <string>userCalcs10.adl;userStringCalcs10.adl;userTransforms10.adl;userStringSeqs10.adl;userArrayCalcs10.adl;userAve10.adl;userCalcOuts10.adl;timer.adl;xxBusyRecord.adl;xxBusyRecord.adl;Transforms10.adl;while.adl</string>
-            </property>
-            <property name="args">
-                <string>P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:,N=1;P=xxx:,R=mybusy1;P=xxx:,R=mybusy2;P=xxx:,N=1;P=xxx:,Q=while1:,TARGETPV=xxx:userCalc10.VAL</string>
-            </property>
-            <property name="removeParent">
-                <string>false;false;false;false;false;false;false;false;false;false;false;false</string>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_17">
-            <property name="geometry">
-                <rect>
                     <x>210</x>
                     <y>60</y>
                     <width>70</width>
@@ -775,7 +733,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_18">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_17">
             <property name="geometry">
                 <rect>
                     <x>140</x>
@@ -817,7 +775,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_19">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_18">
             <property name="geometry">
                 <rect>
                     <x>280</x>
@@ -859,7 +817,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_20">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_19">
             <property name="geometry">
                 <rect>
                     <x>210</x>
@@ -889,19 +847,19 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>Canberra AIM Multichannel Analyzer;MCA with ROI&apos;s;ADC 1;TCA 1;HVPS 1;AMP 1;DSP 1</string>
+                <string>Canberra AIM Multichannel Analyzer;MCA with ROI&apos;s;ADC 1;TCA 1;HVPS 1;AMP 1;DSP 1;soft MCA</string>
             </property>
             <property name="files">
-                <string>mca_small.adl;mca.adl;xxIcbAdc.adl;xxIcbTCA.adl;xxIcbHVPS.adl;xxIcbAmp.adl;dsp9660Gain.adl</string>
+                <string>mca_small.adl;mca.adl;xxIcbAdc.adl;xxIcbTCA.adl;xxIcbHVPS.adl;xxIcbAmp.adl;dsp9660Gain.adl;mca_small.adl</string>
             </property>
             <property name="args">
-                <string>P=xxx:,M=aim_adc1;P=xxx:,M=aim_adc1;P=xxx:,ADC=adc1;P=xxx:,TCA=tca1;P=xxx:,HVPS=hvps1;P=xxx:,AMP=amp1;P=xxx:,DSP=dsp1</string>
+                <string>P=xxx:,M=aim_adc1;P=xxx:,M=aim_adc1;P=xxx:,ADC=adc1;P=xxx:,TCA=tca1;P=xxx:,HVPS=hvps1;P=xxx:,AMP=amp1;P=xxx:,DSP=dsp1;P=xxx:,M=softMCA</string>
             </property>
             <property name="removeParent">
-                <string>false;false;false;false;false;false;false</string>
+                <string>false;false;false;false;false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_21">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_20">
             <property name="geometry">
                 <rect>
                     <x>140</x>
@@ -1118,7 +1076,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 </property>
             </widget>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_22">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_21">
             <property name="geometry">
                 <rect>
                     <x>140</x>
@@ -1160,7 +1118,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_23">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_22">
             <property name="geometry">
                 <rect>
                     <x>70</x>
@@ -1202,7 +1160,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_24">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_23">
             <property name="geometry">
                 <rect>
                     <x>210</x>
@@ -1244,7 +1202,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_25">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_24">
             <property name="geometry">
                 <rect>
                     <x>210</x>
@@ -1274,19 +1232,19 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>SIS38XX;SIS38XX;SIS38XX</string>
+                <string>SIS38XX</string>
             </property>
             <property name="files">
-                <string>SIS38XX.adl;SIS38XX.adl;SIS38XX.adl</string>
+                <string>SIS38XX.adl</string>
             </property>
             <property name="args">
-                <string>P=xxx:3820:;P=xxx:3820:;P=xxx:3820:</string>
+                <string>P=xxx:3820:</string>
             </property>
             <property name="removeParent">
-                <string>false;false;false</string>
+                <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_26">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_25">
             <property name="geometry">
                 <rect>
                     <x>210</x>
@@ -1328,7 +1286,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_27">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_26">
             <property name="geometry">
                 <rect>
                     <x>280</x>
@@ -1370,7 +1328,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_28">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_27">
             <property name="geometry">
                 <rect>
                     <x>280</x>
@@ -1412,7 +1370,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false;false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_29">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_28">
             <property name="geometry">
                 <rect>
                     <x>210</x>
@@ -1454,7 +1412,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_30">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_29">
             <property name="geometry">
                 <rect>
                     <x>0</x>
@@ -1496,7 +1454,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_31">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_30">
             <property name="geometry">
                 <rect>
                     <x>70</x>
@@ -1538,7 +1496,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_32">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_31">
             <property name="geometry">
                 <rect>
                     <x>0</x>
@@ -1580,7 +1538,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_33">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_32">
             <property name="geometry">
                 <rect>
                     <x>70</x>
@@ -1622,7 +1580,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false;false;false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_34">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_33">
             <property name="geometry">
                 <rect>
                     <x>280</x>
@@ -1664,7 +1622,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_35">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_34">
             <property name="geometry">
                 <rect>
                     <x>140</x>
@@ -1706,7 +1664,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_36">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_35">
             <property name="geometry">
                 <rect>
                     <x>70</x>
@@ -1748,7 +1706,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_37">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_36">
             <property name="geometry">
                 <rect>
                     <x>210</x>
@@ -1790,7 +1748,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_38">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_37">
             <property name="geometry">
                 <rect>
                     <x>350</x>
@@ -1832,7 +1790,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_39">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_38">
             <property name="geometry">
                 <rect>
                     <x>350</x>
@@ -1874,7 +1832,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_40">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_39">
             <property name="geometry">
                 <rect>
                     <x>350</x>
@@ -1916,7 +1874,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_41">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_40">
             <property name="geometry">
                 <rect>
                     <x>70</x>
@@ -1958,7 +1916,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false;false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_42">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_41">
             <property name="geometry">
                 <rect>
                     <x>350</x>
@@ -2000,7 +1958,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_43">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_42">
             <property name="geometry">
                 <rect>
                     <x>280</x>
@@ -2030,19 +1988,19 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>trajectoryScan1;trajectoryScan2;trajectoryScan1 (2 mot);MM4000 XPS trajectory</string>
+                <string>standard trajectoryScan;trajectoryScan1;trajectoryScan2;trajectoryScan1 (2 mot);MM4000 XPS trajectory</string>
             </property>
             <property name="files">
-                <string>MAX_trajectoryScan.adl;MAX_trajectoryScan.adl;MAX_trajectoryScan2.adl;trajectoryScan.adl</string>
+                <string>trajectoryScan.adl;MAX_trajectoryScan.adl;MAX_trajectoryScan.adl;MAX_trajectoryScan2.adl;trajectoryScan.adl</string>
             </property>
             <property name="args">
-                <string>P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8;P=xxx:,R=traj2:,TITLE=traj2,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16;P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8;P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8</string>
+                <string>P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8;P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8;P=xxx:,R=traj2:,TITLE=traj2,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16;P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8;P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8</string>
             </property>
             <property name="removeParent">
-                <string>false;false;false;false</string>
+                <string>false;false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_44">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_43">
             <property name="geometry">
                 <rect>
                     <x>350</x>
@@ -2084,7 +2042,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_45">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_44">
             <property name="geometry">
                 <rect>
                     <x>0</x>
@@ -2126,7 +2084,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_46">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_45">
             <property name="geometry">
                 <rect>
                     <x>70</x>
@@ -2168,7 +2126,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_47">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_46">
             <property name="geometry">
                 <rect>
                     <x>140</x>
@@ -2210,7 +2168,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_48">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_47">
             <property name="geometry">
                 <rect>
                     <x>210</x>
@@ -2252,7 +2210,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_49">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_48">
             <property name="geometry">
                 <rect>
                     <x>280</x>
@@ -2282,19 +2240,19 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>CR74x;fieldVector;selector;beamEnergy;muir;tomography fly;hexFly;hexFlyTry;Ensemble PSO Fly;calcTest;interlaceFly;compress;tablePSOFly;accessSecurity;waveformTypes menu</string>
+                <string>CR74x;fieldVector;selector;beamEnergy;muir;tomography fly;hexFly;rock;Ensemble PSO Fly;calcTest;interlaceFly;compressGain;tablePSOFly;Security Control;waveformTypes menu;rock</string>
             </property>
             <property name="files">
-                <string>CR74x.adl;fieldVector.adl;selector.adl;beamEnergy.adl;yySseq.adl;tomoFly.adl;hexFly.adl;hexFlyTry.adl;EnsemblePSOFly.adl;calcTest.adl;interlaceFly.adl;compress.adl;tablePSOFly.adl;ASsecurity.adl;configMenu.adl</string>
+                <string>CR74x.adl;fieldVector.adl;selector.adl;beamEnergy.adl;yySseq.adl;tomoFly.adl;hexFly.adl;rock.adl;EnsemblePSOFly.adl;calcTest.adl;interlaceFly.adl;compress.adl;tablePSOFly.adl;Security_Control.adl;configMenu.adl;rock.adl</string>
             </property>
             <property name="args">
-                <string>P=xxx:,Q=test:;P=4idc2:,Q=8p:;P=xxx:,R=obj;P=xxx:;P=xxx:,S=PresetHistoryAdd;P=xxx:,Q=tomoFly:;P=xxx:,Q=hexFly:;P=xxx:,Q=hexFlyTry:;P=xxx:,Q=PSOFly:;P=xxx:;P=xxx:,Q=iFly:,QT=tableFly:;P=xxx:;P=xxx:,Q=tableFly:;P=xxx:;P=xxx:,CONFIG=waveformTypes</string>
+                <string>P=xxx:,Q=test:;P=4idc2:,Q=8p:;P=xxx:,R=obj;P=xxx:;P=xxx:,S=PresetHistoryAdd;P=xxx:,Q=tomoFly:;P=xxx:,Q=hexFly:;P=xxx:,Q=rock:;P=xxx:,Q=PSOFly:;P=xxx:;P=xxx:,Q=iFly:,QT=tableFly:;P=xxx:,Q=gain;P=xxx:,Q=tableFly:;P=xxx:;P=xxx:,CONFIG=waveformTypes;P=xxx:,Q=rock:</string>
             </property>
             <property name="removeParent">
-                <string>false;false;false;false;false;false;false;false;false;false;false;false;false;false;false</string>
+                <string>false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_50">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_49">
             <property name="geometry">
                 <rect>
                     <x>350</x>
@@ -2336,6 +2294,48 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false</string>
             </property>
         </widget>
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_50">
+            <property name="geometry">
+                <rect>
+                    <x>140</x>
+                    <y>20</y>
+                    <width>70</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>51</red>
+                    <green>153</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="label">
+                <string>-userCalc</string>
+            </property>
+            <property name="stackingMode">
+                <enum>Menu</enum>
+            </property>
+            <property name="labels">
+                <string>user calcs 1-10;user stringCalcs 1-10;user transforms 1-10;user string seqs 1-10;user arrayCalcs 1-10;user average 1-10;user calcOuts;user stringCalcs 11-20;user transforms 11-20;user string seqs 11-20;user arrayCalcs 11-20;user average 11-20;user calcOuts 11-20;busyRecord;busyRecord2;editSseq</string>
+            </property>
+            <property name="files">
+                <string>userCalcs10.adl;userStringCalcs10.adl;userTransforms10.adl;userStringSeqs10.adl;userArrayCalcs10.adl;userAve10.adl;userCalcOuts10.adl;userStringCalcs10more.adl;userTransforms10more.adl;userStringSeqs10more.adl;userArrayCalcs10more.adl;userAve10more.adl;userCalcOuts10more.adl;xxBusyRecord.adl;xxBusyRecord.adl;editSseq.adl</string>
+            </property>
+            <property name="args">
+                <string>P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,R=mybusy;P=xxx:,R=mybusy2;P=xxx:,Q=ES:</string>
+            </property>
+            <property name="removeParent">
+                <string>false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;false</string>
+            </property>
+        </widget>
         <zorder>caLabel_0</zorder>
         <zorder>caLabel_1</zorder>
         <zorder>caLabel_2</zorder>
@@ -2361,8 +2361,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <zorder>caRelatedDisplay_18</zorder>
         <zorder>caRelatedDisplay_19</zorder>
         <zorder>caRelatedDisplay_20</zorder>
-        <zorder>caRelatedDisplay_21</zorder>
         <zorder>caMessageButton_0</zorder>
+        <zorder>caRelatedDisplay_21</zorder>
         <zorder>caRelatedDisplay_22</zorder>
         <zorder>caRelatedDisplay_23</zorder>
         <zorder>caRelatedDisplay_24</zorder>
