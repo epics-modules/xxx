@@ -36,6 +36,9 @@ iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 
 < areaDetector.cmd
 
+# soft scaler for testing
+< softScaler.cmd
+
 # user-assignable ramp/tweak
 dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=xxx:,Q=rt1")
 
