@@ -26,8 +26,6 @@ iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 ### save_restore setup
 < save_restore.cmd
 
-#< softGlue.cmd
-
 # Access Security
 #dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=xxx:")
 #asSetFilename("$(TOP)/iocBoot/accessSecurity.acf")
