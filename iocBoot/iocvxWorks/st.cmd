@@ -165,7 +165,7 @@ doAfterIocInit("seq &kohzuCtl, 'P=xxx:, M_THETA=m1, M_Y=m2, M_Z=m3, GEOM=1, logf
 ### 4-bounce high-resolution monochromator
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m1,M_PHI2=m2")
 #doAfterIocInit("dbpf 'xxx:HR1CtlDebug','1'")
-#doAfterIocInit("seq &hrCtl1, 'P=xxx:, N=1, M_PHI1=m4, M_PHI2=m5, logfile=hrCtl1.log'")
+#doAfterIocInit("seq &hrCtl, 'P=xxx:, N=1, M_PHI1=m4, M_PHI2=m5, logfile=hrCtl.log'")
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=2,M_PHI1=m11,M_PHI2=m12")
 
 ### multilayer monochromator: Bragg and theta/Y/Z motors
