@@ -128,7 +128,7 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/Io.db","P=xxx:Io:")
 # 4-bounce high-resolution monochromator
 dbLoadRecords("$(OPTICS)/opticsApp/Db/hrSeq.db","P=xxx:,N=1,M_PHI1=m4,M_PHI2=m5")
 # Run this after iocInit:
-doAfterIocInit("seq &hrCtl1, 'P=xxx:, N=1, M_PHI1=m4, M_PHI2=m5, logfile=hrCtl1.log'")
+doAfterIocInit("seq &hrCtl, 'P=xxx:, N=1, M_PHI1=m4, M_PHI2=m5, logfile=hrCtl.log'")
 
 ### Orientation matrix, four-circle diffractometer (see seq program 'orient' below)
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/orient.db", "P=xxx:,O=1,PREC=4")
