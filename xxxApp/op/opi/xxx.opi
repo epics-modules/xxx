@@ -1,10 +1,10 @@
-<display typeId="org.csstudio.opibuilder.Display" version="1.0">
+<display typeId="org.csstudio.opibuilder.Display" version="1.0.0">
   <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>39872d87:13e195515d3:-5a3d</wuid>
-  <boy_version>3.1.2.20120830</boy_version>
+  <wuid>50c2e0b0:146019221f9:-53e4</wuid>
+  <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
   <height>180</height>
@@ -29,14 +29,14 @@
     <min_height>-1</min_height>
   </auto_scale_widgets>
   <actions hook="false" hook_all="false" />
-  <y>26</y>
-  <x>1175</x>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <y>25</y>
+  <x>1139</x>
+  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e195515d3:-5a25</wuid>
+    <wuid>50c2e0b0:146019221f9:-53cc</wuid>
     <scripts />
     <height>27</height>
     <name>Grouping Container</name>
@@ -47,33 +47,34 @@
     </scale_options>
     <transparent>true</transparent>
     <show_scrollbar>false</show_scrollbar>
-    <background_color>
-      <color red="236" green="236" blue="236" />
-    </background_color>
     <foreground_color>
       <color red="26" green="115" blue="9" />
     </foreground_color>
-    <widget_type>Grouping Container</widget_type>
+    <background_color>
+      <color red="236" green="236" blue="236" />
+    </background_color>
     <enabled>true</enabled>
+    <widget_type>Grouping Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>82</width>
     <border_style>0</border_style>
     <rules />
+    <fc>false</fc>
     <lock_children>false</lock_children>
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>78</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>350</x>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
+    <tooltip></tooltip>
+    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>39872d87:13e195515d3:-5a24</wuid>
+      <wuid>50c2e0b0:146019221f9:-53cb</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>25</height>
@@ -117,14 +118,14 @@
       <horizontal_alignment>0</horizontal_alignment>
       <actions hook="false" hook_all="false" />
       <y>1</y>
-      <wrap_words>true</wrap_words>
+      <wrap_words>false</wrap_words>
       <tooltip></tooltip>
       <x>1</x>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>39872d87:13e195515d3:-5a23</wuid>
+      <wuid>50c2e0b0:146019221f9:-53ca</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>25</height>
@@ -168,14 +169,14 @@
       <horizontal_alignment>0</horizontal_alignment>
       <actions hook="false" hook_all="false" />
       <y>2</y>
-      <wrap_words>true</wrap_words>
+      <wrap_words>false</wrap_words>
       <tooltip></tooltip>
       <x>2</x>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>39872d87:13e195515d3:-5a22</wuid>
+      <wuid>50c2e0b0:146019221f9:-53c9</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>25</height>
@@ -219,16 +220,16 @@
       <horizontal_alignment>0</horizontal_alignment>
       <actions hook="false" hook_all="false" />
       <y>0</y>
-      <wrap_words>true</wrap_words>
+      <wrap_words>false</wrap_words>
       <tooltip></tooltip>
       <x>0</x>
     </widget>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a3c</wuid>
+    <wuid>50c2e0b0:146019221f9:-53e3</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -416,11 +417,11 @@
 $(pv_value)</tooltip>
     <x>0</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a3b</wuid>
+    <wuid>50c2e0b0:146019221f9:-53e2</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -603,11 +604,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>0</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a3a</wuid>
+    <wuid>50c2e0b0:146019221f9:-53e1</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -753,11 +754,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>0</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a39</wuid>
+    <wuid>50c2e0b0:146019221f9:-53e0</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -874,7 +875,7 @@ $(pv_value)</tooltip>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
-          <S>scantest</S>
+          <S>scanAux</S>
         </macros>
         <replace>0</replace>
         <description>aux scan</description>
@@ -904,11 +905,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>140</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a38</wuid>
+    <wuid>50c2e0b0:146019221f9:-53df</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1038,11 +1039,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>70</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a37</wuid>
+    <wuid>50c2e0b0:146019221f9:-53de</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1102,11 +1103,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>210</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a36</wuid>
+    <wuid>50c2e0b0:146019221f9:-53dd</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1166,11 +1167,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>140</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a35</wuid>
+    <wuid>50c2e0b0:146019221f9:-53dc</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1236,11 +1237,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>0</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a34</wuid>
+    <wuid>50c2e0b0:146019221f9:-53db</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1292,11 +1293,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>0</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a33</wuid>
+    <wuid>50c2e0b0:146019221f9:-53da</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1366,11 +1367,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>0</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a32</wuid>
+    <wuid>50c2e0b0:146019221f9:-53d9</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1437,11 +1438,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>280</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a31</wuid>
+    <wuid>50c2e0b0:146019221f9:-53d8</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1590,11 +1591,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>140</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a30</wuid>
+    <wuid>50c2e0b0:146019221f9:-53d7</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1706,11 +1707,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>280</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a2f</wuid>
+    <wuid>50c2e0b0:146019221f9:-53d6</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1776,11 +1777,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>70</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a2e</wuid>
+    <wuid>50c2e0b0:146019221f9:-53d5</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1846,11 +1847,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>280</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a2d</wuid>
+    <wuid>50c2e0b0:146019221f9:-53d4</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1944,11 +1945,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>70</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a2c</wuid>
+    <wuid>50c2e0b0:146019221f9:-53d3</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2061,10 +2062,20 @@ $(pv_value)</tooltip>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
-          <R>mybusy</R>
+          <R>mybusy1</R>
         </macros>
         <replace>0</replace>
-        <description>busyRecord</description>
+        <description>busyRecord 1</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>xxBusyRecord.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <R>mybusy2</R>
+        </macros>
+        <replace>0</replace>
+        <description>busyRecord 2</description>
       </action>
       <action type="OPEN_DISPLAY">
         <path>Transforms10.opi</path>
@@ -2092,11 +2103,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>140</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a2b</wuid>
+    <wuid>50c2e0b0:146019221f9:-53d2</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2176,11 +2187,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>210</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a2a</wuid>
+    <wuid>50c2e0b0:146019221f9:-53d1</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2229,11 +2240,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>140</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a29</wuid>
+    <wuid>50c2e0b0:146019221f9:-53d0</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2302,11 +2313,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>280</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a28</wuid>
+    <wuid>50c2e0b0:146019221f9:-53cf</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2416,11 +2427,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>210</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a27</wuid>
+    <wuid>50c2e0b0:146019221f9:-53ce</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2469,12 +2480,13 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>140</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
-    <wuid>39872d87:13e195515d3:-5a26</wuid>
+    <wuid>50c2e0b0:146019221f9:-53cd</wuid>
     <scripts />
     <height>29</height>
+    <style>1</style>
     <name>Action Button</name>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <scale_options>
@@ -2513,6 +2525,7 @@ $(pv_value)</tooltip>
         <pv_name>xxx:allstop.VAL</pv_name>
         <value>1</value>
         <timeout>10</timeout>
+        <confirm_message></confirm_message>
         <description></description>
       </action>
     </actions>
@@ -2520,11 +2533,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>350</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a21</wuid>
+    <wuid>50c2e0b0:146019221f9:-53c8</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2602,11 +2615,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>140</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a20</wuid>
+    <wuid>50c2e0b0:146019221f9:-53c7</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2686,11 +2699,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>70</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a1f</wuid>
+    <wuid>50c2e0b0:146019221f9:-53c6</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2768,11 +2781,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>210</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a1e</wuid>
+    <wuid>50c2e0b0:146019221f9:-53c5</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2808,24 +2821,6 @@ $(pv_value)</tooltip>
     <y>40</y>
     <actions hook="false" hook_all="false">
       <action type="OPEN_DISPLAY">
-        <path>Struck8.opi</path>
-        <macros>
-          <include_parent_macros>true</include_parent_macros>
-          <P>xxx:3820:</P>
-        </macros>
-        <replace>0</replace>
-        <description> 8-Channel MCS Control</description>
-      </action>
-      <action type="OPEN_DISPLAY">
-        <path>Struck32.opi</path>
-        <macros>
-          <include_parent_macros>true</include_parent_macros>
-          <P>xxx:3820:</P>
-        </macros>
-        <replace>0</replace>
-        <description>32-Channel MCS Control</description>
-      </action>
-      <action type="OPEN_DISPLAY">
         <path>SIS38XX.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
@@ -2839,11 +2834,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>210</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a1d</wuid>
+    <wuid>50c2e0b0:146019221f9:-53c4</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2949,11 +2944,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>210</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a1c</wuid>
+    <wuid>50c2e0b0:146019221f9:-53c3</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3065,11 +3060,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>280</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a1b</wuid>
+    <wuid>50c2e0b0:146019221f9:-53c2</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3189,11 +3184,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>280</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a1a</wuid>
+    <wuid>50c2e0b0:146019221f9:-53c1</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3251,11 +3246,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>210</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a19</wuid>
+    <wuid>50c2e0b0:146019221f9:-53c0</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3308,11 +3303,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>0</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a18</wuid>
+    <wuid>50c2e0b0:146019221f9:-53bf</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3372,11 +3367,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>70</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a17</wuid>
+    <wuid>50c2e0b0:146019221f9:-53be</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3427,11 +3422,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>0</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a16</wuid>
+    <wuid>50c2e0b0:146019221f9:-53bd</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3584,11 +3579,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>70</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a15</wuid>
+    <wuid>50c2e0b0:146019221f9:-53bc</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3641,11 +3636,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>280</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a14</wuid>
+    <wuid>50c2e0b0:146019221f9:-53bb</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3705,11 +3700,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>140</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a13</wuid>
+    <wuid>50c2e0b0:146019221f9:-53ba</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3811,11 +3806,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>70</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a12</wuid>
+    <wuid>50c2e0b0:146019221f9:-53b9</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3893,11 +3888,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>210</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a11</wuid>
+    <wuid>50c2e0b0:146019221f9:-53b8</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4013,11 +4008,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>350</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a10</wuid>
+    <wuid>50c2e0b0:146019221f9:-53b7</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4095,7 +4090,7 @@ $(pv_value)</tooltip>
         <description>shift 2</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>configMenu_small.opi</path>
+        <path>configMenu.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
@@ -4109,11 +4104,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>350</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a0f</wuid>
+    <wuid>50c2e0b0:146019221f9:-53b6</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4163,11 +4158,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>350</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a0e</wuid>
+    <wuid>50c2e0b0:146019221f9:-53b5</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4290,11 +4285,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>70</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a0d</wuid>
+    <wuid>50c2e0b0:146019221f9:-53b4</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4354,11 +4349,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>350</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a0c</wuid>
+    <wuid>50c2e0b0:146019221f9:-53b3</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4431,16 +4426,54 @@ $(pv_value)</tooltip>
         <replace>0</replace>
         <description>trajectoryScan2</description>
       </action>
+      <action type="OPEN_DISPLAY">
+        <path>MAX_trajectoryScan2.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <R>traj1:</R>
+          <TITLE>traj1</TITLE>
+          <M1>m1</M1>
+          <M2>m2</M2>
+          <M3>m3</M3>
+          <M4>m4</M4>
+          <M5>m5</M5>
+          <M6>m6</M6>
+          <M7>m7</M7>
+          <M8>m8</M8>
+        </macros>
+        <replace>0</replace>
+        <description>trajectoryScan1 (2 mot)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>trajectoryScan.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <R>traj1:</R>
+          <TITLE>traj1</TITLE>
+          <M1>m1</M1>
+          <M2>m2</M2>
+          <M3>m3</M3>
+          <M4>m4</M4>
+          <M5>m5</M5>
+          <M6>m6</M6>
+          <M7>m7</M7>
+          <M8>m8</M8>
+        </macros>
+        <replace>0</replace>
+        <description>MM4000 XPS trajectory</description>
+      </action>
     </actions>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
     <x>280</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a0b</wuid>
+    <wuid>50c2e0b0:146019221f9:-53b2</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4520,11 +4553,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>350</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a0a</wuid>
+    <wuid>50c2e0b0:146019221f9:-53b1</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4574,11 +4607,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>0</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a09</wuid>
+    <wuid>50c2e0b0:146019221f9:-53b0</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4628,11 +4661,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>70</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a08</wuid>
+    <wuid>50c2e0b0:146019221f9:-53af</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4682,11 +4715,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>140</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a07</wuid>
+    <wuid>50c2e0b0:146019221f9:-53ae</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4752,11 +4785,11 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>210</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>39872d87:13e195515d3:-5a06</wuid>
+    <wuid>50c2e0b0:146019221f9:-53ad</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4889,9 +4922,129 @@ $(pv_value)</tooltip>
         <replace>0</replace>
         <description>calcTest</description>
       </action>
+      <action type="OPEN_DISPLAY">
+        <path>interlaceFly.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <Q>iFly:</Q>
+          <QT>tableFly:</QT>
+        </macros>
+        <replace>0</replace>
+        <description>interlaceFly</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>compress.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+        </macros>
+        <replace>0</replace>
+        <description>compress</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>tablePSOFly.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <Q>tableFly:</Q>
+        </macros>
+        <replace>0</replace>
+        <description>tablePSOFly</description>
+      </action>
     </actions>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
     <x>280</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <visible>true</visible>
+    <actions_from_pv>false</actions_from_pv>
+    <wuid>50c2e0b0:146019221f9:-53ac</wuid>
+    <scripts />
+    <height>20</height>
+    <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <transparent>false</transparent>
+    <pv_name></pv_name>
+    <background_color>
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
+    </background_color>
+    <foreground_color>
+      <color name="Gray_0" red="255" green="255" blue="255" />
+    </foreground_color>
+    <widget_type>Menu Button</widget_type>
+    <enabled>true</enabled>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>70</width>
+    <border_style>6</border_style>
+    <label>MLL</label>
+    <rules />
+    <pv_value />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>160</y>
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>MLLH.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <Q>MLLH:</Q>
+        </macros>
+        <replace>0</replace>
+        <description>MLLH</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>motor3x.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <M1>m2</M1>
+          <M2>m1</M2>
+          <M3>m3</M3>
+        </macros>
+        <replace>0</replace>
+        <description>MLLH hard motors</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>MLLV.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <Q>MLLV:</Q>
+        </macros>
+        <replace>0</replace>
+        <description>MLLV</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>motor5x.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxx:</P>
+          <M1>m4</M1>
+          <M2>m5</M2>
+          <M3>m6</M3>
+          <M4>m7</M4>
+          <M5>m8</M5>
+        </macros>
+        <replace>0</replace>
+        <description>MLLH hard motors</description>
+      </action>
+    </actions>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <x>350</x>
   </widget>
 </display>
