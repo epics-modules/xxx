@@ -10,22 +10,6 @@ include $(TOP)/configure/CONFIG
 # of Joerger scaler hardware and endianness of processor.
 #USR_CFLAGS += -DHAS_IOOPS_H
 
-#==================================================
-# build a support library that some other application can use
-
-#LIBRARY_IOC += xxxSupport
-
-# xxxRecord.h will be created from xxxRecord.dbd
-#DBDINC += xxxRecord
-# install support-library .dbd into <top>/dbd
-#DBD += xxxSupport.dbd
-
-# The following are compiled and added to the Support library
-#xxxSupport_SRCS += xxxRecord.c
-
-#xxxSupport_LIBS += $(EPICS_BASE_IOC_LIBS)
-#xxx_Common_LIBS += xxxSupport
-
 #=============================
 # build an ioc application
 
@@ -55,6 +39,7 @@ ifdef SNCSEQ
 		xxx_Common_LIBS := seq pv $(xxx_Common_LIBS)
 	endif
 endif
+
 ifdef AREA_DETECTOR
 	# areaDetector provides a Makefile for things it needs and supplies
 	PROD_NAME = AD
@@ -66,23 +51,28 @@ ifdef AREA_DETECTOR
 	xxx_Common_LIBS := simDetector $(xxx_Common_LIBS)
 
 endif
+
 ifdef ASYN
 	xxx_Common_DBD += asyn.dbd drvAsynSerialPort.dbd
 	xxx_Common_DBD += drvAsynIPPort.dbd drvVxi11.dbd devGpib.dbd
 	xxx_Common_LIBS := asyn $(xxx_Common_LIBS)
 endif
+
 ifdef STD
 	xxx_Common_DBD += stdSupport.dbd
 	xxx_Common_LIBS := std $(xxx_Common_LIBS)
 endif
+
 ifdef CALC
 	xxx_Common_DBD += calcSupport.dbd
 	xxx_Common_LIBS := calc $(xxx_Common_LIBS)
 endif
+
 ifdef BUSY
 	xxx_Common_DBD += busySupport.dbd
 	xxx_Common_LIBS := busy $(xxx_Common_LIBS)
 endif
+
 ifdef SSCAN
 	xxx_Common_DBD += sscanSupport.dbd
 	xxx_Common_LIBS := sscan $(xxx_Common_LIBS)
@@ -91,26 +81,32 @@ ifdef SSCAN
 		xxx_Common_LIBS := scanProgress $(xxx_Common_LIBS)
 	endif
 endif
+
 ifdef AUTOSAVE
 	xxx_Common_DBD += asSupport.dbd
 	xxx_Common_LIBS := autosave $(xxx_Common_LIBS)
 endif
+
 ifdef OPTICS
 	xxx_Common_DBD += opticsSupport.dbd
 	xxx_Common_LIBS := optics $(xxx_Common_LIBS)
 endif
+
 ifdef MCA
 	xxx_Common_DBD += mcaSupport.dbd
 	xxx_Common_LIBS := mca $(xxx_Common_LIBS)
 endif
+
 ifdef IP
 	xxx_Common_DBD += ipSupport.dbd
 	xxx_Common_LIBS := ip $(xxx_Common_LIBS)
 endif
+
 ifdef QUADEM
 	xxx_Common_DBD += drvAHxxx.dbd
 	xxx_Common_LIBS := quadEM $(xxx_Common_LIBS)
 endif
+
 ifdef MOTOR
 	xxx_Common_DBD += motorSupport.dbd devAcsMotor.dbd devAerotech.dbd
 	xxx_Common_DBD += devAttocube.dbd devFaulhaberMotor.dbd devImsMotor.dbd
@@ -130,6 +126,7 @@ ifdef STREAM
 	xxx_Common_DBD += stream.dbd streamSynApps.dbd
 	xxx_Common_LIBS := stream streamSynApps $(xxx_Common_LIBS)
 endif
+
 ifdef DEVIOCSTATS
   ifneq ($(OS_CLASS), WIN32)
   	xxx_Common_DBD += devIocStats.dbd iocAdmin.dbd
@@ -223,61 +220,76 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 	ifdef ALLEN_BRADLEY
 		xxx_LIBS_vxWorks += allenBradley
 	endif
+
 	ifdef VME
 		iocxxxVX_DBD += vmeVXSupport.dbd
 		xxx_LIBS_vxWorks += vme
 	endif
+
 	ifdef STD
 		iocxxxVX_DBD += stdVXSupport.dbd
 	endif
+
 	ifdef IP
 		iocxxxVX_DBD += ipVXSupport.dbd
 	endif
+
 	ifdef MCA
 		iocxxxVX_DBD += SIS38XXSupport.dbd
 		iocxxxVX_DBD += mcaCanberraSupport.dbd
 		xxx_LIBS_vxWorks += SIS38XX
 		xxx_LIBS_vxWorks += mcaCanberra
 	endif
+
 	ifdef IPUNIDIG
 		iocxxxVX_DBD += ipUnidigSupport.dbd
 		xxx_LIBS_vxWorks += ipUnidig
 	endif
+
 	ifdef DAC128V
 		iocxxxVX_DBD += dac128VSupport.dbd
 		xxx_LIBS_vxWorks += dac128V
 	endif
+
 	ifdef IP330
 		iocxxxVX_DBD += ip330Support.dbd
 		xxx_LIBS_vxWorks += ip330
 	endif
+
 	ifdef CAMAC
 		iocxxxVX_DBD += camacSupport.dbd
 		iocxxxVX_DBD += devCamacSupport.dbd
 		xxx_LIBS_vxWorks += camac devCamac
 	endif
+
 	ifdef ALLEN_BRADLEY
 		iocxxxVX_DBD += allenBradley.dbd
 	endif
+
 	ifdef QUADEM
 		iocxxxVX_DBD += drvAPS_EM.dbd
 	endif
+
 	ifdef LOVE
 		iocxxxVX_DBD += devLove.dbd
 		xxx_LIBS_vxWorks += love
 	endif
+
 	ifdef IPAC
 		iocxxxVX_DBD += tyGSOctal.dbd
 		iocxxxVX_DBD += drvIpac.dbd
 		xxx_LIBS_vxWorks += TyGSOctal Ipac
 	endif
+
 	ifdef ASYN
 		iocxxxVX_DBD += drvGsIP488.dbd
 	endif
+
 	ifdef SOFTGLUE
 		iocxxxVX_DBD += softGlueSupport.dbd
 		xxx_LIBS_vxWorks += softGlue
 	endif
+
 	ifdef MOTOR
 		iocxxxVX_DBD += devDeltaTau.dbd
 		iocxxxVX_DBD += devOms.dbd
@@ -312,10 +324,12 @@ ifneq (,$(findstring linux, $(T_A)))
 			xxx_SYS_LIBS_Linux += usb
 		endif
 	endif
+
 	ifdef IPAC
 		iocxxxLinux_DBD += drvIpac.dbd
 		xxx_LIBS_Linux += Ipac
 	endif
+
 	ifdef SOFTGLUE
 		iocxxxLinux_DBD += softGlueSupport.dbd
 		xxx_LIBS_Linux += softGlue
