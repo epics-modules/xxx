@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# start, or restart, caputRecorder.py
+
+PREFIX=$1
+if [ "" == "${PREFIX}" ] ; then
+	PREFIX="xxx:"
+fi
+
+EPICS_APP=/home/oxygen/MOONEY/epics/synApps/support/xxx
+EPICS_APP_PYTHON_DIR=${EPICS_APP}/xxxApp/op/python
+
+output=`perl -s ${EPICS_APP}/release.pl -form=bash ${EPICS_APP}`
+eval $output
+
+CAPUTRECORDER_PY=${CAPUTRECORDER}/caputRecorderApp/op/python/caputRecorder.py
+
+COMMAND="python ${CAPUTRECORDER_PY} ${PREFIX}"
+
+MY_UID=`id -u`
+CAPUTRECORDER_PID=`pgrep -f "${COMMAND}" -u $MY_UID`
+
+if [ "" != "${CAPUTRECORDER_PID}" ] ; then
+	kill ${CAPUTRECORDER_PID}
+fi
+
+
+cd ${EPICS_APP_PYTHON_DIR}
+
+# start caputRecorder.py
+# The first prefix specifies the caputRecorder.db database instance that will
+# function as a user interface for caputRecorder.py, and notify it when a
+# caput occurrs.
+$COMMAND&
+
+# To record caputs to other iocs, add their prefixes to the command line:
+# All iocs must be running access security configured to trap writes, and
+# must load caputRecorder.db.
+#${COMMAND} yyy: zzz:&
+
