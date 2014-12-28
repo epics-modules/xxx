@@ -8,6 +8,11 @@ ASG(DEFAULT) {
 	INPB($(P)LocalAccess)
 	INPC($(P)RemoteAccess)
 	RULE(1,READ)
+	RULE(1,WRITE,TRAPWRITE) {
+# write access and trapwrite for owner a local host
+		HAG(local)
+		UAG(owner)
+	}
 	RULE(1,WRITE) {
 # write access for everybody if AS_OnOff is off
 		CALC("A=1")
