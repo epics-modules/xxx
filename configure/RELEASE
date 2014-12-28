@@ -30,6 +30,7 @@ SUPPORT=/home/oxygen/MOONEY/epics/synAppsSVN/support
 
 # Specify the standard synApps configuration.
 include $(SUPPORT)/configure/RELEASE
+#CAPUTLOG=$(SUPPORT)/caPutLog-3-4
 
 # For a local, custom configuration; copy $(SUPPORT)/configure/RELEASE
 # to this directory as the file MASTER_RELEASE, edit the file, comment out
