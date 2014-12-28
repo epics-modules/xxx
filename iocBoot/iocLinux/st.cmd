@@ -27,10 +27,23 @@ iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 < save_restore.cmd
 
 # Access Security
-#dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=xxx:")
-#asSetFilename("$(TOP)/iocBoot/accessSecurity.acf")
-#asSetSubstitutions("P=xxx:")
+dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=xxx:")
+asSetFilename("$(TOP)/iocBoot/accessSecurity.acf")
+asSetSubstitutions("P=xxx:")
 # Can modify file and reinit with "asInit"
+
+# caputRecorder
+dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxx:,N=300")
+doAfterIocInit("registerCaputRecorderTrapListener('xxx:caputRecorderCommand')")
+
+# caPutLog
+#epicsEnvSet EPICS_AS_PUT_LOG_PV xxx:caputRecorderCommand
+#define caPutLogNone        -1  /* no logging (disable) */
+#define caPutLogOnChange    0   /* log only on value change */
+#define caPutLogAll         1   /* log all puts */
+#define caPutLogAllNoFilter 2   /* log all puts no filtering on same PV*/
+#doAfterIocInit("caPutLogInit('mooneylinux',1)")
+
 
 < areaDetector.cmd
 
@@ -198,3 +211,4 @@ dbcar(*,1)
 
 # print the time our boot was finished
 date
+
