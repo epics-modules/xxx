@@ -1,12 +1,12 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/xxx/xxxApp/op/adl/xxx.adl"
+	name="/home/oxygen4/MOONEY/epics/synAppsSVN/support/xxx/xxxApp/op/adl/xxx.adl"
 	version=030107
 }
 display {
 	object {
-		x=1121
-		y=234
+		x=1183
+		y=25
 		width=440
 		height=180
 	}
@@ -1203,18 +1203,13 @@ composite {
 		height=20
 	}
 	display[0] {
-		label="ZTEC 2 channel"
-		name="main2.adl"
-		args="ZT=ztec"
-	}
-	display[1] {
-		label="ZTEC 4 channel"
-		name="main4.adl"
-		args="ZT=ztec"
+		label="caputRecorder"
+		name="caputRecorder_small.adl"
+		args="P=xxx:"
 	}
 	clr=0
 	bclr=17
-	label="-ZTEC"
+	label="-caputRec"
 }
 "related display" {
 	object {
@@ -1821,11 +1816,6 @@ composite {
 		label="waveformTypes menu"
 		name="configMenu.adl"
 		args="P=xxx:,CONFIG=waveformTypes"
-	}
-	display[15] {
-		label="rock"
-		name="rock.adl"
-		args="P=xxx:,Q=rock:"
 	}
 	clr=0
 	bclr=17
