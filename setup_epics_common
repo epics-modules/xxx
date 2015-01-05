@@ -96,6 +96,9 @@ endif
 if ( ${?VME} ) then
 	setenv EDP ${EDP}:${VME}/vmeApp/op/adl
 endif
+if ( ${?CAPUTRECORDER} ) then
+	setenv EDP ${EDP}:${CAPUTRECORDER}/caputRecorderApp/op/adl
+endif
 
 # APS accelerator-controls displays
 setenv EDP ${EDP}:/APSshare/adlsys/sr/id

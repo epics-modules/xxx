@@ -20,12 +20,24 @@ PROD_IOC = xxx
 # are referenced by a later .dbd file.  For libraries, things must be referenced
 # before they are searched for; otherwise they won't be included.
 
+# Custom stuff in development
+
 ##################################################################
 # First, define xxx_Common_DBD and xxx_Common_LIBS from the modules
 # defined in RELEASE
 ##################################################################
 DBD += xxx_Common.dbd
 xxx_Common_DBD += base.dbd
+
+#ifdef CAPUTLOG
+#	xxx_Common_DBD += caPutLog.dbd
+#	xxx_Common_LIBS := caPutLog $(xxx_Common_LIBS)
+#endif
+
+ifdef CAPUTRECORDER
+	xxx_Common_DBD += caputRecorder.dbd
+	xxx_Common_LIBS := caputRecorder $(xxx_Common_LIBS)
+endif
 
 ifdef SNCSEQ
 	ifeq (seq-2-1, $(findstring seq-2-1, $(SNCSEQ)))
