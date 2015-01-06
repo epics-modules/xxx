@@ -199,6 +199,10 @@ dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
 # Run this after iocInit:
 #doAfterIocInit("seq filterDrive,'NAME=filterDrive,P=xxx:,R=filter:,NUM_FILTERS=16'")
 
+### Load database record for alive heartbeating support.
+# RHOST specifies the IP address that receives the heartbeats.
+#dbLoadRecords("$(ALIVE)/aliveApp/Db/alive.db", "P=xxx:,RHOST=X.X.X.X")
+
 ###############################################################################
 iocInit
 ###############################################################################
