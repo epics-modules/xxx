@@ -56,9 +56,13 @@ iocxxxVX_registerRecordDeviceDriver(pdbbase)
 < save_restore.cmd
 
 ### Access Security
-#dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=xxx:")
-#asSetFilename("../accessSecurity.acf")
-#asSetSubstitutions("P=xxx:")
+dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=xxx:")
+asSetFilename("../accessSecurity.acf")
+asSetSubstitutions("P=xxx:")
+
+# caputRecorder
+dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxx:,N=300")
+doAfterIocInit("registerCaputRecorderTrapListener('xxx:caputRecorderCommand')")
 
 # Industry Pack support
 < industryPack.cmd
