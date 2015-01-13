@@ -26,6 +26,7 @@ fi
 
 
 cd ${EPICS_APP_PYTHON_DIR}
+export PYTHONPATH=${EPICS_APP_PYTHON_DIR}:$PYTHONPATH
 
 # start caputRecorder.py
 # The first prefix specifies the caputRecorder.db database instance that will
