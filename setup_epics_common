@@ -39,6 +39,9 @@ endif
 if ( ${?CAMAC} ) then
 	setenv EDP ${EDP}:${CAMAC}/camacApp/op/adl
 endif
+if ( ${?CAPUTRECORDER} ) then
+	setenv EDP ${EDP}:${CAPUTRECORDER}/caputRecorderApp/op/adl
+endif
 if ( ${?DAC128V} ) then
 	setenv EDP ${EDP}:${DAC128V}/dac128VApp/op/adl
 endif
@@ -95,9 +98,6 @@ if ( ${?VAC} ) then
 endif
 if ( ${?VME} ) then
 	setenv EDP ${EDP}:${VME}/vmeApp/op/adl
-endif
-if ( ${?CAPUTRECORDER} ) then
-	setenv EDP ${EDP}:${CAPUTRECORDER}/caputRecorderApp/op/adl
 endif
 
 # APS accelerator-controls displays
