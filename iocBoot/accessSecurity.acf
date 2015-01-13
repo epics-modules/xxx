@@ -1,40 +1,10 @@
-HAG(local) {mooneylinux.aps.anl.gov}
-HAG(remote) {iocxxx, ioctim.aps.anl.gov}
-UAG(owner) {mooney}
-UAG(user) {bcda1, epicsadm, vw5}
-
+HAG(workstation) {mooneylinux.aps.anl.gov}
+UAG(user) {mooney}
 ASG(DEFAULT) {
-	INPA($(P)AS_OnOff)
-	INPB($(P)LocalAccess)
-	INPC($(P)RemoteAccess)
 	RULE(1,READ)
 	RULE(1,WRITE,TRAPWRITE) {
-# write access and trapwrite for owner a local host
-		HAG(local)
-		UAG(owner)
-	}
-	RULE(1,WRITE) {
-# write access for everybody if AS_OnOff is off
-		CALC("A=1")
-	}
-	RULE(1,WRITE) {
-# write access for owner and user on a local host if LocalAccess==1
-		HAG(local)
-		UAG(owner, user)
-		CALC("B>.5")
-	}
-	RULE(1,WRITE){
-# write access for user on remote host if RemoteAccess==1
+		HAG(workstation)
 		UAG(user)
-		HAG(remote)
-		CALC("C=1")
-	} 
-}
-
-ASG(controlFields) {
-	RULE(1,READ)
-	RULE(0,WRITE) {
-		UAG(owner)
 	}
-	
+	RULE(1,WRITE)
 }

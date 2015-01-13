@@ -151,6 +151,9 @@ dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=xxx:")
 #dbLoadRecords("$(STD)/stdApp/Db/VXstats.db","P=xxx:")
 dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=xxx, TODFORMAT=%m/%d/%Y %H:%M:%S")
 
+### Load database record for alive heartbeating support.
+# RHOST specifies the IP address that receives the heartbeats.
+#dbLoadRecords("$(ALIVE)/aliveApp/Db/alive.db", "P=xxx:,RHOST=X.X.X.X")
 
 ###############################################################################
 iocInit

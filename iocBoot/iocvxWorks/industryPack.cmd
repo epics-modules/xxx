@@ -6,7 +6,7 @@
 # First carrier
 # slot a: IP-Octal (serial RS-232)
 # slot b: IpUnidig (digital I/O)
-# xxx slot c: Ip330 (A/D converter)
+# slot c: Ip330 (A/D converter)
 # slot c: IP-EP201 (FPGA)
 # slot d: Dac128V (D/A converter)
 

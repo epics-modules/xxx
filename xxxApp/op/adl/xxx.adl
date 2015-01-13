@@ -1204,7 +1204,7 @@ composite {
 	}
 	display[0] {
 		label="caputRecorder"
-		name="caputRecorder_small.adl"
+		name="caputRecorder.adl"
 		args="P=xxx:"
 	}
 	clr=0

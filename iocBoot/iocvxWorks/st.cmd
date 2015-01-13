@@ -56,9 +56,13 @@ iocxxxVX_registerRecordDeviceDriver(pdbbase)
 < save_restore.cmd
 
 ### Access Security
-#dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=xxx:")
-#asSetFilename("../accessSecurity.acf")
-#asSetSubstitutions("P=xxx:")
+dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=xxx:")
+asSetFilename("../accessSecurity.acf")
+asSetSubstitutions("P=xxx:")
+
+# caputRecorder
+dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxx:,N=300")
+doAfterIocInit("registerCaputRecorderTrapListener('xxx:caputRecorderCommand')")
 
 # Industry Pack support
 < industryPack.cmd
@@ -251,6 +255,10 @@ dbLoadTemplate "filter.substitutions"
 # trajectory scan
 #dbLoadRecords("$(MOTOR)/motorApp/Db/trajectoryScan.db","P=xxx:,R=traj1:,NAXES=2,NELM=300,NPULSE=300")
 #doAfterIocInit("seq &MAX_trajectoryScan, 'P=xxx:,R=traj1:,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8,PORT=none'")
+
+### Load database record for alive heartbeating support.
+# RHOST specifies the IP address that receives the heartbeats.
+#dbLoadRecords("$(ALIVE)/aliveApp/Db/alive.db", "P=xxx:,RHOST=X.X.X.X")
 
 ###############################################################################
 # Set shell prompt

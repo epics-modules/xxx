@@ -4,8 +4,8 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>1121</x>
-            <y>234</y>
+            <x>1183</x>
+            <y>25</y>
             <width>440</width>
             <height>180</height>
         </rect>
@@ -14,7 +14,6 @@
         <string>
 
 QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
-QPushButton::menu-indicator {image: url(none.png); width: 0}
 
 </string>
     </property>
@@ -1394,22 +1393,22 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 </color>
             </property>
             <property name="label">
-                <string>-ZTEC</string>
+                <string>-caputRec</string>
             </property>
             <property name="stackingMode">
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>ZTEC 2 channel;ZTEC 4 channel</string>
+                <string>caputRecorder</string>
             </property>
             <property name="files">
-                <string>main2.adl;main4.adl</string>
+                <string>caputRecorder.adl</string>
             </property>
             <property name="args">
-                <string>ZT=ztec;ZT=ztec</string>
+                <string>P=xxx:</string>
             </property>
             <property name="removeParent">
-                <string>false;false</string>
+                <string>false</string>
             </property>
         </widget>
         <widget class="caRelatedDisplay" name="caRelatedDisplay_29">
@@ -2240,16 +2239,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>CR74x;fieldVector;selector;beamEnergy;muir;tomography fly;hexFly;rock;Ensemble PSO Fly;calcTest;interlaceFly;compressGain;tablePSOFly;Security Control;waveformTypes menu;rock</string>
+                <string>CR74x;fieldVector;selector;beamEnergy;muir;tomography fly;hexFly;rock;Ensemble PSO Fly;calcTest;interlaceFly;compressGain;tablePSOFly;Security Control;waveformTypes menu</string>
             </property>
             <property name="files">
-                <string>CR74x.adl;fieldVector.adl;selector.adl;beamEnergy.adl;yySseq.adl;tomoFly.adl;hexFly.adl;rock.adl;EnsemblePSOFly.adl;calcTest.adl;interlaceFly.adl;compress.adl;tablePSOFly.adl;Security_Control.adl;configMenu.adl;rock.adl</string>
+                <string>CR74x.adl;fieldVector.adl;selector.adl;beamEnergy.adl;yySseq.adl;tomoFly.adl;hexFly.adl;rock.adl;EnsemblePSOFly.adl;calcTest.adl;interlaceFly.adl;compress.adl;tablePSOFly.adl;Security_Control.adl;configMenu.adl</string>
             </property>
             <property name="args">
-                <string>P=xxx:,Q=test:;P=4idc2:,Q=8p:;P=xxx:,R=obj;P=xxx:;P=xxx:,S=PresetHistoryAdd;P=xxx:,Q=tomoFly:;P=xxx:,Q=hexFly:;P=xxx:,Q=rock:;P=xxx:,Q=PSOFly:;P=xxx:;P=xxx:,Q=iFly:,QT=tableFly:;P=xxx:,Q=gain;P=xxx:,Q=tableFly:;P=xxx:;P=xxx:,CONFIG=waveformTypes;P=xxx:,Q=rock:</string>
+                <string>P=xxx:,Q=test:;P=4idc2:,Q=8p:;P=xxx:,R=obj;P=xxx:;P=xxx:,S=PresetHistoryAdd;P=xxx:,Q=tomoFly:;P=xxx:,Q=hexFly:;P=xxx:,Q=rock:;P=xxx:,Q=PSOFly:;P=xxx:;P=xxx:,Q=iFly:,QT=tableFly:;P=xxx:,Q=gain;P=xxx:,Q=tableFly:;P=xxx:;P=xxx:,CONFIG=waveformTypes</string>
             </property>
             <property name="removeParent">
-                <string>false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;false</string>
+                <string>false;false;false;false;false;false;false;false;false;false;false;false;false;false;false</string>
             </property>
         </widget>
         <widget class="caRelatedDisplay" name="caRelatedDisplay_49">

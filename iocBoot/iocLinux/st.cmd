@@ -30,20 +30,10 @@ iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=xxx:")
 asSetFilename("$(TOP)/iocBoot/accessSecurity.acf")
 asSetSubstitutions("P=xxx:")
-# Can modify file and reinit with "asInit"
 
 # caputRecorder
 dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxx:,N=300")
 doAfterIocInit("registerCaputRecorderTrapListener('xxx:caputRecorderCommand')")
-
-# caPutLog
-#epicsEnvSet EPICS_AS_PUT_LOG_PV xxx:caputRecorderCommand
-#define caPutLogNone        -1  /* no logging (disable) */
-#define caPutLogOnChange    0   /* log only on value change */
-#define caPutLogAll         1   /* log all puts */
-#define caPutLogAllNoFilter 2   /* log all puts no filtering on same PV*/
-#doAfterIocInit("caPutLogInit('mooneylinux',1)")
-
 
 < areaDetector.cmd
 
@@ -198,6 +188,10 @@ dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
 #dbLoadTemplate "filter.substitutions"
 # Run this after iocInit:
 #doAfterIocInit("seq filterDrive,'NAME=filterDrive,P=xxx:,R=filter:,NUM_FILTERS=16'")
+
+### Load database record for alive heartbeating support.
+# RHOST specifies the IP address that receives the heartbeats.
+#dbLoadRecords("$(ALIVE)/aliveApp/Db/alive.db", "P=xxx:,RHOST=X.X.X.X")
 
 ###############################################################################
 iocInit

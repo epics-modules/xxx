@@ -68,10 +68,6 @@ tyGSAsynInit("serial8",  "UART_0", 7,19200,'N',1,8,'N',"","")      /* Love contr
 #     (2) asyn port name (string)
 #MCB4BConfig(0, "serial5")
 
-##### Pico Motors (Ernest Williams MHATT-CAT)
-##### Motors (see picMot.substitutions in same directory as this file) ####
-#dbLoadTemplate("picMot.substitutions")
-
 # Load asynRecord records on all ports
 dbLoadTemplate("asynRecord.substitutions")
 
