@@ -55,7 +55,7 @@ endif
 ifdef AREA_DETECTOR
 	# areaDetector provides a Makefile for things it needs and supplies
 	PROD_NAME = AD
-	-include $(AREA_DETECTOR)/ADCore/ADApp/commonDriverMakefile
+	-include $(ADCORE)/ADApp/commonDriverMakefile
 	xxx_Common_DBD += ADSupport.dbd NDPluginSupport.dbd
 	xxx_Common_LIBS := $(AD_LIBS) $(xxx_Common_LIBS)
 	# To add the simDetector uncomment the following lines
