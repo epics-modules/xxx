@@ -86,10 +86,6 @@ MCB4BSetup(1, 10)
 #     (2) asyn port name (string)
 MCB4BConfig(0, "serial3")
 
-##### Pico Motors (Ernest Williams MHATT-CAT)
-##### Motors (see picMot.substitutions in same directory as this file) ####
-#dbLoadTemplate("picMot.substitutions")
-
 # Load asynRecord records on all ports
 dbLoadTemplate("asynRecord.substitutions")
 
