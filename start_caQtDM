@@ -41,6 +41,9 @@ endif
 if ( ${?CAMAC} ) then
 	setenv QTDMDP ${QTDMDP}:${CAMAC}/camacApp/op/ui
 endif
+if ( ${?CAPUTRECORDER} ) then
+	setenv QTDMDP ${QTDMDP}:${CAPUTRECORDER}/caputRecorderApp/op/ui
+endif
 if ( ${?DAC128V} ) then
 	setenv QTDMDP ${QTDMDP}:${DAC128V}/dac128VApp/op/ui
 endif
