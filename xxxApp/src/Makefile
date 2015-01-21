@@ -121,7 +121,7 @@ endif
 
 ifdef MODBUS
 	xxx_Common_DBD += modbus.dbd modbusSupport.dbd
-	xxx_Common_LIBS := modbus
+	xxx_Common_LIBS := modbus $(xxx_Common_LIBS)
 endif
 
 ifdef MOTOR
