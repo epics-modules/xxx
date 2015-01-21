@@ -51,7 +51,7 @@ doAfterIocInit("create_monitor_set('auto_positions.req',5,'P=xxx:')")
 
 set_pass0_restoreFile("auto_settings.sav")
 set_pass1_restoreFile("auto_settings.sav")
-doAfterIocInit("create_monitor_set('auto_settings.req',30,'P=xxx:')")
+#doAfterIocInit("create_monitor_set('auto_settings.req',30,'P=xxx:')")
 
 # Note that you can restore a .sav file without also autosaving to it.
 #set_pass0_restoreFile("octupole_settings.sav")
@@ -67,7 +67,7 @@ set_requestfile_path(autosave, "asApp/Db")
 set_requestfile_path(busy, "busyApp/Db")
 set_requestfile_path(calc, "calcApp/Db")
 set_requestfile_path(camac, "camacApp/Db")
-set_requestfile_path(caputrecorder, "caputRecorder/Db")
+set_requestfile_path(caputrecorder, "caputRecorderApp/Db")
 set_requestfile_path(dac128v, "dac128VApp/Db")
 set_requestfile_path(delaygen, "delaygenApp/Db")
 set_requestfile_path(dxp, "dxpApp/Db")
@@ -96,10 +96,10 @@ save_restoreSet_Debug(0)
 # (and dbLoadTemplate(), which calls dbLoadRecords()).
 # This requires EPICS 3.15.1 or later, or 3.14 patched as described in
 # autosave R5-5 documentation.
-#epicsEnvSet("BUILT_SETTINGS", "built_settings.req")
-#epicsEnvSet("BUILT_POSITIONS", "built_positions.req")
-#autosaveBuild("$(BUILT_SETTINGS)", "_settings.req", 1)
+epicsEnvSet("BUILT_SETTINGS", "built_settings.req")
+epicsEnvSet("BUILT_POSITIONS", "built_positions.req")
+autosaveBuild("$(BUILT_SETTINGS)", "_settings.req", 1)
 #autosaveBuild("$(BUILT_SETTINGS)", ".req", 1)
-#autosaveBuild("$(BUILT_POSITIONS)", "_positions.req", 1)
+autosaveBuild("$(BUILT_POSITIONS)", "_positions.req", 1)
 
 # END save_restore.cmd --------------------------------------------------------
