@@ -119,6 +119,11 @@ ifdef QUADEM
 	xxx_Common_LIBS := quadEM $(xxx_Common_LIBS)
 endif
 
+ifdef MODBUS
+        xxx_Common_DBD += modbus.dbd modbusSupport.dbd
+        xxx_Common_LIBS += modbus
+endif
+
 ifdef MOTOR
 	xxx_Common_DBD += motorSupport.dbd devAcsMotor.dbd devAerotech.dbd
 	xxx_Common_DBD += devAttocube.dbd devFaulhaberMotor.dbd devImsMotor.dbd
@@ -141,7 +146,7 @@ endif
 
 ifdef DEVIOCSTATS
   ifneq ($(OS_CLASS), WIN32)
-  	xxx_Common_DBD += devIocStats.dbd iocAdmin.dbd
+	xxx_Common_DBD += devIocStats.dbd iocAdmin.dbd
 	xxx_Common_LIBS := devIocStats $(xxx_Common_LIBS)
   endif
 endif
