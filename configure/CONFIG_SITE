@@ -34,4 +34,7 @@ CHECK_RELEASE = YES
 #   take effect.
 #IOCS_APPL_TOP = </IOC/path/to/application/top>
 
+HAVE_HDF5 = NO
+HAVE_SZIP = NO
+
 -include $(AREA_DETECTOR)/configure/CONFIG_SITE
