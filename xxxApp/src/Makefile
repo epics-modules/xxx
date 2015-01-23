@@ -52,18 +52,6 @@ ifdef SNCSEQ
 	endif
 endif
 
-ifdef AREA_DETECTOR
-	# areaDetector provides a Makefile for things it needs and supplies
-	PROD_NAME = AD
-	-include $(ADCORE)/ADApp/commonDriverMakefile
-	xxx_Common_DBD += ADSupport.dbd NDPluginSupport.dbd
-	xxx_Common_LIBS := $(AD_LIBS) $(xxx_Common_LIBS)
-	# To add the simDetector uncomment the following lines
-	xxx_Common_DBD += simDetectorSupport.dbd
-	xxx_Common_LIBS := simDetector $(xxx_Common_LIBS)
-
-endif
-
 ifdef ASYN
 	xxx_Common_DBD += asyn.dbd drvAsynSerialPort.dbd
 	xxx_Common_DBD += drvAsynIPPort.dbd drvVxi11.dbd devGpib.dbd
@@ -112,11 +100,6 @@ endif
 ifdef IP
 	xxx_Common_DBD += ipSupport.dbd
 	xxx_Common_LIBS := ip $(xxx_Common_LIBS)
-endif
-
-ifdef QUADEM
-	xxx_Common_DBD += drvAHxxx.dbd
-	xxx_Common_LIBS := quadEM $(xxx_Common_LIBS)
 endif
 
 ifdef MODBUS
@@ -238,6 +221,23 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 		xxx_LIBS_vxWorks += allenBradley
 	endif
 
+	ifdef QUADEM
+		iocxxxVX_DBD += drvAHxxx.dbd
+		iocxxxVX_DBD += drvAPS_EM.dbd
+		xxx_LIBS_vxWorks += quadEM
+	endif
+
+	ifdef AREA_DETECTOR
+		# areaDetector provides a Makefile for things it needs and supplies
+		PROD_NAME = AD
+		-include $(ADCORE)/ADApp/commonDriverMakefile
+		iocxxxVX_DBD += ADSupport.dbd NDPluginSupport.dbd
+		xxx_LIBS_vxWorks += $(AD_LIBS)
+		# To add the simDetector uncomment the following lines
+		iocxxxVX_DBD += simDetectorSupport.dbd
+		xxx_LIBS_vxWorks += simDetector
+	endif
+
 	ifdef VME
 		iocxxxVX_DBD += vmeVXSupport.dbd
 		xxx_LIBS_vxWorks += vme
@@ -283,10 +283,6 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 		iocxxxVX_DBD += allenBradley.dbd
 	endif
 
-	ifdef QUADEM
-		iocxxxVX_DBD += drvAPS_EM.dbd
-	endif
-
 	ifdef LOVE
 		iocxxxVX_DBD += devLove.dbd
 		xxx_LIBS_vxWorks += love
@@ -322,14 +318,23 @@ ifneq (,$(findstring linux, $(T_A)))
 	DBD  += iocxxxLinux.dbd
 	iocxxxLinux_DBD += xxx_Common.dbd
 
-	ifdef MCA
-		# If your host supports libpcap and libnet and you want to build Canberra network
-		# support, set LINUX_NET_INSTALLED to YES in <synApps>/configure/CONFIG_SITE.
-		ifeq ($(LINUX_NET_INSTALLED), YES)
-			iocxxxLinux_DBD += mcaCanberraSupport.dbd
-			xxx_LIBS_Linux += mcaCanberra
-			xxx_SYS_LIBS_Linux += net pcap
-		endif
+ifeq ($(HAVE_HDF5), YES)
+ifeq ($(HAVE_SZIP), YES)
+
+	ifdef QUADEM
+		iocxxxLinux_DBD += drvAHxxx.dbd
+		xxx_LIBS_Linux += quadEM
+	endif
+
+	ifdef AREA_DETECTOR
+		# areaDetector provides a Makefile for things it needs and supplies
+		PROD_NAME = AD
+		-include $(ADCORE)/ADApp/commonDriverMakefile
+		iocxxxLinux_DBD += ADSupport.dbd NDPluginSupport.dbd
+		xxx_LIBS_Linux += $(AD_LIBS)
+		# To add the simDetector uncomment the following lines
+		iocxxxLinux_DBD += simDetectorSupport.dbd
+		xxx_LIBS_Linux += simDetector
 	endif
 
 	ifdef DXP
@@ -339,6 +344,19 @@ ifneq (,$(findstring linux, $(T_A)))
 			iocxxxLinux_DBD += dxpSupport.dbd
 			xxx_LIBS_Linux  += dxp handel
 			xxx_SYS_LIBS_Linux += usb
+		endif
+	endif
+
+endif
+endif
+
+	ifdef MCA
+		# If your host supports libpcap and libnet and you want to build Canberra network
+		# support, set LINUX_NET_INSTALLED to YES in <synApps>/configure/CONFIG_SITE.
+		ifeq ($(LINUX_NET_INSTALLED), YES)
+			iocxxxLinux_DBD += mcaCanberraSupport.dbd
+			xxx_LIBS_Linux += mcaCanberra
+			xxx_SYS_LIBS_Linux += net pcap
 		endif
 	endif
 
