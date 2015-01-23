@@ -35,7 +35,8 @@ asSetSubstitutions("P=xxx:")
 dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxx:,N=300")
 doAfterIocInit("registerCaputRecorderTrapListener('xxx:caputRecorderCommand')")
 
-< areaDetector.cmd
+# if you have hdf5 and szip, you can use this
+#< areaDetector.cmd
 
 # soft scaler for testing
 < softScaler.cmd
