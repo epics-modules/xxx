@@ -29,3 +29,9 @@ dbLoadRecords("$(ADCORE)/ADApp/Db/NDFile.template",      "P=xxx:,R=netCDF1:,PORT
 NDROIConfigure("SIM1ROI", 20, 0, "SIM1", 0, 8, 20, 20000000)
 dbLoadRecords("$(ADCORE)/ADApp/Db/NDPluginBase.template", "P=xxx:,R=ROI1:,  PORT=SIM1ROI,ADDR=0,TIMEOUT=1,NDARRAY_PORT=SIM1,NDARRAY_ADDR=0")
 dbLoadRecords("$(ADCORE)/ADApp/Db/NDROI.template",  "P=xxx:,R=ROI1:,  PORT=SIM1ROI,ADDR=0,TIMEOUT=1")
+
+# Create an HDF5 file saving plugin
+NDFileHDF5Configure("FileHDF1", 20, 0, "SIM1", 0)
+dbLoadRecords("$(ADCORE)/db/NDPluginBase.template","P=xxx:,R=HDF1:,PORT=FileHDF1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=SIM1,NDARRAY_ADDR=0")
+dbLoadRecords("$(ADCORE)/db/NDFile.template",      "P=xxx:,R=HDF1:,PORT=FileHDF1,ADDR=0,TIMEOUT=1")
+dbLoadRecords("$(ADCORE)/db/NDFileHDF5.template",  "P=xxx:,R=HDF1:,PORT=FileHDF1,ADDR=0,TIMEOUT=1")
