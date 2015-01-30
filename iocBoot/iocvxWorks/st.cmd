@@ -57,7 +57,10 @@ iocxxxVX_registerRecordDeviceDriver(pdbbase)
 
 ### Access Security
 dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=xxx:")
-asSetFilename("../accessSecurity.acf")
+# Use iocsh, because asSetFilename() doesn't expand macros
+iocsh
+asSetFilename("$(TOP)/iocBoot/accessSecurity.acf")
+exit
 asSetSubstitutions("P=xxx:")
 
 # caputRecorder
