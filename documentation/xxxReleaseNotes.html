@@ -10,6 +10,42 @@ content="text/html; charset=iso-8859-1">
 
 <h1 align="center">xxx Release Notes</h1>
 
+<h2 align="center">Release 5-8</h2>
+<ul>
+
+<li>Deleted xxxCommonInclude.dbd since it is no longer used.
+
+<li>Many changes for sreaDetector-2-0
+
+<li>Use the alive module
+
+<li>Added xxx.sh, a script to start/stop/restart a linux ioc in a screen session.
+Improved in-screen.sh and run scripts.
+
+<li>Rewrote xxxApp/src/Makefile: .dbd users must come after sources, so required
+stuff is defined before it is used, but .lib users must come before sources, so
+required references are encountered before a library is searched.  Added ifdefs
+for ETHERIP, ALIVE, DELAYGEN, and VAC modules.
+
+<li>New configure/CONFIG from 3.14.12.4 makeBaseApp
+
+<li>start_caQtDM: Added drag-and-drop workaround for caQtDM.
+
+<li>iocBoot/iocvxWorks, iocLinux: Changed many .cmd files to use doAfterIocInit.
+Added commented out examples of using autosaveBuild.  (AutosaveBuild requires
+either base 3.15.1, or a patched copy of base 3.14.12.)
+
+<li>iocBoot/iocvxWorks/softGlue.cmd: Example of registered interrupt service
+routine.
+
+<li>iocBoot/ioc*/calc.cmd: new file
+
+<li>xxxApp/src/Makefile: changes to build with 3.15
+
+<li>Many changes to use caputRecorder
+
+</ul>
+
 <h2 align="center">Release 5-7-1</h2>
 <ul>
 
