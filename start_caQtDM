@@ -117,6 +117,10 @@ setenv EPICS_CA_MAX_ARRAY_BYTES 64008
 
 cd ${EPICS_APP_UI_DIR}
 
+setenv START_PUTRECORDER ${EPICS_APP}/start_putrecorder
+setenv MACROS_PY ${EPICS_APP_ADL_DIR}/../python/macros.py
+setenv EDITOR nedit
+
 setenv LD_LIBRARY_PATH /APSshare/caqtdm/lib:/APSshare/epics/base-3.14.12.3/lib/linux-x86_64
 setenv QT_PLUGIN_PATH /APSshare/caqtdm/plugins
 alias caQtDM /APSshare/caqtdm/bin/caQtDM
