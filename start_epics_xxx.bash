@@ -23,6 +23,7 @@ append_EDP  ${AUTOSAVE}/asApp/op/adl
 append_EDP  ${BUSY}/busyApp/op/adl
 append_EDP  ${CALC}/calcApp/op/adl
 append_EDP  ${CAMAC}/camacApp/op/adl
+append_EDP  ${CAPUTRECORDER}/caputRecorderApp/op/adl
 append_EDP  ${DAC128V}/dac128VApp/op/adl
 append_EDP  ${DELAYGEN}/delaygenApp/op/adl
 append_EDP  ${DEVIOCSTATS}/op/adl
@@ -60,6 +61,10 @@ fi
 # This should agree with the environment variable set by the ioc
 # see 'putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"' in iocBoot/ioc<target>/st.cmd
 export EPICS_CA_MAX_ARRAY_BYTES=64008
+
+setenv START_PUTRECORDER ${EPICS_APP}/start_putrecorder
+setenv MACROS_PY ${EPICS_APP_ADL_DIR}/../python/macros.py
+setenv EDITOR nedit
 
 cd ${EPICS_APP}/xxxApp/op/adl
 medm xxx.adl&
