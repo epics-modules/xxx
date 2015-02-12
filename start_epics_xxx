@@ -16,5 +16,8 @@ source ./setup_epics_common
 echo ${EPICS_DISPLAY_PATH}
 cd ${EPICS_APP_ADL_DIR}
 
+setenv START_PUTRECORDER ${EPICS_APP}/start_putrecorder
+setenv MACROS_PY ${EPICS_APP_ADL_DIR}/../python/macros.py
+setenv EDITOR nedit
 # start MEDM
 medm xxx.adl &
