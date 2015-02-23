@@ -3,7 +3,7 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-54a3d06c:14b7f0b19f8:-7ff1</wuid>
+  <wuid>1fd27385:14bb889ca83:-7fe5</wuid>
   <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
@@ -36,7 +36,7 @@
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fda</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fce</wuid>
     <scripts />
     <height>27</height>
     <name>Grouping Container</name>
@@ -74,7 +74,7 @@
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>-54a3d06c:14b7f0b19f8:-7fd9</wuid>
+      <wuid>1fd27385:14bb889ca83:-7fcd</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>25</height>
@@ -125,7 +125,7 @@
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>-54a3d06c:14b7f0b19f8:-7fd8</wuid>
+      <wuid>1fd27385:14bb889ca83:-7fcc</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>25</height>
@@ -176,7 +176,7 @@
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>-54a3d06c:14b7f0b19f8:-7fd7</wuid>
+      <wuid>1fd27385:14bb889ca83:-7fcb</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>25</height>
@@ -229,7 +229,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7ff0</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fe4</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -421,7 +421,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fef</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fe3</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -608,7 +608,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fee</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fe2</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -758,7 +758,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fed</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fe1</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -909,7 +909,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fec</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fe0</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1043,7 +1043,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7feb</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fdf</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1107,7 +1107,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fea</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fde</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1171,7 +1171,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fe9</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fdd</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1241,7 +1241,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fe8</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fdc</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1297,7 +1297,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fe7</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fdb</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1371,7 +1371,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fe6</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fda</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1442,7 +1442,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fe5</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fd9</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1595,7 +1595,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fe4</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fd8</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1711,7 +1711,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fe3</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fd7</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1781,7 +1781,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fe2</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fd6</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1851,7 +1851,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fe1</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fd5</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1949,7 +1949,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fe0</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fd4</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2033,7 +2033,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fdf</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fd3</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2086,7 +2086,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fde</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fd2</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2159,7 +2159,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fdd</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fd1</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2283,7 +2283,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fdc</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fd0</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2335,7 +2335,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fdb</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fcf</wuid>
     <scripts />
     <height>29</height>
     <style>1</style>
@@ -2389,7 +2389,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fd6</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fca</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2471,7 +2471,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fd5</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fc9</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2555,7 +2555,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fd4</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fc8</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2637,7 +2637,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fd3</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fc7</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2690,7 +2690,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fd2</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fc6</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2800,7 +2800,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fd1</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fc5</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2916,7 +2916,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fd0</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fc4</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3040,7 +3040,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fcf</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fc3</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3080,9 +3080,20 @@ $(pv_value)</tooltip>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
+          <L>xxx:</L>
         </macros>
         <replace>0</replace>
         <description>caputRecorder</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>caputRecorder.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>xxxA:</P>
+          <L>xxx:</L>
+        </macros>
+        <replace>0</replace>
+        <description>caputRecorderA</description>
       </action>
     </actions>
     <tooltip>$(pv_name)
@@ -3093,7 +3104,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fce</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fc2</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3150,7 +3161,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fcd</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fc1</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3214,7 +3225,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fcc</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fc0</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3269,7 +3280,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fcb</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fbf</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3426,7 +3437,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fca</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fbe</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3483,7 +3494,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fc9</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fbd</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3547,7 +3558,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fc8</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fbc</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3653,7 +3664,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fc7</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fbb</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3735,7 +3746,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fc6</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fba</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3855,7 +3866,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fc5</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fb9</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -3951,7 +3962,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fc4</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fb8</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4005,7 +4016,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fc3</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fb7</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4132,7 +4143,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fc2</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fb6</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4196,7 +4207,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fc1</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fb5</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4335,7 +4346,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fc0</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fb4</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4419,7 +4430,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fbf</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fb3</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4473,7 +4484,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fbe</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fb2</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4527,7 +4538,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fbd</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fb1</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4581,7 +4592,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fbc</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fb0</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4651,7 +4662,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fbb</wuid>
+    <wuid>1fd27385:14bb889ca83:-7faf</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4843,7 +4854,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fba</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fae</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -4933,7 +4944,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-54a3d06c:14b7f0b19f8:-7fb9</wuid>
+    <wuid>1fd27385:14bb889ca83:-7fad</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
