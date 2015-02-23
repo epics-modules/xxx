@@ -57,15 +57,22 @@ iocxxxVX_registerRecordDeviceDriver(pdbbase)
 
 ### Access Security
 dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=xxx:")
-# Use iocsh, because asSetFilename() doesn't expand macros
 iocsh
 asSetFilename("$(TOP)/iocBoot/accessSecurity.acf")
 exit
 asSetSubstitutions("P=xxx:")
 
-# caputRecorder
-dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxx:,N=300")
+### caputRecorder
+#var caputRecorderDebug,1
+# trap listener
+dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputPoster.db","P=xxx:,N=300")
 doAfterIocInit("registerCaputRecorderTrapListener('xxx:caputRecorderCommand')")
+
+# GUI database
+dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxx:,N=300")
+
+# second copy of GUI database
+dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxxA:,N=300")
 
 # Industry Pack support
 < industryPack.cmd
@@ -145,7 +152,7 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m
 
 ### Optical tables
 putenv "DIR=$(OPTICS)/opticsApp/Db"
-dbLoadRecords("$(DIR)/table.db","P=xxx:,Q=Table1,T=table1,M0X=m9,M0Y=m10,M1Y=m11,M2X=m12,M2Y=m13,M2Z=m14,GEOM=SRI")
+dbLoadRecords("$(DIR)/table.db","P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
 
 ### Io calculation
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/Io.db","P=xxx:Io:")
@@ -261,7 +268,7 @@ dbLoadTemplate "filter.substitutions"
 
 ### Load database record for alive heartbeating support.
 # RHOST specifies the IP address that receives the heartbeats.
-#dbLoadRecords("$(ALIVE)/aliveApp/Db/alive.db", "P=xxx:,RHOST=X.X.X.X")
+dbLoadRecords("$(ALIVE)/aliveApp/Db/alive.db", "P=xxx:,RHOST=164.54.100.11")
 
 ###############################################################################
 # Set shell prompt
