@@ -51,7 +51,7 @@ doAfterIocInit("create_monitor_set('auto_positions.req',5,'P=xxx:')")
 
 set_pass0_restoreFile("auto_settings.sav")
 set_pass1_restoreFile("auto_settings.sav")
-#doAfterIocInit("create_monitor_set('auto_settings.req',30,'P=xxx:')")
+doAfterIocInit("create_monitor_set('auto_settings.req',30,'P=xxx:')")
 
 # Note that you can restore a .sav file without also autosaving to it.
 #set_pass0_restoreFile("octupole_settings.sav")
