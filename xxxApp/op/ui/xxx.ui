@@ -14,6 +14,7 @@
         <string>
 
 QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
+QPushButton::menu-indicator {image: url(none.png); width: 0}
 
 </string>
     </property>
@@ -1399,16 +1400,16 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>caputRecorder</string>
+                <string>caputRecorder;caputRecorderA</string>
             </property>
             <property name="files">
-                <string>caputRecorder.adl</string>
+                <string>caputRecorder.adl;caputRecorder.adl</string>
             </property>
             <property name="args">
-                <string>P=xxx:</string>
+                <string>P=xxx:,L=xxx:;P=xxxA:,L=xxx:</string>
             </property>
             <property name="removeParent">
-                <string>false</string>
+                <string>false;false</string>
             </property>
         </widget>
         <widget class="caRelatedDisplay" name="caRelatedDisplay_29">
