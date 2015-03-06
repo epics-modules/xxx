@@ -25,6 +25,7 @@ if ( ${?AREA_DETECTOR} ) then
 endif
 if ( ${?ADCORE} ) then
 	setenv QTDMDP ${QTDMDP}:${ADCORE}/ADApp/op/ui
+	setenv QTDMDP ${QTDMDP}:${ADCORE}/ADApp/op/ui/autoconvert
 endif
 if ( ${?ASYN} ) then
 	setenv QTDMDP ${QTDMDP}:${ASYN}/opi/caqtdm
