@@ -3,6 +3,7 @@
 # For devIocStats
 epicsEnvSet("ENGINEER","engineer")
 epicsEnvSet("LOCATION","location")
+epicsEnvSet("GROUP","group")
 
 < envPaths
 
