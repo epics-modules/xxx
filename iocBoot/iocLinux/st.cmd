@@ -3,6 +3,7 @@
 # For devIocStats
 epicsEnvSet("ENGINEER","engineer")
 epicsEnvSet("LOCATION","location")
+epicsEnvSet("GROUP","group")
 
 < envPaths
 
@@ -32,7 +33,7 @@ asSetFilename("$(TOP)/iocBoot/accessSecurity.acf")
 asSetSubstitutions("P=xxx:")
 
 ### caputRecorder
-#var caputRecorderDebug,1
+
 # trap listener
 dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputPoster.db","P=xxx:,N=300")
 doAfterIocInit("registerCaputRecorderTrapListener('xxx:caputRecorderCommand')")
