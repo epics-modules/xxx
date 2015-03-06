@@ -7,6 +7,7 @@ sysVmeMapShow
 #epicsEnvSet("LOCATION", "location")
 putenv("ENGINEER=engineer")
 putenv("LOCATION=location")
+putenv("GROUP=group")
 
 cd ""
 < ../nfsCommands
@@ -63,7 +64,7 @@ exit
 asSetSubstitutions("P=xxx:")
 
 ### caputRecorder
-#var caputRecorderDebug,1
+
 # trap listener
 dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputPoster.db","P=xxx:,N=300")
 doAfterIocInit("registerCaputRecorderTrapListener('xxx:caputRecorderCommand')")
@@ -72,7 +73,7 @@ doAfterIocInit("registerCaputRecorderTrapListener('xxx:caputRecorderCommand')")
 dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxx:,N=300")
 
 # second copy of GUI database
-dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxxA:,N=300")
+#dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxxA:,N=300")
 
 # Industry Pack support
 < industryPack.cmd
