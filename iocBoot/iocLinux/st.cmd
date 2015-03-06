@@ -3,6 +3,7 @@
 # For devIocStats
 epicsEnvSet("ENGINEER","engineer")
 epicsEnvSet("LOCATION","location")
+epicsEnvSet("GROUP","group")
 
 < envPaths
 
@@ -31,9 +32,17 @@ dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=xxx:")
 asSetFilename("$(TOP)/iocBoot/accessSecurity.acf")
 asSetSubstitutions("P=xxx:")
 
-# caputRecorder
-dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxx:,N=300")
+### caputRecorder
+
+# trap listener
+dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputPoster.db","P=xxx:,N=300")
 doAfterIocInit("registerCaputRecorderTrapListener('xxx:caputRecorderCommand')")
+
+# GUI database
+dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxx:,N=300")
+
+# second copy of GUI database
+#dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxxA:,N=300")
 
 # if you have hdf5 and szip, you can use this
 #< areaDetector.cmd

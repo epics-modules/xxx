@@ -3,9 +3,6 @@
 # start, or restart, caputRecorder.py
 
 PREFIX=$1
-if [ "" == "${PREFIX}" ] ; then
-	PREFIX="xxx:"
-fi
 
 EPICS_APP=/home/oxygen/MOONEY/epics/synApps/support/xxx
 MACROS_PY_DIR=${EPICS_APP}/xxxApp/op/python
@@ -16,27 +13,13 @@ eval $output
 CAPUTRECORDER_PY=${CAPUTRECORDER}/caputRecorderApp/op/python/caputRecorder.py
 
 arch=`uname -p`
-COMMAND="/APSshare/anaconda/${arch}/bin/python ${CAPUTRECORDER_PY} ${PREFIX}"
-sh
-MY_UID=`id -u`
-CAPUTRECORDER_PID=`pgrep -f "${COMMAND}" -u $MY_UID`
+COMMAND="/APSshare/anaconda/${arch}/bin/python ${CAPUTRECORDER_PY}"
 
-if [ "" != "${CAPUTRECORDER_PID}" ] ; then
-	kill ${CAPUTRECORDER_PID}
-fi
-
-
-cd ${MACROS_PY_DIR}
 export PYTHONPATH=${MACROS_PY_DIR}:$PYTHONPATH
+MACROS_PY=${MACROS_PY_DIR}/"macros_"${PREFIX}.py
 
 # start caputRecorder.py
-# The first prefix specifies the caputRecorder.db database instance that will
-# function as a user interface for caputRecorder.py, and notify it when a
-# caput occurrs.
-$COMMAND&
+$COMMAND ${PREFIX} ${MACROS_PY}&
 
-# To record caputs to other iocs, add their prefixes to the command line:
-# All iocs must be running access security configured to trap writes, and
-# must load caputRecorder.db.
-#${COMMAND} yyy: zzz:&
-
+# start caputRecorder.py with more prefixes
+#$COMMAND ${PREFIX} yyy: zzz: ${MACROS_PY}&

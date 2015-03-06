@@ -62,9 +62,9 @@ fi
 # see 'putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"' in iocBoot/ioc<target>/st.cmd
 export EPICS_CA_MAX_ARRAY_BYTES=64008
 
-setenv START_PUTRECORDER ${EPICS_APP}/start_putrecorder
-setenv MACROS_PY ${EPICS_APP_ADL_DIR}/../python/macros.py
-setenv EDITOR nedit
+export START_PUTRECORDER=${EPICS_APP}/start_putrecorder
+export MACROS_PY=${EPICS_APP_ADL_DIR}/../python/macros.py
+export EDITOR=nedit
 
 cd ${EPICS_APP}/xxxApp/op/adl
 medm xxx.adl&

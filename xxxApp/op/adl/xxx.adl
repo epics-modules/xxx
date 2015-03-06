@@ -1205,7 +1205,12 @@ composite {
 	display[0] {
 		label="caputRecorder"
 		name="caputRecorder.adl"
-		args="P=xxx:"
+		args="P=xxx:,L=xxx:"
+	}
+	display[1] {
+		label="caputRecorderA"
+		name="caputRecorder.adl"
+		args="P=xxxA:,L=xxx:"
 	}
 	clr=0
 	bclr=17
