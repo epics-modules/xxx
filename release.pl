@@ -32,8 +32,6 @@ sub Parse
 {	
 	my ($file, $applications) = @_;	
 	
-	local $top;
-	
 	if (-r "$file")
 	{
 		open(my $fh, "$file") or die "Cannot open $file\n";
@@ -115,7 +113,9 @@ sub Parse
     }
 }
 
-my $applications = {TOP => $top};
+my $applications;
+
+$applications{"TOP"} = $top;
 
 if ($ENV{GATEWAY} ne "")
 {
