@@ -10,12 +10,31 @@ content="text/html; charset=iso-8859-1">
 
 <h1 align="center">xxx Release Notes</h1>
 
+<h2 align="center">Release 5-8-3</h2>
+<ul>
+
+<li>Changes to support caputRecorder
+<li>Added GROUP env var for alive record
+
+<li>release.pl modified so that module definitions are processed in the order
+they occur.  This allows, for example, the following:
+<pre>
+include $(SUPPORT)/configure/RELEASE
+CAPUTRECORDER=$(SUPPORT)/caputRecorder-1-4-2
+</pre>
+
+in which the CAPUTRECORDER definition overrides the definition in
+$(SUPPORT)/configure/RELEASE
+
+</ul>
+
+
 <h2 align="center">Release 5-8</h2>
 <ul>
 
 <li>Deleted xxxCommonInclude.dbd since it is no longer used.
 
-<li>Many changes for sreaDetector-2-0
+<li>Many changes for areaDetector-2-0
 
 <li>Use the alive module
 
