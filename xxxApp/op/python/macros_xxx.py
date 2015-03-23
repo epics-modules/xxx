@@ -84,46 +84,6 @@ def copyMotorSettings(fromMotor="xxx:m1", toMotor="xxx:m2"):
 		val = epics.caget(fromMotor+field)
 		epics.caput(toMotor+field, val)
 
-def getDbd(prefix="xxx:"):
-	a1 = epics.caget(prefix+"APP_DIR1")
-	a2 = epics.caget(prefix+"APP_DIR2")
-	appDir = a1+a2
-	s1 = epics.caget(prefix+"ST_SCRIPT1")
-	s2 = epics.caget(prefix+"ST_SCRIPT2")
-	startupScript=os.path.join(s1+s2, "st.cmd")
-	startupFile = open(startupScript)
-	lines = startupFile.readlines()
-	startupFile.close()
-
-	dbdFile = None
-	for line in lines:
-		line = line.strip()
-		if line.startswith("dbLoadDatabase"):
-			print "line = ", line
-			startIx = line.index('"')+1
-			endIx = line.rindex('"')
-			dbdFileName = os.path.basename(line[startIx:endIx])
-			dbdFilePath = os.path.dirname(os.path.dirname(appDir))
-			dbdFilePath = os.path.join(dbdFilePath,"dbd")
-			dbdFilePath = os.path.join(dbdFilePath, dbdFileName)
-			print "dbdFilePath = ", dbdFilePath
-
-def backforth():
-	recordDate = "Tue Mar 17 21:07:47 2015"
-	epics.caput("xxx:m1.TWF","1", wait=True, timeout=1000000.0)
-	epics.caput("xxx:m1.TWR","1", wait=True, timeout=1000000.0)
-
-def backforthM(motor="xxx:m1"):
-	recordDate = "Tue Mar 17 21:07:47 2015"
-	epics.caput(motor+".TWF","1", wait=True, timeout=1000000.0)
-	epics.caput(motor+".TWR","1", wait=True, timeout=1000000.0)
-
-def testInclude():
-	recordDate = "Wed Mar 18 14:08:42 2015"
-	epics.caput("xxx:m2.TWF","1", wait=True, timeout=1000000.0)
-	backforth()
-	epics.caput("xxx:m2.TWR","1", wait=True, timeout=1000000.0)
-	backforth()
 
 
 
