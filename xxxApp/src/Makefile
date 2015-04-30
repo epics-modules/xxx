@@ -131,10 +131,8 @@ ifdef STREAM
 endif
 
 ifdef DEVIOCSTATS
-  ifneq ($(OS_CLASS), WIN32)
 	xxx_Common_DBD += devIocStats.dbd iocAdmin.dbd
 	xxx_Common_LIBS := devIocStats $(xxx_Common_LIBS)
-  endif
 endif
 
 ifdef ETHERIP
@@ -184,6 +182,16 @@ ifeq (win32-x86,$(findstring win32-x86, $(T_A)))
 		xxx_SYS_LIBS_WIN32 += setupapi
 	endif
 
+	ifdef AREA_DETECTOR
+		# areaDetector provides a Makefile for things it needs and supplies
+		PROD_NAME = AD
+		-include $(ADCORE)/ADApp/commonDriverMakefile
+		iocxxxWin32_DBD += ADSupport.dbd NDPluginSupport.dbd
+		xxx_LIBS_WIN32 += $(AD_LIBS)
+		# To add the simDetector uncomment the following lines
+		iocxxxLinux_DBD += simDetectorSupport.dbd
+		xxx_LIBS_WIN32 += simDetector
+	endif
 endif
 
 ifeq (windows-x64,$(findstring windows-x64, $(T_A)))
@@ -198,6 +206,16 @@ ifeq (windows-x64,$(findstring windows-x64, $(T_A)))
 		xxx_LIBS_WIN32 += wpcap Packet
 	endif
 
+	ifdef AREA_DETECTOR
+		# areaDetector provides a Makefile for things it needs and supplies
+		PROD_NAME = AD
+		-include $(ADCORE)/ADApp/commonDriverMakefile
+		iocxxxWin64_DBD += ADSupport.dbd NDPluginSupport.dbd
+		xxx_LIBS_WIN32 += $(AD_LIBS)
+		# To add the simDetector uncomment the following lines
+		iocxxxLinux_DBD += simDetectorSupport.dbd
+		xxx_LIBS_WIN32 += simDetector
+	endif
 endif
 
 ifeq ($(EPICS_HOST_ARCH), cygwin-x86)
