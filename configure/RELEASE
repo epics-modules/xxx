@@ -26,11 +26,15 @@
 ##############################################################################
 
 # Define the path to the synApps support directory and uncomment.
-SUPPORT=/home/oxygen/MOONEY/epics/synAppsSVN/support
+SUPPORT=/corvette/home/epics/devel
+-include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
 
 # Specify the standard synApps configuration.
 include $(SUPPORT)/configure/RELEASE
 #CAPUTLOG=$(SUPPORT)/caPutLog-3-4
+# We might need to redefine SUPPORT and EPICS_BASE after including that file
+-include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
+-include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH) 
 
 # For a local, custom configuration; copy $(SUPPORT)/configure/RELEASE
 # to this directory as the file MASTER_RELEASE, edit the file, comment out
