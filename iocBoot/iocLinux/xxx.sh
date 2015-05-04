@@ -6,6 +6,10 @@
 # Manually set IOC_STARTUP_DIR if xxx.sh will reside somewhere other than iocxxx
 #!IOC_STARTUP_DIR=/home/username/epics/ioc/synApps/xxx/iocBoot/iocxxx
 
+# Set EPICS_HOST_ARCH if the env var isn't already set properly for this IOC
+#!EPICS_HOST_ARCH=linux-x86_64
+#!EPICS_HOST_ARCH=linux-x86_64-debug
+
 IOC_NAME=xxx
 # The name of the IOC binary isn't necessarily the same as the name of the IOC
 IOC_BINARY=xxx
@@ -48,6 +52,8 @@ fi
 
 #####################################################################
 
+IOC_CMD="../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} st.cmd"
+
 screenpid() {
         if [ -z ${SCREEN_PID} ] ; then
 	    ${ECHO}
@@ -60,7 +66,7 @@ checkpid() {
     MY_UID=`${ID} -u`
     # The '\$' is needed in the pgrep pattern to select xxx, but not xxx.sh
     IOC_PID=`${PGREP} ${IOC_BINARY}\$ -u ${MY_UID}`
-    #!echo "IOC_PID=${IOC_PID}"
+    #!${ECHO} "IOC_PID=${IOC_PID}"
 
     if [ "${IOC_PID}" != "" ] ; then
         # Assume the IOC is down until proven otherwise
@@ -81,17 +87,26 @@ checkpid() {
 
                 if [ ${GET_SCREEN_PID} == "YES" ]
 		then
-		    # Get the PID of the parent of the IOC (shell)
+		    # Get the PID of the parent of the IOC (shell or screen)
 		    P_PID=`${PS} -p ${IOC_PID} -o ppid=`
+		    
 		    # Get the PID of the grandparent of the IOC (sshd, screen, or ???)
 		    GP_PID=`${PS} -p ${P_PID} -o ppid=`
-		
+
+		    #!${ECHO} "P_PID=${P_PID}, GP_PID=${GP_PID}"
+
 		    # Get the screen PIDs
 		    S_PIDS=`${PGREP} screen`
 		
 		    for s_pid in ${S_PIDS}
 		    do
-		        #echo ${s_pid}
+		        #!${ECHO} ${s_pid}
+
+		        if [ ${s_pid} == ${P_PID} ] ; then
+			    SCREEN_PID=${s_pid}
+			    break
+	                fi
+		
 		        if [ ${s_pid} == ${GP_PID} ] ; then
 			    SCREEN_PID=${s_pid}
 			    break
@@ -102,9 +117,9 @@ checkpid() {
 		
 		break
 	    #else
-	    #    echo "PATHS are different"
-	    #    echo $BIN_CWD
-	    #    echo $IOC_CWD
+	    #    ${ECHO} "PATHS are different"
+	    #    ${ECHO} ${BIN_CWD}
+	    #    ${ECHO} ${IOC_CWD}
 	    fi
 	done
     else
@@ -122,9 +137,8 @@ start() {
     else
         ${ECHO} "Starting ${IOC_NAME}"
         cd ${IOC_STARTUP_DIR}
-	./in-screen.sh
-	# Run xxx outside of a screen session, which is helpful for debugging
-	#!./run
+	# Run xxx inside a screen session
+	${SCREEN} -dm -S ${IOC_NAME} -h 5000 ${IOC_CMD}
     fi
 }
 
@@ -163,8 +177,20 @@ console() {
     fi
 }
 
+run() {
+    if checkpid; then
+        ${ECHO} -n "${IOC_NAME} is already running (pid=${IOC_PID})"
+	screenpid
+    else
+        ${ECHO} "Starting ${IOC_NAME}"
+        cd ${IOC_STARTUP_DIR}
+	# Run xxx outside of a screen session, which is helpful for debugging
+	${IOC_CMD}
+    fi
+}
+
 usage() {
-    ${ECHO} "Usage: $(${BASENAME} ${SNAME}) {start|stop|restart|status|console}"
+    ${ECHO} "Usage: $(${BASENAME} ${SNAME}) {start|stop|restart|status|console|run}"
 }
 
 #####################################################################
@@ -193,6 +219,10 @@ else
 	
         console)
             console
+	    ;;
+
+        run)
+            run
 	    ;;
 
         *)
