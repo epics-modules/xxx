@@ -20,9 +20,9 @@
 # 03/20/15 kcl Rewrite to use recursive function, allows in-place resolution of included files
 
 #
-#Version:	$Revision: 2.0 $
-#Modified By:	$Author: klang $
-#Last Modified:	$Date: 2011-04-06 20:39:55 $
+#Version:       $Revision$
+#Modified By:   $Author$
+#Last Modified: $Date$
 
 use Env;
 
