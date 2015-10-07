@@ -469,13 +469,13 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>IOC Status soft ioc;IOC Status vxworks ioc;save_restore Status</string>
+                <string>IOC Status soft ioc;IOC Status vxworks ioc;save_restore Status;alive record</string>
             </property>
             <property name="files">
-                <string>ioc_stats_soft.adl;ioc_stats_vxworks.adl;save_restoreStatus.adl</string>
+                <string>ioc_stats_soft.adl;ioc_stats_vxworks.adl;save_restoreStatus.adl;aliveRecord.adl</string>
             </property>
             <property name="args">
-                <string>ioc=xxx;ioc=xxx;P=xxx:</string>
+                <string>ioc=xxx;ioc=xxx;P=xxx:;P=xxx:</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false</string>
