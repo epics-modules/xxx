@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synAppsSVN/support/xxx/xxxApp/op/adl/xxx.adl"
+	name="/home/oxygen25/DOHNARMS/svn_pub/xxx/trunk/xxxApp/op/adl/xxx.adl"
 	version=030107
 }
 display {
@@ -495,6 +495,11 @@ display {
 	display[2] {
 		label="save_restore Status"
 		name="save_restoreStatus.adl"
+		args="P=xxx:"
+	}
+	display[3] {
+		label="alive record"
+		name="aliveRecord.adl"
 		args="P=xxx:"
 	}
 	clr=0
