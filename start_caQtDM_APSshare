@@ -30,6 +30,9 @@ endif
 if ( ${?ASYN} ) then
 	setenv QTDMDP ${QTDMDP}:${ASYN}/opi/caqtdm
 endif
+if ( ${?ALIVE} ) then
+	setenv QTDMDP ${QTDMDP}:${ALIVE}/aliveApp/op/ui
+endif
 if ( ${?AUTOSAVE} ) then
 	setenv QTDMDP ${QTDMDP}:${AUTOSAVE}/asApp/op/ui
 endif

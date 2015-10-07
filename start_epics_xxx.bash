@@ -18,6 +18,7 @@ function append_EDP { # note: in bash, macros are not expanded in aliases
 }
 EDP=.
 append_EDP  ${EPICS_APP_ADL_DIR}
+append_EDP  ${ALIVE}/aliveApp/op/adl
 append_EDP  ${AREA_DETECTOR}/ADApp/op/adl
 append_EDP  ${AUTOSAVE}/asApp/op/adl
 append_EDP  ${BUSY}/busyApp/op/adl
