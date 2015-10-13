@@ -78,14 +78,14 @@ checkpid() {
 	    BIN_CWD=`${READLINK} /proc/${pid}/cwd`
 	    IOC_CWD=`${READLINK} -f ${IOC_STARTUP_DIR}`
 	    
-	    if [ $BIN_CWD == $IOC_CWD ] ; then
+	    if [ "$BIN_CWD" == "$IOC_CWD" ] ; then
 		# The IOC is running; the binary with PID=$pid is the IOC that was run from $IOC_STARTUP_DIR
 		IOC_PID=${pid}
 		IOC_DOWN=0
 		
 		SCREEN_PID=""
 
-                if [ ${GET_SCREEN_PID} == "YES" ]
+                if [ "${GET_SCREEN_PID}" == "YES" ]
 		then
 		    # Get the PID of the parent of the IOC (shell or screen)
 		    P_PID=`${PS} -p ${IOC_PID} -o ppid=`
@@ -102,12 +102,12 @@ checkpid() {
 		    do
 		        #!${ECHO} ${s_pid}
 
-		        if [ ${s_pid} == ${P_PID} ] ; then
+		        if [ "${s_pid}" == "${P_PID}" ] ; then
 			    SCREEN_PID=${s_pid}
 			    break
 	                fi
 		
-		        if [ ${s_pid} == ${GP_PID} ] ; then
+		        if [ "${s_pid}" == "${GP_PID}" ] ; then
 			    SCREEN_PID=${s_pid}
 			    break
 	                fi
