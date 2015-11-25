@@ -45,7 +45,7 @@ ipacReport(2)
 < serial.cmd
 
 # user programmable glue electronics (requires Acromag IP-EP20x)
-< softGlue.iocsh
+iocsh "softGlue.iocsh"
 
 # Systran DAC128V
 #< dac128V.cmd
