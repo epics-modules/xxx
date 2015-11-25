@@ -1,4 +1,6 @@
 ### Stuff for user programming ###
+dbLoadRecords("$(CALC)/calcApp/Db/userCalcGlobalEnable.db","P=xxx:")
+
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=xxx:")
 appendToFile("$(BUILT_SETTINGS)", '$(P)userCalcEnable')
 
