@@ -39,7 +39,7 @@ epicsEnvSet("READEVENT", "10")
 #initIP_EP200_FPGA($(IPCARRIER), $(IPSLOT), "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_demux4.hex")
 #    standard softGlue 2.2 plus two 32-bit up/down counters plus two quadrature decoders plus
 #    one 32-bit mgnitude comparator plus 1 8-bit up/down counter.
-initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_encoder_ave.hex")
+initIP_EP200_FPGA($(IPCARRIER), $(IPSLOT), "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_encoder_ave.hex")
 
 ################################################################################
 #    Initialize basic field I/O 
