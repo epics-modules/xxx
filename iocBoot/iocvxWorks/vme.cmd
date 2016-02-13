@@ -20,26 +20,36 @@
 #     (2)VME Address Type (16,24,32).
 #     (3)Base Address on 4K (0x1000) boundary.
 #     (4)interrupt vector (0=disable or  64 - 255).
-#     (5)interrupt level (1 - 6).
+#     (5)interrupt level (2 - 6).
 #     (6)motor task polling rate (min=1Hz,max=60Hz).
 #drvMAXvdebug=4
-MAXvSetup(2, 16, 0xE000,     180, 5, 10)
+MAXvSetup(2, 16, 0xE000, 180, 5, 10)
 
 # OMS MAXv configuration string:
 #     (1) number of card being configured (0-14).
 #     (2) configuration string; axis type (PSO/PSE/PSM) MUST be set here.
-#         For example, set which TTL signal level defines
-#         an active limit switch.  Set X,Y,Z,T to active low and set U,V,R,S
-#         to active high.  Set all axes to open-loop stepper (PSO). See MAXv
-#         User's Manual for LL/LH and PSO/PSE/PSM commands.
+#         For example, set which TTL signal level defines an active limit
+#         switch.  The "config" example below sets X,Y,Z,T to active low (LTL),
+#         sets U,V,R,S to active high (LTH) and sets all axes to open-loop
+#         stepper (PSO). See MAXv User's Manual for LTL/LTH and PSO/PSE/PSM
+#         commands.
+#config="AX LTL PSO; AY LTL PSO; AZ LTL PSO; AT LTL PSO; AU LTH PSO; AV LTH PSO; AR LTH PSO; AS LTH PSO;"
 #     (3) SSI based absolute encoder bit flag. Bit #0 for Axis X, bit #1 for
 #         Axis Y, etc.. Set a bit flag to '1' for absolute encoder values; '0'
 #         for the standard incremental encoder values.
-#config0="AX LL PSO; AY LL PSO; AZ LL PSO; AT LL PSO; AU LH PSO; AV LH PSO; AR LH PSO; AS LH PSO;"
+#     (4) SSI based absolute encoder grey code flags (0/1 - yes/no, 0x12 -> UY)
 
-config0="AX LL PSO; AY LL PSO; AZ LL PSO; AT LL PSO; AU LL PSO; AV LL PSO; AR LL PSO; AS LL PSO;"
-MAXvConfig(0, config0, 0x00)
-MAXvConfig(1, config0, 0x00)
+str0 = malloc(200); str1 = malloc(200);
+# Set Limit Mode to "Hard Limit Mode" for all axes.
+strcpy str0, "AA; LMH,H,H,H,H,H,H,H;"; strcpy str1, str0
+
+strcat str0, "AX LTH PSO; AY LTH PSO; AZ LTL PSO; AT LTL PSO; AU LTL PSO; AV LTL PSO; AR LTL PSO; AS LTL PSO;"
+MAXvConfig(0, str0, 0, 0)
+strcat str1, "AX LTL PSE; AY LTL PSE; AZ LTL PSE; AT LTL PSO; AU LTL PSO; AV LTL PSO; AR LTL PSO; AS LTL PSO;"
+MAXvConfig(1, str1, 0, 0)
+
+free(str0); free(str1)
+
 
 ### Scalers: Joerger VSC8/16
 #dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler2,OUT=#C1 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
