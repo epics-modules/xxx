@@ -13,9 +13,17 @@ epicsEnvSet("GROUP", "group")
 
 epicsEnvSet("PREFIX", "xxx:")
 
+### For alive
+epicsEnvSet("IOCBOOT", $(TOP)/iocBoot/$(IOC))
+
+epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(DEVIOCSTATS)/db")
 
 # set the protocol path for streamDevice
 epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
+
+# save_restore.cmd needs the full path to the startup directory, which
+# envPaths currently does not provide
+epicsEnvSet(STARTUP,$(TOP)/iocBoot/$(IOC))
 
 # Specify largest array CA will transport
 # Note for N doubles, need N*8 bytes+some overhead
@@ -41,20 +49,10 @@ dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=$(PREFI
 # second copy of GUI database
 #dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxxA:,N=300")
 
-# Industry Pack support
-< industryPack.cmd
-
-
-# gpib support
-#< gpib.cmd
-
-# VME devices
-< vme.cmd
-
-# CAMAC hardware
-#<camac.cmd
-
 #< areaDetector.cmd
+
+# user-assignable ramp/tweak
+dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=$(PREFIX),Q=rt1")
 
 # Motors
 #dbLoadTemplate("basic_motor.substitutions")
@@ -76,7 +74,7 @@ doAfterIocInit("motorUtilInit('$(PREFIX)')")
 # crate-resident scan.  This executes 1D, 2D, 3D, and 4D scans, and caches
 # 1D data, but it doesn't store anything to disk.  (See 'saveData' below for that.)
 epicsEnvSet("SDB", "$(SSCAN)/sscanApp/Db/standardScans.db")
-dbLoadRecords("$(SDB)","P=$(PREFIX),MAXPTS1=1000,MAXPTS2=1000,MAXPTS3=100,MAXPTS4=100,MAXPTSH=100")
+dbLoadRecords("$(SDB)","P=$(PREFIX),MAXPTS1=1000,MAXPTS2=1000,MAXPTS3=1000,MAXPTS4=1000,MAXPTSH=1000")
 #dbLoadRecords("$(SSCAN)/sscanApp/Db/scanAux.db","P=$(PREFIX),S=scanAux,MAXPTS=100")
 
 # Start the saveData task.  If you start this task, scan records mentioned
@@ -89,12 +87,12 @@ dbLoadRecords("$(SSCAN)/sscanApp/Db/scanProgress.db","P=$(PREFIX)scanProgress:")
 doAfterIocInit("seq &scanProgress, 'S=$(PREFIX), P=$(PREFIX)scanProgress:'")
 
 # configMenu example.
-#dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=$(PREFIX),CONFIG=scan1")
+dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=$(PREFIX),CONFIG=scan1")
 # Note that the request file MUST be named $(CONFIG)Menu.req
 # If the macro CONFIGMENU is defined with any value, backup (".savB") and
 # sequence files (".savN") will not be written.  We don't want these for configMenu.
 # Run this after iocInit:
-#doAfterIocInit("create_manual_set('scan1Menu.req','P=$(PREFIX),CONFIG=scan1,CONFIGMENU=1')")
+doAfterIocInit("create_manual_set('scan1Menu.req','P=$(PREFIX),CONFIG=scan1,CONFIGMENU=1')")
 # You could make scan configurations read-only:
 #dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=$(PREFIX),CONFIG=scan1,ENABLE_SAVE=0")
 
@@ -130,6 +128,8 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=$(PREFIX),SLIT=Slit1H,mXp=m5,
 ### Optical tables
 epicsEnvSet("DIR", "$(OPTICS)/opticsApp/Db")
 dbLoadRecords("$(DIR)/table.db","P=$(PREFIX),Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
+#dbLoadRecords("$(DIR)/table.db","P=$(PREFIX),Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=NEWPORT")
+#dbLoadRecords("$(DIR)/table.db","P=$(PREFIX),Q=Table2,T=table2,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
 
 # Io calculation
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/Io.db","P=$(PREFIX)Io:")
@@ -138,11 +138,10 @@ dbLoadRecords("$(DIR)/table.db","P=$(PREFIX),Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y
 ### Monochromator support ###
 # Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
 # standard geometry (geometry 1)
-dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=$(PREFIX),M_THETA=m1,M_Y=m2,M_Z=m3,yOffLo=17.4999,yOffHi=17.5001")
-doAfterIocInit("seq &kohzuCtl, 'P=$(PREFIX), M_THETA=m1, M_Y=m2, M_Z=m3, GEOM=1, logfile=kohzuCtl.log'")
-
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=$(PREFIX),M_THETA=m1,M_Y=m2,M_Z=m3,yOffLo=17.4999,yOffHi=17.5001")
+#doAfterIocInit("seq &kohzuCtl, 'P=$(PREFIX), M_THETA=m1, M_Y=m2, M_Z=m3, GEOM=1, logfile=kohzuCtl.log'")
 # modified geometry (geometry 2)
-#dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=$(PREFIX),M_THETA=m1,M_Y=m2,M_Z=m3,yOffLo=4,yOffHi=36")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/kohzuSeq.db","P=$(PREFIX),M_THETA=m1,M_Y=m2,M_Z=m2,yOffLo=4,yOffHi=36")
 #doAfterIocInit("seq &kohzuCtl, 'P=$(PREFIX), M_THETA=m1, M_Y=m2, M_Z=m3, GEOM=2, logfile=kohzuCtl.log'")
 # Example of specifying offset limits
 #doAfterIocInit("epicsThreadSleep(5.)")
@@ -165,10 +164,11 @@ doAfterIocInit("seq &kohzuCtl, 'P=$(PREFIX), M_THETA=m1, M_Y=m2, M_Z=m3, GEOM=1,
 ### Orientation matrix, four-circle diffractometer (see seq program 'orient' below)
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/orient.db", "P=$(PREFIX),O=1,PREC=6")
 #dbLoadTemplate("orient_xtals.substitutions")
-#doAfterIocInit("seq &orient, 'P=$(PREFIX)orient1:,PM=$(PREFIX),mTTH=m13,mTH=m14,mCHI=m15,mPHI=m16'")
+#doAfterIocInit("seq &orient, 'P=$(PREFIX)orient1:,PM=$(PREFIX),mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12'")
+
 
 # Coarse/Fine stage
-dbLoadRecords("$(OPTICS)/opticsApp/Db/CoarseFineMotor.db","P=$(PREFIX)cf1:,PM=$(PREFIX),CM=m7,FM=m8")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/CoarseFineMotor.db","P=$(PREFIX)cf1:,PM=$(PREFIX),CM=m7,FM=m8")
 
 # Load single element Canberra AIM MCA and ICB modules
 #< canberra_1.cmd
@@ -202,9 +202,6 @@ dbLoadTemplate "async_pid_slow.substitutions"
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=$(PREFIX)")
 
-# devIocStats
-dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=xxx")
-
 ### Queensgate piezo driver
 #dbLoadRecords("$(IP)/ipApp/Db/pzt.db","P=$(PREFIX)")
 #dbLoadRecords("$(IP)/ipApp/Db/pzt.db","P=$(PREFIX),PORT=")
@@ -232,12 +229,12 @@ epicsEnvSet("FBO", "$(PREFIX)Unidig1Bo")
 #        B2   = Filter control bit 1 number
 #        B3   = Filter control bit 2 number
 #        B4   = Filter control bit 3 number
-#doAfterIocInit("seq &pf4,'name=pf1,P=$(PREFIX),H=pf4:,B=A,M=$(PREFIX)BraggEAO,BP=$(PREFIX)Unidig1Bo,B1=3,B2=4,B3=5,B4=6'")
-#doAfterIocInit("seq &pf4,'name=pf2,P=$(PREFIX),H=pf4:,B=B,M=$(PREFIX)BraggEAO,BP=$(PREFIX)Unidig1Bo,B1=7,B2=8,B3=9,B4=10'")
+#doAfterIocInit("seq pf4,'name=pf1,P=$(PREFIX),H=pf4:,B=A,M=$(PREFIX)userTran10.I,B1=$(PREFIX)userTran10.A,B2=$(PREFIX)userTran10.B,B3=$(PREFIX)userTran10.C,B4=$(PREFIX)userTran10.D'")
+#doAfterIocInit("seq pf4,'name=pf2,P=$(PREFIX),H=pf4:,B=B,M=$(PREFIX)userTran10.I,B1=$(PREFIX)userTran10.E,B2=$(PREFIX)userTran10.F,B3=$(PREFIX)userTran10.G,B4=$(PREFIX)userTran10.H'")
 
 ### Load database records for alternative PF4-filter support
-dbLoadTemplate "filter.substitutions"
-#doAfterIocInit("seq &filterDrive,'NAME=filterDrive,P=$(PREFIX),R=filter:,NUM_FILTERS=16'")
+#dbLoadTemplate "filter.substitutions"
+#doAfterIocInit("seq filterDrive,'NAME=filterDrive,P=$(PREFIX),R=filter:,NUM_FILTERS=16'")
 
 # trajectory scan
 #dbLoadRecords("$(MOTOR)/motorApp/Db/trajectoryScan.db","P=$(PREFIX),R=traj1:,NAXES=2,NELM=300,NPULSE=300")
