@@ -43,7 +43,7 @@ iocLogDisable=0
 
 iocsh 
 
-< common.iocsh
+< st.iocsh
 
 # Industry Pack support
 < industryPack.cmd
