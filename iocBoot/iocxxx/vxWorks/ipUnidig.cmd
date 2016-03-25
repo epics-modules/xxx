@@ -23,6 +23,6 @@
 initIpUnidig("Unidig1", 0, 1, 2000, 116, 0xfffffb, 0xfffffb)
 
 # IP-Unidig binary I/O
-dbLoadTemplate "ipUnidig.substitutions"
+dbLoadTemplate "$(PLATFORM)/ipUnidig.substitutions"
 
 # END ipUnidig.cmd ------------------------------------------------------------
