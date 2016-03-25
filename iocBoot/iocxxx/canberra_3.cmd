@@ -1,5 +1,7 @@
 # BEGIN canberra_3.cmd --------------------------------------------------------
 
+epicsEnvSet("ETHER_DEV", "dc0")
+
 # AIMConfig(portName, ethernet_address, portNumber, maxChans,
 #           maxSignals, maxSequences, ethernetDevice)
 #    portName,         # asyn port name to be created
@@ -10,9 +12,9 @@
 #    maxSequences,     # Maximum sequences for time resolved applications
 #    ethernetDevice)   # Ethernet device name on IOC
 #                      # Typically ei0 for Motorola 68K, dc0 for ppc, fei0 for 5100, eth0 for Linux
-AIMConfig("AIM1/1", 0xa78, 1, 2048, 1, 1, "ei0")
-AIMConfig("AIM1/2", 0xa78, 2, 2048, 1, 1, "ei0")
-AIMConfig("AIM2/1", 0xa79, 1, 2048, 1, 1, "ei0")
+AIMConfig("AIM1/1", 0xa78, 1, 2048, 1, 1, $(ETHER_DEV))
+AIMConfig("AIM1/2", 0xa78, 2, 2048, 1, 1, $(ETHER_DEV))
+AIMConfig("AIM2/1", 0xa79, 1, 2048, 1, 1, $(ETHER_DEV))
 
 dbLoadRecords("$(MCA)/mcaApp/Db/3element.db","P=xxx:med:,BASENAME=mca,N=2000")
 # icbConfig(portName, ethernetAddress, icbAddress, moduleType)
