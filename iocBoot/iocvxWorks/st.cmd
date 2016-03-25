@@ -41,8 +41,9 @@ iocxxxVX_registerRecordDeviceDriver(pdbbase)
 shellPromptSet "iocvxWorks> "
 iocLogDisable=0
 
-# devIocStats
-dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=xxx")
+iocsh 
+
+< common.iocsh
 
 # Industry Pack support
 < industryPack.cmd
@@ -56,7 +57,8 @@ dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=xxx")
 # CAMAC hardware
 #<camac.cmd
 
-iocsh "common.iocsh"
+# devIocStats
+dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=xxx")
 
 ###############################################################################
 iocInit

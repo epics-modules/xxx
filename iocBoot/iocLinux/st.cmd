@@ -11,15 +11,15 @@ errlogInit(20000)
 dbLoadDatabase("../../dbd/iocxxxLinux.dbd")
 iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 
-# devIocStats
-dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
+< common.iocsh
 
 # soft scaler for testing
 < softScaler.cmd
 
 < motorSim.cmd
 
-< common.iocsh
+# devIocStats
+dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
 
 ###############################################################################
 iocInit
