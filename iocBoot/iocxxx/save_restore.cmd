@@ -59,6 +59,7 @@ doAfterIocInit("create_monitor_set('auto_settings.req',30,'P=xxx:')")
 # specify directories in which to to search for included request files
 set_requestfile_path("$(TOP)/iocBoot/$(IOC)", "")
 set_requestfile_path("$(TOP)/iocBoot/$(IOC)", "autosave")
+set_requestfile_path("$(TOP)/iocBoot/$(IOC)", $(PLATFORM))
 set_requestfile_path("$(AREA_DETECTOR)", "ADApp/Db")
 set_requestfile_path("$(ADCORE)", "ADApp/Db")
 set_requestfile_path("$(AUTOSAVE)", "asApp/Db")
