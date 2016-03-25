@@ -13,8 +13,10 @@ iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 
 < st.iocsh
 
+# < soft/areaDetector.cmd
+
 # soft scaler for testing
-< softScaler.cmd
+< soft/softScaler.cmd
 
 < motorSim.cmd
 
