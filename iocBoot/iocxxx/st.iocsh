@@ -196,7 +196,7 @@ dbLoadRecords("$(STD)/stdApp/Db/timer.db","P=$(PREFIX),N=1")
 
 # Slow feedback
 dbLoadTemplate "pid_slow.substitutions"
-dbLoadTemplate "async_pid_slow.substitutions"
+dbLoadTemplate "$(PLATFORM)/async_pid_slow.substitutions"
 #dbLoadTemplate "fb_epid.substitutions"
 
 # Miscellaneous PV's, such as burtResult
