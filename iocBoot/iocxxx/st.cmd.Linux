@@ -15,7 +15,6 @@ epicsEnvSet("PLATFORM", "soft")
 
 < st.iocsh
 
-# < $(PLATFORM)/areaDetector.cmd
 # < $(PLATFORM)/serial.cmd
 
 # soft scaler for testing
