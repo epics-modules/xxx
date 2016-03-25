@@ -75,10 +75,10 @@ VSCSetup(2, 0xB0000000, 200)
 #dbLoadRecords("$(VME)/vmeApp/Db/IK320group.db","P=xxx:,group=5")
 
 # Struck 3801 MCS setup. mca 7-3-1
-#iocsh "st_SIS3801.iocsh"
+# < $(PLATFORM)/st_SIS3801.iocsh
 
 # Struck 3820 MCS setup. mca 7-3-1
-iocsh "st_SIS3820.iocsh"
+< $(PLATFORM)/st_SIS3820.iocsh
 
 
 # VMI4116 setup parameters: 
@@ -141,6 +141,6 @@ dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
 #abConfigAuto
 
 # APS quad electrometer
-#<quadEM.cmd
+#< $(PLATFORM)/quadEM.cmd
 
 # END vme.cmd -----------------------------------------------------------------
