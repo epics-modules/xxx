@@ -15,12 +15,13 @@ epicsEnvSet("PLATFORM", "soft")
 
 < st.iocsh
 
-# < soft/areaDetector.cmd
+# < $(PLATFORM)/areaDetector.cmd
+# < $(PLATFORM)/serial.cmd
 
 # soft scaler for testing
-< soft/softScaler.cmd
+< $(PLATFORM)/softScaler.cmd
 
-< motorSim.cmd
+< $(PLATFORM)/motorSim.cmd
 
 # devIocStats
 dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")

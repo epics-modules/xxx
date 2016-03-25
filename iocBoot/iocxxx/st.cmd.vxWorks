@@ -48,16 +48,16 @@ epicsEnvSet("PLATFORM", "vxWorks")
 < st.iocsh
 
 # Industry Pack support
-< industryPack.cmd
+< $(PLATFORM)/industryPack.cmd
 
 # gpib support
-#< gpib.cmd
+#< $(PLATFORM)/gpib.cmd
 
 # VME devices
-< vme.cmd
+< $(PLATFORM)/vme.cmd
 
 # CAMAC hardware
-#<camac.cmd
+#< $(PLATFORM)/camac.cmd
 
 # devIocStats
 dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=xxx")

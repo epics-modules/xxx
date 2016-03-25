@@ -54,7 +54,7 @@ dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=$(PREFIX),Q=rt1")
 
 # Motors
 #dbLoadTemplate("basic_motor.substitutions")
-dbLoadTemplate("motor.substitutions")
+dbLoadTemplate("$(PLATFORM)/motor.substitutions")
 #dbLoadTemplate("softMotor.substitutions")
 #dbLoadTemplate("pseudoMotor.substitutions")
 
