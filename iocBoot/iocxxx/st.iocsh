@@ -55,7 +55,6 @@ dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=$(PREFIX),Q=rt1")
 # < $(PLATFORM)/areaDetector.cmd
 
 # Motors
-#dbLoadTemplate("basic_motor.substitutions")
 dbLoadTemplate("$(PLATFORM)/motor.substitutions")
 #dbLoadTemplate("softMotor.substitutions")
 #dbLoadTemplate("pseudoMotor.substitutions")
