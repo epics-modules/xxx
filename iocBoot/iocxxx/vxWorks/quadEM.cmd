@@ -41,6 +41,6 @@ dbLoadRecords("$(QUADEM)/quadEMApp/Db/quadEM_med.db", "P=xxx:quadEM:,NCHAN=2048,
 dbLoadRecords("$(QUADEM)/quadEMApp/Db/quadEM_med_FFT.db", "P=xxx:quadEM_FFT:,NCHAN=1024")
 
 # Database for fast feedback using quadEM and dac128V
-dbLoadTemplate("quadEM_pid.substitutions")
+dbLoadTemplate("$(PLATFORM)/quadEM_pid.substitutions")
 
 # END quadEM.cmd --------------------------------------------------------------
