@@ -169,13 +169,13 @@ dbLoadRecords("$(DIR)/table.db","P=$(PREFIX),Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/CoarseFineMotor.db","P=$(PREFIX)cf1:,PM=$(PREFIX),CM=m7,FM=m8")
 
 # Load single element Canberra AIM MCA and ICB modules
-#< canberra_1.cmd
+#< $(PLATFORM)/canberra_1.cmd
 
 # Load 13 element detector software
-#< canberra_13.cmd
+#< $(PLATFORM)/canberra_13.cmd
 
 # Load 3 element detector software
-#< canberra_3.cmd
+#< $(PLATFORM)/canberra_3.cmd
 
 ### Stuff for user programming ###
 < calc.cmd

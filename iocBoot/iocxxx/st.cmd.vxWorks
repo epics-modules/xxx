@@ -43,6 +43,8 @@ iocLogDisable=0
 
 iocsh 
 
+epicsEnvSet("PLATFORM", "vxWorks")
+
 < st.iocsh
 
 # Industry Pack support

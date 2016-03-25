@@ -11,6 +11,8 @@ errlogInit(20000)
 dbLoadDatabase("../../dbd/iocxxxLinux.dbd")
 iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 
+epicsEnvSet("PLATFORM", "soft")
+
 < st.iocsh
 
 # < soft/areaDetector.cmd
