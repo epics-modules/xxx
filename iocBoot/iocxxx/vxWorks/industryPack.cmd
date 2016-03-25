@@ -42,18 +42,18 @@ ipacReport(2)
 
 
 # serial support
-< serial.cmd
+< $(PLATFORM)/serial.cmd
 
 # user programmable glue electronics (requires Acromag IP-EP20x)
 iocsh "softGlue.iocsh"
 
 # Systran DAC128V
-#< dac128V.cmd
+#< $(PLATFORM)/dac128V.cmd
 
 # Analog I/O (Acromag IP330 ADC)
-#< ip330.cmd
+#< $(PLATFORM)/ip330.cmd
 
 # SBS IpUnidig digital I/O
-< ipUnidig.cmd
+< $(PLATFORM)/ipUnidig.cmd
 
 # END industryPack.cmd --------------------------------------------------------
