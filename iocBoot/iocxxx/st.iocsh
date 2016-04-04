@@ -47,7 +47,7 @@ doAfterIocInit("registerCaputRecorderTrapListener('$(PREFIX)caputRecorderCommand
 dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=$(PREFIX),N=300")
 
 # second copy of GUI database
-#dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=xxxA:,N=300")
+#dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=$(PREFIX)A:,N=300")
 
 # user-assignable ramp/tweak
 dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=$(PREFIX),Q=rt1")
