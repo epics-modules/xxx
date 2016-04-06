@@ -18,7 +18,7 @@ epicsEnvSet("PLATFORM", "softioc")
 # < $(PLATFORM)/serial.cmd
 
 # soft scaler for testing
-< $(PLATFORM)/softScaler.cmd
+< common/softScaler.cmd
 
 < common/motorSim.cmd
 
