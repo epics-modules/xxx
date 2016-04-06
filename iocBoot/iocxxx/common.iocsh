@@ -30,7 +30,7 @@ epicsEnvSet(STARTUP,$(TOP)/iocBoot/$(IOC))
 epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64010
 
 ### save_restore setup
-< save_restore.cmd
+< common/save_restore.cmd
 
 # Access Security
 dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=$(PREFIX)")
@@ -56,8 +56,8 @@ dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=$(PREFIX),Q=rt1")
 
 # Motors
 dbLoadTemplate("$(PLATFORM)/motor.substitutions")
-#dbLoadTemplate("softMotor.substitutions")
-#dbLoadTemplate("pseudoMotor.substitutions")
+#dbLoadTemplate("common/softMotor.substitutions")
+#dbLoadTemplate("common/pseudoMotor.substitutions")
 
 # Allstop, alldone
 dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=$(PREFIX)")
@@ -101,7 +101,7 @@ doAfterIocInit("create_manual_set('scan1Menu.req','P=$(PREFIX),CONFIG=scan1,CONF
 # A set of scan parameters for each positioner.  This is a convenience
 # for the user.  It can contain an entry for each scannable thing in the
 # crate.
-dbLoadTemplate("scanParms.substitutions")
+dbLoadTemplate("$(PLATFORM)/scanParms.substitutions")
 
 ### Slits (If not supplied, RELTOCENTER defaults to zero)
 dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=$(PREFIX),SLIT=Slit1V,mXp=m3,mXn=m4,RELTOCENTER=0")
@@ -162,7 +162,7 @@ dbLoadRecords("$(DIR)/table.db","P=$(PREFIX),Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y
 
 ### Orientation matrix, four-circle diffractometer (see seq program 'orient' below)
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/orient.db", "P=$(PREFIX),O=1,PREC=6")
-#dbLoadTemplate("orient_xtals.substitutions")
+#dbLoadTemplate("common/orient_xtals.substitutions")
 #doAfterIocInit("seq &orient, 'P=$(PREFIX)orient1:,PM=$(PREFIX),mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12'")
 
 
@@ -179,7 +179,7 @@ dbLoadRecords("$(DIR)/table.db","P=$(PREFIX),Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y
 #< $(PLATFORM)/canberra_3.cmd
 
 ### Stuff for user programming ###
-< calc.cmd
+< common/calc.cmd
 
 # 4-step measurement
 dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=$(PREFIX),Q=4step:")
@@ -196,7 +196,7 @@ dbLoadRecords("$(STD)/stdApp/Db/timer.db","P=$(PREFIX),N=1")
 # Slow feedback
 dbLoadTemplate "pid_slow.substitutions"
 dbLoadTemplate "$(PLATFORM)/async_pid_slow.substitutions"
-#dbLoadTemplate "fb_epid.substitutions"
+#dbLoadTemplate "common/fb_epid.substitutions"
 
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=$(PREFIX)")
