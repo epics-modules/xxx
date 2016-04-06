@@ -20,7 +20,7 @@ epicsEnvSet("PLATFORM", "softioc")
 # soft scaler for testing
 < $(PLATFORM)/softScaler.cmd
 
-< $(PLATFORM)/motorSim.cmd
+< common/motorSim.cmd
 
 # devIocStats
 dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
