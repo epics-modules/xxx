@@ -13,7 +13,7 @@ iocxxxCygwin_registerRecordDeviceDriver(pdbbase)
 
 epicsEnvSet("PLATFORM", "softioc")
 
-< st.iocsh
+< common.iocsh
 
 # < $(PLATFORM)/areaDetector.cmd
 # < $(PLATFORM)/serial.cmd

@@ -45,7 +45,7 @@ iocsh
 
 epicsEnvSet("PLATFORM", "vxWorks")
 
-< st.iocsh
+< common.iocsh
 
 # Industry Pack support
 < $(PLATFORM)/industryPack.cmd

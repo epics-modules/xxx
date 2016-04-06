@@ -13,7 +13,7 @@ iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 
 epicsEnvSet("PLATFORM", "softioc")
 
-< st.iocsh
+< common.iocsh
 
 # < $(PLATFORM)/serial.cmd
 
