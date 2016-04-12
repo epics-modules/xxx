@@ -40,9 +40,6 @@ CAMACScalerConfig(0, 0, 0, 0, 20, 0, 21)
 dbLoadRecords("$(CAMAC)/camacApp/Db/CamacScaler.db","P=xxx:,S=scaler1,C=0")
 #dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,C=0,DTYP=CAMAC scaler,FREQ=10000000")
 
-# Load the DXP stuff
-< 16element_dxp.cmd
-
 # Generic CAMAC record
 dbLoadRecords("$(CAMAC)/camacApp/Db/generic_camac.db","P=xxx:,R=camac1,SIZE=2048")
 
