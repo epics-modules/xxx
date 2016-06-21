@@ -1,0 +1,101 @@
+global {"P=$(PREFIX)", "SCANREC=$(PREFIX)scan1"}
+
+file "$(SSCAN)/sscanApp/Db/scanParms.db"
+{
+{Q=m1,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{Q=m2,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{Q=m3,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{Q=m4,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{Q=m5,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{Q=m6,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{Q=m7,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{Q=m8,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{Q=m9,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{Q=m10,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{Q=m11,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{Q=m12,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{Q=m13,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{Q=m14,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{Q=m15,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{Q=m16,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+
+{Q=SM1,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{Q=SM2,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{Q=SM3,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{Q=SM4,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{Q=SM5,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{Q=SM6,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{Q=SM7,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{Q=SM8,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{Q=SM9,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{Q=SM10,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+
+{Q=Table1X,POS=table1.X,RDBK=table1.XRB}
+{Q=Table1Y,POS=table1.Y,RDBK=table1.YRB}
+{Q=Table1Z,POS=table1.Z,RDBK=table1.ZRB}
+{Q=Table1AX,POS=table1.AX,RDBK=table1.AXRB}
+{Q=Table1AY,POS=table1.AY,RDBK=table1.AYRB}
+{Q=Table1AZ,POS=table1.AZ,RDBK=table1.AZRB}
+
+# Kohzu monochromator
+#{Q=BraggE,POS=BraggEAO.VAL,RDBK=BraggERdbkAO.VAL}
+#{Q=BraggLambda,POS=BraggLambdaAO.VAL,RDBK=BraggLambdaRdbkAO.VAL}
+#{Q=BraggTheta,POS=BraggThetaAO.VAL,RDBK=BraggThetaRdbkAO.VAL}
+
+# HR monochromator
+#{Q=HR1_E,POS=HR1_EAO.VAL,RDBK=HR1_ERdbkAO}
+#{Q=HR1_A,POS=HR1_worldOffAO.VAL,RDBK=HR1_worldOffAO.VAL}
+
+# Spherical grating monochromator
+{Q=Energy,POS=Energy,RDBK=EnergyRBV}
+{Q=Lambda,POS=Lambda,RDBK=LambdaRBV}
+{Q=phi,POS=phi,RDBK=phiRBV}
+
+# multilayer monochromator
+{Q=ml_monoE,POS=ml_monoE.VAL,RDBK=ml_monoERdbk.VAL}
+{Q=ml_monoLambda,POS=ml_monoLambda.VAL,RDBK=ml_monoLambdaRdbk.VAL}
+{Q=ml_monoTheta,POS=ml_monoTheta.VAL,RDBK=ml_monoThetaRdbk.VAL}
+
+# Mirror
+{Q=M1dn,POS=M1dn,RDBK=M1t2.A}
+{Q=M1up,POS=M1up,RDBK=M1t2.B}
+{Q=M1angl,POS=M1angl,RDBK=M1t2.C}
+{Q=M1avg,POS=M1avg,RDBK=M1t2.D}
+
+# old slit
+{Q=Slit1Hp,POS=Slit1Hxp.VAL,RDBK=Slit1Ht2.A}
+{Q=Slit1Hn,POS=Slit1Hxn.VAL,RDBK=Slit1Ht2.B}
+{Q=Slit1Hsize,POS=Slit1Hsize.VAL,RDBK=Slit1Ht2.C}
+{Q=Slit1Hcenter,POS=Slit1Hcenter.VAL,RDBK=Slit1Ht2.D}
+{Q=Slit1Vp,POS=Slit1Vxp.VAL,RDBK=Slit1Vt2.A}
+{Q=Slit1Vn,POS=Slit1Vxn.VAL,RDBK=Slit1Vt2.B}
+{Q=Slit1Vsize,POS=Slit1Vsize.VAL,RDBK=Slit1Vt2.C}
+{Q=Slit1Vcenter,POS=Slit1Vcenter.VAL,RDBK=Slit1Vt2.D}
+
+# XIA slit (macroargs include "Q=hsc1")
+{Q=hsc1:width,POS=hsc1:width,RDBK=hsc1:widthRB}
+{Q=hsc1:h0,POS=hsc1:h0,RDBK=hsc1:h0RB}
+{Q=hsc1:l,POS=hsc1:l,RDBK=hsc1:lRB}
+{Q=hsc1:r,POS=hsc1:r,RDBK=hsc1:rRB}
+{Q=hsc1:height,POS=hsc1:height,RDBK=hsc1:heightRB}
+{Q=hsc1:v0,POS=hsc1:v0,RDBK=hsc1:v0RB}
+{Q=hsc1:t,POS=hsc1:t,RDBK=hsc1:tRB}
+{Q=hsc1:b,POS=hsc1:b,RDBK=hsc1:bRB}
+
+
+# new soft-motor-based slit
+#{Q=Slit2Hxn,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{Q=Slit2Hxp,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{Q=Slit2Hsize,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{Q=Slit2Hcenter,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{Q=Slit2Vxn,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{Q=Slit2Vxp,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{Q=Slit2Vsize,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{Q=Slit2Vcenter,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+
+}
+
+file "$(SSCAN)/sscanApp/Db/scanParms2Pos.db"
+{
+{Q=m7_8,"POS1=$(PREFIX)m7.VAL","RDBK1=$(PREFIX)m7.RBV","POS2=$(PREFIX)m8.VAL","RDBK2=$(PREFIX)m8.RBV"}
+}

@@ -1,0 +1,43 @@
+global {"P=$(PREFIX)med:"}
+
+file "$(MCA)/mcaApp/Db/simple_mca.db"
+{
+pattern
+{M       DTYP           INP              PREC  CHANS}
+{mca1  "asynMCA"       "@asyn(AIM1/1 0)"  3     2048}
+{mca2  "asynMCA"       "@asyn(AIM1/2 0)"  3     2048}
+{mca3  "asynMCA"       "@asyn(AIM2/1 0)"  3     2048}
+{mca0  "Soft Channel"  ""                 3     2048}
+}
+
+#file "$(MCA)/mcaApp/Db/icb_amp.db"
+#{
+#pattern
+#{AMP		PORT}
+#{amp1	icbAmp1}
+#}
+
+file "$(MCA)/mcaApp/Db/icb_adc.db"
+{
+pattern
+{ADC		PORT}
+{adc1	"icbAdc1"}
+{adc2	"icbAdc2"}
+{adc3	"icbAdc3"}
+}
+
+#file "$(MCA)/mcaApp/Db/icb_hvps.db"
+#{
+#pattern
+#{HVPS	LIMIT	PORT}
+#{hvps1	1000	"icbHvps1"}
+#}
+
+file "$(MCA)/mcaApp/Db/icb_tca.db"
+{
+pattern
+{TCA,	PORT,		MCA}
+{tca1,	"icbTca1",	mca1}
+{tca2,	"icbTca2",	mca2}
+{tca3,	"icbTca3",	mca3}
+}

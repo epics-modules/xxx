@@ -1,0 +1,58 @@
+global {"P=$(PREFIX)med:"}
+
+file "$(MCA)/mcaApp/Db/simple_mca.db"
+{
+pattern
+{M       DTYP           INP         PREC  CHANS}
+{mca1  "asynMCA"   "@asyn(AIM2/1 0)"    3  2048}
+{mca2  "asynMCA"   "@asyn(AIM2/1 1)"    3  2048}
+{mca3  "asynMCA"   "@asyn(AIM2/1 2)"    3  2048}
+{mca4  "asynMCA"   "@asyn(AIM2/2 0)"    3  2048}
+{mca5  "asynMCA"   "@asyn(AIM2/2 1)"    3  2048}
+{mca6  "asynMCA"   "@asyn(AIM2/2 2)"    3  2048}
+{mca7  "asynMCA"   "@asyn(AIM3/1 0)"    3  2048}
+{mca8  "asynMCA"   "@asyn(AIM3/1 1)"    3  2048}
+{mca9  "asynMCA"   "@asyn(AIM3/1 2)"    3  2048}
+{mca10 "asynMCA"   "@asyn(AIM3/2 0)"    3  2048}
+{mca11 "asynMCA"   "@asyn(AIM3/3 1)"    3  2048}
+{mca12 "asynMCA"   "@asyn(AIM3/4 2)"    3  2048}
+{mca13 "asynMCA"   "@asyn(AIM3/2 3)"    3  2048}
+{mca0  "Soft Channel"   ""     3  2048}
+}
+
+file "$(MCA)/mcaApp/Db/icb_amp.db"
+{
+pattern
+{AMP		PORT}
+{amp1	"icbAmp1"}
+{amp2	"icbAmp2"}
+{amp3	"icbAmp3"}
+{amp4	"icbAmp4"}
+{amp5	"icbAmp5"}
+{amp6	"icbAmp6"}
+{amp7	"icbAmp7"}
+{amp8	"icbAmp8"}
+{amp9	"icbAmp9"}
+{amp10	"icbAmp10"}
+{amp11	"icbAmp11"}
+{amp12	"icbAmp12"}
+{amp13	"icbAmp13"}
+}
+
+
+file "$(MCA)/mcaApp/Db/icb_adc.db"
+{
+pattern
+{ADC		PORT}
+{adc1	"icbAdc1"}
+{adc2	"icbAdc2"}
+{adc3	"icbAdc3"}
+{adc4	"icbAdc4"}
+}
+
+file "$(MCA)/mcaApp/Db/icb_hvps.db"
+{
+pattern
+{HVPS	LIMIT	PORT}
+{hvps1	1000	"icbHvps1"}
+}

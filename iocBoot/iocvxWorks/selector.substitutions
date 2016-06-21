@@ -1,6 +1,0 @@
-file "$(TOP)/xxxApp/Db/selector.db"
-{
-pattern
-{P,    R,   NAME1,      PV1,     VAL1,  NAME2,     PV2,   VAL2, NAME3,    PV3,   VAL3, NAME4, VAL4, PV4, NAME5, VAL5, PV5, NAME6, VAL6, PV6, NAME7, VAL7, PV7, NAME8, VAL8, PV8, NAME9, VAL9, PV9, NAME10, VAL10, PV10}
-{xxx:, obj, "5x",  "$(P)m1.VAL",    3,  "10x",  "$(PV1)",    6, "20x", "$(PV1)",    9, "",    0,     "", "",	0,     "", "",    0,	 "", "",    0,     "", "",    0,     "", "",	0,     "", "",     0,	  ""}
-}

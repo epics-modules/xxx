@@ -1,0 +1,28 @@
+# filter.substitutions
+
+global {"P=$(PREFIX)", R=filter:}
+
+file "$(OPTICS)/opticsApp/Db/filterBladeNoSensor.db" {
+  pattern
+  {N,   DESC,           OUT                  OUT_STRING,  IN_STRING}
+  {1,   "Filter 1",     "$(PREFIX)userTran1.A",   "Out",       "In"}
+  {2,   "Filter 2",     "$(PREFIX)userTran1.B",   "Out",       "In"}
+  {3,   "Filter 3",     "$(PREFIX)userTran1.C",   "Out",       "In"}
+  {4,   "Filter 4",     "$(PREFIX)userTran1.D",   "Out",       "In"}
+  {5,   "Filter 5",     "$(PREFIX)userTran1.E",   "Out",       "In"}
+  {6,   "Filter 6",     "$(PREFIX)userTran1.F",   "Out",       "In"}
+  {7,   "Filter 7",     "$(PREFIX)userTran1.G",   "Out",       "In"}
+  {8,   "Filter 8",     "$(PREFIX)userTran1.H",   "Out",       "In"}
+  {9,   "Filter 9",     "$(PREFIX)userTran1.I",   "Out",       "In"}
+  {10,  "Filter 10",    "$(PREFIX)userTran1.J",   "Out",       "In"}
+  {11,  "Filter 11",    "$(PREFIX)userTran1.K",   "Out",       "In"}
+  {12,  "Filter 12",    "$(PREFIX)userTran1.L",   "Out",       "In"}
+  {13,  "Filter 13",    "$(PREFIX)userTran1.M",   "Out",       "In"}
+  {14,  "Filter 14",    "$(PREFIX)userTran1.N",   "Out",       "In"}
+  {15,  "Filter 15",    "$(PREFIX)userTran1.O",   "Out",       "In"}
+  {16,  "Filter 16",    "$(PREFIX)userTran1.P",   "Out",       "In"}
+}
+
+file "$(OPTICS)/opticsApp/Db/filterDrive.db" {
+  {DESC="Filters", KEV="$(PREFIX)userCalc1.A"}
+}
