@@ -5,8 +5,8 @@
 
 # status PVs
 #save_restoreSet_UseStatusPVs(1)
-save_restoreSet_status_prefix("xxx:")
-dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=xxx:, DEAD_SECONDS=5")
+save_restoreSet_status_prefix("$(PREFIX)")
+dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=$(PREFIX), DEAD_SECONDS=5")
 
 # Ok to save/restore save sets with missing values (no CA connection to PV)?
 save_restoreSet_IncompleteSetsOk(1)
@@ -35,25 +35,25 @@ set_savefile_path("$(TOP)/iocBoot/$(IOC)", "autosave")
 # in the directory specified in set_savefile_path(), or, if that function
 # has not been called, from the directory current when iocInit is invoked
 
-set_pass0_restoreFile("auto_positions.sav", "P=xxx:")
+set_pass0_restoreFile("auto_positions.sav", "P=$(PREFIX)")
 # Save positions every five seconds
-doAfterIocInit("create_monitor_set('auto_positions.req',5,'P=xxx:')")
+doAfterIocInit("create_monitor_set('auto_positions.req',5,'P=$(PREFIX)')")
 
-set_pass0_restoreFile("auto_settings.sav", "P=xxx:")
-set_pass1_restoreFile("auto_settings.sav", "P=xxx:")
+set_pass0_restoreFile("auto_settings.sav", "P=$(PREFIX)")
+set_pass1_restoreFile("auto_settings.sav", "P=$(PREFIX)")
 # save settings every thirty seconds
-doAfterIocInit("create_monitor_set('auto_settings.req',30,'P=xxx:')")
+doAfterIocInit("create_monitor_set('auto_settings.req',30,'P=$(PREFIX)')")
 
 # Note that you can reload these sets after creating them: e.g., 
-# reload_monitor_set("auto_settings.req",30,"P=xxx:")
+# reload_monitor_set("auto_settings.req",30,"P=$(PREFIX)")
 
 # Note that you can restore a .sav file without also autosaving to it.
 #set_pass0_restoreFile("myInitData.sav")
 #set_pass1_restoreFile("myInitData.sav")
 
 # Also, you can restore a .sav file that contains macros. (autosave R5-4-2)
-#set_pass0_restoreFile("myGenericData.sav", "P=xxx:")
-#set_pass1_restoreFile("myGenericData.sav", "P=xxx:")
+#set_pass0_restoreFile("myGenericData.sav", "P=$(PREFIX)")
+#set_pass1_restoreFile("myGenericData.sav", "P=$(PREFIX)")
 
 ###
 # specify directories in which to to search for included request files

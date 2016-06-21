@@ -8,20 +8,20 @@ file "$(STD)/stdApp/Db/autoShutter.vdb"
 {
 pattern
 {P           S       BL           T1      T2     A}
-{xxx:        A      "##ID"         1       2     1}
+{"$(PREFIX)"        A      "##ID"         1       2     1}
 }
 
 file "$(STD)/stdApp/Db/countDownTimer.vdb"
 {
 pattern
 {P           N}
-{xxx:        1}
-{xxx:        2}
+{"$(PREFIX)"        1}
+{"$(PREFIX)"        2}
 }
 
 file "$(STD)/stdApp/Db/alarmClock.vdb"
 {
 pattern
 {P           N}
-{xxx:        1}
+{"$(PREFIX)"        1}
 }

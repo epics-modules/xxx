@@ -31,14 +31,14 @@ initQuadEM("quadEM4", 0xf000, 3, 1000, "Unidig1", 2)
 initFastSweep("quadEMSweep", "quadEM1", 10, 2048)
 
 # Databases for ai records that give average readings of current, positions, etc.
-dbLoadRecords("$(QUADEM)/quadEMApp/Db/quadEM.db", "P=xxx:, EM=EM1, PORT=quadEM1")
-dbLoadRecords("$(QUADEM)/quadEMApp/Db/quadEM.db", "P=xxx:, EM=EM2, PORT=quadEM2")
-dbLoadRecords("$(QUADEM)/quadEMApp/Db/quadEM.db", "P=xxx:, EM=EM3, PORT=quadEM3")
-dbLoadRecords("$(QUADEM)/quadEMApp/Db/quadEM.db", "P=xxx:, EM=EM4, PORT=quadEM4")
+dbLoadRecords("$(QUADEM)/quadEMApp/Db/quadEM.db", "P=$(PREFIX), EM=EM1, PORT=quadEM1")
+dbLoadRecords("$(QUADEM)/quadEMApp/Db/quadEM.db", "P=$(PREFIX), EM=EM2, PORT=quadEM2")
+dbLoadRecords("$(QUADEM)/quadEMApp/Db/quadEM.db", "P=$(PREFIX), EM=EM3, PORT=quadEM3")
+dbLoadRecords("$(QUADEM)/quadEMApp/Db/quadEM.db", "P=$(PREFIX), EM=EM4, PORT=quadEM4")
 
 # Database for FastSweep (mca records), i.e. quadEM digital scope
-dbLoadRecords("$(QUADEM)/quadEMApp/Db/quadEM_med.db", "P=xxx:quadEM:,NCHAN=2048,PORT=quadEMSweep")
-dbLoadRecords("$(QUADEM)/quadEMApp/Db/quadEM_med_FFT.db", "P=xxx:quadEM_FFT:,NCHAN=1024")
+dbLoadRecords("$(QUADEM)/quadEMApp/Db/quadEM_med.db", "P=$(PREFIX)quadEM:,NCHAN=2048,PORT=quadEMSweep")
+dbLoadRecords("$(QUADEM)/quadEMApp/Db/quadEM_med_FFT.db", "P=$(PREFIX)quadEM_FFT:,NCHAN=1024")
 
 # Database for fast feedback using quadEM and dac128V
 dbLoadTemplate("$(PLATFORM)/quadEM_pid.substitutions")

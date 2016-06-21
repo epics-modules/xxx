@@ -4,6 +4,6 @@ file "$(STD)/stdApp/Db/pid_control.db"
 {
 pattern
 {P,      PID,              INP,        OUT, LOPR,   HOPR,  DRVL, DRVH,  PREC,      KP,  KI,   KD,  SCAN}
-{xxx:,   pid_slow, xxx:IP330_1, xxx:DAC3_1,    0,    100,     0,    5,     3,     0.2,  3.,   0.,  ".1 second"}
+{"$(PREFIX)",   pid_slow, "$(PREFIX)IP330_1", "$(PREFIX)DAC3_1",    0,    100,     0,    5,     3,     0.2,  3.,   0.,  ".1 second"}
 }
 

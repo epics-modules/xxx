@@ -37,10 +37,10 @@ CAMACScalerSetup(1)
 #  int counter_type,                   /* 0=QS-450 */
 #  int counter_slot)                   /* Counter N */
 CAMACScalerConfig(0, 0, 0, 0, 20, 0, 21)
-dbLoadRecords("$(CAMAC)/camacApp/Db/CamacScaler.db","P=xxx:,S=scaler1,C=0")
-#dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,C=0,DTYP=CAMAC scaler,FREQ=10000000")
+dbLoadRecords("$(CAMAC)/camacApp/Db/CamacScaler.db","P=$(PREFIX),S=scaler1,C=0")
+#dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=$(PREFIX),S=scaler1,C=0,DTYP=CAMAC scaler,FREQ=10000000")
 
 # Generic CAMAC record
-dbLoadRecords("$(CAMAC)/camacApp/Db/generic_camac.db","P=xxx:,R=camac1,SIZE=2048")
+dbLoadRecords("$(CAMAC)/camacApp/Db/generic_camac.db","P=$(PREFIX),R=camac1,SIZE=2048")
 
 # END camac.cmd ---------------------------------------------------------------

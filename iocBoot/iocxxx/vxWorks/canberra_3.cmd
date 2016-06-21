@@ -16,7 +16,7 @@ AIMConfig("AIM1/1", 0xa78, 1, 2048, 1, 1, $(ETHER_DEV))
 AIMConfig("AIM1/2", 0xa78, 2, 2048, 1, 1, $(ETHER_DEV))
 AIMConfig("AIM2/1", 0xa79, 1, 2048, 1, 1, $(ETHER_DEV))
 
-dbLoadRecords("$(MCA)/mcaApp/Db/3element.db","P=xxx:med:,BASENAME=mca,N=2000")
+dbLoadRecords("$(MCA)/mcaApp/Db/3element.db","P=$(PREFIX)med:,BASENAME=mca,N=2000")
 # icbConfig(portName, ethernetAddress, icbAddress, moduleType)
 #    portName to give to this asyn port
 #    ethernetAddress - Ethernet address of module, low order 16 bits

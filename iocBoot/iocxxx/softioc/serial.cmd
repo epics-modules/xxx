@@ -91,56 +91,56 @@ dbLoadTemplate("asynRecord.substitutions")
 
 # send impromptu message to serial device, parse reply
 # (was serial_OI_block)
-dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=1,PORT=serial1,ADDR=0,OMAX=100,IMAX=100")
-dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=2,PORT=serial2,ADDR=0,OMAX=100,IMAX=100")
-dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=3,PORT=serial3,ADDR=0,OMAX=100,IMAX=100")
+dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=$(PREFIX),N=1,PORT=serial1,ADDR=0,OMAX=100,IMAX=100")
+dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=$(PREFIX),N=2,PORT=serial2,ADDR=0,OMAX=100,IMAX=100")
+dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=$(PREFIX),N=3,PORT=serial3,ADDR=0,OMAX=100,IMAX=100")
 
 # Stanford Research Systems SR570 Current Preamplifier
-#dbLoadRecords("$(IP)/ipApp/Db/SR570.db", "P=xxx:,A=A1,PORT=serial1")
+#dbLoadRecords("$(IP)/ipApp/Db/SR570.db", "P=$(PREFIX),A=A1,PORT=serial1")
 
 # Lakeshore DRC-93CA Temperature Controller
-#dbLoadRecords("$(IP)/ipApp/Db/LakeShoreDRC-93CA.db", "P=xxx:,Q=TC1,PORT=serial4")
+#dbLoadRecords("$(IP)/ipApp/Db/LakeShoreDRC-93CA.db", "P=$(PREFIX),Q=TC1,PORT=serial4")
 
 # Huber DMC9200 DC Motor Controller
-#dbLoadRecords("$(IP)/ipApp/Db/HuberDMC9200.db", "P=xxx:,Q=DMC1:,PORT=serial5")
+#dbLoadRecords("$(IP)/ipApp/Db/HuberDMC9200.db", "P=$(PREFIX),Q=DMC1:,PORT=serial5")
 
 # Oriel 18011 Encoder Mike
-#dbLoadRecords("$(IP)/ipApp/Db/eMike.db", "P=xxx:,M=em1,PORT=serial3")
+#dbLoadRecords("$(IP)/ipApp/Db/eMike.db", "P=$(PREFIX),M=em1,PORT=serial3")
 
 # Keithley 2000 DMM
-#dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM_mf.db","P=xxx:,Dmm=D1,PORT=serial1")
-#doAfterIocInit("seq &Keithley2kDMM, 'P=xxx:, Dmm=D1, channels=22, model=2700'")
+#dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM_mf.db","P=$(PREFIX),Dmm=D1,PORT=serial1")
+#doAfterIocInit("seq &Keithley2kDMM, 'P=$(PREFIX), Dmm=D1, channels=22, model=2700'")
 
 # Oxford Cyberstar X1000 Scintillation detector and pulse processing unit
-#dbLoadRecords("$(IP)/ipApp/Db/Oxford_X1k.db","P=xxx:,S=s1,PORT=serial4")
+#dbLoadRecords("$(IP)/ipApp/Db/Oxford_X1k.db","P=$(PREFIX),S=s1,PORT=serial4")
 
 # Oxford ILM202 Cryogen Level Meter (Serial)
-#dbLoadRecords("$(IP)/ipApp/Db/Oxford_ILM202.db","P=xxx:,S=s1,PORT=serial5")
+#dbLoadRecords("$(IP)/ipApp/Db/Oxford_ILM202.db","P=$(PREFIX),S=s1,PORT=serial5")
 
 # Elcomat autocollimator
-#dbLoadRecords("$(IP)/ipApp/Db/Elcomat.db", "P=xxx:,PORT=serial8")
+#dbLoadRecords("$(IP)/ipApp/Db/Elcomat.db", "P=$(PREFIX),PORT=serial8")
 
 # Eurotherm temp controller
-#dbLoadRecords("$(IP)/ipApp/Db/Eurotherm.db","P=xxx:,PORT=serial7")
+#dbLoadRecords("$(IP)/ipApp/Db/Eurotherm.db","P=$(PREFIX),PORT=serial7")
 
 # MKS vacuum gauges
-#dbLoadRecords("$(IP)/ipApp/Db/MKS.db","P=xxx:,PORT=serial2,CC1=cc1,CC2=cc3,PR1=pr1,PR2=pr3")
+#dbLoadRecords("$(IP)/ipApp/Db/MKS.db","P=$(PREFIX),PORT=serial2,CC1=cc1,CC2=cc3,PR1=pr1,PR2=pr3")
 
 # PI Digitel 500/1500 pump
-#dbLoadRecords("$(IP)/ipApp/Db/Digitel.db","xxx:,PUMP=ip1,PORT=serial3")
+#dbLoadRecords("$(IP)/ipApp/Db/Digitel.db","$(PREFIX),PUMP=ip1,PORT=serial3")
 
 # PI MPC ion pump
-#dbLoadRecords("$(IP)/ipApp/Db/MPC.db","P=xxx:,PUMP=ip2,PORT=serial4,PA=0,PN=1")
+#dbLoadRecords("$(IP)/ipApp/Db/MPC.db","P=$(PREFIX),PUMP=ip2,PORT=serial4,PA=0,PN=1")
 
 # PI MPC TSP (titanium sublimation pump)
-#dbLoadRecords("$(IP)/ipApp/Db/TSP.db","P=xxx:,TSP=tsp1,PORT=serial4,PA=0")
+#dbLoadRecords("$(IP)/ipApp/Db/TSP.db","P=$(PREFIX),TSP=tsp1,PORT=serial4,PA=0")
 
 # Heidenhain ND261 encoder (for PSL monochromator)
-#dbLoadRecords("$(IP)/ipApp/Db/heidND261.db", "P=xxx:,PORT=serial1")
+#dbLoadRecords("$(IP)/ipApp/Db/heidND261.db", "P=$(PREFIX),PORT=serial1")
 
 # Love Controllers
 #devLoveDebug=1
 #loveServerDebug=1
-#dbLoadRecords("$(IP)/ipApp/Db/love.db", "P=xxx:,Q=Love_0,C=0,PORT=PORT2,ADDR=1")
+#dbLoadRecords("$(IP)/ipApp/Db/love.db", "P=$(PREFIX),Q=Love_0,C=0,PORT=PORT2,ADDR=1")
 
 # END serial.cmd --------------------------------------------------------------

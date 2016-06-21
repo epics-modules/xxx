@@ -21,12 +21,12 @@ epicsEnvSet("ETHER_DEV", "dc0")
 AIMConfig("AIM1/1", 0x59e, 1, 2048, 1, 1, $(ETHER_DEV))
 AIMConfig("AIM1/2", 0x59e, 2, 2048, 8, 1, $(ETHER_DEV))
 AIMConfig("DSA2000", 0x8058, 1, 2048, 1, 1, $(ETHER_DEV))
-dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=aim_adc1,DTYP=asynMCA,INP=@asyn(AIM1/1 0),NCHAN=2048")
-dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=aim_adc2,DTYP=asynMCA,INP=@asyn(AIM1/2 0),NCHAN=2048")
-dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=aim_adc3,DTYP=asynMCA,INP=@asyn(AIM1/2 2),NCHAN=2048")
-dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=aim_adc4,DTYP=asynMCA,INP=@asyn(AIM1/2 4),NCHAN=2048")
-dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=aim_adc5,DTYP=asynMCA,INP=@asyn(AIM1/2 6),NCHAN=2048")
-dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=aim_adc6,DTYP=asynMCA,INP=@asyn(DSA2000 0),NCHAN=2048")
+dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=$(PREFIX),M=aim_adc1,DTYP=asynMCA,INP=@asyn(AIM1/1 0),NCHAN=2048")
+dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=$(PREFIX),M=aim_adc2,DTYP=asynMCA,INP=@asyn(AIM1/2 0),NCHAN=2048")
+dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=$(PREFIX),M=aim_adc3,DTYP=asynMCA,INP=@asyn(AIM1/2 2),NCHAN=2048")
+dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=$(PREFIX),M=aim_adc4,DTYP=asynMCA,INP=@asyn(AIM1/2 4),NCHAN=2048")
+dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=$(PREFIX),M=aim_adc5,DTYP=asynMCA,INP=@asyn(AIM1/2 6),NCHAN=2048")
+dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=$(PREFIX),M=aim_adc6,DTYP=asynMCA,INP=@asyn(DSA2000 0),NCHAN=2048")
 
 # icbConfig(portName, ethernetAddress, icbAddress, moduleType)
 #    portName to give to this asyn port
@@ -39,14 +39,14 @@ dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=xxx:,M=aim_adc6,DTYP=asynMCA,INP=@as
 #       3 = TCA
 #       4 = DSP
 icbConfig("icbAdc1", 0x59e, 5, 0)
-dbLoadRecords("$(MCA)/mcaApp/Db/icb_adc.db", "P=xxx:,ADC=adc1,PORT=icbAdc1")
+dbLoadRecords("$(MCA)/mcaApp/Db/icb_adc.db", "P=$(PREFIX),ADC=adc1,PORT=icbAdc1")
 icbConfig("icbAmp1", 0x59e, 3, 1)
-dbLoadRecords("$(MCA)/mcaApp/Db/icb_amp.db", "P=xxx:,AMP=amp1,PORT=icbAmp1")
+dbLoadRecords("$(MCA)/mcaApp/Db/icb_amp.db", "P=$(PREFIX),AMP=amp1,PORT=icbAmp1")
 icbConfig("icbHvps1", 0x59e, 2, 2)
-dbLoadRecords("$(MCA)/mcaApp/Db/icb_hvps.db", "P=xxx:,HVPS=hvps1,PORT=icbHvps1,LIMIT=1000")
+dbLoadRecords("$(MCA)/mcaApp/Db/icb_hvps.db", "P=$(PREFIX),HVPS=hvps1,PORT=icbHvps1,LIMIT=1000")
 icbConfig("icbTca1", 0x59e, 8, 3)
-dbLoadRecords("$(MCA)/mcaApp/Db/icb_tca.db", "P=xxx:,TCA=tca1,MCA=aim_adc2,PORT=icbTca1")
+dbLoadRecords("$(MCA)/mcaApp/Db/icb_tca.db", "P=$(PREFIX),TCA=tca1,MCA=aim_adc2,PORT=icbTca1")
 icbConfig("icbDsp1", 0x8058, 0, 4)
-dbLoadRecords("$(MCA)/mcaApp/Db/icbDsp.db", "P=xxx:,DSP=dsp1,PORT=icbDsp1")
+dbLoadRecords("$(MCA)/mcaApp/Db/icbDsp.db", "P=$(PREFIX),DSP=dsp1,PORT=icbDsp1")
 
 # END canberra_1.cmd ----------------------------------------------------------

@@ -7,7 +7,7 @@ epicsEnvSet("PORT1", "SGIO_1")
 epicsEnvSet("PORT2", "SGIO_2")
 epicsEnvSet("PORT3", "SGIO_3")
 epicsEnvSet("SPORT", "SOFTGLUE")
-epicsEnvSet("PREFIX", "yyy:")
+epicsEnvSet("P", "$(PREFIX)")
 epicsEnvSet("INSTANCE", "softGlue:")
 epicsEnvSet("CONFIG", "SG")
 epicsEnvSet("READEVENT", "10")
@@ -174,43 +174,43 @@ initIP_EP201SingleRegisterPort("$(SPORT)", $(IPCARRIER), $(IPSLOT))
 #    single-register components can use to show which signals are connected
 #    together.  This database is not needed for the functioning of the
 #    components, it's purely for the user interface.
-dbLoadRecords("$(SOFTGLUE)/db/softGlue_SignalShow.db","P=$(PREFIX),H=$(INSTANCE),PORT=$(SPORT),READEVENT=$(READEVENT)")
+dbLoadRecords("$(SOFTGLUE)/db/softGlue_SignalShow.db","P=$(P),H=$(INSTANCE),PORT=$(SPORT),READEVENT=$(READEVENT)")
 
 #    Load a set of database fragments for each single-register component.
 # This database contains the records for standard softGlue, and must be loaded
 # for all .hex files above 
-dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent.db", "P=$(PREFIX),H=$(INSTANCE),PORT=$(SPORT),READEVENT=$(READEVENT)")
+dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent.db", "P=$(P),H=$(INSTANCE),PORT=$(SPORT),READEVENT=$(READEVENT)")
 
 # This database contains the additional records needed for
 # SoftGlue_2_2_Octupole_0_0.hex
-#dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_octupole.db", "P=$(PREFIX),H=$(INSTANCE),PORT=$(SPORT),READEVENT=$(READEVENT)")
+#dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_octupole.db", "P=$(P),H=$(INSTANCE),PORT=$(SPORT),READEVENT=$(READEVENT)")
 
 # This database contains the additional records needed for
 # SoftGlue_2_2_Encoder.hex
-#dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_Encoder.db", "P=$(PREFIX),H=$(INSTANCE),PORT=$(SPORT),READEVENT=$(READEVENT)")
+#dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_Encoder.db", "P=$(P),H=$(INSTANCE),PORT=$(SPORT),READEVENT=$(READEVENT)")
 
 # This database contains the additional records needed for
 # SoftGlue_2_2_demux4.hex
-#dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_4DEMUX4.db", "P=$(PREFIX),H=$(INSTANCE),PORT=$(SPORT),READEVENT=$(READEVENT)")
+#dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_4DEMUX4.db", "P=$(P),H=$(INSTANCE),PORT=$(SPORT),READEVENT=$(READEVENT)")
 
 # This database contains the additional records needed for
 # SoftGlue_2_2_encoder_ave.hex
-dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_EncoderAvg.db", "P=$(PREFIX),H=$(INSTANCE),PORT=$(SPORT),READEVENT=$(READEVENT)")
+dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_EncoderAvg.db", "P=$(P),H=$(INSTANCE),PORT=$(SPORT),READEVENT=$(READEVENT)")
 
 #    Interrupt support.
-dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAInt.db","P=$(PREFIX),H=$(INSTANCE),PORT1=$(PORT1),PORT2=$(PORT2),PORT3=$(PORT3),FIFO=10")
+dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAInt.db","P=$(P),H=$(INSTANCE),PORT1=$(PORT1),PORT2=$(PORT2),PORT3=$(PORT3),FIFO=10")
 
 #    Some stuff just for convenience: software clock and pulse generators, and
 #    a couple of busy records.
-dbLoadRecords("$(SOFTGLUE)/db/softGlue_convenience.db", "P=$(PREFIX),H=$(INSTANCE)")
+dbLoadRecords("$(SOFTGLUE)/db/softGlue_convenience.db", "P=$(P),H=$(INSTANCE)")
 
 # Menu of softGlue circuits
 # configMenu example.  See create_manual_set() command after iocInit.
-dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=$(PREFIX),CONFIG=$(CONFIG)")
+dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=$(P),CONFIG=$(CONFIG)")
 # Note that the request file MUST be named $(CONFIG)Menu.req.  If the macro
 # CONFIGMENU is defined with any value, backup (".savB") and sequence files
 # (".savN") will not be written.  We don't want these for configMenu.
-doAfterIocInit("create_manual_set('$(CONFIG)Menu.req','P=$(PREFIX),CONFIG=$(CONFIG),H=$(INSTANCE),CONFIGMENU=1')")
+doAfterIocInit("create_manual_set('$(CONFIG)Menu.req','P=$(P),CONFIG=$(CONFIG),H=$(INSTANCE),CONFIGMENU=1')")
 
 # Register included example of a custom softGlue interrupt-service routine.
 # This is for interrupts that occur too closely spaced in time for softGlue's

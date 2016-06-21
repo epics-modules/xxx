@@ -38,21 +38,21 @@ asynOctetConnect("gpib1:2", "gpib1", 2, 1, 80)
 asynOctetConnect("gpib1:3", "gpib1", 3, 1, 80)
 
 # Keithley 2000 DMM, connected with GPIB
-dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM_mf.db","P=xxx:,Dmm=D2,PORT=gpib1 2")
+dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM_mf.db","P=$(PREFIX),Dmm=D2,PORT=gpib1 2")
 
 # send impromptu message to gpib device, parse reply
 # (was GPIB_OI_block)
-#dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=1,PORT=gpib1,ADDR=1,OMAX=100,IMAX=100")
+#dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=$(PREFIX),N=1,PORT=gpib1,ADDR=1,OMAX=100,IMAX=100")
 
 # Second gpib module dedicated to devSkeletonGpib Link-10 devices
 # gsIP488Configure(char *portName, int carrier, int module, int vector,
 #                  unsigned int priority, int noAutoConnect)
 #gsIP488Configure("L10",1,2,0x6A,0,0)
 # Heidenhain AWE1024 at GPIB address $(A)
-#dbLoadRecords("$(IP)/ipApp/Db/HeidAWE1024.db", "P=xxx:,L=10,A=6")
+#dbLoadRecords("$(IP)/ipApp/Db/HeidAWE1024.db", "P=$(PREFIX),L=10,A=6")
 
 # Keithley 199 DMM at GPIB address $(A)
-#dbLoadRecords("$(STD)/stdApp/Db/KeithleyDMM.db", "P=xxx:,L=10,A=26")
+#dbLoadRecords("$(STD)/stdApp/Db/KeithleyDMM.db", "P=$(PREFIX),L=10,A=26")
 
 
 # END gpib.cmd ------------------------------------------------------------
