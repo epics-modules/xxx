@@ -29,6 +29,11 @@ PROD_IOC = xxx
 DBD += xxx_Common.dbd
 xxx_Common_DBD += base.dbd
 
+#ifdef TDS3000
+#	xxx_Common_DBD += devTDS3000.dbd
+#	xxx_Common_LIBS := devTDS3000 $(xxx_Common_LIBS)
+#endif
+
 #ifdef CAPUTLOG
 #	xxx_Common_DBD += caPutLog.dbd
 #	xxx_Common_LIBS := caPutLog $(xxx_Common_LIBS)
@@ -155,6 +160,11 @@ ifdef VAC
 	xxx_Common_LIBS := vac $(xxx_Common_LIBS)
 endif
 
+#ifdef FLY
+#	xxx_Common_DBD += flySupport.dbd
+#	xxx_Common_LIBS := fly $(xxx_Common_LIBS)
+#endif
+
 xxx_Common_LIBS := $(xxx_Common_LIBS) $(EPICS_BASE_IOC_LIBS)
 
 ##################################################################
@@ -188,9 +198,11 @@ ifeq (win32-x86,$(findstring win32-x86, $(T_A)))
 		-include $(ADCORE)/ADApp/commonDriverMakefile
 		iocxxxWin32_DBD += ADSupport.dbd NDPluginSupport.dbd
 		xxx_LIBS_WIN32 += $(AD_LIBS)
-		# To add the simDetector uncomment the following lines
-		iocxxxLinux_DBD += simDetectorSupport.dbd
-		xxx_LIBS_WIN32 += simDetector
+		ifdef ADEXAMPLE
+			# To add the simDetector uncomment the following lines
+			iocxxxLinux_DBD += simDetectorSupport.dbd
+			xxx_LIBS_WIN32 += simDetector
+		endif
 	endif
 endif
 
@@ -330,9 +342,11 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 		xxx_LIBS_vxWorks += oms DeltaTau
 	endif
 
-	ifdef DEVIOCSTATS
-		iocxxxVX_DBD += devVxStats.dbd
-	endif
+#	ifdef FLY
+#		iocxxxVX_DBD += flyVXSupport.dbd
+#		xxx_LIBS_vxWorks += fly
+#	endif
+
 endif
 
 ifneq (,$(findstring linux, $(T_A)))
@@ -424,6 +438,10 @@ xxx_LIBS_cygwin32 += $(xxx_Common_LIBS)
 xxx_LIBS_WIN32    += $(xxx_Common_LIBS)
 xxx_LIBS_Darwin   += $(xxx_Common_LIBS)
 
+# Here's how to print out all gnumake variables
+#$(foreach v, $(.VARIABLES), $(info $(v) = $($(v))))
+# print out just one variable
+#$(info SUPPORT = $(SUPPORT))
 
 #===========================
 

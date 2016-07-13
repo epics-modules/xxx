@@ -37,6 +37,25 @@
 ipacAddTVME200("301fa0")
 #ipacAddTVME200("341fa2")
 
+# Select for Acromag AVME 9660 version IP Carrier.
+# Config string starts with a hex number which sets the I/O base address
+# of the card in the VME 16 addess space.(the factory default is 0x0000). J1's jumpers
+# on the AVME 9660 must be set to match the selected A16 mem location.
+# A mandatory comma is next followed by the VME interrupt level (0-7.)
+# A 0 interrupt level means all interrupts are disabled.
+
+# Next is slot = size, address. This determines if a slot is used and the IP module's A24 mem size
+# and A24 mem location. Definition of entire config string below:
+# ipacAddAvme96XX("A16 carrier mem location,int level,slot=IP A24 Memory Size,A24 IP Module Location")
+
+# Configuration Example
+# ipacAddAvme96XX("C000,3 A=2,800000 C=1,A00000")
+# This carrier is at A16:C000 and generates level 3 interrupts. Slot A is configured for 2MB of mem space
+# at A24:800000 and Slot C for 1MB of mem space at A24:A00000.
+ipacAddAvme96XX("C000,3 A=2,800000 C=1,A00000")
+
+
+
 # Print out report of IP modules
 ipacReport(2)
 
