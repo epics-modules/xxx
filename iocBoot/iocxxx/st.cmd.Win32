@@ -1,4 +1,4 @@
-# Cygwin startup script
+# Windows startup script
 
 < envPaths
 
@@ -8,14 +8,13 @@ errlogInit(20000)
 ################################################################################
 # Tell EPICS all about the record types, device-support modules, drivers,
 # etc. in the software we just loaded (xxx.munch)
-dbLoadDatabase("../../dbd/iocxxxCygwin.dbd")
-iocxxxCygwin_registerRecordDeviceDriver(pdbbase)
+dbLoadDatabase("../../dbd/iocxxxWin32.dbd")
+iocxxxWin32_registerRecordDeviceDriver(pdbbase)
 
 epicsEnvSet("PLATFORM", "softioc")
 
 < common.iocsh
 
-# < $(PLATFORM)/areaDetector.cmd
 # < $(PLATFORM)/serial.cmd
 
 # soft scaler for testing
@@ -24,7 +23,7 @@ epicsEnvSet("PLATFORM", "softioc")
 < common/motorSim.cmd
 
 # devIocStats
-dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=xxx, TODFORMAT=%m/%d/%Y %H:%M:%S")
+dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
 
 ###############################################################################
 iocInit
