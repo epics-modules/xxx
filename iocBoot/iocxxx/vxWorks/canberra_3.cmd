@@ -14,7 +14,7 @@ AIMConfig("AIM1/1", 0xa78, 1, 2048, 1, 1, "ei0")
 AIMConfig("AIM1/2", 0xa78, 2, 2048, 1, 1, "ei0")
 AIMConfig("AIM2/1", 0xa79, 1, 2048, 1, 1, "ei0")
 
-dbLoadRecords("$(MCA)/mcaApp/Db/3element.db","P=xxx:med:,BASENAME=mca,N=2000")
+dbLoadRecords("$(MCA)/mcaApp/Db/3element.db","P=$(PREFIX)med:,BASENAME=mca,N=2000")
 # icbConfig(portName, ethernetAddress, icbAddress, moduleType)
 #    portName to give to this asyn port
 #    ethernetAddress - Ethernet address of module, low order 16 bits
@@ -35,6 +35,6 @@ icbConfig("icbTca2", 0xa78, 1, 3)
 icbConfig("icbTca3", 0xa78, 2, 3)
 
 
-dbLoadTemplate("canberra_3.substitutions")
+dbLoadTemplate("common/canberra_3.substitutions")
 
 # END canberra_3.cmd ----------------------------------------------------------

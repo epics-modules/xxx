@@ -16,7 +16,7 @@ AIMConfig("AIM2/2", 0x98d, 2, 4000, 4, 1, "ei0")
 AIMConfig("AIM3/1", 0x98b, 1, 4000, 4, 1, "ei0")
 AIMConfig("AIM3/2", 0x903, 2, 4000, 4, 1, "ei0")
 
-dbLoadRecords("$(MCA)/mcaApp/Db/13element.db","P=xxx:med:")
+dbLoadRecords("$(MCA)/mcaApp/Db/13element.db","P=$(PREFIX)med:")
 
 # icbConfig(portName, ethernetAddress, icbAddress, moduleType)
 #    portName to give to this asyn port
@@ -52,7 +52,7 @@ icbConfig("icbAdc2", 0x98b, 7, 0)
 #HVPS's
 icbConfig("icbHvps1", 0x98b, A, 2)
 
-dbLoadTemplate("canberra_13.substitutions")
+dbLoadTemplate("common/canberra_13.substitutions")
 
 # END canberra_13.cmd ---------------------------------------------------------
 

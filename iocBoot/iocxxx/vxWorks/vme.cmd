@@ -39,22 +39,16 @@ MAXvSetup(2, 16, 0xE000, 180, 5, 10)
 #         for the standard incremental encoder values.
 #     (4) SSI based absolute encoder grey code flags (0/1 - yes/no, 0x12 -> UY)
 
-str0 = malloc(200); str1 = malloc(200);
-# Set Limit Mode to "Hard Limit Mode" for all axes.
-strcpy str0, "AA; LMH,H,H,H,H,H,H,H;"; strcpy str1, str0
-
-strcat str0, "AX LTH PSO; AY LTH PSO; AZ LTL PSO; AT LTL PSO; AU LTL PSO; AV LTL PSO; AR LTL PSO; AS LTL PSO;"
-MAXvConfig(0, str0, 0, 0)
-strcat str1, "AX LTL PSE; AY LTL PSE; AZ LTL PSE; AT LTL PSO; AU LTL PSO; AV LTL PSO; AR LTL PSO; AS LTL PSO;"
-MAXvConfig(1, str1, 0, 0)
-
-free(str0); free(str1)
+epicsEnvSet("config0", "AA; LMH,H,H,H,H,H,H,H; AX LTH PSO; AY LTH PSO; AZ LTL PSO; AT LTL PSO; AU LTL PSO; AV LTL PSO; AR LTL PSO; AS LTL PSO;")
+epicsEnvSet("config1", "AA; LMH,H,H,H,H,H,H,H; AX LTL PSE; AY LTL PSE; AZ LTL PSE; AT LTL PSO; AU LTL PSO; AV LTL PSO; AR LTL PSO; AS LTL PSO;")
+MAXvConfig(0, "$(config0)", 0, 0)
+MAXvConfig(1, "$(config1)", 0, 0)
 
 
 ### Scalers: Joerger VSC8/16
-#dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler2,OUT=#C1 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
+#dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=$(PREFIX),S=scaler2,OUT=#C1 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
 # scaler database with modified calcs (user calcs for all 16 channels)
-dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=xxx:,S=scaler1,OUT=#C0 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
+dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=$(PREFIX),S=scaler1,OUT=#C0 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
 # Joerger VSC setup parameters:
 #     (1)cards, (2)base address(ext, 256-byte boundary),
 #     (3)interrupt vector (0=disable or  64 - 255)
@@ -67,51 +61,51 @@ VSCSetup(2, 0xB0000000, 200)
 #       int intlevel)
 #scalerVS_Setup(1, 0x2000, 205, 5)
 #devScaler_VSDebug=0
-#dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=xxx:,S=scaler3,OUT=#C0 S0 @, DTYP=Joerger VS, FREQ=10000000")
+#dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=$(PREFIX),S=scaler3,OUT=#C0 S0 @, DTYP=Joerger VS, FREQ=10000000")
 
 # Heidenhain IK320 VME encoder interpolator
-#dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=1,switches=41344,irq=3")
-#dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=xxx:,sw2=card0:,axis=2,switches=41344,irq=3")
-#dbLoadRecords("$(VME)/vmeApp/Db/IK320group.db","P=xxx:,group=5")
+#dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=$(PREFIX),sw2=card0:,axis=1,switches=41344,irq=3")
+#dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=$(PREFIX),sw2=card0:,axis=2,switches=41344,irq=3")
+#dbLoadRecords("$(VME)/vmeApp/Db/IK320group.db","P=$(PREFIX),group=5")
 
 # Struck 3801 MCS setup. mca 7-3-1
-#iocsh "st_SIS3801.iocsh"
+#< vxWorks/st_SIS3801.iocsh
 
 # Struck 3820 MCS setup. mca 7-3-1
-iocsh "st_SIS3820.iocsh"
+< vxWorks/st_SIS3820.iocsh
 
 
 # VMI4116 setup parameters: 
 #     (1)cards, (2)base address(short, 36-byte boundary), 
 #devAoVMI4116Debug = 20
 #VMI4116_setup(1, 0xff00)
-#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=1,S=0,DTYP=VMIVME-4116,H=65536,L=0", std)
-#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=2,S=1,DTYP=VMIVME-4116,H=65536,L=0", std)
-#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=3,S=2,DTYP=VMIVME-4116,H=65536,L=0", std)
-#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=4,S=3,DTYP=VMIVME-4116,H=65536,L=0", std)
-#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=5,S=4,DTYP=VMIVME-4116,H=65536,L=0", std)
-#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=6,S=5,DTYP=VMIVME-4116,H=65536,L=0", std)
-#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=7,S=6,DTYP=VMIVME-4116,H=65536,L=0", std)
-#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=xxx:,D=2,C=0,N=8,S=7,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=1,S=0,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=2,S=1,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=3,S=2,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=4,S=3,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=5,S=4,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=6,S=5,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=7,S=6,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=8,S=7,DTYP=VMIVME-4116,H=65536,L=0", std)
 
 # vme test record
-dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
+dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=$(PREFIX),Q=vme1")
 
 # Hewlett-Packard 10895A Laser Axis (interferometer)
-#dbLoadRecords("$(VME)/vmeApp/Db/HPLaserAxis.db", "P=xxx:,Q=HPLaser1, C=0")
+#dbLoadRecords("$(VME)/vmeApp/Db/HPLaserAxis.db", "P=$(PREFIX),Q=HPLaser1, C=0")
 # hardware configuration
 # example: devHP10895LaserAxisConfig(ncards,a16base)
 #devHPLaserAxisConfig(2,0x1000)
 
 # Acromag general purpose Digital I/O
-#dbLoadRecords("$(VME)/vmeApp/Db/Acromag_16IO.db", "P=xxx:, A=1, C=0")
+#dbLoadRecords("$(VME)/vmeApp/Db/Acromag_16IO.db", "P=$(PREFIX), A=1, C=0")
 
 # Acromag AVME9440 setup parameters:
 # devAvem9440Config (ncards,a16base,intvecbase)
 #devAvme9440Config(1,0x0400,0x78)
 
 # Bunch-clock generator
-#dbLoadRecords("$(VME)/vmeApp/Db/BunchClkGen.db","P=xxx:")
+#dbLoadRecords("$(VME)/vmeApp/Db/BunchClkGen.db","P=$(PREFIX)")
 #dbLoadRecords("$(VME)/vmeApp/Db/BunchClkGenA.db", "UNIT=xxx")
 # hardware configuration
 # example: BunchClkGenConfigure(intCard, unsigned long CardAddress)
@@ -120,7 +114,7 @@ dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
 #doAfterIocInit("seq &getFillPat, 'unit=xxx'")
 
 ### GP307 Vacuum Controller
-#dbLoadRecords("$(VME)/vmeApp/Db/gp307.db","P=xxx:")
+#dbLoadRecords("$(VME)/vmeApp/Db/gp307.db","P=$(PREFIX)")
 
 # Machine Status Link (MSL) board (MRD 100)
 #####################################################
@@ -141,6 +135,6 @@ dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=xxx:,Q=vme1")
 #abConfigAuto
 
 # APS quad electrometer
-#<quadEM.cmd
+#< vxWorks/quadEM.cmd
 
 # END vme.cmd -----------------------------------------------------------------

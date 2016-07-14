@@ -73,26 +73,26 @@ dbLoadTemplate("asynRecord.substitutions")
 
 # send impromptu message to serial device, parse reply
 # (was serial_OI_block)
-dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=xxx:,N=1,PORT=serial1,ADDR=0,OMAX=100,IMAX=100")
+dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=$(PREFIX),N=1,PORT=serial1,ADDR=0,OMAX=100,IMAX=100")
 
 # Stanford Research Systems SR570 Current Preamplifier
-#dbLoadRecords("$(IP)/ipApp/Db/SR570.db", "P=xxx:,A=A1,PORT=serial1")
+#dbLoadRecords("$(IP)/ipApp/Db/SR570.db", "P=$(PREFIX),A=A1,PORT=serial1")
 
 # Keithley 2000 DMM
-#dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM_mf.db","P=xxx:,Dmm=D1,PORT=serial1")
+#dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM_mf.db","P=$(PREFIX),Dmm=D1,PORT=serial1")
 # channels: 10, 20, or 22;  model: 2000 or 2700
-#doAfterIocInit("seq &Keithley2kDMM,('P=xxx:, Dmm=D1, channels=22, model=2700')")
-#doAfterIocInit("seq &Keithley2kDMM,('P=xxx:, Dmm=D2, channels=10, model=2000')")
+#doAfterIocInit("seq &Keithley2kDMM,('P=$(PREFIX), Dmm=D1, channels=22, model=2700')")
+#doAfterIocInit("seq &Keithley2kDMM,('P=$(PREFIX), Dmm=D2, channels=10, model=2000')")
 
 # Oxford Cyberstar X1000 Scintillation detector and pulse processing unit
-#dbLoadRecords("$(IP)/ipApp/Db/Oxford_X1k.db","P=xxx:,S=s1,PORT=serial4")
+#dbLoadRecords("$(IP)/ipApp/Db/Oxford_X1k.db","P=$(PREFIX),S=s1,PORT=serial4")
 
 # Oxford ILM202 Cryogen Level Meter (Serial)
-#dbLoadRecords("$(IP)/ipApp/Db/Oxford_ILM202.db","P=xxx:,S=s1,PORT=serial5")
+#dbLoadRecords("$(IP)/ipApp/Db/Oxford_ILM202.db","P=$(PREFIX),S=s1,PORT=serial5")
 
 # Love Controllers
 #devLoveDebug=1
 #loveServerDebug=1
-#dbLoadRecords("$(IP)/ipApp/Db/love.db", "P=xxx:,Q=Love_0,C=0,PORT=PORT2,ADDR=1")
+#dbLoadRecords("$(IP)/ipApp/Db/love.db", "P=$(PREFIX),Q=Love_0,C=0,PORT=PORT2,ADDR=1")
 
 # END serial.cmd --------------------------------------------------------------
