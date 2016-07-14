@@ -11,11 +11,11 @@
 # path as mounted by that file
 
 # That is, do this...
-#set_savefile_path(startup, "autosave")
+set_savefile_path("$(STARTUP)", "autosave")
 
 # ... or this...
-save_restoreSet_NFSHost("oxygen", "164.54.22.10")
-set_savefile_path("/export/oxygen4/MOONEY/epics/synApps/support/xxx/iocBoot/iocvxWorks", "autosave")
+#save_restoreSet_NFSHost("oxygen", "164.54.22.10")
+#set_savefile_path("/export/oxygen4/MOONEY/epics/synApps/support/xxx/iocBoot/iocvxWorks", "autosave")
 
 # status PVs: default is to use them
 #save_restoreSet_UseStatusPVs(1)
