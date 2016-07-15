@@ -2,9 +2,9 @@
 # BEGIN canberra_1.cmd --------------------------------------------------------
 
 # Commands to load a single Canberra detector with ICB electronics
-#mcaRecordDebug=1
-#aimDebug=1
-#icbDebug=1
+#epicsEnvSet("mcaRecordDebug", 1)
+#epicsEnvSet("aimDebug", 1)
+#epicsEnvSet("icbDebug", 1)
 
 # AIMConfig(portName, ethernet_address, portNumber, maxChans,
 #           maxSignals, maxSequences, ethernetDevice)

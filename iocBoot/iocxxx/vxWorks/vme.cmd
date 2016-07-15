@@ -60,7 +60,7 @@ VSCSetup(2, 0xB0000000, 200)
 #       unsigned vector,        /* valid vectors(64-255) */
 #       int intlevel)
 #scalerVS_Setup(1, 0x2000, 205, 5)
-#devScaler_VSDebug=0
+#epicsEnvSet("devScaler_VSDebug", 0)
 #dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=$(PREFIX),S=scaler3,OUT=#C0 S0 @, DTYP=Joerger VS, FREQ=10000000")
 
 # Heidenhain IK320 VME encoder interpolator
@@ -130,9 +130,9 @@ dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=$(PREFIX),Q=vme1")
 #dbLoadRecords("$(VME)/vmeApp/Db/msl_mrd100.db","C=0,S=01,ID1=01,ID2=01us")
 
 # Allen-Bradley 6008 scanner
-#abConfigNlinks 1
-#abConfigVme 0,0xc00000,0x60,5
-#abConfigAuto
+#abConfigNlinks(1)
+#abConfigVme(0,0xc00000,0x60,5)
+#abConfigAuto()
 
 # APS quad electrometer
 #< vxWorks/quadEM.cmd

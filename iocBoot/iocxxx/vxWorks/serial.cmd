@@ -91,8 +91,8 @@ dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=$(PREFIX),N=1,PORT=serial1,A
 #dbLoadRecords("$(IP)/ipApp/Db/Oxford_ILM202.db","P=$(PREFIX),S=s1,PORT=serial5")
 
 # Love Controllers
-#devLoveDebug=1
-#loveServerDebug=1
+#epicsEnvSet("devLoveDebug",1)
+#epicsEnvSet("loveServerDebug",1)
 #dbLoadRecords("$(IP)/ipApp/Db/love.db", "P=$(PREFIX),Q=Love_0,C=0,PORT=PORT2,ADDR=1")
 
 # END serial.cmd --------------------------------------------------------------

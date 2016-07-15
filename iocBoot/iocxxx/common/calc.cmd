@@ -1,27 +1,29 @@
 ### Stuff for user programming ###
+#dbLoadRecords("$(CALC)/calcApp/Db/userCalcGlobalEnable.db","P=$(PREFIX)")
+
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db","P=$(PREFIX)")
-# Note: for vxWorks shell, strings must be in double quotes.
-#appendToFile("$(BUILT_SETTINGS)", "$(P)userCalcEnable")
+appendToFile("$(BUILT_SETTINGS)", '$(P)userCalcEnable')
 
 dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db","P=$(PREFIX)")
-#appendToFile("$(BUILT_SETTINGS)", "$(P)userCalcOutEnable")
-#dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10more.db","P=$(PREFIX),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20")
+appendToFile("$(BUILT_SETTINGS)", '$(P)userCalcOutEnable')
+
+dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10more.db","P=$(PREFIX),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20")
 
 dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db","P=$(PREFIX)")
-#appendToFile("$(BUILT_SETTINGS)", "$(P)userStringCalcEnable")
+appendToFile("$(BUILT_SETTINGS)", '$(P)userStringCalcEnable')
 
 dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db","P=$(PREFIX),N=8000")
-#appendToFile("$(BUILT_SETTINGS)", "$(P)userArrayCalcEnable")
+appendToFile("$(BUILT_SETTINGS)", '$(P)userArrayCalcEnable')
 
 dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db","P=$(PREFIX)")
-#appendToFile("$(BUILT_SETTINGS)", "$(P)userTranEnable")
+appendToFile("$(BUILT_SETTINGS)", '$(P)userTranEnable')
 
 dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db","P=$(PREFIX)")
-#appendToFile("$(BUILT_SETTINGS)", "$(P)userAveEnable")
+appendToFile("$(BUILT_SETTINGS)", '$(P)userAveEnable')
 
 # string sequence (sseq) records
 dbLoadRecords("$(CALC)/calcApp/Db/userStringSeqs10.db","P=$(PREFIX)")
-#appendToFile("$(BUILT_SETTINGS)", "$(P)userStringSeqEnable")
+appendToFile("$(BUILT_SETTINGS)", '$(P)userStringSeqEnable')
 
 # editSseq - edit any sseq or seq record
 dbLoadRecords("$(CALC)/calcApp/Db/editSseq.db", "P=$(PREFIX),Q=ES:")
