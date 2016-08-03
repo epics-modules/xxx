@@ -325,6 +325,8 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 		iocxxxVX_DBD += tyGSOctal.dbd
 		iocxxxVX_DBD += drvIpac.dbd
 		xxx_LIBS_vxWorks += TyGSOctal Ipac
+		iocxxxVX_DBD += IP520.dbd
+		xxx_LIBS_vxWorks += IP520
 	endif
 
 	ifdef ASYN
