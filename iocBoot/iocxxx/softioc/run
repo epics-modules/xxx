@@ -11,5 +11,5 @@ if [ "" != "${IOC_PID}" ] ; then
 fi
 
 # start the IOC
-
-../../bin/${EPICS_HOST_ARCH}/xxx st.cmd
+cd ..
+../../bin/${EPICS_HOST_ARCH}/xxx st.cmd.Linux
