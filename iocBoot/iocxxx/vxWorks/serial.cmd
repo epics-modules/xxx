@@ -134,15 +134,4 @@ dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=$(PREFIX),N=1,PORT=serial0,A
 # Oxford ILM202 Cryogen Level Meter (Serial)
 #dbLoadRecords("$(IP)/ipApp/Db/Oxford_ILM202.db","P=$(PREFIX),S=s1,PORT=serial4")
 
-# Love Controllers
-#epicsEnvSet("devLoveDebug",1)
-#epicsEnvSet("loveServerDebug",1)
-#asynSetOption("serial7", -1, "baud", "19200")
-#asynSetOption("serial7", -1, "bits", "8")
-#asynSetOption("serial7", -1, "stop", "1")
-#asynSetOption("serial7", -1, "parity", "none")
-#asynSetOption("serial7", -1, "clocal", "Y")
-#asynSetOption("serial7", -1, "crtscts", "N")
-#dbLoadRecords("$(IP)/ipApp/Db/love.db", "P=$(PREFIX),Q=Love_0,C=0,PORT=serial7,ADDR=1")
-
 # END serial.cmd --------------------------------------------------------------
