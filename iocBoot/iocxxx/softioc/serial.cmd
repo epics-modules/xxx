@@ -87,7 +87,7 @@ MCB4BSetup(1, 10)
 MCB4BConfig(0, "serial3")
 
 # Load asynRecord records on all ports
-dbLoadTemplate("common/asynRecord.substitutions")
+dbLoadTemplate("common/asynRecord.substitutions", "P=$(PREFIX)")
 
 # send impromptu message to serial device, parse reply
 # (was serial_OI_block)

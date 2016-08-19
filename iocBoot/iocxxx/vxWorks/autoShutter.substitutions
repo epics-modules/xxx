@@ -7,21 +7,21 @@
 file "$(STD)/stdApp/Db/autoShutter.vdb"
 {
 pattern
-{P           S       BL           T1      T2     A}
-{xxx:        A      "##ID"         1       2     1}
+{S       BL           T1      T2     A}
+{A      "##ID"         1       2     1}
 }
 
 file "$(STD)/stdApp/Db/countDownTimer.vdb"
 {
 pattern
 {P           N}
-{xxx:        1}
-{xxx:        2}
+{1}
+{2}
 }
 
 file "$(STD)/stdApp/Db/alarmClock.vdb"
 {
 pattern
 {P           N}
-{xxx:        1}
+{1}
 }

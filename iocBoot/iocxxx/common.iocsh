@@ -55,9 +55,9 @@ dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=$(PREFIX),Q=rt1")
 # < $(PLATFORM)/areaDetector.cmd
 
 # Motors
-dbLoadTemplate("$(PLATFORM)/motor.substitutions")
-#dbLoadTemplate("common/softMotor.substitutions")
-#dbLoadTemplate("common/pseudoMotor.substitutions")
+dbLoadTemplate("$(PLATFORM)/motor.substitutions", "P=$(PREFIX)")
+#dbLoadTemplate("common/softMotor.substitutions", "P=$(PREFIX)")
+#dbLoadTemplate("common/pseudoMotor.substitutions", "P=$(PREFIX)")
 
 # Allstop, alldone
 dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=$(PREFIX)")
@@ -162,7 +162,7 @@ dbLoadRecords("$(DIR)/table.db","P=$(PREFIX),Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y
 
 ### Orientation matrix, four-circle diffractometer (see seq program 'orient' below)
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/orient.db", "P=$(PREFIX),O=1,PREC=6")
-#dbLoadTemplate("common/orient_xtals.substitutions")
+#dbLoadTemplate("common/orient_xtals.substitutions", "P=$(PREFIX)")
 #doAfterIocInit("seq &orient, 'P=$(PREFIX)orient1:,PM=$(PREFIX),mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12'")
 
 
@@ -194,9 +194,9 @@ dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=$(PREFIX),N=1,MAXSAMPLES=1440")
 dbLoadRecords("$(STD)/stdApp/Db/timer.db","P=$(PREFIX),N=1")
 
 # Slow feedback
-dbLoadTemplate "common/pid_slow.substitutions"
-dbLoadTemplate "$(PLATFORM)/async_pid_slow.substitutions"
-#dbLoadTemplate "common/fb_epid.substitutions"
+dbLoadTemplate("common/pid_slow.substitutions")
+dbLoadTemplate("$(PLATFORM)/async_pid_slow.substitutions")
+#dbLoadTemplate("common/fb_epid.substitutions")
 
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=$(PREFIX)")
@@ -232,7 +232,7 @@ epicsEnvSet("FBO", "$(PREFIX)Unidig1Bo")
 #doAfterIocInit("seq pf4,'name=pf2,P=$(PREFIX),H=pf4:,B=B,M=$(PREFIX)userTran10.I,B1=$(PREFIX)userTran10.E,B2=$(PREFIX)userTran10.F,B3=$(PREFIX)userTran10.G,B4=$(PREFIX)userTran10.H'")
 
 ### Load database records for alternative PF4-filter support
-#dbLoadTemplate "common/filter.substitutions"
+#dbLoadTemplate("common/filter.substitutions", "P=$(PREFIX)")
 #doAfterIocInit("seq filterDrive,'NAME=filterDrive,P=$(PREFIX),R=filter:,NUM_FILTERS=16'")
 
 # trajectory scan

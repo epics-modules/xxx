@@ -53,10 +53,10 @@ configIp330("Ip330_1", 3,"Input",500,0)
 initFastSweep("Ip330Sweep1","Ip330_1", 4, 2048)
 
 # ai records using asynInt32Average device support
-dbLoadTemplate "ip330Scan.substitutions"
+dbLoadTemplate("ip330Scan.substitutions", "P=$(PREFIX)")
 
 # epid record using fast feedback with dac128V
-dbLoadTemplate "ip330PIDFast.substitutions"
+dbLoadTemplate("ip330PIDFast.substitutions", "P=$(PREFIX)")
 
 # Load MCA records on the first 4 input channels
 dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=$(PREFIX),M=mip330_1,DTYP=asynMCA,NCHAN=2048,INP=@asyn(Ip330Sweep1 0)")

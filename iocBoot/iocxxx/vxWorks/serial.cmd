@@ -105,7 +105,7 @@ tyGSOctalDevCreate("serial7", "UART_0", 7, 1000, 1000)
 #MCB4BConfig(0, "serial4")
 
 # Load asynRecord records on all ports
-dbLoadTemplate("asynRecord.substitutions")
+dbLoadTemplate("common/asynRecord.substitutions", "P=$(PREFIX)")
 
 # send impromptu message to serial device, parse reply
 # (was serial_OI_block)
