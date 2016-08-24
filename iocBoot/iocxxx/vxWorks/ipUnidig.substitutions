@@ -4,73 +4,73 @@
 file "$(IPUNIDIG)/ipUnidigApp/Db/IpUnidigLi.db"
 {
 pattern
-{R,       PORT,       SCAN}
-{Unidig1Li,  Unidig1, "1 second"}
-}
-
-file "$(IPUNIDIG)/ipUnidigApp/Db/IpUnidigBi.db"
-{
-pattern
-{R,         PORT,    MASK,        SCAN}
-{Unidig1Bi0,  Unidig1, 0x000001, "I/O Intr"}
-{Unidig1Bi1,  Unidig1, 0x000002, "I/O Intr"}
-{Unidig1Bi2,  Unidig1, 0x000004, "1 second"}
-{Unidig1Bi3,  Unidig1, 0x000008, "I/O Intr"}
-{Unidig1Bi4,  Unidig1, 0x000010, "I/O Intr"}
-{Unidig1Bi5,  Unidig1, 0x000020, "I/O Intr"}
-{Unidig1Bi6,  Unidig1, 0x000040, "I/O Intr"}
-{Unidig1Bi7,  Unidig1, 0x000080, "I/O Intr"}
-{Unidig1Bi8,  Unidig1, 0x000100, "I/O Intr"}
-{Unidig1Bi9,  Unidig1, 0x000200, "I/O Intr"}
-{Unidig1Bi10, Unidig1, 0x000400, "I/O Intr"}
-{Unidig1Bi11, Unidig1, 0x000800, "I/O Intr"}
-{Unidig1Bi12, Unidig1, 0x001000, "I/O Intr"}
-{Unidig1Bi13, Unidig1, 0x002000, "I/O Intr"}
-{Unidig1Bi14, Unidig1, 0x004000, "I/O Intr"}
-{Unidig1Bi15, Unidig1, 0x008000, "I/O Intr"}
-{Unidig1Bi16, Unidig1, 0x010000, "I/O Intr"}
-{Unidig1Bi17, Unidig1, 0x020000, "I/O Intr"}
-{Unidig1Bi18, Unidig1, 0x040000, "I/O Intr"}
-{Unidig1Bi19, Unidig1, 0x080000, "I/O Intr"}
-{Unidig1Bi20, Unidig1, 0x100000, "I/O Intr"}
-{Unidig1Bi21, Unidig1, 0x200000, "I/O Intr"}
-{Unidig1Bi22, Unidig1, 0x400000, "I/O Intr"}
-{Unidig1Bi23, Unidig1, 0x800000, "I/O Intr"}
-}
-
-file "$(IPUNIDIG)/ipUnidigApp/Db/IpUnidigBo.db"
-{
-pattern
-{R,        PORT,    MASK}
-{Unidig1Bo0,  Unidig1, 0x000001}
-{Unidig1Bo1,  Unidig1, 0x000002}
-{Unidig1Bo2,  Unidig1, 0x000004}
-{Unidig1Bo3,  Unidig1, 0x000008}
-{Unidig1Bo4,  Unidig1, 0x000010}
-{Unidig1Bo5,  Unidig1, 0x000020}
-{Unidig1Bo6,  Unidig1, 0x000040}
-{Unidig1Bo7,  Unidig1, 0x000080}
-{Unidig1Bo8,  Unidig1, 0x000100}
-{Unidig1Bo9,  Unidig1, 0x000200}
-{Unidig1Bo10, Unidig1, 0x000400}
-{Unidig1Bo11, Unidig1, 0x000800}
-{Unidig1Bo12, Unidig1, 0x001000}
-{Unidig1Bo13, Unidig1, 0x002000}
-{Unidig1Bo14, Unidig1, 0x004000}
-{Unidig1Bo15, Unidig1, 0x008000}
-{Unidig1Bo16, Unidig1, 0x010000}
-{Unidig1Bo17, Unidig1, 0x020000}
-{Unidig1Bo18, Unidig1, 0x040000}
-{Unidig1Bo19, Unidig1, 0x080000}
-{Unidig1Bo20, Unidig1, 0x100000}
-{Unidig1Bo21, Unidig1, 0x200000}
-{Unidig1Bo22, Unidig1, 0x400000}
-{Unidig1Bo23, Unidig1, 0x800000}
+{R,           SCAN}
+{Unidig1Li, "1 second"}
 }
 
 file "$(IPUNIDIG)/ipUnidigApp/Db/IpUnidigLo.db"
 {
 pattern
-{R,       PORT}
-{Unidig1Lo,  Unidig1}
+{R}
+{Unidig1Lo}
+}
+
+file "$(IPUNIDIG)/ipUnidigApp/Db/IpUnidigBi.db"
+{
+pattern
+{R,           MASK,        SCAN}
+{Unidig1Bi0,  0x000001, "I/O Intr"}
+{Unidig1Bi1,  0x000002, "I/O Intr"}
+{Unidig1Bi2,  0x000004, "1 second"}
+{Unidig1Bi3,  0x000008, "I/O Intr"}
+{Unidig1Bi4,  0x000010, "I/O Intr"}
+{Unidig1Bi5,  0x000020, "I/O Intr"}
+{Unidig1Bi6,  0x000040, "I/O Intr"}
+{Unidig1Bi7,  0x000080, "I/O Intr"}
+{Unidig1Bi8,  0x000100, "I/O Intr"}
+{Unidig1Bi9,  0x000200, "I/O Intr"}
+{Unidig1Bi10, 0x000400, "I/O Intr"}
+{Unidig1Bi11, 0x000800, "I/O Intr"}
+{Unidig1Bi12, 0x001000, "I/O Intr"}
+{Unidig1Bi13, 0x002000, "I/O Intr"}
+{Unidig1Bi14, 0x004000, "I/O Intr"}
+{Unidig1Bi15, 0x008000, "I/O Intr"}
+{Unidig1Bi16, 0x010000, "I/O Intr"}
+{Unidig1Bi17, 0x020000, "I/O Intr"}
+{Unidig1Bi18, 0x040000, "I/O Intr"}
+{Unidig1Bi19, 0x080000, "I/O Intr"}
+{Unidig1Bi20, 0x100000, "I/O Intr"}
+{Unidig1Bi21, 0x200000, "I/O Intr"}
+{Unidig1Bi22, 0x400000, "I/O Intr"}
+{Unidig1Bi23, 0x800000, "I/O Intr"}
+}
+
+file "$(IPUNIDIG)/ipUnidigApp/Db/IpUnidigBo.db"
+{
+pattern
+{R,             MASK}
+{Unidig1Bo0,  0x000001}
+{Unidig1Bo1,  0x000002}
+{Unidig1Bo2,  0x000004}
+{Unidig1Bo3,  0x000008}
+{Unidig1Bo4,  0x000010}
+{Unidig1Bo5,  0x000020}
+{Unidig1Bo6,  0x000040}
+{Unidig1Bo7,  0x000080}
+{Unidig1Bo8,  0x000100}
+{Unidig1Bo9,  0x000200}
+{Unidig1Bo10, 0x000400}
+{Unidig1Bo11, 0x000800}
+{Unidig1Bo12, 0x001000}
+{Unidig1Bo13, 0x002000}
+{Unidig1Bo14, 0x004000}
+{Unidig1Bo15, 0x008000}
+{Unidig1Bo16, 0x010000}
+{Unidig1Bo17, 0x020000}
+{Unidig1Bo18, 0x040000}
+{Unidig1Bo19, 0x080000}
+{Unidig1Bo20, 0x100000}
+{Unidig1Bo21, 0x200000}
+{Unidig1Bo22, 0x400000}
+{Unidig1Bo23, 0x800000}
 }
