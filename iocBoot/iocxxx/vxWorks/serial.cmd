@@ -112,26 +112,16 @@ dbLoadTemplate("common/asynRecord.substitutions", "P=$(PREFIX)")
 dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=$(PREFIX),N=1,PORT=serial0,ADDR=0,OMAX=100,IMAX=100")
 
 # Stanford Research Systems SR570 Current Preamplifier
-#asynSetOption("serial0", -1, "baud", "9600")
-#asynSetOption("serial0", -1, "bits", "8")
-#asynSetOption("serial0", -1, "stop", "2")
-#asynSetOption("serial0", -1, "parity", "none")
-#asynSetOption("serial0", -1, "clocal", "Y")
-#asynSetOption("serial0", -1, "crtscts", "N")
-#asynOctetSetInputEos("serial0", -1, "\r")
-#asynOctetSetOutputEos("serial0", -1, "\r")
-#dbLoadRecords("$(IP)/ipApp/Db/SR570.db", "P=$(PREFIX),A=A1,PORT=serial0")
+#iocshLoad("$(IP)/iocsh/SR_570.iocsh", "PREFIX=$(PREFIX), INSTANCE=A1, PORT=serial0")
 
 # Keithley 2000 DMM
-#dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM_mf.db","P=$(PREFIX),Dmm=D1,PORT=serial0")
-# channels: 10, 20, or 22;  model: 2000 or 2700
-#doAfterIocInit("seq &Keithley2kDMM,('P=$(PREFIX), Dmm=D1, channels=22, model=2700')")
-#doAfterIocInit("seq &Keithley2kDMM,('P=$(PREFIX), Dmm=D2, channels=10, model=2000')")
+#iocshLoad("$(IP)/iocsh/Keithley_2k_serial.iocsh", "PREFIX=$(PREFIX), INSTANCE=D1, PORT=serial0, NUM_CHANNELS=22, MODEL=2700")
+#iocshLoad("$(IP)/iocsh/Keithley_2k_serial.iocsh", "PREFIX=$(PREFIX), INSTANCE=D1, PORT=serial0, NUM_CHANNELS=10, MODEL=2000")
 
 # Oxford Cyberstar X1000 Scintillation detector and pulse processing unit
-#dbLoadRecords("$(IP)/ipApp/Db/Oxford_X1k.db","P=$(PREFIX),S=s1,PORT=serial3")
+#iocshLoad("$(IP)/iocsh/Oxford_X1k.iocsh", "PREFIX=$(PREFIX), INSTANCE=s1, PORT=serial3")
 
 # Oxford ILM202 Cryogen Level Meter (Serial)
-#dbLoadRecords("$(IP)/ipApp/Db/Oxford_ILM202.db","P=$(PREFIX),S=s1,PORT=serial4")
+#iocshLoad("$(IP)/iocsh/Oxford_ILM202.iocsh", "PREFIX=$(PREFIX), INSTANCE=s1, PORT=serial4")
 
 # END serial.cmd --------------------------------------------------------------

@@ -28,17 +28,15 @@ asynInterposeEosConfig("gpib1", 3, 1, 0)
 # asynOctetSetInputEos(const char *portName, int addr,
 #                      const char *eosin,const char *drvInfo)
 asynOctetSetInputEos("gpib1", 1, "\n")
-asynOctetSetInputEos("gpib1", 2, "\n")
 asynOctetSetInputEos("gpib1", 3, "\r")
 
 # asynOctetConnect(const char *entry, const char *port, int addr,
 #                  int timeout, int buffer_len, const char *drvInfo)
 asynOctetConnect("gpib1:1", "gpib1", 1, 1, 80)
-asynOctetConnect("gpib1:2", "gpib1", 2, 1, 80)
 asynOctetConnect("gpib1:3", "gpib1", 3, 1, 80)
 
 # Keithley 2000 DMM, connected with GPIB
-dbLoadRecords("$(IP)/ipApp/Db/Keithley2kDMM_mf.db","P=$(PREFIX),Dmm=D2,PORT=gpib1 2")
+iocshLoad("$(IP)/iocsh/Keithley_2k_gpib.iocsh", "PREFIX=$(PREFIX), INSTANCE=D2, PORT=gpib1, ADDR=2, NUM_CHANNELS=22, MODEL=2700")
 
 # send impromptu message to gpib device, parse reply
 # (was GPIB_OI_block)

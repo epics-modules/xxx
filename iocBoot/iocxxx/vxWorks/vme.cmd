@@ -92,42 +92,21 @@ VSCSetup(2, 0xB0000000, 200)
 dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=$(PREFIX),Q=vme1")
 
 # Hewlett-Packard 10895A Laser Axis (interferometer)
-#dbLoadRecords("$(VME)/vmeApp/Db/HPLaserAxis.db", "P=$(PREFIX),Q=HPLaser1, C=0")
-# hardware configuration
-# example: devHP10895LaserAxisConfig(ncards,a16base)
-#devHPLaserAxisConfig(2,0x1000)
+#iocshLoad("$(VME)/iocsh/HP_10895A.iocsh", "PREFIX=$(PREFIX), MAX_CARDS=2, ADDRESS=0x1000, INSTANCE=HPLaser1, CARD=0")
+#iocshLoad("$(VME)/iocsh/HP_10895A.iocsh", "PREFIX=$(PREFIX), INSTANCE=HPLaser2, CARD=1")
 
 # Acromag general purpose Digital I/O
-#dbLoadRecords("$(VME)/vmeApp/Db/Acromag_16IO.db", "P=$(PREFIX), A=1, C=0")
-
-# Acromag AVME9440 setup parameters:
-# devAvem9440Config (ncards,a16base,intvecbase)
-#devAvme9440Config(1,0x0400,0x78)
+#iocshLoad("$(VME)/iocsh/Acromag_9440.iocsh", "PREFIX=$(PREFIX), MAX_CARDS=2, ADDRESS=0x0400, INT_VEC=0x78, INSTANCE=1, CARD=0")
+#iocshLoad("$(VME)/iocsh/Acromag_9440.iocsh", "PREFIX=$(PREFIX), INSTANCE=2, CARD=1")
 
 # Bunch-clock generator
-#dbLoadRecords("$(VME)/vmeApp/Db/BunchClkGen.db","P=$(PREFIX)")
-#dbLoadRecords("$(VME)/vmeApp/Db/BunchClkGenA.db", "UNIT=xxx")
-# hardware configuration
-# example: BunchClkGenConfigure(intCard, unsigned long CardAddress)
-#BunchClkGenConfigure(0, 0x8c00)
-# sequence program
-#doAfterIocInit("seq &getFillPat, 'unit=xxx'")
+#iocshLoad("$(VME)/iocsh/BunchClkGen.iocsh", "PREFIX=$(PREFIX), INSTANCE=1, CARD=0, ADDRESS=0x8c00")
 
 ### GP307 Vacuum Controller
 #dbLoadRecords("$(VME)/vmeApp/Db/gp307.db","P=$(PREFIX)")
 
 # Machine Status Link (MSL) board (MRD 100)
-#####################################################
-# devAvmeMRDConfig( base, vector, level )
-#    base   = base address of card
-#    vector = interrupt vector
-#    level  = interrupt level
-# For Example
-#    devAvmeMRDConfig(0xA0000200, 0xA0, 5)
-#####################################################
-#  Configure the MSL MRD 100 module.....
-#devAvmeMRDConfig(0xB0000200, 0xA0, 5)    
-#dbLoadRecords("$(VME)/vmeApp/Db/msl_mrd100.db","C=0,S=01,ID1=01,ID2=01us")
+#iocshLoad("$(VME)/iocsh/MSL_MRD100.iocsh", "PREFIX=$(PREFIX), INSTANCE=01, ADDRESS=0xB0000200, INT_VEC=0xA0, CARD=0")
 
 # Allen-Bradley 6008 scanner
 #abConfigNlinks(1)

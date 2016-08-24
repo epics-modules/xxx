@@ -1,57 +1,17 @@
 
 # BEGIN save_restore.cmd ------------------------------------------------------
 
-# This file does not require modification for standard use, other than to
-# specify the prefix.  However...
+# This file does not require modification for standard use
 # If you want save_restore to manage its own NFS mount, specify the name and
 # IP address of the file server to which save files should be written, and
-# call set_savefile_path() with a path as the server sees it.  This currently
+# set SAVE_PATH to a path as the server sees it.  This currently
 # is supported only on vxWorks.
-# If the NFS mount from nfsCommands is used, call set_savefile_path() with a
-# path as mounted by that file
 
-# That is, do this...
-set_savefile_path("$(STARTUP)", "autosave")
-
-# ... or this...
 #save_restoreSet_NFSHost("oxygen", "164.54.22.10")
-#set_savefile_path("/export/oxygen4/MOONEY/epics/synApps/support/xxx/iocBoot/iocvxWorks", "autosave")
 
-# status PVs: default is to use them
-#save_restoreSet_UseStatusPVs(1)
-save_restoreSet_status_prefix("$(PREFIX)")
-dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=$(PREFIX), DEAD_SECONDS=5")
-
-# Ok to save/restore save sets with missing values (no CA connection to PV)?
-save_restoreSet_IncompleteSetsOk(1)
-
-# Save dated backup files?
-save_restoreSet_DatedBackupFiles(1)
-
-# Number of sequenced backup files to write
-save_restoreSet_NumSeqFiles(3)
-
-# Time interval between sequenced backups
-save_restoreSet_SeqPeriodInSeconds(300)
-
-# Ok to retry connecting to PVs whose initial connection attempt failed?
-save_restoreSet_CAReconnect(1)
-
-# Time interval in seconds between forced save-file writes.  (-1 means forever).
-# This is intended to get save files written even if the normal trigger mechanism is broken.
-save_restoreSet_CallbackTimeout(-1)
-
-###
-# specify what save files should be restored.  Note these files must be
-# in the directory specified in set_savefile_path(), or, if that function
-# has not been called, from the directory current when iocInit is invoked
-set_pass0_restoreFile("auto_positions.sav")
-# Note doAfterIocInit() supplied by std module.
-doAfterIocInit("create_monitor_set('auto_positions.req',5,'P=$(PREFIX)')")
-
-set_pass0_restoreFile("auto_settings.sav")
-set_pass1_restoreFile("auto_settings.sav")
-doAfterIocInit("create_monitor_set('auto_settings.req',30,'P=$(PREFIX)')")
+iocshLoad("$(AUTOSAVE)/iocsh/autosave_settings.iocsh", "PREFIX=$(PREFIX), SAVE_PATH=$(STARTUP)")
+iocshLoad("$(AUTOSAVE)/iocsh/autosaveBuild.iocsh",     "PREFIX=$(PREFIX)")
+iocshLoad("$(AUTOSAVE)/iocsh/save_restore.iocsh",      "PREFIX=$(PREFIX), POSITIONS_FILE=auto_positions.req, SETTINGS_FILE=auto_settings.req")
 
 # Note that you can restore a .sav file without also autosaving to it.
 #set_pass0_restoreFile("octupole_settings.sav")
@@ -60,8 +20,6 @@ doAfterIocInit("create_monitor_set('auto_settings.req',30,'P=$(PREFIX)')")
 ###
 # specify directories in which to search for included request files
 # Note that the vxWorks variables (e.g., 'startup') are from cdCommands
-set_requestfile_path("$(TOP)/iocBoot/$(IOC)", "")
-set_requestfile_path("$(TOP)/iocBoot/$(IOC)/autosave", "")
 set_requestfile_path("$(TOP)/iocBoot/$(IOC)/$(PLATFORM)", "")
 set_requestfile_path("$(TOP)/iocBoot/$(IOC)/common", "")
 set_requestfile_path("$(AREA_DETECTOR)", "ADApp/Db")
@@ -93,16 +51,5 @@ set_requestfile_path("$(TOP)", "xxxApp/Db")
 
 # Debug-output level
 save_restoreSet_Debug(0)
-
-# Tell autosave to automatically build built_settings.req and
-# built_positions.req from databases and macros supplied to dbLoadRecords()
-# (and dbLoadTemplate(), which calls dbLoadRecords()).
-# This requires EPICS 3.15.1 or later, or 3.14 patched as described in
-# autosave R5-5 documentation.
-epicsEnvSet("BUILT_SETTINGS", "built_settings.req")
-epicsEnvSet("BUILT_POSITIONS", "built_positions.req")
-autosaveBuild("$(BUILT_SETTINGS)", "_settings.req", 1)
-#autosaveBuild("$(BUILT_SETTINGS)", ".req", 1)
-autosaveBuild("$(BUILT_POSITIONS)", "_positions.req", 1)
 
 # END save_restore.cmd --------------------------------------------------------
