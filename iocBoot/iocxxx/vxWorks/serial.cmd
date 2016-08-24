@@ -13,14 +13,7 @@ tyGSOctalDrv(1)
 #           defined in ipacAddXYZ() calls.)
 # slot    - location of module on carrier -- 0..3 for slot A..slot D
 tyGSOctalModuleInit("UART_0", "232", 0x80, 0, 0)
-tyGSOctalDevCreate("serial0", "UART_0", 0, 1000, 1000)
-tyGSOctalDevCreate("serial1", "UART_0", 1, 1000, 1000)
-tyGSOctalDevCreate("serial2", "UART_0", 2, 1000, 1000)
-tyGSOctalDevCreate("serial3", "UART_0", 3, 1000, 1000)
-tyGSOctalDevCreate("serial4", "UART_0", 4, 1000, 1000)
-tyGSOctalDevCreate("serial5", "UART_0", 5, 1000, 1000)
-tyGSOctalDevCreate("serial6", "UART_0", 6, 1000, 1000)
-tyGSOctalDevCreate("serial7", "UART_0", 7, 1000, 1000)
+tyGSOctalDevCreateAll("serial", "UART_0", 1000, 1000)
 
 #serial0 - SR570
 #serial1 - 
