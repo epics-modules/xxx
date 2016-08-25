@@ -18,9 +18,6 @@ epicsEnvSet("PLATFORM", "softioc")
 # < $(PLATFORM)/areaDetector.cmd
 # < $(PLATFORM)/serial.cmd
 
-# soft scaler for testing
-< common/softScaler.cmd
-
 < common/motorSim.cmd
 
 # devIocStats

@@ -85,6 +85,9 @@ dbLoadTemplate("$(PLATFORM)/scanParms.substitutions")
 
 < common/calc.iocsh
 
+# Soft scaler for testing
+#iocshLoad("$(STD)/iocsh/softScaler.iocsh", "P=$(PREFIX), INSTANCE=scaler1")
+
 # Soft function generator
 #dbLoadRecords("$(CALC)/calcApp/Db/FuncGen.db","P=$(PREFIX),Q=fgen,OUT=$(PREFIX)m7.VAL")
 
