@@ -38,3 +38,5 @@ HAVE_HDF5 = NO
 HAVE_SZIP = NO
 
 -include $(AREA_DETECTOR)/configure/CONFIG_SITE
+
+TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
