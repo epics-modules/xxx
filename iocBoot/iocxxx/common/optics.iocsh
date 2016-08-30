@@ -53,8 +53,7 @@ dbLoadRecords("$(DIR)/table.db","P=$(PREFIX),Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y
 #dbLoadRecords("$(OPTICS)/opticsApp/Db/CoarseFineMotor.db","P=$(PREFIX)cf1:,PM=$(PREFIX),CM=m7,FM=m8")
 
 ### Load database records for dual PF4 filters
-#iocshLoad("OPTICS)/iocsh/pf4filters.iocsh", "PREFIX=$(PREFIX), INSTANCE=pf4")
+#iocshLoad("$(OPTICS)/iocsh/pf4filters.iocsh", "PREFIX=$(PREFIX), INSTANCE=pf4")
 
 ### Load database records for alternative PF4-filter support
-#dbLoadTemplate("common/filter.substitutions", "P=$(PREFIX), R=filter:")
-#doAfterIocInit("seq filterDrive,'NAME=filterDrive,P=$(PREFIX),R=filter:,NUM_FILTERS=16'")
+#iocshLoad("$(OPTICS)/iocsh/filterDrive.iocsh", "PREFIX=$(PREFIX), INSTANCE=filter, KEV=$(PREFIX)userCalc1.A, NUM_FILTERS=16, SUB=common/filter.substitutions")
