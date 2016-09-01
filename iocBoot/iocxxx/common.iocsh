@@ -110,10 +110,6 @@ dbLoadTemplate("$(PLATFORM)/async_pid_slow.substitutions")
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=$(PREFIX)")
 
-### Queensgate piezo driver
-#dbLoadRecords("$(IP)/ipApp/Db/pzt.db","P=$(PREFIX)")
-#dbLoadRecords("$(IP)/ipApp/Db/pzt.db","P=$(PREFIX),PORT=")
-
 ### Queensgate Nano2k piezo controller
 #dbLoadRecords("$(STD)/stdApp/Db/Nano2k.db","P=$(PREFIX),S=s1")
 

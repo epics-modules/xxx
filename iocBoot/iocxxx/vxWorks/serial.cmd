@@ -37,4 +37,7 @@ iocshLoad("$(IP)/iocsh/loadSerialComm.iocsh", "PREFIX=$(PREFIX), PORT=serial")
 # Oxford ILM202 Cryogen Level Meter (Serial)
 #iocshLoad("$(IP)/iocsh/Oxford_ILM202.iocsh", "PREFIX=$(PREFIX), INSTANCE=s1, PORT=serial4")
 
+### Queensgate piezo driver
+#iocshLoad("$(IP)/iocsh/Queensgate_piezo.iocsh", "P=$(PREFIX), PORT=serial5")
+
 # END serial.cmd --------------------------------------------------------------
