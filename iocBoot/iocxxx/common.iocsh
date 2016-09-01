@@ -51,8 +51,7 @@ dbLoadTemplate("$(PLATFORM)/motor.substitutions", "P=$(PREFIX)")
 #dbLoadTemplate("common/pseudoMotor.substitutions", "P=$(PREFIX)")
 
 # Allstop, alldone
-dbLoadRecords("$(MOTOR)/db/motorUtil.db", "P=$(PREFIX)")
-doAfterIocInit("motorUtilInit('$(PREFIX)')")
+iocshLoad("$(MOTOR)/iocsh/allstop.iocsh", "P=$(PREFIX)")
 
 ### streamDevice example
 #dbLoadRecords("$(TOP)/xxxApp/Db/streamExample.db","P=$(PREFIX),PORT=serial1")

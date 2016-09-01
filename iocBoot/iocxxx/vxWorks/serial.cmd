@@ -1,19 +1,13 @@
 
 # BEGIN serial.cmd ------------------------------------------------------------
 
-# Initialize Octal UART stuff
-# tyGSOctalDrv(int maxModules)
-tyGSOctalDrv(1)
+#Creates serial0 through serial7
+iocshLoad("$(IPAC)/iocsh/tyGSOctal.iocsh", "INSTANCE=UART_0, PORT=serial, TYPE=232, CARRIER=0, SLOT=0, INT_VEC=0x80, MAX_MODULES=1")
+iocshLoad("$(IP)/iocsh/loadSerialComm.iocsh", "PREFIX=$(PREFIX), PORT=serial")
 
-# tyGSOctalModuleInit(char *name, char *type, int intVec, int carrier, int slot)
-# name    - name by which you want to refer to this IndustryPack module
-# type    - one of "232", "422", "485" -- the serial hardware standard the module implements
-# intVec  - interrupt vector 
-# carrier - number of IP carrier (Carriers are numbered in the order in which they were
-#           defined in ipacAddXYZ() calls.)
-# slot    - location of module on carrier -- 0..3 for slot A..slot D
-tyGSOctalModuleInit("UART_0", "232", 0x80, 0, 0)
-tyGSOctalDevCreateAll("serial", "UART_0", 1000, 1000)
+#Creates serial10 through serial17
+#iocshLoad("$(IPAC)/iocsh/tyGSOctal.iocsh", "INSTANCE=UART_1, PORT=serial1, TYPE=232, CARRIER=0, SLOT=1, INT_VEC=0x80")
+#iocshLoad("$(IP)/iocsh/loadSerialComm.iocsh", "PREFIX=$(PREFIX), PORT=serial1")
 
 #serial0 - SR570
 #serial1 - 
@@ -25,84 +19,10 @@ tyGSOctalDevCreateAll("serial", "UART_0", 1000, 1000)
 #serial7 - Love Controllers
 
 
-# Newport MM4000 driver setup parameters:
-#     (1) maximum # of controllers,
-#     (2) motor task polling rate (min=1Hz, max=60Hz)
-#MM4000Setup(1, 10)
-
-# Newport MM4000 serial connection settings
-#asynSetOption("serial6", -1, "baud", "38400")
-#asynSetOption("serial6", -1, "bits", "8")
-#asynSetOption("serial6", -1, "stop", "1")
-#asynSetOption("serial6", -1, "parity", "none")
-#asynSetOption("serial6", -1, "clocal", "Y")
-#asynSetOption("serial6", -1, "crtscts", "N")
-#asynOctetSetInputEos("serial6", -1, "\r")
-#asynOctetSetOutputEos("serial6", -1, "\r")
-
-# Newport MM4000 driver configuration parameters:
-#     (1) controller
-#     (2) asyn port name (e.g. serial0 or gpib1)
-#     (3) GPIB address (0 for serial)
-#MM4000Config(0, "serial6", 0)
-
-# Newport PM500 driver setup parameters:
-#     (1) maximum number of controllers in system
-#     (2) motor task polling rate (min=1Hz,max=60Hz)
-#PM500Setup(1, 10)
-
-# Newport PM500 serial connection settings
-#asynSetOption("serial2", -1, "baud", "9600")
-#asynSetOption("serial2", -1, "bits", "7")
-#asynSetOption("serial2", -1, "stop", "2")
-#asynSetOption("serial2", -1, "parity", "even")
-#asynSetOption("serial2", -1, "clocal", "N")  # Hardware handshaking
-#asynSetOption("serial2", -1, "crtscts", "N")
-#asynOctetSetInputEos("serial2", -1, "\r")
-#asynOctetSetOutputEos("serial2", -1, "\r")
-
-# Newport PM500 configuration parameters:
-#     (1) controller
-#     (2) asyn port name (e.g. serial0 or gpib1)
-#PM500Config(0, "serial2")
-
-# McClennan PM304 driver setup parameters:
-#     (1) maximum number of controllers in system
-#     (2) motor task polling rate (min=1Hz, max=60Hz)
-#PM304Setup(1, 10)
-
-# McClennan PM304 driver configuration parameters:
-#     (1) controller being configured
-#     (2) MPF serial server name (string)
-#     (3) Number of axes on this controller
-#PM304Config(0, "serial3", 1)
-
-# ACS MCB-4B driver setup parameters:
-#     (1) maximum number of controllers in system
-#     (2) motor task polling rate (min=1Hz, max=60Hz)
-#MCB4BSetup(1, 10)
-
-# ACS MCB-4B serial connection settings
-#asynSetOption("serial4", -1, "baud", "19200")
-#asynSetOption("serial4", -1, "bits", "8")
-#asynSetOption("serial4", -1, "stop", "1")
-#asynSetOption("serial4", -1, "parity", "none")
-#asynSetOption("serial4", -1, "clocal", "Y")
-#asynSetOption("serial4", -1, "crtscts", "N")
-#asynOctetSetInputEos("serial4", -1, "\r")
-#asynOctetSetOutputEos("serial4", -1, "\r")
-
-# ACS MCB-4B driver configuration parameters:
-#     (1) controller being configured
-#     (2) asyn port name (string)
-#MCB4BConfig(0, "serial4")
-
-# Load asynRecord records on all ports
-dbLoadTemplate("common/asynRecord.substitutions", "P=$(PREFIX)")
-
-# send impromptu message to serial device, parse reply
-# (was serial_OI_block)
-dbLoadRecords("$(IP)/ipApp/Db/deviceCmdReply.db","P=$(PREFIX),N=1,PORT=serial0,ADDR=0,OMAX=100,IMAX=100")
+#iocshLoad("$(MOTOR)/iocsh/Newport_MM4000.iocsh",  "PORT=serial6, CONTROLLER=0, POLL_RATE=10, MAX_CONTROLLERS=1")
+#iocshLoad("$(MOTOR)/iocsh/Newport_PM500.iocsh",   "PORT=serial2, CONTROLLER=0, POLL_RATE=10, MAX_CONTROLLERS=1")
+#iocshLoad("$(MOTOR)/iocsh/McClennan_PM304.iocsh", "PORT=serial3, CONTROLLER=0, POLL_RATE=10,  NUM_AXES=1, MAX_CONTROLLER=1")
+#iocshLoad("$(MOTOR)/iocsh/ACS_MCB4B.iocsh",       "PORT=serial4, CONTROLLER=0, POLL_RATE=100, NUM_AXES=1")
 
 # Stanford Research Systems SR570 Current Preamplifier
 #iocshLoad("$(IP)/iocsh/SR_570.iocsh", "PREFIX=$(PREFIX), INSTANCE=A1, PORT=serial0")
