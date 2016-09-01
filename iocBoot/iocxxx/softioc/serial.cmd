@@ -19,8 +19,8 @@ asynOctetConnect("serial2", "serial2")
 #asynOctetConnect("serial3", "serial3")
 #asynOctetConnect("serial4", "serial4")
 
-# Load asynRecord and deviceCmdReply records on serial0-serial7
-iocshLoad("$(IP)/iocsh/loadSerialComm.iocsh", "P=$(PREFIX), PORT=serial")
+# Load asynRecord and deviceCmdReply records for ports
+iocshLoad("$(IP)/iocsh/loadSerialComm.iocsh", "P=$(PREFIX), PORT0=serial1, PORT1=serial2, PORT2=serial3, PORT4=serial4")
 
 
 # serial 1 connected to Keithley2K DMM at 19200 baud
