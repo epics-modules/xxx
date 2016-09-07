@@ -9,7 +9,7 @@
 
 #save_restoreSet_NFSHost("oxygen", "164.54.22.10")
 
-iocshLoad("$(AUTOSAVE)/iocsh/autosave_settings.iocsh", "PREFIX=$(PREFIX), SAVE_PATH=$(STARTUP)")
+iocshLoad("$(AUTOSAVE)/iocsh/autosave_settings.iocsh", "PREFIX=$(PREFIX), SAVE_PATH=$(TOP)/iocBoot/$(IOC)")
 iocshLoad("$(AUTOSAVE)/iocsh/autosaveBuild.iocsh",     "PREFIX=$(PREFIX)")
 iocshLoad("$(AUTOSAVE)/iocsh/save_restore.iocsh",      "PREFIX=$(PREFIX), POSITIONS_FILE=auto_positions.req, SETTINGS_FILE=auto_settings.req")
 
