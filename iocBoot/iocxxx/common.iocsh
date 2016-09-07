@@ -1,29 +1,16 @@
-##########################  ############################################################################
-# environment variable      description
-##########################  ############################################################################
-# PREFIX		    prefix used for all PVs in this IOC
-# EPICS_DB_INCLUDE_PATH     search path for database files
-# EPICS_CA_MAX_ARRAY_BYTES  Specify largest array CA will transport
-# IOCBOOT		    absolute directory path in which this file is located
-##########################  ############################################################################
+# prefix used for all PVs in this IOC
+epicsEnvSet("PREFIX", "xxx:")
+
 #For devIocStats
 epicsEnvSet("ENGINEER", "engineer")
 epicsEnvSet("LOCATION", "location")
 epicsEnvSet("GROUP", "group")
 
-epicsEnvSet("PREFIX", "xxx:")
-
-### For alive
-epicsEnvSet("IOCBOOT", $(TOP)/iocBoot/$(IOC))
-
+# search path for database files
 epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(DEVIOCSTATS)/db")
 
 # set the protocol path for streamDevice
 epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
-
-# save_restore.cmd needs the full path to the startup directory, which
-# envPaths currently does not provide
-epicsEnvSet(STARTUP,$(TOP)/iocBoot/$(IOC))
 
 # Specify largest array CA will transport
 # Note for N doubles, need N*8 bytes+some overhead
@@ -46,9 +33,9 @@ dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=$(PREFIX),Q=rt1")
 # < $(PLATFORM)/areaDetector.cmd
 
 # Motors
-dbLoadTemplate("$(PLATFORM)/motor.substitutions", "P=$(PREFIX)")
-#dbLoadTemplate("common/softMotor.substitutions", "P=$(PREFIX)")
-#dbLoadTemplate("common/pseudoMotor.substitutions", "P=$(PREFIX)")
+dbLoadTemplate("substitutions/motor.substitutions", "P=$(PREFIX)")
+#dbLoadTemplate("substitutions/softMotor.substitutions", "P=$(PREFIX)")
+#dbLoadTemplate("substitutions/pseudoMotor.substitutions", "P=$(PREFIX)")
 
 # Allstop, alldone
 iocshLoad("$(MOTOR)/iocsh/allstop.iocsh", "P=$(PREFIX)")
@@ -87,9 +74,6 @@ dbLoadTemplate("$(PLATFORM)/scanParms.substitutions")
 # Soft scaler for testing
 #iocshLoad("$(STD)/iocsh/softScaler.iocsh", "P=$(PREFIX), INSTANCE=scaler1")
 
-# Soft function generator
-#dbLoadRecords("$(CALC)/calcApp/Db/FuncGen.db","P=$(PREFIX),Q=fgen,OUT=$(PREFIX)m7.VAL")
-
 # 4-step measurement
 dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=$(PREFIX),Q=4step:")
 
@@ -103,9 +87,9 @@ dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=$(PREFIX),N=1,MAXSAMPLES=1440")
 dbLoadRecords("$(STD)/stdApp/Db/timer.db","P=$(PREFIX),N=1")
 
 # Slow feedback
-dbLoadTemplate("common/pid_slow.substitutions")
-dbLoadTemplate("$(PLATFORM)/async_pid_slow.substitutions")
-#dbLoadTemplate("common/fb_epid.substitutions")
+#dbLoadTemplate("substitutions/pid_slow.substitutions")
+#dbLoadTemplate("substitutions/async_pid_slow.substitutions")
+#dbLoadTemplate("substitutions/fb_epid.substitutions")
 
 # Miscellaneous PV's, such as burtResult
 dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=$(PREFIX)")

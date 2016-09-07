@@ -8,6 +8,6 @@
 # slot        = IPAC slot (0,1,2,3, etc.)
 initDAC128V("DAC1", 0, 3)
 
-dbLoadTemplate("vxWorks/dac128V.substitutions", "P=$(PREFIX)")
+dbLoadTemplate("substitutions/dac128V.substitutions", "P=$(PREFIX)")
 
 # END dac128V.cmd -------------------------------------------------------------
