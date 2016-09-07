@@ -27,10 +27,10 @@ iocshLoad("$(IP)/iocsh/loadSerialComm.iocsh", "P=$(PREFIX), PORT0=serial1, PORT1
 #iocshLoad("$(IP)/iocsh/Keithley_2k_serial.iocsh", "PREFIX=$(PREFIX), INSTANCE=D1, PORT=serial1, NUM_CHANNELS=22, MODEL=2700")
 
 # serial 2 connected to Newport MM4000 at 38400 baud
-iocshLoad("$(MOTOR)/iocsh/Newport_MM4000.iocsh", "PORT=serial2, CONTROLLER=0, POLL_RATE=10, MAX_CONTROLLERS=1")
+#iocshLoad("$(MOTOR)/iocsh/Newport_MM4000.iocsh", "PORT=serial2, CONTROLLER=0, POLL_RATE=10, MAX_CONTROLLERS=1")
 
 # serial 3 is connected to the ACS MCB-4B at 9600 baud
-iocshLoad("$(MOTOR)/iocsh/ACS_MCB4B.iocsh", "PORT=serial3, CONTROLLER=0, POLL_RATE=100, NUM_AXES=1")
+#iocshLoad("$(MOTOR)/iocsh/ACS_MCB4B.iocsh", "PORT=serial3, CONTROLLER=0, POLL_RATE=100, NUM_AXES=1")
 #iocshLoad("$(MOTOR)/iocsh/Newport_PM500.iocsh",  "PORT=serial3, CONTROLLER=0, POLL_RATE=10, MAX_CONTROLLERS=1")
 
 # serial 4 not connected for now
