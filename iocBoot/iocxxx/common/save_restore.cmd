@@ -11,7 +11,7 @@
 
 iocshLoad("$(AUTOSAVE)/iocsh/autosave_settings.iocsh", "PREFIX=$(PREFIX), SAVE_PATH=$(TOP)/iocBoot/$(IOC)")
 iocshLoad("$(AUTOSAVE)/iocsh/autosaveBuild.iocsh",     "PREFIX=$(PREFIX)")
-iocshLoad("$(AUTOSAVE)/iocsh/save_restore.iocsh",      "PREFIX=$(PREFIX), POSITIONS_FILE=auto_positions.req, SETTINGS_FILE=auto_settings.req")
+iocshLoad("$(AUTOSAVE)/iocsh/save_restore.iocsh",      "PREFIX=$(PREFIX), POSITIONS_FILE=auto_positions, SETTINGS_FILE=auto_settings")
 
 # Note that you can restore a .sav file without also autosaving to it.
 #set_pass0_restoreFile("octupole_settings.sav")
