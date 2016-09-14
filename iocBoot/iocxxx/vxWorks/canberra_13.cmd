@@ -52,7 +52,7 @@ icbConfig("icbAdc2", 0x98b, 7, 0)
 #HVPS's
 icbConfig("icbHvps1", 0x98b, A, 2)
 
-dbLoadTemplate("common/canberra_13.substitutions")
+dbLoadTemplate("substitutions/canberra_13.substitutions")
 
 # END canberra_13.cmd ---------------------------------------------------------
 

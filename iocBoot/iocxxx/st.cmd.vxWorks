@@ -50,9 +50,6 @@ epicsEnvSet("PLATFORM", "vxWorks")
 # Industry Pack support
 < $(PLATFORM)/industryPack.cmd
 
-# gpib support
-#< $(PLATFORM)/gpib.cmd
-
 # VME devices
 < $(PLATFORM)/vme.cmd
 

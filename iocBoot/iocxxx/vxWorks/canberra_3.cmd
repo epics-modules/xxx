@@ -35,6 +35,6 @@ icbConfig("icbTca2", 0xa78, 1, 3)
 icbConfig("icbTca3", 0xa78, 2, 3)
 
 
-dbLoadTemplate("common/canberra_3.substitutions")
+dbLoadTemplate("substitutions/canberra_3.substitutions")
 
 # END canberra_3.cmd ----------------------------------------------------------

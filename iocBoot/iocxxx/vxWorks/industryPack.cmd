@@ -75,4 +75,7 @@ ipacReport(2)
 # SBS IpUnidig digital I/O
 < vxWorks/ipUnidig.cmd
 
+# gpib support
+#< $(PLATFORM)/gpib.cmd
+
 # END industryPack.cmd --------------------------------------------------------
