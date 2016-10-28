@@ -54,14 +54,18 @@ ipacAddTVME200("301fa0")
 # at A24:800000 and Slot C for 1MB of mem space at A24:A00000.
 ipacAddAvme96XX("C000,3 A=2,800000 C=1,A00000")
 
-
-
 # Print out report of IP modules
 ipacReport(2)
 
 
-# serial support
-#< serial.cmd
+#Creates serial0 through serial7
+iocshLoad("$(IPAC)/iocsh/tyGSOctal.iocsh", "INSTANCE=UART_0, PORT=serial, TYPE=232, CARRIER=0, SLOT=0, INT_VEC=0x80, MAX_MODULES=1")
+iocshLoad("$(IP)/iocsh/loadSerialComm.iocsh", "PREFIX=$(PREFIX), PORT=serial")
+
+#Creates serial10 through serial17
+#iocshLoad("$(IPAC)/iocsh/tyGSOctal.iocsh", "INSTANCE=UART_1, PORT=serial1, TYPE=232, CARRIER=0, SLOT=1, INT_VEC=0x80")
+#iocshLoad("$(IP)/iocsh/loadSerialComm.iocsh", "PREFIX=$(PREFIX), PORT=serial1")
+
 
 # user programmable glue electronics (requires Acromag IP-EP20x)
 #< softGlue.iocsh
