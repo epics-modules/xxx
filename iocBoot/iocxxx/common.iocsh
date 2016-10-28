@@ -17,7 +17,46 @@ epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
 epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64010
 
 ### save_restore setup
-< common/save_restore.cmd
+iocshLoad("$(AUTOSAVE)/iocsh/autosave_settings.iocsh", "PREFIX=$(PREFIX), SAVE_PATH=$(TOP)/iocBoot/$(IOC)")
+iocshLoad("$(AUTOSAVE)/iocsh/autosaveBuild.iocsh",     "PREFIX=$(PREFIX)")
+iocshLoad("$(AUTOSAVE)/iocsh/save_restore.iocsh",      "PREFIX=$(PREFIX), POSITIONS_FILE=auto_positions, SETTINGS_FILE=auto_settings")
+
+# Note that you can restore a .sav file without also autosaving to it.
+#set_pass0_restoreFile("octupole_settings.sav")
+#set_pass1_restoreFile("octupole_settings.sav")
+
+###
+# specify directories in which to search for included request files
+# Note that the vxWorks variables (e.g., 'startup') are from cdCommands
+set_requestfile_path("$(AREA_DETECTOR)", "ADApp/Db")
+set_requestfile_path("$(ADCORE)", "ADApp/Db")
+set_requestfile_path("$(AUTOSAVE)", "asApp/Db")
+set_requestfile_path("$(BUSY)", "busyApp/Db")
+set_requestfile_path("$(CALC)", "calcApp/Db")
+set_requestfile_path("$(CAMAC)", "camacApp/Db")
+set_requestfile_path("$(CAPUTRECORDER)", "caputRecorderApp/Db")
+set_requestfile_path("$(DAC128V)", "dac128VApp/Db")
+set_requestfile_path("$(DELAYGEN)", "delaygenApp/Db")
+set_requestfile_path("$(DXP)", "dxpApp/Db")
+set_requestfile_path("$(IP)", "ipApp/Db")
+set_requestfile_path("$(IP330)", "ip330App/Db")
+set_requestfile_path("$(IPUNIDIG)", "ipUnidigApp/Db")
+set_requestfile_path("$(LOVE)", "loveApp/Db")
+set_requestfile_path("$(MCA)", "mcaApp/Db")
+set_requestfile_path("$(MEASCOMP)", "measCompApp/Db")
+set_requestfile_path("$(MODBUS)", "modbusApp/Db")
+set_requestfile_path("$(MOTOR)", "motorApp/Db")
+set_requestfile_path("$(OPTICS)", "opticsApp/Db")
+set_requestfile_path("$(QUADEM)", "quadEMApp/Db")
+set_requestfile_path("$(SSCAN)", "sscanApp/Db")
+set_requestfile_path("$(SOFTGLUE)", "softGlueApp/Db")
+set_requestfile_path("$(STD)", "stdApp/Db")
+set_requestfile_path("$(VAC)", "vacApp/Db")
+set_requestfile_path("$(VME)", "vmeApp/Db")
+set_requestfile_path("$(TOP)", "xxxApp/Db")
+
+# Debug-output level
+save_restoreSet_Debug(0)
 
 # Access Security
 dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=$(PREFIX)")
@@ -26,25 +65,6 @@ asSetSubstitutions("P=$(PREFIX)")
 
 ### caputRecorder
 iocshLoad("$(CAPUTRECORDER)/iocsh/caputRecorder.iocsh", "PREFIX=$(PREFIX)")
-
-# user-assignable ramp/tweak
-dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=$(PREFIX),Q=rt1")
-
-# < $(PLATFORM)/areaDetector.cmd
-
-# Motors
-dbLoadTemplate("substitutions/motor.substitutions", "P=$(PREFIX)")
-#dbLoadTemplate("substitutions/softMotor.substitutions", "P=$(PREFIX)")
-#dbLoadTemplate("substitutions/pseudoMotor.substitutions", "P=$(PREFIX)")
-
-# Allstop, alldone
-iocshLoad("$(MOTOR)/iocsh/allstop.iocsh", "P=$(PREFIX)")
-
-### streamDevice example
-#dbLoadRecords("$(TOP)/xxxApp/Db/streamExample.db","P=$(PREFIX),PORT=serial1")
-
-### Insertion-device control
-#dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=$(PREFIX),xx=02us")
 
 ### Scan-support software
 iocshLoad("$(SSCAN)/iocsh/sscan.iocsh", "PREFIX=$(PREFIX), MAX_PTS=1000, REQ_FILE=saveData.req")
@@ -57,53 +77,25 @@ iocshLoad("$(AUTOSAVE)/iocsh/configMenu.iocsh", "PREFIX=$(PREFIX),CONFIG=scan1")
 # crate.
 dbLoadTemplate("$(PLATFORM)/scanParms.substitutions")
 
+### Stuff for user programming ###
+iocshLoad("$(CALC)/iocsh/userCalc.iocsh", "PREFIX=$(PREFIX), ARRAY_SIZE=8000")
 
-# Load single element Canberra AIM MCA and ICB modules
-#< $(PLATFORM)/canberra_1.cmd
+# Load 10 more of all the user calcs, N=1 creates usercalcs 10-19
+iocshLoad("$(CALC)/iocsh/userCalc_extra.iocsh", "PREFIX=$(PREFIX), N=1, ARRAY_SIZE=8000")
 
-# Load 13 element detector software
-#< $(PLATFORM)/canberra_13.cmd
+# string sequence (sseq) records
+iocshLoad("$(CALC)/iocsh/sseq.iocsh", "PREFIX=$(PREFIX), INSTANCE=ES:")
 
-# Load 3 element detector software
-#< $(PLATFORM)/canberra_3.cmd
+# interpolation
+dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=$(PREFIX),N=2000")
+dbLoadRecords("$(CALC)/calcApp/Db/interpNew.db", "P=$(PREFIX),Q=1,N=2000")
 
-< common/optics.iocsh
+# busy record
+dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db", "P=$(PREFIX),R=mybusy1")
+dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db", "P=$(PREFIX),R=mybusy2")
 
-< common/calc.iocsh
-
-# Soft scaler for testing
-#iocshLoad("$(STD)/iocsh/softScaler.iocsh", "P=$(PREFIX), INSTANCE=scaler1")
-
-# 4-step measurement
-dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=$(PREFIX),Q=4step:")
-
-# user-assignable ramp/tweak
-dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=$(PREFIX),Q=rt1")
-
-# pvHistory (in-crate archive of up to three PV's)
-dbLoadRecords("$(STD)/stdApp/Db/pvHistory.db","P=$(PREFIX),N=1,MAXSAMPLES=1440")
-
-# software timer
-dbLoadRecords("$(STD)/stdApp/Db/timer.db","P=$(PREFIX),N=1")
-
-# Slow feedback
-#dbLoadTemplate("substitutions/pid_slow.substitutions")
-#dbLoadTemplate("substitutions/async_pid_slow.substitutions")
-#dbLoadTemplate("substitutions/fb_epid.substitutions")
-
-# Miscellaneous PV's, such as burtResult
-dbLoadRecords("$(STD)/stdApp/Db/misc.db","P=$(PREFIX)")
-
-### Queensgate Nano2k piezo controller
-#dbLoadRecords("$(STD)/stdApp/Db/Nano2k.db","P=$(PREFIX),S=s1")
-
-### Load database records for Femto amplifiers
-#epicsEnvSet("FBO", "$(PREFIX)Unidig1Bo")
-#iocshLoad("$(STD)/iocsh/femto.iocsh", "PREFIX=$(PREFIX), HARDWARE=fem01:, FUNC=seq01:, G1_PV=$(FBO)6, G2_PV=$(FBO)7, G3_PV=$(FBO)8, NO_PV=$(FBO)10")
-
-# trajectory scan
-#dbLoadRecords("$(MOTOR)/motorApp/Db/trajectoryScan.db","P=$(PREFIX),R=traj1:,NAXES=2,NELM=300,NPULSE=300")
-#doAfterIocInit("seq &MAX_trajectoryScan, 'P=$(PREFIX),R=traj1:,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8,PORT=none'")
+# Soft function generator
+#dbLoadRecords("$(CALC)/calcApp/Db/FuncGen.db","P=$(PREFIX),Q=fgen,OUT=$(PREFIX)m7.VAL")
 
 ### Load database record for alive heartbeating support.
 # RHOST specifies the IP address that receives the heartbeats.

@@ -41,20 +41,19 @@ iocxxxVX_registerRecordDeviceDriver(pdbbase)
 shellPromptSet "iocvxWorks> "
 iocLogDisable=0
 
+# If you want save_restore to manage its own NFS mount, specify the name and
+# IP address of the file server to which save files should be written, and
+# set SAVE_PATH to a path as the server sees it.  This currently
+# is supported only on vxWorks.
+
+#save_restoreSet_NFSHost("oxygen", "164.54.22.10")
+
+
 iocsh 
 
 epicsEnvSet("PLATFORM", "vxWorks")
 
 < common.iocsh
-
-# Industry Pack support
-< $(PLATFORM)/industryPack.cmd
-
-# VME devices
-< $(PLATFORM)/vme.cmd
-
-# CAMAC hardware
-#< $(PLATFORM)/camac.cmd
 
 # devIocStats
 dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=xxx")

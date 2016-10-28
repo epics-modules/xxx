@@ -15,10 +15,6 @@ epicsEnvSet("PLATFORM", "softioc")
 
 < common.iocsh
 
-# < $(PLATFORM)/serial.cmd
-
-< common/motorSim.cmd
-
 # devIocStats
 dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
 
