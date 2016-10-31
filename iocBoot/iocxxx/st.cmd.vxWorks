@@ -51,8 +51,6 @@ iocLogDisable=0
 
 iocsh 
 
-epicsEnvSet("PLATFORM", "vxWorks")
-
 < common.iocsh
 
 # devIocStats

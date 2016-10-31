@@ -11,8 +11,6 @@ errlogInit(20000)
 dbLoadDatabase("../../dbd/iocxxxCygwin.dbd")
 iocxxxCygwin_registerRecordDeviceDriver(pdbbase)
 
-epicsEnvSet("PLATFORM", "softioc")
-
 < common.iocsh
 
 # devIocStats
