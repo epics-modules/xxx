@@ -20,6 +20,6 @@ asynOctetConnect("serial2", "serial2")
 #asynOctetConnect("serial4", "serial4")
 
 # Load asynRecord and deviceCmdReply records for ports
-iocshLoad("$(IP)/iocsh/loadSerialComm.iocsh", "P=$(PREFIX), PORT0=serial1, PORT1=serial2, PORT2=serial3, PORT4=serial4")
+iocshLoad("$(IP)/iocsh/loadSerialComm.iocsh", "P=$(PREFIX), PORT0=serial1, PORT1=serial2, PORT2=serial3, PORT3=serial4")
 
 # END serial.cmd --------------------------------------------------------------
