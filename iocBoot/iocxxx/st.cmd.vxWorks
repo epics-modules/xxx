@@ -38,7 +38,7 @@ recDynLinkQsize = 1024
 dbLoadDatabase("$(TOP)/dbd/iocxxxVX.dbd")
 iocxxxVX_registerRecordDeviceDriver(pdbbase)
 
-shellPromptSet "iocvxWorks> "
+shellPromptSet "$(IOC)> "
 iocLogDisable=0
 
 # If you want save_restore to manage its own NFS mount, specify the name and

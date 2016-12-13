@@ -1,3 +1,6 @@
+# Shell prompt
+epicsEnvSet("IOCSH_PS1", "$(IOC)> ")
+
 # prefix used for all PVs in this IOC
 epicsEnvSet("PREFIX", "xxx:")
 
@@ -16,7 +19,7 @@ epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
 # Note for N doubles, need N*8 bytes+some overhead
 epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64010
 
-### save_restore setup
+### save_restore setup, change SAVE_PATH if you are having autosave manage its own NFS mount
 iocshLoad("$(AUTOSAVE)/iocsh/autosave_settings.iocsh", "PREFIX=$(PREFIX), SAVE_PATH=$(TOP)/iocBoot/$(IOC)")
 iocshLoad("$(AUTOSAVE)/iocsh/autosaveBuild.iocsh",     "PREFIX=$(PREFIX)")
 iocshLoad("$(AUTOSAVE)/iocsh/save_restore.iocsh",      "PREFIX=$(PREFIX), POSITIONS_FILE=auto_positions, SETTINGS_FILE=auto_settings")
