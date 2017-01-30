@@ -40,7 +40,7 @@ append_EDP  ${QUADEM}/quadEMApp/op/adl
 append_EDP  ${SSCAN}/sscanApp/op/adl
 append_EDP  ${STD}/stdApp/op/adl
 append_EDP  ${VME}/vmeApp/op/adl
-append_EDP  ${ASYN}/medm
+append_EDP  ${ASYN}/opi/medm
 append_EDP  ${VAC}/vacApp/op/adl
 append_EDP  ${SOFTGLUE}/softGlueApp/op/adl
 
