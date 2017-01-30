@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen25/DOHNARMS/svn_pub/xxx/trunk/xxxApp/op/adl/xxx.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/xxx/xxxApp/op/adl/xxx.adl"
 	version=030107
 }
 display {
 	object {
-		x=1183
+		x=1145
 		y=25
 		width=440
-		height=180
+		height=200
 	}
 	clr=64
 	bclr=1
@@ -138,6 +138,11 @@ display {
 		label="ASRP mirror table"
 		name="ASRPmirrorTable.adl"
 		args="P=xxx:,TBL=mt1,VERT=xxx:m7,PITCH=xxx:m8"
+	}
+	display[10] {
+		label="Table1 soft (S)"
+		name="table_soft.adl"
+		args="P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6"
 	}
 	clr=0
 	bclr=17
@@ -806,12 +811,12 @@ display {
 	display[0] {
 		label="orientation matrix"
 		name="orient.adl"
-		args="P=xxx:,O=_0,PM=xxx:,mTTH=SM1,mTH=SM2,mCHI=SM3,mPHI=SM4"
+		args="P=xxx:,O=_0,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
 	}
 	display[1] {
 		label="orient9"
 		name="orient9.adl"
-		args="P=xxx:,PM=xxx:,mTTH=SM1,mTH=SM2,mCHI=SM3,mPHI=SM4"
+		args="P=xxx:,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
 	}
 	clr=0
 	bclr=17
@@ -1196,6 +1201,11 @@ composite {
 		name="asynOctet.adl"
 		args="P=xxx:,R=asyn_8"
 	}
+	display[8] {
+		label="asyn record serialBiSS"
+		name="asynOctet.adl"
+		args="P=xxx:,R=BiSS"
+	}
 	clr=0
 	bclr=17
 	label="-serial"
@@ -1231,7 +1241,7 @@ composite {
 	display[1] {
 		label="CoarseFine"
 		name="CoarseFineMotor.adl"
-		args="P=xxx:cf1:,M=MOT,PM=xxx:,CM=m7,FM=m8"
+		args="P=xxx:cf1:,M=MOT,PM=xxx:,CM=m1,FM=m2"
 	}
 	clr=0
 	bclr=17
@@ -1590,27 +1600,6 @@ composite {
 }
 "related display" {
 	object {
-		x=350
-		y=60
-		width=70
-		height=20
-	}
-	display[1] {
-		label="OctupoleRamp"
-		name="OctupoleRamp.adl"
-		args="P=xxx:,Q=octupole:"
-	}
-	display[2] {
-		label="temp"
-		name="octupoleTempRead.adl"
-		args="P=xxx:,Q=Oct:"
-	}
-	clr=0
-	bclr=17
-	label="-octupole"
-}
-"related display" {
-	object {
 		x=280
 		y=140
 		width=70
@@ -1726,27 +1715,6 @@ composite {
 }
 "related display" {
 	object {
-		x=210
-		y=160
-		width=70
-		height=20
-	}
-	display[3] {
-		label="shutterDo"
-		name="shutterDo.adl"
-		args="P=xxx:,Q=s2:,SHUTTER_STATUS=xxx:sim2:B_SHTRS_CLOSED,OPEN_PV=xxx:sim2:open,CLOSE_PV=xxx:sim2:close"
-	}
-	display[4] {
-		label="shutterSim"
-		name="shutterSim.adl"
-		args="P=xxx:,Q=sim2:,SHUTTER_STATUS=xxx:sim2:B_SHTRS_CLOSED,OPEN_PV=xxx:sim2:openCmd,CLOSE_PV=xxx:sim2:closeCmd"
-	}
-	clr=0
-	bclr=17
-	label="-shutterDo"
-}
-"related display" {
-	object {
 		x=280
 		y=160
 		width=70
@@ -1773,9 +1741,9 @@ composite {
 		args="P=xxx:"
 	}
 	display[4] {
-		label="muir"
-		name="yySseq.adl"
-		args="P=xxx:,S=PresetHistoryAdd"
+		label="SlewScan"
+		name="slew.adl"
+		args="P=xxx:,M=m2,MCS=3820:"
 	}
 	display[5] {
 		label="tomography fly"
@@ -1798,24 +1766,24 @@ composite {
 		args="P=xxx:,Q=PSOFly:"
 	}
 	display[9] {
-		label="calcTest"
-		name="calcTest.adl"
-		args="P=xxx:"
+		label="encoder Fly"
+		name="encoderFly.adl"
+		args="P=xxx:,Q=eFly:"
 	}
 	display[10] {
-		label="interlaceFly"
-		name="interlaceFly.adl"
-		args="P=xxx:,Q=iFly:,QT=tableFly:"
+		label="encoderInterlaceFly"
+		name="encoderInterlaceFly.adl"
+		args="P=xxx:,Q=iFly:,FLY=xxx:eFly:"
 	}
 	display[11] {
-		label="compressGain"
-		name="compress.adl"
-		args="P=xxx:,Q=gain"
+		label="multExposePosFilt"
+		name="multExposePosFilt.adl"
+		args="P=xxx:,Q=mxpf:"
 	}
 	display[12] {
-		label="tablePSOFly"
-		name="tablePSOFly.adl"
-		args="P=xxx:,Q=tableFly:"
+		label="multExposePos"
+		name="multExposePos.adl"
+		args="P=xxx:,Q=mxp:"
 	}
 	display[13] {
 		label="Security Control"
@@ -1826,6 +1794,11 @@ composite {
 		label="waveformTypes menu"
 		name="configMenu.adl"
 		args="P=xxx:,CONFIG=waveformTypes"
+	}
+	display[15] {
+		label="recordPV"
+		name="recordPV.adl"
+		args="P=xxx:,Q=recPV:,R=PV1"
 	}
 	clr=0
 	bclr=17
@@ -1900,7 +1873,7 @@ composite {
 		args="P=xxx:"
 	}
 	display[6] {
-		label="user calcOuts"
+		label="user calcOuts 1-10"
 		name="userCalcOuts10.adl"
 		args="P=xxx:"
 	}
@@ -1935,21 +1908,215 @@ composite {
 		args="P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
 	}
 	display[13] {
+		label="user calcs 11-20"
+		name="userCalcs10more.adl"
+		args="P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+	}
+	display[14] {
 		label="busyRecord"
 		name="xxBusyRecord.adl"
 		args="P=xxx:,R=mybusy"
 	}
-	display[14] {
-		label="busyRecord2"
-		name="xxBusyRecord.adl"
-		args="P=xxx:,R=mybusy2"
-	}
 	display[15] {
-		label="editSseq"
-		name="editSseq.adl"
-		args="P=xxx:,Q=ES:"
+		label="global enable"
+		name="userCalcsGlobalEnable.adl"
+		args="P=xxx:"
 	}
 	clr=0
 	bclr=17
 	label="-userCalc"
+}
+"related display" {
+	object {
+		x=350
+		y=60
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Agilent 33220A"
+		name="Agilent_33220A_test1.adl"
+		args="P=xxx:,S=1"
+	}
+	clr=0
+	bclr=17
+	label="-AgilentWG"
+}
+"related display" {
+	object {
+		x=0
+		y=180
+		width=70
+		height=20
+	}
+	display[0] {
+		label="encoderFly"
+		name="encoderFly.adl"
+		args="P=xxx:,Q=eFly:"
+	}
+	display[1] {
+		label="encoderInterlaceFly"
+		name="encoderInterlaceFly.adl"
+		args="P=xxx:,Q=iFly:,FLY=xxx:eFly:"
+	}
+	display[2] {
+		label="encoderTableFly"
+		name="encoderTableFly.adl"
+		args="P=yyy:,Q=tFly:,FLY=xxx:eFly:"
+	}
+	clr=0
+	bclr=17
+	label="-encoderFly"
+}
+"related display" {
+	object {
+		x=210
+		y=160
+		width=70
+		height=20
+	}
+	display[0] {
+		label="dlmPlots.adl"
+		name="dlmPlots.adl"
+		args="P=xxx:,Q=dlm:"
+	}
+	clr=0
+	bclr=17
+	label="-DLM4000"
+}
+"related display" {
+	object {
+		x=70
+		y=180
+		width=70
+		height=20
+	}
+	display[0] {
+		label="TDS3000 scope"
+		name="tds3000_c.adl"
+		args="scope=xxx:tds:"
+	}
+	display[1] {
+		label="asyn record"
+		name="asynRecord.adl"
+		args="P=xxx:,R=tds:"
+	}
+	display[14] {
+		label=" "
+	}
+	display[15] {
+		label=" "
+	}
+	clr=0
+	bclr=17
+	label="-tds3000"
+}
+"related display" {
+	object {
+		x=140
+		y=180
+		width=70
+		height=20
+	}
+	display[0] {
+		label="grating"
+		name="grating.adl"
+		args="P=xxx:,Q=gr:"
+	}
+	clr=0
+	bclr=17
+	label="-grating"
+}
+"related display" {
+	object {
+		x=210
+		y=180
+		width=70
+		height=20
+	}
+	display[0] {
+		label="encoderFly"
+		name="encoderFly.adl"
+		args="P=xxx:,Q=eFly:"
+	}
+	display[1] {
+		label="encoderInterlaceFly"
+		name="encoderInterlaceFly.adl"
+		args="P=xxx:,Q=iFly:,FLY=xxx:eFly:"
+	}
+	display[2] {
+		label="encoderTableFly"
+		name="encoderTableFly.adl"
+		args="P=yyy:,Q=tFly:"
+	}
+	display[3] {
+		label="interlaceParms"
+		name="interlaceParms.adl"
+		args="P=xxx:,Q=iParms1:"
+	}
+	display[4] {
+		label="EnsemblePSOFly"
+		name="EnsemblePSOFly.adl"
+		args="P=xxx:,Q=PSOFly:"
+	}
+	display[5] {
+		label="interlaceFly"
+		name="interlaceFly.adl"
+		args="P=xxx:,Q=iFly:"
+	}
+	display[7] {
+		label="tablePSOFly"
+		name="tablePSOFly.adl"
+		args="P=yyy:,Q=tFly:"
+	}
+	display[8] {
+		label="interlaceParms"
+		name="interlaceParms.adl"
+		args="P=xxx:,Q=iParms2:"
+	}
+	clr=0
+	bclr=17
+	label="-Fly"
+}
+"related display" {
+	object {
+		x=280
+		y=180
+		width=70
+		height=20
+	}
+	display[0] {
+		label="DG645"
+		name="srsDG645.adl"
+		args="P=xxx:,R=DG0:"
+	}
+	display[1] {
+		label="DG535"
+		name="devDG535.adl"
+		args="P=xxx:,R=DG0:"
+	}
+	display[2] {
+		label="delaygen.adl"
+		name="delaygen.adl"
+		args="P=xxx:"
+	}
+	clr=0
+	bclr=17
+	label="-delayGen"
+}
+"related display" {
+	object {
+		x=350
+		y=180
+		width=70
+		height=20
+	}
+	display[0] {
+		label="calcEnergy"
+		name="calcEnergy.adl"
+		args="P=xxx:,P_ID=xxx:,P_MONO=xxx:,P_SLIT=xxx:"
+	}
+	clr=0
+	bclr=17
+	label="-calcEnergy"
 }
