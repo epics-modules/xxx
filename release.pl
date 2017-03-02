@@ -18,6 +18,7 @@
 # 01/29/08 rls Bug fix; "($macro) =" line is wrong.
 # 04/06/11 daa Add bash output format support.
 # 03/20/15 kcl Rewrite to use recursive function, allows in-place resolution of included files
+# 03/02/17 kmp Also look for macros in optional include files
 
 #
 #Version:       $Revision$
@@ -46,7 +47,7 @@ sub Parse
 			#test for "include" command
 			($prefix,$post) = /(.*)\s* (.*)/;
 			
-			if ($prefix eq "include")
+			if ($prefix eq "include" || $prefix eq "-include")
 			{
 				($prefix,$macro,$post) = /(.*)\s* \s*\$\((.*)\)(.*)/;
 				
