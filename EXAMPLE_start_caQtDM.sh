@@ -1,6 +1,10 @@
 #!/bin/bash
 
-export EPICS_APP=/APSshare/epics/synApps_5_7/support/xxx-5-7-1
+if [ -z "/APSshare/epics" ]; then
+  export EPICS_APP=/APSshare/epics/synApps_5_7/support/xxx-5-7-1
+else
+  export EPICS_APP=/usr/local/epics/synApps_5_8/support/xxx-5-8-3
+fi
 export EPICS_APP_UI_DIR=${EPICS_APP}/xxxApp/op/ui
 
 
@@ -42,45 +46,51 @@ eval $output
 # add support for modules defined by environment variables
 # modules are *appended* to the growing list of directories
 
+if [ "" == "${ADSIMDETECTOR}" ]; then
+  export ADSIMDETECTOR=${AREA_DETECTOR}/ADSimDetector-R2-4
+fi
+
 # ========  ================  ===========================
 # function  MODULE_VARIABLE   subdirectory with .ui files
 # ========  ================  ===========================
 addModule   EPICS_APP_UI_DIR
 addModule   ALIVE             ./aliveApp/op/ui
 addModule   AREA_DETECTOR     ./ADCore/ADApp/op/ui
-addModule   AREA_DETECTOR     ./ADCore/ADApp/op/ui/autoconvert
-addModule   ASYN	      ./opi/caqtdm
+addModule   ADCORE            ./ADApp/op/ui/autoconvert
+addModule   ADSIMDETECTOR     ./simDetectorApp/op/ui/autoconvert
+addModule   ASYN	          ./opi/caqtdm
 addModule   AUTOSAVE	      ./asApp/op/ui
-addModule   BUSY	      ./busyApp/op/ui
-addModule   CALC	      ./calcApp/op/ui
-addModule   CAMAC	      ./camacApp/op/ui
+addModule   BUSY	          ./busyApp/op/ui
+addModule   CALC	          ./calcApp/op/ui
+addModule   CAMAC	          ./camacApp/op/ui
 addModule   CAPUTRECORDER     ./caputRecorderApp/op/ui
-addModule   DAC128V	      ./dac128VApp/op/ui
+addModule   DAC128V	          ./dac128VApp/op/ui
 addModule   DELAYGEN	      ./delaygenApp/op/ui
 addModule   DEVIOCSTATS       ./op/ui
-addModule   DXP 	      ./dxpApp/op/ui
-addModule   IP  	      ./ipApp/op/ui
-addModule   IP330	      ./ip330App/op/ui
+addModule   DXP 	          ./dxpApp/op/ui
+addModule   IP  	          ./ipApp/op/ui
+addModule   IP330	          ./ip330App/op/ui
 addModule   IPUNIDIG	      ./ipUnidigApp/op/ui
-addModule   LOVE	      ./loveApp/op/ui
-addModule   MCA 	      ./mcaApp/op/ui
-addModule   MODBUS	      ./modbusApp/op/ui
-addModule   MOTOR	      ./motorApp/op/ui
-addModule   OPTICS	      ./opticsApp/op/ui
-addModule   QUADEM	      ./quadEMApp/op/ui
+addModule   LOVE	          ./loveApp/op/ui
+addModule   MCA 	          ./mcaApp/op/ui
+addModule   MODBUS	          ./modbusApp/op/ui
+addModule   MOTOR	          ./motorApp/op/ui
+addModule   OPTICS	          ./opticsApp/op/ui
+addModule   QUADEM	          ./quadEMApp/op/ui
 addModule   SOFTGLUE	      ./softGlueApp/op/ui
-addModule   SSCAN	      ./sscanApp/op/ui
-addModule   STD 	      ./stdApp/op/ui
-addModule   VAC 	      ./vacApp/op/ui
-addModule   VME 	      ./vmeApp/op/ui
+addModule   SSCAN	          ./sscanApp/op/ui
+addModule   STD 	          ./stdApp/op/ui
+addModule   VAC 	          ./vacApp/op/ui
+addModule   VME 	          ./vmeApp/op/ui
 # ========  ================  ===========================
 
 
 #######################################
 # optional: add support directories not associated with environment variables
 
-# QTDMDP=${QTDMDP}:/APSshare/uisys/sr/id
-
+if [ -z "/APSshare/caqtdm" ]; then
+  QTDMDP=${QTDMDP}:/APSshare/uisys/sr/id
+fi
 
 #######################################
 # Define CAQTDM_DISPLAY_PATH
@@ -137,15 +147,19 @@ cd ${EPICS_APP_UI_DIR}
 
 export MEDM_EXEC_LIST=
 # For drag-and-drop workaround at APS, need /APSshare/bin/xclip
-export PATH=${PATH}:/APSshare/bin
 export CAQTDM_EXEC_LIST='Probe;probe &P &:UI File;echo &A:PV Name(s);echo &P:Copy PV name; echo -n &P| xclip -i -sel clip:Paste PV name;caput &P `xclip -o -sel clip`'
 
 export START_PUTRECORDER=${EPICS_APP}/start_putrecorder
 export MACROS_PY=${EPICS_APP_UI_DIR}/../python/macros.py
 export EDITOR=nedit
-export QT_PLUGIN_PATH=/APSshare/caqtdm/plugins
-export LD_LIBRARY_PATH=/APSshare/caqtdm/lib
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/APSshare/epics/base-3.14.12.3/lib/linux-x86_64
+if [ -z "/APSshare/caqtdm" ]; then
+  export PATH=${PATH}:/APSshare/bin
+  export QT_PLUGIN_PATH=/APSshare/caqtdm/plugins
+  export LD_LIBRARY_PATH=/APSshare/caqtdm/lib
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/APSshare/epics/base-3.14.12.3/lib/linux-x86_64
+else
+  export QT_PLUGIN_PATH=/usr/local/epics/extensions/lib/linux-x86_64
+fi
 
 
 #######################################
@@ -158,12 +172,3 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/APSshare/epics/base-3.14.12.3/lib/lin
 # start caQtDM
 #caQtDM -noMsg xxx.ui &
 caQtDM -style plastique -noMsg xxx.ui &
-
-
-########### SVN repository information ###################
-# $Date$
-# $Author$
-# $Revision$
-# $URL$
-# $Id$
-########### SVN repository information ###################
