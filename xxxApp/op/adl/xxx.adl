@@ -1661,6 +1661,11 @@ composite {
 		name="simDetector.adl"
 		args="P=xxx:, R=SIM1:cam2:"
 	}
+	display[4] {
+		label="AD Top (prebuilts)"
+		name="ADTop.adl"
+		args=""
+	}
 	clr=0
 	bclr=63
 	label="-AD simDet"
