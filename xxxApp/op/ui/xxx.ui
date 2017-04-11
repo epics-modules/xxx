@@ -2030,13 +2030,13 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>Simulator #1 General;Simulator #1 Specific;Simulator #2 General;Simulator #2 Specific</string>
+                <string>Simulator #1 General;Simulator #1 Specific;Simulator #2 General;Simulator #2 Specific; AD Top (prebuilts)</string>
             </property>
             <property name="files">
-                <string>ADBase.adl;simDetector.adl;ADBase.adl;simDetector.adl</string>
+                <string>ADBase.adl;simDetector.adl;ADBase.adl;simDetector.adl;ADTop</string>
             </property>
             <property name="args">
-                <string>P=xxx:, R=SIM1:cam1:;P=xxx:, R=SIM1:cam1:;P=xxx:, R=SIM1:cam2:;P=xxx:, R=SIM1:cam2:</string>
+                <string>P=xxx:, R=SIM1:cam1:;P=xxx:, R=SIM1:cam1:;P=xxx:, R=SIM1:cam2:;P=xxx:, R=SIM1:cam2:;</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false;false</string>
