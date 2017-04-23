@@ -45,14 +45,14 @@ SELECTION=$1
 
 if [ -z "$IOC_STARTUP_DIR" ]
 then
-    # If no startup dir is specified, assume this script resides in the IOC's startup directory
-    IOC_STARTUP_DIR="$(${DIRNAME} ${SNAME})"
+    # If no startup dir is specified, use this script's directory
+    IOC_STARTUP_DIR=`dirname $0`
 fi
 #!${ECHO} ${IOC_STARTUP_DIR}
 
 #####################################################################
 
-IOC_CMD="../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} st.cmd"
+IOC_CMD="${IOC_STARTUP_DIR}/../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} ${IOC_STARTUP_DIR}/st.cmd"
 
 screenpid() {
         if [ -z ${SCREEN_PID} ] ; then
