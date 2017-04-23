@@ -47,6 +47,7 @@ if [ -z "$IOC_STARTUP_DIR" ]
 then
     # If no startup dir is specified, use this script's directory
     IOC_STARTUP_DIR=`dirname $0`
+    # see: http://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within#59916
 fi
 #!${ECHO} ${IOC_STARTUP_DIR}
 
