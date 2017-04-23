@@ -171,4 +171,6 @@ fi
 #######################################
 # start caQtDM
 #caQtDM -noMsg xxx.ui &
-caQtDM -style plastique -noMsg xxx.ui &
+
+# allow for command line option to specify the file to be opened
+caQtDM -style plastique -noMsg ${1:-xxx.ui}
