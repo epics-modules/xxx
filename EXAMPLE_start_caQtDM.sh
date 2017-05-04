@@ -58,30 +58,30 @@ addModule   ALIVE             ./aliveApp/op/ui
 addModule   AREA_DETECTOR     ./ADCore/ADApp/op/ui
 addModule   ADCORE            ./ADApp/op/ui/autoconvert
 addModule   ADSIMDETECTOR     ./simDetectorApp/op/ui/autoconvert
-addModule   ASYN	          ./opi/caqtdm
-addModule   AUTOSAVE	      ./asApp/op/ui
-addModule   BUSY	          ./busyApp/op/ui
-addModule   CALC	          ./calcApp/op/ui
-addModule   CAMAC	          ./camacApp/op/ui
+addModule   ASYN	            ./opi/caqtdm
+addModule   AUTOSAVE	        ./asApp/op/ui
+addModule   BUSY	            ./busyApp/op/ui
+addModule   CALC	            ./calcApp/op/ui
+addModule   CAMAC	            ./camacApp/op/ui
 addModule   CAPUTRECORDER     ./caputRecorderApp/op/ui
 addModule   DAC128V	          ./dac128VApp/op/ui
-addModule   DELAYGEN	      ./delaygenApp/op/ui
+addModule   DELAYGEN	        ./delaygenApp/op/ui
 addModule   DEVIOCSTATS       ./op/ui
-addModule   DXP 	          ./dxpApp/op/ui
-addModule   IP  	          ./ipApp/op/ui
-addModule   IP330	          ./ip330App/op/ui
-addModule   IPUNIDIG	      ./ipUnidigApp/op/ui
-addModule   LOVE	          ./loveApp/op/ui
-addModule   MCA 	          ./mcaApp/op/ui
+addModule   DXP 	            ./dxpApp/op/ui
+addModule   IP  	            ./ipApp/op/ui
+addModule   IP330	            ./ip330App/op/ui
+addModule   IPUNIDIG	        ./ipUnidigApp/op/ui
+addModule   LOVE	            ./loveApp/op/ui
+addModule   MCA 	            ./mcaApp/op/ui
 addModule   MODBUS	          ./modbusApp/op/ui
-addModule   MOTOR	          ./motorApp/op/ui
+addModule   MOTOR	            ./motorApp/op/ui
 addModule   OPTICS	          ./opticsApp/op/ui
 addModule   QUADEM	          ./quadEMApp/op/ui
-addModule   SOFTGLUE	      ./softGlueApp/op/ui
-addModule   SSCAN	          ./sscanApp/op/ui
-addModule   STD 	          ./stdApp/op/ui
-addModule   VAC 	          ./vacApp/op/ui
-addModule   VME 	          ./vmeApp/op/ui
+addModule   SOFTGLUE	        ./softGlueApp/op/ui
+addModule   SSCAN	            ./sscanApp/op/ui
+addModule   STD 	            ./stdApp/op/ui
+addModule   VAC 	            ./vacApp/op/ui
+addModule   VME 	            ./vmeApp/op/ui
 # ========  ================  ===========================
 
 
@@ -174,3 +174,5 @@ fi
 
 # allow for command line option to specify the file to be opened
 caQtDM -style plastique -noMsg ${1:-xxx.ui}
+# TODO: what about ALL command line parameters?  "$*"
+
