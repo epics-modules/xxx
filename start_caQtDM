@@ -1,160 +1,17 @@
 #!/bin/csh -f
 
+setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps/support/xxx
+
+# define environment variables for MEDM, caQtDM, and Probe
+source ./setup_epics_common
+
 # For drag-and-drop workaround:
-# need /APSshare/bin/xclip
+# get xclip in path
 setenv PATH ${PATH}:/APSshare/bin
 unsetenv MEDM_EXEC_LIST
 setenv CAQTDM_EXEC_LIST 'Probe;probe &P &:UI File;echo &A:PV Name(s);echo &P:Copy PV name; echo -n &P| xclip -i -sel clip:Paste PV name;caput &P `xclip -o -sel clip`'
 
-setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps/support/xxx
-setenv EPICS_APP_UI_DIR ${EPICS_APP}/xxxApp/op/ui
-
-set output = `perl $EPICS_APP/release.pl $EPICS_APP`
-$output
-
-#######################################
-# Prepare CAQTDM_DISPLAY_PATH
-# QTDMDP is temporary CAQTDM_DISPLAY_PATH
-#
-setenv QTDMDP  .
-if ( ${?EPICS_APP_UI_DIR} ) then
-	setenv QTDMDP ${QTDMDP}:${EPICS_APP_UI_DIR}
-	setenv QTDMDP ${QTDMDP}:${EPICS_APP_UI_DIR}/autoconvert
-endif
-if ( ${?AREA_DETECTOR} ) then
-	setenv QTDMDP ${QTDMDP}:${AREA_DETECTOR}/ADApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${AREA_DETECTOR}/ADApp/op/ui/autoconvert
-endif
-if ( ${?ADCORE} ) then
-	setenv QTDMDP ${QTDMDP}:${ADCORE}/ADApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${ADCORE}/ADApp/op/ui/autoconvert
-endif
-if ( ${?ADSIMDETECTOR} ) then
-	setenv QTDMDP ${QTDMDP}:${ADSIMDETECTOR}/simDetectorApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${ADSIMDETECTOR}/simDetectorApp/op/ui/autoconvert
-endif
-if ( ${?ASYN} ) then
-	setenv QTDMDP ${QTDMDP}:${ASYN}/opi/caqtdm
-	setenv QTDMDP ${QTDMDP}:${ASYN}/opi/caqtdm/autoconvert
-endif
-if ( ${?ALIVE} ) then
-	setenv QTDMDP ${QTDMDP}:${ALIVE}/aliveApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${ALIVE}/aliveApp/op/ui/autoconvert
-endif
-if ( ${?AUTOSAVE} ) then
-	setenv QTDMDP ${QTDMDP}:${AUTOSAVE}/asApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${AUTOSAVE}/asApp/op/ui/autoconvert
-endif
-if ( ${?BUSY} ) then
-	setenv QTDMDP ${QTDMDP}:${BUSY}/busyApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${BUSY}/busyApp/op/ui/autoconvert
-endif
-if ( ${?CALC} ) then
-	setenv QTDMDP ${QTDMDP}:${CALC}/calcApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${CALC}/calcApp/op/ui/autoconvert
-endif
-if ( ${?CAMAC} ) then
-	setenv QTDMDP ${QTDMDP}:${CAMAC}/camacApp/op/ui
-endif
-if ( ${?CAPUTRECORDER} ) then
-	setenv QTDMDP ${QTDMDP}:${CAPUTRECORDER}/caputRecorderApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${CAPUTRECORDER}/caputRecorderApp/op/ui/autoconvert
-endif
-if ( ${?DAC128V} ) then
-	setenv QTDMDP ${QTDMDP}:${DAC128V}/dac128VApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${DAC128V}/dac128VApp/op/ui/autoconvert
-endif
-if ( ${?DELAYGEN} ) then
-	setenv QTDMDP ${QTDMDP}:${DELAYGEN}/delaygenApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${DELAYGEN}/delaygenApp/op/ui/autoconvert
-endif
-if ( ${?DEVIOCSTATS} ) then
-	setenv QTDMDP ${QTDMDP}:${DEVIOCSTATS}/op/ui
-endif
-if ( ${?DXP} ) then
-	setenv QTDMDP ${QTDMDP}:${DXP}/dxpApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${DXP}/dxpApp/op/ui/autoconvert
-endif
-if ( ${?IP} ) then
-	setenv QTDMDP ${QTDMDP}:${IP}/ipApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${IP}/ipApp/op/ui/autoconvert
-endif
-if ( ${?IP330} ) then
-	setenv QTDMDP ${QTDMDP}:${IP330}/ip330App/op/ui
-	setenv QTDMDP ${QTDMDP}:${IP330}/ip330App/op/ui/autoconvert
-endif
-if ( ${?IPUNIDIG} ) then
-	setenv QTDMDP ${QTDMDP}:${IPUNIDIG}/ipUnidigApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${IPUNIDIG}/ipUnidigApp/op/ui/autoconvert
-endif
-if ( ${?LOVE} ) then
-	setenv QTDMDP ${QTDMDP}:${LOVE}/loveApp/op/ui
-endif
-if ( ${?MCA} ) then
-	setenv QTDMDP ${QTDMDP}:${MCA}/mcaApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${MCA}/mcaApp/op/ui/autoconvert
-endif
-if ( ${?MEASCOMP} ) then
-	setenv QTDMDP ${QTDMDP}:${MEASCOMP}/measCompApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${MEASCOMP}/measCompApp/op/ui/autoconvert
-endif
-if ( ${?MODBUS} ) then
-	setenv QTDMDP ${QTDMDP}:${MODBUS}/modbusApp/op/ui
-endif
-if ( ${?MOTOR} ) then
-	setenv QTDMDP ${QTDMDP}:${MOTOR}/motorApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${MOTOR}/motorApp/op/ui/autoconvert
-endif
-if ( ${?OPTICS} ) then
-	setenv QTDMDP ${QTDMDP}:${OPTICS}/opticsApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${OPTICS}/opticsApp/op/ui/autoconvert
-endif
-if ( ${?QUADEM} ) then
-	setenv QTDMDP ${QTDMDP}:${QUADEM}/quadEMApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${QUADEM}/quadEMApp/op/ui/autoconvert
-endif
-if ( ${?SOFTGLUE} ) then
-	setenv QTDMDP ${QTDMDP}:${SOFTGLUE}/softGlueApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${SOFTGLUE}/softGlueApp/op/ui/autoconvert
-endif
-if ( ${?SSCAN} ) then
-	setenv QTDMDP ${QTDMDP}:${SSCAN}/sscanApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${SSCAN}/sscanApp/op/ui/autoconvert
-endif
-if ( ${?STD} ) then
-	setenv QTDMDP ${QTDMDP}:${STD}/stdApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${STD}/stdApp/op/ui/autoconvert
-endif
-if ( ${?VAC} ) then
-	setenv QTDMDP ${QTDMDP}:${VAC}/vacApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${VAC}/vacApp/op/ui/autoconvert
-endif
-if ( ${?VME} ) then
-	setenv QTDMDP ${QTDMDP}:${VME}/vmeApp/op/ui
-	setenv QTDMDP ${QTDMDP}:${VME}/vmeApp/op/ui/autoconvert
-endif
-
-setenv QTDMDP ${QTDMDP}:/APSshare/uisys/sr/id
-
-if (! ${?CAQTDM_DISPLAY_PATH}) then
-setenv CAQTDM_DISPLAY_PATH ${QTDMDP}
-else
-setenv CAQTDM_DISPLAY_PATH ${QTDMDP}:${CAQTDM_DISPLAY_PATH}
-endif
-
-# This should agree with the environment variable set by the ioc
-setenv EPICS_CA_MAX_ARRAY_BYTES 64008
-# for areaDetector
-#setenv EPICS_CA_MAX_ARRAY_BYTES 2000100
-
 cd ${EPICS_APP_UI_DIR}
 
-setenv START_PUTRECORDER ${EPICS_APP}/start_putrecorder
-setenv MACROS_PY ${EPICS_APP_UI_DIR}/../python/macros.py
-setenv EDITOR nedit
-
-setenv LD_LIBRARY_PATH /APSshare/caqtdm/lib:/APSshare/epics/base-3.14.12.3/lib/linux-x86_64
-setenv QT_PLUGIN_PATH /APSshare/caqtdm/plugins
-alias caQtDM /APSshare/caqtdm/bin/caQtDM
-
-caQtDM -noMsg xxx.ui&
+alias caQtDM /APSshare/bin/caQtDM
+caQtDM -noMsg ${EPICS_APP_NAME}.ui&
