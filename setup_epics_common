@@ -2,8 +2,12 @@
 
 # caller (typically: start_epics) MUST make this definition:
 # setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps/support/xxx
+# and must make this definition if the app name isn't the directory name:
+# setenv EPICS_APP_NAME xxx
 
-setenv EPICS_APP_NAME `basename ${EPICS_APP}`
+if (! ${?EPICS_APP_NAME}) then
+	setenv EPICS_APP_NAME `basename ${EPICS_APP}`
+endif
 setenv EPICS_APP_ADL_DIR ${EPICS_APP}/${EPICS_APP_NAME}App/op/adl
 setenv EPICS_APP_UI_DIR ${EPICS_APP}/${EPICS_APP_NAME}App/op/ui
 

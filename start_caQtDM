@@ -1,6 +1,7 @@
 #!/bin/csh -f
 
 setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps/support/xxx
+setenv EPICS_APP_NAME xxx
 
 # define environment variables for MEDM, caQtDM, and Probe
 source ./setup_epics_common
