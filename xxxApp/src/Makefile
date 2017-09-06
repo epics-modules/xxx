@@ -358,6 +358,14 @@ ifneq (,$(findstring linux, $(T_A)))
       $(PROD_NAME)_LIBS := mcaCanberra $($(PROD_NAME)_LIBS)
       $(PROD_NAME)_SYS_LIBS += net pcap
     endif
+
+    # If your host supports libusb-1.0 and you want to build Amptek
+    # support, set LINUX_USB-1.0_INSTALLED to YES in <synApps>/configure/CONFIG_SITE.
+    ifeq ($(LINUX_USB-1.0_INSTALLED), YES)
+      $(DBD_NAME)_DBD += mcaAmptekSupport.dbd
+      $(PROD_NAME)_LIBS := mcaAmptek $($(PROD_NAME)_LIBS)
+      $(PROD_NAME)_SYS_LIBS += usb-1.0
+    endif
   endif
 
   ifdef IPAC
