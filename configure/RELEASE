@@ -36,6 +36,17 @@ include $(SUPPORT)/configure/RELEASE
 -include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
 -include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH) 
 
+AREA_DETECTOR=$(SUPPORT)/areaDetector-3-1
+-include $(AREA_DETECTOR)/configure/RELEASE_PATHS.local
+
+# Unfortunately RELEASE_PATHS.local above redefines SUPPORT and AREA_DETECTOR
+# and this messes things up on Windows building on a Linux host.
+# Need to redefine them as above.
+-include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
+AREA_DETECTOR=$(SUPPORT)/areaDetector-3-1
+-include $(AREA_DETECTOR)/configure/RELEASE_PATHS.local.$(EPICS_HOST_ARCH)
+-include $(AREA_DETECTOR)/configure/RELEASE_PRODS.local
+
 TDS3000 = $(SUPPORT)/../nonSynAppsSupport/tds3000-2.4
 FLY = $(SUPPORT)/../nonSynAppsSupport/fly-0-0
 
