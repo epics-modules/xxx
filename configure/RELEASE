@@ -26,7 +26,7 @@
 ##############################################################################
 
 # Define the path to the synApps support directory and uncomment.
-SUPPORT=/corvette/home/epics/devel
+SUPPORT=/home/oxygen/MOONEY/epics/synAppsGIT/support
 -include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
 
 # Specify the standard synApps configuration.
