@@ -32,9 +32,11 @@ PROD_IOC = $(PROD_NAME)
 ##################################################################
 ifeq (win32-x86, $(findstring win32-x86, $(T_A)))
   DBD_NAME  = $(DBD_PREFIX)Win32
+  WINDOWS_TARGET = YES
 endif
 ifeq (windows-x64, $(findstring windows-x64, $(T_A)))
   DBD_NAME  = $(DBD_PREFIX)Win64
+  WINDOWS_TARGET = YES
 endif
 
 ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
@@ -215,35 +217,20 @@ endif
 
 
 ##################################################################
+ifdef WINDOWS_TARGET
+  ifdef MEASCOMP
+    $(DBD_NAME)_DBD += measCompSupport.dbd
+    $(PROD_NAME)_LIBS := measComp $($(PROD_NAME)_LIBS)
+    ifeq (win32-x86, $(findstring win32-x86, $(T_A)))
+      $(PROD_NAME)_LIBS := cbw32 $($(PROD_NAME)_LIBS)
+    else ifeq (windows-x64, $(findstring windows-x64, $(T_A)))
+      $(PROD_NAME)_LIBS := cbw64 $($(PROD_NAME)_LIBS)
+    endif
+  endif
 
-
-ifeq (win32-x86,$(findstring win32-x86, $(T_A)))
   ifdef MCA
-    # If your host supports libpcap and libnet and you want to build
+    # If you have installed WinPcap (https://www.winpcap.org) and you want to build
     # Canberra network support uncomment the following lines
-    #$(DBD_NAME)_DBD += mcaCanberraSupport.dbd
-    #$(PROD_NAME)_LIBS := mcaCanberra $($(PROD_NAME)_LIBS)
-    #$(PROD_NAME)_LIBS := wpcap Packet $($(PROD_NAME)_LIBS)
-
-    $(DBD_NAME)_DBD += mcaAmptekSupport.dbd
-    $(PROD_NAME)_LIBS := mcaAmptek $($(PROD_NAME)_LIBS)
-    $(PROD_NAME)_LIBS := libusb-1.0 $($(PROD_NAME)_LIBS)
-  endif
-
-  ifdef DXP
-    # If you want to build parallel port or USB interfaces to Saturn and/or
-    # xMAP DXP, then uncomment the following lines
-    $(DBD_NAME)_DBD += dxpSupport.dbd
-    $(PROD_NAME)_LIBS := dxp handel $($(PROD_NAME)_LIBS)
-    $(PROD_NAME)_LIBS := DLPORTIO PlxApi $($(PROD_NAME)_LIBS)
-    $(PROD_NAME)_SYS_LIBS += setupapi
-  endif
-endif
-
-ifeq (windows-x64,$(findstring windows-x64, $(T_A)))
-  ifdef MCA
-    # If your host supports libpcap and libnet and you want to build Canberra network
-    # support uncomment the following line
     $(DBD_NAME)_DBD += mcaCanberraSupport.dbd
     $(PROD_NAME)_LIBS := mcaCanberra $($(PROD_NAME)_LIBS)
     $(PROD_NAME)_LIBS := wpcap Packet $($(PROD_NAME)_LIBS)
@@ -252,8 +239,20 @@ ifeq (windows-x64,$(findstring windows-x64, $(T_A)))
     $(PROD_NAME)_LIBS := mcaAmptek $($(PROD_NAME)_LIBS)
     $(PROD_NAME)_LIBS := libusb-1.0 $($(PROD_NAME)_LIBS)
   endif
+
+  ifeq (win32-x86,$(findstring win32-x86, $(T_A)))
+    ifdef DXP
+      # If you want to build parallel port or USB interfaces to Saturn and/or
+      # xMAP DXP, then uncomment the following lines
+      $(DBD_NAME)_DBD += dxpSupport.dbd
+      $(PROD_NAME)_LIBS := dxp handel $($(PROD_NAME)_LIBS)
+      $(PROD_NAME)_LIBS := DLPORTIO PlxApi $($(PROD_NAME)_LIBS)
+      $(PROD_NAME)_SYS_LIBS += setupapi
+    endif
+  endif
 endif
 
+##################################################################
 ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
   ifdef ALLEN_BRADLEY
     $(PROD_NAME)_LIBS := allenBradley $($(PROD_NAME)_LIBS)
@@ -339,6 +338,7 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 
 endif
 
+##################################################################
 ifneq (,$(findstring linux, $(T_A)))
   ifdef DXP
     # If your host supports parallel port or USB interfaces to Saturn DXP, set
@@ -363,6 +363,21 @@ ifneq (,$(findstring linux, $(T_A)))
   ifdef IPAC
     $(DBD_NAME)_DBD += drvIpac.dbd
     $(PROD_NAME)_LIBS := Ipac $($(PROD_NAME)_LIBS)
+  endif
+
+  ifdef IPUNIDIG
+    $(DBD_NAME)_DBD += ipUnidigSupport.dbd
+    $(PROD_NAME)_LIBS := ipUnidig $($(PROD_NAME)_LIBS)
+  endif
+
+  ifdef DAC128V
+    $(DBD_NAME)_DBD += dac128VSupport.dbd
+    $(PROD_NAME)_LIBS := dac128V $($(PROD_NAME)_LIBS)
+  endif
+
+  ifdef IP330
+    $(DBD_NAME)_DBD += ip330Support.dbd
+    $(PROD_NAME)_LIBS := ip330 $($(PROD_NAME)_LIBS)
   endif
 
   ifdef SOFTGLUE
