@@ -30,26 +30,13 @@ PROD_IOC = $(PROD_NAME)
 # First, define $(DBD_NAME)_DBD and $(PROD_NAME)_LIBS from the modules
 # defined in RELEASE
 ##################################################################
-ifeq (win32-x86, $(findstring win32-x86, $(T_A)))
-  DBD_NAME  = $(DBD_PREFIX)Win32
-  WINDOWS_TARGET = YES
-endif
-ifeq (windows-x64, $(findstring windows-x64, $(T_A)))
-  DBD_NAME  = $(DBD_PREFIX)Win64
-  WINDOWS_TARGET = YES
-endif
-
-ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
-  DBD_NAME  = $(DBD_PREFIX)VX
-endif
-
-ifeq (linux,$(findstring linux, $(T_A)))
-  DBD_NAME  = $(DBD_PREFIX)Linux
-endif
-
-ifeq ($(OS_CLASS), Darwin)
-  DBD_NAME  = $(DBD_PREFIX)Darwin
-endif
+DBD_SUFFIX_cygwin32 = $(error Cygwin not supported)
+DBD_SUFFIX_Darwin = Darwin
+DBD_SUFFIX_Linux = Linux
+DBD_SUFFIX_RTEMS = $(error RTEMS not supported)
+DBD_SUFFIX_vxWorks = VX
+DBD_SUFFIX_WIN32 = Win$(if $(findstring 32, $(T_A)),32,64)
+DBD_NAME = $(DBD_PREFIX)$(DBD_SUFFIX_$(OS_CLASS))
 
 DBD  += $(DBD_NAME).dbd
 
@@ -217,7 +204,7 @@ endif
 
 
 ##################################################################
-ifdef WINDOWS_TARGET
+ifeq ($(OS_CLASS), WIN32) 
   ifdef MEASCOMP
     $(DBD_NAME)_DBD += measCompSupport.dbd
     $(PROD_NAME)_LIBS := measComp $($(PROD_NAME)_LIBS)
@@ -253,7 +240,7 @@ ifdef WINDOWS_TARGET
 endif
 
 ##################################################################
-ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
+ifeq ($(OS_CLASS), vxWorks) 
   ifdef ALLEN_BRADLEY
     $(PROD_NAME)_LIBS := allenBradley $($(PROD_NAME)_LIBS)
   endif
@@ -339,7 +326,7 @@ ifeq (vxWorks,$(findstring vxWorks, $(T_A)))
 endif
 
 ##################################################################
-ifneq (,$(findstring linux, $(T_A)))
+ifeq ($(OS_CLASS), Linux) 
   ifdef DXP
     # If your host supports parallel port or USB interfaces to Saturn DXP, set
     # LINUX_USB_INSTALLED to YES in <synApps>/configure/CONFIG_SITE.
@@ -394,15 +381,14 @@ ifneq (,$(findstring linux, $(T_A)))
   endif
 endif
 
-$(PROD_NAME)_LIBS := $($(PROD_NAME)_LIBS) $(EPICS_BASE_IOC_LIBS)
+$(PROD_NAME)_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
-$(PROD_NAME)_SRCS_vxWorks  += $(DBD_NAME)_registerRecordDeviceDriver.cpp
-$(PROD_NAME)_SRCS_Linux    += $(DBD_NAME)_registerRecordDeviceDriver.cpp    $(PROD_NAME)Main.cpp
-$(PROD_NAME)_SRCS_WIN32    += $(DBD_NAME)_registerRecordDeviceDriver.cpp    $(PROD_NAME)Main.cpp
-$(PROD_NAME)_SRCS_cygwin32 += $(DBD_NAME)_registerRecordDeviceDriver.cpp    $(PROD_NAME)Main.cpp
-$(PROD_NAME)_SRCS_solaris  += $(DBD_NAME)_registerRecordDeviceDriver.cpp    $(PROD_NAME)Main.cpp
-$(PROD_NAME)_SRCS_Darwin   += $(DBD_NAME)_registerRecordDeviceDriver.cpp    $(PROD_NAME)Main.cpp
+ifeq ($(OS_CLASS), vxWorks) 
+  $(PROD_NAME)_SRCS  += $(DBD_NAME)_registerRecordDeviceDriver.cpp
+else
+  $(PROD_NAME)_SRCS  += $(DBD_NAME)_registerRecordDeviceDriver.cpp $(PROD_NAME)Main.cpp
+endif
 
 #The following adds support from base/src/vxWorks
 $(PROD_NAME)_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
