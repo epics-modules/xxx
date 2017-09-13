@@ -3,8 +3,8 @@
 # description: start/stop/restart an EPICS IOC in a screen session
 #
 
-# Manually set IOC_STARTUP_DIR if xxx.sh will reside somewhere other than iocxxx
-#!IOC_STARTUP_DIR=/home/username/epics/ioc/synApps/xxx/iocBoot/iocxxx
+# Manually set IOC_STARTUP_DIR if xxx.sh will reside somewhere other than softioc
+#!IOC_STARTUP_DIR=/home/username/epics/ioc/synApps/xxx/iocBoot/iocxxx/softioc
 
 # Set EPICS_HOST_ARCH if the env var isn't already set properly for this IOC
 #!EPICS_HOST_ARCH=linux-x86_64
@@ -45,14 +45,15 @@ SELECTION=$1
 
 if [ -z "$IOC_STARTUP_DIR" ]
 then
-    # If no startup dir is specified, assume this script resides in the IOC's startup directory
-    IOC_STARTUP_DIR="../$(${DIRNAME} ${SNAME})"
+    # If no startup dir is specified, use this script's directory
+    IOC_STARTUP_DIR=`dirname $0`
+    # see: http://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within#59916
 fi
 #!${ECHO} ${IOC_STARTUP_DIR}
 
 #####################################################################
 
-IOC_CMD="../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} st.cmd.Linux"
+IOC_CMD="${IOC_STARTUP_DIR}/../../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} ${IOC_STARTUP_DIR}/st.cmd"
 
 screenpid() {
         if [ -z ${SCREEN_PID} ] ; then
