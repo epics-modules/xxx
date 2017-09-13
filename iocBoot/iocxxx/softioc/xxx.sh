@@ -53,7 +53,7 @@ fi
 
 #####################################################################
 
-IOC_CMD="${IOC_STARTUP_DIR}/../../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} ${IOC_STARTUP_DIR}/st.cmd"
+IOC_CMD="${IOC_STARTUP_DIR}/../../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} ${IOC_STARTUP_DIR}/st.cmd.Linux"
 
 screenpid() {
         if [ -z ${SCREEN_PID} ] ; then
