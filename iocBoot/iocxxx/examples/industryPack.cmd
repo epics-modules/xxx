@@ -70,18 +70,17 @@ iocshLoad("$(IP)/iocsh/loadSerialComm.iocsh", "PREFIX=$(PREFIX), PORT=serial0:, 
 #Loads asyn records for serial2:0 through serial2:7, calls them asyn_9 through asyn_16 for user compatibility
 #iocshLoad("$(IP)/iocsh/loadSerialComm.iocsh", "PREFIX=$(PREFIX), PORT=serial1:, INSTANCE0=asyn_9, INSTANCE1=asyn_10, INSTANCE2=asyn_11, INSTANCE3=asyn_12, INSTANCE4=asyn_13, INSTANCE5=asyn_14, INSTANCE6=asyn_15, INSTANCE7=asyn_16")
 
+# SBS IpUnidig digital I/O
+#iocshLoad("$(IPUNIDIG)/iocsh/ipUnidig.iocsh", "PREFIX=$(PREFIX), PORT=Unidig1, CARRIER=0, SLOT=1, INT_VEC=116, RISE_MASK=0xfffffb, FALL_MASK=0xfffffb, SCAN_POLL=2000, SUB=substitutions/ipUnidig.substitutions")
 
 # user programmable glue electronics (requires Acromag IP-EP20x)
 #< softGlue.iocsh
 
-# Systran DAC128V
-#< dac128V.cmd
-
 # Analog I/O (Acromag IP330 ADC)
 #< ip330.cmd
 
-# SBS IpUnidig digital I/O
-#< ipUnidig.cmd
+# Systran DAC128V
+#iocshLoad("$(DAC128V)/iocsh/dac128V.iocsh", "PREFIX=$(PREFIX), PORT=DAC1, CARRIER=0, SLOT=3, SUB=substitutions/dac128V.substitutions")
 
 # gpib support
 #< gpib.cmd
