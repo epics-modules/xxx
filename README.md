@@ -1,6 +1,9 @@
 # xxx
 APS BCDA synApps module: xxx
 
+XXX is a template to use when creating an EPICS IOC that provides beam line support.
+It uses the various modules that comprise synApps and other support.
+
 For more information, see
    http://www.aps.anl.gov/bcda/synApps
 
