@@ -1,0 +1,16 @@
+file "$(DAC128V)/dac128VApp/Db/singleDAC.db"
+{pattern
+{N, S, EGUL,  EGUF, DRVL, DRVH, LOPR, HOPR, PREC,     LINR, VAL}
+# Channel 1 is in volts, -10 to 10, with drive limits full range
+{1, 0, -10,    10, -10,  10,   -10,  10,   3,    "LINEAR", 0}
+# Channel 2 is in volts, -10 to 10, but only allow driving 0 to 10
+{2, 1, -10,    10,   0,  10,     0,  10,   3,    "LINEAR", 0}
+# Channel 3 is in percent of full scale, only allow driving 0 to 100%
+{3, 2, -100,   100,   0, 100,     0, 100,   3,    "LINEAR", 0}
+# Remaing channels are in volts
+{4, 3, -10,    10, -10,  10,   -10,  10,   3,    "LINEAR", 0}
+{5, 4, -10,    10, -10,  10,   -10,  10,   3,    "LINEAR", 0}
+{6, 5, -10,    10, -10,  10,   -10,  10,   3,    "LINEAR", 0}
+{7, 6, -10,    10, -10,  10,   -10,  10,   3,    "LINEAR", 0}
+{8, 7, -10,    10, -10,  10,   -10,  10,   3,    "LINEAR", 0}
+}

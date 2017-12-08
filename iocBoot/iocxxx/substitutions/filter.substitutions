@@ -1,0 +1,20 @@
+file "$(OPTICS)/opticsApp/Db/filterBladeNoSensor.db" {
+  pattern
+  {N,   DESC,             OUT                  OUT_STRING,  IN_STRING}
+  {1,   "Filter $(N)",    "$(P)userTran1.A",   "Out",       "In"}
+  {2,   "Filter $(N)",    "$(P)userTran1.B",   "Out",       "In"}
+  {3,   "Filter $(N)",    "$(P)userTran1.C",   "Out",       "In"}
+  {4,   "Filter $(N)",    "$(P)userTran1.D",   "Out",       "In"}
+  {5,   "Filter $(N)",    "$(P)userTran1.E",   "Out",       "In"}
+  {6,   "Filter $(N)",    "$(P)userTran1.F",   "Out",       "In"}
+  {7,   "Filter $(N)",    "$(P)userTran1.G",   "Out",       "In"}
+  {8,   "Filter $(N)",    "$(P)userTran1.H",   "Out",       "In"}
+  {9,   "Filter $(N)",    "$(P)userTran1.I",   "Out",       "In"}
+  {10,  "Filter $(N)",    "$(P)userTran1.J",   "Out",       "In"}
+  {11,  "Filter $(N)",    "$(P)userTran1.K",   "Out",       "In"}
+  {12,  "Filter $(N)",    "$(P)userTran1.L",   "Out",       "In"}
+  {13,  "Filter $(N)",    "$(P)userTran1.M",   "Out",       "In"}
+  {14,  "Filter $(N)",    "$(P)userTran1.N",   "Out",       "In"}
+  {15,  "Filter $(N)",    "$(P)userTran1.O",   "Out",       "In"}
+  {16,  "Filter $(N)",    "$(P)userTran1.P",   "Out",       "In"}
+}

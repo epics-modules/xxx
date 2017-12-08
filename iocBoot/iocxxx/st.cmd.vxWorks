@@ -1,0 +1,75 @@
+# vxWorks startup script
+
+sysVmeMapShow
+
+cd ""
+< ../nfsCommands
+< cdCommands
+
+# How to set and get the clock rate (in Hz.  Default is 60 Hz)
+#sysClkRateSet(100)
+#sysClkRateGet()
+
+################################################################################
+cd topbin
+
+# If the VxWorks kernel was built using the project facility, the following must
+# be added before any C++ code is loaded (see SPR #28980).
+sysCplusEnable=1
+
+# If using a PowerPC CPU with more than 32MB of memory, and not building with longjump, then
+# allocate enough memory here to force code to load in lower 32 MB.
+##mem = malloc(1024*1024*96)
+
+### Load synApps EPICS software
+load("xxx.munch")
+#ld(0,0,"xxx.munch")
+cd startup
+
+# Increase size of buffer for error logging from default 1256
+errlogInit(20000)
+
+# need more entries in wait/scan-record channel-access queue?
+recDynLinkQsize = 1024
+
+################################################################################
+# Tell EPICS all about the record types, device-support modules, drivers,
+# etc. in the software we just loaded (xxx.munch)
+dbLoadDatabase("$(TOP)/dbd/iocxxxVX.dbd")
+iocxxxVX_registerRecordDeviceDriver(pdbbase)
+
+shellPromptSet "$(IOC)> "
+iocLogDisable=0
+
+# If you want save_restore to manage its own NFS mount, specify the name and
+# IP address of the file server to which save files should be written, and
+# set SAVE_PATH to a path as the server sees it.  This currently
+# is supported only on vxWorks.
+
+#save_restoreSet_NFSHost("oxygen", "164.54.22.10")
+
+
+iocsh 
+
+< common.iocsh
+
+# devIocStats
+dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=xxx")
+
+###############################################################################
+iocInit
+###############################################################################
+
+# If memory allocated at beginning free it now
+##free(mem)
+
+memShow
+
+# write all the PV names to a local file
+dbl > dbl-all.txt
+
+# Diagnostic: CA links in all records
+dbcar(0,1)
+
+# print the time our boot was finished
+date

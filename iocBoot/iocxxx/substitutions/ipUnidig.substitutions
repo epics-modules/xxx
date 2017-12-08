@@ -1,0 +1,62 @@
+# Set the SCAN field of bi record #2 to "1 second", rather than I/O interrupt, 
+# because the quadEM toggles input #2 at 800Hz, and that is too much load on the IOC
+
+file "$(IPUNIDIG)/ipUnidigApp/Db/IpUnidigBi.db"
+{
+pattern
+{R,           MASK,        SCAN}
+{"$(PORT)Bi0",  0x000001, "I/O Intr"}
+{"$(PORT)Bi1",  0x000002, "I/O Intr"}
+{"$(PORT)Bi2",  0x000004, "1 second"}
+{"$(PORT)Bi3",  0x000008, "I/O Intr"}
+{"$(PORT)Bi4",  0x000010, "I/O Intr"}
+{"$(PORT)Bi5",  0x000020, "I/O Intr"}
+{"$(PORT)Bi6",  0x000040, "I/O Intr"}
+{"$(PORT)Bi7",  0x000080, "I/O Intr"}
+{"$(PORT)Bi8",  0x000100, "I/O Intr"}
+{"$(PORT)Bi9",  0x000200, "I/O Intr"}
+{"$(PORT)Bi10", 0x000400, "I/O Intr"}
+{"$(PORT)Bi11", 0x000800, "I/O Intr"}
+{"$(PORT)Bi12", 0x001000, "I/O Intr"}
+{"$(PORT)Bi13", 0x002000, "I/O Intr"}
+{"$(PORT)Bi14", 0x004000, "I/O Intr"}
+{"$(PORT)Bi15", 0x008000, "I/O Intr"}
+{"$(PORT)Bi16", 0x010000, "I/O Intr"}
+{"$(PORT)Bi17", 0x020000, "I/O Intr"}
+{"$(PORT)Bi18", 0x040000, "I/O Intr"}
+{"$(PORT)Bi19", 0x080000, "I/O Intr"}
+{"$(PORT)Bi20", 0x100000, "I/O Intr"}
+{"$(PORT)Bi21", 0x200000, "I/O Intr"}
+{"$(PORT)Bi22", 0x400000, "I/O Intr"}
+{"$(PORT)Bi23", 0x800000, "I/O Intr"}
+}
+
+file "$(IPUNIDIG)/ipUnidigApp/Db/IpUnidigBo.db"
+{
+pattern
+{R,             MASK}
+{"$(PORT)Bo0",  0x000001}
+{"$(PORT)Bo1",  0x000002}
+{"$(PORT)Bo2",  0x000004}
+{"$(PORT)Bo3",  0x000008}
+{"$(PORT)Bo4",  0x000010}
+{"$(PORT)Bo5",  0x000020}
+{"$(PORT)Bo6",  0x000040}
+{"$(PORT)Bo7",  0x000080}
+{"$(PORT)Bo8",  0x000100}
+{"$(PORT)Bo9",  0x000200}
+{"$(PORT)Bo10", 0x000400}
+{"$(PORT)Bo11", 0x000800}
+{"$(PORT)Bo12", 0x001000}
+{"$(PORT)Bo13", 0x002000}
+{"$(PORT)Bo14", 0x004000}
+{"$(PORT)Bo15", 0x008000}
+{"$(PORT)Bo16", 0x010000}
+{"$(PORT)Bo17", 0x020000}
+{"$(PORT)Bo18", 0x040000}
+{"$(PORT)Bo19", 0x080000}
+{"$(PORT)Bo20", 0x100000}
+{"$(PORT)Bo21", 0x200000}
+{"$(PORT)Bo22", 0x400000}
+{"$(PORT)Bo23", 0x800000}
+}

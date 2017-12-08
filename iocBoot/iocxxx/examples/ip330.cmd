@@ -1,0 +1,24 @@
+
+# BEGIN ip330.cmd -------------------------------------------------------------
+
+iocshLoad("$(IP330)/iocsh/ip330.iocsh", "PREFIX=$(PREFIX), CARRIER=0, SLOT=2, INT_VEC=120, TYPE=D, TRIGGER=Input, RANGE=-10to10, SUB=substitutions/ip330Scan.substitutions"
+
+# int initFastSweep(char *portName, char *inputName,
+#                   int maxSignals, int maxPoints)
+# portName   = asyn port name for this port
+# inputName  = name of input port
+# maxSignals = maximum number of input signals.
+# maxPoints  = maximum number of points in a sweep.  The amount of memory
+#              allocated will be maxPoints*maxSignals*4 bytes
+initFastSweep("Ip330Sweep1","Ip330_1", 4, 2048)
+
+# epid record using fast feedback with dac128V
+dbLoadTemplate("substitutions/ip330PIDFast.substitutions", "P=$(PREFIX)")
+
+# Load MCA records on the first 4 input channels
+dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=$(PREFIX),M=mip330_1,DTYP=asynMCA,NCHAN=2048,INP=@asyn(Ip330Sweep1 0)")
+dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=$(PREFIX),M=mip330_2,DTYP=asynMCA,NCHAN=2048,INP=@asyn(Ip330Sweep1 1)")
+dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=$(PREFIX),M=mip330_3,DTYP=asynMCA,NCHAN=2048,INP=@asyn(Ip330Sweep1 2)")
+dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=$(PREFIX),M=mip330_4,DTYP=asynMCA,NCHAN=2048,INP=@asyn(Ip330Sweep1 3)")
+
+# END ip330.cmd ---------------------------------------------------------------

@@ -1,0 +1,34 @@
+
+epicsEnvSet("P",                        "$(PREFIX)3801:")
+epicsEnvSet("RNAME",                    "mca")
+epicsEnvSet("MAX_SIGNALS",              "32")
+epicsEnvSet("MAX_CHANS",                "2048")
+epicsEnvSet("PORT",                     "SIS3801/1")
+# For MCA records FIELD=READ, for waveform records FIELD=PROC
+epicsEnvSet("FIELD",                    "READ")
+epicsEnvSet("MODEL",                    "SIS3801")
+
+#drvSIS3801Config("Port name",
+#                  baseAddress,
+#                  interruptVector, 
+#                  int interruptLevel,
+#                  channels,
+#                  signals)
+drvSIS3801Config($(PORT), 0xA0000000, 220, 6, $(MAX_CHANS), $(MAX_SIGNALS))
+
+# This loads the scaler record and supporting records
+dbLoadRecords("$(STD)/stdApp/Db/scaler32.db", "P=$(P), S=scaler1, DTYP=Asyn Scaler, OUT=@asyn($(PORT)), FREQ=25000000")
+
+# This database provides the support for the MCS functions
+dbLoadRecords("$(MCA)/mcaApp/Db/SIS38XX.template", "P=$(P), PORT=$(PORT), SCALER=$(P)scaler1")
+# This SNL programs reads the MCS
+doAfterIocInit("seq(&SIS38XX_SNL, 'P=$(P), R=$(RNAME), NUM_SIGNALS=$(MAX_SIGNALS), FIELD=READ')")
+
+# Load either MCA or waveform records below
+# The number of records loaded must be the same as MAX_SIGNALS defined above
+dbLoadTemplate("substitutions/mca.substitutions", "P=$(P), DTYP=asynMCA, CHANS=$(MAX_CHANS)")
+
+asynSetTraceIOMask($(PORT),0,2)
+#asynSetTraceFile("$(PORT)",0,"$(MODEL).out")
+#asynSetTraceMask("$(PORT)",0,0xff)
+

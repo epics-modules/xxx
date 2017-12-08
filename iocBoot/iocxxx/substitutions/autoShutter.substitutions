@@ -1,0 +1,27 @@
+# AutoShutter Open system databases
+# P = PV Prefix
+# S = Shutter ID (usually A)
+# BL = Beamline ID - <Sector##><ID/BM>  example: 08ID
+# T1, T2  = Countdown Timer IDs (usually 1 and 2)
+# A = AlarmClock ID (usually 1)
+file "$(STD)/stdApp/Db/autoShutter.vdb"
+{
+pattern
+{S       BL           T1      T2     A}
+{A      "##ID"         1       2     1}
+}
+
+file "$(STD)/stdApp/Db/countDownTimer.vdb"
+{
+pattern
+{N}
+{1}
+{2}
+}
+
+file "$(STD)/stdApp/Db/alarmClock.vdb"
+{
+pattern
+{N}
+{1}
+}

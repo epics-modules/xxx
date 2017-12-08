@@ -1,0 +1,43 @@
+
+epicsEnvSet("P",                        "$(PREFIX)3820:")
+epicsEnvSet("RNAME",                    "mca")
+epicsEnvSet("MAX_SIGNALS",              "8")
+epicsEnvSet("MAX_CHANS",                "1000")
+epicsEnvSet("PORT",                     "SIS3820/1")
+# For MCA records FIELD=READ, for waveform records FIELD=PROC
+epicsEnvSet("FIELD",                    "READ")
+epicsEnvSet("MODEL",                    "SIS3820")
+
+#drvSIS3820Config("Port name",
+#                  baseAddress,
+#                  interruptVector, 
+#                  int interruptLevel,
+#                  channels,
+#                  signals,
+#                  use DMA
+#                  fifoBufferWords)
+drvSIS3820Config($(PORT), 0xA8000000, 224, 6, $(MAX_CHANS), $(MAX_SIGNALS), 1, 0x2000)
+
+# Update SIS3820 firmware:
+# connect pins 2 and 3 on jumper J570
+#sis3820_jtag_prom_epics(0xA8000000, "R", "")
+# copy prom_v0111.mcs from $(MCA)/mcaApp/SISSrc
+#sis3820_jtag_prom_epics(0xA8000000, "P", "prom_v0111.mcs")
+#sis3820_jtag_prom_epics(0xA8000000, "V", "prom_v0111.mcs")
+# connect pins 1 and 2 on jumper J570
+
+# This loads the scaler record and supporting records
+dbLoadRecords("$(STD)/stdApp/Db/scaler32.db", "P=$(P), S=scaler1, DTYP=Asyn Scaler, OUT=@asyn($(PORT)), FREQ=50000000")
+
+# This database provides the support for the MCS functions
+dbLoadRecords("$(MCA)/mcaApp/Db/SIS38XX.template", "P=$(P), PORT=$(PORT), SCALER=$(P)scaler1")
+# This SNL programs reads the MCS
+doAfterIocInit("seq(&SIS38XX_SNL, 'P=$(P), R=$(RNAME), NUM_SIGNALS=$(MAX_SIGNALS), FIELD=READ')")
+
+# Load either MCA or waveform records below
+# The number of records loaded must be the same as MAX_SIGNALS defined above
+dbLoadTemplate("substitutions/mca.substitutions", "P=$(P), DTYP=asynMCA, CHANS=$(MAX_CHANS)")
+
+asynSetTraceIOMask($(PORT),0,2)
+#asynSetTraceFile("$(PORT)",0,"$(MODEL).out")
+#asynSetTraceMask("$(PORT)",0,0xff)

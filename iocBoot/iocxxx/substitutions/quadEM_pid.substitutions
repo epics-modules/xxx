@@ -1,0 +1,8 @@
+file "$(STD)/stdApp/Db/fast_pid_control.db"
+{
+pattern
+{PID,            INPUT, ICHAN, OUTPUT, OCHAN,    LOPR,     HOPR,  DRVL,  DRVH,  PREC,   KP,    KI,  KD,   DT,        SCAN}
+{quadEMVertical,    quadEM1,     8,   DAC1,     2,  -32767,    32767,     0,  4095,     3,  .02,  100.,  0., .001, ".1 second"}
+{quadEMHorizontal,  quadEM1,     9,   DAC1,     3,  -32767,    32767,  2048,  3072,     3,  .02,  100.,  0., .001, ".1 second"}
+}
+

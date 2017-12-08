@@ -1,0 +1,119 @@
+
+# BEGIN vme.cmd ---------------------------------------------------------------
+
+##### Motors
+
+# OMS VME driver setup parameters:
+#     (1)cards, (2)base address(short, 16-byte boundary),
+#     (3)interrupt vector (0=disable or  64 - 255), (4)interrupt level (1 - 6),
+#     (5)motor task polling rate (min=1Hz,max=60Hz)
+#omsSetup(2, 0xFC00, 180, 5, 10)
+
+# OMS VME58 driver setup parameters:
+#     (1)cards, (2)base address(short, 4k boundary),                  
+#     (3)interrupt vector (0=disable or  64 - 255), (4)interrupt level (1 - 6),
+#     (5)motor task polling rate (min=1Hz,max=60Hz)
+#oms58Setup(2, 0x4000, 190, 5, 10)
+
+# OMS MAXv driver setup parameters: 
+#     (1)number of cards in array.
+#     (2)VME Address Type (16,24,32).
+#     (3)Base Address on 4K (0x1000) boundary.
+#     (4)interrupt vector (0=disable or  64 - 255).
+#     (5)interrupt level (2 - 6).
+#     (6)motor task polling rate (min=1Hz,max=60Hz).
+#drvMAXvdebug=4
+MAXvSetup(2, 16, 0xE000, 180, 5, 10)
+
+# OMS MAXv configuration string:
+#     (1) number of card being configured (0-14).
+#     (2) configuration string; axis type (PSO/PSE/PSM) MUST be set here.
+#         For example, set which TTL signal level defines an active limit
+#         switch.  The "config" example below sets X,Y,Z,T to active low (LTL),
+#         sets U,V,R,S to active high (LTH) and sets all axes to open-loop
+#         stepper (PSO). See MAXv User's Manual for LTL/LTH and PSO/PSE/PSM
+#         commands.
+#config="AX LTL PSO; AY LTL PSO; AZ LTL PSO; AT LTL PSO; AU LTH PSO; AV LTH PSO; AR LTH PSO; AS LTH PSO;"
+#     (3) SSI based absolute encoder bit flag. Bit #0 for Axis X, bit #1 for
+#         Axis Y, etc.. Set a bit flag to '1' for absolute encoder values; '0'
+#         for the standard incremental encoder values.
+#     (4) SSI based absolute encoder grey code flags (0/1 - yes/no, 0x12 -> UY)
+
+epicsEnvSet("config0", "AA; LMH,H,H,H,H,H,H,H; AX LTH PSO; AY LTH PSO; AZ LTL PSO; AT LTL PSO; AU LTL PSO; AV LTL PSO; AR LTL PSO; AS LTL PSO;")
+epicsEnvSet("config1", "AA; LMH,H,H,H,H,H,H,H; AX LTL PSE; AY LTL PSE; AZ LTL PSE; AT LTL PSO; AU LTL PSO; AV LTL PSO; AR LTL PSO; AS LTL PSO;")
+MAXvConfig(0, "$(config0)", 0, 0)
+MAXvConfig(1, "$(config1)", 0, 0)
+
+
+### Scalers: Joerger VSC8/16
+#dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=$(PREFIX),S=scaler2,OUT=#C1 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
+# scaler database with modified calcs (user calcs for all 16 channels)
+dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=$(PREFIX),S=scaler1,OUT=#C0 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
+# Joerger VSC setup parameters:
+#     (1)cards, (2)base address(ext, 256-byte boundary),
+#     (3)interrupt vector (0=disable or  64 - 255)
+VSCSetup(2, 0xB0000000, 200)
+
+# Joerger VS
+# scalerVS_Setup(int num_cards, /* maximum number of cards in crate */
+#       char *addrs,            /* address (0x800-0xf800, 2048-byte (0x800) boundary) */
+#       unsigned vector,        /* valid vectors(64-255) */
+#       int intlevel)
+#scalerVS_Setup(1, 0x2000, 205, 5)
+#epicsEnvSet("devScaler_VSDebug", 0)
+#dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=$(PREFIX),S=scaler3,OUT=#C0 S0 @, DTYP=Joerger VS, FREQ=10000000")
+
+# Heidenhain IK320 VME encoder interpolator
+#dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=$(PREFIX),sw2=card0:,axis=1,switches=41344,irq=3")
+#dbLoadRecords("$(VME)/vmeApp/Db/IK320card.db","P=$(PREFIX),sw2=card0:,axis=2,switches=41344,irq=3")
+#dbLoadRecords("$(VME)/vmeApp/Db/IK320group.db","P=$(PREFIX),group=5")
+
+# Struck 3801 MCS setup. mca 7-3-1
+#< st_SIS3801.iocsh
+
+# Struck 3820 MCS setup. mca 7-3-1
+#< st_SIS3820.iocsh
+
+
+# VMI4116 setup parameters: 
+#     (1)cards, (2)base address(short, 36-byte boundary), 
+#devAoVMI4116Debug = 20
+#VMI4116_setup(1, 0xff00)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=1,S=0,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=2,S=1,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=3,S=2,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=4,S=3,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=5,S=4,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=6,S=5,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=7,S=6,DTYP=VMIVME-4116,H=65536,L=0", std)
+#dbLoadRecords("$(VME)/vmeApp/Db/VME_DAC.db", "P=$(PREFIX),D=2,C=0,N=8,S=7,DTYP=VMIVME-4116,H=65536,L=0", std)
+
+# vme test record
+dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=$(PREFIX),Q=vme1")
+
+# Hewlett-Packard 10895A Laser Axis (interferometer)
+#iocshLoad("$(VME)/iocsh/HP_10895A.iocsh", "PREFIX=$(PREFIX), MAX_CARDS=2, ADDRESS=0x1000, INSTANCE=HPLaser1, CARD=0")
+#iocshLoad("$(VME)/iocsh/HP_10895A.iocsh", "PREFIX=$(PREFIX), INSTANCE=HPLaser2, CARD=1")
+
+# Acromag general purpose Digital I/O
+#iocshLoad("$(VME)/iocsh/Acromag_9440.iocsh", "PREFIX=$(PREFIX), MAX_CARDS=2, ADDRESS=0x0400, INT_VEC=0x78, INSTANCE=1, CARD=0")
+#iocshLoad("$(VME)/iocsh/Acromag_9440.iocsh", "PREFIX=$(PREFIX), INSTANCE=2, CARD=1")
+
+# Bunch-clock generator
+#iocshLoad("$(VME)/iocsh/BunchClkGen.iocsh", "PREFIX=$(PREFIX), INSTANCE=1, CARD=0, ADDRESS=0x8c00")
+
+### GP307 Vacuum Controller
+#dbLoadRecords("$(VME)/vmeApp/Db/gp307.db","P=$(PREFIX)")
+
+# Machine Status Link (MSL) board (MRD 100)
+#iocshLoad("$(VME)/iocsh/MSL_MRD100.iocsh", "PREFIX=$(PREFIX), INSTANCE=01, ADDRESS=0xB0000200, INT_VEC=0xA0, CARD=0")
+
+# Allen-Bradley 6008 scanner
+#abConfigNlinks(1)
+#abConfigVme(0,0xc00000,0x60,5)
+#abConfigAuto()
+
+# APS quad electrometer
+#< quadEM.cmd
+
+# END vme.cmd -----------------------------------------------------------------

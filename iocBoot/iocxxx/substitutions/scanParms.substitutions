@@ -1,0 +1,90 @@
+file "$(SSCAN)/sscanApp/Db/scanParms.db"
+{
+{SCANREC=xxx:scan1,Q=m1,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{SCANREC=xxx:scan1,Q=m2,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{SCANREC=xxx:scan1,Q=m3,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{SCANREC=xxx:scan1,Q=m4,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{SCANREC=xxx:scan1,Q=m5,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{SCANREC=xxx:scan1,Q=m6,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{SCANREC=xxx:scan1,Q=m7,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{SCANREC=xxx:scan1,Q=m8,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{SCANREC=xxx:scan1,Q=m9,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{SCANREC=xxx:scan1,Q=m10,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{SCANREC=xxx:scan1,Q=m11,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{SCANREC=xxx:scan1,Q=m12,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{SCANREC=xxx:scan1,Q=m13,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{SCANREC=xxx:scan1,Q=m14,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{SCANREC=xxx:scan1,Q=m15,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+{SCANREC=xxx:scan1,Q=m16,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+
+{SCANREC=xxx:scan1,Q=SM1,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{SCANREC=xxx:scan1,Q=SM2,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{SCANREC=xxx:scan1,Q=SM3,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{SCANREC=xxx:scan1,Q=SM4,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{SCANREC=xxx:scan1,Q=SM5,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{SCANREC=xxx:scan1,Q=SM6,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{SCANREC=xxx:scan1,Q=SM7,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{SCANREC=xxx:scan1,Q=SM8,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{SCANREC=xxx:scan1,Q=SM9,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+{SCANREC=xxx:scan1,Q=SM10,POS="$(Q).DVAL",RDBK="$(Q).DRBV"}
+
+{SCANREC=xxx:scan1,Q=Table1X,POS=table1.X,RDBK=table1.XRB}
+{SCANREC=xxx:scan1,Q=Table1Y,POS=table1.Y,RDBK=table1.YRB}
+{SCANREC=xxx:scan1,Q=Table1Z,POS=table1.Z,RDBK=table1.ZRB}
+{SCANREC=xxx:scan1,Q=Table1AX,POS=table1.AX,RDBK=table1.AXRB}
+{SCANREC=xxx:scan1,Q=Table1AY,POS=table1.AY,RDBK=table1.AYRB}
+{SCANREC=xxx:scan1,Q=Table1AZ,POS=table1.AZ,RDBK=table1.AZRB}
+
+# Kohzu monochromator
+#{SCANREC=xxx:scan1,Q=BraggE,POS=BraggEAO.VAL,RDBK=BraggERdbkAO.VAL}
+#{SCANREC=xxx:scan1,Q=BraggLambda,POS=BraggLambdaAO.VAL,RDBK=BraggLambdaRdbkAO.VAL}
+#{SCANREC=xxx:scan1,Q=BraggTheta,POS=BraggThetaAO.VAL,RDBK=BraggThetaRdbkAO.VAL}
+
+# multilayer monochromator
+{SCANREC=xxx:scan1,Q=ml_monoE,POS=ml_monoE.VAL,RDBK=ml_monoERdbk.VAL}
+{SCANREC=xxx:scan1,Q=ml_monoLambda,POS=ml_monoLambda.VAL,RDBK=ml_monoLambdaRdbk.VAL}
+{SCANREC=xxx:scan1,Q=ml_monoTheta,POS=ml_monoTheta.VAL,RDBK=ml_monoThetaRdbk.VAL}
+
+# Mirror
+{SCANREC=xxx:scan1,Q=M1dn,POS=M1dn,RDBK=M1t2.A}
+{SCANREC=xxx:scan1,Q=M1up,POS=M1up,RDBK=M1t2.B}
+{SCANREC=xxx:scan1,Q=M1angl,POS=M1angl,RDBK=M1t2.C}
+{SCANREC=xxx:scan1,Q=M1avg,POS=M1avg,RDBK=M1t2.D}
+
+# old slit
+{SCANREC=xxx:scan1,Q=Slit1Hp,POS=Slit1Hxp.VAL,RDBK=Slit1Ht2.A}
+{SCANREC=xxx:scan1,Q=Slit1Hn,POS=Slit1Hxn.VAL,RDBK=Slit1Ht2.B}
+{SCANREC=xxx:scan1,Q=Slit1Hsize,POS=Slit1Hsize.VAL,RDBK=Slit1Ht2.C}
+{SCANREC=xxx:scan1,Q=Slit1Hcenter,POS=Slit1Hcenter.VAL,RDBK=Slit1Ht2.D}
+{SCANREC=xxx:scan1,Q=Slit1Vp,POS=Slit1Vxp.VAL,RDBK=Slit1Vt2.A}
+{SCANREC=xxx:scan1,Q=Slit1Vn,POS=Slit1Vxn.VAL,RDBK=Slit1Vt2.B}
+{SCANREC=xxx:scan1,Q=Slit1Vsize,POS=Slit1Vsize.VAL,RDBK=Slit1Vt2.C}
+{SCANREC=xxx:scan1,Q=Slit1Vcenter,POS=Slit1Vcenter.VAL,RDBK=Slit1Vt2.D}
+
+# XIA slit (macroargs include "Q=hsc1")
+{SCANREC=xxx:scan1,Q=hsc1:width,POS=hsc1:width,RDBK=hsc1:widthRB}
+{SCANREC=xxx:scan1,Q=hsc1:h0,POS=hsc1:h0,RDBK=hsc1:h0RB}
+{SCANREC=xxx:scan1,Q=hsc1:l,POS=hsc1:l,RDBK=hsc1:lRB}
+{SCANREC=xxx:scan1,Q=hsc1:r,POS=hsc1:r,RDBK=hsc1:rRB}
+{SCANREC=xxx:scan1,Q=hsc1:height,POS=hsc1:height,RDBK=hsc1:heightRB}
+{SCANREC=xxx:scan1,Q=hsc1:v0,POS=hsc1:v0,RDBK=hsc1:v0RB}
+{SCANREC=xxx:scan1,Q=hsc1:t,POS=hsc1:t,RDBK=hsc1:tRB}
+{SCANREC=xxx:scan1,Q=hsc1:b,POS=hsc1:b,RDBK=hsc1:bRB}
+
+
+# new soft-motor-based slit
+#{SCANREC=xxx:scan1,Q=Slit2Hxn,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{SCANREC=xxx:scan1,Q=Slit2Hxp,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{SCANREC=xxx:scan1,Q=Slit2Hsize,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{SCANREC=xxx:scan1,Q=Slit2Hcenter,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{SCANREC=xxx:scan1,Q=Slit2Vxn,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{SCANREC=xxx:scan1,Q=Slit2Vxp,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{SCANREC=xxx:scan1,Q=Slit2Vsize,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+#{SCANREC=xxx:scan1,Q=Slit2Vcenter,POS="$(Q).VAL",RDBK="$(Q).RBV"}
+
+}
+
+file "$(SSCAN)/sscanApp/Db/scanParms2Pos.db"
+{
+{SCANREC=xxx:scan1,Q=m7_8,POS1=xxx:m7.VAL,RDBK1=xxx:m7.RBV,POS2=xxx:m8.VAL,RDBK2=xxx:m8.RBV}
+}

@@ -1,0 +1,59 @@
+### Slits (If not supplied, RELTOCENTER defaults to zero)
+dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=$(PREFIX),SLIT=Slit1V,mXp=m3,mXn=m4,RELTOCENTER=0")
+dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=$(PREFIX),SLIT=Slit1H,mXp=m5,mXn=m6,RELTOCENTER=0")
+
+# X-ray Instrumentation Associates Huber Slit Controller
+# (Uses asyn record loaded separately)
+#iocshLoad("$(OPTICS)/iocsh/Huber_xia.iocsh", "PREFIX=$(PREFIX), INSTANCE=hsc1:, ASYN_REC=$(PREFIX)asyn_6")
+#iocshLoad("$(OPTICS)/iocsh/Huber_xia.iocsh", "PREFIX=$(PREFIX), INSTANCE=hsc2:, ASYN_REC=$(PREFIX)asyn_6")
+
+### 2-post mirror
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/2postMirror.db","P=$(PREFIX),Q=M1,mDn=m1,mUp=m2,LENGTH=0.3")
+
+### User filters
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/filterMotor.db","P=$(PREFIX),Q=fltr1:,MOTOR=m1,LOCK=fltr_1_2:")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/filterMotor.db","P=$(PREFIX),Q=fltr2:,MOTOR=m2,LOCK=fltr_1_2:")
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/filterLock.db","P=$(PREFIX),Q=fltr2:,LOCK=fltr_1_2:,LOCK_PV=$(PREFIX)DAC1_1.VAL")
+
+### Optical tables
+epicsEnvSet("DIR", "$(OPTICS)/opticsApp/Db")
+dbLoadRecords("$(DIR)/table.db","P=$(PREFIX),Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
+#dbLoadRecords("$(DIR)/table.db","P=$(PREFIX),Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=NEWPORT")
+#dbLoadRecords("$(DIR)/table.db","P=$(PREFIX),Q=Table2,T=table2,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6,GEOM=SRI")
+
+# Io calculation
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/Io.db","P=$(PREFIX)Io:")
+#doAfterIocInit("seq &Io, 'P=$(PREFIX)Io:,MONO=$(PREFIX)BraggEAO,VSC=$(PREFIX)scaler1'")
+
+### Monochromator support ###
+# Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
+# standard geometry (geometry 1)
+#iocshLoad("$(OPTICS)/iocsh/kohzu_mono.iocsh", "PREFIX=$(PREFIX), M_THETA=m1,M_Y=m2,M_Z=m3, YOFF_LO=17.4999,YOFF_HI=17.5001, GEOM=1, LOG=kohzuCtl.log")
+# modified geometry (geometry 2)
+#iocshLoad("$(OPTICS)/iocsh/kohzu_mono.iocsh", "PREFIX=$(PREFIX), M_THETA=m1,M_Y=m2,M_Z=m2, YOFF_LO=4, YOFF_HI=36, GEOM=2, LOG=kohzuCtl.log")
+
+# Example of specifying offset limits
+#doAfterIocInit("epicsThreadSleep(5.)")
+#doAfterIocInit("dbpf $(PREFIX)kohzu_yOffsetAO.DRVH 17.51")
+#doAfterIocInit("dbpf $(PREFIX)kohzu_yOffsetAO.DRVL 17.49")
+
+# Spherical grating monochromator
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/SGM.db","P=$(PREFIX),N=1,M_x=m7,M_rIn=m6,M_rOut=m8,M_g=m9")
+
+# 4-bounce high-resolution monochromator
+#iocshLoad("$(OPTICS)/iocsh/hr_mono.iocsh", "PREFIX=$(PREFIX), INSTANCE=1, M_PHI1=m1, M_PHI2=m2, LOG=hrCtl.log")
+
+### multilayer monochromator: Bragg and theta/Y/Z motors
+#iocshLoad("$(OPTICS)/iocsh/ml_mono.iocsh", "PREFIX=$(PREFIX), M_THETA=m1, M_THETA2=m2, M_Y=m3, M_Z=m4, YOFF=35., GEOM=1")
+
+### Orientation matrix, four-circle diffractometer (see seq program 'orient' below)
+#iocshLoad("$(OPTICS)/iocsh/orient.iocsh", "PREFIX=$(PREFIX), INSTANCE=1, M_TTH=m9, M_TH=m10, M_CHI=m11, M_PHI=m12, SUB=substitutions/orient_xtals.substitutions")
+
+# Coarse/Fine stage
+#dbLoadRecords("$(OPTICS)/opticsApp/Db/CoarseFineMotor.db","P=$(PREFIX)cf1:,PM=$(PREFIX),CM=m7,FM=m8")
+
+### Load database records for dual PF4 filters
+#iocshLoad("$(OPTICS)/iocsh/pf4filters.iocsh", "PREFIX=$(PREFIX), INSTANCE=pf4")
+
+### Load database records for alternative PF4-filter support
+#iocshLoad("$(OPTICS)/iocsh/filterDrive.iocsh", "PREFIX=$(PREFIX), INSTANCE=filter, KEV=$(PREFIX)userCalc1.A, NUM_FILTERS=16, SUB=substitutions/filter.substitutions")
