@@ -1,10 +1,6 @@
 #!/bin/bash
 
-if [ -z "/APSshare/epics" ]; then
-  export EPICS_APP=/APSshare/epics/synApps_5_7/support/xxx-5-7-1
-else
-  export EPICS_APP=/usr/local/epics/synApps_5_8/support/xxx-5-8-3
-fi
+export EPICS_APP=`dirname $0`
 export EPICS_APP_UI_DIR=${EPICS_APP}/xxxApp/op/ui
 
 
@@ -25,14 +21,14 @@ function addModule
     # module_path is the path defined for that symbol in the RELEASE file
     module='$'$1
     module_path=`eval echo $module`
-    if [ "" != "${module}" ]; then
-      if [ "" == "${QTDMDP}" ]; then
-        QTDMDP=.
+    if [ "" == "${QTDMDP}" ]; then
+      QTDMDP=.
+    fi
+    if [ "" != "${module_path}" ]; then
+      if [ "" != "$2" ]; then
+        module_path=${module_path}/$2
       fi
       QTDMDP=${QTDMDP}:${module_path}
-      if [ "" != "$2" ]; then
-        QTDMDP=${QTDMDP}/$2
-      fi
     fi
 }
 
@@ -66,8 +62,8 @@ addModule   CAMAC	            ./camacApp/op/ui
 addModule   CAPUTRECORDER     ./caputRecorderApp/op/ui
 addModule   DAC128V	          ./dac128VApp/op/ui
 addModule   DELAYGEN	        ./delaygenApp/op/ui
-addModule   DEVIOCSTATS       ./op/ui
 addModule   DXP 	            ./dxpApp/op/ui
+addModule   IOCSTATS          ./op/ui
 addModule   IP  	            ./ipApp/op/ui
 addModule   IP330	            ./ip330App/op/ui
 addModule   IPUNIDIG	        ./ipUnidigApp/op/ui
