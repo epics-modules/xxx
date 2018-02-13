@@ -1,0 +1,2467 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 1145
+y 50
+w 440
+h 220
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 64
+bgColor index 1
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 78
+w 82
+h 27
+
+beginGroup
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 351
+y 79
+w 80
+h 25
+font "helvetica-medium-r-8.0"
+fgColor index 54
+useDisplayBg
+value {
+ "Moving"
+}
+visPv "CALC\\\{(A)\}(xxx:alldone.VAL)"
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 352
+y 80
+w 80
+h 25
+font "helvetica-medium-r-8.0"
+fgColor index 54
+useDisplayBg
+value {
+ "Moving"
+}
+visPv "CALC\\\{(A)\}(xxx:alldoneBlink.VAL)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 78
+w 80
+h 25
+font "helvetica-medium-r-8.0"
+fgColor index 50
+useDisplayBg
+value {
+ "Moving"
+}
+visPv "CALC\\\{(A)\}(xxx:alldone.VAL)"
+visMin 0
+visMax 1
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 20
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Tables"
+numPvs 20
+numDsps 10
+displayFileName {
+  0 table.adl
+  1 table_full.adl
+  2 table.adl
+  3 table_full.adl
+  4 table.adl
+  5 table_full.adl
+  6 table.adl
+  7 table_full.adl
+  8 ASRPmirrorTable.adl
+  9 table_soft.adl
+}
+menuLabel {
+  0 Table1 (S)
+  1 Table1 (L)
+  2 Table2 (S) (no Z)
+  3 Table2 (L) (no Z)
+  4 Table3 (S) (no X)
+  5 Table3 (L) (no X)
+  6 Table4 (S) (no X or Z)
+  7 Table4 (L) (no X or Z)
+  8 ASRP mirror table
+  9 Table1 soft (S)
+}
+symbols {
+  0 "P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6"
+  1 "P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6"
+  2 "P=xxx:,Q=Table2,T=table2,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=junk"
+  3 "P=xxx:,Q=Table2,T=table2,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=junk"
+  4 "P=xxx:,Q=Table3,T=table3,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=m6"
+  5 "P=xxx:,Q=Table3,T=table3,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=m6"
+  6 "P=xxx:,Q=Table4,T=table4,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=junk"
+  7 "P=xxx:,Q=Table4,T=table4,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=junk"
+  8 "P=xxx:,TBL=mt1,VERT=xxx:m7,PITCH=xxx:m8"
+  9 "P=xxx:,Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Motors"
+numPvs 18
+numDsps 9
+displayFileName {
+  0 topMotors8.adl
+  1 topMotors8.adl
+  2 topMotors8.adl
+  3 topMotors8.adl
+  4 topMotors8.adl
+  5 topMotors8.adl
+  6 softMotors10.adl
+  7 topMotors4.adl
+  8 motorStatus16.adl
+}
+menuLabel {
+  0 1-8
+  1 9-16
+  2 17-24
+  3 25-32
+  4 33-40
+  5 41-48
+  6 soft motors 1-10
+  7 Pseudo-motors
+  8 motor status 16
+}
+symbols {
+  0 "P=xxx:,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+  1 "P=xxx:,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16"
+  2 "P=xxx:,M1=m17,M2=m18,M3=m19,M4=m20,M5=m21,M6=m22,M7=m23,M8=m24"
+  3 "P=xxx:,M1=m25,M2=m26,M3=m27,M4=m28,M5=m29,M6=m30,M7=m31,M8=m32"
+  4 "P=xxx:,M1=m33,M2=m34,M3=m35,M4=m36,M5=m37,M6=m38,M7=m39,M8=m40"
+  5 "P=xxx:,M1=m41,M2=m42,M3=m43,M4=m44,M5=m45,M6=m46,M7=m47,M8=m48"
+  6 "P=xxx:,SM1=SM1,SM2=SM2,SM3=SM3,SM4=SM4,SM5=SM5,SM6=SM6,SM7=SM7,SM8=SM8,SM9=SM9,SM10=SM10"
+  7 "P=xxx:,M1=pm1,M2=pm2,M3=pm3,M4=pm4"
+  8 "P=xxx:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 60
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Monochrom"
+numPvs 16
+numDsps 8
+displayFileName {
+  0 kohzuGraphic.adl
+  1 kohzu2Graphic.adl
+  2 kohzuSeqCtl_tiny.adl
+  3 kohzuSeqCtl.adl
+  4 kohzuSeqCtl_All.adl
+  5 scanParms.adl
+  6 scanParms.adl
+  7 scanParms.adl
+}
+menuLabel {
+  0 Kohzu Graphic (GEOM 1)
+  1 Kohzu Graphic (GEOM 2)
+  2 KohzuSeq (tiny)
+  3 KohzuSeq
+  4 KohzuSeq (All)
+  5 Energy-scan parameters
+  6 Theta-scan parameters
+  7 Wavelength-scan parameters
+}
+symbols {
+  0 "P=xxx:,mTH=m9,mY1=m10,mZ2=m11,mCHI2=m12,mTH2=m13,mX=m14,mY=m15,mX2=m16,QE=BraggE,PVE=BraggEAO,QL=BraggLambda,PVL=BraggLambdaAO,QTh=BraggTheta,PVTh=BraggThetaAO"
+  1 "P=xxx:,mTH=m9,mY2=m10,mZ2=m11,mCHI2=m12,mTH2=m13,mX=m14,mY=m15,mX2=m16,QE=BraggE,PVE=BraggEAO,QL=BraggLambda,PVL=BraggLambdaAO,QTh=BraggTheta,PVTh=BraggThetaAO"
+  2 "P=xxx:"
+  3 "P=xxx:"
+  4 "P=xxx:"
+  5 "P=xxx:,Q=BraggE,PV=BraggEAO"
+  6 "P=xxx:,Q=BraggTheta,PV=BraggThetaAO"
+  7 "P=xxx:,Q=BraggLambda,PV=BraggLambdaAO"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 140
+y 0
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Scan"
+numPvs 20
+numDsps 10
+displayFileName {
+  0 scan.adl
+  1 scan.adl
+  2 scan.adl
+  3 scan.adl
+  4 scan.adl
+  5 scanParms2Pos.adl
+  6 scan_saveData.adl
+  7 scanAux.adl
+  8 ProgressBar.adl
+  9 configMenu.adl
+}
+menuLabel {
+  0 Scan1 (for all scans)
+  1 Scan2 (for 2D & higher scans)
+  2 Scan3 (for 3D & higher scans)
+  3 Scan4 (for 4D scans)
+  4 ScanH (for Hardware-assisted scans)
+  5 test scanParms2Pos
+  6 saveData controls
+  7 aux scan
+  8 scanProgress
+  9 scan1Menu
+}
+symbols {
+  0 "P=xxx:,N=1,S=scan1"
+  1 "P=xxx:,N=2,S=scan2"
+  2 "P=xxx:,N=3,S=scan3"
+  3 "P=xxx:,N=4,S=scan4"
+  4 "P=xxx:,N=H,S=scanH"
+  5 "P=xxx:,Q=m7_8,SCAN=xxx:scan1,PV1=xxx:m7,PV2=xxx:m8"
+  6 "P=xxx:"
+  7 "P=xxx:,S=scanAux"
+  8 "P=xxx:,B=xxx:scanProgress:"
+  9 "P=xxx:,CONFIG=scan1"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 70
+y 100
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Scalers"
+numPvs 18
+numDsps 9
+displayFileName {
+  0 scaler16m.adl
+  1 scaler.adl
+  2 scaler.adl
+  3 scaler16.adl
+  4 scaler32.adl
+  5 scaler64.adl
+  6 scaler16m.adl
+  7 scaler32.adl
+  8 scaler.adl
+}
+menuLabel {
+  0 Scaler 1
+  1 Scaler 2
+  2 Scaler 3
+  3 Scaler1 (16 ch)
+  4 Scaler1 (32 ch)
+  5 Scaler1 (64 ch)
+  6 Scaler 1 modCalc
+  7 SIS3820 scaler32
+  8 SIS3820 scaler8
+}
+symbols {
+  0 "P=xxx:,S=scaler1"
+  1 "P=xxx:,S=scaler2"
+  2 "P=xxx:,S=scaler3"
+  3 "P=xxx:,S=scaler1"
+  4 "P=xxx:,S=scaler1"
+  5 "P=xxx:,S=scaler1"
+  6 "P=xxx:,S=scaler1"
+  7 "P=xxx:3820:,S=scaler1"
+  8 "P=xxx:3820:,S=scaler1"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 210
+y 100
+w 70
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "DMM"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 Keithley2kDMM_mf.adl
+  1 Keithley2kDMM_mf.adl
+}
+menuLabel {
+  0 Keithley 2000 DMM #1
+  1 Keithley 2000 DMM #2
+}
+symbols {
+  0 "P=xxx:,Dmm=D1"
+  1 "P=xxx:,Dmm=D2"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 140
+y 120
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "HP"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 HPLaserAxis.adl
+  1 HPLaserAxis.adl
+}
+menuLabel {
+  0 HP Laser Axis 1
+  1 HP Laser Axis 2
+}
+symbols {
+  0 "P=xxx:,Q=HPLaser1"
+  1 "P=xxx:,Q=HPLaser2"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 100
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "SGM mono"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 SGM_tiny.adl
+  1 SGM.adl
+}
+menuLabel {
+  0 Spherical Grating Monochromator (tiny)
+  1 Spherical Grating Monochromator
+}
+symbols {
+  0 "P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8"
+  1 "P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 40
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Mirror"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 2postMirror.adl
+}
+menuLabel {
+  0 2-post Mirror
+}
+symbols {
+  0 "P=xxx:,Q=M1,mDn=m1,mUp=m2"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 80
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "HR mono"
+numPvs 8
+numDsps 4
+displayFileName {
+  0 hr_nested.adl
+  1 hr_symmetric.adl
+  2 hrSeqCtl_All.adl
+  3 virtualChannelCutMono.adl
+}
+menuLabel {
+  0 High resolution monochromator (nested)
+  1 High resolution monochromator (symmetric)
+  2 High resolution monochromator control
+  3 virtualCCMono
+}
+symbols {
+  0 "P=xxx:,N=1"
+  1 "P=xxx:,N=1"
+  2 "P=xxx:,N=1"
+  3 "P=xxx:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 60
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Status"
+numPvs 8
+numDsps 4
+displayFileName {
+  0 ioc_stats_soft.adl
+  1 ioc_stats_vxworks.adl
+  2 save_restoreStatus.adl
+  3 aliveRecord.adl
+}
+menuLabel {
+  0 IOC Status soft ioc
+  1 IOC Status vxworks ioc
+  2 save_restore Status
+  3 alive record
+}
+symbols {
+  0 "ioc=xxx"
+  1 "ioc=xxx"
+  2 "P=xxx:"
+  3 "P=xxx:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 140
+y 40
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "GenericIO"
+numPvs 22
+numDsps 11
+displayFileName {
+  0 recVme.adl
+  1 CAMAC_IO.adl
+  2 asynOctet.adl
+  3 deviceCmdReply.adl
+  4 deviceCmdReply.adl
+  5 deviceCmdReply.adl
+  6 deviceCmdReply.adl
+  7 deviceCmdReply.adl
+  8 deviceCmdReply.adl
+  9 deviceCmdReply.adl
+  10 deviceCmdReply.adl
+}
+menuLabel {
+  0 generic VME
+  1 generic CAMAC
+  2 asyn GPIB
+  3 deviceCmdReply 1
+  4 deviceCmdReply 2
+  5 deviceCmdReply 3
+  6 deviceCmdReply 4
+  7 deviceCmdReply 5
+  8 deviceCmdReply 6
+  9 deviceCmdReply 7
+  10 deviceCmdReply 8
+}
+symbols {
+  0 "P=xxx:,Q=vme1"
+  1 "REC=xxx:camac1"
+  2 "P=xxx:,R=gpib1"
+  3 "P=xxx:,N=1"
+  4 "P=xxx:,N=2"
+  5 "P=xxx:,N=3"
+  6 "P=xxx:,N=4"
+  7 "P=xxx:,N=5"
+  8 "P=xxx:,N=6"
+  9 "P=xxx:,N=7"
+  10 "P=xxx:,N=8"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 20
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "OPS"
+numPvs 16
+numDsps 8
+displayFileName {
+  0 xx_BM_BPM.adl
+  1 xx_ID_BPM.adl
+  2 IDControl.adl
+  3 IDSyncScan.adl
+  4 xxIDCtrl.adl
+  5 xxIDCtrl.adl
+  6 beamHistory.adl
+  7 beamHistory_full.adl
+}
+menuLabel {
+  0 1 BM BPM info
+  1 1 ID BPM info
+  2 1 ID basic control
+  3 1 ID sync-scan control
+  4 new ID control
+  5 new ID control (us)
+  6 24 hr. Beam History
+  7 24 hr. beam history, etc.
+}
+symbols {
+  0 "xx=28us"
+  1 "xx=28us"
+  2 "ID=28us"
+  3 "ID=28us"
+  4 "P=xxx:,xx=28"
+  5 "P=xxx:,xx=28us"
+  6 
+  7 
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 70
+y 0
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Filter"
+numPvs 20
+numDsps 10
+displayFileName {
+  0 2filter.adl
+  1 2filter_setup.adl
+  2 pf4.adl
+  3 pf4dual.adl
+  4 pf4.adl
+  5 pf4small.adl
+  6 pf4.adl
+  7 pf4Bank.adl
+  8 filter_8_8_more.adl
+  9 filter_8_0_more.adl
+}
+menuLabel {
+  0 User Filter
+  1 User Filter Setup
+  2 XIA pfcu
+  3 XIA pfcu (synApps 5.2.1)
+  4 PF4 Filter
+  5 PF4 Filter small
+  6 PF4 Filter fake I/O
+  7 PF4 FilterBank A
+  8 Alt PF4 filter 16
+  9 Alt PF4 filter 8
+}
+symbols {
+  0 "P=xxx:,Q1=fltr1:,Q2=fltr2:,LOCK1=fltr_1_2:,LOCK2=fltr_1_2:"
+  1 "P=xxx:,Q1=fltr1:,Q2=fltr2:,LOCK1=fltr_1_2:,LOCK2=fltr_1_2:"
+  2 "P=xxx:,H=pf401:,A=A,B=B,PV=,MONO="
+  3 "P=xxx:,PV1=xxx:pf4_1:,PV2=xxx:Unidig1Bo,MONO=xxx:BraggERdbkAO"
+  4 "P=xxx:,H=pf4:,A=A,B=B,MONO=xxx:BraggEAO,B1=xxx:Unidig1Bo3,B2=xxx:Unidig1Bo4,B3=xxx:Unidig1Bo5,B4=xxx:Unidig1Bo6,B5=xxx:Unidig1Bo7,B6=xxx:Unidig1Bo8,B7=xxx:Unidig1Bo9,B8=xxx:Unidig1Bo10"
+  5 "P=xxx:,H=pf4:,A=A,B=B,MONO=xxx:BraggEAO,B1=xxx:Unidig1Bo3,B2=xxx:Unidig1Bo4,B3=xxx:Unidig1Bo5,B4=xxx:Unidig1Bo6,B5=xxx:Unidig1Bo7,B6=xxx:Unidig1Bo8,B7=xxx:Unidig1Bo9,B8=xxx:Unidig1Bo10"
+  6 "P=xxx:,H=pf4:,A=A,B=B"
+  7 "P=xxx:,H=pf4:,B=A"
+  8 "P=xxx:,R=filter:"
+  9 "P=xxx:,R=filter:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 40
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "BunchClk"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 BunchClkGen.adl
+  1 BunchClkGenA.adl
+  2 BunchClkGenTop.adl
+}
+menuLabel {
+  0 Bunch Clock Generator
+  1 Bunch Clock display A
+  2 Bunch Clock 3id Top screen
+}
+symbols {
+  0 "UNIT=xxx:BnchClkGen"
+  1 "UNIT=xxx:BnchClkGen"
+  2 
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 70
+y 40
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Piezo"
+numPvs 10
+numDsps 5
+displayFileName {
+  0 pzt_3id.adl
+  1 pzt.adl
+  2 Nano2k.adl
+  3 Nano2k.adl
+  4 HuberDMC4.adl
+}
+menuLabel {
+  0 Queensgate piezo (3id)
+  1 Queensgate piezo (std)
+  2 Nano2k (ch 1)
+  3 Nano2k (ch 2)
+  4 Huber DMC9200 servo controller
+}
+symbols {
+  0 "P=xxx:"
+  1 "P=xxx:"
+  2 "P=xxx:,S=nano,p=1"
+  3 "P=xxx:,S=nano,p=2"
+  4 "P=xxx:,Q=DMC1:,M1=1,M2=2,M3=3,M4=4"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 210
+y 60
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Encoders"
+numPvs 8
+numDsps 4
+displayFileName {
+  0 HeidEncoder.adl
+  1 HeidEncoder.adl
+  2 HeidND261.adl
+  3 HeidIK320_group.adl
+}
+menuLabel {
+  0 Heidenhain AWE1024
+  1 Heidenhain AWE1024
+  2 Heidenhain ND261
+  3 Heidenhain IK320
+}
+symbols {
+  0 "P=xxx:,A=6"
+  1 "P=xxx:,A=7"
+  2 "P=xxx:"
+  3 "P=xxx:,card=card0,group=5"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 140
+y 100
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Autocoll"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 Elcomat.adl
+}
+menuLabel {
+  0 Autocollimator
+}
+symbols {
+  0 "P=xxx:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 0
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "4 Circle"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 orient.adl
+  1 orient9.adl
+}
+menuLabel {
+  0 orientation matrix
+  1 orient9
+}
+symbols {
+  0 "P=xxx:,O=_0,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
+  1 "P=xxx:,PM=xxx:,mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 210
+y 0
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "MCA"
+numPvs 16
+numDsps 8
+displayFileName {
+  0 mca_small.adl
+  1 mca.adl
+  2 xxIcbAdc.adl
+  3 xxIcbTCA.adl
+  4 xxIcbHVPS.adl
+  5 xxIcbAmp.adl
+  6 dsp9660Gain.adl
+  7 mca_small.adl
+}
+menuLabel {
+  0 Canberra AIM Multichannel Analyzer
+  1 MCA with ROI's
+  2 ADC 1
+  3 TCA 1
+  4 HVPS 1
+  5 AMP 1
+  6 DSP 1
+  7 soft MCA
+}
+symbols {
+  0 "P=xxx:,M=aim_adc1"
+  1 "P=xxx:,M=aim_adc1"
+  2 "P=xxx:,ADC=adc1"
+  3 "P=xxx:,TCA=tca1"
+  4 "P=xxx:,HVPS=hvps1"
+  5 "P=xxx:,AMP=amp1"
+  6 "P=xxx:,DSP=dsp1"
+  7 "P=xxx:,M=softMCA"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 140
+y 80
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "4-step"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 4step.adl
+}
+menuLabel {
+  0 4-step measurement
+}
+symbols {
+  0 "P=xxx:"
+}
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 108
+w 90
+h 29
+fgColor index 30
+onColor index 20
+offColor index 20
+topShadowColor index 0
+botShadowColor index 14
+controlPv "xxx:allstop.VAL"
+pressValue "1"
+releaseValue 
+onLabel "All Stop"
+offLabel "All Stop"
+3d
+useEnumNumeric
+font "helvetica-medium-r-10.0"
+endObjectProperties
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 78
+w 82
+h 27
+
+beginGroup
+
+
+endGroup
+
+endObjectProperties
+
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 140
+y 60
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Array"
+numPvs 8
+numDsps 4
+displayFileName {
+  0 interp.adl
+  1 arrayTest.adl
+  2 pvHistory.adl
+  3 interpNew.adl
+}
+menuLabel {
+  0 interp
+  1 arrayTest
+  2 pvHistory 1
+  3 interpNew
+}
+symbols {
+  0 "P=xxx:"
+  1 "P=xxx:"
+  2 "P=xxx:,N=1"
+  3 "P=xxx:,Q=1"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 70
+y 60
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "DAC"
+numPvs 8
+numDsps 4
+displayFileName {
+  0 VME_DAC8.adl
+  1 VME_DAC8.adl
+  2 topDAC8.adl
+  3 topDAC8.adl
+}
+menuLabel {
+  0 vme DAC 1 Chans 1-8
+  1 vme DAC 2 Chans 1-8
+  2 dac128V 1 Chans 1-8
+  3 vme DAC 1 Chans 1-8
+}
+symbols {
+  0 "P=xxx:,D=1"
+  1 "P=xxx:,D=2"
+  2 "P=xxx:,D=3"
+  3 "P=xxx:,D=1"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 210
+y 20
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "multiMCA"
+numPvs 8
+numDsps 4
+displayFileName {
+  0 3element.adl
+  1 mca_small.adl
+  2 mcaSum3.adl
+  3 xxIcbHVPS.adl
+}
+menuLabel {
+  0 3 element detector
+  1 summed spectrum (mca0)
+  2 sum control
+  3 HV power supply
+}
+symbols {
+  0 "P=xxx:med:"
+  1 "P=xxx:med:,M=mca0"
+  2 "P=xxx:med:"
+  3 "P=xxx:med:,HVPS=hvps1"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 210
+y 40
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Struck"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 SIS38XX.adl
+}
+menuLabel {
+  0 SIS38XX
+}
+symbols {
+  0 "P=xxx:3820:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 210
+y 120
+w 70
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Digital"
+numPvs 10
+numDsps 5
+displayFileName {
+  0 IpUnidig_top.adl
+  1 Acromag_8in.adl
+  2 Acromag_8out.adl
+  3 Acromag_16out.adl
+  4 Acromag_16in.adl
+}
+menuLabel {
+  0 IpUnidig I/O
+  1  Acromag 8 in
+  2  Acromag 8 out
+  3  Acromag 16 out
+  4  Acromag 16 in
+}
+symbols {
+  0 "P=xxx:,R=Unidig1"
+  1 "P=xxx:,A=1,CH0=0,CH1=1,CH2=2,CH3=3,CH4=4,CH5=5,CH6=6,CH7=7"
+  2 "P=xxx:,A=1,CH0=0,CH1=1,CH2=2,CH3=3,CH4=4,CH5=5,CH6=6,CH7=7"
+  3 "P=xxx:,A=1"
+  4 "P=xxx:,A=1"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 100
+w 70
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "quadEM"
+numPvs 14
+numDsps 7
+displayFileName {
+  0 quadEM.adl
+  1 quadEM.adl
+  2 quadEM.adl
+  3 quadEM.adl
+  4 quadEM_med.adl
+  5 pid_control.adl
+  6 pid_control.adl
+}
+menuLabel {
+  0 Quad Electrometer Ch.1
+  1 Quad Electrometer Ch.2
+  2 Quad Electrometer Ch.3
+  3 Quad Electrometer Ch.4
+  4 Quad Electrometer MCAs
+  5 Vertical feedback
+  6 Horizontal feedback
+}
+symbols {
+  0 "P=xxx:,EM=EM1"
+  1 "P=xxx:,EM=EM2"
+  2 "P=xxx:,EM=EM3"
+  3 "P=xxx:,EM=EM4"
+  4 "P=xxx:quadEM:,P_FFT=xxx:quadEM_FFT:"
+  5 "P=xxx:,PID=quadEMVertical,TITLE=Vertical_Feedback"
+  6 "P=xxx:,PID=quadEMHorizontal,TITLE=Horizontal_Feedback"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 120
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "serial"
+numPvs 18
+numDsps 9
+displayFileName {
+  0 asynOctet.adl
+  1 asynOctet.adl
+  2 asynOctet.adl
+  3 asynOctet.adl
+  4 asynOctet.adl
+  5 asynOctet.adl
+  6 asynOctet.adl
+  7 asynOctet.adl
+  8 asynOctet.adl
+}
+menuLabel {
+  0 asyn record serial1
+  1 asyn record serial2
+  2 asyn record serial3
+  3 asyn record serial4
+  4 asyn record serial5
+  5 asyn record serial6
+  6 asyn record serial7
+  7 asyn record serial8
+  8 asyn record serialBiSS
+}
+symbols {
+  0 "P=xxx:,R=asyn_1"
+  1 "P=xxx:,R=asyn_2"
+  2 "P=xxx:,R=asyn_3"
+  3 "P=xxx:,R=asyn_4"
+  4 "P=xxx:,R=asyn_5"
+  5 "P=xxx:,R=asyn_6"
+  6 "P=xxx:,R=asyn_7"
+  7 "P=xxx:,R=asyn_8"
+  8 "P=xxx:,R=BiSS"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 210
+y 140
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "caputRec"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 caputRecorder.adl
+  1 caputRecorder.adl
+}
+menuLabel {
+  0 caputRecorder
+  1 caputRecorderA
+}
+symbols {
+  0 "P=xxx:,L=xxx:"
+  1 "P=xxxA:,L=xxx:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 120
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "CF"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 CoarseFineMotor.adl
+}
+menuLabel {
+  0 CoarseFine
+}
+symbols {
+  0 "P=xxx:cf1:,M=MOT,PM=xxx:,CM=m1,FM=m2"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 70
+y 140
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "XIA shutter"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 XIA_shutter.adl
+  1 XIA_shutterTry.adl
+}
+menuLabel {
+  0 XIA shutter 1
+  1 XIA shutter 2
+}
+symbols {
+  0 "P=xxx:,S=shutter1"
+  1 "P=xxx:,S=shutter2"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 140
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Io"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 Io.adl
+}
+menuLabel {
+  0 Io
+}
+symbols {
+  0 "P=xxx:Io:,S=xxx:scaler1,MONO=xxx:BraggEAO"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 70
+y 20
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Slits"
+numPvs 18
+numDsps 9
+displayFileName {
+  0 2slit.adl
+  1 2slit.adl
+  2 4slitGraphic.adl
+  3 motor4x.adl
+  4 2slit_soft.adl
+  5 2slit_soft.adl
+  6 4slitGraphic_soft.adl
+  7 xia_slit.adl
+  8 xia_slit.adl
+}
+menuLabel {
+  0 Slit 1 (H)
+  1 Slit 1 (V)
+  2 Slit 1 Graphic
+  3 Slit Motors
+  4 Slit 2 (H) (soft)
+  5 Slit 2 (V) (soft)
+  6 Slit 2 Graphic (soft)
+  7 XIA slit 1 (H)
+  8 XIA slit 1 (V)
+}
+symbols {
+  0 "P=xxx:,SLIT=Slit1H,mXp=m5,mXn=m6"
+  1 "P=xxx:,SLIT=Slit1V,mXp=m3,mXn=m4"
+  2 "P=xxx:,SLIT=Slit_1,H=Slit1H,mXp=m3,mXn=m4,V=Slit1V,mYp=m5,mYn=m6"
+  3 "P=xxx:,M1=m3,M2=m4,M3=m5,M4=m6"
+  4 "P=xxx:,SLIT=Slit2H,mXp=m15,mXn=m16"
+  5 "P=xxx:,SLIT=Slit2V,mXp=m13,mXn=m14"
+  6 "P=xxx:,SLIT=Slit_2,H=Slit2H,mXp=m15,mXn=m16,V=Slit2V,mYp=m13,mYn=m14"
+  7 "P=xxx:,HSC=hsc1:"
+  8 "P=xxx:,HSC=hsc2:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 80
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Love"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 LoveList4.adl
+}
+menuLabel {
+  0 Love controllers
+}
+symbols {
+  0 "P=xxx:,Q1=Love1,Q2=Love2,Q3=Love3,Q4=Love4"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 140
+y 140
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "ramp_tweak"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 ramp_tweak.adl
+  1 ramp_tweak.adl
+}
+menuLabel {
+  0 ramp/tweak rt1
+  1 ramp/tweak rt2
+}
+symbols {
+  0 "P=xxx:,Q=rt1"
+  1 "P=xxx:,Q=rt2"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 70
+y 120
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Preamps"
+numPvs 12
+numDsps 6
+displayFileName {
+  0 SR570_tiny.adl
+  1 SR570_tiny.adl
+  2 SR570_tiny.adl
+  3 SR570_tiny.adl
+  4 SR570_tiny.adl
+  5 femto.adl
+}
+menuLabel {
+  0 SRS 570 Current Preamplifier #A1
+  1 SRS 570 Current Preamplifier #A2
+  2 SRS 570 Current Preamplifier #A3
+  3 SRS 570 Current Preamplifier #A4
+  4 SRS 570 Current Preamplifier #A5
+  5 Femto Current Preamplifier
+}
+symbols {
+  0 "P=xxx:,A=A1"
+  1 "P=xxx:,A=A2"
+  2 "P=xxx:,A=A3"
+  3 "P=xxx:,A=A4"
+  4 "P=xxx:,A=A5"
+  5 "P=xxx:,H=fem01:,F=seq01:,AC=xxx:Unidig1Bo9"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 210
+y 80
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "TempCtrl"
+numPvs 8
+numDsps 4
+displayFileName {
+  0 LakeShore.adl
+  1 KeithleyDMM.adl
+  2 Eurotherm.adl
+  3 Eurotherm2k.adl
+}
+menuLabel {
+  0 LakeShore Temp. Controller
+  1 Keithley DMM (thermistors)
+  2 Eurotherm
+  3 Eurotherm 2k
+}
+symbols {
+  0 "P=xxx:,Q=TC1"
+  1 "P=xxx:"
+  2 "P=xxx:"
+  3 "P=xxx:,TC=1"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 20
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "ML Mono"
+numPvs 14
+numDsps 7
+displayFileName {
+  0 ml_monoGraphic.adl
+  1 ml_monoSeqCtl_tiny.adl
+  2 ml_monoSeqCtl.adl
+  3 ml_monoSeqCtl_All.adl
+  4 scanParms.adl
+  5 scanParms.adl
+  6 scanParms.adl
+}
+menuLabel {
+  0 ml_monoGraphic
+  1 ml_monoSeq (tiny)
+  2 ml_monoSeq
+  3 ml_monoSeq (All)
+  4 Energy-scan parameters
+  5 Theta-scan parameters
+  6 Wavelength-scan parameters
+}
+symbols {
+  0 "P=xxx:,mY1=m1,mZ1=m2,mY2=m9,mZ2=m8,mT1=m7,mT2=m10,mB=m11"
+  1 "P=xxx:"
+  2 "P=xxx:"
+  3 "P=xxx:"
+  4 "P=xxx:,Q=ml_monoE,PV=ml_monoE"
+  5 "P=xxx:,Q=ml_monoTheta,PV=ml_monoTheta"
+  6 "P=xxx:,Q=ml_monoLambda,PV=ml_monoLambda"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 0
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "softGlue"
+numPvs 10
+numDsps 5
+displayFileName {
+  0 softGlueMenu.adl
+  1 softGlueMenu.adl
+  2 softGlue_Shift32_bare.adl
+  3 softGlue_Shift32_bare.adl
+  4 configMenu.adl
+}
+menuLabel {
+  0 softGlueMenu
+  1 softGlue2 Menu
+  2 shift 1
+  3 shift 2
+  4 SoftGlue Circuits
+}
+symbols {
+  0 "P=xxx:,H=softGlue:"
+  1 "P=xxx:,H=softGlue2:"
+  2 "P=xxx:,H=softGlue:,N=1"
+  3 "P=xxx:,H=softGlue:,N=2"
+  4 "P=xxx:,CONFIG=SG"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 40
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "FuncGen"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 FuncGen.adl
+}
+menuLabel {
+  0 funcGen
+}
+symbols {
+  0 "P=xxx:,Q=fgen"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 70
+y 80
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "ADC"
+numPvs 16
+numDsps 8
+displayFileName {
+  0 Ip330Scan.adl
+  1 mca_small.adl
+  2 mca_small.adl
+  3 mca_small.adl
+  4 mca_small.adl
+  5 pid_control.adl
+  6 pid_control.adl
+  7 async_pid_control.adl
+}
+menuLabel {
+  0 ADC 1
+  1 ADC 1 sweep
+  2 ADC 2 sweep
+  3 ADC 3 sweep
+  4 ADC 4 sweep
+  5 Slow feedback
+  6 Fast feedback
+  7 Async Slow feedback
+}
+symbols {
+  0 "P=xxx:,R=IP330_"
+  1 "P=xxx:,M=mip330_1"
+  2 "P=xxx:,M=mip330_2"
+  3 "P=xxx:,M=mip330_3"
+  4 "P=xxx:,M=mip330_4"
+  5 "P=xxx:,PID=pid_slow,TITLE=Slow_Feedback"
+  6 "P=xxx:,PID=ip330PIDFast,TITLE=Fast_Feedback"
+  7 "P=xxx:,PID=async_pid_slow,TITLE=Slow_Feedback"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 140
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "trajectory"
+numPvs 10
+numDsps 5
+displayFileName {
+  0 trajectoryScan.adl
+  1 MAX_trajectoryScan.adl
+  2 MAX_trajectoryScan.adl
+  3 MAX_trajectoryScan2.adl
+  4 trajectoryScan.adl
+}
+menuLabel {
+  0 standard trajectoryScan
+  1 trajectoryScan1
+  2 trajectoryScan2
+  3 trajectoryScan1 (2 mot)
+  4 MM4000 XPS trajectory
+}
+symbols {
+  0 "P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+  1 "P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+  2 "P=xxx:,R=traj2:,TITLE=traj2,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16"
+  3 "P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+  4 "P=xxx:,R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 140
+w 70
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "AD simDet"
+numPvs 10
+numDsps 5
+displayFileName {
+  0 ADBase.adl
+  1 simDetector.adl
+  2 ADBase.adl
+  3 simDetector.adl
+  4 ADTop.adl
+}
+menuLabel {
+  0 Simulator #1 General
+  1 Simulator #1 Specific
+  2 Simulator #2 General
+  3 Simulator #2 Specific
+  4 AD Top (prebuilts)
+}
+symbols {
+  0 "P=xxx:,R=SIM1:cam1:"
+  1 "P=xxx:,R=SIM1:cam1:"
+  2 "P=xxx:,R=SIM1:cam2:"
+  3 "P=xxx:,R=SIM1:cam2:"
+  4 
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 160
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "countDown"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 countDownTimer.adl
+}
+menuLabel {
+  0 count down timer
+}
+symbols {
+  0 "P=xxx:,N=1"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 70
+y 160
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "alarmClock"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 alarmClock.adl
+}
+menuLabel {
+  0 alarm clock
+}
+symbols {
+  0 "P=xxx:,A=1"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 140
+y 160
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "timer"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 timer.adl
+}
+menuLabel {
+  0 timer
+}
+symbols {
+  0 "P=xxx:,N=1"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 160
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "test"
+numPvs 30
+numDsps 15
+displayFileName {
+  0 fieldVector.adl
+  1 selector.adl
+  2 beamEnergy.adl
+  3 slew.edl
+  4 tomoFly.adl
+  5 hexFly.adl
+  6 rock.adl
+  7 EnsemblePSOFly.adl
+  8 encoderFly.adl
+  9 encoderInterlaceFly.adl
+  10 multExposePosFilt.edl
+  11 multExposePos.edl
+  12 Security_Control.edl
+  13 configMenu.adl
+  14 recordPV.edl
+}
+menuLabel {
+  0 fieldVector
+  1 selector
+  2 beamEnergy
+  3 SlewScan
+  4 tomography fly
+  5 hexFly
+  6 rock
+  7 Ensemble PSO Fly
+  8 encoder Fly
+  9 encoderInterlaceFly
+  10 multExposePosFilt
+  11 multExposePos
+  12 Security Control
+  13 waveformTypes menu
+  14 recordPV
+}
+symbols {
+  0 "P=4idc2:,Q=8p:"
+  1 "P=xxx:,R=obj"
+  2 "P=xxx:"
+  3 "P=xxx:,M=m2,MCS=3820:"
+  4 "P=xxx:,Q=tomoFly:"
+  5 "P=xxx:,Q=hexFly:"
+  6 "P=xxx:,Q=rock:"
+  7 "P=xxx:,Q=PSOFly:"
+  8 "P=xxx:,Q=eFly:"
+  9 "P=xxx:,Q=iFly:,FLY=xxx:eFly:"
+  10 "P=xxx:,Q=mxpf:"
+  11 "P=xxx:,Q=mxp:"
+  12 "P=xxx:"
+  13 "P=xxx:,CONFIG=waveformTypes"
+  14 "P=xxx:,Q=recPV:,R=PV1"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 160
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "MLL"
+numPvs 8
+numDsps 4
+displayFileName {
+  0 MLLH.adl
+  1 motor3x.adl
+  2 MLLV.adl
+  3 motor5x.adl
+}
+menuLabel {
+  0 MLLH
+  1 MLLH hard motors
+  2 MLLV
+  3 MLLV hard motors
+}
+symbols {
+  0 "P=xxx:,Q=MLLH:"
+  1 "P=xxx:,M1=m2,M2=m1,M3=m3"
+  2 "P=xxx:,Q=MLLV:"
+  3 "P=xxx:,M1=m4,M2=m5,M3=m6,M4=m7,M5=m8"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 140
+y 20
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "userCalc"
+numPvs 32
+numDsps 16
+displayFileName {
+  0 userCalcs10.adl
+  1 userStringCalcs10.adl
+  2 userTransforms10.adl
+  3 userStringSeqs10.adl
+  4 userArrayCalcs10.adl
+  5 userAve10.adl
+  6 userCalcOuts10.adl
+  7 userStringCalcs10more.adl
+  8 userTransforms10more.adl
+  9 userStringSeqs10more.adl
+  10 userArrayCalcs10more.adl
+  11 userAve10more.adl
+  12 userCalcOuts10more.adl
+  13 userCalcs10more.adl
+  14 xxBusyRecord.adl
+  15 userCalcsGlobalEnable.adl
+}
+menuLabel {
+  0 user calcs 1-10
+  1 user stringCalcs 1-10
+  2 user transforms 1-10
+  3 user string seqs 1-10
+  4 user arrayCalcs 1-10
+  5 user average 1-10
+  6 user calcOuts 1-10
+  7 user stringCalcs 11-20
+  8 user transforms 11-20
+  9 user string seqs 11-20
+  10 user arrayCalcs 11-20
+  11 user average 11-20
+  12 user calcOuts 11-20
+  13 user calcs 11-20
+  14 busyRecord
+  15 global enable
+}
+symbols {
+  0 "P=xxx:"
+  1 "P=xxx:"
+  2 "P=xxx:"
+  3 "P=xxx:"
+  4 "P=xxx:"
+  5 "P=xxx:"
+  6 "P=xxx:"
+  7 "P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+  8 "P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+  9 "P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+  10 "P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+  11 "P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+  12 "P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+  13 "P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+  14 "P=xxx:,R=mybusy"
+  15 "P=xxx:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 60
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "AgilentWG"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 Agilent_33220A_test1.adl
+}
+menuLabel {
+  0 Agilent 33220A
+}
+symbols {
+  0 "P=xxx:,S=1"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 180
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "encoderFly"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 encoderFly.adl
+  1 encoderInterlaceFly.adl
+  2 encoderTableFly.adl
+}
+menuLabel {
+  0 encoderFly
+  1 encoderInterlaceFly
+  2 encoderTableFly
+}
+symbols {
+  0 "P=xxx:,Q=eFly:"
+  1 "P=xxx:,Q=iFly:,FLY=xxx:eFly:"
+  2 "P=yyy:,Q=tFly:,FLY=xxx:eFly:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 210
+y 160
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "DLM4000"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 dlmPlots.edl
+}
+menuLabel {
+  0 dlmPlots.adl
+}
+symbols {
+  0 "P=xxx:,Q=dlm:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 70
+y 180
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "tds3000"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 tds3000_c.adl
+  1 asynRecord.adl
+}
+menuLabel {
+  0 TDS3000 scope
+  1 asyn record
+}
+symbols {
+  0 "scope=xxx:tds:"
+  1 "P=xxx:,R=tds:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 140
+y 180
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "grating"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 grating.edl
+}
+menuLabel {
+  0 grating
+}
+symbols {
+  0 "P=xxx:,Q=gr:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 210
+y 180
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Fly"
+numPvs 18
+numDsps 9
+displayFileName {
+  0 encoderFly.adl
+  1 encoderInterlaceFly.adl
+  2 encoderTableFly.adl
+  3 interlaceParms.adl
+  4 EnsemblePSOFly.adl
+  5 interlaceFly.adl
+  6 tablePSOFly.adl
+  7 interlaceParms.adl
+  8 EnsemblePSOOsc.edl
+}
+menuLabel {
+  0 encoderFly
+  1 encoderInterlaceFly
+  2 encoderTableFly
+  3 interlaceParms
+  4 EnsemblePSOFly
+  5 interlaceFly
+  6 tablePSOFly
+  7 interlaceParms
+  8 EnsemblePSOOsc
+}
+symbols {
+  0 "P=xxx:,Q=eFly:"
+  1 "P=xxx:,Q=iFly:,FLY=xxx:eFly:"
+  2 "P=yyy:,Q=tFly:"
+  3 "P=xxx:,Q=iParms1:"
+  4 "P=xxx:,Q=PSOFly:"
+  5 "P=xxx:,Q=iFly:"
+  6 "P=yyy:,Q=tFly:"
+  7 "P=xxx:,Q=iParms2:"
+  8 "P=xxx:,Q=PSOOsc:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 180
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "delayGen"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 srsDG645.adl
+  1 devDG535.adl
+  2 delaygen.adl
+}
+menuLabel {
+  0 DG645
+  1 DG535
+  2 delaygen.adl
+}
+symbols {
+  0 "P=xxx:,R=DG0:"
+  1 "P=xxx:,R=DG0:"
+  2 "P=xxx:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 180
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "calcEnergy"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcEnergy.edl
+}
+menuLabel {
+  0 calcEnergy
+}
+symbols {
+  0 "P=xxx:,P_ID=xxx:,P_MONO=xxx:,P_SLIT=xxx:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 200
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "stripChart"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 stripChart.adl
+  1 stripChart.adl
+  2 stripChart.adl
+}
+menuLabel {
+  0 stripChart 1
+  1 stripChart 2
+  2 stripChart 3
+}
+symbols {
+  0 "P=xxx:,N=1"
+  1 "P=xxx:,N=2"
+  2 "P=xxx:,N=3"
+}
+endObjectProperties
+
