@@ -142,6 +142,11 @@ ifdef IP
   $(PROD_NAME)_LIBS := ip $($(PROD_NAME)_LIBS)
 endif
 
+ifdef LUA
+  $(DBD_NAME)_DBD += luaSupport.dbd
+  $(PROD_NAME)_LIBS := lua $($(PROD_NAME)_LIBS)
+endif
+
 ifdef MODBUS
   $(DBD_NAME)_DBD += modbusSupport.dbd
   $(PROD_NAME)_LIBS := modbus $($(PROD_NAME)_LIBS)
