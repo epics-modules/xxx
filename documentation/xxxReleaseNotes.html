@@ -10,6 +10,27 @@ content="text/html; charset=iso-8859-1">
 
 <h1 align="center">xxx Release Notes</h1>
 
+<h2 align="center">Release 6-0</h2>
+<ul>
+
+<li>Added lua scripting module
+<li>Added SoftGlueZynq module
+<li>Added Yokogawa DAU module
+
+<li>iocBoot/iocvxWorks, iocBoot/iocLinux, etc: Condensed into single iocxxx directory
+<li>st.cmd.Linux, st.cmd.vxWorks, etc: Individual startup scripts provided for each architecture
+<li>All startup scripts using iocsh to eliminate most architectural differences
+<li>Startup scripts rewritten to use iocshLoad capabilities of base-3.15
+
+<li>xxx.ui updated to take full advantage of caQtDm widgets
+
+<li>xxxApp/src/Makefile greatly simplified
+
+<li>release.pl modified to fix an issue where it wasn't checking optional includes
+
+</ul>
+
+
 <h2 align="center">Release 5-8-3</h2>
 <ul>
 
