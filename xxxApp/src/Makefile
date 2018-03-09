@@ -384,6 +384,11 @@ ifeq ($(OS_CLASS), Linux)
     $(DBD_NAME)_DBD += softGlueSupport.dbd
     $(PROD_NAME)_LIBS := softGlue $($(PROD_NAME)_LIBS)
   endif
+  
+  ifdef SOFTGLUEZYNQ
+    $(DBD_NAME)_DBD += softGlueZynqSupport.dbd
+    $(PROD_NAME)_LIBS := softGlueZynq $($(PROD_NAME)_LIBS)
+  endif
 endif
 
 $(PROD_NAME)_LIBS += $(EPICS_BASE_IOC_LIBS)
