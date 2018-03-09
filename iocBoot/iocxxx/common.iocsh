@@ -45,6 +45,7 @@ set_requestfile_path("$(IP)", "ipApp/Db")
 set_requestfile_path("$(IP330)", "ip330App/Db")
 set_requestfile_path("$(IPUNIDIG)", "ipUnidigApp/Db")
 set_requestfile_path("$(LOVE)", "loveApp/Db")
+set_requestfile_path("$(LUA)", "luaApp/Db")
 set_requestfile_path("$(MCA)", "mcaApp/Db")
 set_requestfile_path("$(MEASCOMP)", "measCompApp/Db")
 set_requestfile_path("$(MODBUS)", "modbusApp/Db")
@@ -53,6 +54,7 @@ set_requestfile_path("$(OPTICS)", "opticsApp/Db")
 set_requestfile_path("$(QUADEM)", "quadEMApp/Db")
 set_requestfile_path("$(SSCAN)", "sscanApp/Db")
 set_requestfile_path("$(SOFTGLUE)", "softGlueApp/Db")
+set_requestfile_path("$(SOFTGLUEZYNQ)", "softGlueApp/Db")
 set_requestfile_path("$(STD)", "stdApp/Db")
 set_requestfile_path("$(VAC)", "vacApp/Db")
 set_requestfile_path("$(VME)", "vmeApp/Db")
@@ -85,6 +87,10 @@ iocshLoad("$(CALC)/iocsh/userCalc.iocsh", "PREFIX=$(PREFIX), ARRAY_SIZE=8000")
 
 # Load 10 more of all the user calcs, N=1 creates usercalcs 10-19
 iocshLoad("$(CALC)/iocsh/userCalc_extra.iocsh", "PREFIX=$(PREFIX), N=1, ARRAY_SIZE=8000")
+
+# Load 20 userScripts
+dbLoadRecords("$(LUA)/luaApp/Db/luascripts10.db", "P=$(PREFIX), R=set1:")
+dbLoadRecords("$(LUA)/luaApp/Db/luascripts10.db", "P=$(PREFIX), R=set2:")
 
 # string sequence (sseq) records
 iocshLoad("$(CALC)/iocsh/sseq.iocsh", "PREFIX=$(PREFIX), INSTANCE=ES:")
