@@ -2,6 +2,7 @@
 
 export EPICS_APP=`dirname $0`
 export EPICS_APP_UI_DIR=${EPICS_APP}/xxxApp/op/ui
+export DEFAULT_UI_FILE=${DEFAULT_UI_FILE:-xxx.ui}
 
 
 #######################################
@@ -207,6 +208,6 @@ fi
 #caQtDM -noMsg xxx.ui &
 
 # allow for command line option to specify the file to be opened
-caQtDM -style plastique -noMsg ${1:-xxx.ui}
+caQtDM -style plastique -noMsg ${1:-${DEFAULT_UI_FILE}}
 # TODO: what about ALL command line parameters?  "$*"
 
