@@ -70,7 +70,7 @@ QPushButton
          <property name="font">
           <font>
            <family>Verdana</family>
-           <pointsize>13</pointsize>
+           <pointsize>14</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -3421,13 +3421,13 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
               </color>
              </property>
              <property name="labels">
-              <string>Simulator #1 General;Simulator #1 Specific;Simulator #2 General;Simulator #2 Specific; AD Top (prebuilts)</string>
+              <string>Simulator #1 General;Simulator #1 Specific;Simulator #2 General;Simulator #2 Specific;AD Top (prebuilts);Simulator #1 Image;Simulator #2 Image</string>
              </property>
              <property name="files">
-              <string>ADBase.adl;simDetector.adl;ADBase.adl;simDetector.adl;ADTop</string>
+              <string>ADBase.adl;simDetector.adl;ADBase.adl;simDetector.adl;ADTop;ad_cam_image.ui;ad_cam_image.ui</string>
              </property>
              <property name="args">
-              <string>P=xxx:, R=SIM1:cam1:;P=xxx:, R=SIM1:cam1:;P=xxx:, R=SIM1:cam2:;P=xxx:, R=SIM1:cam2:;</string>
+              <string>P=xxx:, R=SIM1:cam1:;P=xxx:, R=SIM1:cam1:;P=xxx:, R=SIM1:cam2:;P=xxx:, R=SIM1:cam2:;;P=13SIM1:, R=cam1:;P=13SIM1:, R=cam2:</string>
              </property>
              <property name="stackingMode" stdset="0">
               <enum>caRowColMenu::Menu</enum>
@@ -4445,7 +4445,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              </property>
              <property name="font">
               <font>
-               <pointsize>18</pointsize>
+               <pointsize>13</pointsize>
               </font>
              </property>
              <property name="text">
@@ -4492,7 +4492,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              </property>
              <property name="font">
               <font>
-               <pointsize>18</pointsize>
+               <pointsize>13</pointsize>
               </font>
              </property>
              <property name="text">
