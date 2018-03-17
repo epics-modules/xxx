@@ -21,14 +21,23 @@ function addModule
     # module_path is the path defined for that symbol in the RELEASE file
     module='$'$1
     module_path=`eval echo $module`
-    if [ "" == "${QTDMDP}" ]; then
-      QTDMDP=.
-    fi
-    if [ "" != "${module_path}" ]; then
-      if [ "" != "$2" ]; then
-        module_path=${module_path}/$2
-      fi
-      QTDMDP=${QTDMDP}:${module_path}
+
+    if [ "" != "${module}" ]; then
+        # module is required
+        addition=${module_path}
+        if [ "" != "$2" ]; then
+            # optional subdirectory path
+            addition+=/$2
+        fi
+        if [ -d "${addition}" ]; then
+            # proceed ONLY if new addition path exists
+            # Then, can define paths to all area detectors specific screens
+            if [ "" == "${QTDMDP}" ]; then
+                # no existing path defined, start here
+                QTDMDP=.
+            fi
+            QTDMDP+=:${addition}
+        fi
     fi
 }
 
