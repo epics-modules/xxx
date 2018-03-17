@@ -63,6 +63,7 @@ addModule   ALIVE             ./aliveApp/op/ui
 addModule   AREA_DETECTOR     ./ADCore/ADApp/op/ui
 addModule   ADCORE            ./ADApp/op/ui
 addModule   ADSIMDETECTOR     ./simDetectorApp/op/ui
+addModule   ADURL             ./urlApp/op/ui
 addModule   ASYN              ./opi/caqtdm
 addModule   AUTOSAVE          ./asApp/op/ui
 addModule   BUSY              ./busyApp/op/ui
@@ -90,6 +91,7 @@ addModule   VME               ./vmeApp/op/ui
 addModule   AREA_DETECTOR     ./ADCore/ADApp/op/ui/autoconvert
 addModule   ADCORE            ./ADApp/op/ui/autoconvert
 addModule   ADSIMDETECTOR     ./simDetectorApp/op/ui/autoconvert
+addModule   ADURL             ./urlApp/op/ui/autoconvert
 addModule   ASYN              ./opi/caqtdm/autoconvert
 addModule   AUTOSAVE          ./asApp/op/ui/autoconvert
 addModule   BUSY              ./busyApp/op/ui/autoconvert
