@@ -74,7 +74,7 @@ addModule   CAPUTRECORDER     ./caputRecorderApp/op/ui
 addModule   DAC128V           ./dac128VApp/op/ui
 addModule   DELAYGEN          ./delaygenApp/op/ui
 addModule   DXP               ./dxpApp/op/ui
-addModule   IOCSTATS          ./op/ui
+addModule   DEVIOCSTATS       ./op/ui
 addModule   IP                ./ipApp/op/ui
 addModule   IP330             ./ip330App/op/ui
 addModule   IPUNIDIG          ./ipUnidigApp/op/ui
@@ -102,7 +102,7 @@ addModule   CAPUTRECORDER     ./caputRecorderApp/op/ui/autoconvert
 addModule   DAC128V           ./dac128VApp/op/ui/autoconvert
 addModule   DELAYGEN          ./delaygenApp/op/ui/autoconvert
 addModule   DXP               ./dxpApp/op/ui/autoconvert
-addModule   IOCSTATS          ./op/ui/autoconvert
+addModule   DEVIOCSTATS       ./op/ui/autoconvert
 addModule   IP                ./ipApp/op/ui/autoconvert
 addModule   IP330             ./ip330App/op/ui/autoconvert
 addModule   IPUNIDIG          ./ipUnidigApp/op/ui/autoconvert
