@@ -5,7 +5,7 @@ epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(EPICS_DB_INCLUDE_PATH):$(ADCORE)/ADApp/D
 # Create a simDetector driver
 simDetectorConfig("SIM1", 1024, 1024, 1, 50, 50000000)
 dbLoadRecords("$(ADCORE)/ADApp/Db/ADBase.template",     "P=$(PREFIX),R=SIM1:cam1:,PORT=SIM1,ADDR=0,TIMEOUT=1")
-dbLoadRecords("$(ADSIMDETECTOR)/ADApp/Db/simDetector.template","P=$(PREFIX),R=SIM1:cam1:,PORT=SIM1,ADDR=0,TIMEOUT=1")
+dbLoadRecords("$(ADSIMDETECTOR)/simDetectorApp/Db/simDetector.template","P=$(PREFIX),R=SIM1:cam1:,PORT=SIM1,ADDR=0,TIMEOUT=1")
 
 # Create a standard arrays plugin, set it to get data from first simDetector driver.
 NDStdArraysConfigure("SIM1Image", 3, 0, "SIM1", 0, 2000000)
