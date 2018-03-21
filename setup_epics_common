@@ -73,6 +73,9 @@ endif
 if ( ${?LOVE} ) then
 	setenv EDP ${EDP}:${LOVE}/loveApp/op/adl
 endif
+if ( ${?LUA} ) then
+	setenv EDP ${EDP}:${LUA}/luaApp/op/adl
+endif
 if ( ${?MCA} ) then
 	setenv EDP ${EDP}:${MCA}/mcaApp/op/adl
 endif
@@ -94,6 +97,9 @@ endif
 if ( ${?SOFTGLUE} ) then
 	setenv EDP ${EDP}:${SOFTGLUE}/softGlueApp/op/adl
 endif
+if ( ${?SOFTGLUEZYNQ} ) then
+	setenv EDP ${EDP}:${SOFTGLUEZYNQ}/softGlueApp/op/adl
+endif
 if ( ${?SSCAN} ) then
 	setenv EDP ${EDP}:${SSCAN}/sscanApp/op/adl
 endif
@@ -105,6 +111,9 @@ if ( ${?VAC} ) then
 endif
 if ( ${?VME} ) then
 	setenv EDP ${EDP}:${VME}/vmeApp/op/adl
+endif
+if ( ${?YOKOGAWA_DAU} ) then
+	setenv EDP ${EDP}:$(YOKOGAWA_DAU}/mw100App/op/adl
 endif
 
 if ( ${?TDS3000} ) then
@@ -210,6 +219,10 @@ if ( ${?LOVE} ) then
 	setenv QTDMDP ${QTDMDP}:${LOVE}/loveApp/op/ui
 	setenv QTDMDP ${QTDMDP}:${LOVE}/loveApp/op/ui/autoconvert
 endif
+if ( ${?LUA} ) then
+	setenv QTDMDP ${QTDMDP}:${LUA}/luaApp/op/ui
+	setenv QTDMDP ${QTDMDP}:${LUA}/luaApp/op/ui/autoconvert
+endif
 if ( ${?MCA} ) then
 	setenv QTDMDP ${QTDMDP}:${MCA}/mcaApp/op/ui
 	setenv QTDMDP ${QTDMDP}:${MCA}/mcaApp/op/ui/autoconvert
@@ -238,6 +251,10 @@ if ( ${?SOFTGLUE} ) then
 	setenv QTDMDP ${QTDMDP}:${SOFTGLUE}/softGlueApp/op/ui
 	setenv QTDMDP ${QTDMDP}:${SOFTGLUE}/softGlueApp/op/ui/autoconvert
 endif
+if ( ${?SOFTGLUEZYNQ} ) then
+	setenv QTDMDP ${QTDMDP}:${SOFTGLUEZYNQ}/softGlueApp/op/ui
+	setenv QTDMDP ${QTDMDP}:${SOFTGLUEZYNQ}/softGlueApp/op/ui/autoconvert
+endif
 if ( ${?SSCAN} ) then
 	setenv QTDMDP ${QTDMDP}:${SSCAN}/sscanApp/op/ui
 	setenv QTDMDP ${QTDMDP}:${SSCAN}/sscanApp/op/ui/autoconvert
@@ -253,6 +270,10 @@ endif
 if ( ${?VME} ) then
 	setenv QTDMDP ${QTDMDP}:${VME}/vmeApp/op/ui
 	setenv QTDMDP ${QTDMDP}:${VME}/vmeApp/op/ui/autoconvert
+endif
+if ( ${?YOKOGAWA_DAU} ) then
+	setenv QTDMDP ${QTDMDP}:${YOKOGAWA_DAU}/mw100App/op/ui
+	setenv QTDMDP ${QTDMDP}:${YOKOGAWA_DAU}/mw100App/op/ui/autoconvert
 endif
 
 setenv QTDMDP ${QTDMDP}:/APSshare/adlsys/sr/id
