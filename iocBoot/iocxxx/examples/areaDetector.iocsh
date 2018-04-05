@@ -10,7 +10,7 @@ dbLoadRecords("$(ADSIMDETECTOR)/simDetectorApp/Db/simDetector.template","P=$(PRE
 # Create a standard arrays plugin, set it to get data from first simDetector driver.
 NDStdArraysConfigure("SIM1Image", 3, 0, "SIM1", 0, 2000000)
 dbLoadRecords("$(ADCORE)/ADApp/Db/NDPluginBase.template", "P=$(PREFIX),R=image1:,PORT=SIM1Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=SIM1,NDARRAY_ADDR=0")
-dbLoadRecords("$(ADCORE)/ADApp/Db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=SIM1Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=SIM!,TYPE=Int8,FTVL=UCHAR,NELEMENTS=1048576")
+dbLoadRecords("$(ADCORE)/ADApp/Db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=SIM1Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=SIM1,TYPE=Int8,FTVL=UCHAR,NELEMENTS=1048576")
 
 
 # Create a netCDF file saving plugin
