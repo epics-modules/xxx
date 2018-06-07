@@ -171,8 +171,8 @@ ifdef MOTOR
 endif
 
 ifdef STREAM
-  $(DBD_NAME)_DBD += stream.dbd
-  $(PROD_NAME)_LIBS := stream $($(PROD_NAME)_LIBS)
+  $(DBD_NAME)_DBD += stream.dbd streamSynApps.dbd
+  $(PROD_NAME)_LIBS := stream streamSynApps $($(PROD_NAME)_LIBS)
 endif
 
 ifdef DEVIOCSTATS
