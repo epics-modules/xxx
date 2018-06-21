@@ -238,7 +238,7 @@ ifeq ($(OS_CLASS), WIN32)
       # xMAP DXP, then uncomment the following lines
       $(DBD_NAME)_DBD += dxpSupport.dbd
       $(PROD_NAME)_LIBS := dxp handel $($(PROD_NAME)_LIBS)
-      $(PROD_NAME)_LIBS := DLPORTIO PlxApi $($(PROD_NAME)_LIBS)
+      $(PROD_NAME)_LIBS := PlxApi $($(PROD_NAME)_LIBS)
       $(PROD_NAME)_SYS_LIBS += setupapi
     endif
   endif
