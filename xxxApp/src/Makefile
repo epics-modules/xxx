@@ -242,6 +242,11 @@ ifeq ($(OS_CLASS), WIN32)
       $(PROD_NAME)_SYS_LIBS += setupapi
     endif
   endif
+  
+  ifdef DXPSITORO
+    $(DBD_NAME)_DBD += dxpSITOROSupport.dbd
+    $(PROD_NAME)_LIBS := dxpSITORO $($(PROD_NAME)_LIBS)
+  endif
 endif
 
 ##################################################################
