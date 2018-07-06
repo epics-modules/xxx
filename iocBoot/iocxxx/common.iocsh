@@ -65,9 +65,9 @@ set_requestfile_path("$(TOP)", "xxxApp/Db")
 save_restoreSet_Debug(0)
 
 # Access Security
-dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=$(PREFIX)")
-asSetFilename("$(TOP)/iocBoot/accessSecurity.acf")
-asSetSubstitutions("P=$(PREFIX)")
+#dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=$(PREFIX)")
+#asSetFilename("$(TOP)/iocBoot/accessSecurity.acf")
+#asSetSubstitutions("P=$(PREFIX)")
 
 ### caputRecorder
 iocshLoad("$(CAPUTRECORDER)/iocsh/caputRecorder.iocsh", "PREFIX=$(PREFIX)")
