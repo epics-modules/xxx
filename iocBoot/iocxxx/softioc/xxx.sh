@@ -45,15 +45,15 @@ SELECTION=$1
 
 if [ -z "$IOC_STARTUP_DIR" ]
 then
-    # If no startup dir is specified, use this script's directory
-    IOC_STARTUP_DIR=`dirname $0`
+    # If no startup dir is specified, use this directory above the script's directory
+    IOC_STARTUP_DIR=`dirname $0`/..
     # see: http://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within#59916
 fi
 #!${ECHO} ${IOC_STARTUP_DIR}
 
 #####################################################################
 
-IOC_CMD="${IOC_STARTUP_DIR}/../../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} ${IOC_STARTUP_DIR}/st.cmd.Linux"
+IOC_CMD="${IOC_STARTUP_DIR}/../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} ${IOC_STARTUP_DIR}/st.cmd.Linux"
 
 screenpid() {
         if [ -z ${SCREEN_PID} ] ; then
