@@ -7,7 +7,7 @@ simDetectorConfig("SIM1", 1024, 1024, 1, 50, 50000000)
 dbLoadRecords("$(ADCORE)/ADApp/Db/ADBase.template",     "P=$(PREFIX),R=SIM1:cam1:,PORT=SIM1,ADDR=0,TIMEOUT=1")
 dbLoadRecords("$(ADSIMDETECTOR)/simDetectorApp/Db/simDetector.template","P=$(PREFIX),R=SIM1:cam1:,PORT=SIM1,ADDR=0,TIMEOUT=1")
 
-# Create a standard arrays plugin, set it to get data from first simDetector driver.
+#Create a standard arrays plugin, set it to get data from first simDetector driver.
 NDStdArraysConfigure("SIM1Image", 3, 0, "SIM1", 0, 2000000)
 dbLoadRecords("$(ADCORE)/ADApp/Db/NDPluginBase.template", "P=$(PREFIX),R=image1:,PORT=SIM1Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=SIM1,NDARRAY_ADDR=0")
 dbLoadRecords("$(ADCORE)/ADApp/Db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=SIM1Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=SIM1,TYPE=Int8,FTVL=UCHAR,NELEMENTS=1048576")
@@ -59,14 +59,28 @@ dbLoadRecords("NDROIStatN.template",  "P=$(PREFIX),R=ROIStat1:8:,PORT=ROISTAT1,A
 # Create 5 statistics plugins
 NDStatsConfigure("STATS1", 20, 0, "SIM1", 0, 0, 0, 0, 0, $(MAX_THREADS=5))
 dbLoadRecords("NDStats.template",     "P=$(PREFIX),R=Stats1:,  PORT=STATS1,ADDR=0,TIMEOUT=1,HIST_SIZE=256,XSIZE=1024,YSIZE=1024,NCHANS=2048,NDARRAY_PORT=SIM1")
+NDTimeSeriesConfigure("STATS1_TS", 20, 0, "STATS1", 1, 23)
+dbLoadRecords("$(ADCORE)/db/NDTimeSeries.template",  "P=$(PREFIX),R=Stats1:TS:, PORT=STATS1_TS,ADDR=0,TIMEOUT=1,NDARRAY_PORT=STATS1,NDARRAY_ADDR=1,NCHANS=2048,ENABLED=1")
+
 NDStatsConfigure("STATS2", 20, 0, "ROI1",    0, 0, 0, 0, 0, $(MAX_THREADS=5))
 dbLoadRecords("NDStats.template",     "P=$(PREFIX),R=Stats2:,  PORT=STATS2,ADDR=0,TIMEOUT=1,HIST_SIZE=256,XSIZE=1024,YSIZE=1024,NCHANS=2048,NDARRAY_PORT=SIM1")
+NDTimeSeriesConfigure("STATS2_TS", 20, 0, "STATS2", 1, 23)
+dbLoadRecords("$(ADCORE)/db/NDTimeSeries.template",  "P=$(PREFIX),R=Stats2:TS:, PORT=STATS2_TS,ADDR=0,TIMEOUT=1,NDARRAY_PORT=STATS2,NDARRAY_ADDR=1,NCHANS=2048,ENABLED=1")
+
 NDStatsConfigure("STATS3", 20, 0, "ROI2",    0, 0, 0, 0, 0, $(MAX_THREADS=5))
 dbLoadRecords("NDStats.template",     "P=$(PREFIX),R=Stats3:,  PORT=STATS3,ADDR=0,TIMEOUT=1,HIST_SIZE=256,XSIZE=1024,YSIZE=1024,NCHANS=2048,NDARRAY_PORT=SIM1")
+NDTimeSeriesConfigure("STATS3_TS", 20, 0, "STATS3", 1, 23)
+dbLoadRecords("$(ADCORE)/db/NDTimeSeries.template",  "P=$(PREFIX),R=Stats3:TS:, PORT=STATS3_TS,ADDR=0,TIMEOUT=1,NDARRAY_PORT=STATS3,NDARRAY_ADDR=1,NCHANS=2048,ENABLED=1")
+
 NDStatsConfigure("STATS4", 20, 0, "ROI3",    0, 0, 0, 0, 0, $(MAX_THREADS=5))
 dbLoadRecords("NDStats.template",     "P=$(PREFIX),R=Stats4:,  PORT=STATS4,ADDR=0,TIMEOUT=1,HIST_SIZE=256,XSIZE=1024,YSIZE=1024,NCHANS=2048,NDARRAY_PORT=SIM1")
+NDTimeSeriesConfigure("STATS4_TS", 20, 0, "STATS4", 1, 23)
+dbLoadRecords("$(ADCORE)/db/NDTimeSeries.template",  "P=$(PREFIX),R=Stats4:TS:, PORT=STATS4_TS,ADDR=0,TIMEOUT=1,NDARRAY_PORT=STATS4,NDARRAY_ADDR=1,NCHANS=2048,ENABLED=1")
+
 NDStatsConfigure("STATS5", 20, 0, "ROI4",    0, 0, 0, 0, 0, $(MAX_THREADS=5))
 dbLoadRecords("NDStats.template",     "P=$(PREFIX),R=Stats5:,  PORT=STATS5,ADDR=0,TIMEOUT=1,HIST_SIZE=256,XSIZE=1024,YSIZE=1024,NCHANS=2048,NDARRAY_PORT=SIM1")
+NDTimeSeriesConfigure("STATS5_TS", 20, 0, "STATS5", 1, 23)
+dbLoadRecords("$(ADCORE)/db/NDTimeSeries.template",  "P=$(PREFIX),R=Stats5:TS:, PORT=STATS5_TS,ADDR=0,TIMEOUT=1,NDARRAY_PORT=STATS5,NDARRAY_ADDR=1,NCHANS=2048,ENABLED=1")
 
 # Create a transform plugin
 NDTransformConfigure("TRANS1", 20, 0, "SIM1", 0, 0, 0, 0, 0, $(MAX_THREADS=5))
