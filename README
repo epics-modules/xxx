@@ -5,17 +5,17 @@ If you don't want to build all of the default target architectures
 synApps/support/configure/CONFIG, or in base/configure/CONFIG_SITE),
 then edit configure/CONFIG to set the variable CROSS_COMPILER_TARGET_ARCHS.
 
-Edit iocBoot/ioc*/Makefile to set the variable ARCH
+Edit iocBoot/iocxxx/Makefile to set the variable ARCH and correct targets
 
-Edit start_epics_xxx, start_epics_xxx.bash, and setup_epics_common
-to set the variables EPICS_APP and EPICS_APP_ADL_DIR
+Edit start_MEDM_xxx and start_caQtDM_xxx to set the EPICS_APP variable
 
-Edit iocBoot/ioc*/*.cmd and iocBoot/ioc*/*.substitutions
-to agree with your hardware
+Edit iocBoot/iocxxx/st.cmd.* to agree with your hardware.
+Example code is provided in the iocBoot/iocxxx/examples folder.
 
-Edit iocBoot/ioc*/auto*.req to agree with your software
+Edit iocBoot/iocxxx/auto*.req to add any PV's that aren't saved by the
+autobuild system.
 
-chmod a+w,g+s iocBoot/ioc*/autosave
+chmod a+w,g+s iocBoot/iocxxx/autosave
 
 Run synApps/support/utils/changePrefix to change the prefix from 'xxx'
 to whatever you want
