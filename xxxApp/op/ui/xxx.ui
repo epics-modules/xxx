@@ -70,7 +70,7 @@ QPushButton
          <property name="font">
           <font>
            <family>Verdana</family>
-           <pointsize>14</pointsize>
+           <pointsize>13</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -89,6 +89,13 @@ QPushButton
            <red>228</red>
            <green>228</green>
            <blue>228</blue>
+          </color>
+         </property>
+         <property name="background">
+          <color alpha="0">
+           <red>160</red>
+           <green>160</green>
+           <blue>164</blue>
           </color>
          </property>
         </widget>
@@ -1223,7 +1230,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              <property name="args">
               <string>P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8;P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8</string>
              </property>
-             <property name="fontScaleMode" stdset="0">
+             <property name="fontScaleMode">
               <enum>EPushButton::WidthAndHeight</enum>
              </property>
              <property name="stackingMode" stdset="0">
@@ -1551,6 +1558,690 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              </property>
              <property name="removeParent" stdset="0">
               <string>false</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_4">
+          <property name="Fill" stdset="0">
+           <string>True</string>
+          </property>
+          <attribute name="title">
+           <string> Detectors </string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_4" rowstretch="0,0,0,0" columnstretch="0,0,0,0,0">
+           <property name="horizontalSpacing">
+            <number>10</number>
+           </property>
+           <property name="verticalSpacing">
+            <number>5</number>
+           </property>
+           <property name="margin">
+            <number>10</number>
+           </property>
+           <item row="1" column="3">
+            <widget class="caRelatedDisplay" name="carelateddisplay_66">
+             <property name="label">
+              <string notr="true">-</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>1</string>
+             </property>
+             <property name="files">
+              <string>1</string>
+             </property>
+             <property name="args">
+              <string>1</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="caRelatedDisplay" name="carelateddisplay_67">
+             <property name="label">
+              <string notr="true">- Oxford X1k</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>Oxford x1k</string>
+             </property>
+             <property name="files">
+              <string>Oxford_X1k.ui</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,S=s1</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_4">
+             <property name="font">
+              <font>
+               <family>Liberation Mono</family>
+              </font>
+             </property>
+             <property name="label">
+              <string notr="true">- Scaler #1 </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>Scaler 1;Scaler 1 (16 ch);Scaler 1 (32 ch);Scaler 1 (64 ch);Scaler 1 modCalc</string>
+             </property>
+             <property name="files">
+              <string>scaler16m.adl;scaler16.adl;scaler32.adl;scaler64.adl;scaler16m.adl</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,S=scaler1;P=xxx:,S=scaler1;P=xxx:,S=scaler1;P=xxx:,S=scaler1;P=xxx:,S=scaler1</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+             <property name="removeParent" stdset="0">
+              <string>false;false;false;false;false;false;false;false;false</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_26">
+             <property name="label">
+              <string notr="true">-  quadEM   </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>Quad Electrometer Ch.1;Quad Electrometer Ch.2;Quad Electrometer Ch.3;Quad Electrometer Ch.4;Quad Electrometer MCAs;Vertical feedback;Horizontal feedback</string>
+             </property>
+             <property name="files">
+              <string>quadEM.adl;quadEM.adl;quadEM.adl;quadEM.adl;quadEM_med.adl;pid_control.adl;pid_control.adl</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,EM=EM1;P=xxx:,EM=EM2;P=xxx:,EM=EM3;P=xxx:,EM=EM4;P=xxx:quadEM:, P_FFT=xxx:quadEM_FFT:;P=xxx:, PID=quadEMVertical,TITLE=Vertical_Feedback;P=xxx:, PID=quadEMHorizontal,TITLE=Horizontal_Feedback</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+             <property name="removeParent" stdset="0">
+              <string>false;false;false;false;false;false;false</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="caRelatedDisplay" name="carelateddisplay_15">
+             <property name="label">
+              <string notr="true">-  SIS3820  </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>SIS3820 Scaler8;SIS3820 Scaler32</string>
+             </property>
+             <property name="files">
+              <string>scaler.ui;scaler32.ui</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:3820:,S=scaler1;P=xxx:3820:,S=scaler1</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="caRelatedDisplay" name="carelateddisplay_13">
+             <property name="label">
+              <string notr="true">-Prebuilt AD</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>AD Top (prebuilts);Cam 1 Image;Cam 2 Image</string>
+             </property>
+             <property name="files">
+              <string>ADTop.ui;ad_cam_image.ui;ad_cam_image.ui</string>
+             </property>
+             <property name="args">
+              <string>;P=13SIM1:, R=cam1:;P=13SIM1:, R=cam2:</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="caRelatedDisplay" name="carelateddisplay_10">
+             <property name="label">
+              <string notr="true">-</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_24">
+             <property name="label">
+              <string notr="true">-  SIS38XX  </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>SIS38XX</string>
+             </property>
+             <property name="files">
+              <string>SIS38XX.adl</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:3820:</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+             <property name="removeParent" stdset="0">
+              <string>false</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="4">
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_23">
+             <property name="label">
+              <string notr="true">- multiMCA  </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>3 element detector;summed spectrum (mca0);sum control;HV power supply</string>
+             </property>
+             <property name="files">
+              <string>3element.adl;mca_small.adl;mcaSum3.adl;xxIcbHVPS.adl</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:med:;P=xxx:med:,M=mca0;P=xxx:med:;P=xxx:med:,HVPS=hvps1</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+             <property name="removeParent" stdset="0">
+              <string>false;false;false;false</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="4">
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_20">
+             <property name="label">
+              <string notr="true">- Four Step </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>4-step measurement</string>
+             </property>
+             <property name="files">
+              <string>4step.adl</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:</string>
+             </property>
+             <property name="fontScaleMode">
+              <enum>EPushButton::WidthAndHeight</enum>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+             <property name="removeParent" stdset="0">
+              <string>false</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="3">
+            <widget class="caRelatedDisplay" name="carelateddisplay_9">
+             <property name="label">
+              <string notr="true">-</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_43">
+             <property name="font">
+              <font>
+               <family>Candara</family>
+              </font>
+             </property>
+             <property name="label">
+              <string notr="true">-simDetector</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>Simulator #1 General;Simulator #1 Specific;Simulator #1 Image;---;Simulator #2 General;Simulator #2 Specific;Simulator #2 Image</string>
+             </property>
+             <property name="files">
+              <string>ADBase.adl;simDetector.adl;ad_cam_image.ui;;ADBase.adl;simDetector.adl;ad_cam_image.ui</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:, R=SIM1:cam1:;P=xxx:, R=SIM1:cam1:;P=xxx:, R=cam1:;;P=xxx:, R=SIM1:cam2:;P=xxx:, R=SIM1:cam2:;P=xxx:, R=cam2:</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+             <property name="removeParent" stdset="0">
+              <string>false;false;false;false</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_52">
+             <property name="font">
+              <font>
+               <family>Liberation Mono</family>
+              </font>
+             </property>
+             <property name="label">
+              <string notr="true">- Scaler #3 </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>Scaler 3;Scaler 3 (16 ch);Scaler 3 (32 ch);Scaler 3 (64 ch);Scaler 3 modCalc</string>
+             </property>
+             <property name="files">
+              <string>scaler16m.adl;scaler16.adl;scaler32.adl;scaler64.adl;scaler16m.adl</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,S=scaler3;P=xxx:,S=scaler3;P=xxx:,S=scaler3;P=xxx:,S=scaler3;P=xxx:,S=scaler3</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+             <property name="removeParent" stdset="0">
+              <string>false;false;false;false;false;false;false;false;false</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="caRelatedDisplay" name="carelateddisplay_11">
+             <property name="label">
+              <string notr="true">-</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="caRelatedDisplay" name="carelateddisplay_68">
+             <property name="label">
+              <string notr="true">-</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>1</string>
+             </property>
+             <property name="files">
+              <string>1</string>
+             </property>
+             <property name="args">
+              <string>1</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="caRelatedDisplay" name="carelateddisplay_14">
+             <property name="label">
+              <string notr="true">-</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_19">
+             <property name="label">
+              <string notr="true">-    MCA    </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>Canberra AIM Multichannel Analyzer;MCA with ROI's;ADC 1;TCA 1;HVPS 1;AMP 1;DSP 1;soft MCA</string>
+             </property>
+             <property name="files">
+              <string>mca_small.adl;mca.adl;xxIcbAdc.adl;xxIcbTCA.adl;xxIcbHVPS.adl;xxIcbAmp.adl;dsp9660Gain.adl;mca_small.adl</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,M=aim_adc1;P=xxx:,M=aim_adc1;P=xxx:,ADC=adc1;P=xxx:,TCA=tca1;P=xxx:,HVPS=hvps1;P=xxx:,AMP=amp1;P=xxx:,DSP=dsp1;P=xxx:,M=softMCA</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+             <property name="removeParent" stdset="0">
+              <string>false;false;false;false;false;false;false;false</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4">
+            <widget class="caRelatedDisplay" name="carelateddisplay_65">
+             <property name="label">
+              <string notr="true">-</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>1</string>
+             </property>
+             <property name="files">
+              <string>1</string>
+             </property>
+             <property name="args">
+              <string>1</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_51">
+             <property name="font">
+              <font>
+               <family>Liberation Mono</family>
+              </font>
+             </property>
+             <property name="label">
+              <string notr="true">- Scaler #2 </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>Scaler 2;Scaler 2 (16 ch);Scaler 2 (32 ch);Scaler 2 (64 ch);Scaler 2 modCalc</string>
+             </property>
+             <property name="files">
+              <string>scaler16m.adl;scaler16.adl;scaler32.adl;scaler64.adl;scaler16m.adl</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,S=scaler2;P=xxx:,S=scaler2;P=xxx:,S=scaler2;P=xxx:,S=scaler2;P=xxx:,S=scaler2</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+             <property name="removeParent" stdset="0">
+              <string>false;false;false;false;false;false;false;false;false</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="caRelatedDisplay" name="carelateddisplay_12">
+             <property name="label">
+              <string notr="true">-</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
              </property>
             </widget>
            </item>
@@ -2853,7 +3544,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              <property name="args">
               <string>P=xxx:Io:,S=xxx:scaler1,MONO=xxx:BraggEAO</string>
              </property>
-             <property name="fontScaleMode" stdset="0">
+             <property name="fontScaleMode">
               <enum>EPushButton::WidthAndHeight</enum>
              </property>
              <property name="stackingMode" stdset="0">
@@ -2882,681 +3573,6 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
                <green>132</green>
                <blue>0</blue>
               </color>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="tab_4">
-          <property name="Fill" stdset="0">
-           <string>True</string>
-          </property>
-          <attribute name="title">
-           <string> Detectors </string>
-          </attribute>
-          <layout class="QGridLayout" name="gridLayout_4" rowstretch="1,1,1,1" columnstretch="1,1,1,1,1">
-           <property name="horizontalSpacing">
-            <number>10</number>
-           </property>
-           <property name="verticalSpacing">
-            <number>5</number>
-           </property>
-           <property name="margin">
-            <number>10</number>
-           </property>
-           <item row="2" column="2">
-            <widget class="caRelatedDisplay" name="carelateddisplay_13">
-             <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="caRelatedDisplay" name="carelateddisplay_12">
-             <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="3">
-            <widget class="caRelatedDisplay" name="carelateddisplay_68">
-             <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>1</string>
-             </property>
-             <property name="files">
-              <string>1</string>
-             </property>
-             <property name="args">
-              <string>1</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="3">
-            <widget class="caRelatedDisplay" name="carelateddisplay_66">
-             <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>1</string>
-             </property>
-             <property name="files">
-              <string>1</string>
-             </property>
-             <property name="args">
-              <string>1</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="caRelatedDisplay" name="caRelatedDisplay_4">
-             <property name="font">
-              <font>
-               <family>Liberation Mono</family>
-              </font>
-             </property>
-             <property name="label">
-              <string notr="true">- Scaler #1 </string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>Scaler 1;Scaler 1 (16 ch);Scaler 1 (32 ch);Scaler 1 (64 ch);Scaler 1 modCalc</string>
-             </property>
-             <property name="files">
-              <string>scaler16m.adl;scaler16.adl;scaler32.adl;scaler64.adl;scaler16m.adl</string>
-             </property>
-             <property name="args">
-              <string>P=xxx:,S=scaler1;P=xxx:,S=scaler1;P=xxx:,S=scaler1;P=xxx:,S=scaler1;P=xxx:,S=scaler1</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-             <property name="removeParent" stdset="0">
-              <string>false;false;false;false;false;false;false;false;false</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="caRelatedDisplay" name="carelateddisplay_14">
-             <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="caRelatedDisplay" name="caRelatedDisplay_51">
-             <property name="font">
-              <font>
-               <family>Liberation Mono</family>
-              </font>
-             </property>
-             <property name="label">
-              <string notr="true">- Scaler #2 </string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>Scaler 2;Scaler 2 (16 ch);Scaler 2 (32 ch);Scaler 2 (64 ch);Scaler 2 modCalc</string>
-             </property>
-             <property name="files">
-              <string>scaler16m.adl;scaler16.adl;scaler32.adl;scaler64.adl;scaler16m.adl</string>
-             </property>
-             <property name="args">
-              <string>P=xxx:,S=scaler2;P=xxx:,S=scaler2;P=xxx:,S=scaler2;P=xxx:,S=scaler2;P=xxx:,S=scaler2</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-             <property name="removeParent" stdset="0">
-              <string>false;false;false;false;false;false;false;false;false</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="1">
-            <widget class="caRelatedDisplay" name="carelateddisplay_11">
-             <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="caRelatedDisplay" name="caRelatedDisplay_52">
-             <property name="font">
-              <font>
-               <family>Liberation Mono</family>
-              </font>
-             </property>
-             <property name="label">
-              <string notr="true">- Scaler #3 </string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>Scaler 3;Scaler 3 (16 ch);Scaler 3 (32 ch);Scaler 3 (64 ch);Scaler 3 modCalc</string>
-             </property>
-             <property name="files">
-              <string>scaler16m.adl;scaler16.adl;scaler32.adl;scaler64.adl;scaler16m.adl</string>
-             </property>
-             <property name="args">
-              <string>P=xxx:,S=scaler3;P=xxx:,S=scaler3;P=xxx:,S=scaler3;P=xxx:,S=scaler3;P=xxx:,S=scaler3</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-             <property name="removeParent" stdset="0">
-              <string>false;false;false;false;false;false;false;false;false</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="caRelatedDisplay" name="carelateddisplay_15">
-             <property name="label">
-              <string notr="true">-  SIS3820  </string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>SIS3820 Scaler8;SIS3820 Scaler32</string>
-             </property>
-             <property name="files">
-              <string>scaler.ui;scaler32.ui</string>
-             </property>
-             <property name="args">
-              <string>P=xxx:3820:,S=scaler1;P=xxx:3820:,S=scaler1</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="3">
-            <widget class="caRelatedDisplay" name="carelateddisplay_9">
-             <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="caRelatedDisplay" name="caRelatedDisplay_24">
-             <property name="label">
-              <string notr="true">-  SIS38XX  </string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>SIS38XX</string>
-             </property>
-             <property name="files">
-              <string>SIS38XX.adl</string>
-             </property>
-             <property name="args">
-              <string>P=xxx:3820:</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-             <property name="removeParent" stdset="0">
-              <string>false</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="4">
-            <widget class="caRelatedDisplay" name="caRelatedDisplay_19">
-             <property name="label">
-              <string notr="true">-    MCA    </string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>Canberra AIM Multichannel Analyzer;MCA with ROI's;ADC 1;TCA 1;HVPS 1;AMP 1;DSP 1;soft MCA</string>
-             </property>
-             <property name="files">
-              <string>mca_small.adl;mca.adl;xxIcbAdc.adl;xxIcbTCA.adl;xxIcbHVPS.adl;xxIcbAmp.adl;dsp9660Gain.adl;mca_small.adl</string>
-             </property>
-             <property name="args">
-              <string>P=xxx:,M=aim_adc1;P=xxx:,M=aim_adc1;P=xxx:,ADC=adc1;P=xxx:,TCA=tca1;P=xxx:,HVPS=hvps1;P=xxx:,AMP=amp1;P=xxx:,DSP=dsp1;P=xxx:,M=softMCA</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-             <property name="removeParent" stdset="0">
-              <string>false;false;false;false;false;false;false;false</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="4">
-            <widget class="caRelatedDisplay" name="caRelatedDisplay_20">
-             <property name="label">
-              <string notr="true">- Four Step </string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>4-step measurement</string>
-             </property>
-             <property name="files">
-              <string>4step.adl</string>
-             </property>
-             <property name="args">
-              <string>P=xxx:</string>
-             </property>
-             <property name="fontScaleMode" stdset="0">
-              <enum>EPushButton::WidthAndHeight</enum>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-             <property name="removeParent" stdset="0">
-              <string>false</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="4">
-            <widget class="caRelatedDisplay" name="caRelatedDisplay_23">
-             <property name="label">
-              <string notr="true">- multiMCA  </string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>3 element detector;summed spectrum (mca0);sum control;HV power supply</string>
-             </property>
-             <property name="files">
-              <string>3element.adl;mca_small.adl;mcaSum3.adl;xxIcbHVPS.adl</string>
-             </property>
-             <property name="args">
-              <string>P=xxx:med:;P=xxx:med:,M=mca0;P=xxx:med:;P=xxx:med:,HVPS=hvps1</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-             <property name="removeParent" stdset="0">
-              <string>false;false;false;false</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="caRelatedDisplay" name="caRelatedDisplay_43">
-             <property name="font">
-              <font>
-               <family>Candara</family>
-              </font>
-             </property>
-             <property name="label">
-              <string notr="true">-simDetector</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>Simulator #1 General;Simulator #1 Specific;Simulator #2 General;Simulator #2 Specific;AD Top (prebuilts);Simulator #1 Image;Simulator #2 Image</string>
-             </property>
-             <property name="files">
-              <string>ADBase.adl;simDetector.adl;ADBase.adl;simDetector.adl;ADTop;ad_cam_image.ui;ad_cam_image.ui</string>
-             </property>
-             <property name="args">
-              <string>P=xxx:, R=SIM1:cam1:;P=xxx:, R=SIM1:cam1:;P=xxx:, R=SIM1:cam2:;P=xxx:, R=SIM1:cam2:;;P=13SIM1:, R=cam1:;P=13SIM1:, R=cam2:</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-             <property name="removeParent" stdset="0">
-              <string>false;false;false;false</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="caRelatedDisplay" name="caRelatedDisplay_26">
-             <property name="label">
-              <string notr="true">-  quadEM   </string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>Quad Electrometer Ch.1;Quad Electrometer Ch.2;Quad Electrometer Ch.3;Quad Electrometer Ch.4;Quad Electrometer MCAs;Vertical feedback;Horizontal feedback</string>
-             </property>
-             <property name="files">
-              <string>quadEM.adl;quadEM.adl;quadEM.adl;quadEM.adl;quadEM_med.adl;pid_control.adl;pid_control.adl</string>
-             </property>
-             <property name="args">
-              <string>P=xxx:,EM=EM1;P=xxx:,EM=EM2;P=xxx:,EM=EM3;P=xxx:,EM=EM4;P=xxx:quadEM:, P_FFT=xxx:quadEM_FFT:;P=xxx:, PID=quadEMVertical,TITLE=Vertical_Feedback;P=xxx:, PID=quadEMHorizontal,TITLE=Horizontal_Feedback</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-             <property name="removeParent" stdset="0">
-              <string>false;false;false;false;false;false;false</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="2">
-            <widget class="caRelatedDisplay" name="carelateddisplay_10">
-             <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="caRelatedDisplay" name="carelateddisplay_67">
-             <property name="label">
-              <string notr="true">- Oxford X1k</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>Oxford x1k</string>
-             </property>
-             <property name="files">
-              <string>Oxford_X1k.ui</string>
-             </property>
-             <property name="args">
-              <string>P=xxx:,S=s1</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="4">
-            <widget class="caRelatedDisplay" name="carelateddisplay_65">
-             <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>1</string>
-             </property>
-             <property name="files">
-              <string>1</string>
-             </property>
-             <property name="args">
-              <string>1</string>
              </property>
              <property name="stackingMode" stdset="0">
               <enum>caRowColMenu::Menu</enum>
@@ -3682,7 +3698,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              <property name="args">
               <string>P=xxx:,Q=fgen</string>
              </property>
-             <property name="fontScaleMode" stdset="0">
+             <property name="fontScaleMode">
               <enum>EPushButton::WidthAndHeight</enum>
              </property>
              <property name="stackingMode" stdset="0">
@@ -4009,7 +4025,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              <property name="args">
               <string>P=xxx:;P=xxx:;P=xxx:,N=1;P=xxx:,Q=1</string>
              </property>
-             <property name="fontScaleMode" stdset="0">
+             <property name="fontScaleMode">
               <enum>EPushButton::WidthAndHeight</enum>
              </property>
              <property name="stackingMode" stdset="0">
@@ -4299,7 +4315,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1,1">
+            <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1">
              <property name="spacing">
               <number>10</number>
              </property>
@@ -4371,55 +4387,19 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
                 </color>
                </property>
                <property name="labels">
-                <string>1 BM BPM info;1 ID BPM info;1 ID basic control;1 ID sync-scan control;new ID control;new ID control (us);24 hr. Beam History;24 hr. beam history, etc.</string>
+                <string notr="true">24 hr. Beam History;24 hr. beam history, etc.</string>
                </property>
                <property name="files">
-                <string>xx_BM_BPM.adl;xx_ID_BPM.adl;IDControl.adl;IDSyncScan.adl;xxIDCtrl.adl;xxIDCtrl.adl;beamHistory.adl;beamHistory_full.adl</string>
+                <string notr="true">beamHistory.adl;beamHistory_full.adl</string>
                </property>
                <property name="args">
-                <string>xx=28us;xx=28us;ID=28us;ID=28us;P=xxx:,xx=28;P=xxx:,xx=28us;P=xxx:,xx=28us;P=xxx:,xx=28us</string>
+                <string notr="true">P=xxx:,xx=28us;P=xxx:,xx=28us</string>
                </property>
                <property name="stackingMode" stdset="0">
                 <enum>caRowColMenu::Menu</enum>
                </property>
                <property name="removeParent" stdset="0">
                 <string>false;false;false;false;false;false;false;false</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="caRelatedDisplay" name="caRelatedDisplay_48">
-               <property name="label">
-                <string>-test</string>
-               </property>
-               <property name="foreground">
-                <color>
-                 <red>228</red>
-                 <green>228</green>
-                 <blue>228</blue>
-                </color>
-               </property>
-               <property name="background">
-                <color>
-                 <red>53</red>
-                 <green>132</green>
-                 <blue>0</blue>
-                </color>
-               </property>
-               <property name="labels">
-                <string>CR74x;fieldVector;selector;beamEnergy;muir;tomography fly;hexFly;rock;Ensemble PSO Fly;calcTest;interlaceFly;compressGain;tablePSOFly;Security Control;waveformTypes menu</string>
-               </property>
-               <property name="files">
-                <string>CR74x.adl;fieldVector.adl;selector.adl;beamEnergy.adl;yySseq.adl;tomoFly.adl;hexFly.adl;rock.adl;EnsemblePSOFly.adl;calcTest.adl;interlaceFly.adl;compress.adl;tablePSOFly.adl;Security_Control.adl;configMenu.adl</string>
-               </property>
-               <property name="args">
-                <string>P=xxx:,Q=test:;P=4idc2:,Q=8p:;P=xxx:,R=obj;P=xxx:;P=xxx:,S=PresetHistoryAdd;P=xxx:,Q=tomoFly:;P=xxx:,Q=hexFly:;P=xxx:,Q=rock:;P=xxx:,Q=PSOFly:;P=xxx:;P=xxx:,Q=iFly:,QT=tableFly:;P=xxx:,Q=gain;P=xxx:,Q=tableFly:;P=xxx:;P=xxx:,CONFIG=waveformTypes</string>
-               </property>
-               <property name="stackingMode" stdset="0">
-                <enum>caRowColMenu::Menu</enum>
-               </property>
-               <property name="removeParent" stdset="0">
-                <string>false;false;false;false;false;false;false;false;false;false;false;false;false;false;false</string>
                </property>
               </widget>
              </item>
@@ -4443,10 +4423,19 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
                <height>25</height>
               </rect>
              </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="font">
               <font>
-               <pointsize>13</pointsize>
+               <pointsize>17</pointsize>
               </font>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
              </property>
              <property name="text">
               <string>Moving</string>
@@ -4470,9 +4459,6 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
                <green>0</green>
                <blue>184</blue>
               </color>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
              </property>
              <property name="visibility">
               <enum>caLabel::IfZero</enum>
@@ -4492,8 +4478,11 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              </property>
              <property name="font">
               <font>
-               <pointsize>13</pointsize>
+               <pointsize>17</pointsize>
               </font>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
              </property>
              <property name="text">
               <string>Moving</string>
@@ -4517,9 +4506,6 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
                <green>0</green>
                <blue>184</blue>
               </color>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
              </property>
              <property name="visibility">
               <enum>caLabel::IfNotZero</enum>
@@ -4537,6 +4523,9 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
                <height>25</height>
               </rect>
              </property>
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
              <property name="text">
               <string>Moving</string>
              </property>
@@ -4559,9 +4548,6 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
                <green>255</green>
                <blue>255</blue>
               </color>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
              </property>
              <property name="visibility">
               <enum>caLabel::IfZero</enum>
