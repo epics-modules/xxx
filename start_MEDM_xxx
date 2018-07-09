@@ -2,9 +2,9 @@
 
 export EPICS_APP=`dirname $0`
 export EPICS_APP_ADL_DIR=${EPICS_APP}/xxxApp/op/adl
-export DEFAULT_UI_FILE=${DEFAULT_UI_FILE:-xxx.ui}
+export DEFAULT_UI_FILE=${DEFAULT_UI_FILE:-xxx.adl}
 
-source ./setup_epics_common.sh medm
+source ./setup_epics_common medm
 
 if [ -z "${MEDM_EXEC_LIST}" ] 
 then
