@@ -190,8 +190,16 @@ run() {
     fi
 }
 
+start_medm() {
+	${IOC_STARTUP_DIR}/../../start_MEDM_xxx
+}
+
+start_caqtdm() {
+	${IOC_STARTUP_DIR}/../../start_caQtDM_xxx
+}
+
 usage() {
-    ${ECHO} "Usage: $(${BASENAME} ${SNAME}) {start|stop|restart|status|console|run}"
+    ${ECHO} "Usage: $(${BASENAME} ${SNAME}) {start|stop|restart|status|console|run|medm|caqtdm}"
 }
 
 #####################################################################
@@ -225,6 +233,14 @@ else
         run)
             run
 	    ;;
+		
+		medm)
+			start_medm
+		;;
+		
+		caqtdm)
+			start_caqtdm
+		;;
 
         *)
 	    usage
