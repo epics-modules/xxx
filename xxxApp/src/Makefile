@@ -245,7 +245,7 @@ ifeq ($(OS_CLASS), WIN32)
   
   ifdef DXPSITORO
     $(DBD_NAME)_DBD += dxpSITOROSupport.dbd
-    $(PROD_NAME)_LIBS := dxpSITORO $($(PROD_NAME)_LIBS)
+    $(PROD_NAME)_LIBS := dxpSITORO handelSITORO $($(PROD_NAME)_LIBS)
   endif
 endif
 
