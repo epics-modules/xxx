@@ -7,12 +7,6 @@ DISPLAY_MANAGER=$1
 # EPICS_APP_ADL_DIR - Location of adl file directory
 # EPICS_APP_UI_DIR  - Location of ui file directory
 
-# and must make this definition if the app name isn't the directory name:
-# EPICS_APP_NAME - different app name
-
-if [ "" != "${EPICS_APP_NAME}" ]; then
-	EPICS_APP_NAME=`basename ${EPICS_APP}`
-fi
 
 #######################################
 # support function to simplify repetitive task,
