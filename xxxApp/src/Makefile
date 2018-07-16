@@ -394,6 +394,11 @@ ifeq ($(OS_CLASS), Linux)
     $(DBD_NAME)_DBD += softGlueZynqSupport.dbd
     $(PROD_NAME)_LIBS := softGlueZynq $($(PROD_NAME)_LIBS)
   endif
+    
+  ifdef YOKOGAWA_DAS
+    $(DBD_NAME)_DBD += mw100Support.dbd
+    $(PROD_NAME)_LIBS := mw100 $($(PROD_NAME)_LIBS)
+  endif
 endif
 
 $(PROD_NAME)_LIBS += $(EPICS_BASE_IOC_LIBS)
