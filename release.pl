@@ -42,6 +42,7 @@ sub Parse
 			next if ( $line =~ /\s*#/ );
 			
 			chomp($line);
+			$line =~ s/\r//g;
 			$_ = $line;
 			
 			#test for "include" command
