@@ -1,6 +1,7 @@
 # CONFIG_SITE
 
 -include $(SUPPORT)/configure/CONFIG_SITE
+-include $(AREA_DETECTOR)/configure/CONFIG_SITE
 
 # Make any application-specific changes to the EPICS build
 # configuration variables in this file.
@@ -33,10 +34,5 @@ CHECK_RELEASE = YES
 # You must rebuild in the iocBoot directory for this to
 #   take effect.
 #IOCS_APPL_TOP = </IOC/path/to/application/top>
-
-HAVE_HDF5 = NO
-HAVE_SZIP = NO
-
--include $(AREA_DETECTOR)/configure/CONFIG_SITE
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
