@@ -43,12 +43,19 @@ PS=ps
 SNAME=${BASH_SOURCE:-$0}
 SELECTION=$1
 
+# uncomment for your OS here (comment out all the others)
+#IOC_STARTUP_FILE="st.cmd.Cygwin"
+IOC_STARTUP_FILE="st.cmd.Linux"
+#IOC_STARTUP_FILE="st.cmd.vxWorks"
+#IOC_STARTUP_FILE="st.cmd.Win32"
+#IOC_STARTUP_FILE="st.cmd.Win64"
+
 if [ -z "$IOC_STARTUP_DIR" ] ; then
     # If no startup dir is specified, use the directory above the script's directory
     IOC_STARTUP_DIR=`dirname ${SNAME}`/..
-    IOC_CMD="../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} st.cmd.Linux"
+    IOC_CMD="../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} ${IOC_STARTUP_FILE}"
 else
-    IOC_CMD="${IOC_STARTUP_DIR}/../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} ${IOC_STARTUP_DIR}/st.cmd.Linux"
+    IOC_CMD="${IOC_STARTUP_DIR}/../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} ${IOC_STARTUP_DIR}/${IOC_STARTUP_FILE}"
 fi
 #!${ECHO} ${IOC_STARTUP_DIR}
 
