@@ -40,7 +40,7 @@ PS=ps
 
 #####################################################################
 
-SNAME=$0
+SNAME=${BASH_SOURCE:-$0}
 SELECTION=$1
 
 if [ -z "$IOC_STARTUP_DIR" ]
