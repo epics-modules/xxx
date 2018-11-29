@@ -46,7 +46,7 @@ SELECTION=$1
 if [ -z "$IOC_STARTUP_DIR" ]
 then
     # If no startup dir is specified, use the directory above the script's directory
-    IOC_STARTUP_DIR=`dirname $BASH_SOURCE`/..
+    IOC_STARTUP_DIR=`dirname ${SNAME}`/..
 	IOC_CMD="../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} st.cmd.Linux"
 else
 	IOC_CMD="${IOC_STARTUP_DIR}/../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} ${IOC_STARTUP_DIR}/st.cmd.Linux"
