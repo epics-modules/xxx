@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export EPICS_APP=`dirname $BASH_SOURCE`
+export EPICS_APP=`dirname ${BASH_SOURCE:-$0}`
 export EPICS_APP_ADL_DIR=${EPICS_APP}/xxxApp/op/adl
 export DEFAULT_UI_FILE=${DEFAULT_UI_FILE:-xxx.adl}
 
