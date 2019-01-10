@@ -96,8 +96,8 @@ dbLoadRecords("$(VME)/vmeApp/Db/vme.db", "P=$(PREFIX),Q=vme1")
 #iocshLoad("$(VME)/iocsh/HP_10895A.iocsh", "PREFIX=$(PREFIX), INSTANCE=HPLaser2, CARD=1")
 
 # Acromag general purpose Digital I/O
-#iocshLoad("$(VME)/iocsh/Acromag_9440.iocsh", "PREFIX=$(PREFIX), MAX_CARDS=2, ADDRESS=0x0400, INT_VEC=0x78, INSTANCE=1, CARD=0")
-#iocshLoad("$(VME)/iocsh/Acromag_9440.iocsh", "PREFIX=$(PREFIX), INSTANCE=2, CARD=1")
+#iocshLoad("$(VME)/iocsh/Acromag_AVME9440.iocsh", "PREFIX=$(PREFIX), MAX_CARDS=2, ADDRESS=0x0400, INT_VEC=0x78, INSTANCE=1, CARD=0")
+#iocshLoad("$(VME)/iocsh/Acromag_AVME9440.iocsh", "PREFIX=$(PREFIX), INSTANCE=2, CARD=1")
 
 # Bunch-clock generator
 #iocshLoad("$(VME)/iocsh/BunchClkGen.iocsh", "PREFIX=$(PREFIX), INSTANCE=1, CARD=0, ADDRESS=0x8c00")
