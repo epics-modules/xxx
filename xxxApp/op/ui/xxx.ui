@@ -4370,7 +4370,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              <item>
               <widget class="caRelatedDisplay" name="caRelatedDisplay_12">
                <property name="label">
-                <string>-OPS</string>
+                <string>-APS Ops</string>
                </property>
                <property name="foreground">
                 <color>
