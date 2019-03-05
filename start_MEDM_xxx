@@ -21,4 +21,5 @@ export START_PUTRECORDER=${EPICS_APP}/start_putrecorder
 export MACROS_PY=${EPICS_APP_ADL_DIR}/../python/macros.py
 export EDITOR=nedit
 
-medm -x xxx.adl&
+medm -x ${1:-${DEFAULT_UI_FILE}} &
+# TODO: what about ALL command line parameters?  "$*"
