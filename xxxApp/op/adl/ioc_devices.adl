@@ -1,0 +1,587 @@
+
+file {
+	name="/usr/local/epics/synApps/ioc/vm7/vm7App/op/adl/ioc_devices.adl"
+	version=030114
+}
+display {
+	object {
+		x=13
+		y=227
+		width=622
+		height=286
+	}
+	clr=14
+	bclr=4
+	cmap=""
+	gridSpacing=5
+	gridOn=0
+	snapToGrid=0
+}
+"color map" {
+	ncolors=65
+	colors {
+		ffffff,
+		ececec,
+		dadada,
+		c8c8c8,
+		bbbbbb,
+		aeaeae,
+		9e9e9e,
+		919191,
+		858585,
+		787878,
+		696969,
+		5a5a5a,
+		464646,
+		2d2d2d,
+		000000,
+		00d800,
+		1ebb00,
+		339900,
+		2d7f00,
+		216c00,
+		fd0000,
+		de1309,
+		be190b,
+		a01207,
+		820400,
+		5893ff,
+		597ee1,
+		4b6ec7,
+		3a5eab,
+		27548d,
+		fbf34a,
+		f9da3c,
+		eeb62b,
+		e19015,
+		cd6100,
+		ffb0ff,
+		d67fe2,
+		ae4ebc,
+		8b1a96,
+		610a75,
+		a4aaff,
+		8793e2,
+		6a73c1,
+		4d52a4,
+		343386,
+		c7bb6d,
+		b79d5c,
+		a47e3c,
+		7d5627,
+		58340f,
+		99ffff,
+		73dfff,
+		4ea5f9,
+		2a63e4,
+		0a00b8,
+		ebf1b5,
+		d4db9d,
+		bbc187,
+		a6a462,
+		8b8239,
+		73ff6b,
+		52da3b,
+		3cb420,
+		289315,
+		1a7309,
+	}
+}
+rectangle {
+	object {
+		x=0
+		y=0
+		width=622
+		height=28
+	}
+	"basic attribute" {
+		clr=44
+	}
+}
+text {
+	object {
+		x=8
+		y=4
+		width=606
+		height=22
+	}
+	"basic attribute" {
+		clr=0
+	}
+	"dynamic attribute" {
+		chan="$(P)"
+	}
+	textix="$(P)"
+}
+rectangle {
+	object {
+		x=8
+		y=68
+		width=608
+		height=160
+	}
+	"basic attribute" {
+		clr=44
+		fill="outline"
+		width=4
+	}
+	"dynamic attribute" {
+		chan="$(P)"
+	}
+}
+"related display" {
+	object {
+		x=10
+		y=44
+		width=80
+		height=20
+	}
+	display[0] {
+		name="ioc_motors.adl"
+		args="P=$(P),ioc=$(ioc)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=44
+	label="-Motors"
+}
+"related display" {
+	object {
+		x=95
+		y=44
+		width=80
+		height=20
+	}
+	display[0] {
+		name="ioc_optics.adl"
+		args="P=$(P),ioc=$(ioc)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=44
+	label="-Optics"
+}
+"related display" {
+	object {
+		x=180
+		y=44
+		width=80
+		height=20
+	}
+	display[0] {
+		name="ioc_detectors.adl"
+		args="P=$(P),ioc=$(ioc)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=44
+	label="-Detectors"
+}
+"related display" {
+	object {
+		x=265
+		y=44
+		width=80
+		height=20
+	}
+	display[0] {
+		name="ioc_direct_io.adl"
+		args="P=$(P),ioc=$(ioc)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=44
+	label="-Direct I/O"
+}
+"related display" {
+	object {
+		x=350
+		y=44
+		width=80
+		height=20
+	}
+	display[0] {
+		name="ioc_devices.adl"
+		args="P=$(P),ioc=$(ioc)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=53
+	label="-Devices"
+}
+"related display" {
+	object {
+		x=435
+		y=44
+		width=80
+		height=20
+	}
+	display[0] {
+		name="ioc_tools.adl"
+		args="P=$(P),ioc=$(ioc)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=44
+	label="-Tools"
+}
+composite {
+	object {
+		x=14
+		y=240
+		width=592
+		height=32
+	}
+	"composite name"=""
+	"composite file"="ioc_stop_panel.adl"
+}
+"related display" {
+	object {
+		x=20
+		y=80
+		width=112
+		height=24
+	}
+	display[0] {
+		label="SRS 570 Current Preamplifier #A1"
+		name="SR570_tiny.adl"
+		args="P=$(P),A=A1"
+	}
+	display[1] {
+		label="SRS 570 Current Preamplifier #A2"
+		name="SR570_tiny.adl"
+		args="P=$(P),A=A2"
+	}
+	display[2] {
+		label="SRS 570 Current Preamplifier #A3"
+		name="SR570_tiny.adl"
+		args="P=$(P),A=A3"
+	}
+	display[3] {
+		label="SRS 570 Current Preamplifier #A4"
+		name="SR570_tiny.adl"
+		args="P=$(P),A=A4"
+	}
+	display[4] {
+		label="SRS 570 Current Preamplifier #A5"
+		name="SR570_tiny.adl"
+		args="P=$(P),A=A5"
+	}
+	display[5] {
+		label="Femto Current Preamplifier"
+		name="femto.adl"
+		args="P=$(P),H=fem01:,F=seq01:,AC=$(P)Unidig1Bo9"
+	}
+	clr=0
+	bclr=17
+	label="-Preamps"
+}
+"related display" {
+	object {
+		x=137
+		y=80
+		width=112
+		height=24
+	}
+	display[0] {
+		label="Digitel Vacuum Pump"
+		name="Pump.adl"
+		args="P=$(P),PUMP=ip1"
+	}
+	display[1] {
+		label="MPC Ion Pump"
+		name="Pump.adl"
+		args="P=$(P),PUMP=ip2"
+	}
+	display[2] {
+		label="MPC TSP Pump"
+		name="Pump.adl"
+		args="P=$(P),PUMP=tsp1"
+	}
+	clr=0
+	bclr=17
+	label="-Pumps"
+}
+"related display" {
+	object {
+		x=254
+		y=80
+		width=112
+		height=24
+	}
+	display[0] {
+		label="Keithley 2000 DMM #1"
+		name="Keithley2kDMM_mf.adl"
+		args="P=$(P),Dmm=D1"
+	}
+	display[1] {
+		label="Keithley 2000 DMM #2"
+		name="Keithley2kDMM_mf.adl"
+		args="P=$(P),Dmm=D2"
+	}
+	display[2] {
+		label="Keithley DMM (thermistors)"
+		name="KeithleyDMM.adl"
+		args="P=$(P)"
+	}
+	clr=0
+	bclr=17
+	label="-Keithley 2K"
+}
+"related display" {
+	object {
+		x=371
+		y=80
+		width=112
+		height=24
+	}
+	display[0] {
+		label="I0 calc"
+		name="Io.adl"
+		args="P=$(P)Io:,S=$(P)scaler1,MONO=$(P)BraggEAO"
+	}
+	clr=0
+	bclr=17
+	label="-I0"
+}
+"related display" {
+	object {
+		x=488
+		y=80
+		width=112
+		height=24
+	}
+	clr=0
+	bclr=17
+	label="-"
+}
+"related display" {
+	object {
+		x=20
+		y=115
+		width=112
+		height=24
+	}
+	display[0] {
+		label="Heidenhain AWE1024"
+		name="HeidEncoder.adl"
+		args="P=$(P), A=6"
+	}
+	display[1] {
+		label="Heidenhain AWE1024"
+		name="HeidEncoder.adl"
+		args="P=$(P), A=7"
+	}
+	display[2] {
+		label="Heidenhain ND261"
+		name="HeidND261.adl"
+		args="P=$(P)"
+	}
+	display[3] {
+		label="Heidenhain IK320"
+		name="HeidIK320_group.adl"
+		args="P=$(P),card=card0,group=5"
+	}
+	clr=0
+	bclr=17
+	label="-Encoders"
+}
+"related display" {
+	object {
+		x=137
+		y=115
+		width=112
+		height=24
+	}
+	clr=0
+	bclr=17
+	label="-"
+}
+"related display" {
+	object {
+		x=254
+		y=115
+		width=112
+		height=24
+	}
+	display[2] {
+		label="Eurotherm"
+		name="Eurotherm.adl"
+		args="P=$(P)"
+	}
+	display[3] {
+		label="Eurotherm 2k"
+		name="Eurotherm2k.adl"
+		args="P=$(P),TC=1"
+	}
+	clr=0
+	bclr=17
+	label="-Eurotherm"
+}
+"related display" {
+	object {
+		x=371
+		y=115
+		width=112
+		height=24
+	}
+	clr=0
+	bclr=17
+	label="-"
+}
+"related display" {
+	object {
+		x=488
+		y=115
+		width=112
+		height=24
+	}
+	clr=0
+	bclr=17
+	label="-"
+}
+"related display" {
+	object {
+		x=20
+		y=150
+		width=112
+		height=24
+	}
+	display[0] {
+		label="HP Laser Axis 1"
+		name="HPLaserAxis.adl"
+		args="P=$(P),Q=HPLaser1"
+	}
+	display[1] {
+		label="HP Laser Axis 2"
+		name="HPLaserAxis.adl"
+		args="P=$(P),Q=HPLaser2"
+	}
+	clr=0
+	bclr=17
+	label="-HP Laser"
+}
+"related display" {
+	object {
+		x=254
+		y=150
+		width=112
+		height=24
+	}
+	display[0] {
+		label="LakeShore Temp. Controller"
+		name="LakeShore.adl"
+		args="P=$(P),Q=TC1"
+	}
+	clr=0
+	bclr=17
+	label="-LakeShore"
+}
+"related display" {
+	object {
+		x=371
+		y=150
+		width=112
+		height=24
+	}
+	clr=0
+	bclr=17
+	label="-"
+}
+"related display" {
+	object {
+		x=488
+		y=150
+		width=112
+		height=24
+	}
+	clr=0
+	bclr=17
+	label="-"
+}
+"related display" {
+	object {
+		x=137
+		y=150
+		width=112
+		height=24
+	}
+	clr=0
+	bclr=17
+	label="-"
+}
+"related display" {
+	object {
+		x=20
+		y=185
+		width=112
+		height=24
+	}
+	display[0] {
+		label="Autocollimator"
+		name="Elcomat.adl"
+		args="P=$(P)"
+	}
+	clr=0
+	bclr=17
+	label="-Autocoll"
+}
+"related display" {
+	object {
+		x=137
+		y=185
+		width=112
+		height=24
+	}
+	display[0] {
+		label="Octupole Ramp"
+		name="OctupoleRamp.adl"
+		args="P=$(P),Q=octupole:"
+	}
+	display[1] {
+		label="Octupole Temperature"
+		name="octupoleTempRead.adl"
+		args="P=$(P),Q=Oct:"
+	}
+	clr=0
+	bclr=17
+	label="-Octupole"
+}
+"related display" {
+	object {
+		x=254
+		y=185
+		width=112
+		height=24
+	}
+	display[0] {
+		label="Oxford ILM202 Cryogen Level Meter"
+		name="Oxford_ILM202.adl"
+		args="P=$(P),S=s1"
+	}
+	clr=0
+	bclr=17
+	label="-Oxford ILM202"
+}
+"related display" {
+	object {
+		x=371
+		y=185
+		width=112
+		height=24
+	}
+	clr=0
+	bclr=17
+	label="-"
+}
+"related display" {
+	object {
+		x=488
+		y=185
+		width=112
+		height=24
+	}
+	clr=0
+	bclr=17
+	label="-"
+}

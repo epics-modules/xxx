@@ -1,0 +1,736 @@
+
+file {
+	name="/usr/local/epics/synApps/ioc/vm7/vm7App/op/adl/ioc_tools.adl"
+	version=030114
+}
+display {
+	object {
+		x=13
+		y=227
+		width=622
+		height=286
+	}
+	clr=14
+	bclr=4
+	cmap=""
+	gridSpacing=5
+	gridOn=0
+	snapToGrid=0
+}
+"color map" {
+	ncolors=65
+	colors {
+		ffffff,
+		ececec,
+		dadada,
+		c8c8c8,
+		bbbbbb,
+		aeaeae,
+		9e9e9e,
+		919191,
+		858585,
+		787878,
+		696969,
+		5a5a5a,
+		464646,
+		2d2d2d,
+		000000,
+		00d800,
+		1ebb00,
+		339900,
+		2d7f00,
+		216c00,
+		fd0000,
+		de1309,
+		be190b,
+		a01207,
+		820400,
+		5893ff,
+		597ee1,
+		4b6ec7,
+		3a5eab,
+		27548d,
+		fbf34a,
+		f9da3c,
+		eeb62b,
+		e19015,
+		cd6100,
+		ffb0ff,
+		d67fe2,
+		ae4ebc,
+		8b1a96,
+		610a75,
+		a4aaff,
+		8793e2,
+		6a73c1,
+		4d52a4,
+		343386,
+		c7bb6d,
+		b79d5c,
+		a47e3c,
+		7d5627,
+		58340f,
+		99ffff,
+		73dfff,
+		4ea5f9,
+		2a63e4,
+		0a00b8,
+		ebf1b5,
+		d4db9d,
+		bbc187,
+		a6a462,
+		8b8239,
+		73ff6b,
+		52da3b,
+		3cb420,
+		289315,
+		1a7309,
+	}
+}
+rectangle {
+	object {
+		x=0
+		y=0
+		width=622
+		height=28
+	}
+	"basic attribute" {
+		clr=44
+	}
+}
+text {
+	object {
+		x=8
+		y=4
+		width=606
+		height=22
+	}
+	"basic attribute" {
+		clr=0
+	}
+	"dynamic attribute" {
+		chan="$(P)"
+	}
+	textix="$(P)"
+}
+rectangle {
+	object {
+		x=8
+		y=68
+		width=608
+		height=160
+	}
+	"basic attribute" {
+		clr=44
+		fill="outline"
+		width=4
+	}
+	"dynamic attribute" {
+		chan="$(P)"
+	}
+}
+"related display" {
+	object {
+		x=10
+		y=44
+		width=80
+		height=20
+	}
+	display[0] {
+		name="ioc_motors.adl"
+		args="P=$(P),ioc=$(ioc)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=44
+	label="-Motors"
+}
+"related display" {
+	object {
+		x=95
+		y=44
+		width=80
+		height=20
+	}
+	display[0] {
+		name="ioc_optics.adl"
+		args="P=$(P),ioc=$(ioc)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=44
+	label="-Optics"
+}
+"related display" {
+	object {
+		x=180
+		y=44
+		width=80
+		height=20
+	}
+	display[0] {
+		name="ioc_detectors.adl"
+		args="P=$(P),ioc=$(ioc)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=44
+	label="-Detectors"
+}
+"related display" {
+	object {
+		x=265
+		y=44
+		width=80
+		height=20
+	}
+	display[0] {
+		name="ioc_direct_io.adl"
+		args="P=$(P),ioc=$(ioc)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=44
+	label="-Direct I/O"
+}
+"related display" {
+	object {
+		x=350
+		y=44
+		width=80
+		height=20
+	}
+	display[0] {
+		name="ioc_devices.adl"
+		args="P=$(P),ioc=$(ioc)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=44
+	label="-Devices"
+}
+"related display" {
+	object {
+		x=435
+		y=44
+		width=80
+		height=20
+	}
+	clr=0
+	bclr=53
+	label="-Tools"
+}
+composite {
+	object {
+		x=14
+		y=240
+		width=592
+		height=32
+	}
+	"composite name"=""
+	"composite file"="ioc_stop_panel.adl"
+}
+"related display" {
+	object {
+		x=20
+		y=80
+		width=112
+		height=24
+	}
+	display[0] {
+		label="user calcs 1-10"
+		name="userCalcs10.adl"
+		args="P=$(P)"
+	}
+	display[1] {
+		label="user stringCalcs 1-10"
+		name="userStringCalcs10.adl"
+		args="P=$(P)"
+	}
+	display[2] {
+		label="user transforms 1-10"
+		name="userTransforms10.adl"
+		args="P=$(P)"
+	}
+	display[3] {
+		label="user string seqs 1-10"
+		name="userStringSeqs10.adl"
+		args="P=$(P)"
+	}
+	display[4] {
+		label="user arrayCalcs 1-10"
+		name="userArrayCalcs10.adl"
+		args="P=$(P)"
+	}
+	display[5] {
+		label="user average 1-10"
+		name="userAve10.adl"
+		args="P=$(P)"
+	}
+	display[6] {
+		label="user calcOuts 1-10"
+		name="userCalcOuts10.adl"
+		args="P=$(P)"
+	}
+	display[7] {
+		label="user stringCalcs 11-20"
+		name="userStringCalcs10more.adl"
+		args="P=$(P),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+	}
+	display[8] {
+		label="user transforms 11-20"
+		name="userTransforms10more.adl"
+		args="P=$(P),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+	}
+	display[9] {
+		label="user string seqs 11-20"
+		name="userStringSeqs10more.adl"
+		args="P=$(P),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+	}
+	display[10] {
+		label="user arrayCalcs 11-20"
+		name="userArrayCalcs10more.adl"
+		args="P=$(P),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+	}
+	display[11] {
+		label="user average 11-20"
+		name="userAve10more.adl"
+		args="P=$(P),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+	}
+	display[12] {
+		label="user calcOuts 11-20"
+		name="userCalcOuts10more.adl"
+		args="P=$(P),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+	}
+	display[13] {
+		label="user calcs 11-20"
+		name="userCalcs10more.adl"
+		args="P=$(P),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+	}
+	display[14] {
+		label="busyRecord"
+		name="xxBusyRecord.adl"
+		args="P=$(P),R=mybusy"
+	}
+	display[15] {
+		label="busyRecord 2"
+		name="xxBusyRecord.adl"
+		args="P=$(P),R=mybusy2"
+	}
+	display[16] {
+		label="global enable"
+		name="userCalcsGlobalEnable.adl"
+		args="P=$(P)"
+	}
+	display[17] {
+		label="string sequence"
+		name="editSseq.adl"
+		args="P=$(P),Q=ES:"
+	}
+	clr=0
+	bclr=17
+	label="-userCalc"
+}
+"related display" {
+	object {
+		x=137
+		y=80
+		width=112
+		height=24
+	}
+	display[0] {
+		label="userScripts 1-10"
+		name="userScripts10.adl"
+		args="P=$(P),R=set1:"
+	}
+	display[1] {
+		label="userScripts 11-20"
+		name="userScripts10.adl"
+		args="P=$(P),R=set2:"
+	}
+	clr=0
+	bclr=17
+	label="-userScripts"
+}
+"related display" {
+	object {
+		x=254
+		y=80
+		width=112
+		height=24
+	}
+	display[0] {
+		label="Scan1 (for all scans)"
+		name="scan.adl"
+		args="P=$(P),N=1,S=scan1"
+	}
+	display[1] {
+		label="Scan2 (for 2D & higher scans)"
+		name="scan.adl"
+		args="P=$(P),N=2,S=scan2"
+	}
+	display[2] {
+		label="Scan3 (for 3D & higher scans)"
+		name="scan.adl"
+		args="P=$(P),N=3,S=scan3"
+	}
+	display[3] {
+		label="Scan4 (for 4D scans)"
+		name="scan.adl"
+		args="P=$(P),N=4,S=scan4"
+	}
+	display[4] {
+		label="ScanH (for Hardware-assisted scans)"
+		name="scan.adl"
+		args="P=$(P),N=H,S=scanH"
+	}
+	display[5] {
+		label="test scanParms2Pos"
+		name="scanParms2Pos.adl"
+		args="P=$(P),Q=m7_8,SCAN=$(P)scan1,PV1=$(P)m7,PV2=$(P)m8"
+	}
+	display[7] {
+		label="saveData controls"
+		name="scan_saveData.adl"
+		args="P=$(P)"
+	}
+	display[9] {
+		label="aux scan"
+		name="scanAux.adl"
+		args="P=$(P),S=scanAux"
+	}
+	display[11] {
+		label="scanProgress"
+		name="ProgressBar.adl"
+		args="P=$(P),B=$(P)scanProgress:"
+	}
+	display[14] {
+		label="scan1Menu"
+		name="configMenu.adl"
+		args="P=$(P),CONFIG=scan1"
+	}
+	clr=0
+	bclr=17
+	label="-Scan"
+}
+"related display" {
+	object {
+		x=371
+		y=80
+		width=112
+		height=24
+	}
+	display[0] {
+		label="interp"
+		name="interp.adl"
+		args="P=$(P)"
+	}
+	display[1] {
+		label="arrayTest"
+		name="arrayTest.adl"
+		args="P=$(P)"
+	}
+	display[2] {
+		label="pvHistory 1"
+		name="pvHistory.adl"
+		args="P=$(P),N=1"
+	}
+	display[3] {
+		label="interpNew"
+		name="interpNew.adl"
+		args="P=$(P),Q=1"
+	}
+	clr=0
+	bclr=17
+	label="-Array"
+}
+"related display" {
+	object {
+		x=488
+		y=80
+		width=112
+		height=24
+	}
+	clr=0
+	bclr=17
+	label="-"
+}
+"related display" {
+	object {
+		x=20
+		y=115
+		width=112
+		height=24
+	}
+	display[0] {
+		label="softGlueMenu"
+		name="softGlueMenu.adl"
+		args="P=$(P),H=softGlue:"
+	}
+	display[1] {
+		label="softGlue2 Menu"
+		name="softGlueMenu.adl"
+		args="P=$(P),H=softGlue2:"
+	}
+	display[3] {
+		label="shift 1"
+		name="softGlue_Shift32_bare.adl"
+		args="P=$(P),H=softGlue:,N=1"
+	}
+	display[4] {
+		label="shift 2"
+		name="softGlue_Shift32_bare.adl"
+		args="P=$(P),H=softGlue:,N=2"
+	}
+	display[5] {
+		label="SoftGlue Circuits"
+		name="configMenu.adl"
+		args="P=$(P),CONFIG=SG"
+	}
+	clr=0
+	bclr=17
+	label="-softGlue"
+}
+"related display" {
+	object {
+		x=137
+		y=115
+		width=112
+		height=24
+	}
+	display[0] {
+		label="timer"
+		name="timer.adl"
+		args="P=$(P),N=1"
+	}
+	clr=0
+	bclr=17
+	label="-timer"
+}
+"related display" {
+	object {
+		x=254
+		y=115
+		width=112
+		height=24
+	}
+	display[0] {
+		label="ramp/tweak rt1"
+		name="ramp_tweak.adl"
+		args="P=$(P),Q=rt1"
+	}
+	display[1] {
+		label="ramp/tweak rt2"
+		name="ramp_tweak.adl"
+		args="P=$(P),Q=rt2"
+	}
+	clr=0
+	bclr=17
+	label="-Ramp Tweak"
+}
+"related display" {
+	object {
+		x=371
+		y=115
+		width=112
+		height=24
+	}
+	display[0] {
+		label="Bunch Clock Generator"
+		name="BunchClkGen.adl"
+		args="UNIT=$(P)BnchClkGen"
+	}
+	display[1] {
+		label="Bunch Clock display A"
+		name="BunchClkGenA.adl"
+		args="UNIT=$(P)BnchClkGen"
+	}
+	display[2] {
+		label="Bunch Clock 3id Top screen"
+		name="BunchClkGenTop.adl"
+	}
+	clr=0
+	bclr=17
+	label="-APS Bunch Clock"
+}
+"related display" {
+	object {
+		x=488
+		y=115
+		width=112
+		height=24
+	}
+	clr=0
+	bclr=17
+	label="-"
+}
+"related display" {
+	object {
+		x=20
+		y=150
+		width=112
+		height=24
+	}
+	display[0] {
+		label="caputRecorder"
+		name="caputRecorder.adl"
+		args="P=$(P),L=$(P)"
+	}
+	display[1] {
+		label="caputRecorderA"
+		name="caputRecorder.adl"
+		args="P=vm7A:,L=$(P)"
+	}
+	clr=0
+	bclr=17
+	label="-caputRecorder"
+}
+"related display" {
+	object {
+		x=254
+		y=150
+		width=112
+		height=24
+	}
+	display[0] {
+		label="standard trajectoryScan"
+		name="trajectoryScan.adl"
+		args="P=$(P),R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+	}
+	display[1] {
+		label="trajectoryScan1"
+		name="MAX_trajectoryScan.adl"
+		args="P=$(P),R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+	}
+	display[2] {
+		label="trajectoryScan2"
+		name="MAX_trajectoryScan.adl"
+		args="P=$(P),R=traj2:,TITLE=traj2,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16"
+	}
+	display[3] {
+		label="trajectoryScan1 (2 mot)"
+		name="MAX_trajectoryScan2.adl"
+		args="P=$(P),R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+	}
+	display[5] {
+		label="MM4000 XPS trajectory"
+		name="trajectoryScan.adl"
+		args="P=$(P),R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+	}
+	clr=0
+	bclr=17
+	label="-trajectory"
+}
+"related display" {
+	object {
+		x=371
+		y=150
+		width=112
+		height=24
+	}
+	display[0] {
+		label="shutterDo"
+		name="shutterDo.adl"
+		args="P=$(P),Q=s2:,SHUTTER_STATUS=$(P)sim2:B_SHTRS_CLOSED,OPEN_PV=$(P)sim2:open,CLOSE_PV=$(P)sim2:close"
+	}
+	display[1] {
+		label="shutterSim"
+		name="shutterSim.adl"
+		args="P=$(P),Q=sim2:,SHUTTER_STATUS=$(P)sim2:B_SHTRS_CLOSED,OPEN_PV=$(P)sim2:openCmd,CLOSE_PV=$(P)sim2:closeCmd"
+	}
+	clr=0
+	bclr=17
+	label="-shutterDo"
+}
+"related display" {
+	object {
+		x=488
+		y=150
+		width=112
+		height=24
+	}
+	clr=0
+	bclr=17
+	label="-"
+}
+"related display" {
+	object {
+		x=137
+		y=150
+		width=112
+		height=24
+	}
+	display[0] {
+		label="alarm clock"
+		name="alarmClock.adl"
+		args="P=$(P),A=1"
+	}
+	clr=0
+	bclr=17
+	label="-alarmClock"
+}
+"related display" {
+	object {
+		x=20
+		y=185
+		width=112
+		height=24
+	}
+	display[0] {
+		label="funcGen"
+		name="FuncGen.adl"
+		args="P=$(P),Q=fgen"
+	}
+	clr=0
+	bclr=17
+	label="-FuncGen"
+}
+"related display" {
+	object {
+		x=137
+		y=185
+		width=112
+		height=24
+	}
+	display[0] {
+		label="count down timer"
+		name="countDownTimer.adl"
+		args="P=$(P),N=1"
+	}
+	clr=0
+	bclr=17
+	label="-countDown"
+}
+"related display" {
+	object {
+		x=254
+		y=185
+		width=112
+		height=24
+	}
+	clr=0
+	bclr=17
+	label="-"
+}
+"related display" {
+	object {
+		x=371
+		y=185
+		width=112
+		height=24
+	}
+	clr=0
+	bclr=17
+	label="-"
+}
+"related display" {
+	object {
+		x=488
+		y=185
+		width=112
+		height=24
+	}
+	clr=0
+	bclr=17
+	label="-"
+}
