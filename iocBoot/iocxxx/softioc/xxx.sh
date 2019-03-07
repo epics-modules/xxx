@@ -107,12 +107,12 @@ checkpid() {
                         for s_pid in ${S_PIDS} ; do
                             #!${ECHO} ${s_pid}
 
-                            if [ "${s_pid}" = "${P_PID}" ] ; then
+                            if [[ ${s_pid} -eq ${P_PID} ]] ; then
                                 SCREEN_PID=${s_pid}
                                 break
                             fi
                     
-                            if [ "${s_pid}" = "${GP_PID}" ] ; then
+                            if [[ ${s_pid} -eq ${GP_PID} ]] ; then
                                 SCREEN_PID=${s_pid}
                                 break
                             fi
