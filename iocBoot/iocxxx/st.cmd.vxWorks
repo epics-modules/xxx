@@ -56,6 +56,12 @@ iocsh
 # devIocStats
 dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=xxx")
 
+
+# If you have vxShell-specific commands to run, exit out of the ioc shell
+# and run them here.
+
+#!exit
+
 ###############################################################################
 iocInit
 ###############################################################################
