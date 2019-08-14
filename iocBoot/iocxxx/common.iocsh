@@ -17,7 +17,7 @@ epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
 
 # Specify largest array CA will transport
 # Note for N doubles, need N*8 bytes+some overhead
-epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64010
+epicsEnvSet("EPICS_CA_MAX_ARRAY_BYTES", 64010)
 
 ### save_restore setup, change SAVE_PATH if you are having autosave manage its own NFS mount
 iocshLoad("$(AUTOSAVE)/iocsh/autosave_settings.iocsh", "PREFIX=$(PREFIX), SAVE_PATH=$(TOP)/iocBoot/$(IOC)")
