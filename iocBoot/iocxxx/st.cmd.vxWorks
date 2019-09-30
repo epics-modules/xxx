@@ -54,7 +54,7 @@ iocsh
 < common.iocsh
 
 # devIocStats
-dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=xxx")
+dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=$(PREFIX)")
 
 
 # If you have vxShell-specific commands to run, exit out of the ioc shell

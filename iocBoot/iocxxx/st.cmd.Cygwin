@@ -14,7 +14,7 @@ iocxxxCygwin_registerRecordDeviceDriver(pdbbase)
 < common.iocsh
 
 # devIocStats
-dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=xxx, TODFORMAT=%m/%d/%Y %H:%M:%S")
+dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=$(PREFIX), TODFORMAT=%m/%d/%Y %H:%M:%S")
 
 ###############################################################################
 iocInit

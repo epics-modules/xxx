@@ -14,7 +14,7 @@ iocxxxWin32_registerRecordDeviceDriver(pdbbase)
 < common.iocsh
 
 # devIocStats
-dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
+dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=$(PREFIX)")
 
 ###############################################################################
 iocInit
