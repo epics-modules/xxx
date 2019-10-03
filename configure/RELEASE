@@ -27,14 +27,15 @@
 
 # Define the path to the synApps support directory and uncomment.
 SUPPORT=/home/oxygen/MOONEY/epics/synAppsGIT/support
--include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
+
+# These lines allow developers to override these RELEASE settings
+# without having to modify this file directly.
+-include $(TOP)/../RELEASE.local
+-include $(TOP)/../RELEASE.$(EPICS_HOST_ARCH).local
+-include $(TOP)/configure/RELEASE.local
 
 # Specify the standard synApps configuration.
 -include $(SUPPORT)/configure/RELEASE
-
-# We might need to redefine SUPPORT and EPICS_BASE after including that file
--include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
--include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH) 
 
 # Include any non-standard support
 #TDS3000 = $(SUPPORT)/../nonSynAppsSupport/tds3000-2.4
