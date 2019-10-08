@@ -13,12 +13,6 @@ iocxxxCygwin_registerRecordDeviceDriver(pdbbase)
 
 < common.iocsh
 
-# devIocStats
-dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=$(PREFIX), TODFORMAT=%m/%d/%Y %H:%M:%S")
-# PV aliases change :: into :
-# see https://github.com/epics-modules/xxx/issues/30
-dbLoadRecords("$(XXX)/xxxApp/Db/iocAdminSoft_aliases.db","P=$(PREFIX)")
-
 ###############################################################################
 iocInit
 ###############################################################################
