@@ -1,3 +1,6 @@
+# fix the double-colon problem
+# see: https://github.com/epics-modules/xxx/pull/31
+
 alias($(P):GTIM_ERR_CNT,   $(P)GTIM_ERR_CNT)
 alias($(P):ST_SCRIPT,   $(P)ST_SCRIPT)
 alias($(P):EPICS_VERSION,   $(P)EPICS_VERSION)
