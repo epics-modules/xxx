@@ -54,7 +54,10 @@ iocsh
 < common.iocsh
 
 # devIocStats
-dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=xxx")
+dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=$(PREFIX)")
+# PV aliases change :: into :
+# see https://github.com/epics-modules/xxx/issues/30
+dbLoadRecords("$(XXX)/xxxApp/Db/iocAdminSoft_aliases.db","P=$(PREFIX)")
 
 
 # If you have vxShell-specific commands to run, exit out of the ioc shell
