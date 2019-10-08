@@ -13,9 +13,6 @@ iocxxxWin64_registerRecordDeviceDriver(pdbbase)
 
 < common.iocsh
 
-# devIocStats
-dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
-
 ###############################################################################
 iocInit
 ###############################################################################

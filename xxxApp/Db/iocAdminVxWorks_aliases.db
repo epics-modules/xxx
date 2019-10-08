@@ -1,0 +1,24 @@
+# fix the double-colon problem
+# see: https://github.com/epics-modules/xxx/pull/31
+
+# VxWorks has these additional PVs, in addition to
+# the ones aliased in iocAdminSoft_aliases.db
+
+alias($(P):MEM_BLK,   $(P)MEM_BLK)
+alias($(P):MEM_BLK_FREE,   $(P)MEM_BLK_FREE)
+alias($(P):BOOTLINE1,   $(P)BOOTLINE1)
+alias($(P):BOOTLINE2,   $(P)BOOTLINE2)
+alias($(P):BOOTLINE3,   $(P)BOOTLINE3)
+alias($(P):BOOTLINE4,   $(P)BOOTLINE4)
+alias($(P):BOOTLINE5,   $(P)BOOTLINE5)
+alias($(P):BOOTLINE6,   $(P)BOOTLINE6)
+alias($(P):BOOTLINE,   $(P)BOOTLINE)
+alias($(P):SYS_MBUF_FREE,   $(P)SYS_MBUF_FREE)
+alias($(P):SYS_MBUF_MAX,   $(P)SYS_MBUF_MAX)
+alias($(P):IFI_ERR_CNT,   $(P)IFI_ERR_CNT)
+alias($(P):IFO_ERR_CNT,   $(P)IFO_ERR_CNT)
+alias($(P):BSP_REV,   $(P)BSP_REV)
+alias($(P):DAT_MBUF_FREE,   $(P)DAT_MBUF_FREE)
+alias($(P):DAT_MBUF_MAX,   $(P)DAT_MBUF_MAX)
+
+# no aliases for any PVs matching *CLUST*
