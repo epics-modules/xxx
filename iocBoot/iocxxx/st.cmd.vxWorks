@@ -2,6 +2,8 @@
 
 sysVmeMapShow
 
+version > bootLine
+
 cd ""
 < ../nfsCommands
 < cdCommands
@@ -51,6 +53,7 @@ iocLogDisable=0
 
 iocsh 
 
+< settings.iocsh
 < common.iocsh
 
 # devIocStats records specific to vxWorks

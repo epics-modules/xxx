@@ -11,6 +11,7 @@ errlogInit(20000)
 dbLoadDatabase("../../dbd/iocxxxWin32.dbd")
 iocxxxWin32_registerRecordDeviceDriver(pdbbase)
 
+< settings.iocsh
 < common.iocsh
 
 ###############################################################################

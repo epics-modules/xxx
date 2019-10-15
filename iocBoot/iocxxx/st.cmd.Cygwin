@@ -11,6 +11,7 @@ errlogInit(20000)
 dbLoadDatabase("../../dbd/iocxxxCygwin.dbd")
 iocxxxCygwin_registerRecordDeviceDriver(pdbbase)
 
+< settings.iocsh
 < common.iocsh
 
 ###############################################################################

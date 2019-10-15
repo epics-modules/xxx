@@ -1,24 +1,3 @@
-# Shell prompt
-epicsEnvSet("IOCSH_PS1", "$(IOC)> ")
-
-# prefix used for all PVs in this IOC
-epicsEnvSet("PREFIX", "xxx:")
-
-#For devIocStats
-epicsEnvSet("ENGINEER", "engineer")
-epicsEnvSet("LOCATION", "location")
-epicsEnvSet("GROUP", "group")
-
-# search path for database files
-epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(DEVIOCSTATS)/db")
-
-# set the protocol path for streamDevice
-epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
-
-# Specify largest array CA will transport
-# Note for N doubles, need N*8 bytes+some overhead
-epicsEnvSet("EPICS_CA_MAX_ARRAY_BYTES", 64010)
-
 ### save_restore setup, change SAVE_PATH if you are having autosave manage its own NFS mount
 iocshLoad("$(AUTOSAVE)/iocsh/autosave_settings.iocsh", "PREFIX=$(PREFIX), SAVE_PATH=$(TOP)/iocBoot/$(IOC)")
 iocshLoad("$(AUTOSAVE)/iocsh/autosaveBuild.iocsh",     "PREFIX=$(PREFIX), BUILD_PATH=autosave")
