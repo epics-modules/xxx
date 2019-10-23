@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export EPICS_APP=`dirname ${BASH_SOURCE:-$0}`
-export EPICS_APP_UI_DIR=${EPICS_APP}/xxxApp/op/ui
+export EPICS_APP_UI_DIR=${EPICS_APP}/xxxApp/op/caqtdm
 export DEFAULT_UI_FILE=${DEFAULT_UI_FILE:-xxx.ui}
 
 source ${EPICS_APP}/setup_epics_common caqtdm

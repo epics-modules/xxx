@@ -4,8 +4,8 @@ DISPLAY_MANAGER=$1
 
 # caller (typically: start_****_xxx) MUST define:
 # EPICS_APP - Top level IOC directory
-# EPICS_APP_ADL_DIR - Location of adl file directory
-# EPICS_APP_UI_DIR  - Location of ui file directory
+# EPICS_APP_ADL_DIR - Location of medm (or adl) file directory
+# EPICS_APP_UI_DIR  - Location of caqtdm (or ui) file directory
 
 
 #######################################
