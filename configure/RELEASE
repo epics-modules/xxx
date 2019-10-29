@@ -26,13 +26,7 @@
 ##############################################################################
 
 # Define the path to the synApps support directory and uncomment.
-SUPPORT=/home/oxygen/MOONEY/epics/synAppsGIT/support
-
-# These lines allow developers to override these RELEASE settings
-# without having to modify this file directly.
--include $(TOP)/../RELEASE.local
--include $(TOP)/../RELEASE.$(EPICS_HOST_ARCH).local
--include $(TOP)/configure/RELEASE.local
+SUPPORT=/corvette/home/epics/devel
 
 # Specify the standard synApps configuration.
 -include $(SUPPORT)/configure/RELEASE
@@ -45,3 +39,10 @@ SUPPORT=/home/oxygen/MOONEY/epics/synAppsGIT/support
 # to this directory as the file MASTER_RELEASE, edit the file, comment out
 # the above include, and uncomment the following line.
 #-include $(TOP)/configure/MASTER_RELEASE
+
+# These lines allow developers to override these RELEASE settings
+# without having to modify this file directly.
+-include $(TOP)/../RELEASE.local
+-include $(TOP)/../RELEASE.$(EPICS_HOST_ARCH).local
+-include $(TOP)/configure/RELEASE.local
+
