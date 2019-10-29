@@ -11,10 +11,8 @@ errlogInit(20000)
 dbLoadDatabase("../../dbd/iocxxxLinux.dbd")
 iocxxxLinux_registerRecordDeviceDriver(pdbbase)
 
+< settings.iocsh
 < common.iocsh
-
-# devIocStats
-dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=xxx")
 
 ###############################################################################
 iocInit

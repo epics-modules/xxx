@@ -2,6 +2,8 @@
 
 sysVmeMapShow
 
+version > bootLine
+
 cd ""
 < ../nfsCommands
 < cdCommands
@@ -38,7 +40,7 @@ recDynLinkQsize = 1024
 dbLoadDatabase("$(TOP)/dbd/iocxxxVX.dbd")
 iocxxxVX_registerRecordDeviceDriver(pdbbase)
 
-shellPromptSet "$(IOC)> "
+shellPromptSet "iocxxx> "
 iocLogDisable=0
 
 # If you want save_restore to manage its own NFS mount, specify the name and
@@ -51,10 +53,13 @@ iocLogDisable=0
 
 iocsh 
 
+< settings.iocsh
 < common.iocsh
 
-# devIocStats
-dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=xxx")
+# devIocStats records specific to vxWorks
+dbLoadRecords("$(DEVIOCSTATS)/db/iocRTOS.db","IOCNAME=$(PREFIX)")
+# VxWorks support adds these additional PVs to be aliased
+dbLoadRecords("$(XXX)/xxxApp/Db/iocAdminVxWorks_aliases.db","P=$(PREFIX)")
 
 
 # If you have vxShell-specific commands to run, exit out of the ioc shell

@@ -11,10 +11,8 @@ errlogInit(20000)
 dbLoadDatabase("../../dbd/iocxxxCygwin.dbd")
 iocxxxCygwin_registerRecordDeviceDriver(pdbbase)
 
+< settings.iocsh
 < common.iocsh
-
-# devIocStats
-dbLoadRecords("$(DEVIOCSTATS)/db/ioc.db","IOCNAME=xxx, TODFORMAT=%m/%d/%Y %H:%M:%S")
 
 ###############################################################################
 iocInit
