@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>ioc_direct_io</name>
+  <x>13</x>
+  <y>227</y>
+  <width>622</width>
+  <height>286</height>
+  <background_color>
+    <color red="187" green="187" blue="187">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #6</name>
+    <width>622</width>
+    <height>28</height>
+    <line_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #9</name>
+    <text>$(P)</text>
+    <x>8</x>
+    <y>4</y>
+    <width>606</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #13</name>
+    <x>8</x>
+    <y>68</y>
+    <width>608</width>
+    <height>160</height>
+    <line_width>4</line_width>
+    <line_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #17</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_motors.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Motors</text>
+    <x>10</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #20</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_optics.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Optics</text>
+    <x>95</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #23</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_detectors.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Detectors</text>
+    <x>180</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #26</name>
+    <text>Direct I/O</text>
+    <x>265</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #28</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_devices.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Devices</text>
+    <x>350</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #31</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_tools.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Tools</text>
+    <x>435</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #34</name>
+    <file>ioc_stop_panel.bob</file>
+    <x>14</x>
+    <y>240</y>
+    <width>592</width>
+    <height>32</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #36</name>
+    <actions>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_1</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial1</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_2</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial2</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_3</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial3</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_4</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial4</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_5</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial5</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_6</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial6</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_7</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial7</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_8</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial8</description>
+      </action>
+    </actions>
+    <text>Serial 1-8</text>
+    <x>20</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #46</name>
+    <actions>
+      <action type="open_display">
+        <file>IpUnidig_top.opi</file>
+        <macros>
+          <R>Unidig1</R>
+        </macros>
+        <target>tab</target>
+        <description>IpUnidig I/O</description>
+      </action>
+      <action type="open_display">
+        <file>Acromag_8in.opi</file>
+        <macros>
+          <A>1</A>
+          <CH0>0</CH0>
+          <CH1>1</CH1>
+          <CH2>2</CH2>
+          <CH3>3</CH3>
+          <CH4>4</CH4>
+          <CH5>5</CH5>
+          <CH6>6</CH6>
+          <CH7>7</CH7>
+        </macros>
+        <target>tab</target>
+        <description> Acromag 8 in</description>
+      </action>
+      <action type="open_display">
+        <file>Acromag_8out.opi</file>
+        <macros>
+          <A>1</A>
+          <CH0>0</CH0>
+          <CH1>1</CH1>
+          <CH2>2</CH2>
+          <CH3>3</CH3>
+          <CH4>4</CH4>
+          <CH5>5</CH5>
+          <CH6>6</CH6>
+          <CH7>7</CH7>
+        </macros>
+        <target>tab</target>
+        <description> Acromag 8 out</description>
+      </action>
+      <action type="open_display">
+        <file>Acromag_16out.opi</file>
+        <macros>
+          <A>1</A>
+        </macros>
+        <target>tab</target>
+        <description> Acromag 16 out</description>
+      </action>
+      <action type="open_display">
+        <file>Acromag_16in.opi</file>
+        <macros>
+          <A>1</A>
+        </macros>
+        <target>tab</target>
+        <description> Acromag 16 in</description>
+      </action>
+    </actions>
+    <text>Digital I/O</text>
+    <x>137</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #53</name>
+    <actions>
+      <action type="open_display">
+        <file>VME_DAC8.opi</file>
+        <macros>
+          <D>1</D>
+        </macros>
+        <target>tab</target>
+        <description>vme DAC 1 Chans 1-8</description>
+      </action>
+      <action type="open_display">
+        <file>VME_DAC8.opi</file>
+        <macros>
+          <D>2</D>
+        </macros>
+        <target>tab</target>
+        <description>vme DAC 2 Chans 1-8</description>
+      </action>
+      <action type="open_display">
+        <file>topDAC8.opi</file>
+        <macros>
+          <D>3</D>
+        </macros>
+        <target>tab</target>
+        <description>dac128V 1 Chans 1-8</description>
+      </action>
+      <action type="open_display">
+        <file>topDAC8.opi</file>
+        <macros>
+          <D>1</D>
+        </macros>
+        <target>tab</target>
+        <description>vme DAC 1 Chans 1-8</description>
+      </action>
+    </actions>
+    <text>Analog DAC</text>
+    <x>254</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #59</name>
+    <actions>
+      <action type="open_display">
+        <file>Ip330Scan.opi</file>
+        <macros>
+          <R>IP330_</R>
+        </macros>
+        <target>tab</target>
+        <description>ADC 1</description>
+      </action>
+      <action type="open_display">
+        <file>mca_small.opi</file>
+        <macros>
+          <M>mip330_1</M>
+        </macros>
+        <target>tab</target>
+        <description>ADC 1 sweep</description>
+      </action>
+      <action type="open_display">
+        <file>mca_small.opi</file>
+        <macros>
+          <M>mip330_2</M>
+        </macros>
+        <target>tab</target>
+        <description>ADC 2 sweep</description>
+      </action>
+      <action type="open_display">
+        <file>mca_small.opi</file>
+        <macros>
+          <M>mip330_3</M>
+        </macros>
+        <target>tab</target>
+        <description>ADC 3 sweep</description>
+      </action>
+      <action type="open_display">
+        <file>mca_small.opi</file>
+        <macros>
+          <M>mip330_4</M>
+        </macros>
+        <target>tab</target>
+        <description>ADC 4 sweep</description>
+      </action>
+      <action type="open_display">
+        <file>pid_control.opi</file>
+        <macros>
+          <PID>pid_slow</PID>
+          <TITLE>Slow_Feedback</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>Slow feedback</description>
+      </action>
+      <action type="open_display">
+        <file>pid_control.opi</file>
+        <macros>
+          <PID>ip330PIDFast</PID>
+          <TITLE>Fast_Feedback</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>Fast feedback</description>
+      </action>
+      <action type="open_display">
+        <file>async_pid_control.opi</file>
+        <macros>
+          <PID>async_pid_slow</PID>
+          <TITLE>Slow_Feedback</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>Async Slow feedback</description>
+      </action>
+    </actions>
+    <text>Analog ADC</text>
+    <x>371</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #69</name>
+    <text></text>
+    <x>488</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #71</name>
+    <actions>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_9</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial9</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_10</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial10</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_11</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial11</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_12</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial12</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_13</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial13</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_14</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial14</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_15</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial15</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>asyn_16</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial16</description>
+      </action>
+    </actions>
+    <text>Serial 9-16</text>
+    <x>20</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #81</name>
+    <text></text>
+    <x>137</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #83</name>
+    <text></text>
+    <x>254</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #85</name>
+    <text></text>
+    <x>371</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #87</name>
+    <text></text>
+    <x>488</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #89</name>
+    <actions>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>BiSS</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serialBiSS</description>
+      </action>
+    </actions>
+    <text>Serial Extra</text>
+    <x>20</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #92</name>
+    <text></text>
+    <x>254</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #94</name>
+    <text></text>
+    <x>371</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #96</name>
+    <text></text>
+    <x>488</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #98</name>
+    <text></text>
+    <x>137</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #100</name>
+    <actions>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>1</N>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 1</description>
+      </action>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>2</N>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 2</description>
+      </action>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>3</N>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 3</description>
+      </action>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>4</N>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 4</description>
+      </action>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>5</N>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 5</description>
+      </action>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>6</N>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 6</description>
+      </action>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>7</N>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 7</description>
+      </action>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>8</N>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 8</description>
+      </action>
+    </actions>
+    <text>devCmdReply</text>
+    <x>20</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #110</name>
+    <actions>
+      <action type="open_display">
+        <file>recVme.opi</file>
+        <macros>
+          <Q>vme1</Q>
+        </macros>
+        <target>tab</target>
+        <description>generic VME 1</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <R>gpib1</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn GPIB 1</description>
+      </action>
+      <action type="open_display">
+        <file>CAMAC_IO.opi</file>
+        <macros>
+          <REC>$(P)camac1</REC>
+        </macros>
+        <target>tab</target>
+        <description>generic CAMAC 1</description>
+      </action>
+    </actions>
+    <text>VME,GPIB,...</text>
+    <x>137</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #115</name>
+    <text></text>
+    <x>254</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #117</name>
+    <text></text>
+    <x>371</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #119</name>
+    <text></text>
+    <x>488</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+</display>

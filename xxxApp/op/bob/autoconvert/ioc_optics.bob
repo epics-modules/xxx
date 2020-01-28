@@ -1,0 +1,1151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>ioc_optics</name>
+  <x>13</x>
+  <y>227</y>
+  <width>622</width>
+  <height>286</height>
+  <background_color>
+    <color red="187" green="187" blue="187">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #6</name>
+    <width>622</width>
+    <height>28</height>
+    <line_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #9</name>
+    <text>$(P)</text>
+    <x>8</x>
+    <y>4</y>
+    <width>606</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #13</name>
+    <x>8</x>
+    <y>68</y>
+    <width>608</width>
+    <height>160</height>
+    <line_width>4</line_width>
+    <line_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #17</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_motors.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Motors</text>
+    <x>10</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #20</name>
+    <text>Optics</text>
+    <x>95</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #22</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_detectors.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Detectors</text>
+    <x>180</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #25</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_direct_io.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Direct I/O</text>
+    <x>265</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #28</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_devices.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Devices</text>
+    <x>350</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #31</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_tools.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Tools</text>
+    <x>435</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #34</name>
+    <file>ioc_stop_panel.bob</file>
+    <x>14</x>
+    <y>240</y>
+    <width>592</width>
+    <height>32</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #36</name>
+    <actions>
+      <action type="open_display">
+        <file>kohzuGraphic.opi</file>
+        <macros>
+          <PVE>BraggEAO</PVE>
+          <PVL>BraggLambdaAO</PVL>
+          <PVTh>BraggThetaAO</PVTh>
+          <QE>BraggE</QE>
+          <QL>BraggLambda</QL>
+          <QTh>BraggTheta</QTh>
+          <mCHI2>m12</mCHI2>
+          <mTH>m9</mTH>
+          <mTH2>m13</mTH2>
+          <mX>m14</mX>
+          <mX2>m16</mX2>
+          <mY>m15</mY>
+          <mY1>m10</mY1>
+          <mZ2>m11</mZ2>
+        </macros>
+        <target>tab</target>
+        <description>Kohzu Graphic (GEOM 1)</description>
+      </action>
+      <action type="open_display">
+        <file>kohzu2Graphic.opi</file>
+        <macros>
+          <PVE>BraggEAO</PVE>
+          <PVL>BraggLambdaAO</PVL>
+          <PVTh>BraggThetaAO</PVTh>
+          <QE>BraggE</QE>
+          <QL>BraggLambda</QL>
+          <QTh>BraggTheta</QTh>
+          <mCHI2>m12</mCHI2>
+          <mTH>m9</mTH>
+          <mTH2>m13</mTH2>
+          <mX>m14</mX>
+          <mX2>m16</mX2>
+          <mY>m15</mY>
+          <mY2>m10</mY2>
+          <mZ2>m11</mZ2>
+        </macros>
+        <target>tab</target>
+        <description>Kohzu Graphic (GEOM 2)</description>
+      </action>
+      <action type="open_display">
+        <file>kohzuSeqCtl_tiny.opi</file>
+        <target>tab</target>
+        <description>KohzuSeq (tiny)</description>
+      </action>
+      <action type="open_display">
+        <file>kohzuSeqCtl.opi</file>
+        <target>tab</target>
+        <description>KohzuSeq</description>
+      </action>
+      <action type="open_display">
+        <file>kohzuSeqCtl_All.opi</file>
+        <target>tab</target>
+        <description>KohzuSeq (All)</description>
+      </action>
+      <action type="open_display">
+        <file>scanParms.opi</file>
+        <macros>
+          <PV>BraggEAO</PV>
+          <Q>BraggE</Q>
+        </macros>
+        <target>tab</target>
+        <description>Energy-scan parameters</description>
+      </action>
+      <action type="open_display">
+        <file>scanParms.opi</file>
+        <macros>
+          <PV>BraggThetaAO</PV>
+          <Q>BraggTheta</Q>
+        </macros>
+        <target>tab</target>
+        <description>Theta-scan parameters</description>
+      </action>
+      <action type="open_display">
+        <file>scanParms.opi</file>
+        <macros>
+          <PV>BraggLambdaAO</PV>
+          <Q>BraggLambda</Q>
+        </macros>
+        <target>tab</target>
+        <description>Wavelength-scan parameters</description>
+      </action>
+    </actions>
+    <text>Kohzu Mono</text>
+    <x>20</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #46</name>
+    <actions>
+      <action type="open_display">
+        <file>pf4.opi</file>
+        <macros>
+          <A>A</A>
+          <B>B</B>
+          <B1>$(P)Unidig1Bo3</B1>
+          <B2>$(P)Unidig1Bo4</B2>
+          <B3>$(P)Unidig1Bo5</B3>
+          <B4>$(P)Unidig1Bo6</B4>
+          <B5>$(P)Unidig1Bo7</B5>
+          <B6>$(P)Unidig1Bo8</B6>
+          <B7>$(P)Unidig1Bo9</B7>
+          <B8>$(P)Unidig1Bo10</B8>
+          <H>pf4:</H>
+          <MONO>$(P)BraggEAO</MONO>
+        </macros>
+        <target>tab</target>
+        <description>PF4 Filter</description>
+      </action>
+      <action type="open_display">
+        <file>pf4small.opi</file>
+        <macros>
+          <A>A</A>
+          <B>B</B>
+          <B1>$(P)Unidig1Bo3</B1>
+          <B2>$(P)Unidig1Bo4</B2>
+          <B3>$(P)Unidig1Bo5</B3>
+          <B4>$(P)Unidig1Bo6</B4>
+          <B5>$(P)Unidig1Bo7</B5>
+          <B6>$(P)Unidig1Bo8</B6>
+          <B7>$(P)Unidig1Bo9</B7>
+          <B8>$(P)Unidig1Bo10</B8>
+          <H>pf4:</H>
+          <MONO>$(P)BraggEAO</MONO>
+        </macros>
+        <target>tab</target>
+        <description>PF4 Filter small</description>
+      </action>
+      <action type="open_display">
+        <file>pf4.opi</file>
+        <macros>
+          <A>A</A>
+          <B>B</B>
+          <H>pf4:</H>
+        </macros>
+        <target>tab</target>
+        <description>PF4 Filter fake I/O</description>
+      </action>
+      <action type="open_display">
+        <file>pf4Bank.opi</file>
+        <macros>
+          <B>A</B>
+          <H>pf4:</H>
+        </macros>
+        <target>tab</target>
+        <description>PF4 FilterBank A</description>
+      </action>
+      <action type="open_display">
+        <file>filter_8_8_more.opi</file>
+        <macros>
+          <R>filter:</R>
+        </macros>
+        <target>tab</target>
+        <description>Alt PF4 filter 16</description>
+      </action>
+      <action type="open_display">
+        <file>filter_8_0_more.opi</file>
+        <macros>
+          <R>filter:</R>
+        </macros>
+        <target>tab</target>
+        <description>Alt PF4 filter 8</description>
+      </action>
+    </actions>
+    <text>PF4 Filter</text>
+    <x>137</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #54</name>
+    <actions>
+      <action type="open_display">
+        <file>XIA_shutter.opi</file>
+        <macros>
+          <S>shutter1</S>
+        </macros>
+        <target>tab</target>
+        <description>XIA shutter 1</description>
+      </action>
+      <action type="open_display">
+        <file>XIA_shutterTry.opi</file>
+        <macros>
+          <S>shutter2</S>
+        </macros>
+        <target>tab</target>
+        <description>XIA shutter 2</description>
+      </action>
+    </actions>
+    <text>Shutter</text>
+    <x>254</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #58</name>
+    <actions>
+      <action type="open_display">
+        <file>2slit.opi</file>
+        <macros>
+          <SLIT>Slit1H</SLIT>
+          <mXn>m6</mXn>
+          <mXp>m5</mXp>
+        </macros>
+        <target>tab</target>
+        <description>Slit 1 (H)</description>
+      </action>
+      <action type="open_display">
+        <file>2slit.opi</file>
+        <macros>
+          <SLIT>Slit1V</SLIT>
+          <mXn>m4</mXn>
+          <mXp>m3</mXp>
+        </macros>
+        <target>tab</target>
+        <description>Slit 1 (V)</description>
+      </action>
+      <action type="open_display">
+        <file>4slitGraphic.opi</file>
+        <macros>
+          <H>Slit1H</H>
+          <SLIT>Slit_1</SLIT>
+          <V>Slit1V</V>
+          <mXn>m4</mXn>
+          <mXp>m3</mXp>
+          <mYn>m6</mYn>
+          <mYp>m5</mYp>
+        </macros>
+        <target>tab</target>
+        <description>Slit 1 Graphic</description>
+      </action>
+      <action type="open_display">
+        <file>motor4x.opi</file>
+        <macros>
+          <M1>m3</M1>
+          <M2>m4</M2>
+          <M3>m5</M3>
+          <M4>m6</M4>
+        </macros>
+        <target>tab</target>
+        <description>Slit Motors</description>
+      </action>
+    </actions>
+    <text>Slit #1</text>
+    <x>371</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #64</name>
+    <actions>
+      <action type="open_display">
+        <file>table.opi</file>
+        <macros>
+          <M0X>m1</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>m4</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>m6</M2Z>
+          <Q>Table1</Q>
+          <T>table1</T>
+        </macros>
+        <target>tab</target>
+        <description>Table1 (S)</description>
+      </action>
+      <action type="open_display">
+        <file>table_full.opi</file>
+        <macros>
+          <M0X>m1</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>m4</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>m6</M2Z>
+          <Q>Table1</Q>
+          <T>table1</T>
+        </macros>
+        <target>tab</target>
+        <description>Table1 (L)</description>
+      </action>
+      <action type="open_display">
+        <file>table.opi</file>
+        <macros>
+          <M0X>m1</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>m4</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>junk</M2Z>
+          <Q>Table2</Q>
+          <T>table2</T>
+        </macros>
+        <target>tab</target>
+        <description>Table2 (S) (no Z)</description>
+      </action>
+      <action type="open_display">
+        <file>table_full.opi</file>
+        <macros>
+          <M0X>m1</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>m4</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>junk</M2Z>
+          <Q>Table2</Q>
+          <T>table2</T>
+        </macros>
+        <target>tab</target>
+        <description>Table2 (L) (no Z)</description>
+      </action>
+      <action type="open_display">
+        <file>table.opi</file>
+        <macros>
+          <M0X>junk</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>junk</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>m6</M2Z>
+          <Q>Table3</Q>
+          <T>table3</T>
+        </macros>
+        <target>tab</target>
+        <description>Table3 (S) (no X)</description>
+      </action>
+      <action type="open_display">
+        <file>table_full.opi</file>
+        <macros>
+          <M0X>junk</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>junk</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>m6</M2Z>
+          <Q>Table3</Q>
+          <T>table3</T>
+        </macros>
+        <target>tab</target>
+        <description>Table3 (L) (no X)</description>
+      </action>
+      <action type="open_display">
+        <file>table.opi</file>
+        <macros>
+          <M0X>junk</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>junk</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>junk</M2Z>
+          <Q>Table4</Q>
+          <T>table4</T>
+        </macros>
+        <target>tab</target>
+        <description>Table4 (S) (no X or Z)</description>
+      </action>
+      <action type="open_display">
+        <file>table_full.opi</file>
+        <macros>
+          <M0X>junk</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>junk</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>junk</M2Z>
+          <Q>Table4</Q>
+          <T>table4</T>
+        </macros>
+        <target>tab</target>
+        <description>Table4 (L) (no X or Z)</description>
+      </action>
+      <action type="open_display">
+        <file>ASRPmirrorTable.opi</file>
+        <macros>
+          <PITCH>$(P)m8</PITCH>
+          <TBL>mt1</TBL>
+          <VERT>$(P)m7</VERT>
+        </macros>
+        <target>tab</target>
+        <description>ASRP mirror table</description>
+      </action>
+      <action type="open_display">
+        <file>table_soft.opi</file>
+        <macros>
+          <M0X>m1</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>m4</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>m6</M2Z>
+          <Q>Table1</Q>
+          <T>table1</T>
+        </macros>
+        <target>tab</target>
+        <description>Table1 soft (S)</description>
+      </action>
+    </actions>
+    <text>Tables</text>
+    <x>488</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #76</name>
+    <actions>
+      <action type="open_display">
+        <file>SGM_tiny.opi</file>
+        <macros>
+          <M_rIn>m6</M_rIn>
+          <M_rOut>m8</M_rOut>
+          <M_x>m7</M_x>
+          <N>1</N>
+        </macros>
+        <target>tab</target>
+        <description>Spherical Grating Monochromator (tiny)</description>
+      </action>
+      <action type="open_display">
+        <file>SGM.opi</file>
+        <macros>
+          <M_rIn>m6</M_rIn>
+          <M_rOut>m8</M_rOut>
+          <M_x>m7</M_x>
+          <N>1</N>
+        </macros>
+        <target>tab</target>
+        <description>Spherical Grating Monochromator</description>
+      </action>
+    </actions>
+    <text>SGM Mono</text>
+    <x>20</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #80</name>
+    <actions>
+      <action type="open_display">
+        <file>2filter.opi</file>
+        <macros>
+          <LOCK1>fltr_1_2:</LOCK1>
+          <LOCK2>fltr_1_2:</LOCK2>
+          <Q1>fltr1:</Q1>
+          <Q2>fltr2:</Q2>
+        </macros>
+        <target>tab</target>
+        <description>User Filter</description>
+      </action>
+      <action type="open_display">
+        <file>2filter_setup.opi</file>
+        <macros>
+          <LOCK1>fltr_1_2:</LOCK1>
+          <LOCK2>fltr_1_2:</LOCK2>
+          <Q1>fltr1:</Q1>
+          <Q2>fltr2:</Q2>
+        </macros>
+        <target>tab</target>
+        <description>User Filter Setup</description>
+      </action>
+    </actions>
+    <text>User Filter</text>
+    <x>137</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #84</name>
+    <text></text>
+    <x>254</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #86</name>
+    <actions>
+      <action type="open_display">
+        <file>2slit_soft.opi</file>
+        <macros>
+          <SLIT>Slit2H</SLIT>
+          <mXn>m16</mXn>
+          <mXp>m15</mXp>
+        </macros>
+        <target>tab</target>
+        <description>Slit 2 (H) (soft)</description>
+      </action>
+      <action type="open_display">
+        <file>2slit_soft.opi</file>
+        <macros>
+          <SLIT>Slit2V</SLIT>
+          <mXn>m14</mXn>
+          <mXp>m13</mXp>
+        </macros>
+        <target>tab</target>
+        <description>Slit 2 (V) (soft)</description>
+      </action>
+      <action type="open_display">
+        <file>4slitGraphic_soft.opi</file>
+        <macros>
+          <H>Slit2H</H>
+          <SLIT>Slit_2</SLIT>
+          <V>Slit2V</V>
+          <mXn>m16</mXn>
+          <mXp>m15</mXp>
+          <mYn>m14</mYn>
+          <mYp>m13</mYp>
+        </macros>
+        <target>tab</target>
+        <description>Slit 2 Graphic (soft)</description>
+      </action>
+    </actions>
+    <text>Slit #2</text>
+    <x>371</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #91</name>
+    <actions>
+      <action type="open_display">
+        <file>2postMirror.opi</file>
+        <macros>
+          <Q>M1</Q>
+          <mDn>m1</mDn>
+          <mUp>m2</mUp>
+        </macros>
+        <target>tab</target>
+        <description>2-post Mirror</description>
+      </action>
+    </actions>
+    <text>Mirror</text>
+    <x>488</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #94</name>
+    <actions>
+      <action type="open_display">
+        <file>ml_monoGraphic.opi</file>
+        <macros>
+          <mB>m11</mB>
+          <mT1>m7</mT1>
+          <mT2>m10</mT2>
+          <mY1>m1</mY1>
+          <mY2>m9</mY2>
+          <mZ1>m2</mZ1>
+          <mZ2>m8</mZ2>
+        </macros>
+        <target>tab</target>
+        <description>ml_monoGraphic</description>
+      </action>
+      <action type="open_display">
+        <file>ml_monoSeqCtl_tiny.opi</file>
+        <target>tab</target>
+        <description>ml_monoSeq (tiny)</description>
+      </action>
+      <action type="open_display">
+        <file>ml_monoSeqCtl.opi</file>
+        <target>tab</target>
+        <description>ml_monoSeq</description>
+      </action>
+      <action type="open_display">
+        <file>ml_monoSeqCtl_All.opi</file>
+        <target>tab</target>
+        <description>ml_monoSeq (All)</description>
+      </action>
+      <action type="open_display">
+        <file>scanParms.opi</file>
+        <macros>
+          <PV>ml_monoE</PV>
+          <Q>ml_monoE</Q>
+        </macros>
+        <target>tab</target>
+        <description>Energy-scan parameters</description>
+      </action>
+      <action type="open_display">
+        <file>scanParms.opi</file>
+        <macros>
+          <PV>ml_monoTheta</PV>
+          <Q>ml_monoTheta</Q>
+        </macros>
+        <target>tab</target>
+        <description>Theta-scan parameters</description>
+      </action>
+      <action type="open_display">
+        <file>scanParms.opi</file>
+        <macros>
+          <PV>ml_monoLambda</PV>
+          <Q>ml_monoLambda</Q>
+        </macros>
+        <target>tab</target>
+        <description>Wavelength-scan parameters</description>
+      </action>
+    </actions>
+    <text>ML Mono</text>
+    <x>20</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #103</name>
+    <text></text>
+    <x>254</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #105</name>
+    <actions>
+      <action type="open_display">
+        <file>xia_slit.opi</file>
+        <macros>
+          <HSC>hsc1:</HSC>
+        </macros>
+        <target>tab</target>
+        <description>XIA slit 1 (H)</description>
+      </action>
+      <action type="open_display">
+        <file>xia_slit.opi</file>
+        <macros>
+          <HSC>hsc2:</HSC>
+        </macros>
+        <target>tab</target>
+        <description>XIA slit 1 (V)</description>
+      </action>
+    </actions>
+    <text>XIA Slit</text>
+    <x>371</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #109</name>
+    <actions>
+      <action type="open_display">
+        <file>orient.opi</file>
+        <macros>
+          <O>_0</O>
+          <PM>$(P)</PM>
+          <mCHI>m11</mCHI>
+          <mPHI>m12</mPHI>
+          <mTH>m10</mTH>
+          <mTTH>m9</mTTH>
+        </macros>
+        <target>tab</target>
+        <description>orientation matrix</description>
+      </action>
+      <action type="open_display">
+        <file>orient9.opi</file>
+        <macros>
+          <PM>$(P)</PM>
+          <mCHI>m11</mCHI>
+          <mPHI>m12</mPHI>
+          <mTH>m10</mTH>
+          <mTTH>m9</mTTH>
+        </macros>
+        <target>tab</target>
+        <description>orient9</description>
+      </action>
+    </actions>
+    <text>4 Circle</text>
+    <x>488</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #113</name>
+    <actions>
+      <action type="open_display">
+        <file>pf4.opi</file>
+        <macros>
+          <A>A</A>
+          <B>B</B>
+          <H>pf401:</H>
+          <MONO></MONO>
+          <PV></PV>
+        </macros>
+        <target>tab</target>
+        <description>XIA pfcu</description>
+      </action>
+      <action type="open_display">
+        <file>pf4dual.opi</file>
+        <macros>
+          <MONO>$(P)BraggERdbkAO</MONO>
+          <PV1>$(P)pf4_1:</PV1>
+          <PV2>$(P)Unidig1Bo</PV2>
+        </macros>
+        <target>tab</target>
+        <description>XIA pfcu (synApps 5.2.1)</description>
+      </action>
+    </actions>
+    <text>XIA PFCU</text>
+    <x>137</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #117</name>
+    <actions>
+      <action type="open_display">
+        <file>hr_nested.opi</file>
+        <macros>
+          <N>1</N>
+        </macros>
+        <target>tab</target>
+        <description>High resolution monochromator (nested)</description>
+      </action>
+      <action type="open_display">
+        <file>hr_symmetric.opi</file>
+        <macros>
+          <N>1</N>
+        </macros>
+        <target>tab</target>
+        <description>High resolution monochromator (symmetric)</description>
+      </action>
+      <action type="open_display">
+        <file>hrSeqCtl_All.opi</file>
+        <macros>
+          <N>1</N>
+        </macros>
+        <target>tab</target>
+        <description>High resolution monochromator control</description>
+      </action>
+    </actions>
+    <text>HR Mono</text>
+    <x>20</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #122</name>
+    <actions>
+      <action type="open_display">
+        <file>CoarseFineMotor.opi</file>
+        <macros>
+          <CM>m1</CM>
+          <FM>m2</FM>
+          <M>MOT</M>
+          <P>$(P)cf1:</P>
+          <PM>$(P)</PM>
+        </macros>
+        <target>tab</target>
+        <description>CoarseFine</description>
+      </action>
+    </actions>
+    <text>Coarse/Fine</text>
+    <x>137</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #125</name>
+    <text></text>
+    <x>254</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #127</name>
+    <text></text>
+    <x>371</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #129</name>
+    <text></text>
+    <x>488</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+</display>

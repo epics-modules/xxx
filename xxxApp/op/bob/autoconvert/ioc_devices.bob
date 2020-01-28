@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>ioc_devices</name>
+  <x>13</x>
+  <y>227</y>
+  <width>622</width>
+  <height>286</height>
+  <background_color>
+    <color red="187" green="187" blue="187">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #6</name>
+    <width>622</width>
+    <height>28</height>
+    <line_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #9</name>
+    <text>$(P)</text>
+    <x>8</x>
+    <y>4</y>
+    <width>606</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #13</name>
+    <x>8</x>
+    <y>68</y>
+    <width>608</width>
+    <height>160</height>
+    <line_width>4</line_width>
+    <line_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #17</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_motors.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Motors</text>
+    <x>10</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #20</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_optics.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Optics</text>
+    <x>95</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #23</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_detectors.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Detectors</text>
+    <x>180</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #26</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_direct_io.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Direct I/O</text>
+    <x>265</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #29</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_devices.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Devices</text>
+    <x>350</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #32</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_tools.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Tools</text>
+    <x>435</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #35</name>
+    <file>ioc_stop_panel.bob</file>
+    <x>14</x>
+    <y>240</y>
+    <width>592</width>
+    <height>32</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #37</name>
+    <actions>
+      <action type="open_display">
+        <file>SR570_tiny.opi</file>
+        <macros>
+          <A>A1</A>
+        </macros>
+        <target>tab</target>
+        <description>SRS 570 Current Preamplifier #A1</description>
+      </action>
+      <action type="open_display">
+        <file>SR570_tiny.opi</file>
+        <macros>
+          <A>A2</A>
+        </macros>
+        <target>tab</target>
+        <description>SRS 570 Current Preamplifier #A2</description>
+      </action>
+      <action type="open_display">
+        <file>SR570_tiny.opi</file>
+        <macros>
+          <A>A3</A>
+        </macros>
+        <target>tab</target>
+        <description>SRS 570 Current Preamplifier #A3</description>
+      </action>
+      <action type="open_display">
+        <file>SR570_tiny.opi</file>
+        <macros>
+          <A>A4</A>
+        </macros>
+        <target>tab</target>
+        <description>SRS 570 Current Preamplifier #A4</description>
+      </action>
+      <action type="open_display">
+        <file>SR570_tiny.opi</file>
+        <macros>
+          <A>A5</A>
+        </macros>
+        <target>tab</target>
+        <description>SRS 570 Current Preamplifier #A5</description>
+      </action>
+      <action type="open_display">
+        <file>femto.opi</file>
+        <macros>
+          <AC>$(P)Unidig1Bo9</AC>
+          <F>seq01:</F>
+          <H>fem01:</H>
+        </macros>
+        <target>tab</target>
+        <description>Femto Current Preamplifier</description>
+      </action>
+    </actions>
+    <text>Preamps</text>
+    <x>20</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #45</name>
+    <actions>
+      <action type="open_display">
+        <file>Pump.opi</file>
+        <macros>
+          <PUMP>ip1</PUMP>
+        </macros>
+        <target>tab</target>
+        <description>Digitel Vacuum Pump</description>
+      </action>
+      <action type="open_display">
+        <file>Pump.opi</file>
+        <macros>
+          <PUMP>ip2</PUMP>
+        </macros>
+        <target>tab</target>
+        <description>MPC Ion Pump</description>
+      </action>
+      <action type="open_display">
+        <file>Pump.opi</file>
+        <macros>
+          <PUMP>tsp1</PUMP>
+        </macros>
+        <target>tab</target>
+        <description>MPC TSP Pump</description>
+      </action>
+    </actions>
+    <text>Pumps</text>
+    <x>137</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #50</name>
+    <actions>
+      <action type="open_display">
+        <file>Keithley2kDMM_mf.opi</file>
+        <macros>
+          <Dmm>D1</Dmm>
+        </macros>
+        <target>tab</target>
+        <description>Keithley 2000 DMM #1</description>
+      </action>
+      <action type="open_display">
+        <file>Keithley2kDMM_mf.opi</file>
+        <macros>
+          <Dmm>D2</Dmm>
+        </macros>
+        <target>tab</target>
+        <description>Keithley 2000 DMM #2</description>
+      </action>
+      <action type="open_display">
+        <file>KeithleyDMM.opi</file>
+        <target>tab</target>
+        <description>Keithley DMM (thermistors)</description>
+      </action>
+    </actions>
+    <text>Keithley 2K</text>
+    <x>254</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #55</name>
+    <actions>
+      <action type="open_display">
+        <file>Io.opi</file>
+        <macros>
+          <MONO>$(P)BraggEAO</MONO>
+          <P>$(P)Io:</P>
+          <S>$(P)scaler1</S>
+        </macros>
+        <target>tab</target>
+        <description>I0 calc</description>
+      </action>
+    </actions>
+    <text>I0</text>
+    <x>371</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #58</name>
+    <text></text>
+    <x>488</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #60</name>
+    <actions>
+      <action type="open_display">
+        <file>HeidEncoder.opi</file>
+        <macros>
+          <A>6</A>
+        </macros>
+        <target>tab</target>
+        <description>Heidenhain AWE1024</description>
+      </action>
+      <action type="open_display">
+        <file>HeidEncoder.opi</file>
+        <macros>
+          <A>7</A>
+        </macros>
+        <target>tab</target>
+        <description>Heidenhain AWE1024</description>
+      </action>
+      <action type="open_display">
+        <file>HeidND261.opi</file>
+        <target>tab</target>
+        <description>Heidenhain ND261</description>
+      </action>
+      <action type="open_display">
+        <file>HeidIK320_group.opi</file>
+        <macros>
+          <card>card0</card>
+          <group>5</group>
+        </macros>
+        <target>tab</target>
+        <description>Heidenhain IK320</description>
+      </action>
+    </actions>
+    <text>Encoders</text>
+    <x>20</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #66</name>
+    <text></text>
+    <x>137</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #68</name>
+    <actions>
+      <action type="open_display">
+        <file>Eurotherm.opi</file>
+        <target>tab</target>
+        <description>Eurotherm</description>
+      </action>
+      <action type="open_display">
+        <file>Eurotherm2k.opi</file>
+        <macros>
+          <TC>1</TC>
+        </macros>
+        <target>tab</target>
+        <description>Eurotherm 2k</description>
+      </action>
+    </actions>
+    <text>Eurotherm</text>
+    <x>254</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #72</name>
+    <text></text>
+    <x>371</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #74</name>
+    <text></text>
+    <x>488</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #76</name>
+    <actions>
+      <action type="open_display">
+        <file>HPLaserAxis.opi</file>
+        <macros>
+          <Q>HPLaser1</Q>
+        </macros>
+        <target>tab</target>
+        <description>HP Laser Axis 1</description>
+      </action>
+      <action type="open_display">
+        <file>HPLaserAxis.opi</file>
+        <macros>
+          <Q>HPLaser2</Q>
+        </macros>
+        <target>tab</target>
+        <description>HP Laser Axis 2</description>
+      </action>
+    </actions>
+    <text>HP Laser</text>
+    <x>20</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #80</name>
+    <actions>
+      <action type="open_display">
+        <file>LakeShore.opi</file>
+        <macros>
+          <Q>TC1</Q>
+        </macros>
+        <target>tab</target>
+        <description>LakeShore Temp. Controller</description>
+      </action>
+    </actions>
+    <text>LakeShore</text>
+    <x>254</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #83</name>
+    <text></text>
+    <x>371</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #85</name>
+    <text></text>
+    <x>488</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #87</name>
+    <text></text>
+    <x>137</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #89</name>
+    <actions>
+      <action type="open_display">
+        <file>Elcomat.opi</file>
+        <target>tab</target>
+        <description>Autocollimator</description>
+      </action>
+    </actions>
+    <text>Autocoll</text>
+    <x>20</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #92</name>
+    <actions>
+      <action type="open_display">
+        <file>OctupoleRamp.opi</file>
+        <macros>
+          <Q>octupole:</Q>
+        </macros>
+        <target>tab</target>
+        <description>Octupole Ramp</description>
+      </action>
+      <action type="open_display">
+        <file>octupoleTempRead.opi</file>
+        <macros>
+          <Q>Oct:</Q>
+        </macros>
+        <target>tab</target>
+        <description>Octupole Temperature</description>
+      </action>
+    </actions>
+    <text>Octupole</text>
+    <x>137</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #96</name>
+    <actions>
+      <action type="open_display">
+        <file>Oxford_ILM202.opi</file>
+        <macros>
+          <S>s1</S>
+        </macros>
+        <target>tab</target>
+        <description>Oxford ILM202 Cryogen Level Meter</description>
+      </action>
+    </actions>
+    <text>Oxford ILM202</text>
+    <x>254</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #99</name>
+    <text></text>
+    <x>371</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #101</name>
+    <text></text>
+    <x>488</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+</display>

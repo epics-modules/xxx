@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>ioc_tools</name>
+  <x>13</x>
+  <y>227</y>
+  <width>622</width>
+  <height>286</height>
+  <background_color>
+    <color red="187" green="187" blue="187">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #6</name>
+    <width>622</width>
+    <height>28</height>
+    <line_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #9</name>
+    <text>$(P)</text>
+    <x>8</x>
+    <y>4</y>
+    <width>606</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #13</name>
+    <x>8</x>
+    <y>68</y>
+    <width>608</width>
+    <height>160</height>
+    <line_width>4</line_width>
+    <line_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #17</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_motors.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Motors</text>
+    <x>10</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #20</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_optics.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Optics</text>
+    <x>95</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #23</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_detectors.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Detectors</text>
+    <x>180</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #26</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_direct_io.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Direct I/O</text>
+    <x>265</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #29</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_devices.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Devices</text>
+    <x>350</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="52" green="51" blue="134">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #32</name>
+    <text>Tools</text>
+    <x>435</x>
+    <y>44</y>
+    <width>80</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #34</name>
+    <file>ioc_stop_panel.bob</file>
+    <x>14</x>
+    <y>240</y>
+    <width>592</width>
+    <height>32</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #36</name>
+    <actions>
+      <action type="open_display">
+        <file>userCalcs10.opi</file>
+        <target>tab</target>
+        <description>user calcs 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>userStringCalcs10.opi</file>
+        <target>tab</target>
+        <description>user stringCalcs 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>userTransforms10.opi</file>
+        <target>tab</target>
+        <description>user transforms 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>userStringSeqs10.opi</file>
+        <target>tab</target>
+        <description>user string seqs 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>userArrayCalcs10.opi</file>
+        <target>tab</target>
+        <description>user arrayCalcs 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>userAve10.opi</file>
+        <target>tab</target>
+        <description>user average 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>userCalcOuts10.opi</file>
+        <target>tab</target>
+        <description>user calcOuts 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>userStringCalcs10more.opi</file>
+        <macros>
+          <N1>11</N1>
+          <N10>20</N10>
+          <N2>12</N2>
+          <N3>13</N3>
+          <N4>14</N4>
+          <N5>15</N5>
+          <N6>16</N6>
+          <N7>17</N7>
+          <N8>18</N8>
+          <N9>19</N9>
+        </macros>
+        <target>tab</target>
+        <description>user stringCalcs 11-20</description>
+      </action>
+      <action type="open_display">
+        <file>userTransforms10more.opi</file>
+        <macros>
+          <N1>11</N1>
+          <N10>20</N10>
+          <N2>12</N2>
+          <N3>13</N3>
+          <N4>14</N4>
+          <N5>15</N5>
+          <N6>16</N6>
+          <N7>17</N7>
+          <N8>18</N8>
+          <N9>19</N9>
+        </macros>
+        <target>tab</target>
+        <description>user transforms 11-20</description>
+      </action>
+      <action type="open_display">
+        <file>userStringSeqs10more.opi</file>
+        <macros>
+          <N1>11</N1>
+          <N10>20</N10>
+          <N2>12</N2>
+          <N3>13</N3>
+          <N4>14</N4>
+          <N5>15</N5>
+          <N6>16</N6>
+          <N7>17</N7>
+          <N8>18</N8>
+          <N9>19</N9>
+        </macros>
+        <target>tab</target>
+        <description>user string seqs 11-20</description>
+      </action>
+      <action type="open_display">
+        <file>userArrayCalcs10more.opi</file>
+        <macros>
+          <N1>11</N1>
+          <N10>20</N10>
+          <N2>12</N2>
+          <N3>13</N3>
+          <N4>14</N4>
+          <N5>15</N5>
+          <N6>16</N6>
+          <N7>17</N7>
+          <N8>18</N8>
+          <N9>19</N9>
+        </macros>
+        <target>tab</target>
+        <description>user arrayCalcs 11-20</description>
+      </action>
+      <action type="open_display">
+        <file>userAve10more.opi</file>
+        <macros>
+          <N1>11</N1>
+          <N10>20</N10>
+          <N2>12</N2>
+          <N3>13</N3>
+          <N4>14</N4>
+          <N5>15</N5>
+          <N6>16</N6>
+          <N7>17</N7>
+          <N8>18</N8>
+          <N9>19</N9>
+        </macros>
+        <target>tab</target>
+        <description>user average 11-20</description>
+      </action>
+      <action type="open_display">
+        <file>userCalcOuts10more.opi</file>
+        <macros>
+          <N1>11</N1>
+          <N10>20</N10>
+          <N2>12</N2>
+          <N3>13</N3>
+          <N4>14</N4>
+          <N5>15</N5>
+          <N6>16</N6>
+          <N7>17</N7>
+          <N8>18</N8>
+          <N9>19</N9>
+        </macros>
+        <target>tab</target>
+        <description>user calcOuts 11-20</description>
+      </action>
+      <action type="open_display">
+        <file>userCalcs10more.opi</file>
+        <macros>
+          <N1>11</N1>
+          <N10>20</N10>
+          <N2>12</N2>
+          <N3>13</N3>
+          <N4>14</N4>
+          <N5>15</N5>
+          <N6>16</N6>
+          <N7>17</N7>
+          <N8>18</N8>
+          <N9>19</N9>
+        </macros>
+        <target>tab</target>
+        <description>user calcs 11-20</description>
+      </action>
+      <action type="open_display">
+        <file>xxBusyRecord.opi</file>
+        <macros>
+          <R>mybusy</R>
+        </macros>
+        <target>tab</target>
+        <description>busyRecord</description>
+      </action>
+      <action type="open_display">
+        <file>xxBusyRecord.opi</file>
+        <macros>
+          <R>mybusy2</R>
+        </macros>
+        <target>tab</target>
+        <description>busyRecord 2</description>
+      </action>
+      <action type="open_display">
+        <file>userCalcsGlobalEnable.opi</file>
+        <target>tab</target>
+        <description>global enable</description>
+      </action>
+      <action type="open_display">
+        <file>editSseq.opi</file>
+        <macros>
+          <Q>ES:</Q>
+        </macros>
+        <target>tab</target>
+        <description>string sequence</description>
+      </action>
+    </actions>
+    <text>userCalc</text>
+    <x>20</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #56</name>
+    <actions>
+      <action type="open_display">
+        <file>userScripts10.opi</file>
+        <macros>
+          <R>set1:</R>
+        </macros>
+        <target>tab</target>
+        <description>userScripts 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>userScripts10.opi</file>
+        <macros>
+          <R>set2:</R>
+        </macros>
+        <target>tab</target>
+        <description>userScripts 11-20</description>
+      </action>
+    </actions>
+    <text>userScripts</text>
+    <x>137</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #60</name>
+    <actions>
+      <action type="open_display">
+        <file>scan.opi</file>
+        <macros>
+          <N>1</N>
+          <S>scan1</S>
+        </macros>
+        <target>tab</target>
+        <description>Scan1 (for all scans)</description>
+      </action>
+      <action type="open_display">
+        <file>scan.opi</file>
+        <macros>
+          <N>2</N>
+          <S>scan2</S>
+        </macros>
+        <target>tab</target>
+        <description>Scan2 (for 2D &amp; higher scans)</description>
+      </action>
+      <action type="open_display">
+        <file>scan.opi</file>
+        <macros>
+          <N>3</N>
+          <S>scan3</S>
+        </macros>
+        <target>tab</target>
+        <description>Scan3 (for 3D &amp; higher scans)</description>
+      </action>
+      <action type="open_display">
+        <file>scan.opi</file>
+        <macros>
+          <N>4</N>
+          <S>scan4</S>
+        </macros>
+        <target>tab</target>
+        <description>Scan4 (for 4D scans)</description>
+      </action>
+      <action type="open_display">
+        <file>scan.opi</file>
+        <macros>
+          <N>H</N>
+          <S>scanH</S>
+        </macros>
+        <target>tab</target>
+        <description>ScanH (for Hardware-assisted scans)</description>
+      </action>
+      <action type="open_display">
+        <file>scanParms2Pos.opi</file>
+        <macros>
+          <PV1>$(P)m7</PV1>
+          <PV2>$(P)m8</PV2>
+          <Q>m7_8</Q>
+          <SCAN>$(P)scan1</SCAN>
+        </macros>
+        <target>tab</target>
+        <description>test scanParms2Pos</description>
+      </action>
+      <action type="open_display">
+        <file>scan_saveData.opi</file>
+        <target>tab</target>
+        <description>saveData controls</description>
+      </action>
+      <action type="open_display">
+        <file>scanAux.opi</file>
+        <macros>
+          <S>scanAux</S>
+        </macros>
+        <target>tab</target>
+        <description>aux scan</description>
+      </action>
+      <action type="open_display">
+        <file>ProgressBar.opi</file>
+        <macros>
+          <B>$(P)scanProgress:</B>
+        </macros>
+        <target>tab</target>
+        <description>scanProgress</description>
+      </action>
+      <action type="open_display">
+        <file>configMenu.opi</file>
+        <macros>
+          <CONFIG>scan1</CONFIG>
+        </macros>
+        <target>tab</target>
+        <description>scan1Menu</description>
+      </action>
+    </actions>
+    <text>Scan</text>
+    <x>254</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #72</name>
+    <actions>
+      <action type="open_display">
+        <file>interp.opi</file>
+        <target>tab</target>
+        <description>interp</description>
+      </action>
+      <action type="open_display">
+        <file>arrayTest.opi</file>
+        <target>tab</target>
+        <description>arrayTest</description>
+      </action>
+      <action type="open_display">
+        <file>pvHistory.opi</file>
+        <macros>
+          <N>1</N>
+        </macros>
+        <target>tab</target>
+        <description>pvHistory 1</description>
+      </action>
+      <action type="open_display">
+        <file>interpNew.opi</file>
+        <macros>
+          <Q>1</Q>
+        </macros>
+        <target>tab</target>
+        <description>interpNew</description>
+      </action>
+    </actions>
+    <text>Array</text>
+    <x>371</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #78</name>
+    <text></text>
+    <x>488</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #80</name>
+    <actions>
+      <action type="open_display">
+        <file>softGlueMenu.opi</file>
+        <macros>
+          <H>softGlue:</H>
+        </macros>
+        <target>tab</target>
+        <description>softGlueMenu</description>
+      </action>
+      <action type="open_display">
+        <file>softGlueMenu.opi</file>
+        <macros>
+          <H>softGlue2:</H>
+        </macros>
+        <target>tab</target>
+        <description>softGlue2 Menu</description>
+      </action>
+      <action type="open_display">
+        <file>softGlue_Shift32_bare.opi</file>
+        <macros>
+          <H>softGlue:</H>
+          <N>1</N>
+        </macros>
+        <target>tab</target>
+        <description>shift 1</description>
+      </action>
+      <action type="open_display">
+        <file>softGlue_Shift32_bare.opi</file>
+        <macros>
+          <H>softGlue:</H>
+          <N>2</N>
+        </macros>
+        <target>tab</target>
+        <description>shift 2</description>
+      </action>
+      <action type="open_display">
+        <file>configMenu.opi</file>
+        <macros>
+          <CONFIG>SG</CONFIG>
+        </macros>
+        <target>tab</target>
+        <description>SoftGlue Circuits</description>
+      </action>
+    </actions>
+    <text>softGlue</text>
+    <x>20</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #87</name>
+    <actions>
+      <action type="open_display">
+        <file>timer.opi</file>
+        <macros>
+          <N>1</N>
+        </macros>
+        <target>tab</target>
+        <description>timer</description>
+      </action>
+    </actions>
+    <text>timer</text>
+    <x>137</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #90</name>
+    <actions>
+      <action type="open_display">
+        <file>ramp_tweak.opi</file>
+        <macros>
+          <Q>rt1</Q>
+        </macros>
+        <target>tab</target>
+        <description>ramp/tweak rt1</description>
+      </action>
+      <action type="open_display">
+        <file>ramp_tweak.opi</file>
+        <macros>
+          <Q>rt2</Q>
+        </macros>
+        <target>tab</target>
+        <description>ramp/tweak rt2</description>
+      </action>
+    </actions>
+    <text>Ramp Tweak</text>
+    <x>254</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #94</name>
+    <actions>
+      <action type="open_display">
+        <file>BunchClkGen.opi</file>
+        <macros>
+          <UNIT>$(P)BnchClkGen</UNIT>
+        </macros>
+        <target>tab</target>
+        <description>Bunch Clock Generator</description>
+      </action>
+      <action type="open_display">
+        <file>BunchClkGenA.opi</file>
+        <macros>
+          <UNIT>$(P)BnchClkGen</UNIT>
+        </macros>
+        <target>tab</target>
+        <description>Bunch Clock display A</description>
+      </action>
+      <action type="open_display">
+        <file>BunchClkGenTop.opi</file>
+        <target>tab</target>
+        <description>Bunch Clock 3id Top screen</description>
+      </action>
+    </actions>
+    <text>APS Bunch Clock</text>
+    <x>371</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #99</name>
+    <text></text>
+    <x>488</x>
+    <y>115</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #101</name>
+    <actions>
+      <action type="open_display">
+        <file>caputRecorder.opi</file>
+        <macros>
+          <L>$(P)</L>
+        </macros>
+        <target>tab</target>
+        <description>caputRecorder</description>
+      </action>
+      <action type="open_display">
+        <file>caputRecorder.opi</file>
+        <macros>
+          <L>$(P)</L>
+          <P>vm7A:</P>
+        </macros>
+        <target>tab</target>
+        <description>caputRecorderA</description>
+      </action>
+    </actions>
+    <text>caputRecorder</text>
+    <x>20</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #105</name>
+    <actions>
+      <action type="open_display">
+        <file>trajectoryScan.opi</file>
+        <macros>
+          <M1>m1</M1>
+          <M2>m2</M2>
+          <M3>m3</M3>
+          <M4>m4</M4>
+          <M5>m5</M5>
+          <M6>m6</M6>
+          <M7>m7</M7>
+          <M8>m8</M8>
+          <R>traj1:</R>
+          <TITLE>traj1</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>standard trajectoryScan</description>
+      </action>
+      <action type="open_display">
+        <file>MAX_trajectoryScan.opi</file>
+        <macros>
+          <M1>m1</M1>
+          <M2>m2</M2>
+          <M3>m3</M3>
+          <M4>m4</M4>
+          <M5>m5</M5>
+          <M6>m6</M6>
+          <M7>m7</M7>
+          <M8>m8</M8>
+          <R>traj1:</R>
+          <TITLE>traj1</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>trajectoryScan1</description>
+      </action>
+      <action type="open_display">
+        <file>MAX_trajectoryScan.opi</file>
+        <macros>
+          <M1>m9</M1>
+          <M2>m10</M2>
+          <M3>m11</M3>
+          <M4>m12</M4>
+          <M5>m13</M5>
+          <M6>m14</M6>
+          <M7>m15</M7>
+          <M8>m16</M8>
+          <R>traj2:</R>
+          <TITLE>traj2</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>trajectoryScan2</description>
+      </action>
+      <action type="open_display">
+        <file>MAX_trajectoryScan2.opi</file>
+        <macros>
+          <M1>m1</M1>
+          <M2>m2</M2>
+          <M3>m3</M3>
+          <M4>m4</M4>
+          <M5>m5</M5>
+          <M6>m6</M6>
+          <M7>m7</M7>
+          <M8>m8</M8>
+          <R>traj1:</R>
+          <TITLE>traj1</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>trajectoryScan1 (2 mot)</description>
+      </action>
+      <action type="open_display">
+        <file>trajectoryScan.opi</file>
+        <macros>
+          <M1>m1</M1>
+          <M2>m2</M2>
+          <M3>m3</M3>
+          <M4>m4</M4>
+          <M5>m5</M5>
+          <M6>m6</M6>
+          <M7>m7</M7>
+          <M8>m8</M8>
+          <R>traj1:</R>
+          <TITLE>traj1</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>MM4000 XPS trajectory</description>
+      </action>
+    </actions>
+    <text>trajectory</text>
+    <x>254</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #112</name>
+    <actions>
+      <action type="open_display">
+        <file>shutterDo.opi</file>
+        <macros>
+          <CLOSE_PV>$(P)sim2:close</CLOSE_PV>
+          <OPEN_PV>$(P)sim2:open</OPEN_PV>
+          <Q>s2:</Q>
+          <SHUTTER_STATUS>$(P)sim2:B_SHTRS_CLOSED</SHUTTER_STATUS>
+        </macros>
+        <target>tab</target>
+        <description>shutterDo</description>
+      </action>
+      <action type="open_display">
+        <file>shutterSim.opi</file>
+        <macros>
+          <CLOSE_PV>$(P)sim2:closeCmd</CLOSE_PV>
+          <OPEN_PV>$(P)sim2:openCmd</OPEN_PV>
+          <Q>sim2:</Q>
+          <SHUTTER_STATUS>$(P)sim2:B_SHTRS_CLOSED</SHUTTER_STATUS>
+        </macros>
+        <target>tab</target>
+        <description>shutterSim</description>
+      </action>
+    </actions>
+    <text>shutterDo</text>
+    <x>371</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #116</name>
+    <text></text>
+    <x>488</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #118</name>
+    <actions>
+      <action type="open_display">
+        <file>alarmClock.opi</file>
+        <macros>
+          <A>1</A>
+        </macros>
+        <target>tab</target>
+        <description>alarm clock</description>
+      </action>
+    </actions>
+    <text>alarmClock</text>
+    <x>137</x>
+    <y>150</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #121</name>
+    <actions>
+      <action type="open_display">
+        <file>FuncGen.opi</file>
+        <macros>
+          <Q>fgen</Q>
+        </macros>
+        <target>tab</target>
+        <description>funcGen</description>
+      </action>
+    </actions>
+    <text>FuncGen</text>
+    <x>20</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #124</name>
+    <actions>
+      <action type="open_display">
+        <file>countDownTimer.opi</file>
+        <macros>
+          <N>1</N>
+        </macros>
+        <target>tab</target>
+        <description>count down timer</description>
+      </action>
+    </actions>
+    <text>countDown</text>
+    <x>137</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #127</name>
+    <text></text>
+    <x>254</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #129</name>
+    <text></text>
+    <x>371</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #131</name>
+    <text></text>
+    <x>488</x>
+    <y>185</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+</display>

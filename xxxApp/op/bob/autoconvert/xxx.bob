@@ -1,0 +1,3858 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>xxx</name>
+  <x>1145</x>
+  <y>25</y>
+  <width>440</width>
+  <height>200</height>
+  <background_color>
+    <color red="236" green="236" blue="236">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #6</name>
+    <actions>
+      <action type="open_display">
+        <file>table.opi</file>
+        <macros>
+          <M0X>m1</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>m4</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>m6</M2Z>
+          <P>xxx:</P>
+          <Q>Table1</Q>
+          <T>table1</T>
+        </macros>
+        <target>tab</target>
+        <description>Table1 (S)</description>
+      </action>
+      <action type="open_display">
+        <file>table_full.opi</file>
+        <macros>
+          <M0X>m1</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>m4</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>m6</M2Z>
+          <P>xxx:</P>
+          <Q>Table1</Q>
+          <T>table1</T>
+        </macros>
+        <target>tab</target>
+        <description>Table1 (L)</description>
+      </action>
+      <action type="open_display">
+        <file>table.opi</file>
+        <macros>
+          <M0X>m1</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>m4</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>junk</M2Z>
+          <P>xxx:</P>
+          <Q>Table2</Q>
+          <T>table2</T>
+        </macros>
+        <target>tab</target>
+        <description>Table2 (S) (no Z)</description>
+      </action>
+      <action type="open_display">
+        <file>table_full.opi</file>
+        <macros>
+          <M0X>m1</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>m4</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>junk</M2Z>
+          <P>xxx:</P>
+          <Q>Table2</Q>
+          <T>table2</T>
+        </macros>
+        <target>tab</target>
+        <description>Table2 (L) (no Z)</description>
+      </action>
+      <action type="open_display">
+        <file>table.opi</file>
+        <macros>
+          <M0X>junk</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>junk</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>m6</M2Z>
+          <P>xxx:</P>
+          <Q>Table3</Q>
+          <T>table3</T>
+        </macros>
+        <target>tab</target>
+        <description>Table3 (S) (no X)</description>
+      </action>
+      <action type="open_display">
+        <file>table_full.opi</file>
+        <macros>
+          <M0X>junk</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>junk</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>m6</M2Z>
+          <P>xxx:</P>
+          <Q>Table3</Q>
+          <T>table3</T>
+        </macros>
+        <target>tab</target>
+        <description>Table3 (L) (no X)</description>
+      </action>
+      <action type="open_display">
+        <file>table.opi</file>
+        <macros>
+          <M0X>junk</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>junk</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>junk</M2Z>
+          <P>xxx:</P>
+          <Q>Table4</Q>
+          <T>table4</T>
+        </macros>
+        <target>tab</target>
+        <description>Table4 (S) (no X or Z)</description>
+      </action>
+      <action type="open_display">
+        <file>table_full.opi</file>
+        <macros>
+          <M0X>junk</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>junk</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>junk</M2Z>
+          <P>xxx:</P>
+          <Q>Table4</Q>
+          <T>table4</T>
+        </macros>
+        <target>tab</target>
+        <description>Table4 (L) (no X or Z)</description>
+      </action>
+      <action type="open_display">
+        <file>ASRPmirrorTable.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PITCH>xxx:m8</PITCH>
+          <TBL>mt1</TBL>
+          <VERT>xxx:m7</VERT>
+        </macros>
+        <target>tab</target>
+        <description>ASRP mirror table</description>
+      </action>
+      <action type="open_display">
+        <file>table_soft.opi</file>
+        <macros>
+          <M0X>m1</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>m4</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>m6</M2Z>
+          <P>xxx:</P>
+          <Q>Table1</Q>
+          <T>table1</T>
+        </macros>
+        <target>tab</target>
+        <description>Table1 soft (S)</description>
+      </action>
+    </actions>
+    <text>Tables</text>
+    <y>20</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #18</name>
+    <actions>
+      <action type="open_display">
+        <file>topMotors8.opi</file>
+        <macros>
+          <M1>m1</M1>
+          <M2>m2</M2>
+          <M3>m3</M3>
+          <M4>m4</M4>
+          <M5>m5</M5>
+          <M6>m6</M6>
+          <M7>m7</M7>
+          <M8>m8</M8>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>1-8</description>
+      </action>
+      <action type="open_display">
+        <file>topMotors8.opi</file>
+        <macros>
+          <M1>m9</M1>
+          <M2>m10</M2>
+          <M3>m11</M3>
+          <M4>m12</M4>
+          <M5>m13</M5>
+          <M6>m14</M6>
+          <M7>m15</M7>
+          <M8>m16</M8>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>9-16</description>
+      </action>
+      <action type="open_display">
+        <file>topMotors8.opi</file>
+        <macros>
+          <M1>m17</M1>
+          <M2>m18</M2>
+          <M3>m19</M3>
+          <M4>m20</M4>
+          <M5>m21</M5>
+          <M6>m22</M6>
+          <M7>m23</M7>
+          <M8>m24</M8>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>17-24</description>
+      </action>
+      <action type="open_display">
+        <file>topMotors8.opi</file>
+        <macros>
+          <M1>m25</M1>
+          <M2>m26</M2>
+          <M3>m27</M3>
+          <M4>m28</M4>
+          <M5>m29</M5>
+          <M6>m30</M6>
+          <M7>m31</M7>
+          <M8>m32</M8>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>25-32</description>
+      </action>
+      <action type="open_display">
+        <file>topMotors8.opi</file>
+        <macros>
+          <M1>m33</M1>
+          <M2>m34</M2>
+          <M3>m35</M3>
+          <M4>m36</M4>
+          <M5>m37</M5>
+          <M6>m38</M6>
+          <M7>m39</M7>
+          <M8>m40</M8>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>33-40</description>
+      </action>
+      <action type="open_display">
+        <file>topMotors8.opi</file>
+        <macros>
+          <M1>m41</M1>
+          <M2>m42</M2>
+          <M3>m43</M3>
+          <M4>m44</M4>
+          <M5>m45</M5>
+          <M6>m46</M6>
+          <M7>m47</M7>
+          <M8>m48</M8>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>41-48</description>
+      </action>
+      <action type="open_display">
+        <file>softMotors10.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <SM1>SM1</SM1>
+          <SM10>SM10</SM10>
+          <SM2>SM2</SM2>
+          <SM3>SM3</SM3>
+          <SM4>SM4</SM4>
+          <SM5>SM5</SM5>
+          <SM6>SM6</SM6>
+          <SM7>SM7</SM7>
+          <SM8>SM8</SM8>
+          <SM9>SM9</SM9>
+        </macros>
+        <target>tab</target>
+        <description>soft motors 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>topMotors4.opi</file>
+        <macros>
+          <M1>pm1</M1>
+          <M2>pm2</M2>
+          <M3>pm3</M3>
+          <M4>pm4</M4>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Pseudo-motors</description>
+      </action>
+      <action type="open_display">
+        <file>motorStatus16.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>motor status 16</description>
+      </action>
+    </actions>
+    <text>Motors</text>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #29</name>
+    <actions>
+      <action type="open_display">
+        <file>kohzuGraphic.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PVE>BraggEAO</PVE>
+          <PVL>BraggLambdaAO</PVL>
+          <PVTh>BraggThetaAO</PVTh>
+          <QE>BraggE</QE>
+          <QL>BraggLambda</QL>
+          <QTh>BraggTheta</QTh>
+          <mCHI2>m12</mCHI2>
+          <mTH>m9</mTH>
+          <mTH2>m13</mTH2>
+          <mX>m14</mX>
+          <mX2>m16</mX2>
+          <mY>m15</mY>
+          <mY1>m10</mY1>
+          <mZ2>m11</mZ2>
+        </macros>
+        <target>tab</target>
+        <description>Kohzu Graphic (GEOM 1)</description>
+      </action>
+      <action type="open_display">
+        <file>kohzu2Graphic.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PVE>BraggEAO</PVE>
+          <PVL>BraggLambdaAO</PVL>
+          <PVTh>BraggThetaAO</PVTh>
+          <QE>BraggE</QE>
+          <QL>BraggLambda</QL>
+          <QTh>BraggTheta</QTh>
+          <mCHI2>m12</mCHI2>
+          <mTH>m9</mTH>
+          <mTH2>m13</mTH2>
+          <mX>m14</mX>
+          <mX2>m16</mX2>
+          <mY>m15</mY>
+          <mY2>m10</mY2>
+          <mZ2>m11</mZ2>
+        </macros>
+        <target>tab</target>
+        <description>Kohzu Graphic (GEOM 2)</description>
+      </action>
+      <action type="open_display">
+        <file>kohzuSeqCtl_tiny.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>KohzuSeq (tiny)</description>
+      </action>
+      <action type="open_display">
+        <file>kohzuSeqCtl.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>KohzuSeq</description>
+      </action>
+      <action type="open_display">
+        <file>kohzuSeqCtl_All.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>KohzuSeq (All)</description>
+      </action>
+      <action type="open_display">
+        <file>scanParms.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PV>BraggEAO</PV>
+          <Q>BraggE</Q>
+        </macros>
+        <target>tab</target>
+        <description>Energy-scan parameters</description>
+      </action>
+      <action type="open_display">
+        <file>scanParms.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PV>BraggThetaAO</PV>
+          <Q>BraggTheta</Q>
+        </macros>
+        <target>tab</target>
+        <description>Theta-scan parameters</description>
+      </action>
+      <action type="open_display">
+        <file>scanParms.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PV>BraggLambdaAO</PV>
+          <Q>BraggLambda</Q>
+        </macros>
+        <target>tab</target>
+        <description>Wavelength-scan parameters</description>
+      </action>
+    </actions>
+    <text>Monochrom</text>
+    <y>60</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #39</name>
+    <actions>
+      <action type="open_display">
+        <file>scan.opi</file>
+        <macros>
+          <N>1</N>
+          <P>xxx:</P>
+          <S>scan1</S>
+        </macros>
+        <target>tab</target>
+        <description>Scan1 (for all scans)</description>
+      </action>
+      <action type="open_display">
+        <file>scan.opi</file>
+        <macros>
+          <N>2</N>
+          <P>xxx:</P>
+          <S>scan2</S>
+        </macros>
+        <target>tab</target>
+        <description>Scan2 (for 2D &amp; higher scans)</description>
+      </action>
+      <action type="open_display">
+        <file>scan.opi</file>
+        <macros>
+          <N>3</N>
+          <P>xxx:</P>
+          <S>scan3</S>
+        </macros>
+        <target>tab</target>
+        <description>Scan3 (for 3D &amp; higher scans)</description>
+      </action>
+      <action type="open_display">
+        <file>scan.opi</file>
+        <macros>
+          <N>4</N>
+          <P>xxx:</P>
+          <S>scan4</S>
+        </macros>
+        <target>tab</target>
+        <description>Scan4 (for 4D scans)</description>
+      </action>
+      <action type="open_display">
+        <file>scan.opi</file>
+        <macros>
+          <N>H</N>
+          <P>xxx:</P>
+          <S>scanH</S>
+        </macros>
+        <target>tab</target>
+        <description>ScanH (for Hardware-assisted scans)</description>
+      </action>
+      <action type="open_display">
+        <file>scanParms2Pos.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PV1>xxx:m7</PV1>
+          <PV2>xxx:m8</PV2>
+          <Q>m7_8</Q>
+          <SCAN>xxx:scan1</SCAN>
+        </macros>
+        <target>tab</target>
+        <description>test scanParms2Pos</description>
+      </action>
+      <action type="open_display">
+        <file>scan_saveData.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>saveData controls</description>
+      </action>
+      <action type="open_display">
+        <file>scanAux.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <S>scanAux</S>
+        </macros>
+        <target>tab</target>
+        <description>aux scan</description>
+      </action>
+      <action type="open_display">
+        <file>ProgressBar.opi</file>
+        <macros>
+          <B>xxx:scanProgress:</B>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>scanProgress</description>
+      </action>
+      <action type="open_display">
+        <file>configMenu.opi</file>
+        <macros>
+          <CONFIG>scan1</CONFIG>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>scan1Menu</description>
+      </action>
+    </actions>
+    <text>Scan</text>
+    <x>140</x>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #51</name>
+    <actions>
+      <action type="open_display">
+        <file>scaler16m.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <S>scaler1</S>
+        </macros>
+        <target>tab</target>
+        <description>Scaler 1</description>
+      </action>
+      <action type="open_display">
+        <file>scaler.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <S>scaler2</S>
+        </macros>
+        <target>tab</target>
+        <description>Scaler 2</description>
+      </action>
+      <action type="open_display">
+        <file>scaler.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <S>scaler3</S>
+        </macros>
+        <target>tab</target>
+        <description>Scaler 3</description>
+      </action>
+      <action type="open_display">
+        <file>scaler16.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <S>scaler1</S>
+        </macros>
+        <target>tab</target>
+        <description>Scaler1 (16 ch)</description>
+      </action>
+      <action type="open_display">
+        <file>scaler32.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <S>scaler1</S>
+        </macros>
+        <target>tab</target>
+        <description>Scaler1 (32 ch)</description>
+      </action>
+      <action type="open_display">
+        <file>scaler64.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <S>scaler1</S>
+        </macros>
+        <target>tab</target>
+        <description>Scaler1 (64 ch)</description>
+      </action>
+      <action type="open_display">
+        <file>scaler16m.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <S>scaler1</S>
+        </macros>
+        <target>tab</target>
+        <description>Scaler 1 modCalc</description>
+      </action>
+      <action type="open_display">
+        <file>scaler32.opi</file>
+        <macros>
+          <P>xxx:3820:</P>
+          <S>scaler1</S>
+        </macros>
+        <target>tab</target>
+        <description>SIS3820 scaler32</description>
+      </action>
+      <action type="open_display">
+        <file>scaler.opi</file>
+        <macros>
+          <P>xxx:3820:</P>
+          <S>scaler1</S>
+        </macros>
+        <target>tab</target>
+        <description>SIS3820 scaler8</description>
+      </action>
+    </actions>
+    <text>Scalers</text>
+    <x>70</x>
+    <y>100</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #62</name>
+    <actions>
+      <action type="open_display">
+        <file>Keithley2kDMM_mf.opi</file>
+        <macros>
+          <Dmm>D1</Dmm>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Keithley 2000 DMM #1</description>
+      </action>
+      <action type="open_display">
+        <file>Keithley2kDMM_mf.opi</file>
+        <macros>
+          <Dmm>D2</Dmm>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Keithley 2000 DMM #2</description>
+      </action>
+    </actions>
+    <text>DMM</text>
+    <x>210</x>
+    <y>100</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #66</name>
+    <actions>
+      <action type="open_display">
+        <file>HPLaserAxis.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>HPLaser1</Q>
+        </macros>
+        <target>tab</target>
+        <description>HP Laser Axis 1</description>
+      </action>
+      <action type="open_display">
+        <file>HPLaserAxis.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>HPLaser2</Q>
+        </macros>
+        <target>tab</target>
+        <description>HP Laser Axis 2</description>
+      </action>
+    </actions>
+    <text>HP</text>
+    <x>140</x>
+    <y>120</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #70</name>
+    <actions>
+      <action type="open_display">
+        <file>SGM_tiny.opi</file>
+        <macros>
+          <M_rIn>m6</M_rIn>
+          <M_rOut>m8</M_rOut>
+          <M_x>m7</M_x>
+          <N>1</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Spherical Grating Monochromator (tiny)</description>
+      </action>
+      <action type="open_display">
+        <file>SGM.opi</file>
+        <macros>
+          <M_rIn>m6</M_rIn>
+          <M_rOut>m8</M_rOut>
+          <M_x>m7</M_x>
+          <N>1</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Spherical Grating Monochromator</description>
+      </action>
+    </actions>
+    <text>SGM mono</text>
+    <y>100</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #74</name>
+    <actions>
+      <action type="open_display">
+        <file>2postMirror.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>M1</Q>
+          <mDn>m1</mDn>
+          <mUp>m2</mUp>
+        </macros>
+        <target>tab</target>
+        <description>2-post Mirror</description>
+      </action>
+    </actions>
+    <text>Mirror</text>
+    <y>40</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #78</name>
+    <actions>
+      <action type="open_display">
+        <file>hr_nested.opi</file>
+        <macros>
+          <N>1</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>High resolution monochromator (nested)</description>
+      </action>
+      <action type="open_display">
+        <file>hr_symmetric.opi</file>
+        <macros>
+          <N>1</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>High resolution monochromator (symmetric)</description>
+      </action>
+      <action type="open_display">
+        <file>hrSeqCtl_All.opi</file>
+        <macros>
+          <N>1</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>High resolution monochromator control</description>
+      </action>
+    </actions>
+    <text>HR mono</text>
+    <y>80</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #83</name>
+    <actions>
+      <action type="open_display">
+        <file>ioc_stats_soft.opi</file>
+        <macros>
+          <ioc>xxx</ioc>
+        </macros>
+        <target>tab</target>
+        <description>IOC Status soft ioc</description>
+      </action>
+      <action type="open_display">
+        <file>ioc_stats_vxworks.opi</file>
+        <macros>
+          <ioc>xxx</ioc>
+        </macros>
+        <target>tab</target>
+        <description>IOC Status vxworks ioc</description>
+      </action>
+      <action type="open_display">
+        <file>save_restoreStatus.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>save_restore Status</description>
+      </action>
+      <action type="open_display">
+        <file>aliveRecord.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>alive record</description>
+      </action>
+    </actions>
+    <text>Status</text>
+    <x>280</x>
+    <y>60</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #89</name>
+    <actions>
+      <action type="open_display">
+        <file>recVme.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>vme1</Q>
+        </macros>
+        <target>tab</target>
+        <description>generic VME</description>
+      </action>
+      <action type="open_display">
+        <file>CAMAC_IO.opi</file>
+        <macros>
+          <REC>xxx:camac1</REC>
+        </macros>
+        <target>tab</target>
+        <description>generic CAMAC</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>gpib1</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn GPIB</description>
+      </action>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>1</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 1</description>
+      </action>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>2</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 2</description>
+      </action>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>3</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 3</description>
+      </action>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>4</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 4</description>
+      </action>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>5</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 5</description>
+      </action>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>6</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 6</description>
+      </action>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>7</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 7</description>
+      </action>
+      <action type="open_display">
+        <file>deviceCmdReply.opi</file>
+        <macros>
+          <N>8</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>deviceCmdReply 8</description>
+      </action>
+    </actions>
+    <text>GenericIO</text>
+    <x>140</x>
+    <y>40</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #102</name>
+    <actions>
+      <action type="open_display">
+        <file>xx_BM_BPM.opi</file>
+        <macros>
+          <xx>28us</xx>
+        </macros>
+        <target>tab</target>
+        <description>1 BM BPM info</description>
+      </action>
+      <action type="open_display">
+        <file>xx_ID_BPM.opi</file>
+        <macros>
+          <xx>28us</xx>
+        </macros>
+        <target>tab</target>
+        <description>1 ID BPM info</description>
+      </action>
+      <action type="open_display">
+        <file>IDControl.opi</file>
+        <macros>
+          <ID>28us</ID>
+        </macros>
+        <target>tab</target>
+        <description>1 ID basic control</description>
+      </action>
+      <action type="open_display">
+        <file>IDSyncScan.opi</file>
+        <macros>
+          <ID>28us</ID>
+        </macros>
+        <target>tab</target>
+        <description>1 ID sync-scan control</description>
+      </action>
+      <action type="open_display">
+        <file>xxIDCtrl.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <xx>28</xx>
+        </macros>
+        <target>tab</target>
+        <description>new ID control</description>
+      </action>
+      <action type="open_display">
+        <file>xxIDCtrl.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <xx>28us</xx>
+        </macros>
+        <target>tab</target>
+        <description>new ID control (us)</description>
+      </action>
+      <action type="open_display">
+        <file>beamHistory.opi</file>
+        <target>tab</target>
+        <description>24 hr. Beam History</description>
+      </action>
+      <action type="open_display">
+        <file>beamHistory_full.opi</file>
+        <target>tab</target>
+        <description>24 hr. beam history, etc.</description>
+      </action>
+    </actions>
+    <text>OPS</text>
+    <x>280</x>
+    <y>20</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #112</name>
+    <actions>
+      <action type="open_display">
+        <file>2filter.opi</file>
+        <macros>
+          <LOCK1>fltr_1_2:</LOCK1>
+          <LOCK2>fltr_1_2:</LOCK2>
+          <P>xxx:</P>
+          <Q1>fltr1:</Q1>
+          <Q2>fltr2:</Q2>
+        </macros>
+        <target>tab</target>
+        <description>User Filter</description>
+      </action>
+      <action type="open_display">
+        <file>2filter_setup.opi</file>
+        <macros>
+          <LOCK1>fltr_1_2:</LOCK1>
+          <LOCK2>fltr_1_2:</LOCK2>
+          <P>xxx:</P>
+          <Q1>fltr1:</Q1>
+          <Q2>fltr2:</Q2>
+        </macros>
+        <target>tab</target>
+        <description>User Filter Setup</description>
+      </action>
+      <action type="open_display">
+        <file>pf4.opi</file>
+        <macros>
+          <A>A</A>
+          <B>B</B>
+          <H>pf401:</H>
+          <MONO></MONO>
+          <P>xxx:</P>
+          <PV></PV>
+        </macros>
+        <target>tab</target>
+        <description>XIA pfcu</description>
+      </action>
+      <action type="open_display">
+        <file>pf4dual.opi</file>
+        <macros>
+          <MONO>xxx:BraggERdbkAO</MONO>
+          <P>xxx:</P>
+          <PV1>xxx:pf4_1:</PV1>
+          <PV2>xxx:Unidig1Bo</PV2>
+        </macros>
+        <target>tab</target>
+        <description>XIA pfcu (synApps 5.2.1)</description>
+      </action>
+      <action type="open_display">
+        <file>pf4.opi</file>
+        <macros>
+          <A>A</A>
+          <B>B</B>
+          <B1>xxx:Unidig1Bo3</B1>
+          <B2>xxx:Unidig1Bo4</B2>
+          <B3>xxx:Unidig1Bo5</B3>
+          <B4>xxx:Unidig1Bo6</B4>
+          <B5>xxx:Unidig1Bo7</B5>
+          <B6>xxx:Unidig1Bo8</B6>
+          <B7>xxx:Unidig1Bo9</B7>
+          <B8>xxx:Unidig1Bo10</B8>
+          <H>pf4:</H>
+          <MONO>xxx:BraggEAO</MONO>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>PF4 Filter</description>
+      </action>
+      <action type="open_display">
+        <file>pf4small.opi</file>
+        <macros>
+          <A>A</A>
+          <B>B</B>
+          <B1>xxx:Unidig1Bo3</B1>
+          <B2>xxx:Unidig1Bo4</B2>
+          <B3>xxx:Unidig1Bo5</B3>
+          <B4>xxx:Unidig1Bo6</B4>
+          <B5>xxx:Unidig1Bo7</B5>
+          <B6>xxx:Unidig1Bo8</B6>
+          <B7>xxx:Unidig1Bo9</B7>
+          <B8>xxx:Unidig1Bo10</B8>
+          <H>pf4:</H>
+          <MONO>xxx:BraggEAO</MONO>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>PF4 Filter small</description>
+      </action>
+      <action type="open_display">
+        <file>pf4.opi</file>
+        <macros>
+          <A>A</A>
+          <B>B</B>
+          <H>pf4:</H>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>PF4 Filter fake I/O</description>
+      </action>
+      <action type="open_display">
+        <file>pf4Bank.opi</file>
+        <macros>
+          <B>A</B>
+          <H>pf4:</H>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>PF4 FilterBank A</description>
+      </action>
+      <action type="open_display">
+        <file>filter_8_8_more.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>filter:</R>
+        </macros>
+        <target>tab</target>
+        <description>Alt PF4 filter 16</description>
+      </action>
+      <action type="open_display">
+        <file>filter_8_0_more.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>filter:</R>
+        </macros>
+        <target>tab</target>
+        <description>Alt PF4 filter 8</description>
+      </action>
+    </actions>
+    <text>Filter</text>
+    <x>70</x>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #125</name>
+    <actions>
+      <action type="open_display">
+        <file>BunchClkGen.opi</file>
+        <macros>
+          <UNIT>xxx:BnchClkGen</UNIT>
+        </macros>
+        <target>tab</target>
+        <description>Bunch Clock Generator</description>
+      </action>
+      <action type="open_display">
+        <file>BunchClkGenA.opi</file>
+        <macros>
+          <UNIT>xxx:BnchClkGen</UNIT>
+        </macros>
+        <target>tab</target>
+        <description>Bunch Clock display A</description>
+      </action>
+      <action type="open_display">
+        <file>BunchClkGenTop.opi</file>
+        <target>tab</target>
+        <description>Bunch Clock 3id Top screen</description>
+      </action>
+    </actions>
+    <text>BunchClk</text>
+    <x>280</x>
+    <y>40</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #130</name>
+    <actions>
+      <action type="open_display">
+        <file>pzt_3id.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Queensgate piezo (3id)</description>
+      </action>
+      <action type="open_display">
+        <file>pzt.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Queensgate piezo (std)</description>
+      </action>
+      <action type="open_display">
+        <file>Nano2k.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <S>nano</S>
+          <p>1</p>
+        </macros>
+        <target>tab</target>
+        <description>Nano2k (ch 1)</description>
+      </action>
+      <action type="open_display">
+        <file>Nano2k.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <S>nano</S>
+          <p>2</p>
+        </macros>
+        <target>tab</target>
+        <description>Nano2k (ch 2)</description>
+      </action>
+      <action type="open_display">
+        <file>HuberDMC4.opi</file>
+        <macros>
+          <M1>1</M1>
+          <M2>2</M2>
+          <M3>3</M3>
+          <M4>4</M4>
+          <P>xxx:</P>
+          <Q>DMC1:</Q>
+        </macros>
+        <target>tab</target>
+        <description>Huber DMC9200 servo controller</description>
+      </action>
+    </actions>
+    <text>Piezo</text>
+    <x>70</x>
+    <y>40</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #137</name>
+    <actions>
+      <action type="open_display">
+        <file>HeidEncoder.opi</file>
+        <macros>
+          <A>6</A>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Heidenhain AWE1024</description>
+      </action>
+      <action type="open_display">
+        <file>HeidEncoder.opi</file>
+        <macros>
+          <A>7</A>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Heidenhain AWE1024</description>
+      </action>
+      <action type="open_display">
+        <file>HeidND261.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Heidenhain ND261</description>
+      </action>
+      <action type="open_display">
+        <file>HeidIK320_group.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <card>card0</card>
+          <group>5</group>
+        </macros>
+        <target>tab</target>
+        <description>Heidenhain IK320</description>
+      </action>
+    </actions>
+    <text>Encoders</text>
+    <x>210</x>
+    <y>60</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #143</name>
+    <actions>
+      <action type="open_display">
+        <file>Elcomat.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Autocollimator</description>
+      </action>
+    </actions>
+    <text>Autocoll</text>
+    <x>140</x>
+    <y>100</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #147</name>
+    <actions>
+      <action type="open_display">
+        <file>orient.opi</file>
+        <macros>
+          <O>_0</O>
+          <P>xxx:</P>
+          <PM>xxx:</PM>
+          <mCHI>m11</mCHI>
+          <mPHI>m12</mPHI>
+          <mTH>m10</mTH>
+          <mTTH>m9</mTTH>
+        </macros>
+        <target>tab</target>
+        <description>orientation matrix</description>
+      </action>
+      <action type="open_display">
+        <file>orient9.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PM>xxx:</PM>
+          <mCHI>m11</mCHI>
+          <mPHI>m12</mPHI>
+          <mTH>m10</mTH>
+          <mTTH>m9</mTTH>
+        </macros>
+        <target>tab</target>
+        <description>orient9</description>
+      </action>
+    </actions>
+    <text>4 Circle</text>
+    <x>280</x>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #151</name>
+    <actions>
+      <action type="open_display">
+        <file>mca_small.opi</file>
+        <macros>
+          <M>aim_adc1</M>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Canberra AIM Multichannel Analyzer</description>
+      </action>
+      <action type="open_display">
+        <file>mca.opi</file>
+        <macros>
+          <M>aim_adc1</M>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>MCA with ROI's</description>
+      </action>
+      <action type="open_display">
+        <file>xxIcbAdc.opi</file>
+        <macros>
+          <ADC>adc1</ADC>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>ADC 1</description>
+      </action>
+      <action type="open_display">
+        <file>xxIcbTCA.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <TCA>tca1</TCA>
+        </macros>
+        <target>tab</target>
+        <description>TCA 1</description>
+      </action>
+      <action type="open_display">
+        <file>xxIcbHVPS.opi</file>
+        <macros>
+          <HVPS>hvps1</HVPS>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>HVPS 1</description>
+      </action>
+      <action type="open_display">
+        <file>xxIcbAmp.opi</file>
+        <macros>
+          <AMP>amp1</AMP>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>AMP 1</description>
+      </action>
+      <action type="open_display">
+        <file>dsp9660Gain.opi</file>
+        <macros>
+          <DSP>dsp1</DSP>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>DSP 1</description>
+      </action>
+      <action type="open_display">
+        <file>mca_small.opi</file>
+        <macros>
+          <M>softMCA</M>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>soft MCA</description>
+      </action>
+    </actions>
+    <text>MCA</text>
+    <x>210</x>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #161</name>
+    <actions>
+      <action type="open_display">
+        <file>4step.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>4-step measurement</description>
+      </action>
+    </actions>
+    <text>4-step</text>
+    <x>140</x>
+    <y>80</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #164</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>xxx:allstop.VAL</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>xxx:allstop.VAL</pv_name>
+    <text>All Stop</text>
+    <x>350</x>
+    <y>108</y>
+    <width>90</width>
+    <height>29</height>
+    <foreground_color>
+      <color red="251" green="243" blue="74">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #167</name>
+    <x>350</x>
+    <y>78</y>
+    <width>82</width>
+    <height>27</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #170</name>
+      <text>Moving</text>
+      <x>1</x>
+      <y>1</y>
+      <width>80</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+      <rules>
+        <rule name="vis_if_zero" prop_id="visible" out_exp="false">
+          <exp bool_exp="!(pv0==0)">
+            <value>false</value>
+          </exp>
+          <pv_name>xxx:alldone.VAL</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #174</name>
+      <text>Moving</text>
+      <x>2</x>
+      <y>2</y>
+      <width>80</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+      <rules>
+        <rule name="vis_if_not_zero" prop_id="visible" out_exp="false">
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>xxx:alldoneBlink.VAL</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #178</name>
+      <text>Moving</text>
+      <width>80</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="153" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+      <rules>
+        <rule name="vis_if_zero" prop_id="visible" out_exp="false">
+          <exp bool_exp="!(pv0==0)">
+            <value>false</value>
+          </exp>
+          <pv_name>xxx:alldone.VAL</pv_name>
+        </rule>
+      </rules>
+    </widget>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #182</name>
+    <actions>
+      <action type="open_display">
+        <file>interp.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>interp</description>
+      </action>
+      <action type="open_display">
+        <file>arrayTest.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>arrayTest</description>
+      </action>
+      <action type="open_display">
+        <file>pvHistory.opi</file>
+        <macros>
+          <N>1</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>pvHistory 1</description>
+      </action>
+      <action type="open_display">
+        <file>interpNew.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>1</Q>
+        </macros>
+        <target>tab</target>
+        <description>interpNew</description>
+      </action>
+    </actions>
+    <text>Array</text>
+    <x>140</x>
+    <y>60</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #188</name>
+    <actions>
+      <action type="open_display">
+        <file>VME_DAC8.opi</file>
+        <macros>
+          <D>1</D>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>vme DAC 1 Chans 1-8</description>
+      </action>
+      <action type="open_display">
+        <file>VME_DAC8.opi</file>
+        <macros>
+          <D>2</D>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>vme DAC 2 Chans 1-8</description>
+      </action>
+      <action type="open_display">
+        <file>topDAC8.opi</file>
+        <macros>
+          <D>3</D>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>dac128V 1 Chans 1-8</description>
+      </action>
+      <action type="open_display">
+        <file>topDAC8.opi</file>
+        <macros>
+          <D>1</D>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>vme DAC 1 Chans 1-8</description>
+      </action>
+    </actions>
+    <text>DAC</text>
+    <x>70</x>
+    <y>60</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #194</name>
+    <actions>
+      <action type="open_display">
+        <file>3element.opi</file>
+        <macros>
+          <P>xxx:med:</P>
+        </macros>
+        <target>tab</target>
+        <description>3 element detector</description>
+      </action>
+      <action type="open_display">
+        <file>mca_small.opi</file>
+        <macros>
+          <M>mca0</M>
+          <P>xxx:med:</P>
+        </macros>
+        <target>tab</target>
+        <description>summed spectrum (mca0)</description>
+      </action>
+      <action type="open_display">
+        <file>mcaSum3.opi</file>
+        <macros>
+          <P>xxx:med:</P>
+        </macros>
+        <target>tab</target>
+        <description>sum control</description>
+      </action>
+      <action type="open_display">
+        <file>xxIcbHVPS.opi</file>
+        <macros>
+          <HVPS>hvps1</HVPS>
+          <P>xxx:med:</P>
+        </macros>
+        <target>tab</target>
+        <description>HV power supply</description>
+      </action>
+    </actions>
+    <text>multiMCA</text>
+    <x>210</x>
+    <y>20</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #200</name>
+    <actions>
+      <action type="open_display">
+        <file>SIS38XX.opi</file>
+        <macros>
+          <P>xxx:3820:</P>
+        </macros>
+        <target>tab</target>
+        <description>SIS38XX</description>
+      </action>
+    </actions>
+    <text>Struck</text>
+    <x>210</x>
+    <y>40</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #203</name>
+    <actions>
+      <action type="open_display">
+        <file>IpUnidig_top.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>Unidig1</R>
+        </macros>
+        <target>tab</target>
+        <description>IpUnidig I/O</description>
+      </action>
+      <action type="open_display">
+        <file>Acromag_8in.opi</file>
+        <macros>
+          <A>1</A>
+          <CH0>0</CH0>
+          <CH1>1</CH1>
+          <CH2>2</CH2>
+          <CH3>3</CH3>
+          <CH4>4</CH4>
+          <CH5>5</CH5>
+          <CH6>6</CH6>
+          <CH7>7</CH7>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description> Acromag 8 in</description>
+      </action>
+      <action type="open_display">
+        <file>Acromag_8out.opi</file>
+        <macros>
+          <A>1</A>
+          <CH0>0</CH0>
+          <CH1>1</CH1>
+          <CH2>2</CH2>
+          <CH3>3</CH3>
+          <CH4>4</CH4>
+          <CH5>5</CH5>
+          <CH6>6</CH6>
+          <CH7>7</CH7>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description> Acromag 8 out</description>
+      </action>
+      <action type="open_display">
+        <file>Acromag_16out.opi</file>
+        <macros>
+          <A>1</A>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description> Acromag 16 out</description>
+      </action>
+      <action type="open_display">
+        <file>Acromag_16in.opi</file>
+        <macros>
+          <A>1</A>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description> Acromag 16 in</description>
+      </action>
+    </actions>
+    <text>Digital</text>
+    <x>210</x>
+    <y>120</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #210</name>
+    <actions>
+      <action type="open_display">
+        <file>quadEM.opi</file>
+        <macros>
+          <EM>EM1</EM>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Quad Electrometer Ch.1</description>
+      </action>
+      <action type="open_display">
+        <file>quadEM.opi</file>
+        <macros>
+          <EM>EM2</EM>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Quad Electrometer Ch.2</description>
+      </action>
+      <action type="open_display">
+        <file>quadEM.opi</file>
+        <macros>
+          <EM>EM3</EM>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Quad Electrometer Ch.3</description>
+      </action>
+      <action type="open_display">
+        <file>quadEM.opi</file>
+        <macros>
+          <EM>EM4</EM>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Quad Electrometer Ch.4</description>
+      </action>
+      <action type="open_display">
+        <file>quadEM_med.opi</file>
+        <macros>
+          <P>xxx:quadEM:</P>
+          <P_FFT>xxx:quadEM_FFT:</P_FFT>
+        </macros>
+        <target>tab</target>
+        <description>Quad Electrometer MCAs</description>
+      </action>
+      <action type="open_display">
+        <file>pid_control.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PID>quadEMVertical</PID>
+          <TITLE>Vertical_Feedback</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>Vertical feedback</description>
+      </action>
+      <action type="open_display">
+        <file>pid_control.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PID>quadEMHorizontal</PID>
+          <TITLE>Horizontal_Feedback</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>Horizontal feedback</description>
+      </action>
+    </actions>
+    <text>quadEM</text>
+    <x>280</x>
+    <y>100</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #219</name>
+    <actions>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>asyn_1</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial1</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>asyn_2</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial2</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>asyn_3</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial3</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>asyn_4</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial4</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>asyn_5</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial5</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>asyn_6</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial6</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>asyn_7</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial7</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>asyn_8</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serial8</description>
+      </action>
+      <action type="open_display">
+        <file>asynOctet.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>BiSS</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record serialBiSS</description>
+      </action>
+    </actions>
+    <text>serial</text>
+    <x>280</x>
+    <y>120</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #230</name>
+    <actions>
+      <action type="open_display">
+        <file>caputRecorder.opi</file>
+        <macros>
+          <L>xxx:</L>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>caputRecorder</description>
+      </action>
+      <action type="open_display">
+        <file>caputRecorder.opi</file>
+        <macros>
+          <L>xxx:</L>
+          <P>xxxA:</P>
+        </macros>
+        <target>tab</target>
+        <description>caputRecorderA</description>
+      </action>
+    </actions>
+    <text>caputRec</text>
+    <x>210</x>
+    <y>140</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #234</name>
+    <actions>
+      <action type="open_display">
+        <file>CoarseFineMotor.opi</file>
+        <macros>
+          <CM>m1</CM>
+          <FM>m2</FM>
+          <M>MOT</M>
+          <P>xxx:cf1:</P>
+          <PM>xxx:</PM>
+        </macros>
+        <target>tab</target>
+        <description>CoarseFine</description>
+      </action>
+    </actions>
+    <text>CF</text>
+    <y>120</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #237</name>
+    <actions>
+      <action type="open_display">
+        <file>XIA_shutter.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <S>shutter1</S>
+        </macros>
+        <target>tab</target>
+        <description>XIA shutter 1</description>
+      </action>
+      <action type="open_display">
+        <file>XIA_shutterTry.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <S>shutter2</S>
+        </macros>
+        <target>tab</target>
+        <description>XIA shutter 2</description>
+      </action>
+    </actions>
+    <text>XIA shutter</text>
+    <x>70</x>
+    <y>140</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #241</name>
+    <actions>
+      <action type="open_display">
+        <file>Io.opi</file>
+        <macros>
+          <MONO>xxx:BraggEAO</MONO>
+          <P>xxx:Io:</P>
+          <S>xxx:scaler1</S>
+        </macros>
+        <target>tab</target>
+        <description>Io</description>
+      </action>
+    </actions>
+    <text>Io</text>
+    <y>140</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #244</name>
+    <actions>
+      <action type="open_display">
+        <file>2slit.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <SLIT>Slit1H</SLIT>
+          <mXn>m6</mXn>
+          <mXp>m5</mXp>
+        </macros>
+        <target>tab</target>
+        <description>Slit 1 (H)</description>
+      </action>
+      <action type="open_display">
+        <file>2slit.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <SLIT>Slit1V</SLIT>
+          <mXn>m4</mXn>
+          <mXp>m3</mXp>
+        </macros>
+        <target>tab</target>
+        <description>Slit 1 (V)</description>
+      </action>
+      <action type="open_display">
+        <file>4slitGraphic.opi</file>
+        <macros>
+          <H>Slit1H</H>
+          <P>xxx:</P>
+          <SLIT>Slit_1</SLIT>
+          <V>Slit1V</V>
+          <mXn>m4</mXn>
+          <mXp>m3</mXp>
+          <mYn>m6</mYn>
+          <mYp>m5</mYp>
+        </macros>
+        <target>tab</target>
+        <description>Slit 1 Graphic</description>
+      </action>
+      <action type="open_display">
+        <file>motor4x.opi</file>
+        <macros>
+          <M1>m3</M1>
+          <M2>m4</M2>
+          <M3>m5</M3>
+          <M4>m6</M4>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Slit Motors</description>
+      </action>
+      <action type="open_display">
+        <file>2slit_soft.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <SLIT>Slit2H</SLIT>
+          <mXn>m16</mXn>
+          <mXp>m15</mXp>
+        </macros>
+        <target>tab</target>
+        <description>Slit 2 (H) (soft)</description>
+      </action>
+      <action type="open_display">
+        <file>2slit_soft.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <SLIT>Slit2V</SLIT>
+          <mXn>m14</mXn>
+          <mXp>m13</mXp>
+        </macros>
+        <target>tab</target>
+        <description>Slit 2 (V) (soft)</description>
+      </action>
+      <action type="open_display">
+        <file>4slitGraphic_soft.opi</file>
+        <macros>
+          <H>Slit2H</H>
+          <P>xxx:</P>
+          <SLIT>Slit_2</SLIT>
+          <V>Slit2V</V>
+          <mXn>m16</mXn>
+          <mXp>m15</mXp>
+          <mYn>m14</mYn>
+          <mYp>m13</mYp>
+        </macros>
+        <target>tab</target>
+        <description>Slit 2 Graphic (soft)</description>
+      </action>
+      <action type="open_display">
+        <file>xia_slit.opi</file>
+        <macros>
+          <HSC>hsc1:</HSC>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>XIA slit 1 (H)</description>
+      </action>
+      <action type="open_display">
+        <file>xia_slit.opi</file>
+        <macros>
+          <HSC>hsc2:</HSC>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>XIA slit 1 (V)</description>
+      </action>
+    </actions>
+    <text>Slits</text>
+    <x>70</x>
+    <y>20</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #255</name>
+    <actions>
+      <action type="open_display">
+        <file>LoveList4.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q1>Love1</Q1>
+          <Q2>Love2</Q2>
+          <Q3>Love3</Q3>
+          <Q4>Love4</Q4>
+        </macros>
+        <target>tab</target>
+        <description>Love controllers</description>
+      </action>
+    </actions>
+    <text>Love</text>
+    <x>280</x>
+    <y>80</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #258</name>
+    <actions>
+      <action type="open_display">
+        <file>ramp_tweak.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>rt1</Q>
+        </macros>
+        <target>tab</target>
+        <description>ramp/tweak rt1</description>
+      </action>
+      <action type="open_display">
+        <file>ramp_tweak.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>rt2</Q>
+        </macros>
+        <target>tab</target>
+        <description>ramp/tweak rt2</description>
+      </action>
+    </actions>
+    <text>ramp_tweak</text>
+    <x>140</x>
+    <y>140</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #262</name>
+    <actions>
+      <action type="open_display">
+        <file>SR570_tiny.opi</file>
+        <macros>
+          <A>A1</A>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>SRS 570 Current Preamplifier #A1</description>
+      </action>
+      <action type="open_display">
+        <file>SR570_tiny.opi</file>
+        <macros>
+          <A>A2</A>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>SRS 570 Current Preamplifier #A2</description>
+      </action>
+      <action type="open_display">
+        <file>SR570_tiny.opi</file>
+        <macros>
+          <A>A3</A>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>SRS 570 Current Preamplifier #A3</description>
+      </action>
+      <action type="open_display">
+        <file>SR570_tiny.opi</file>
+        <macros>
+          <A>A4</A>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>SRS 570 Current Preamplifier #A4</description>
+      </action>
+      <action type="open_display">
+        <file>SR570_tiny.opi</file>
+        <macros>
+          <A>A5</A>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>SRS 570 Current Preamplifier #A5</description>
+      </action>
+      <action type="open_display">
+        <file>femto.opi</file>
+        <macros>
+          <AC>xxx:Unidig1Bo9</AC>
+          <F>seq01:</F>
+          <H>fem01:</H>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Femto Current Preamplifier</description>
+      </action>
+    </actions>
+    <text>Preamps</text>
+    <x>70</x>
+    <y>120</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #270</name>
+    <actions>
+      <action type="open_display">
+        <file>LakeShore.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>TC1</Q>
+        </macros>
+        <target>tab</target>
+        <description>LakeShore Temp. Controller</description>
+      </action>
+      <action type="open_display">
+        <file>KeithleyDMM.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Keithley DMM (thermistors)</description>
+      </action>
+      <action type="open_display">
+        <file>Eurotherm.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Eurotherm</description>
+      </action>
+      <action type="open_display">
+        <file>Eurotherm2k.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <TC>1</TC>
+        </macros>
+        <target>tab</target>
+        <description>Eurotherm 2k</description>
+      </action>
+    </actions>
+    <text>TempCtrl</text>
+    <x>210</x>
+    <y>80</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #276</name>
+    <actions>
+      <action type="open_display">
+        <file>ml_monoGraphic.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <mB>m11</mB>
+          <mT1>m7</mT1>
+          <mT2>m10</mT2>
+          <mY1>m1</mY1>
+          <mY2>m9</mY2>
+          <mZ1>m2</mZ1>
+          <mZ2>m8</mZ2>
+        </macros>
+        <target>tab</target>
+        <description>ml_monoGraphic</description>
+      </action>
+      <action type="open_display">
+        <file>ml_monoSeqCtl_tiny.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>ml_monoSeq (tiny)</description>
+      </action>
+      <action type="open_display">
+        <file>ml_monoSeqCtl.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>ml_monoSeq</description>
+      </action>
+      <action type="open_display">
+        <file>ml_monoSeqCtl_All.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>ml_monoSeq (All)</description>
+      </action>
+      <action type="open_display">
+        <file>scanParms.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PV>ml_monoE</PV>
+          <Q>ml_monoE</Q>
+        </macros>
+        <target>tab</target>
+        <description>Energy-scan parameters</description>
+      </action>
+      <action type="open_display">
+        <file>scanParms.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PV>ml_monoTheta</PV>
+          <Q>ml_monoTheta</Q>
+        </macros>
+        <target>tab</target>
+        <description>Theta-scan parameters</description>
+      </action>
+      <action type="open_display">
+        <file>scanParms.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PV>ml_monoLambda</PV>
+          <Q>ml_monoLambda</Q>
+        </macros>
+        <target>tab</target>
+        <description>Wavelength-scan parameters</description>
+      </action>
+    </actions>
+    <text>ML Mono</text>
+    <x>350</x>
+    <y>20</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #285</name>
+    <actions>
+      <action type="open_display">
+        <file>softGlueMenu.opi</file>
+        <macros>
+          <H>softGlue:</H>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>softGlueMenu</description>
+      </action>
+      <action type="open_display">
+        <file>softGlueMenu.opi</file>
+        <macros>
+          <H>softGlue2:</H>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>softGlue2 Menu</description>
+      </action>
+      <action type="open_display">
+        <file>softGlue_Shift32_bare.opi</file>
+        <macros>
+          <H>softGlue:</H>
+          <N>1</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>shift 1</description>
+      </action>
+      <action type="open_display">
+        <file>softGlue_Shift32_bare.opi</file>
+        <macros>
+          <H>softGlue:</H>
+          <N>2</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>shift 2</description>
+      </action>
+      <action type="open_display">
+        <file>configMenu.opi</file>
+        <macros>
+          <CONFIG>SG</CONFIG>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>SoftGlue Circuits</description>
+      </action>
+    </actions>
+    <text>softGlue</text>
+    <x>350</x>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #292</name>
+    <actions>
+      <action type="open_display">
+        <file>FuncGen.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>fgen</Q>
+        </macros>
+        <target>tab</target>
+        <description>funcGen</description>
+      </action>
+    </actions>
+    <text>FuncGen</text>
+    <x>350</x>
+    <y>40</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #295</name>
+    <actions>
+      <action type="open_display">
+        <file>Ip330Scan.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>IP330_</R>
+        </macros>
+        <target>tab</target>
+        <description>ADC 1</description>
+      </action>
+      <action type="open_display">
+        <file>mca_small.opi</file>
+        <macros>
+          <M>mip330_1</M>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>ADC 1 sweep</description>
+      </action>
+      <action type="open_display">
+        <file>mca_small.opi</file>
+        <macros>
+          <M>mip330_2</M>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>ADC 2 sweep</description>
+      </action>
+      <action type="open_display">
+        <file>mca_small.opi</file>
+        <macros>
+          <M>mip330_3</M>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>ADC 3 sweep</description>
+      </action>
+      <action type="open_display">
+        <file>mca_small.opi</file>
+        <macros>
+          <M>mip330_4</M>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>ADC 4 sweep</description>
+      </action>
+      <action type="open_display">
+        <file>pid_control.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PID>pid_slow</PID>
+          <TITLE>Slow_Feedback</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>Slow feedback</description>
+      </action>
+      <action type="open_display">
+        <file>pid_control.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PID>ip330PIDFast</PID>
+          <TITLE>Fast_Feedback</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>Fast feedback</description>
+      </action>
+      <action type="open_display">
+        <file>async_pid_control.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <PID>async_pid_slow</PID>
+          <TITLE>Slow_Feedback</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>Async Slow feedback</description>
+      </action>
+    </actions>
+    <text>ADC</text>
+    <x>70</x>
+    <y>80</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #305</name>
+    <actions>
+      <action type="open_display">
+        <file>trajectoryScan.opi</file>
+        <macros>
+          <M1>m1</M1>
+          <M2>m2</M2>
+          <M3>m3</M3>
+          <M4>m4</M4>
+          <M5>m5</M5>
+          <M6>m6</M6>
+          <M7>m7</M7>
+          <M8>m8</M8>
+          <P>xxx:</P>
+          <R>traj1:</R>
+          <TITLE>traj1</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>standard trajectoryScan</description>
+      </action>
+      <action type="open_display">
+        <file>MAX_trajectoryScan.opi</file>
+        <macros>
+          <M1>m1</M1>
+          <M2>m2</M2>
+          <M3>m3</M3>
+          <M4>m4</M4>
+          <M5>m5</M5>
+          <M6>m6</M6>
+          <M7>m7</M7>
+          <M8>m8</M8>
+          <P>xxx:</P>
+          <R>traj1:</R>
+          <TITLE>traj1</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>trajectoryScan1</description>
+      </action>
+      <action type="open_display">
+        <file>MAX_trajectoryScan.opi</file>
+        <macros>
+          <M1>m9</M1>
+          <M2>m10</M2>
+          <M3>m11</M3>
+          <M4>m12</M4>
+          <M5>m13</M5>
+          <M6>m14</M6>
+          <M7>m15</M7>
+          <M8>m16</M8>
+          <P>xxx:</P>
+          <R>traj2:</R>
+          <TITLE>traj2</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>trajectoryScan2</description>
+      </action>
+      <action type="open_display">
+        <file>MAX_trajectoryScan2.opi</file>
+        <macros>
+          <M1>m1</M1>
+          <M2>m2</M2>
+          <M3>m3</M3>
+          <M4>m4</M4>
+          <M5>m5</M5>
+          <M6>m6</M6>
+          <M7>m7</M7>
+          <M8>m8</M8>
+          <P>xxx:</P>
+          <R>traj1:</R>
+          <TITLE>traj1</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>trajectoryScan1 (2 mot)</description>
+      </action>
+      <action type="open_display">
+        <file>trajectoryScan.opi</file>
+        <macros>
+          <M1>m1</M1>
+          <M2>m2</M2>
+          <M3>m3</M3>
+          <M4>m4</M4>
+          <M5>m5</M5>
+          <M6>m6</M6>
+          <M7>m7</M7>
+          <M8>m8</M8>
+          <P>xxx:</P>
+          <R>traj1:</R>
+          <TITLE>traj1</TITLE>
+        </macros>
+        <target>tab</target>
+        <description>MM4000 XPS trajectory</description>
+      </action>
+    </actions>
+    <text>trajectory</text>
+    <x>280</x>
+    <y>140</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #312</name>
+    <actions>
+      <action type="open_display">
+        <file>ADBase.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>SIM1:cam1:</R>
+        </macros>
+        <target>tab</target>
+        <description>Simulator #1 General</description>
+      </action>
+      <action type="open_display">
+        <file>simDetector.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>SIM1:cam1:</R>
+        </macros>
+        <target>tab</target>
+        <description>Simulator #1 Specific</description>
+      </action>
+      <action type="open_display">
+        <file>ADBase.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>SIM1:cam2:</R>
+        </macros>
+        <target>tab</target>
+        <description>Simulator #2 General</description>
+      </action>
+      <action type="open_display">
+        <file>simDetector.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>SIM1:cam2:</R>
+        </macros>
+        <target>tab</target>
+        <description>Simulator #2 Specific</description>
+      </action>
+      <action type="open_display">
+        <file>ADTop.opi</file>
+        <target>tab</target>
+        <description>AD Top (prebuilts)</description>
+      </action>
+    </actions>
+    <text>AD simDet</text>
+    <x>350</x>
+    <y>140</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #319</name>
+    <actions>
+      <action type="open_display">
+        <file>countDownTimer.opi</file>
+        <macros>
+          <N>1</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>count down timer</description>
+      </action>
+    </actions>
+    <text>countDown</text>
+    <y>160</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #322</name>
+    <actions>
+      <action type="open_display">
+        <file>alarmClock.opi</file>
+        <macros>
+          <A>1</A>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>alarm clock</description>
+      </action>
+    </actions>
+    <text>alarmClock</text>
+    <x>70</x>
+    <y>160</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #325</name>
+    <actions>
+      <action type="open_display">
+        <file>timer.opi</file>
+        <macros>
+          <N>1</N>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>timer</description>
+      </action>
+    </actions>
+    <text>timer</text>
+    <x>140</x>
+    <y>160</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #328</name>
+    <actions>
+      <action type="open_display">
+        <file>CR74x.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>test:</Q>
+        </macros>
+        <target>tab</target>
+        <description>CR74x</description>
+      </action>
+      <action type="open_display">
+        <file>fieldVector.opi</file>
+        <macros>
+          <P>4idc2:</P>
+          <Q>8p:</Q>
+        </macros>
+        <target>tab</target>
+        <description>fieldVector</description>
+      </action>
+      <action type="open_display">
+        <file>selector.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>obj</R>
+        </macros>
+        <target>tab</target>
+        <description>selector</description>
+      </action>
+      <action type="open_display">
+        <file>beamEnergy.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>beamEnergy</description>
+      </action>
+      <action type="open_display">
+        <file>slew.opi</file>
+        <macros>
+          <M>m2</M>
+          <MCS>3820:</MCS>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>SlewScan</description>
+      </action>
+      <action type="open_display">
+        <file>tomoFly.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>tomoFly:</Q>
+        </macros>
+        <target>tab</target>
+        <description>tomography fly</description>
+      </action>
+      <action type="open_display">
+        <file>hexFly.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>hexFly:</Q>
+        </macros>
+        <target>tab</target>
+        <description>hexFly</description>
+      </action>
+      <action type="open_display">
+        <file>rock.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>rock:</Q>
+        </macros>
+        <target>tab</target>
+        <description>rock</description>
+      </action>
+      <action type="open_display">
+        <file>EnsemblePSOFly.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>PSOFly:</Q>
+        </macros>
+        <target>tab</target>
+        <description>Ensemble PSO Fly</description>
+      </action>
+      <action type="open_display">
+        <file>encoderFly.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>eFly:</Q>
+        </macros>
+        <target>tab</target>
+        <description>encoder Fly</description>
+      </action>
+      <action type="open_display">
+        <file>encoderInterlaceFly.opi</file>
+        <macros>
+          <FLY>xxx:eFly:</FLY>
+          <P>xxx:</P>
+          <Q>iFly:</Q>
+        </macros>
+        <target>tab</target>
+        <description>encoderInterlaceFly</description>
+      </action>
+      <action type="open_display">
+        <file>multExposePosFilt.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>mxpf:</Q>
+        </macros>
+        <target>tab</target>
+        <description>multExposePosFilt</description>
+      </action>
+      <action type="open_display">
+        <file>multExposePos.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>mxp:</Q>
+        </macros>
+        <target>tab</target>
+        <description>multExposePos</description>
+      </action>
+      <action type="open_display">
+        <file>Security_Control.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>Security Control</description>
+      </action>
+      <action type="open_display">
+        <file>configMenu.opi</file>
+        <macros>
+          <CONFIG>waveformTypes</CONFIG>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>waveformTypes menu</description>
+      </action>
+      <action type="open_display">
+        <file>recordPV.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>recPV:</Q>
+          <R>PV1</R>
+        </macros>
+        <target>tab</target>
+        <description>recordPV</description>
+      </action>
+    </actions>
+    <text>test</text>
+    <x>280</x>
+    <y>160</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #346</name>
+    <actions>
+      <action type="open_display">
+        <file>MLLH.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>MLLH:</Q>
+        </macros>
+        <target>tab</target>
+        <description>MLLH</description>
+      </action>
+      <action type="open_display">
+        <file>motor3x.opi</file>
+        <macros>
+          <M1>m2</M1>
+          <M2>m1</M2>
+          <M3>m3</M3>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>MLLH hard motors</description>
+      </action>
+      <action type="open_display">
+        <file>MLLV.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>MLLV:</Q>
+        </macros>
+        <target>tab</target>
+        <description>MLLV</description>
+      </action>
+      <action type="open_display">
+        <file>motor5x.opi</file>
+        <macros>
+          <M1>m4</M1>
+          <M2>m5</M2>
+          <M3>m6</M3>
+          <M4>m7</M4>
+          <M5>m8</M5>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>MLLV hard motors</description>
+      </action>
+    </actions>
+    <text>MLL</text>
+    <x>350</x>
+    <y>160</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #352</name>
+    <actions>
+      <action type="open_display">
+        <file>userCalcs10.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>user calcs 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>userStringCalcs10.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>user stringCalcs 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>userTransforms10.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>user transforms 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>userStringSeqs10.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>user string seqs 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>userArrayCalcs10.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>user arrayCalcs 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>userAve10.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>user average 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>userCalcOuts10.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>user calcOuts 1-10</description>
+      </action>
+      <action type="open_display">
+        <file>userStringCalcs10more.opi</file>
+        <macros>
+          <N1>11</N1>
+          <N10>20</N10>
+          <N2>12</N2>
+          <N3>13</N3>
+          <N4>14</N4>
+          <N5>15</N5>
+          <N6>16</N6>
+          <N7>17</N7>
+          <N8>18</N8>
+          <N9>19</N9>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>user stringCalcs 11-20</description>
+      </action>
+      <action type="open_display">
+        <file>userTransforms10more.opi</file>
+        <macros>
+          <N1>11</N1>
+          <N10>20</N10>
+          <N2>12</N2>
+          <N3>13</N3>
+          <N4>14</N4>
+          <N5>15</N5>
+          <N6>16</N6>
+          <N7>17</N7>
+          <N8>18</N8>
+          <N9>19</N9>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>user transforms 11-20</description>
+      </action>
+      <action type="open_display">
+        <file>userStringSeqs10more.opi</file>
+        <macros>
+          <N1>11</N1>
+          <N10>20</N10>
+          <N2>12</N2>
+          <N3>13</N3>
+          <N4>14</N4>
+          <N5>15</N5>
+          <N6>16</N6>
+          <N7>17</N7>
+          <N8>18</N8>
+          <N9>19</N9>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>user string seqs 11-20</description>
+      </action>
+      <action type="open_display">
+        <file>userArrayCalcs10more.opi</file>
+        <macros>
+          <N1>11</N1>
+          <N10>20</N10>
+          <N2>12</N2>
+          <N3>13</N3>
+          <N4>14</N4>
+          <N5>15</N5>
+          <N6>16</N6>
+          <N7>17</N7>
+          <N8>18</N8>
+          <N9>19</N9>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>user arrayCalcs 11-20</description>
+      </action>
+      <action type="open_display">
+        <file>userAve10more.opi</file>
+        <macros>
+          <N1>11</N1>
+          <N10>20</N10>
+          <N2>12</N2>
+          <N3>13</N3>
+          <N4>14</N4>
+          <N5>15</N5>
+          <N6>16</N6>
+          <N7>17</N7>
+          <N8>18</N8>
+          <N9>19</N9>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>user average 11-20</description>
+      </action>
+      <action type="open_display">
+        <file>userCalcOuts10more.opi</file>
+        <macros>
+          <N1>11</N1>
+          <N10>20</N10>
+          <N2>12</N2>
+          <N3>13</N3>
+          <N4>14</N4>
+          <N5>15</N5>
+          <N6>16</N6>
+          <N7>17</N7>
+          <N8>18</N8>
+          <N9>19</N9>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>user calcOuts 11-20</description>
+      </action>
+      <action type="open_display">
+        <file>userCalcs10more.opi</file>
+        <macros>
+          <N1>11</N1>
+          <N10>20</N10>
+          <N2>12</N2>
+          <N3>13</N3>
+          <N4>14</N4>
+          <N5>15</N5>
+          <N6>16</N6>
+          <N7>17</N7>
+          <N8>18</N8>
+          <N9>19</N9>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>user calcs 11-20</description>
+      </action>
+      <action type="open_display">
+        <file>xxBusyRecord.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>mybusy</R>
+        </macros>
+        <target>tab</target>
+        <description>busyRecord</description>
+      </action>
+      <action type="open_display">
+        <file>userCalcsGlobalEnable.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>global enable</description>
+      </action>
+    </actions>
+    <text>userCalc</text>
+    <x>140</x>
+    <y>20</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #370</name>
+    <actions>
+      <action type="open_display">
+        <file>Agilent_33220A_test1.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <S>1</S>
+        </macros>
+        <target>tab</target>
+        <description>Agilent 33220A</description>
+      </action>
+    </actions>
+    <text>AgilentWG</text>
+    <x>350</x>
+    <y>60</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #373</name>
+    <actions>
+      <action type="open_display">
+        <file>encoderFly.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>eFly:</Q>
+        </macros>
+        <target>tab</target>
+        <description>encoderFly</description>
+      </action>
+      <action type="open_display">
+        <file>encoderInterlaceFly.opi</file>
+        <macros>
+          <FLY>xxx:eFly:</FLY>
+          <P>xxx:</P>
+          <Q>iFly:</Q>
+        </macros>
+        <target>tab</target>
+        <description>encoderInterlaceFly</description>
+      </action>
+      <action type="open_display">
+        <file>encoderTableFly.opi</file>
+        <macros>
+          <FLY>xxx:eFly:</FLY>
+          <P>yyy:</P>
+          <Q>tFly:</Q>
+        </macros>
+        <target>tab</target>
+        <description>encoderTableFly</description>
+      </action>
+    </actions>
+    <text>encoderFly</text>
+    <y>180</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #378</name>
+    <actions>
+      <action type="open_display">
+        <file>dlmPlots.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>dlm:</Q>
+        </macros>
+        <target>tab</target>
+        <description>dlmPlots.adl</description>
+      </action>
+    </actions>
+    <text>DLM4000</text>
+    <x>210</x>
+    <y>160</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #381</name>
+    <actions>
+      <action type="open_display">
+        <file>tds3000_c.opi</file>
+        <macros>
+          <scope>xxx:tds:</scope>
+        </macros>
+        <target>tab</target>
+        <description>TDS3000 scope</description>
+      </action>
+      <action type="open_display">
+        <file>asynRecord.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>tds:</R>
+        </macros>
+        <target>tab</target>
+        <description>asyn record</description>
+      </action>
+    </actions>
+    <text>tds3000</text>
+    <x>70</x>
+    <y>180</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #387</name>
+    <actions>
+      <action type="open_display">
+        <file>grating.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>gr:</Q>
+        </macros>
+        <target>tab</target>
+        <description>grating</description>
+      </action>
+    </actions>
+    <text>grating</text>
+    <x>140</x>
+    <y>180</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #390</name>
+    <actions>
+      <action type="open_display">
+        <file>encoderFly.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>eFly:</Q>
+        </macros>
+        <target>tab</target>
+        <description>encoderFly</description>
+      </action>
+      <action type="open_display">
+        <file>encoderInterlaceFly.opi</file>
+        <macros>
+          <FLY>xxx:eFly:</FLY>
+          <P>xxx:</P>
+          <Q>iFly:</Q>
+        </macros>
+        <target>tab</target>
+        <description>encoderInterlaceFly</description>
+      </action>
+      <action type="open_display">
+        <file>encoderTableFly.opi</file>
+        <macros>
+          <P>yyy:</P>
+          <Q>tFly:</Q>
+        </macros>
+        <target>tab</target>
+        <description>encoderTableFly</description>
+      </action>
+      <action type="open_display">
+        <file>interlaceParms.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>iParms1:</Q>
+        </macros>
+        <target>tab</target>
+        <description>interlaceParms</description>
+      </action>
+      <action type="open_display">
+        <file>EnsemblePSOFly.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>PSOFly:</Q>
+        </macros>
+        <target>tab</target>
+        <description>EnsemblePSOFly</description>
+      </action>
+      <action type="open_display">
+        <file>interlaceFly.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>iFly:</Q>
+        </macros>
+        <target>tab</target>
+        <description>interlaceFly</description>
+      </action>
+      <action type="open_display">
+        <file>tablePSOFly.opi</file>
+        <macros>
+          <P>yyy:</P>
+          <Q>tFly:</Q>
+        </macros>
+        <target>tab</target>
+        <description>tablePSOFly</description>
+      </action>
+      <action type="open_display">
+        <file>interlaceParms.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <Q>iParms2:</Q>
+        </macros>
+        <target>tab</target>
+        <description>interlaceParms</description>
+      </action>
+    </actions>
+    <text>Fly</text>
+    <x>210</x>
+    <y>180</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #400</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>DG0:</R>
+        </macros>
+        <target>tab</target>
+        <description>DG645</description>
+      </action>
+      <action type="open_display">
+        <file>devDG535.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <R>DG0:</R>
+        </macros>
+        <target>tab</target>
+        <description>DG535</description>
+      </action>
+      <action type="open_display">
+        <file>delaygen.opi</file>
+        <macros>
+          <P>xxx:</P>
+        </macros>
+        <target>tab</target>
+        <description>delaygen.adl</description>
+      </action>
+    </actions>
+    <text>delayGen</text>
+    <x>280</x>
+    <y>180</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #405</name>
+    <actions>
+      <action type="open_display">
+        <file>calcEnergy.opi</file>
+        <macros>
+          <P>xxx:</P>
+          <P_ID>xxx:</P_ID>
+          <P_MONO>xxx:</P_MONO>
+          <P_SLIT>xxx:</P_SLIT>
+        </macros>
+        <target>tab</target>
+        <description>calcEnergy</description>
+      </action>
+    </actions>
+    <text>calcEnergy</text>
+    <x>350</x>
+    <y>180</y>
+    <width>70</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+</display>
