@@ -1,0 +1,975 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 13
+y 227
+w 622
+h 286
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-bold-r-10.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor rgb 0 0 0
+bgColor rgb 47872 47872 47872
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
+snapToGrid
+gridSize 4
+endScreenProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 621
+h 27
+lineColor rgb 13312 13056 34304
+fill
+fillColor rgb 13312 13056 34304
+lineWidth 0
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 8
+y 4
+w 606
+h 22
+font "helvetica-medium-r-18.0"
+fgColor rgb 65280 65280 65280
+bgColor index 3
+useDisplayBg
+value {
+  "$(P)"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 70
+w 604
+h 156
+lineColor rgb 13312 13056 34304
+fillColor rgb 13312 13056 34304
+lineWidth 4
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 14
+y 240
+w 592
+h 32
+
+beginGroup
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 14
+y 240
+w 592
+h 32
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
+displaySource "file"
+file "ioc_stop_panel.edl"
+sizeOfs 5
+numDsps 1
+displayFileName {
+  0 "ioc_stop_panel.edl"
+}
+noScroll
+endObjectProperties
+
+endGroup
+
+visMin "A"
+visMax "1"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 13312 13056 34304
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Motors"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_motors.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 95
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 13312 13056 34304
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Optics"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_optics.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 180
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 13312 13056 34304
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Detectors"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_detectors.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 265
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 13312 13056 34304
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Direct I/O"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_direct_io.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 10752 25344 58368
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Devices"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_devices.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 435
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 13312 13056 34304
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Tools"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_tools.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 80
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Preamps"
+numPvs 12
+numDsps 6
+displayFileName {
+  0 "SR570_tiny.edl"
+  1 "SR570_tiny.edl"
+  2 "SR570_tiny.edl"
+  3 "SR570_tiny.edl"
+  4 "SR570_tiny.edl"
+  5 "femto.edl"
+}
+menuLabel {
+  0 "SRS 570 Current Preamplifier #A1"
+  1 "SRS 570 Current Preamplifier #A2"
+  2 "SRS 570 Current Preamplifier #A3"
+  3 "SRS 570 Current Preamplifier #A4"
+  4 "SRS 570 Current Preamplifier #A5"
+  5 "Femto Current Preamplifier"
+}
+symbols {
+  0 "P=$(P),A=A1"
+  1 "P=$(P),A=A2"
+  2 "P=$(P),A=A3"
+  3 "P=$(P),A=A4"
+  4 "P=$(P),A=A5"
+  5 "P=$(P),H=fem01:,F=seq01:,AC=$(P)Unidig1Bo9"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+  3 1
+  4 1
+  5 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 137
+y 80
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Pumps"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 "Pump.edl"
+  1 "Pump.edl"
+  2 "Pump.edl"
+}
+menuLabel {
+  0 "Digitel Vacuum Pump"
+  1 "MPC Ion Pump"
+  2 "MPC TSP Pump"
+}
+symbols {
+  0 "P=$(P),PUMP=ip1"
+  1 "P=$(P),PUMP=ip2"
+  2 "P=$(P),PUMP=tsp1"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 254
+y 80
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Keithley 2K"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 "Keithley2kDMM_mf.edl"
+  1 "Keithley2kDMM_mf.edl"
+  2 "KeithleyDMM.edl"
+}
+menuLabel {
+  0 "Keithley 2000 DMM #1"
+  1 "Keithley 2000 DMM #2"
+  2 "Keithley DMM (thermistors)"
+}
+symbols {
+  0 "P=$(P),Dmm=D1"
+  1 "P=$(P),Dmm=D2"
+  2 "P=$(P)"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 371
+y 80
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "I0"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "Io.edl"
+}
+menuLabel {
+  0 "I0 calc"
+}
+symbols {
+  0 "P=$(P)Io:,S=$(P)scaler1,MONO=$(P)BraggEAO"
+}
+replaceSymbols {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 488
+y 80
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 115
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Encoders"
+numPvs 8
+numDsps 4
+displayFileName {
+  0 "HeidEncoder.edl"
+  1 "HeidEncoder.edl"
+  2 "HeidND261.edl"
+  3 "HeidIK320_group.edl"
+}
+menuLabel {
+  0 "Heidenhain AWE1024"
+  1 "Heidenhain AWE1024"
+  2 "Heidenhain ND261"
+  3 "Heidenhain IK320"
+}
+symbols {
+  0 "P=$(P),A=6"
+  1 "P=$(P),A=7"
+  2 "P=$(P)"
+  3 "P=$(P),card=card0,group=5"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+  3 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 137
+y 115
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 254
+y 115
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Eurotherm"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 "Eurotherm.edl"
+  1 "Eurotherm2k.edl"
+}
+menuLabel {
+  0 "Eurotherm"
+  1 "Eurotherm 2k"
+}
+symbols {
+  0 "P=$(P)"
+  1 "P=$(P),TC=1"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 371
+y 115
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 488
+y 115
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 150
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "HP Laser"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 "HPLaserAxis.edl"
+  1 "HPLaserAxis.edl"
+}
+menuLabel {
+  0 "HP Laser Axis 1"
+  1 "HP Laser Axis 2"
+}
+symbols {
+  0 "P=$(P),Q=HPLaser1"
+  1 "P=$(P),Q=HPLaser2"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 254
+y 150
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "LakeShore"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "LakeShore.edl"
+}
+menuLabel {
+  0 "LakeShore Temp. Controller"
+}
+symbols {
+  0 "P=$(P),Q=TC1"
+}
+replaceSymbols {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 371
+y 150
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 488
+y 150
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 137
+y 150
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 185
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Autocoll"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "Elcomat.edl"
+}
+menuLabel {
+  0 "Autocollimator"
+}
+symbols {
+  0 "P=$(P)"
+}
+replaceSymbols {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 137
+y 185
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Octupole"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 "OctupoleRamp.edl"
+  1 "octupoleTempRead.edl"
+}
+menuLabel {
+  0 "Octupole Ramp"
+  1 "Octupole Temperature"
+}
+symbols {
+  0 "P=$(P),Q=octupole:"
+  1 "P=$(P),Q=Oct:"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 254
+y 185
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Oxford ILM202"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "Oxford_ILM202.edl"
+}
+menuLabel {
+  0 "Oxford ILM202 Cryogen Level Meter"
+}
+symbols {
+  0 "P=$(P),S=s1"
+}
+replaceSymbols {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 371
+y 185
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 488
+y 185
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+

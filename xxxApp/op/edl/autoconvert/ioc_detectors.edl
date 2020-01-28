@@ -1,0 +1,1027 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 13
+y 227
+w 622
+h 286
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-bold-r-10.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor rgb 0 0 0
+bgColor rgb 47872 47872 47872
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
+snapToGrid
+gridSize 4
+endScreenProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 621
+h 27
+lineColor rgb 13312 13056 34304
+fill
+fillColor rgb 13312 13056 34304
+lineWidth 0
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 8
+y 4
+w 606
+h 22
+font "helvetica-medium-r-18.0"
+fgColor rgb 65280 65280 65280
+bgColor index 3
+useDisplayBg
+value {
+  "$(P)"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 70
+w 604
+h 156
+lineColor rgb 13312 13056 34304
+fillColor rgb 13312 13056 34304
+lineWidth 4
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 14
+y 240
+w 592
+h 32
+
+beginGroup
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 14
+y 240
+w 592
+h 32
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
+displaySource "file"
+file "ioc_stop_panel.edl"
+sizeOfs 5
+numDsps 1
+displayFileName {
+  0 "ioc_stop_panel.edl"
+}
+noScroll
+endObjectProperties
+
+endGroup
+
+visMin "A"
+visMax "1"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 13312 13056 34304
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Motors"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_motors.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 95
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 13312 13056 34304
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Optics"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_optics.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 180
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 10752 25344 58368
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Detectors"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_detectors.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 265
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 13312 13056 34304
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Direct I/O"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_direct_io.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 13312 13056 34304
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Devices"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_devices.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 435
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 13312 13056 34304
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Tools"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_tools.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 80
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Scaler #1"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 "scaler16.edl"
+  1 "scaler32.edl"
+  2 "scaler64.edl"
+}
+menuLabel {
+  0 "Scaler 1 (16 ch)"
+  1 "Scaler 1 (32 ch)"
+  2 "Scaler 1 (64 ch)"
+}
+symbols {
+  0 "P=$(P),S=scaler1"
+  1 "P=$(P),S=scaler1"
+  2 "P=$(P),S=scaler1"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 137
+y 80
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "SIS3820"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 "scaler.edl"
+  1 "scaler32.edl"
+}
+menuLabel {
+  0 "SIS3820 scaler 8"
+  1 "SIS3820 scaler 32"
+}
+symbols {
+  0 "P=$(P)3820:,S=scaler1"
+  1 "P=$(P)3820:,S=scaler1"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 254
+y 80
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "ADSimDetector"
+numPvs 8
+numDsps 4
+displayFileName {
+  0 "ADBase.edl"
+  1 "simDetector.edl"
+  2 "ADBase.edl"
+  3 "simDetector.edl"
+}
+menuLabel {
+  0 "Simulator #1 General"
+  1 "Simulator #1 Specific"
+  2 "Simulator #2 General"
+  3 "Simulator #2 Specific"
+}
+symbols {
+  0 "P=$(P),R=SIM1:cam1:"
+  1 "P=$(P),R=SIM1:cam1:"
+  2 "P=$(P),R=SIM1:cam2:"
+  3 "P=$(P),R=SIM1:cam2:"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+  3 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 371
+y 80
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "quadEM"
+numPvs 14
+numDsps 7
+displayFileName {
+  0 "quadEM.edl"
+  1 "quadEM.edl"
+  2 "quadEM.edl"
+  3 "quadEM.edl"
+  4 "quadEM_med.edl"
+  5 "pid_control.edl"
+  6 "pid_control.edl"
+}
+menuLabel {
+  0 "Quad Electrometer Ch.1"
+  1 "Quad Electrometer Ch.2"
+  2 "Quad Electrometer Ch.3"
+  3 "Quad Electrometer Ch.4"
+  4 "Quad Electrometer MCAs"
+  5 "Vertical feedback"
+  6 "Horizontal feedback"
+}
+symbols {
+  0 "P=$(P),EM=EM1"
+  1 "P=$(P),EM=EM2"
+  2 "P=$(P),EM=EM3"
+  3 "P=$(P),EM=EM4"
+  4 "P=$(P)quadEM:,P_FFT=$(P)quadEM_FFT:"
+  5 "P=$(P),PID=quadEMVertical,TITLE=Vertical_Feedback"
+  6 "P=$(P),PID=quadEMHorizontal,TITLE=Horizontal_Feedback"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+  3 1
+  4 1
+  5 1
+  6 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 488
+y 80
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "MCA"
+numPvs 16
+numDsps 8
+displayFileName {
+  0 "mca_small.edl"
+  1 "mca.edl"
+  2 "xxIcbAdc.edl"
+  3 "xxIcbTCA.edl"
+  4 "xxIcbHVPS.edl"
+  5 "xxIcbAmp.edl"
+  6 "dsp9660Gain.edl"
+  7 "mca_small.edl"
+}
+menuLabel {
+  0 "Canberra AIM Multichannel Analyzer"
+  1 "MCA with ROI's"
+  2 "ADC 1"
+  3 "TCA 1"
+  4 "HVPS 1"
+  5 "AMP 1"
+  6 "DSP 1"
+  7 "soft MCA"
+}
+symbols {
+  0 "P=$(P),M=aim_adc1"
+  1 "P=$(P),M=aim_adc1"
+  2 "P=$(P),ADC=adc1"
+  3 "P=$(P),TCA=tca1"
+  4 "P=$(P),HVPS=hvps1"
+  5 "P=$(P),AMP=amp1"
+  6 "P=$(P),DSP=dsp1"
+  7 "P=$(P),M=softMCA"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+  3 1
+  4 1
+  5 1
+  6 1
+  7 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 115
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Scaler #2"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 "scaler16.edl"
+  1 "scaler32.edl"
+  2 "scaler64.edl"
+}
+menuLabel {
+  0 "Scaler 2 (16 ch)"
+  1 "Scaler 2 (32 ch)"
+  2 "Scaler 2 (64 ch)"
+}
+symbols {
+  0 "P=$(P),S=scaler2"
+  1 "P=$(P),S=scaler2"
+  2 "P=$(P),S=scaler2"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 137
+y 115
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "SIS38XX"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "SIS38XX.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P)3820:"
+}
+replaceSymbols {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 254
+y 115
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "AD Prebuilt"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ADTop.edl"
+}
+menuLabel {
+  0 "AD Top (prebuilts)"
+}
+symbols {
+  0 " "
+}
+replaceSymbols {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 371
+y 115
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 488
+y 115
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "multiMCA"
+numPvs 8
+numDsps 4
+displayFileName {
+  0 "3element.edl"
+  1 "mca_small.edl"
+  2 "mcaSum3.edl"
+  3 "xxIcbHVPS.edl"
+}
+menuLabel {
+  0 "3 element detector"
+  1 "summed spectrum (mca0)"
+  2 "sum control"
+  3 "HV power supply"
+}
+symbols {
+  0 "P=$(P)med:"
+  1 "P=$(P)med:,M=mca0"
+  2 "P=$(P)med:"
+  3 "P=$(P)med:,HVPS=hvps1"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+  3 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 150
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Scaler #3"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 "scaler16.edl"
+  1 "scaler32.edl"
+  2 "scaler64.edl"
+}
+menuLabel {
+  0 "Scaler 3 (16 ch)"
+  1 "Scaler 3 (32 ch)"
+  2 "Scaler 3 (64 ch)"
+}
+symbols {
+  0 "P=$(P),S=scaler3"
+  1 "P=$(P),S=scaler3"
+  2 "P=$(P),S=scaler3"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 254
+y 150
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Oxford X1000"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "Oxford_X1k.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),S=s1"
+}
+replaceSymbols {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 371
+y 150
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 488
+y 150
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 137
+y 150
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 185
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 137
+y 185
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 254
+y 185
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 371
+y 185
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 488
+y 185
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Four Step"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "4step.edl"
+}
+menuLabel {
+  0 "4-step measurement"
+}
+symbols {
+  0 "P=$(P)"
+}
+replaceSymbols {
+  0 1
+}
+endObjectProperties
+

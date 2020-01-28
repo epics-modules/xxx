@@ -1,0 +1,1821 @@
+<display typeId="org.csstudio.opibuilder.Display" version="1.0.0">
+  <actions hook="false" hook_all="false" />
+  <auto_scale_widgets>
+    <auto_scale_widgets>false</auto_scale_widgets>
+    <min_width>-1</min_width>
+    <min_height>-1</min_height>
+  </auto_scale_widgets>
+  <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
+  <background_color>
+    <color red="187" green="187" blue="187" />
+  </background_color>
+  <boy_version>5.1.0</boy_version>
+  <foreground_color>
+    <color red="0" green="0" blue="0" />
+  </foreground_color>
+  <grid_space>5</grid_space>
+  <height>286</height>
+  <macros>
+    <include_parent_macros>true</include_parent_macros>
+  </macros>
+  <name>ioc_optics</name>
+  <rules />
+  <scripts />
+  <show_close_button>true</show_close_button>
+  <show_edit_range>true</show_edit_range>
+  <show_grid>false</show_grid>
+  <show_ruler>true</show_ruler>
+  <snap_to_geometry>false</snap_to_geometry>
+  <widget_type>Display</widget_type>
+  <width>622</width>
+  <x>13</x>
+  <y>227</y>
+  <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <alpha>255</alpha>
+    <anti_alias>true</anti_alias>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="30" green="144" blue="255" />
+    </background_color>
+    <bg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </bg_gradient_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <fg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </fg_gradient_color>
+    <fill_level>100.0</fill_level>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="52" green="51" blue="134" />
+    </foreground_color>
+    <gradient>false</gradient>
+    <height>28</height>
+    <horizontal_fill>true</horizontal_fill>
+    <line_color>
+      <color red="128" green="0" blue="255" />
+    </line_color>
+    <line_style>0</line_style>
+    <line_width>0</line_width>
+    <name>Rectangle</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Rectangle</widget_type>
+    <width>622</width>
+    <x>0</x>
+    <y>0</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <alpha>255</alpha>
+    <anti_alias>true</anti_alias>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="30" green="144" blue="255" />
+    </background_color>
+    <bg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </bg_gradient_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <fg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </fg_gradient_color>
+    <fill_level>0.0</fill_level>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="52" green="51" blue="134" />
+    </foreground_color>
+    <gradient>false</gradient>
+    <height>160</height>
+    <horizontal_fill>true</horizontal_fill>
+    <line_color>
+      <color red="52" green="51" blue="134" />
+    </line_color>
+    <line_style>0</line_style>
+    <line_width>4</line_width>
+    <name>Rectangle</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>true</transparent>
+    <visible>true</visible>
+    <widget_type>Rectangle</widget_type>
+    <width>608</width>
+    <x>8</x>
+    <y>68</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <background_color>
+      <color red="187" green="187" blue="187" />
+    </background_color>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <group_name></group_name>
+    <height>32</height>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+    </macros>
+    <name>Linking Container</name>
+    <opi_file>ioc_stop_panel.opi</opi_file>
+    <resize_behaviour>2</resize_behaviour>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <tooltip></tooltip>
+    <visible>true</visible>
+    <widget_type>Linking Container</widget_type>
+    <width>592</width>
+    <x>14</x>
+    <y>240</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <auto_size>false</auto_size>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <fontdata fontName="Sans" height="13" style="0" pixels="false" />
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>22</height>
+    <horizontal_alignment>0</horizontal_alignment>
+    <name>Label</name>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_scrollbar>false</show_scrollbar>
+    <text>$(P)</text>
+    <tooltip></tooltip>
+    <transparent>true</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Label</widget_type>
+    <width>606</width>
+    <wrap_words>false</wrap_words>
+    <x>8</x>
+    <y>4</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>ioc_motors.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>0</mode>
+        <description></description>
+      </action>
+    </actions>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="52" green="51" blue="134" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>20</height>
+    <image></image>
+    <name>Action Button</name>
+    <push_action_index>0</push_action_index>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <style>0</style>
+    <text>Motors</text>
+    <toggle_button>false</toggle_button>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <visible>true</visible>
+    <widget_type>Action Button</widget_type>
+    <width>80</width>
+    <x>10</x>
+    <y>44</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>ioc_detectors.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>0</mode>
+        <description></description>
+      </action>
+    </actions>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="52" green="51" blue="134" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>20</height>
+    <image></image>
+    <name>Action Button</name>
+    <push_action_index>0</push_action_index>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <style>0</style>
+    <text>Detectors</text>
+    <toggle_button>false</toggle_button>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <visible>true</visible>
+    <widget_type>Action Button</widget_type>
+    <width>80</width>
+    <x>180</x>
+    <y>44</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>ioc_direct_io.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>0</mode>
+        <description></description>
+      </action>
+    </actions>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="52" green="51" blue="134" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>20</height>
+    <image></image>
+    <name>Action Button</name>
+    <push_action_index>0</push_action_index>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <style>0</style>
+    <text>Direct I/O</text>
+    <toggle_button>false</toggle_button>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <visible>true</visible>
+    <widget_type>Action Button</widget_type>
+    <width>80</width>
+    <x>265</x>
+    <y>44</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>ioc_devices.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>0</mode>
+        <description></description>
+      </action>
+    </actions>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="52" green="51" blue="134" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>20</height>
+    <image></image>
+    <name>Action Button</name>
+    <push_action_index>0</push_action_index>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <style>0</style>
+    <text>Devices</text>
+    <toggle_button>false</toggle_button>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <visible>true</visible>
+    <widget_type>Action Button</widget_type>
+    <width>80</width>
+    <x>350</x>
+    <y>44</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>ioc_tools.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>0</mode>
+        <description></description>
+      </action>
+    </actions>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="52" green="51" blue="134" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>20</height>
+    <image></image>
+    <name>Action Button</name>
+    <push_action_index>0</push_action_index>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <style>0</style>
+    <text>Tools</text>
+    <toggle_button>false</toggle_button>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <visible>true</visible>
+    <widget_type>Action Button</widget_type>
+    <width>80</width>
+    <x>435</x>
+    <y>44</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>kohzuGraphic.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <mTH>m9</mTH>
+          <mY1>m10</mY1>
+          <mZ2>m11</mZ2>
+          <mCHI2>m12</mCHI2>
+          <mTH2>m13</mTH2>
+          <mX>m14</mX>
+          <mY>m15</mY>
+          <mX2>m16</mX2>
+          <QE>BraggE</QE>
+          <PVE>BraggEAO</PVE>
+          <QL>BraggLambda</QL>
+          <PVL>BraggLambdaAO</PVL>
+          <QTh>BraggTheta</QTh>
+          <PVTh>BraggThetaAO</PVTh>
+        </macros>
+        <mode>1</mode>
+        <description>Kohzu Graphic (GEOM 1)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>kohzu2Graphic.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <mTH>m9</mTH>
+          <mY2>m10</mY2>
+          <mZ2>m11</mZ2>
+          <mCHI2>m12</mCHI2>
+          <mTH2>m13</mTH2>
+          <mX>m14</mX>
+          <mY>m15</mY>
+          <mX2>m16</mX2>
+          <QE>BraggE</QE>
+          <PVE>BraggEAO</PVE>
+          <QL>BraggLambda</QL>
+          <PVL>BraggLambdaAO</PVL>
+          <QTh>BraggTheta</QTh>
+          <PVTh>BraggThetaAO</PVTh>
+        </macros>
+        <mode>1</mode>
+        <description>Kohzu Graphic (GEOM 2)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>kohzuSeqCtl_tiny.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>1</mode>
+        <description>KohzuSeq (tiny)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>kohzuSeqCtl.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>1</mode>
+        <description>KohzuSeq</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>kohzuSeqCtl_All.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>1</mode>
+        <description>KohzuSeq (All)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>scanParms.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>BraggE</Q>
+          <PV>BraggEAO</PV>
+        </macros>
+        <mode>1</mode>
+        <description>Energy-scan parameters</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>scanParms.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>BraggTheta</Q>
+          <PV>BraggThetaAO</PV>
+        </macros>
+        <mode>1</mode>
+        <description>Theta-scan parameters</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>scanParms.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>BraggLambda</Q>
+          <PV>BraggLambdaAO</PV>
+        </macros>
+        <mode>1</mode>
+        <description>Wavelength-scan parameters</description>
+      </action>
+    </actions>
+    <actions_from_pv>false</actions_from_pv>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="51" green="153" blue="0" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>6</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>24</height>
+    <label>Kohzu Mono</label>
+    <name>Menu Button</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_down_arrow>false</show_down_arrow>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Menu Button</widget_type>
+    <width>112</width>
+    <x>20</x>
+    <y>80</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>pf4.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <H>pf4:</H>
+          <A>A</A>
+          <B>B</B>
+          <MONO>$(P)BraggEAO</MONO>
+          <B1>$(P)Unidig1Bo3</B1>
+          <B2>$(P)Unidig1Bo4</B2>
+          <B3>$(P)Unidig1Bo5</B3>
+          <B4>$(P)Unidig1Bo6</B4>
+          <B5>$(P)Unidig1Bo7</B5>
+          <B6>$(P)Unidig1Bo8</B6>
+          <B7>$(P)Unidig1Bo9</B7>
+          <B8>$(P)Unidig1Bo10</B8>
+        </macros>
+        <mode>1</mode>
+        <description>PF4 Filter</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>pf4small.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <H>pf4:</H>
+          <A>A</A>
+          <B>B</B>
+          <MONO>$(P)BraggEAO</MONO>
+          <B1>$(P)Unidig1Bo3</B1>
+          <B2>$(P)Unidig1Bo4</B2>
+          <B3>$(P)Unidig1Bo5</B3>
+          <B4>$(P)Unidig1Bo6</B4>
+          <B5>$(P)Unidig1Bo7</B5>
+          <B6>$(P)Unidig1Bo8</B6>
+          <B7>$(P)Unidig1Bo9</B7>
+          <B8>$(P)Unidig1Bo10</B8>
+        </macros>
+        <mode>1</mode>
+        <description>PF4 Filter small</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>pf4.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <H>pf4:</H>
+          <A>A</A>
+          <B>B</B>
+        </macros>
+        <mode>1</mode>
+        <description>PF4 Filter fake I/O</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>pf4Bank.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <H>pf4:</H>
+          <B>A</B>
+        </macros>
+        <mode>1</mode>
+        <description>PF4 FilterBank A</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>filter_8_8_more.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <R>filter:</R>
+        </macros>
+        <mode>1</mode>
+        <description>Alt PF4 filter 16</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>filter_8_0_more.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <R>filter:</R>
+        </macros>
+        <mode>1</mode>
+        <description>Alt PF4 filter 8</description>
+      </action>
+    </actions>
+    <actions_from_pv>false</actions_from_pv>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="51" green="153" blue="0" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>6</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>24</height>
+    <label>PF4 Filter</label>
+    <name>Menu Button</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_down_arrow>false</show_down_arrow>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Menu Button</widget_type>
+    <width>112</width>
+    <x>137</x>
+    <y>80</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>XIA_shutter.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <S>shutter1</S>
+        </macros>
+        <mode>1</mode>
+        <description>XIA shutter 1</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>XIA_shutterTry.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <S>shutter2</S>
+        </macros>
+        <mode>1</mode>
+        <description>XIA shutter 2</description>
+      </action>
+    </actions>
+    <actions_from_pv>false</actions_from_pv>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="51" green="153" blue="0" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>6</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>24</height>
+    <label>Shutter</label>
+    <name>Menu Button</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_down_arrow>false</show_down_arrow>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Menu Button</widget_type>
+    <width>112</width>
+    <x>254</x>
+    <y>80</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>2slit.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <SLIT>Slit1H</SLIT>
+          <mXp>m5</mXp>
+          <mXn>m6</mXn>
+        </macros>
+        <mode>1</mode>
+        <description>Slit 1 (H)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>2slit.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <SLIT>Slit1V</SLIT>
+          <mXp>m3</mXp>
+          <mXn>m4</mXn>
+        </macros>
+        <mode>1</mode>
+        <description>Slit 1 (V)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>4slitGraphic.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <SLIT>Slit_1</SLIT>
+          <H>Slit1H</H>
+          <mXp>m3</mXp>
+          <mXn>m4</mXn>
+          <V>Slit1V</V>
+          <mYp>m5</mYp>
+          <mYn>m6</mYn>
+        </macros>
+        <mode>1</mode>
+        <description>Slit 1 Graphic</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>motor4x.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <M1>m3</M1>
+          <M2>m4</M2>
+          <M3>m5</M3>
+          <M4>m6</M4>
+        </macros>
+        <mode>1</mode>
+        <description>Slit Motors</description>
+      </action>
+    </actions>
+    <actions_from_pv>false</actions_from_pv>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="51" green="153" blue="0" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>6</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>24</height>
+    <label>Slit #1</label>
+    <name>Menu Button</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_down_arrow>false</show_down_arrow>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Menu Button</widget_type>
+    <width>112</width>
+    <x>371</x>
+    <y>80</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>table.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>Table1</Q>
+          <T>table1</T>
+          <M0X>m1</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>m4</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>m6</M2Z>
+        </macros>
+        <mode>1</mode>
+        <description>Table1 (S)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>table_full.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>Table1</Q>
+          <T>table1</T>
+          <M0X>m1</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>m4</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>m6</M2Z>
+        </macros>
+        <mode>1</mode>
+        <description>Table1 (L)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>table.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>Table2</Q>
+          <T>table2</T>
+          <M0X>m1</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>m4</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>junk</M2Z>
+        </macros>
+        <mode>1</mode>
+        <description>Table2 (S) (no Z)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>table_full.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>Table2</Q>
+          <T>table2</T>
+          <M0X>m1</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>m4</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>junk</M2Z>
+        </macros>
+        <mode>1</mode>
+        <description>Table2 (L) (no Z)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>table.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>Table3</Q>
+          <T>table3</T>
+          <M0X>junk</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>junk</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>m6</M2Z>
+        </macros>
+        <mode>1</mode>
+        <description>Table3 (S) (no X)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>table_full.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>Table3</Q>
+          <T>table3</T>
+          <M0X>junk</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>junk</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>m6</M2Z>
+        </macros>
+        <mode>1</mode>
+        <description>Table3 (L) (no X)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>table.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>Table4</Q>
+          <T>table4</T>
+          <M0X>junk</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>junk</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>junk</M2Z>
+        </macros>
+        <mode>1</mode>
+        <description>Table4 (S) (no X or Z)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>table_full.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>Table4</Q>
+          <T>table4</T>
+          <M0X>junk</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>junk</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>junk</M2Z>
+        </macros>
+        <mode>1</mode>
+        <description>Table4 (L) (no X or Z)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>ASRPmirrorTable.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <TBL>mt1</TBL>
+          <VERT>$(P)m7</VERT>
+          <PITCH>$(P)m8</PITCH>
+        </macros>
+        <mode>1</mode>
+        <description>ASRP mirror table</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>table_soft.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>Table1</Q>
+          <T>table1</T>
+          <M0X>m1</M0X>
+          <M0Y>m2</M0Y>
+          <M1Y>m3</M1Y>
+          <M2X>m4</M2X>
+          <M2Y>m5</M2Y>
+          <M2Z>m6</M2Z>
+        </macros>
+        <mode>1</mode>
+        <description>Table1 soft (S)</description>
+      </action>
+    </actions>
+    <actions_from_pv>false</actions_from_pv>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="51" green="153" blue="0" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>6</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>24</height>
+    <label>Tables</label>
+    <name>Menu Button</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_down_arrow>false</show_down_arrow>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Menu Button</widget_type>
+    <width>112</width>
+    <x>488</x>
+    <y>80</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>SGM_tiny.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <N>1</N>
+          <M_x>m7</M_x>
+          <M_rIn>m6</M_rIn>
+          <M_rOut>m8</M_rOut>
+        </macros>
+        <mode>1</mode>
+        <description>Spherical Grating Monochromator (tiny)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>SGM.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <N>1</N>
+          <M_x>m7</M_x>
+          <M_rIn>m6</M_rIn>
+          <M_rOut>m8</M_rOut>
+        </macros>
+        <mode>1</mode>
+        <description>Spherical Grating Monochromator</description>
+      </action>
+    </actions>
+    <actions_from_pv>false</actions_from_pv>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="51" green="153" blue="0" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>6</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>24</height>
+    <label>SGM Mono</label>
+    <name>Menu Button</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_down_arrow>false</show_down_arrow>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Menu Button</widget_type>
+    <width>112</width>
+    <x>20</x>
+    <y>115</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>2filter.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q1>fltr1:</Q1>
+          <Q2>fltr2:</Q2>
+          <LOCK1>fltr_1_2:</LOCK1>
+          <LOCK2>fltr_1_2:</LOCK2>
+        </macros>
+        <mode>1</mode>
+        <description>User Filter</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>2filter_setup.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q1>fltr1:</Q1>
+          <Q2>fltr2:</Q2>
+          <LOCK1>fltr_1_2:</LOCK1>
+          <LOCK2>fltr_1_2:</LOCK2>
+        </macros>
+        <mode>1</mode>
+        <description>User Filter Setup</description>
+      </action>
+    </actions>
+    <actions_from_pv>false</actions_from_pv>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="51" green="153" blue="0" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>6</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>24</height>
+    <label>User Filter</label>
+    <name>Menu Button</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_down_arrow>false</show_down_arrow>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Menu Button</widget_type>
+    <width>112</width>
+    <x>137</x>
+    <y>115</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>2slit_soft.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <SLIT>Slit2H</SLIT>
+          <mXp>m15</mXp>
+          <mXn>m16</mXn>
+        </macros>
+        <mode>1</mode>
+        <description>Slit 2 (H) (soft)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>2slit_soft.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <SLIT>Slit2V</SLIT>
+          <mXp>m13</mXp>
+          <mXn>m14</mXn>
+        </macros>
+        <mode>1</mode>
+        <description>Slit 2 (V) (soft)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>4slitGraphic_soft.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <SLIT>Slit_2</SLIT>
+          <H>Slit2H</H>
+          <mXp>m15</mXp>
+          <mXn>m16</mXn>
+          <V>Slit2V</V>
+          <mYp>m13</mYp>
+          <mYn>m14</mYn>
+        </macros>
+        <mode>1</mode>
+        <description>Slit 2 Graphic (soft)</description>
+      </action>
+    </actions>
+    <actions_from_pv>false</actions_from_pv>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="51" green="153" blue="0" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>6</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>24</height>
+    <label>Slit #2</label>
+    <name>Menu Button</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_down_arrow>false</show_down_arrow>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Menu Button</widget_type>
+    <width>112</width>
+    <x>371</x>
+    <y>115</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>2postMirror.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>M1</Q>
+          <mDn>m1</mDn>
+          <mUp>m2</mUp>
+        </macros>
+        <mode>1</mode>
+        <description>2-post Mirror</description>
+      </action>
+    </actions>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="51" green="153" blue="0" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>24</height>
+    <image></image>
+    <name>Action Button</name>
+    <push_action_index>0</push_action_index>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <style>0</style>
+    <text>Mirror</text>
+    <toggle_button>false</toggle_button>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <visible>true</visible>
+    <widget_type>Action Button</widget_type>
+    <width>112</width>
+    <x>488</x>
+    <y>115</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>ml_monoGraphic.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <mY1>m1</mY1>
+          <mZ1>m2</mZ1>
+          <mY2>m9</mY2>
+          <mZ2>m8</mZ2>
+          <mT1>m7</mT1>
+          <mT2>m10</mT2>
+          <mB>m11</mB>
+        </macros>
+        <mode>1</mode>
+        <description>ml_monoGraphic</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>ml_monoSeqCtl_tiny.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>1</mode>
+        <description>ml_monoSeq (tiny)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>ml_monoSeqCtl.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>1</mode>
+        <description>ml_monoSeq</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>ml_monoSeqCtl_All.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>1</mode>
+        <description>ml_monoSeq (All)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>scanParms.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>ml_monoE</Q>
+          <PV>ml_monoE</PV>
+        </macros>
+        <mode>1</mode>
+        <description>Energy-scan parameters</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>scanParms.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>ml_monoTheta</Q>
+          <PV>ml_monoTheta</PV>
+        </macros>
+        <mode>1</mode>
+        <description>Theta-scan parameters</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>scanParms.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <Q>ml_monoLambda</Q>
+          <PV>ml_monoLambda</PV>
+        </macros>
+        <mode>1</mode>
+        <description>Wavelength-scan parameters</description>
+      </action>
+    </actions>
+    <actions_from_pv>false</actions_from_pv>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="51" green="153" blue="0" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>6</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>24</height>
+    <label>ML Mono</label>
+    <name>Menu Button</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_down_arrow>false</show_down_arrow>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Menu Button</widget_type>
+    <width>112</width>
+    <x>20</x>
+    <y>150</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>xia_slit.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <HSC>hsc1:</HSC>
+        </macros>
+        <mode>1</mode>
+        <description>XIA slit 1 (H)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>xia_slit.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <HSC>hsc2:</HSC>
+        </macros>
+        <mode>1</mode>
+        <description>XIA slit 1 (V)</description>
+      </action>
+    </actions>
+    <actions_from_pv>false</actions_from_pv>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="51" green="153" blue="0" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>6</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>24</height>
+    <label>XIA Slit</label>
+    <name>Menu Button</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_down_arrow>false</show_down_arrow>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Menu Button</widget_type>
+    <width>112</width>
+    <x>371</x>
+    <y>150</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>orient.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <O>_0</O>
+          <PM>$(P)</PM>
+          <mTTH>m9</mTTH>
+          <mTH>m10</mTH>
+          <mCHI>m11</mCHI>
+          <mPHI>m12</mPHI>
+        </macros>
+        <mode>1</mode>
+        <description>orientation matrix</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>orient9.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <PM>$(P)</PM>
+          <mTTH>m9</mTTH>
+          <mTH>m10</mTH>
+          <mCHI>m11</mCHI>
+          <mPHI>m12</mPHI>
+        </macros>
+        <mode>1</mode>
+        <description>orient9</description>
+      </action>
+    </actions>
+    <actions_from_pv>false</actions_from_pv>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="51" green="153" blue="0" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>6</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>24</height>
+    <label>4 Circle</label>
+    <name>Menu Button</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_down_arrow>false</show_down_arrow>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Menu Button</widget_type>
+    <width>112</width>
+    <x>488</x>
+    <y>150</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <actions_from_pv>false</actions_from_pv>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="51" green="153" blue="0" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>6</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>24</height>
+    <label></label>
+    <name>Menu Button</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_down_arrow>false</show_down_arrow>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Menu Button</widget_type>
+    <width>112</width>
+    <x>137</x>
+    <y>150</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>hr_nested.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <N>1</N>
+        </macros>
+        <mode>1</mode>
+        <description>High resolution monochromator (nested)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>hr_symmetric.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <N>1</N>
+        </macros>
+        <mode>1</mode>
+        <description>High resolution monochromator (symmetric)</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>hrSeqCtl_All.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <N>1</N>
+        </macros>
+        <mode>1</mode>
+        <description>High resolution monochromator control</description>
+      </action>
+    </actions>
+    <actions_from_pv>false</actions_from_pv>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="51" green="153" blue="0" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>6</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>24</height>
+    <label>HR Mono</label>
+    <name>Menu Button</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_down_arrow>false</show_down_arrow>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Menu Button</widget_type>
+    <width>112</width>
+    <x>20</x>
+    <y>185</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>CoarseFineMotor.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <P>$(P)cf1:</P>
+          <M>MOT</M>
+          <PM>$(P)</PM>
+          <CM>m1</CM>
+          <FM>m2</FM>
+        </macros>
+        <mode>1</mode>
+        <description>CoarseFine</description>
+      </action>
+    </actions>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="51" green="153" blue="0" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="255" blue="255" />
+    </foreground_color>
+    <height>24</height>
+    <image></image>
+    <name>Action Button</name>
+    <push_action_index>0</push_action_index>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <style>0</style>
+    <text>Coarse/Fine</text>
+    <toggle_button>false</toggle_button>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <visible>true</visible>
+    <widget_type>Action Button</widget_type>
+    <width>112</width>
+    <x>137</x>
+    <y>185</y>
+  </widget>
+</display>

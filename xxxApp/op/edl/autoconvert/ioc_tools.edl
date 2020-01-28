@@ -1,0 +1,1097 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 13
+y 227
+w 622
+h 286
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-bold-r-10.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor rgb 0 0 0
+bgColor rgb 47872 47872 47872
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
+snapToGrid
+gridSize 4
+endScreenProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 621
+h 27
+lineColor rgb 13312 13056 34304
+fill
+fillColor rgb 13312 13056 34304
+lineWidth 0
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 8
+y 4
+w 606
+h 22
+font "helvetica-medium-r-18.0"
+fgColor rgb 65280 65280 65280
+bgColor index 3
+useDisplayBg
+value {
+  "$(P)"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 70
+w 604
+h 156
+lineColor rgb 13312 13056 34304
+fillColor rgb 13312 13056 34304
+lineWidth 4
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 14
+y 240
+w 592
+h 32
+
+beginGroup
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 14
+y 240
+w 592
+h 32
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
+displaySource "file"
+file "ioc_stop_panel.edl"
+sizeOfs 5
+numDsps 1
+displayFileName {
+  0 "ioc_stop_panel.edl"
+}
+noScroll
+endObjectProperties
+
+endGroup
+
+visMin "A"
+visMax "1"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 13312 13056 34304
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Motors"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_motors.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 95
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 13312 13056 34304
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Optics"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_optics.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 180
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 13312 13056 34304
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Detectors"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_detectors.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 265
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 13312 13056 34304
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Direct I/O"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_direct_io.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 13312 13056 34304
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Devices"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "ioc_devices.edl"
+}
+menuLabel {
+  0 ""
+}
+symbols {
+  0 "P=$(P),ioc=$(ioc)"
+}
+closeAction {
+  0 1
+}
+replaceSymbols {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 435
+y 44
+w 80
+h 20
+fgColor rgb 65280 65280 65280
+bgColor rgb 10752 25344 58368
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "Tools"
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 80
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "userCalc"
+numPvs 36
+numDsps 18
+displayFileName {
+  0 "userCalcs10.edl"
+  1 "userStringCalcs10.edl"
+  2 "userTransforms10.edl"
+  3 "userStringSeqs10.edl"
+  4 "userArrayCalcs10.edl"
+  5 "userAve10.edl"
+  6 "userCalcOuts10.edl"
+  7 "userStringCalcs10more.edl"
+  8 "userTransforms10more.edl"
+  9 "userStringSeqs10more.edl"
+  10 "userArrayCalcs10more.edl"
+  11 "userAve10more.edl"
+  12 "userCalcOuts10more.edl"
+  13 "userCalcs10more.edl"
+  14 "xxBusyRecord.edl"
+  15 "xxBusyRecord.edl"
+  16 "userCalcsGlobalEnable.edl"
+  17 "editSseq.edl"
+}
+menuLabel {
+  0 "user calcs 1-10"
+  1 "user stringCalcs 1-10"
+  2 "user transforms 1-10"
+  3 "user string seqs 1-10"
+  4 "user arrayCalcs 1-10"
+  5 "user average 1-10"
+  6 "user calcOuts 1-10"
+  7 "user stringCalcs 11-20"
+  8 "user transforms 11-20"
+  9 "user string seqs 11-20"
+  10 "user arrayCalcs 11-20"
+  11 "user average 11-20"
+  12 "user calcOuts 11-20"
+  13 "user calcs 11-20"
+  14 "busyRecord"
+  15 "busyRecord 2"
+  16 "global enable"
+  17 "string sequence"
+}
+symbols {
+  0 "P=$(P)"
+  1 "P=$(P)"
+  2 "P=$(P)"
+  3 "P=$(P)"
+  4 "P=$(P)"
+  5 "P=$(P)"
+  6 "P=$(P)"
+  7 "P=$(P),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+  8 "P=$(P),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+  9 "P=$(P),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+  10 "P=$(P),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+  11 "P=$(P),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+  12 "P=$(P),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+  13 "P=$(P),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
+  14 "P=$(P),R=mybusy"
+  15 "P=$(P),R=mybusy2"
+  16 "P=$(P)"
+  17 "P=$(P),Q=ES:"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+  3 1
+  4 1
+  5 1
+  6 1
+  7 1
+  8 1
+  9 1
+  10 1
+  11 1
+  12 1
+  13 1
+  14 1
+  15 1
+  16 1
+  17 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 137
+y 80
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "userScripts"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 "userScripts10.edl"
+  1 "userScripts10.edl"
+}
+menuLabel {
+  0 "userScripts 1-10"
+  1 "userScripts 11-20"
+}
+symbols {
+  0 "P=$(P),R=set1:"
+  1 "P=$(P),R=set2:"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 254
+y 80
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Scan"
+numPvs 20
+numDsps 10
+displayFileName {
+  0 "scan.edl"
+  1 "scan.edl"
+  2 "scan.edl"
+  3 "scan.edl"
+  4 "scan.edl"
+  5 "scanParms2Pos.edl"
+  6 "scan_saveData.edl"
+  7 "scanAux.edl"
+  8 "ProgressBar.edl"
+  9 "configMenu.edl"
+}
+menuLabel {
+  0 "Scan1 (for all scans)"
+  1 "Scan2 (for 2D & higher scans)"
+  2 "Scan3 (for 3D & higher scans)"
+  3 "Scan4 (for 4D scans)"
+  4 "ScanH (for Hardware-assisted scans)"
+  5 "test scanParms2Pos"
+  6 "saveData controls"
+  7 "aux scan"
+  8 "scanProgress"
+  9 "scan1Menu"
+}
+symbols {
+  0 "P=$(P),N=1,S=scan1"
+  1 "P=$(P),N=2,S=scan2"
+  2 "P=$(P),N=3,S=scan3"
+  3 "P=$(P),N=4,S=scan4"
+  4 "P=$(P),N=H,S=scanH"
+  5 "P=$(P),Q=m7_8,SCAN=$(P)scan1,PV1=$(P)m7,PV2=$(P)m8"
+  6 "P=$(P)"
+  7 "P=$(P),S=scanAux"
+  8 "P=$(P),B=$(P)scanProgress:"
+  9 "P=$(P),CONFIG=scan1"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+  3 1
+  4 1
+  5 1
+  6 1
+  7 1
+  8 1
+  9 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 371
+y 80
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Array"
+numPvs 8
+numDsps 4
+displayFileName {
+  0 "interp.edl"
+  1 "arrayTest.edl"
+  2 "pvHistory.edl"
+  3 "interpNew.edl"
+}
+menuLabel {
+  0 "interp"
+  1 "arrayTest"
+  2 "pvHistory 1"
+  3 "interpNew"
+}
+symbols {
+  0 "P=$(P)"
+  1 "P=$(P)"
+  2 "P=$(P),N=1"
+  3 "P=$(P),Q=1"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+  3 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 488
+y 80
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 115
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "softGlue"
+numPvs 10
+numDsps 5
+displayFileName {
+  0 "softGlueMenu.edl"
+  1 "softGlueMenu.edl"
+  2 "softGlue_Shift32_bare.edl"
+  3 "softGlue_Shift32_bare.edl"
+  4 "configMenu.edl"
+}
+menuLabel {
+  0 "softGlueMenu"
+  1 "softGlue2 Menu"
+  2 "shift 1"
+  3 "shift 2"
+  4 "SoftGlue Circuits"
+}
+symbols {
+  0 "P=$(P),H=softGlue:"
+  1 "P=$(P),H=softGlue2:"
+  2 "P=$(P),H=softGlue:,N=1"
+  3 "P=$(P),H=softGlue:,N=2"
+  4 "P=$(P),CONFIG=SG"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+  3 1
+  4 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 137
+y 115
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "timer"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "timer.edl"
+}
+menuLabel {
+  0 "timer"
+}
+symbols {
+  0 "P=$(P),N=1"
+}
+replaceSymbols {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 254
+y 115
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "Ramp Tweak"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 "ramp_tweak.edl"
+  1 "ramp_tweak.edl"
+}
+menuLabel {
+  0 "ramp/tweak rt1"
+  1 "ramp/tweak rt2"
+}
+symbols {
+  0 "P=$(P),Q=rt1"
+  1 "P=$(P),Q=rt2"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 371
+y 115
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "APS Bunch Clock"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 "BunchClkGen.edl"
+  1 "BunchClkGenA.edl"
+  2 "BunchClkGenTop.edl"
+}
+menuLabel {
+  0 "Bunch Clock Generator"
+  1 "Bunch Clock display A"
+  2 "Bunch Clock 3id Top screen"
+}
+symbols {
+  0 "UNIT=$(P)BnchClkGen"
+  1 "UNIT=$(P)BnchClkGen"
+  2 
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 488
+y 115
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 150
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "caputRecorder"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 "caputRecorder.edl"
+  1 "caputRecorder.edl"
+}
+menuLabel {
+  0 "caputRecorder"
+  1 "caputRecorderA"
+}
+symbols {
+  0 "P=$(P),L=$(P)"
+  1 "P=vm7A:,L=$(P)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 254
+y 150
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "trajectory"
+numPvs 10
+numDsps 5
+displayFileName {
+  0 "trajectoryScan.edl"
+  1 "MAX_trajectoryScan.edl"
+  2 "MAX_trajectoryScan.edl"
+  3 "MAX_trajectoryScan2.edl"
+  4 "trajectoryScan.edl"
+}
+menuLabel {
+  0 "standard trajectoryScan"
+  1 "trajectoryScan1"
+  2 "trajectoryScan2"
+  3 "trajectoryScan1 (2 mot)"
+  4 "MM4000 XPS trajectory"
+}
+symbols {
+  0 "P=$(P),R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+  1 "P=$(P),R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+  2 "P=$(P),R=traj2:,TITLE=traj2,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16"
+  3 "P=$(P),R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+  4 "P=$(P),R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+  3 1
+  4 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 371
+y 150
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "shutterDo"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 "shutterDo.edl"
+  1 "shutterSim.edl"
+}
+menuLabel {
+  0 "shutterDo"
+  1 "shutterSim"
+}
+symbols {
+  0 "P=$(P),Q=s2:,SHUTTER_STATUS=$(P)sim2:B_SHTRS_CLOSED,OPEN_PV=$(P)sim2:open,CLOSE_PV=$(P)sim2:close"
+  1 "P=$(P),Q=sim2:,SHUTTER_STATUS=$(P)sim2:B_SHTRS_CLOSED,OPEN_PV=$(P)sim2:openCmd,CLOSE_PV=$(P)sim2:closeCmd"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 488
+y 150
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 137
+y 150
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "alarmClock"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "alarmClock.edl"
+}
+menuLabel {
+  0 "alarm clock"
+}
+symbols {
+  0 "P=$(P),A=1"
+}
+replaceSymbols {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 185
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "FuncGen"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "FuncGen.edl"
+}
+menuLabel {
+  0 "funcGen"
+}
+symbols {
+  0 "P=$(P),Q=fgen"
+}
+replaceSymbols {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 137
+y 185
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel "countDown"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 "countDownTimer.edl"
+}
+menuLabel {
+  0 "count down timer"
+}
+symbols {
+  0 "P=$(P),N=1"
+}
+replaceSymbols {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 254
+y 185
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 371
+y 185
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 488
+y 185
+w 112
+h 24
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
+buttonLabel ""
+numPvs 0
+numDsps 0
+displayFileName {
+}
+menuLabel {
+}
+endObjectProperties
+
