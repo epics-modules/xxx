@@ -265,7 +265,7 @@ composite {
 		x=254
 		y=80
 		width=112
-		height=24rs
+		height=24
 	}
 	clr=0
 	bclr=17
