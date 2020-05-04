@@ -42,7 +42,7 @@ PROCSERV_INFO_FILE=ioc${IOC_NAME}-ps-info.txt
 PROCSERV_PORT=-1
 PROCSERV_SOCKET=ioc${IOC_NAME}.socket
 
-# Change YES to NO in the following line to disable screen-PID lookup 
+# Change YES to NO in the following line to disable screen-PID lookup, which isn't supported on Windows
 GET_SCREEN_PID=YES
 
 # Commands needed by this script
@@ -261,6 +261,15 @@ checkpid() {
                     
                     #!echo "SCREEN_PID=${SCREEN_PID}"
                     #!echo "PROCSERV_PID=${PROCSERV_PID}"
+                else
+                    # Assume the script is being called from the IOC host
+                    SAME_HOST=True
+                    parse_procServ_info ${IOC_STARTUP_DIR}/${PROCSERV_INFO_FILE}
+                    if [ ! -z ${PROCSERV_PID} ] ; then
+                        RUNNING_IN=procServ
+                    else
+                        RUNNING_IN=screen
+                    fi
                 fi
                 
                 break
