@@ -85,47 +85,47 @@ checkpid() {
             BIN_CWD=`${READLINK} /proc/${pid}/cwd`
             IOC_CWD=`${READLINK} -f ${IOC_STARTUP_DIR}`
             
-                if [ "$BIN_CWD" = "$IOC_CWD" ] ; then
-                    # The IOC is running; the binary with PID=$pid is the IOC that was run from $IOC_STARTUP_DIR
-                    IOC_PID=${pid}
-                    IOC_DOWN=0
-                    
-                    SCREEN_PID=""
+            if [ "$BIN_CWD" = "$IOC_CWD" ] ; then
+                # The IOC is running; the binary with PID=$pid is the IOC that was run from $IOC_STARTUP_DIR
+                IOC_PID=${pid}
+                IOC_DOWN=0
+                
+                SCREEN_PID=""
 
-                    if [ "${GET_SCREEN_PID}" = "YES" ] ; then
-                        # Get the PID of the parent of the IOC (shell or screen)
-                        P_PID=`${PS} -p ${IOC_PID} -o ppid=`
-                        
-                        # Get the PID of the grandparent of the IOC (sshd, screen, or ???)
-                        GP_PID=`${PS} -p ${P_PID} -o ppid=`
+                if [ "${GET_SCREEN_PID}" = "YES" ] ; then
+                    # Get the PID of the parent of the IOC (shell or screen)
+                    P_PID=`${PS} -p ${IOC_PID} -o ppid=`
+                    
+                    # Get the PID of the grandparent of the IOC (sshd, screen, or ???)
+                    GP_PID=`${PS} -p ${P_PID} -o ppid=`
 
-                        #!${ECHO} "P_PID=${P_PID}, GP_PID=${GP_PID}"
+                    #!${ECHO} "P_PID=${P_PID}, GP_PID=${GP_PID}"
 
-                        # Get the screen PIDs
-                        S_PIDS=`${PGREP} screen`
-                    
-                        for s_pid in ${S_PIDS} ; do
-                            #!${ECHO} ${s_pid}
+                    # Get the screen PIDs
+                    S_PIDS=`${PGREP} screen`
+                
+                    for s_pid in ${S_PIDS} ; do
+                        #!${ECHO} ${s_pid}
 
-                            if [ ${s_pid} -eq ${P_PID} ] ; then
-                                SCREEN_PID=${s_pid}
-                                break
-                            fi
-                    
-                            if [ ${s_pid} -eq ${GP_PID} ] ; then
-                                SCREEN_PID=${s_pid}
-                                break
-                            fi
-                    
-                        done
-                    fi
-                    
-                    break
-                    #else
-                    #    ${ECHO} "PATHS are different"
-                    #    ${ECHO} ${BIN_CWD}
-                    #    ${ECHO} ${IOC_CWD}
+                        if [ ${s_pid} -eq ${P_PID} ] ; then
+                            SCREEN_PID=${s_pid}
+                            break
+                        fi
+                
+                        if [ ${s_pid} -eq ${GP_PID} ] ; then
+                            SCREEN_PID=${s_pid}
+                            break
+                        fi
+                
+                    done
                 fi
+                
+                break
+            #else
+            #    ${ECHO} "PATHS are different"
+            #    ${ECHO} ${BIN_CWD}
+            #    ${ECHO} ${IOC_CWD}
+            fi
         done
     else
         # IOC is not running
@@ -214,19 +214,19 @@ if [ ! -d ${IOC_STARTUP_DIR} ] ; then
 else
     case ${SELECTION} in
         start)
-        start
+            start
         ;;
 
         stop | kill)
-        stop
+            stop
         ;;
 
         restart)
-        restart
+            restart
         ;;
 
         status)
-        status
+            status
         ;;
 
         console)
@@ -246,7 +246,7 @@ else
         ;;
 
         *)
-        usage
+            usage
         ;;
     esac
 fi
