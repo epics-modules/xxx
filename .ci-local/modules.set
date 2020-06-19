@@ -1,6 +1,6 @@
 # synApps_6_1
 
-MODULES="sncseq ipac autosave alive caputRecorder sscan iocStats asyn calc busy std dac128v ip330 ipUnidig love ip optics stream modbus vac softGlue delayGen mca vme motor measComp camac quadEM dxp dxpSITORO lua softGlueZynq Yokogawa_DAS"
+MODULES="sncseq ipac autosave alive caputRecorder sscan asyn calc busy std dac128v ip330 ipUnidig love ip optics stream modbus vac softGlue delayGen mca vme motor measComp camac quadEM dxp dxpSITORO lua softGlueZynq Yokogawa_DAS"
 
 ALIVE=R1-1-1
 ASYN=R4-36
@@ -13,7 +13,6 @@ DAC128V=R2-9
 DELAYGEN=R1-2-1
 DXP=R6-0
 DXPSITORO=R1-2
-IOCSTATS=3.1.16
 IP=R2-20-1
 IPAC=2.15
 IP330=R2-9
