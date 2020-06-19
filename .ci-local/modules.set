@@ -1,0 +1,26 @@
+
+MODULES="sncseq ipac autosave alive caputRecorder sscan asyn calc busy std dac128v ip330 ipUnidig love ip optics modbus vac softGlue vme motor camac softGlueZynq"
+
+ALIVE=R1-1-1
+ASYN=R4-36
+AUTOSAVE=R5-10
+BUSY=R1-7-2
+CALC=R3-7-3
+CAMAC=R2-7-1
+CAPUTRECORDER=R1-7-2
+DAC128V=R2-9
+IP=R2-20-1
+IPAC=2.15
+IP330=R2-9
+IPUNIDIG=R2-11
+LOVE=R3-2-7
+MODBUS=R3-0
+MOTOR=master
+OPTICS=R2-13-3
+SNCSEQ=R2-2-8
+SOFTGLUE=R2-8-2
+SOFTGLUEZYNQ=R2-0-2
+SSCAN=R2-11-3
+STD=R3-6
+VAC=R1-9
+VME=R2-9-2
