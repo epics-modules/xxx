@@ -1,6 +1,6 @@
 # synApps_6_1
 
-MODULES="sncseq ipac autosave alive caputRecorder sscan asyn calc busy std dac128v ip330 ipUnidig love ip optics stream modbus vac softGlue vme motor measComp camac quadEM dxp dxpSITORO lua softGlueZynq Yokogawa_DAS"
+MODULES="sncseq ipac autosave alive caputRecorder sscan asyn calc busy std dac128v ip330 ipUnidig love ip optics stream modbus vac softGlue vme lua motor measComp camac quadEM dxp dxpSITORO softGlueZynq Yokogawa_DAS"
 
 ALIVE=R1-1-1
 ASYN=R4-36
