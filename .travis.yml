@@ -135,9 +135,3 @@ jobs:
   - env: SET=base7-0
     os: osx
     compiler: clang
-
-# Cross-compilation to RTEMS
-
-  - env: SET=base7-0 RTEMS=4.9
-
-  - env: SET=base7-0 RTEMS=4.10
