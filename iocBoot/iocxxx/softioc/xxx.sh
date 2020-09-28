@@ -223,11 +223,13 @@ checkpid() {
 
                         if [ ${s_pid} -eq ${P_PID} ] ; then
                             SCREEN_PID=${s_pid}
+                            RUNNING_IN=screen
                             break
                         fi
                 
                         if [ ${s_pid} -eq ${GP_PID} ] ; then
                             SCREEN_PID=${s_pid}
+                            RUNNING_IN=screen
                             break
                         fi
                     
