@@ -7,7 +7,7 @@
 #!IOC_STARTUP_DIR=/home/username/epics/ioc/synApps/xxx/iocBoot/iocxxx/softioc
 
 # Manually set IOC_COMMAND_DIR if xxx.sh will reside somewhere other than softioc
-#!IOC_STARTUP_DIR=/home/username/epics/ioc/synApps/xxx/iocBoot/iocxxx/softioc/commands
+#!IOC_COMMAND_DIR=/home/username/epics/ioc/synApps/xxx/iocBoot/iocxxx/softioc/commands
 
 
 # Set EPICS_HOST_ARCH if the env var isn't already set properly for this IOC
@@ -106,7 +106,7 @@ else
 fi
 #!${ECHO} ${IOC_STARTUP_DIR}
 
-if [ -x "$IOC_COMMAND_DIR" ] ; then
+if [ -z "$IOC_COMMAND_DIR" ] ; then
 	IOC_COMMAND_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )/commands"
 fi
 
