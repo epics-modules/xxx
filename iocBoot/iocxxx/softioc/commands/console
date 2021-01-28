@@ -1,0 +1,40 @@
+register "console" console
+
+console() {
+    if checkpid; then
+        case ${RUNNING_IN} in
+            procServ)
+                if [ ! -z ${SAME_HOST} ]; then
+                    # It is assumed that the port or socket have been read successfully from the info file
+                    if [ ${PROCSERV_ENDPOINT} == 'tcp' ]; then
+                        ${ECHO} "Connecting to ${IOC_NAME}'s procServ with ${TELNET}"
+                        ${TELNET} 127.0.0.1 ${PROCSERV_PORT}
+                    elif [ ${PROCSERV_ENDPOINT} == 'unix' ]; then
+                        ${ECHO} "Connecting to ${IOC_NAME}'s procServ with ${SOCAT}"
+                        cd ${IOC_STARTUP_DIR}
+                        ${SOCAT} -,rawer,echo=0 unix-connect:${PROCSERV_SOCKET}
+                    else
+                        ${ECHO} "Error: no procServ port or socket specified"
+                    fi
+                else
+                    # This could be smarter in the future
+                    ${ECHO} "Can't connect to the console; procServ is running on another computer"
+                fi
+            ;;
+            
+            screen)
+                ${ECHO} "Connecting to ${IOC_NAME}'s screen session"
+                # The -r flag will only connect if no one is attached to the session
+                #!${SCREEN} -r ${IOC_NAME}
+                # The -x flag will connect even if someone is attached to the session
+                ${SCREEN} -x ${IOC_NAME}
+            ;;
+            
+            * )
+                ${ECHO} "Can't connect to ${IOC_NAME}; it isn't running in screen or procServ"
+            ;;
+        esac
+    else
+        ${ECHO} "${IOC_NAME} is not running"
+    fi
+}

@@ -1,0 +1,23 @@
+register "stop" stop
+
+stop() {
+    if checkpid; then
+        case ${RUNNING_IN} in
+            procServ)
+                if [ ! -z ${SAME_HOST} ]; then
+                    ${ECHO} "Stopping ${IOC_NAME} (procServ pid=${PROCSERV_PID})"
+                    ${KILL} ${PROCSERV_PID}
+                else
+                    ${ECHO} "Can't kill the IOC. It is running in procServ on a different computer."
+                fi
+            ;;
+            
+            * )
+                ${ECHO} "Stopping ${IOC_NAME} (pid=${IOC_PID})"
+                ${KILL} ${IOC_PID}
+            ;;
+        esac
+    else
+        ${ECHO} "${IOC_NAME} is not running"
+    fi
+}
