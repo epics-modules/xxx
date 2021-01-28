@@ -6,6 +6,10 @@
 # Manually set IOC_STARTUP_DIR if xxx.sh will reside somewhere other than softioc
 #!IOC_STARTUP_DIR=/home/username/epics/ioc/synApps/xxx/iocBoot/iocxxx/softioc
 
+# Manually set IOC_COMMAND_DIR if xxx.sh will reside somewhere other than softioc
+#!IOC_STARTUP_DIR=/home/username/epics/ioc/synApps/xxx/iocBoot/iocxxx/softioc/commands
+
+
 # Set EPICS_HOST_ARCH if the env var isn't already set properly for this IOC
 #!EPICS_HOST_ARCH=linux-x86_64
 #!EPICS_HOST_ARCH=linux-x86_64-debug
@@ -102,8 +106,9 @@ else
 fi
 #!${ECHO} ${IOC_STARTUP_DIR}
 
-CMD_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )/commands"
-
+if [ -x "$IOC_COMMAND_DIR" ] ; then
+	IOC_COMMAND_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )/commands"
+fi
 
 # Variables used to calculatate a random port for procServ
 START=50000
@@ -347,7 +352,7 @@ ioc_cmd() {
 	${ECHO} "$CMD not a recognized command"
 }
 
-for file in ${CMD_DIR}/*; do
+for file in ${IOC_COMMAND_DIR}/*; do
 	source $file
 done
 
