@@ -44,17 +44,17 @@ start() {
         
         case ${RUN_IN} in
             shell)
-                # Run xxx outside of a screen session, which is helpful for debugging
+                # Run IOC outside of a screen session, which is helpful for debugging
                 ${IOC_CMD}
             ;;
             
             screen)
-                # Run xxx inside a screen session
+                # Run IOC inside a screen session
                 ${SCREEN} -dm -S ${IOC_NAME} -h 5000 ${IOC_CMD}
             ;;
             
             procServ)
-                # Run xxx inside procServ
+                # Run IOC inside procServ
                 if [ ${PROCSERV_ENDPOINT} == 'tcp' ]; then
                     # Pick a random port, unless the script is configured to use a specific one
                     if [ ${PROCSERV_PORT} == '-1' -o -z ${PROCSERV_PORT} ]; then
