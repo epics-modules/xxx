@@ -90,6 +90,11 @@ ifdef STD
   $(PROD_NAME)_LIBS := std $($(PROD_NAME)_LIBS)
 endif
 
+ifdef SCALER
+  $(DBD_NAME)_DBD += scalerSupport.dbd
+  $(PROD_NAME)_LIBS := scaler $($(PROD_NAME)_LIBS)
+endif
+
 ifdef CALC
   ifndef ADCORE
     $(DBD_NAME)_DBD += calcSupport.dbd
