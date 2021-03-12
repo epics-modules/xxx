@@ -3,7 +3,7 @@ dbLoadTemplate("substitutions/motor.substitutions", "P=$(PREFIX)")
 #dbLoadTemplate("substitutions/softMotor.substitutions", "P=$(PREFIX)")
 #dbLoadTemplate("substitutions/pseudoMotor.substitutions", "P=$(PREFIX)")
 
-#iocshLoad("$(MOTOR)/iocsh/motorSim.iocsh", "INSTANCE=motorSim, HOME_POS=0, NUM_AXES=16, LOW_LIM=-32000, SUB=substitutions/motorSim.substitutions")
+#iocshLoad("$(MOTOR)/iocsh/motorSim.iocsh", "INSTANCE=motorSim, HOME_POS=0, NUM_AXES=16, HIGH_LIM=32000, LOW_LIM=-32000, SUB=substitutions/motorSim.substitutions")
 
 # Allstop, alldone
 iocshLoad("$(MOTOR)/iocsh/allstop.iocsh", "P=$(PREFIX)")
