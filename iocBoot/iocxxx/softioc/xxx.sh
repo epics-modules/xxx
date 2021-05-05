@@ -336,6 +336,10 @@ ioc_cmd() {
 	
 	CMD_ARGS=()
 	
+	if [ $# -lt 1 ] ; then
+		CMD="usage"
+	fi
+	
 	if [ $# -gt 1 ] ; then
 		CMD_ARGS=${@:2:$(($#-1))}
 	fi
@@ -349,7 +353,7 @@ ioc_cmd() {
 		VAL=$((VAL+1))
 	done
 	
-	${ECHO} "$CMD not a recognized command"
+	${ECHO} "${CMD} not a recognized command"
 }
 
 for file in ${IOC_COMMAND_DIR}/*; do
