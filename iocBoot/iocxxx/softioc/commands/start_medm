@@ -1,5 +1,5 @@
 register "medm" start_medm
 
 start_medm() {
-	${IOC_STARTUP_DIR}/../../start_MEDM_$(IOC_NAME)
+	${IOC_STARTUP_DIR}/../../start_MEDM_${IOC_NAME}
 }
