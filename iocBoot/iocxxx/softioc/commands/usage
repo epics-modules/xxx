@@ -1,0 +1,36 @@
+register "usage" usage
+
+usage() {
+	if [ $# -eq 0 ] ; then
+		OUTPUT="Usage: $(${BASENAME} ${SNAME}) {"
+		
+		for i in "${REGISTERED_CMD_NAMES[@]}"; do
+			OUTPUT+="$i|"
+		done
+		
+		OUTPUT=`echo $OUTPUT | sed 's/.$//'`
+		
+		${ECHO} "$OUTPUT)"
+	else
+		CMD_CHECK=$1
+		VAL=0
+		
+		for i in "${REGISTERED_CMD_NAMES[@]}"; do
+			if [ $i == "$CMD_CHECK" ] ;  then
+				
+			
+				if [ `type -t ${REGISTERED_CMD_FUNCS[$VAL]}_usage`"" == 'function' ] ; then
+					${REGISTERED_CMD_FUNCS[$VAL]}_usage
+				else
+					${ECHO} "$(${BASENAME} ${SNAME}) $CMD_CHECK"
+				fi
+				
+				return
+			fi
+			
+			VAL=$((VAL+1))
+		done
+
+		${ECHO} "Command $CMD_CHECK not recognized"
+	fi
+}

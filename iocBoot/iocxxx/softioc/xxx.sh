@@ -1,10 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 #
 # description: start/stop/restart an EPICS IOC in a screen session
 #
 
 # Manually set IOC_STARTUP_DIR if xxx.sh will reside somewhere other than softioc
 #!IOC_STARTUP_DIR=/home/username/epics/ioc/synApps/xxx/iocBoot/iocxxx/softioc
+
+# Manually set IOC_COMMAND_DIR if xxx.sh will reside somewhere other than softioc
+#!IOC_COMMAND_DIR=/home/username/epics/ioc/synApps/xxx/iocBoot/iocxxx/softioc/commands
+
 
 # Set EPICS_HOST_ARCH if the env var isn't already set properly for this IOC
 #!EPICS_HOST_ARCH=linux-x86_64
@@ -78,7 +82,13 @@ NC=nc
 
 SNAME=${BASH_SOURCE:-$0}
 SELECTION=$1
-RUN_IN_ARG=$2
+
+SEL_ARGS=()
+
+if [ $# -gt 1 ] ; then
+	SEL_ARGS=${@:2:$(($#-1))}
+fi
+
 
 # uncomment for your OS here (comment out all the others)
 #IOC_STARTUP_FILE="st.cmd.Cygwin"
@@ -86,36 +96,6 @@ IOC_STARTUP_FILE="st.cmd.Linux"
 #IOC_STARTUP_FILE="st.cmd.vxWorks"
 #IOC_STARTUP_FILE="st.cmd.Win32"
 #IOC_STARTUP_FILE="st.cmd.Win64"
-
-# Allow the RUN_IN setting to be overridden on the command-line
-if [ ! -z ${RUN_IN_ARG} ] ; then
-    case ${RUN_IN_ARG} in
-        shell)
-            RUN_IN=shell
-            echo "Overriding RUN_IN with shell"
-        ;;
-
-        screen)
-            RUN_IN=screen
-            echo "Overriding RUN_IN with screen"
-        ;;
-        
-        procServ | ps)
-            RUN_IN=procServ
-            echo "Overriding RUN_IN with procServ"
-        ;;
-        
-        iocConsole)
-            RUN_IN=iocConsole
-            echo "Overriding RUN_IN with iocConsole"
-        ;;
-        
-        * )
-            # Use the default value of RUN_IN, if RUN_IN_ARG isn't valid
-            echo "RUN_IN_ARG isn't valid: ${RUN_IN_ARG}"
-        ;;
-    esac
-fi
 
 if [ -z "$IOC_STARTUP_DIR" ] ; then
     # If no startup dir is specified, use the directory above the script's directory
@@ -126,6 +106,10 @@ else
 fi
 #!${ECHO} ${IOC_STARTUP_DIR}
 
+if [ -z "$IOC_COMMAND_DIR" ] ; then
+	IOC_COMMAND_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )/commands"
+fi
+
 # Variables used to calculatate a random port for procServ
 START=50000
 NUM_PORTS=100
@@ -134,6 +118,18 @@ NUM_PORTS=100
 RUNNING_IN=TBD
 
 #####################################################################
+
+REGISTERED_CMD_NAMES=()
+REGISTERED_CMD_FUNCS=()
+
+register() {
+	CMD_NAME=$1
+	CMD_FUNC=$2
+	
+	REGISTERED_CMD_NAMES+=("$CMD_NAME")
+	REGISTERED_CMD_FUNCS+=("$CMD_FUNC")
+}
+
 
 parse_procServ_info() {
     # This parses procServ info files
@@ -320,157 +316,6 @@ checkpid() {
     return ${IOC_DOWN}
 }
 
-start() {
-    if checkpid; then
-        ${ECHO} -n "${IOC_NAME} is already running (pid=${IOC_PID})"
-        screenpid
-    else
-        ${ECHO} "Starting ${IOC_NAME}"
-        cd ${IOC_STARTUP_DIR}
-        
-        case ${RUN_IN} in
-            shell)
-                # Run xxx outside of a screen session, which is helpful for debugging
-                ${IOC_CMD}
-            ;;
-            
-            screen)
-                # Run xxx inside a screen session
-                ${SCREEN} -dm -S ${IOC_NAME} -h 5000 ${IOC_CMD}
-            ;;
-            
-            procServ)
-                # Run xxx inside procServ
-                if [ ${PROCSERV_ENDPOINT} == 'tcp' ]; then
-                    # Pick a random port, unless the script is configured to use a specific one
-                    if [ ${PROCSERV_PORT} == '-1' -o -z ${PROCSERV_PORT} ]; then
-                        PROCSERV_PORT=$(get_random_port)
-                    fi
-                    
-                    # Start procServ with a tcp control endpoint
-                    ${PROCSERV} ${PROCSERV_OPTIONS} -i ^C --logoutcmd=^D -I ${PROCSERV_INFO_FILE} ${PROCSERV_PORT} ${IOC_CMD}
-                elif [ ${PROCSERV_ENDPOINT} == 'unix' ]; then
-                    # Pick a socket name, if it is commented out above
-                    if [ ! -z ${PROCSERV_SOCKET} ]; then
-                        PROCSERV_SOCKET=ioc${IOC_NAME}.socket
-                    fi
-                    
-                    # Start procServ with a unix socket control endpoint
-                    ${PROCSERV} ${PROCSERV_OPTIONS} -i ^C --logoutcmd=^D -I ${PROCSERV_INFO_FILE} unix:${PROCSERV_SOCKET} ${IOC_CMD}
-                else
-                    ${ECHO} "Can't start ${IOC_NAME} in procServ: PROCSERV_ENDPOINT has an invalid value: ${PROCSERV_ENDPOINT}"
-                fi
-            ;;
-            
-            * )
-                echo "Error: invalid value for RUN_IN: ${RUN_IN}"
-            ;;
-        esac
-    fi
-}
-
-stop() {
-    if checkpid; then
-        case ${RUNNING_IN} in
-            procServ)
-                if [ ! -z ${SAME_HOST} ]; then
-                    ${ECHO} "Stopping ${IOC_NAME} (procServ pid=${PROCSERV_PID})"
-                    ${KILL} ${PROCSERV_PID}
-                else
-                    ${ECHO} "Can't kill the IOC. It is running in procServ on a different computer."
-                fi
-            ;;
-            
-            * )
-                ${ECHO} "Stopping ${IOC_NAME} (pid=${IOC_PID})"
-                ${KILL} ${IOC_PID}
-            ;;
-        esac
-    else
-        ${ECHO} "${IOC_NAME} is not running"
-    fi
-}
-
-restart() {
-    stop
-    start
-}
-
-status() {
-    if checkpid; then
-        ${ECHO} -n "${IOC_NAME} is running (pid=${IOC_PID})"
-        screenpid
-    else
-        ${ECHO} "${IOC_NAME} is not running"
-    fi
-}
-
-console() {
-    if checkpid; then
-        case ${RUNNING_IN} in
-            procServ)
-                if [ ! -z ${SAME_HOST} ]; then
-                    # It is assumed that the port or socket have been read successfully from the info file
-                    if [ ${PROCSERV_ENDPOINT} == 'tcp' ]; then
-                        ${ECHO} "Connecting to ${IOC_NAME}'s procServ with ${TELNET}"
-                        ${TELNET} 127.0.0.1 ${PROCSERV_PORT}
-                    elif [ ${PROCSERV_ENDPOINT} == 'unix' ]; then
-                        ${ECHO} "Connecting to ${IOC_NAME}'s procServ with ${SOCAT}"
-                        cd ${IOC_STARTUP_DIR}
-                        ${SOCAT} -,rawer,echo=0 unix-connect:${PROCSERV_SOCKET}
-                    else
-                        ${ECHO} "Error: no procServ port or socket specified"
-                    fi
-                else
-                    # This could be smarter in the future
-                    ${ECHO} "Can't connect to the console; procServ is running on another computer"
-                fi
-            ;;
-            
-            screen)
-                ${ECHO} "Connecting to ${IOC_NAME}'s screen session"
-                # The -r flag will only connect if no one is attached to the session
-                #!${SCREEN} -r ${IOC_NAME}
-                # The -x flag will connect even if someone is attached to the session
-                ${SCREEN} -x ${IOC_NAME}
-            ;;
-            
-            * )
-                ${ECHO} "Can't connect to ${IOC_NAME}; it isn't running in screen or procServ"
-            ;;
-        esac
-    else
-        ${ECHO} "${IOC_NAME} is not running"
-    fi
-}
-
-run() {
-    if checkpid; then
-        ${ECHO} -n "${IOC_NAME} is already running (pid=${IOC_PID})"
-        screenpid
-    else
-        ${ECHO} "Starting ${IOC_NAME}"
-        cd ${IOC_STARTUP_DIR}
-        # Run xxx outside of a screen session, which is helpful for debugging
-        ${IOC_CMD}
-    fi
-}
-
-start_medm() {
-    ${IOC_STARTUP_DIR}/../../start_MEDM_xxx
-}
-
-start_caqtdm() {
-    ${IOC_STARTUP_DIR}/../../start_caQtDM_xxx
-}
-
-usage() {
-    ${ECHO} "Usage: $(${BASENAME} ${SNAME}) {start|stop|restart|status|console|run|medm|caqtdm}"
-    ${ECHO}
-    ${ECHO} "Additional options:"
-    ${ECHO} "       $(${BASENAME} ${SNAME}) start {screen|procServ|ps|shell}"
-}
-
 get_random_port() {
     # Get a random port for procServ
     while :
@@ -485,47 +330,38 @@ get_random_port() {
     done
 }
 
+ioc_cmd() {	
+	CMD=$1
+	VAL=0
+	
+	CMD_ARGS=()
+	
+	if [ $# -gt 1 ] ; then
+		CMD_ARGS=${@:2:$(($#-1))}
+	fi
+	
+	for i in "${REGISTERED_CMD_NAMES[@]}"; do
+		if [ $i == "$CMD" ] ;  then
+			${REGISTERED_CMD_FUNCS[$VAL]} $CMD_ARGS
+			return
+		fi
+		
+		VAL=$((VAL+1))
+	done
+	
+	${ECHO} "$CMD not a recognized command"
+}
+
+for file in ${IOC_COMMAND_DIR}/*; do
+	source $file
+done
+
+
 #####################################################################
 
 if [ ! -d ${IOC_STARTUP_DIR} ] ; then
     ${ECHO} "Error: ${IOC_STARTUP_DIR} doesn't exist."
     ${ECHO} "IOC_STARTUP_DIR in ${SNAME} needs to be corrected."
 else
-    case ${SELECTION} in
-        start)
-            start
-        ;;
-
-        stop | kill)
-            stop
-        ;;
-
-        restart)
-            restart
-        ;;
-
-        status)
-            status
-        ;;
-
-        console)
-            console
-        ;;
-
-        run)
-            run
-        ;;
-        
-        medm)
-            start_medm
-        ;;
-        
-        caqtdm)
-            start_caqtdm
-        ;;
-
-        *)
-            usage
-        ;;
-    esac
+	ioc_cmd $SELECTION $SEL_ARGS
 fi

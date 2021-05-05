@@ -1,0 +1,14 @@
+register "run" run
+
+run() {
+    if checkpid; then
+        ${ECHO} -n "${IOC_NAME} is already running (pid=${IOC_PID})"
+        screenpid
+    else
+        ${ECHO} "Starting ${IOC_NAME}"
+        cd ${IOC_STARTUP_DIR}
+		
+        # Run IOC outside of a screen session, which is helpful for debugging
+        ${IOC_CMD}
+    fi
+}

@@ -1,0 +1,88 @@
+register "start" start
+
+start() {
+	RUN_IN_ARG=$1
+	
+	# Allow the RUN_IN setting to be overridden on the command-line
+	if [ ! -z ${RUN_IN_ARG} ] ; then
+		case ${RUN_IN_ARG} in
+			shell)
+				RUN_IN=shell
+				echo "Overriding RUN_IN with shell"
+			;;
+	
+			screen)
+				RUN_IN=screen
+				echo "Overriding RUN_IN with screen"
+			;;
+			
+			procServ | ps)
+				RUN_IN=procServ
+				echo "Overriding RUN_IN with procServ"
+			;;
+			
+			iocConsole)
+				RUN_IN=iocConsole
+				echo "Overriding RUN_IN with iocConsole"
+			;;
+			
+			* )
+				# Use the default value of RUN_IN, if RUN_IN_ARG isn't valid
+				echo "RUN_IN_ARG isn't valid: ${RUN_IN_ARG}"
+			;;
+		esac
+	fi
+
+
+
+    if checkpid; then
+        ${ECHO} -n "${IOC_NAME} is already running (pid=${IOC_PID})"
+        screenpid
+    else
+        ${ECHO} "Starting ${IOC_NAME}"
+        cd ${IOC_STARTUP_DIR}
+        
+        case ${RUN_IN} in
+            shell)
+                # Run IOC outside of a screen session, which is helpful for debugging
+                ${IOC_CMD}
+            ;;
+            
+            screen)
+                # Run IOC inside a screen session
+                ${SCREEN} -dm -S ${IOC_NAME} -h 5000 ${IOC_CMD}
+            ;;
+            
+            procServ)
+                # Run IOC inside procServ
+                if [ ${PROCSERV_ENDPOINT} == 'tcp' ]; then
+                    # Pick a random port, unless the script is configured to use a specific one
+                    if [ ${PROCSERV_PORT} == '-1' -o -z ${PROCSERV_PORT} ]; then
+                        PROCSERV_PORT=$(get_random_port)
+                    fi
+                    
+                    # Start procServ with a tcp control endpoint
+                    ${PROCSERV} ${PROCSERV_OPTIONS} -i ^C --logoutcmd=^D -I ${PROCSERV_INFO_FILE} ${PROCSERV_PORT} ${IOC_CMD}
+                elif [ ${PROCSERV_ENDPOINT} == 'unix' ]; then
+                    # Pick a socket name, if it is commented out above
+                    if [ ! -z ${PROCSERV_SOCKET} ]; then
+                        PROCSERV_SOCKET=ioc${IOC_NAME}.socket
+                    fi
+                    
+                    # Start procServ with a unix socket control endpoint
+                    ${PROCSERV} ${PROCSERV_OPTIONS} -i ^C --logoutcmd=^D -I ${PROCSERV_INFO_FILE} unix:${PROCSERV_SOCKET} ${IOC_CMD}
+                else
+                    ${ECHO} "Can't start ${IOC_NAME} in procServ: PROCSERV_ENDPOINT has an invalid value: ${PROCSERV_ENDPOINT}"
+                fi
+            ;;
+            
+            * )
+                echo "Error: invalid value for RUN_IN: ${RUN_IN}"
+            ;;
+        esac
+    fi
+}
+
+start_usage() {
+	${ECHO} "$(${BASENAME} ${SNAME}) start {screen|procServ|ps|shell}"
+}

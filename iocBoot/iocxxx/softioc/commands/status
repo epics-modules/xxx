@@ -1,0 +1,10 @@
+register "status" status
+
+status() {
+    if checkpid; then
+        ${ECHO} -n "${IOC_NAME} is running (pid=${IOC_PID})"
+        screenpid
+    else
+        ${ECHO} "${IOC_NAME} is not running"
+    fi
+}
