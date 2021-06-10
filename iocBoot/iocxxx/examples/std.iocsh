@@ -5,7 +5,7 @@ dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=$(PREFIX),Q=rt1")
 #dbLoadRecords("$(STD)/stdApp/Db/IDctrl.db","P=$(PREFIX),xx=02us")
 
 # Soft scaler for testing
-#iocshLoad("$(STD)/iocsh/softScaler.iocsh", "P=$(PREFIX), INSTANCE=scaler1")
+#iocshLoad("$(SCALER)/iocsh/softScaler.iocsh", "P=$(PREFIX), INSTANCE=scaler1")
 
 # 4-step measurement
 dbLoadRecords("$(STD)/stdApp/Db/4step.db", "P=$(PREFIX),Q=4step:")
