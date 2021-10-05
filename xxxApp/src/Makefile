@@ -175,6 +175,11 @@ ifdef MOTOR
   $(PROD_NAME)_LIBS := Parker SmartMotor ThorLabs softMotor motorSimSupport $($(PROD_NAME)_LIBS)
 endif
 
+ifdef OPCUA
+  $(DBD_NAME)_DBD += opcua.dbd
+  $(PROD_NAME)_LIBS := opcua
+endif
+
 ifdef STREAM
   $(DBD_NAME)_DBD += stream.dbd
   $(PROD_NAME)_LIBS := stream $($(PROD_NAME)_LIBS)
