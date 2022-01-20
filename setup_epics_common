@@ -190,9 +190,9 @@ addModule   VME                  medm                     /vmeApp/op/adl
 addModule   VME                  caqtdm                   /vmeApp/op/ui
 addModule   VME                  caqtdm                   /vmeApp/op/ui/autoconvert
 
-addModule   YOKOGAWA_DAU         medm                     /mw100App/op/adl
-addModule   YOKOGAWA_DAU         caqtdm                   /mw100App/op/ui
-addModule   YOKOGAWA_DAU         caqtdm                   /mw100App/op/ui/autoconvert
+addModule   YOKOGAWA_DAS         medm                     /mw100App/op/adl
+addModule   YOKOGAWA_DAS         caqtdm                   /mw100App/op/ui
+addModule   YOKOGAWA_DAS         caqtdm                   /mw100App/op/ui/autoconvert
 
 # ========  ================  ===========================
 
