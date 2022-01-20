@@ -3,6 +3,7 @@
 export EPICS_APP=`dirname ${BASH_SOURCE:-$0}`
 export EPICS_APP_UI_DIR=${EPICS_APP}/xxxApp/op/ui
 export DEFAULT_UI_FILE=${DEFAULT_UI_FILE:-xxx.ui}
+export UI_FILE_MACROS="P=xxx:"
 
 source ${EPICS_APP}/setup_epics_common caqtdm
 
@@ -46,7 +47,6 @@ fi
 #export QT_PLUGIN_PATH=${QTBASE}
 #export CAQTDM_DISPLAY_PATH=`pwd`/caQtDM_Tests
 
-export MEDM_EXEC_LIST=
 # For drag-and-drop workaround at APS, need /APSshare/bin/xclip
 export CAQTDM_EXEC_LIST='Probe;probe &P &:UI File;echo &A:PV Name(s);echo &P:Copy PV name; echo -n &P| xclip -i -sel clip:Paste PV name;caput &P `xclip -o -sel clip`'
 
@@ -72,6 +72,6 @@ fi
 #######################################
 # start caQtDM
 
-/APSshare/bin/caQtDM -style plastique -noMsg ${1:-${DEFAULT_UI_FILE}}
-# TODO: what about ALL command line parameters?  "$*"
+/APSshare/bin/caQtDM -style plastique -noMsg -macro ${UI_FILE_MACROS} ${1:-${DEFAULT_UI_FILE}}
+
 
