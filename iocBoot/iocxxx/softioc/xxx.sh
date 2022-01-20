@@ -9,7 +9,6 @@
 # Manually set IOC_COMMAND_DIR if xxx.sh will reside somewhere other than softioc
 #!IOC_COMMAND_DIR=/home/username/epics/ioc/synApps/xxx/iocBoot/iocxxx/softioc/commands
 
-
 # Set EPICS_HOST_ARCH if the env var isn't already set properly for this IOC
 #!EPICS_HOST_ARCH=linux-x86_64
 #!EPICS_HOST_ARCH=linux-x86_64-debug
@@ -80,7 +79,7 @@ NC=nc
 
 #####################################################################
 
-SNAME=${BASH_SOURCE:-$0}
+SNAME=$(cd "$(dirname "$BASH_SOURCE")"; cd -P "$(dirname "$(readlink "$BASH_SOURCE" || echo .)")"; pwd)
 SELECTION=$1
 
 SEL_ARGS=()
@@ -97,17 +96,18 @@ IOC_STARTUP_FILE="st.cmd.Linux"
 #IOC_STARTUP_FILE="st.cmd.Win32"
 #IOC_STARTUP_FILE="st.cmd.Win64"
 
-if [ -z "$IOC_STARTUP_DIR" ] ; then
+if [ -z "$IOC_STARTUP_DIR" ] ; then	
     # If no startup dir is specified, use the directory above the script's directory
-    IOC_STARTUP_DIR=`dirname ${SNAME}`/..
-    IOC_CMD="../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} ${IOC_STARTUP_FILE}"
+    IOC_STARTUP_DIR=${SNAME}/..
+	
+    IOC_CMD="${SNAME}/../../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} ${IOC_STARTUP_FILE}"
 else
     IOC_CMD="${IOC_STARTUP_DIR}/../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} ${IOC_STARTUP_DIR}/${IOC_STARTUP_FILE}"
 fi
 #!${ECHO} ${IOC_STARTUP_DIR}
 
 if [ -z "$IOC_COMMAND_DIR" ] ; then
-	IOC_COMMAND_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )/commands"
+	IOC_COMMAND_DIR="${SNAME}/commands"
 fi
 
 # Variables used to calculatate a random port for procServ
