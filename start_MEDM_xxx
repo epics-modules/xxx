@@ -3,6 +3,7 @@
 export EPICS_APP=`dirname ${BASH_SOURCE:-$0}`
 export EPICS_APP_ADL_DIR=${EPICS_APP}/xxxApp/op/adl
 export DEFAULT_UI_FILE=${DEFAULT_UI_FILE:-xxx.adl}
+export UI_FILE_MACROS="P=xxx:"
 
 source ${EPICS_APP}/setup_epics_common medm
 
@@ -21,5 +22,4 @@ export START_PUTRECORDER=${EPICS_APP}/start_putrecorder
 export MACROS_PY=${EPICS_APP_ADL_DIR}/../python/macros.py
 export EDITOR=nedit
 
-medm -x ${1:-${DEFAULT_UI_FILE}} &
-# TODO: what about ALL command line parameters?  "$*"
+medm -macro ${UI_FILE_MACROS} -x ${1:-${DEFAULT_UI_FILE}} &
