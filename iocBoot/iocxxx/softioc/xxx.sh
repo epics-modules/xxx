@@ -16,6 +16,9 @@
 IOC_NAME=xxx
 # The name of the IOC binary isn't necessarily the same as the name of the IOC
 IOC_BINARY=xxx
+# The absolute path to the directory containing the IOC's bin directory, if running an example IOC binary
+#!IOC_BIN_PARENT=/home/username/epics/synApps/support/xxx
+#!IOC_BIN_PARENT=/home/username/epics/synApps/support/module/iocs/exampleIOC
 
 # The RUN_IN variable defines how the IOC should be run. Valid options:
 #   screen		(run in a screen session)
@@ -96,15 +99,26 @@ IOC_STARTUP_FILE="st.cmd.Linux"
 #IOC_STARTUP_FILE="st.cmd.Win32"
 #IOC_STARTUP_FILE="st.cmd.Win64"
 
+
 if [ -z "$IOC_STARTUP_DIR" ] ; then	
     # If no startup dir is specified, use the directory above the script's directory
     IOC_STARTUP_DIR=${SNAME}/..
-	
-    IOC_CMD="${SNAME}/../../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} ${IOC_STARTUP_FILE}"
+    
+    IOC_STARTUP_FILE_PATH="${IOC_STARTUP_FILE}"
 else
-    IOC_CMD="${IOC_STARTUP_DIR}/../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY} ${IOC_STARTUP_DIR}/${IOC_STARTUP_FILE}"
+    IOC_STARTUP_FILE_PATH="${IOC_STARTUP_DIR}/${IOC_STARTUP_FILE}"
 fi
 #!${ECHO} ${IOC_STARTUP_DIR}
+
+if [ -z "$IOC_BIN_PARENT" ] ; then
+    IOC_BIN_PATH="${IOC_STARTUP_DIR}/../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY}"
+else
+    IOC_BIN_PATH="${IOC_BIN_PARENT}/bin/${EPICS_HOST_ARCH}/${IOC_BINARY}"
+fi
+#!${ECHO} ${IOC_BIN_PATH}
+
+IOC_CMD="${IOC_BIN_PATH} ${IOC_STARTUP_FILE_PATH}"
+#!${ECHO} ${IOC_CMD}
 
 if [ -z "$IOC_COMMAND_DIR" ] ; then
 	IOC_COMMAND_DIR="${SNAME}/commands"
