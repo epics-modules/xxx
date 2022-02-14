@@ -17,8 +17,8 @@ IOC_NAME=xxx
 # The name of the IOC binary isn't necessarily the same as the name of the IOC
 IOC_BINARY=xxx
 # The absolute path to the directory containing the IOC's bin directory, if running an example IOC binary
-#!IOC_BIN_PARENT=/home/username/epics/synApps/support/xxx
-#!IOC_BIN_PARENT=/home/username/epics/synApps/support/module/iocs/exampleIOC
+#!IOC_BIN_DIR=/home/username/epics/synApps/support/xxx/bin
+#!IOC_BIN_DIR=/home/username/epics/synApps/support/module/iocs/exampleIOC/bin
 
 # The RUN_IN variable defines how the IOC should be run. Valid options:
 #   screen		(run in a screen session)
@@ -110,10 +110,10 @@ else
 fi
 #!${ECHO} ${IOC_STARTUP_DIR}
 
-if [ -z "$IOC_BIN_PARENT" ] ; then
+if [ -z "$IOC_BIN_DIR" ] ; then
     IOC_BIN_PATH="${IOC_STARTUP_DIR}/../../bin/${EPICS_HOST_ARCH}/${IOC_BINARY}"
 else
-    IOC_BIN_PATH="${IOC_BIN_PARENT}/bin/${EPICS_HOST_ARCH}/${IOC_BINARY}"
+    IOC_BIN_PATH="${IOC_BIN_DIR}/${EPICS_HOST_ARCH}/${IOC_BINARY}"
 fi
 #!${ECHO} ${IOC_BIN_PATH}
 
