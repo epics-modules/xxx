@@ -2,8 +2,6 @@
 
 sysVmeMapShow
 
-version > bootLine
-
 cd ""
 < ../nfsCommands
 < cdCommands
