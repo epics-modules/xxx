@@ -46,9 +46,9 @@ MAXvConfig(1, "$(config1)", 0, 0)
 
 
 ### Scalers: Joerger VSC8/16
-#dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=$(PREFIX),S=scaler2,OUT=#C1 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
+#dbLoadRecords("$(SCALER)/db/scaler.db","P=$(PREFIX),S=scaler2,OUT=#C1 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
 #- scaler database with modified calcs (user calcs for all 16 channels)
-dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=$(PREFIX),S=scaler1,OUT=#C0 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
+dbLoadRecords("$(SCALER)/db/scaler16m.db","P=$(PREFIX),S=scaler1,OUT=#C0 S0 @,DTYP=Joerger VSC8/16,FREQ=10000000")
 #- Joerger VSC setup parameters:
 #-     (1)cards, (2)base address(ext, 256-byte boundary),
 #-     (3)interrupt vector (0=disable or  64 - 255)

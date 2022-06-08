@@ -168,6 +168,10 @@ addModule   QUADEM               medm                     /quadEMApp/op/adl
 addModule   QUADEM               caqtdm                   /quadEMApp/op/ui
 addModule   QUADEM               caqtdm                   /quadEMApp/op/ui/autoconvert
 
+addModule   SCALER               medm                     /scalerApp/op/adl
+addModule   SCALER               caqtdm                   /scalerApp/op/ui
+addModule   SCALER               caqtdm                   /scalerApp/op/ui/autoconvert
+
 addModule   SOFTGLUE             medm                     /softGlueApp/op/adl
 addModule   SOFTGLUE             caqtdm                   /softGlueApp/op/ui
 addModule   SOFTGLUE             caqtdm                   /softGlueApp/op/ui/autoconvert
