@@ -140,6 +140,10 @@ addModule   IPUNIDIG             medm                     /ipUnidigApp/op/adl
 addModule   IPUNIDIG             caqtdm                   /ipUnidigApp/op/ui
 addModule   IPUNIDIG             caqtdm                   /ipUnidigApp/op/ui/autoconvert
 
+addModule   LABJACK              medm                     /LabJackApp/op/adl
+addModule   LABJACK              caqtdm                   /LabJackApp/op/ui
+addModule   LABJACK              caqtdm                   /LabJackApp/op/ui/autoconvert
+
 addModule   LOVE                 medm                     /loveApp/op/adl
 addModule   LOVE                 caqtdm                   /loveApp/op/ui
 addModule   LOVE                 caqtdm                   /loveApp/op/ui/autoconvert
