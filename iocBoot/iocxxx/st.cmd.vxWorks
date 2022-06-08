@@ -65,7 +65,7 @@ dbLoadRecords("$(TOP)/xxxApp/Db/iocAdminVxWorks_aliases.db","P=$(PREFIX)")
 #- If you have vxShell-specific commands to run, exit out of the ioc shell
 #- and run them here.
 
-#!exit
+exit
 
 ###############################################################################
 iocInit
@@ -78,6 +78,9 @@ memShow
 
 # write all the PV names to a local file
 dbl > dbl-all.txt
+
+# write out current boot parameters
+version > bootParms
 
 # Diagnostic: CA links in all records
 dbcar(0,1)
