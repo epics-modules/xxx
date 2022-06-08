@@ -3,7 +3,7 @@ dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=$(PREFIX),SLIT=Slit1V,mXp=m3,
 dbLoadRecords("$(OPTICS)/opticsApp/Db/2slit.db","P=$(PREFIX),SLIT=Slit1H,mXp=m5,mXn=m6,RELTOCENTER=0")
 
 # X-ray Instrumentation Associates Huber Slit Controller
-# (Uses asyn record loaded separately)
+#- (Uses asyn record loaded separately)
 #iocshLoad("$(OPTICS)/iocsh/Huber_xia.iocsh", "PREFIX=$(PREFIX), INSTANCE=hsc1:, ASYN_REC=$(PREFIX)asyn_6")
 #iocshLoad("$(OPTICS)/iocsh/Huber_xia.iocsh", "PREFIX=$(PREFIX), INSTANCE=hsc2:, ASYN_REC=$(PREFIX)asyn_6")
 
@@ -26,13 +26,13 @@ dbLoadRecords("$(DIR)/table.db","P=$(PREFIX),Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y
 #doAfterIocInit("seq &Io, 'P=$(PREFIX)Io:,MONO=$(PREFIX)BraggEAO,VSC=$(PREFIX)scaler1'")
 
 ### Monochromator support ###
-# Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
-# standard geometry (geometry 1)
+#- Kohzu and PSL monochromators: Bragg and theta/Y/Z motors
+#- standard geometry (geometry 1)
 #iocshLoad("$(OPTICS)/iocsh/kohzu_mono.iocsh", "PREFIX=$(PREFIX), M_THETA=m1,M_Y=m2,M_Z=m3, YOFF_LO=17.4999,YOFF_HI=17.5001, GEOM=1, LOG=kohzuCtl.log")
-# modified geometry (geometry 2)
+#- modified geometry (geometry 2)
 #iocshLoad("$(OPTICS)/iocsh/kohzu_mono.iocsh", "PREFIX=$(PREFIX), M_THETA=m1,M_Y=m2,M_Z=m2, YOFF_LO=4, YOFF_HI=36, GEOM=2, LOG=kohzuCtl.log")
 
-# Example of specifying offset limits
+#- Example of specifying offset limits
 #doAfterIocInit("epicsThreadSleep(5.)")
 #doAfterIocInit("dbpf $(PREFIX)kohzu_yOffsetAO.DRVH 17.51")
 #doAfterIocInit("dbpf $(PREFIX)kohzu_yOffsetAO.DRVL 17.49")

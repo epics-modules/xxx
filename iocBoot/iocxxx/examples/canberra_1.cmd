@@ -6,16 +6,16 @@
 #epicsEnvSet("aimDebug", 1)
 #epicsEnvSet("icbDebug", 1)
 
-# AIMConfig(portName, ethernet_address, portNumber, maxChans,
-#           maxSignals, maxSequences, ethernetDevice)
-#    portName,         # asyn port name to be created
-#    ethernet_address, # Low order 16 bits of Ethernet hardware address
-#    portNumber,       # ADC port on AIM (1 or 2)
-#    maxChans,         # Maximum channels for this input
-#    maxSignals,       # Maximum signals for this input (>1 for MCS or multiplexor)
-#    maxSequences,     # Maximum sequences for time resolved applications
-#    ethernetDevice)   # Ethernet device name on IOC
-#                      # Typically ei0 for Motorola 68K, dc0 for ppc, eth0 for Linux
+#- AIMConfig(portName, ethernet_address, portNumber, maxChans,
+#-           maxSignals, maxSequences, ethernetDevice)
+#-    portName,         # asyn port name to be created
+#-    ethernet_address, # Low order 16 bits of Ethernet hardware address
+#-    portNumber,       # ADC port on AIM (1 or 2)
+#-    maxChans,         # Maximum channels for this input
+#-    maxSignals,       # Maximum signals for this input (>1 for MCS or multiplexor)
+#-    maxSequences,     # Maximum sequences for time resolved applications
+#-    ethernetDevice)   # Ethernet device name on IOC
+#-                      # Typically ei0 for Motorola 68K, dc0 for ppc, eth0 for Linux
 AIMConfig("AIM1/1", 0x59e, 1, 2048, 1, 1, "dc0")
 AIMConfig("AIM1/2", 0x59e, 2, 2048, 8, 1, "dc0")
 AIMConfig("DSA2000", 0x8058, 1, 2048, 1, 1, "dc0")
@@ -26,16 +26,16 @@ dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=$(PREFIX),M=aim_adc4,DTYP=asynMCA,IN
 dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=$(PREFIX),M=aim_adc5,DTYP=asynMCA,INP=@asyn(AIM1/2 6),NCHAN=2048")
 dbLoadRecords("$(MCA)/mcaApp/Db/mca.db", "P=$(PREFIX),M=aim_adc6,DTYP=asynMCA,INP=@asyn(DSA2000 0),NCHAN=2048")
 
-# icbConfig(portName, ethernetAddress, icbAddress, moduleType)
-#    portName to give to this asyn port
-#    ethernetAddress - Ethernet address of module, low order 16 bits
-#    icbAddress - rotary switch setting inside ICB module
-#    moduleType
-#       0 = ADC
-#       1 = Amplifier
-#       2 = HVPS
-#       3 = TCA
-#       4 = DSP
+#- icbConfig(portName, ethernetAddress, icbAddress, moduleType)
+#-    portName to give to this asyn port
+#-    ethernetAddress - Ethernet address of module, low order 16 bits
+#-    icbAddress - rotary switch setting inside ICB module
+#-    moduleType
+#-       0 = ADC
+#-       1 = Amplifier
+#-       2 = HVPS
+#-       3 = TCA
+#-       4 = DSP
 icbConfig("icbAdc1", 0x59e, 5, 0)
 dbLoadRecords("$(MCA)/mcaApp/Db/icb_adc.db", "P=$(PREFIX),ADC=adc1,PORT=icbAdc1")
 icbConfig("icbAmp1", 0x59e, 3, 1)

@@ -62,8 +62,8 @@ dbLoadRecords("$(DEVIOCSTATS)/db/iocRTOS.db","IOCNAME=$(PREFIX)")
 dbLoadRecords("$(TOP)/xxxApp/Db/iocAdminVxWorks_aliases.db","P=$(PREFIX)")
 
 
-# If you have vxShell-specific commands to run, exit out of the ioc shell
-# and run them here.
+#- If you have vxShell-specific commands to run, exit out of the ioc shell
+#- and run them here.
 
 #!exit
 

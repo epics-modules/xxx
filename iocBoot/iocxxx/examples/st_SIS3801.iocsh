@@ -8,12 +8,12 @@ epicsEnvSet("PORT",                     "SIS3801/1")
 epicsEnvSet("FIELD",                    "READ")
 epicsEnvSet("MODEL",                    "SIS3801")
 
-#drvSIS3801Config("Port name",
-#                  baseAddress,
-#                  interruptVector, 
-#                  int interruptLevel,
-#                  channels,
-#                  signals)
+#-drvSIS3801Config("Port name",
+#-                  baseAddress,
+#-                  interruptVector, 
+#-                  int interruptLevel,
+#-                  channels,
+#-                  signals)
 drvSIS3801Config($(PORT), 0xA0000000, 220, 6, $(MAX_CHANS), $(MAX_SIGNALS))
 
 # This loads the scaler record and supporting records
@@ -24,8 +24,8 @@ dbLoadRecords("$(MCA)/mcaApp/Db/SIS38XX.template", "P=$(P), PORT=$(PORT), SCALER
 # This SNL programs reads the MCS
 doAfterIocInit("seq(&SIS38XX_SNL, 'P=$(P), R=$(RNAME), NUM_SIGNALS=$(MAX_SIGNALS), FIELD=READ')")
 
-# Load either MCA or waveform records below
-# The number of records loaded must be the same as MAX_SIGNALS defined above
+#- Load either MCA or waveform records below
+#- The number of records loaded must be the same as MAX_SIGNALS defined above
 dbLoadTemplate("substitutions/mca.substitutions", "P=$(P), DTYP=asynMCA, CHANS=$(MAX_CHANS)")
 
 asynSetTraceIOMask($(PORT),0,2)

@@ -3,13 +3,13 @@ iocshLoad("$(AUTOSAVE)/iocsh/autosave_settings.iocsh", "PREFIX=$(PREFIX), SAVE_P
 iocshLoad("$(AUTOSAVE)/iocsh/save_restore.iocsh",      "PREFIX=$(PREFIX), POSITIONS_FILE=auto_positions, SETTINGS_FILE=auto_settings")
 iocshLoad("$(AUTOSAVE)/iocsh/autosaveBuild.iocsh",     "PREFIX=$(PREFIX), BUILD_PATH=autosave")
 
-# Note that you can restore a .sav file without also autosaving to it.
+#- Note that you can restore a .sav file without also autosaving to it.
 #set_pass0_restoreFile("octupole_settings.sav")
 #set_pass1_restoreFile("octupole_settings.sav")
 
 ###
 # specify directories in which to search for included request files
-# Note that the vxWorks variables (e.g., 'startup') are from cdCommands
+#- Note that the vxWorks variables (e.g., 'startup') are from cdCommands
 set_requestfile_path("$(ADCORE)/db")
 set_requestfile_path("$(AUTOSAVE)/db")
 set_requestfile_path("$(BUSY)/db")
@@ -48,10 +48,10 @@ save_restoreSet_Debug(0)
 #asSetFilename("$(TOP)/iocBoot/accessSecurity.acf")
 #asSetSubstitutions("P=$(PREFIX)")
 
-# devIocStats
+#- devIocStats
 dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=$(PREFIX)")
-# PV aliases change :: into :
-# see https://github.com/epics-modules/xxx/issues/30
+#- PV aliases change :: into :
+#- see https://github.com/epics-modules/xxx/issues/30
 dbLoadRecords("$(TOP)/xxxApp/Db/iocAdminSoft_aliases.db","P=$(PREFIX)")
 
 ### caputRecorder
@@ -60,39 +60,39 @@ iocshLoad("$(CAPUTRECORDER)/iocsh/caputRecorder.iocsh", "PREFIX=$(PREFIX)")
 ### Scan-support software
 iocshLoad("$(SSCAN)/iocsh/sscan.iocsh", "PREFIX=$(PREFIX), MAX_PTS=1000, REQ_FILE=saveData.req")
 iocshLoad("$(AUTOSAVE)/iocsh/configMenu.iocsh", "PREFIX=$(PREFIX),CONFIG=scan1")
-# You could make scan configurations read-only:
+#- You could make scan configurations read-only:
 #dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=$(PREFIX),CONFIG=scan1,ENABLE_SAVE=0")
 
-# A set of scan parameters for each positioner.  This is a convenience
-# for the user.  It can contain an entry for each scannable thing in the
-# crate.
+#- A set of scan parameters for each positioner.  This is a convenience
+#- for the user.  It can contain an entry for each scannable thing in the
+#- crate.
 #dbLoadTemplate("substitutions/scanParms.substitutions", "P=$(PREFIX)")
 
 ### Stuff for user programming ###
 iocshLoad("$(CALC)/iocsh/userCalc.iocsh", "PREFIX=$(PREFIX), ARRAY_SIZE=8000")
 
-# Load 10 more of all the user calcs, N=1 creates usercalcs 10-19
+#- Load 10 more of all the user calcs, N=1 creates usercalcs 10-19
 iocshLoad("$(CALC)/iocsh/userCalc_extra.iocsh", "PREFIX=$(PREFIX), N=1, ARRAY_SIZE=8000")
 
-# Load 20 userScripts
+#- Load 20 userScripts
 dbLoadRecords("$(LUA)/luaApp/Db/luascripts10.db", "P=$(PREFIX), R=set1:")
 dbLoadRecords("$(LUA)/luaApp/Db/luascripts10.db", "P=$(PREFIX), R=set2:")
 
-# string sequence (sseq) records
+#- string sequence (sseq) records
 iocshLoad("$(CALC)/iocsh/sseq.iocsh", "PREFIX=$(PREFIX), INSTANCE=ES:")
 
-# interpolation
+#- interpolation
 dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=$(PREFIX),N=2000")
 dbLoadRecords("$(CALC)/calcApp/Db/interpNew.db", "P=$(PREFIX),Q=1,N=2000")
 
-# busy record
+#- busy record
 dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db", "P=$(PREFIX),R=mybusy1")
 dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db", "P=$(PREFIX),R=mybusy2")
 
-# Soft function generator
+#- Soft function generator
 #dbLoadRecords("$(CALC)/calcApp/Db/FuncGen.db","P=$(PREFIX),Q=fgen,OUT=$(PREFIX)m7.VAL")
 
 ### Load database record for alive heartbeating support.
-# IOCNM is name of IOC, RHOST specifies the remote server accepting hearbeats
+#- IOCNM is name of IOC, RHOST specifies the remote server accepting hearbeats
 dbLoadRecords("$(ALIVE)/aliveApp/Db/alive.db", "P=$(PREFIX),IOCNM=$(IOC),RHOST=164.54.100.11")
 dbLoadRecords("$(ALIVE)/aliveApp/Db/aliveMSGCalc.db", "P=$(PREFIX)")
