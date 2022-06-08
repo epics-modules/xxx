@@ -55,9 +55,9 @@ iocsh
 < common.iocsh
 
 # devIocStats records specific to vxWorks
-dbLoadRecords("$(DEVIOCSTATS)/db/iocRTOS.db","IOCNAME=$(PREFIX)")
+dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminvxWorks.db","IOC=$(PREFIX)")
 # VxWorks support adds these additional PVs to be aliased
-dbLoadRecords("$(TOP)/xxxApp/Db/iocAdminVxWorks_aliases.db","P=$(PREFIX)")
+dbLoadRecords("$(TOP)/db/iocAdminVxWorks_aliases.db","P=$(PREFIX)")
 
 
 #- If you have vxShell-specific commands to run, exit out of the ioc shell
