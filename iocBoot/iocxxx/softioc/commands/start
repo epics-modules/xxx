@@ -1,6 +1,20 @@
 register "start" start
 
 start() {
+	PASSED_ARGS=$@
+	
+	while getopts "f" ARG; do
+		case "$ARG" in
+			f)  if [ -f "${IOC_STARTUP_DIR}/${PROCSERV_INFO_FILE}" ]; then
+					echo "Removing ${IOC_STARTUP_DIR}/${PROCSERV_INFO_FILE}"
+					rm -f ${IOC_STARTUP_DIR}/${PROCSERV_INFO_FILE}
+				fi
+			;;
+		esac
+	done
+	
+	shift "$((OPTIND-1))"	
+	
 	RUN_IN_ARG=$1
 	
 	# Allow the RUN_IN setting to be overridden on the command-line
@@ -84,5 +98,6 @@ start() {
 }
 
 start_usage() {
-	${ECHO} "$(${BASENAME} ${SNAME}) start {screen|procServ|ps|shell}"
+	${ECHO} "$(${BASENAME} ${0}) start [-f] {screen|procServ|ps|shell}"
+	${ECHO} -e "\t-f \t Force start even if procinfo file exists"
 }
