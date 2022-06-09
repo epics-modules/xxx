@@ -2,7 +2,7 @@ register "usage" usage
 
 usage() {
 	if [ $# -eq 0 ] ; then
-		OUTPUT="Usage: $(${BASENAME} ${SNAME}) {"
+		OUTPUT="Usage: $(${BASENAME} $0) {"
 		
 		for i in "${REGISTERED_CMD_NAMES[@]}"; do
 			OUTPUT+="$i|"
@@ -22,7 +22,7 @@ usage() {
 				if [ `type -t ${REGISTERED_CMD_FUNCS[$VAL]}_usage`"" == 'function' ] ; then
 					${REGISTERED_CMD_FUNCS[$VAL]}_usage
 				else
-					${ECHO} "$(${BASENAME} ${SNAME}) $CMD_CHECK"
+					${ECHO} "$(${BASENAME} $0) $CMD_CHECK"
 				fi
 				
 				return
