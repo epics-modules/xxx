@@ -54,6 +54,7 @@ GET_SCREEN_PID=YES
 # Commands needed by this script
 ECHO=echo
 ID=id
+GREP=grep
 PGREP=pgrep
 SCREEN=screen
 KILL=kill
@@ -203,10 +204,10 @@ checkpid() {
         # At least one instance of the IOC binary is running; 
         # Find the binary that is associated with this script/IOC
         for pid in ${IOC_PID}; do
-            BIN_CWD=`${READLINK} /proc/${pid}/cwd`
-            IOC_CWD=`${READLINK} -f ${IOC_STARTUP_DIR}`
+			# Check if a process with the given PID has been run in the current startup directory
+			BIN_CHECK=`${PS} aux | ${GREP} "${pid}" | ${GREP} "${IOC_STARTUP_DIR}"`
             
-            if [ "$BIN_CWD" = "$IOC_CWD" ] ; then
+			if [[ ! -z "$BIN_CHECK" ]] ; then
                 # The IOC is running; the binary with PID=$pid is the IOC that was run from $IOC_STARTUP_DIR
                 IOC_PID=${pid}
                 IOC_DOWN=0
