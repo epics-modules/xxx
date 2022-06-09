@@ -1230,7 +1230,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              <property name="args">
               <string>P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8;P=xxx:,N=1,M_x=m7,M_rIn=m6,M_rOut=m8</string>
              </property>
-             <property name="fontScaleMode">
+             <property name="fontScaleMode" stdset="0">
               <enum>EPushButton::WidthAndHeight</enum>
              </property>
              <property name="stackingMode" stdset="0">
@@ -1913,7 +1913,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              <property name="args">
               <string>P=xxx:</string>
              </property>
-             <property name="fontScaleMode">
+             <property name="fontScaleMode" stdset="0">
               <enum>EPushButton::WidthAndHeight</enum>
              </property>
              <property name="stackingMode" stdset="0">
@@ -3544,7 +3544,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              <property name="args">
               <string>P=xxx:Io:,S=xxx:scaler1,MONO=xxx:BraggEAO</string>
              </property>
-             <property name="fontScaleMode">
+             <property name="fontScaleMode" stdset="0">
               <enum>EPushButton::WidthAndHeight</enum>
              </property>
              <property name="stackingMode" stdset="0">
@@ -3698,7 +3698,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              <property name="args">
               <string>P=xxx:,Q=fgen</string>
              </property>
-             <property name="fontScaleMode">
+             <property name="fontScaleMode" stdset="0">
               <enum>EPushButton::WidthAndHeight</enum>
              </property>
              <property name="stackingMode" stdset="0">
@@ -3706,42 +3706,6 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              </property>
              <property name="removeParent" stdset="0">
               <string>false</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="caRelatedDisplay" name="caRelatedDisplay_28">
-             <property name="label">
-              <string notr="true">-  caputRec </string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>caputRecorder;caputRecorderA</string>
-             </property>
-             <property name="files">
-              <string>caputRecorder.ui;caputRecorder.ui</string>
-             </property>
-             <property name="args">
-              <string>P=xxx:,L=xxx:;P=xxxA:,L=xxx:</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-             <property name="removeParent" stdset="0">
-              <string>false;false</string>
              </property>
             </widget>
            </item>
@@ -3828,39 +3792,6 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
            </item>
            <item row="3" column="4">
             <widget class="caRelatedDisplay" name="carelateddisplay_72">
-             <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>1</string>
-             </property>
-             <property name="files">
-              <string>1</string>
-             </property>
-             <property name="args">
-              <string>1</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="4">
-            <widget class="caRelatedDisplay" name="carelateddisplay_69">
              <property name="label">
               <string notr="true">-</string>
              </property>
@@ -4025,7 +3956,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              <property name="args">
               <string>P=xxx:;P=xxx:;P=xxx:,N=1;P=xxx:,Q=1</string>
              </property>
-             <property name="fontScaleMode">
+             <property name="fontScaleMode" stdset="0">
               <enum>EPushButton::WidthAndHeight</enum>
              </property>
              <property name="stackingMode" stdset="0">
@@ -4128,13 +4059,13 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
               </color>
              </property>
              <property name="labels">
-              <string>user calcs 1-10;user stringCalcs 1-10;user transforms 1-10;user string seqs 1-10;user arrayCalcs 1-10;user average 1-10;user calcOuts;user stringCalcs 11-20;user transforms 11-20;user string seqs 11-20;user arrayCalcs 11-20;user average 11-20;user calcOuts 11-20;busyRecord;busyRecord2;editSseq</string>
+              <string>user calcs 1-10;user stringCalcs 1-10;user transforms 1-10;user string seqs 1-10;user arrayCalcs 1-10;user average 1-10;user calcs 11-20;user calcOuts 1-10;user stringCalcs 11-20;user transforms 11-20;user string seqs 11-20;user arrayCalcs 11-20;user average 11-20;user calcOuts 11-20;editSseq</string>
              </property>
              <property name="files">
-              <string>userCalcs10.ui;userStringCalcs10.ui;userTransforms10.ui;userStringSeqs10.ui;userArrayCalcs10.ui;userAve10.ui;userCalcOuts10.ui;userStringCalcs10more.ui;userTransforms10more.ui;userStringSeqs10more.ui;userArrayCalcs10more.ui;userAve10more.ui;userCalcOuts10more.ui;xxBusyRecord.ui;xxBusyRecord.ui;editSseq.ui</string>
+              <string>userCalcs10.ui;userStringCalcs10.ui;userTransforms10.ui;userStringSeqs10.ui;userArrayCalcs10.ui;userAve10.ui;userCalcs10.ui;userCalcOuts10.ui;userStringCalcs10more.ui;userTransforms10more.ui;userStringSeqs10more.ui;userArrayCalcs10more.ui;userAve10more.ui;userCalcOuts10more.ui;editSseq.ui</string>
              </property>
              <property name="args">
-              <string>P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,R=mybusy;P=xxx:,R=mybusy2;P=xxx:,Q=ES:</string>
+              <string>P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20;P=xxx:,Q=ES:</string>
              </property>
              <property name="stackingMode" stdset="0">
               <enum>caRowColMenu::Menu</enum>
@@ -4285,6 +4216,75 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              </property>
             </widget>
            </item>
+           <item row="0" column="4">
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_28">
+             <property name="label">
+              <string notr="true">-  caputRec </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>caputRecorder;caputRecorderA</string>
+             </property>
+             <property name="files">
+              <string>caputRecorder.ui;caputRecorder.ui</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,L=xxx:;P=xxxA:,L=xxx:</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+             <property name="removeParent" stdset="0">
+              <string>false;false</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="caRelatedDisplay" name="carelateddisplay_7">
+             <property name="label">
+              <string notr="true">-busy record</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>busy record 1;busy record 2</string>
+             </property>
+             <property name="files">
+              <string>xxBusyRecord.ui;xxBusyRecord.ui</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,R=mybusy;P=xxx:,R=mybusy2</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </widget>
@@ -4431,11 +4431,8 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              </property>
              <property name="font">
               <font>
-               <pointsize>17</pointsize>
+               <pointsize>15</pointsize>
               </font>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
              </property>
              <property name="text">
               <string>Moving</string>
@@ -4459,6 +4456,9 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
                <green>0</green>
                <blue>184</blue>
               </color>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
              </property>
              <property name="visibility">
               <enum>caLabel::IfZero</enum>
@@ -4478,11 +4478,8 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              </property>
              <property name="font">
               <font>
-               <pointsize>17</pointsize>
+               <pointsize>15</pointsize>
               </font>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
              </property>
              <property name="text">
               <string>Moving</string>
@@ -4506,6 +4503,9 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
                <green>0</green>
                <blue>184</blue>
               </color>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
              </property>
              <property name="visibility">
               <enum>caLabel::IfNotZero</enum>
@@ -4523,9 +4523,6 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
                <height>25</height>
               </rect>
              </property>
-             <property name="frameShape">
-              <enum>QFrame::NoFrame</enum>
-             </property>
              <property name="text">
               <string>Moving</string>
              </property>
@@ -4548,6 +4545,9 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
                <green>255</green>
                <blue>255</blue>
               </color>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
              </property>
              <property name="visibility">
               <enum>caLabel::IfZero</enum>
