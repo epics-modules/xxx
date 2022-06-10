@@ -72,6 +72,6 @@ fi
 #######################################
 # start caQtDM
 
-/APSshare/bin/caQtDM -style plastique -noMsg -macro ${UI_FILE_MACROS} ${DEFAULT_UI_FILE}
+/APSshare/bin/caQtDM -style plastique -noMsg -macro ${UI_FILE_MACROS} ${DEFAULT_UI_FILE} &
 
 
