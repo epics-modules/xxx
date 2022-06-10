@@ -2,8 +2,8 @@
 
 export EPICS_APP=`dirname ${BASH_SOURCE:-$0}`
 export EPICS_APP_UI_DIR=${EPICS_APP}/xxxApp/op/ui
-export DEFAULT_UI_FILE=${DEFAULT_UI_FILE:-xxx.ui}
-export UI_FILE_MACROS="P=xxx:"
+export DEFAULT_UI_FILE=${1:-${DEFAULT_UI_FILE:-xxx.ui}}
+export UI_FILE_MACROS=${2:-"P=xxx:"}
 
 source ${EPICS_APP}/setup_epics_common caqtdm
 
@@ -72,6 +72,6 @@ fi
 #######################################
 # start caQtDM
 
-/APSshare/bin/caQtDM -style plastique -noMsg -macro ${UI_FILE_MACROS} ${1:-${DEFAULT_UI_FILE}}
+/APSshare/bin/caQtDM -style plastique -noMsg -macro ${UI_FILE_MACROS} ${DEFAULT_UI_FILE}
 
 
