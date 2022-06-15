@@ -50,12 +50,6 @@ save_restoreSet_Debug(0)
 #asSetFilename("$(TOP)/iocBoot/accessSecurity.acf")
 #asSetSubstitutions("P=$(PREFIX)")
 
-#- devIocStats
-dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminSoft.db","IOC=$(PREFIX)")
-#- PV aliases change :: into :
-#- see https://github.com/epics-modules/xxx/issues/30
-dbLoadRecords("$(TOP)/xxxApp/Db/iocAdminSoft_aliases.db","P=$(PREFIX)")
-
 ### caputRecorder
 iocshLoad("$(CAPUTRECORDER)/iocsh/caputRecorder.iocsh", "PREFIX=$(PREFIX)")
 
