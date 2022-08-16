@@ -205,7 +205,7 @@ checkpid() {
         # Find the binary that is associated with this script/IOC
         for pid in ${IOC_PID}; do
 			# Check if a process with the given PID has been run in the current startup directory
-			BIN_CHECK=`${PS} aux | ${GREP} "${pid}" | ${GREP} "${IOC_STARTUP_DIR}"`
+			BIN_CHECK=`${PS} aux | ${GREP} "${pid}" | ${GREP} "${IOC_CMD}"`
             
 			if [[ ! -z "$BIN_CHECK" ]] ; then
                 # The IOC is running; the binary with PID=$pid is the IOC that was run from $IOC_STARTUP_DIR
