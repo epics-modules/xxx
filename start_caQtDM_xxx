@@ -57,7 +57,7 @@ if [ -z "/APSshare/caqtdm" ]; then
   export PATH=${PATH}:/APSshare/bin
   export QT_PLUGIN_PATH=/APSshare/caqtdm/plugins
   export LD_LIBRARY_PATH=/APSshare/caqtdm/lib
-  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/APSshare/epics/base-3.14.12.3/lib/linux-x86_64
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${EPICS_BASE}/lib/linux-x86_64
 else
   export QT_PLUGIN_PATH=/usr/local/epics/extensions/lib/linux-x86_64
 fi
