@@ -409,6 +409,11 @@ ifeq ($(OS_CLASS), Linux)
     $(DBD_NAME)_DBD += mw100Support.dbd
     $(PROD_NAME)_LIBS := mw100 $($(PROD_NAME)_LIBS)
   endif
+  
+  ifdef GALIL
+    $(DBD_NAME)_DBD += GalilSupport.dbd
+    $(PROD_NAME)_LIBS := GalilSupport $($(PROD_NAME)_LIBS)
+  endif
 
   ifeq ($(TIRPC), YES)
     $(PROD_NAME)_SYS_LIBS += tirpc
