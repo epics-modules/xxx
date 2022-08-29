@@ -1,0 +1,34 @@
+#- INSTANCE  - Used for Camera Port Name and detector pv name
+#- ID        - Camera ID or IP address
+#- XSIZE     - Image Width
+#- YSIZE     - Image Height
+#- TYPE      - Image Datatype, default: Int8
+#- FTVL      - Waveform type, default: UCHAR
+
+epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(EPICS_DB_INCLUDE_PATH):$(ADCORE)/db:$(ADPROSILICA)/db")
+
+
+#- prosilicaConfig(portName,    # The name of the asyn port to be created
+#-                 cameraId,    # Unique ID, IP address, or IP name of the camera
+#-                 maxBuffers,  # Maximum number of NDArray buffers driver can allocate. 0=unlimited
+#-                 maxMemory,   # Maximum memory bytes driver can allocate. 0=unlimited
+#-                 priority,    # EPICS thread priority for asyn port driver 0=default
+#-                 stackSize,   # EPICS thread stack size for asyn port driver 0=default
+#-                 maxPvAPIFrames) # Number of frames to allocate in PvAPI driver. Default=2.
+#- The simplest way to determine the uniqueId of a camera is to run the Prosilica GigEViewer application, 
+#- select the camera, and press the "i" icon on the bottom of the main window to show the camera information for this camera. 
+#- The Unique ID will be displayed on the first line in the information window.
+
+prosilicaConfig("$(INSTANCE)", "$(ID)", 50, 0)
+dbLoadRecords("$(ADPROSILICA)/db/prosilica.template","P=$(PREFIX),R=$(INSTANCE):cam1:,PORT=$(INSTANCE),ADDR=0,TIMEOUT=1")
+
+# Create a standard arrays plugin, set it to get data from first Prosilica driver.
+NDStdArraysConfigure("Image1", 5, 0, "$(PORT)", 0, 0)
+
+#Create a standard arrays plugin, set it to get data from first simDetector driver.
+NDStdArraysConfigure("$(INSTANCE)Image", 3, 0, "$(INSTANCE)", 0, 2000000)
+luaCmd("dbLoadRecords('$(ADCORE)/ADApp/Db/NDStdArrays.template', 'P=$(PREFIX),R=image1:,PORT=$(INSTANCE)Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(TYPE=Int8),FTVL=$(FTVL=UCHAR),NELEMENTS=' .. NELM)", "NELM=$(XSIZE)*$(YSIZE)")
+
+iocshLoad("$(ADCORE)/iocBoot/commonPlugins.cmd", "PREFIX=$(PREFIX), PORT=$(INSTANCE), QSIZE=20, XSIZE=$(XSIZE), YSIZE=$(YSIZE), NCHANS=1024, CBUFFS=20, MAX_THREADS=5")
+
+set_requestfile_path("$(ADPROSILICA)/db")

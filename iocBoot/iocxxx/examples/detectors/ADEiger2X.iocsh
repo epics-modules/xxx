@@ -1,0 +1,24 @@
+#- INSTANCE  - Used for Camera Port Name and detector pv name
+#- ID        - Eiger IP Addr
+#- XSIZE     - Image Width
+#- YSIZE     - Image Height
+#- TYPE      - Image Datatype, default: Int32
+#- FTVL      - Waveform type, default: LONG
+
+epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(EPICS_DB_INCLUDE_PATH):$(ADCORE)/db:$(ADEIGER)/db")
+
+
+eigerDetectorConfig("$(INSTANCE)", "$(ID)", 0, 0)
+dbLoadRecords("$(ADEIGER)/db/eiger2.template", "P=$(PREFIX)$(INSTANCE):,R=cam1:,PORT=$(INSTANCE),ADDR=0,TIMEOUT=1")
+
+#Create a standard arrays plugin, set it to get data from first simDetector driver.
+NDStdArraysConfigure("$(INSTANCE)Image1", 3, 0, "$(INSTANCE)", 0, 2000000)
+luaCmd("dbLoadRecords('$(ADCORE)/db/NDStdArrays.template', 'P=$(PREFIX)$(INSTANCE):,R=image1:,PORT=$(INSTANCE)Image1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(TYPE=Int32),FTVL=$(FTVL=LONG),NELEMENTS=' .. NELM)", "NELM=$(XSIZE)*$(YSIZE)")
+
+#Create a standard arrays plugin, set it to get data from first simDetector driver.
+NDStdArraysConfigure("$(INSTANCE)Image2", 3, 0, "$(INSTANCE)", 1, 2000000)
+luaCmd("dbLoadRecords('$(ADCORE)/db/NDStdArrays.template', 'P=$(PREFIX)$(INSTANCE):,R=image2:,PORT=$(INSTANCE)Image2,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(TYPE=Int32),FTVL=$(FTVL=LONG),NELEMENTS=' .. NELM)", "NELM=$(XSIZE)*$(YSIZE)")
+
+iocshLoad("$(ADCORE)/iocBoot/commonPlugins.cmd", "PREFIX=$(PREFIX)$(INSTANCE):, PORT=$(INSTANCE), QSIZE=20, XSIZE=$(XSIZE), YSIZE=$(YSIZE), NCHANS=1024, CBUFFS=20, MAX_THREADS=5")
+
+set_requestfile_path("$(ADEIGER)/db")

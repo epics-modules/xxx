@@ -1,0 +1,27 @@
+#- INSTANCE  - Used for Camera Port Name and detector pv name
+#- ID        - Camera IP or network name
+#- XSIZE     - Image Width
+#- YSIZE     - Image Height
+#- TYPE      - Image Datatype, default: Int16
+#- FTVL      - Waveform type, default: SHORT
+
+epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(EPICS_DB_INCLUDE_PATH):$(ADCORE)/db:$(ADMAR345)/db")
+
+###
+# Create the asyn port to talk to the MAR on port 5001
+drvAsynIPPortConfigure("$(INSTANCE)Server","$(ID):5001")
+# Set the input and output terminators.
+asynOctetSetInputEos("$(INSTANCE)Server", 0, "\n")
+asynOctetSetOutputEos("$(INSTANCE)Server", 0, "\n")
+
+mar345Config("$(INSTANCE)", "$(INSTANCE)Server", 0, 0)
+dbLoadRecords("$(ADMAR345)/db/mar345.template","P=$(PREFIX)$(INSTANCE):,R=cam1:,PORT=$(INSTANCE),ADDR=0,TIMEOUT=1,MARSERVER_PORT=$(INSTANCE)Server")
+
+#Create a standard arrays plugin, set it to get data from first simDetector driver.
+NDStdArraysConfigure("$(INSTANCE)Image", 3, 0, "$(INSTANCE)", 0, 2000000)
+luaCmd("dbLoadRecords('$(ADCORE)/ADApp/Db/NDStdArrays.template', 'P=$(PREFIX)$(INSTANCE):,R=image1:,PORT=$(INSTANCE)Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(TYPE=Int16),FTVL=$(FTVL=SHORT),NELEMENTS=' .. NELM)", "NELM=$(XSIZE)*$(YSIZE)")
+
+# Load all other plugins using commonPlugins.cmd
+iocshLoad("$(ADCORE)/iocBoot/commonPlugins.cmd", "PREFIX=$(PREFIX)$(INSTANCE):, PORT=$(INSTANCE), QSIZE=20, XSIZE=$(XSIZE), YSIZE=$(YSIZE), NCHANS=1024, CBUFFS=20, MAX_THREADS=5")
+
+set_requestfile_path("$(ADMAR345)/db")

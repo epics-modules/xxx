@@ -1,0 +1,40 @@
+#- INSTANCE  - Used for Camera Port Name and detector pv name
+#- ID        - Camera ID
+#- XSIZE     - Image Width
+#- YSIZE     - Image Height
+#- TYPE      - Image Datatype, default: Int8
+#- FTVL      - Waveform type, default: UCHAR
+#- COLORS    - Number of colors, default: 1
+#- SUB       - Pointgrey substitutions file, default: examples/detectors/pointGrey.substitutions
+
+epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(EPICS_DB_INCLUDE_PATH):$(ADCORE)/db:$(ADPOINTGREY)/db")
+
+
+# pointGreyConfig(const char *portName, int cameraId, int traceMask, int memoryChannel,
+#                 int maxBuffers, size_t maxMemory, int priority, int stackSize)
+pointGreyConfig("$(INSTANCE)", $(ID), 0x1, 0)
+
+dbLoadRecords("$(ADPOINTGREY)/db/pointGrey.template", "P=$(PREFIX)$(INSTANCE):,R=cam1:,PORT=$(INSTANCE),ADDR=0,TIMEOUT=1")
+dbLoadTemplate("$(SUB=examples/detectors/pointGrey.substitutions)", "P=$(PREFIX)$(INSTANCE):,R=cam1:,PORT=$(INSTANCE)")
+
+#Create a standard arrays plugin, set it to get data from first simDetector driver.
+NDStdArraysConfigure("$(INSTANCE)Image", 3, 0, "$(INSTANCE)", 0, 2000000)
+luaCmd("dbLoadRecords('$(ADCORE)/ADApp/Db/NDStdArrays.template', 'P=$(PREFIX)$(INSTANCE):,R=image1:,PORT=$(INSTANCE)Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(TYPE=Int16),FTVL=$(FTVL=SHORT),NELEMENTS=' .. NELM)", "NELM=$(COLORS)*$(XSIZE)*$(YSIZE)")
+
+iocshLoad("$(ADCORE)/iocBoot/commonPlugins.cmd", "PREFIX=$(PREFIX)$(INSTANCE):, PORT=$(INSTANCE), QSIZE=20, XSIZE=$(XSIZE), YSIZE=$(YSIZE), NCHANS=1024, CBUFFS=20, MAX_THREADS=5")
+
+set_requestfile_path("$(ADPOINTGREY)/db")
+
+#- Records with dynamic enums need to be processed again because the enum values are not available during iocInit.  
+doAfterIocInit("dbpf('$(PREFIX)$(INSTANCE):cam1:Format7Mode.PROC', '1')")
+doAfterIocInit("dbpf('$(PREFIX)$(INSTANCE):cam1:PixelFormat.PROC', '1')")
+
+#- Wait for callbacks on the property limits (DRVL, DRVH) to complete
+doAfterIocInit("epicsThreadSleep(1.0)")
+
+#- Records that depend on the state of the dynamic enum records or property limits also need to be processed again
+#- Other property records may need to be added to this list
+doAfterIocInit("dbpf('$(PREFIX)$(INSTANCE):cam1:FrameRate.PROC', '1')")
+doAfterIocInit("dbpf('$(PREFIX)$(INSTANCE):cam1:FrameRateValAbs.PROC', '1')")
+doAfterIocInit("dbpf('$(PREFIX)$(INSTANCE):cam1:AcquireTime.PROC', '1')")
+

@@ -1,0 +1,28 @@
+#- INSTANCE  - Used for Camera Port Name and detector pv name
+#- ID        - Camera IP
+#- XSIZE     - Image Width
+#- YSIZE     - Image Height
+#- TYPE      - Image Datatype, default: Int8
+#- FTVL      - Waveform type, default: UCHAR
+
+epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(EPICS_DB_INCLUDE_PATH):$(ADCORE)/db:$(ADFASTCCD)/db")
+
+# FastCCDConfig(const char *portName, int maxBuffers, size_t maxMemory, 
+#               int priority, int stackSize, int packetBuffer, int imageBuffer,
+#				const char *baseIP, const char *fabricIP, const char *fabricMAC))
+
+FastCCDConfig("$(INSTANCE)", 0, 0, 0, 100000, 2000, 200, "", "$(ID)", "")
+
+dbLoadRecords("$(ADFASTCCD)/db/FastCCD.template","P=$(PREFIX)$(INSTANCE):,R=:cam1:,PORT=$(INSTANCE),ADDR=0,TIMEOUT=1")
+
+#Create a standard arrays plugin, set it to get data from first simDetector driver.
+NDStdArraysConfigure("$(INSTANCE)Image", 3, 0, "$(INSTANCE)", 0, 2000000)
+luaCmd("dbLoadRecords('$(ADCORE)/ADApp/Db/NDStdArrays.template', 'P=$(PREFIX)$(INSTANCE):,R=image1:,PORT=$(INSTANCE)Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(TYPE=Int8),FTVL=$(FTVL=UCHAR),NELEMENTS=' .. NELM)", "NELM=$(XSIZE)*$(YSIZE)")
+
+iocshLoad("$(ADCORE)/iocBoot/commonPlugins.cmd", "PREFIX=$(PREFIX)$(INSTANCE):, PORT=$(INSTANCE), QSIZE=20, XSIZE=$(XSIZE), YSIZE=$(YSIZE), NCHANS=1024, CBUFFS=20, MAX_THREADS=5")
+
+# Load the FastCCD Plugin
+NDFastCCDConfigure("FastCCD1", 20, 0, "PROC1", 0, 0, 0, 0, 0, 5)
+dbLoadRecords("$(ADFASTCCD)/db/NDFastCCD.template", "P=$(PREFIX)$(INSTANCE):,R=FastCCD1:, PORT=FastCCD1, NDARRAY_PORT=FASTCCD, ADDR=0, TIMEOUT=1")
+
+set_requestfile_path("$(ADFASTCCD)/db")

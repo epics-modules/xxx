@@ -1,0 +1,24 @@
+#- INSTANCE  - Used for Camera Port Name and detector pv name
+#- MODEL     - Camera Model
+#- XSIZE     - Image Width
+#- YSIZE     - Image Height
+#- TYPE      - Image Datatype, default: Int8
+#- FTVL      - Waveform type, default: UCHAR
+
+#- The search path for database files
+epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(EPICS_DB_INCLUDE_PATH):$(ADCORE)/db:$(ADADSC)/db")
+
+#- adscConfig(const char *portName, const char *modelName)
+#-   portName   asyn port name
+#-   modelName  ADSC detector model name; must be one of "Q4", "Q4r", "Q210",
+#-              "Q210r", "Q270", "Q315", or "Q315r"
+#-
+adscConfig("$(INSTANCE)","$(MODEL)")
+dbLoadRecords("$(ADADSC)/db/adsc.template",  "P=$(PREFIX)$(INSTANCE):,R=cam1:,PORT=$(INSTANCE),ADDR=0,TIMEOUT=1")
+
+#Create a standard arrays plugin, set it to get data from first simDetector driver.
+NDStdArraysConfigure("$(INSTANCE)Image", 3, 0, "$(INSTANCE)", 0, 2000000)
+luaCmd("dbLoadRecords('$(ADCORE)/ADApp/Db/NDStdArrays.template', 'P=$(PREFIX)$(INSTANCE):,R=image1:,PORT=$(INSTANCE)Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(TYPE=Int8),FTVL=$(FTVL=UCHAR),NELEMENTS=' .. NELM)", "NELM=$(XSIZE)*$(YSIZE)")
+
+iocshLoad("$(ADCORE)/iocBoot/commonPlugins.cmd", "PREFIX=$(PREFIX)$(INSTANCE):, PORT=$(INSTANCE), QSIZE=20, XSIZE=$(XSIZE), YSIZE=$(YSIZE), NCHANS=1024, CBUFFS=20, MAX_THREADS=5")
+
