@@ -55,7 +55,7 @@ iocsh
 < common.iocsh
 
 # devIocStats records specific to vxWorks
-dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminvxWorks.db","IOC=$(PREFIX)")
+dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=$(PREFIX)")
 # VxWorks support adds these additional PVs to be aliased
 dbLoadRecords("$(TOP)/db/iocAdminVxWorks_aliases.db","P=$(PREFIX)")
 
