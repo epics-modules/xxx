@@ -20,6 +20,14 @@ IOC_BINARY=xxx
 #!IOC_BIN_DIR=/home/username/epics/synApps/support/xxx/bin
 #!IOC_BIN_DIR=/home/username/epics/synApps/support/module/iocs/exampleIOC/bin
 
+# uncomment for your OS here (comment out all the others)
+#IOC_STARTUP_FILE="st.cmd.Cygwin"
+IOC_STARTUP_FILE="st.cmd.Linux"
+#IOC_STARTUP_FILE="st.cmd.vxWorks"
+#IOC_STARTUP_FILE="st.cmd.Win32"
+#IOC_STARTUP_FILE="st.cmd.Win64"
+
+
 # The RUN_IN variable defines how the IOC should be run. Valid options:
 #   screen		(run in a screen session)
 #   procServ	(run in procServ)
@@ -91,15 +99,6 @@ SEL_ARGS=()
 if [ $# -gt 1 ] ; then
 	SEL_ARGS=${@:2:$(($#-1))}
 fi
-
-
-# uncomment for your OS here (comment out all the others)
-#IOC_STARTUP_FILE="st.cmd.Cygwin"
-IOC_STARTUP_FILE="st.cmd.Linux"
-#IOC_STARTUP_FILE="st.cmd.vxWorks"
-#IOC_STARTUP_FILE="st.cmd.Win32"
-#IOC_STARTUP_FILE="st.cmd.Win64"
-
 
 if [ -z "$IOC_STARTUP_DIR" ] ; then	
     # If no startup dir is specified, use the directory above the script's directory
