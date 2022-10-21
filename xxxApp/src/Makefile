@@ -544,67 +544,7 @@ ifeq ($(OS_CLASS), Linux)
 
   ifeq ($(TIRPC), YES)
     $(PROD_NAME)_SYS_LIBS += tirpc
-  endif
-
-  ifdef ADADSC
-    $(DBD_NAME)_DBD += adscSuport.dbd
-    $(PROD_NAME)_LIBS := adsc $($(PROD_NAME)_LIBS)
-  endif
-    
-  ifdef ADANDOR
-    $(DBD_NAME)_DBD += andorCCDSuport.dbd shamrockSupport.dbd
-    $(PROD_NAME)_LIBS :=  $($(PROD_NAME)_LIBS)
-    PROD_SYS_LIBS_Linux += andor
-    PROD_SYS_LIBS_Linux += shamrockcif
-  endif
-    
-  ifdef ADARAVIS
-    $(DBD_NAME)_DBD += ADAravisSuport.dbd
-    $(PROD_NAME)_LIBS := ADAravis $($(PROD_NAME)_LIBS)
-  endif
-    
-  ifdef ADADSC
-    $(DBD_NAME)_DBD += adscSuport.dbd
-    $(PROD_NAME)_LIBS := adsc $($(PROD_NAME)_LIBS)
-  endif
-    
-  ifdef ADADSC
-    $(DBD_NAME)_DBD += adscSuport.dbd
-    $(PROD_NAME)_LIBS := adsc $($(PROD_NAME)_LIBS)
-  endif
-    
-  ifdef ADADSC
-    $(DBD_NAME)_DBD += adscSuport.dbd
-    $(PROD_NAME)_LIBS := adsc $($(PROD_NAME)_LIBS)
-  endif
-    
-  ifdef ADADSC
-    $(DBD_NAME)_DBD += adscSuport.dbd
-    $(PROD_NAME)_LIBS := adsc $($(PROD_NAME)_LIBS)
-  endif
-    
-  ifdef ADADSC
-    $(DBD_NAME)_DBD += adscSuport.dbd
-    $(PROD_NAME)_LIBS := adsc $($(PROD_NAME)_LIBS)
-  endif
-    
-  ifdef ADADSC
-    $(DBD_NAME)_DBD += adscSuport.dbd
-    $(PROD_NAME)_LIBS := adsc $($(PROD_NAME)_LIBS)
-  endif
-    
-  ifdef ADADSC
-    $(DBD_NAME)_DBD += adscSuport.dbd
-    $(PROD_NAME)_LIBS := adsc $($(PROD_NAME)_LIBS)
-  endif
-    
-  ifdef ADADSC
-    $(DBD_NAME)_DBD += adscSuport.dbd
-    $(PROD_NAME)_LIBS := adsc $($(PROD_NAME)_LIBS)
-  endif
-    
-  
-    
+  endif   
 endif
 
 $(PROD_NAME)_LIBS += $(EPICS_BASE_IOC_LIBS)
