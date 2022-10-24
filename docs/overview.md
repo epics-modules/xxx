@@ -37,7 +37,7 @@ A database definitions file serves two purposes. First, it defines the structure
 When adding a new module outside the ones normally handled by synApps, once you have the path to the module set up in the RELEASE file, you would add their library and dbd files into the list. Such an addition would like like the following:
 
 
-```Makefile
+```
 $(DBD_NAME)_DBD += newModuleSupport.dbd
 $(PROD_NAME)_LIBS := newModule $($(PROD_NAME)_LIBS)
 ```
@@ -56,7 +56,7 @@ Not fully necessary to a build, but this directory contains custom databases or 
 
 ## Files Related to Running an IOC
 
-### iocBoot/iocxxx/st.cmd.<ARCH> 
+### iocBoot/iocxxx/st.cmd.\<ARCH\> 
 
 This is the basic template of loading all support for an IOC for a given arch. You will provide this file to the IOC's executable when you want to run, it will go through, line by line, and run the commands listed in the operating shell in order to configure the IOC for running. Most of this file shouldn't need to be changed, it is set to include the correct path-defining file created by the iocBoot Makefile, load the database definition file constructed by the xxxApp/src Makefile, run the registration function, and then load some common IOC support.
 
