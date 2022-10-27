@@ -9,4 +9,4 @@ nav_order: 1
 * [Overview](overview)
 * [vme_address.html](vme_address.html)
 * [xxxKnownProblems.html](xxxKnownProblems.html)
-* [xxxReleaseNotes.html](xxxReleaseNotes.html)
+* [xxxReleaseNotes.html](xxxReleaseNotes)
