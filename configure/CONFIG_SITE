@@ -28,6 +28,10 @@ CHECK_RELEASE = YES
 #   INSTALL_LOCATION here.
 #INSTALL_LOCATION=</path/name/to/install/top>
 
+# To build the IOC application set BUILD_IOCS to YES
+# Otherwise set it to NO
+BUILD_IOCS=YES
+
 # Set this when your IOC and the host use different paths
 #   to access the application. This will be needed to boot
 #   from a Microsoft FTP server or with some NFS mounts.
@@ -36,3 +40,12 @@ CHECK_RELEASE = YES
 #IOCS_APPL_TOP = </IOC/path/to/application/top>
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
+
+# These allow developers to override the CONFIG_SITE variable
+# settings without having to modify the configure/CONFIG_SITE
+# file itself.
+-include $(TOP)/../CONFIG_SITE.local
+-include $(TOP)/../configure/CONFIG_SITE.local
+-include $(TOP)/configure/CONFIG_SITE.local
+-include $(TOP)/configure/CONFIG_SITE.local.$(OS_CLASS)
+
