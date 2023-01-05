@@ -10,7 +10,7 @@ usage() {
 		
 		OUTPUT=`echo $OUTPUT | sed 's/.$//'`
 		
-		${ECHO} "$OUTPUT)"
+		${ECHO} "$OUTPUT}"
 	else
 		CMD_CHECK=$1
 		VAL=0
