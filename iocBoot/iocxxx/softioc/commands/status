@@ -1,10 +1,37 @@
 register "status" status
 
 status() {
-    if checkpid; then
-        ${ECHO} -n "${IOC_NAME} is running (pid=${IOC_PID})"
-        screenpid
-    else
-        ${ECHO} "${IOC_NAME} is not running"
+	if [[ $REMOTE_COMMAND == "YES" ]] ; then
+		IP=`psinfo $INFO_COMMAND $INFO_IP`
+		PORT=`psinfo $INFO_COMMAND $INFO_PORT`
+		
+		if [[ $(psinfo $INFO_COMMAND $INFO_SAME_HOST) -ne 0 ]] ; then
+			${ECHO} "Command console running locally on port $PORT"
+		else
+			${ECHO} "Command console running remotely at $IP:$PORT"
+		fi
+	
+		if [[ $REMOTE_CONSOLE == "YES" ]] ; then
+			IP=`psinfo $INFO_CONSOLE $INFO_IP`
+			PORT=`psinfo $INFO_CONSOLE $INFO_PORT`
+			PID=`psinfo $INFO_CONSOLE $INFO_PID`
+		
+			if [[ $(psinfo $INFO_CONSOLE $INFO_SAME_HOST) -ne 0 ]] ; then
+				${ECHO} "${IOC_NAME} is running locally on port $PORT (pid=$PID)"
+			else
+				${ECHO} "IOC console is running remotely at $IP:$PORT (pid=$PID)"
+			fi
+		else
+			${ECHO} "${IOC_NAME} is not running"
+		fi
+		
+	else
+	
+		if checkpid; then
+			${ECHO} -n "${IOC_NAME} is running locally (pid=${IOC_PID})"
+			screenpid
+		else
+			${ECHO} "${IOC_NAME} is not running"
+		fi
     fi
 }

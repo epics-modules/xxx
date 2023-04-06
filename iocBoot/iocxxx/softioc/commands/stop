@@ -1,23 +1,27 @@
 register "stop" stop
+register "stop" remote_stop remote
 
 stop() {
-    if checkpid; then
-        case ${RUNNING_IN} in
-            procServ)
-                if [ ! -z ${SAME_HOST} ]; then
-                    ${ECHO} "Stopping ${IOC_NAME} (procServ pid=${PROCSERV_PID})"
-                    ${KILL} ${PROCSERV_PID}
-                else
-                    ${ECHO} "Can't kill the IOC. It is running in procServ on a different computer."
-                fi
-            ;;
-            
-            * )
-                ${ECHO} "Stopping ${IOC_NAME} (pid=${IOC_PID})"
-                ${KILL} ${IOC_PID}
-            ;;
-        esac
-    else
-        ${ECHO} "${IOC_NAME} is not running"
-    fi
+	if [[ $REMOTE_COMMAND == "YES" ]] ; then
+
+		if [[ $REMOTE_CONSOLE == "YES" ]] ; then
+			send_command $INFO_COMMAND "stop"
+		else
+			${ECHO} "${IOC_NAME} is not running"
+		fi
+		
+	else
+
+		if checkpid; then
+			${ECHO} "Stopping ${IOC_NAME} (pid=${IOC_PID})"
+			${KILL} ${IOC_PID}
+		else
+			${ECHO} "${IOC_NAME} is not running"
+		fi
+		
+	fi
+}
+
+remote_stop() {
+	send_command $INFO_CONSOLE "exit"
 }
