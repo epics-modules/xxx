@@ -1510,7 +1510,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
               <string>orient.ui;orient9.ui</string>
              </property>
              <property name="args">
-              <string>P=xxx:,O=_0,PM=xxx:,mTTH=SM1,mTH=SM2,mCHI=SM3,mPHI=SM4;P=xxx:,PM=xxx:,mTTH=SM1,mTH=SM2,mCHI=SM3,mPHI=SM4</string>
+              <string>P=xxx:,O=_0,PM=xxx:,mTTH=SM1,mTH=SM2,mCHI=SM3,mPHI=SM4;P=xxx:,O=_0,PM=xxx:,mTTH=SM1,mTH=SM2,mCHI=SM3,mPHI=SM4</string>
              </property>
              <property name="stackingMode" stdset="0">
               <enum>caRowColMenu::Menu</enum>

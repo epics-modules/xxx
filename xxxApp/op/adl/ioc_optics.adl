@@ -1,7 +1,7 @@
 
 file {
-	name="/usr/local/epics/synApps/ioc/vm7/vm7App/op/adl/ioc_optics.adl"
-	version=030114
+	name="/home/beams1/KLANG/Documents/Projects/Repository/git/xxx/xxxApp/op/adl/ioc_optics.adl"
+	version=030111
 }
 display {
 	object {
@@ -623,7 +623,7 @@ composite {
 	display[1] {
 		label="orient9"
 		name="orient9.adl"
-		args="P=$(P),PM=$(P),mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
+		args="P=$(P),O=_0,PM=$(P),mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
 	}
 	clr=0
 	bclr=17
