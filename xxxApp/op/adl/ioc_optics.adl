@@ -484,9 +484,14 @@ composite {
 		width=112
 		height=24
 	}
+	display[0] {
+		label="EPID"
+		name="fb_epid.adl"
+		args="P=$(P):epid1"
+	}
 	clr=0
 	bclr=17
-	label="-"
+	label="-EPID"
 }
 "related display" {
 	object {
