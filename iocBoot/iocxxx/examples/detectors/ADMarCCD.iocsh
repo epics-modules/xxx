@@ -19,9 +19,8 @@ dbLoadRecords("$(ADMARCCD)/db/marCCD.template","P=$(PREFIX)$(INSTANCE):,R=cam1:,
 
 #Create a standard arrays plugin, set it to get data from first simDetector driver.
 NDStdArraysConfigure("$(INSTANCE)Image", 3, 0, "$(INSTANCE)", 0, 2000000)
-luaCmd("dbLoadRecords('$(ADCORE)/ADApp/Db/NDStdArrays.template', 'P=$(PREFIX)$(INSTANCE):,R=image1:,PORT=$(INSTANCE)Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(TYPE=Int16),FTVL=$(FTVL=SHORT),NELEMENTS=' .. NELM)", "NELM=$(XSIZE)*$(YSIZE)")
+luaCmd("dbLoadRecords('$(ADCORE)/ADApp/Db/NDStdArrays.template', 'P=$(PREFIX):,R=image1:,PORT=$(INSTANCE)Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(TYPE=Int8),FTVL=$(FTVL=UCHAR),NELEMENTS=' .. tostring((XSIZE*YSIZE)|0) )", "XSIZE=$(XSIZE),YSIZE=$(YSIZE)")
 
-# Load all other plugins using commonPlugins.cmd
-iocshLoad("$(ADCORE)/iocBoot/commonPlugins.cmd", "PREFIX=$(PREFIX)$(INSTANCE):, PORT=$(INSTANCE), QSIZE=20, XSIZE=$(XSIZE), YSIZE=$(YSIZE), NCHANS=1024, CBUFFS=20, MAX_THREADS=5")
+iocshLoad("$(ADCORE)/iocBoot/commonPlugins.cmd", "PREFIX=$(PREFIX), PORT=$(INSTANCE), QSIZE=20, XSIZE=$(XSIZE), YSIZE=$(YSIZE), NCHANS=1024, CBUFFS=20, MAX_THREADS=5")
 
 set_requestfile_path("$(ADMARCCD)/db")
