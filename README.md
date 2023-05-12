@@ -16,3 +16,28 @@ refer to http://www.aps.anl.gov/bcda/synApps/license.php
 [Request a feature](https://github.com/epics-modules/xxx/issues/new?title=%20FEATURE%20SHORT%20DESCRIPTION&body=**Feature%20Long%20Description**%0A%0A**Why%20should%20this%20be%20added?**%0A&labels=enhancement)
 
 * [HTML documentation](https://epics-modules.github.io/xxx)
+
+
+### Usage
+
+Edit configure/RELEASE to set the variable SUPPORT
+
+If you don't want to build all of the default target architectures
+(see the variable CROSS_COMPILER_TARGET_ARCHS in 
+synApps/support/configure/CONFIG, or in base/configure/CONFIG_SITE),
+then edit configure/CONFIG to set the variable CROSS_COMPILER_TARGET_ARCHS.
+
+Edit iocBoot/iocxxx/Makefile to set the variable ARCH and correct targets
+
+Edit iocBoot/iocxxx/st.cmd.* to agree with your hardware.
+Example code is provided in the iocBoot/iocxxx/examples folder.
+
+Edit iocBoot/iocxxx/auto*.req to add any PV's that aren't saved by the
+autobuild system.
+
+chmod a+w,g+s iocBoot/iocxxx/autosave
+
+Run synApps/support/utils/changePrefix to change the prefix from 'xxx'
+to whatever you want
+
+Run gnumake
