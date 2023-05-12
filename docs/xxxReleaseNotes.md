@@ -8,6 +8,16 @@ nav_order: 3
 xxx Release Notes
 =================
 
+Release 6-3
+-----------
+
+* Added Scaler module
+* Added LabJack module
+* vxWorks IOCs now automatically write out their bootParams on a successful boot
+* xxx.sh startup script no longer needs IOC_STARTUP_DIR to be set
+* New AreaDetector example scripts
+* IOC builds are now gated by a BUILD_IOCS config macro
+
 Release 6-2-1
 -------------
 
