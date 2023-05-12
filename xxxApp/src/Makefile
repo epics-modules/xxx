@@ -176,6 +176,12 @@ endif
 endif
 
 
+ifdef PVADRIVER
+  $(DBD_NAME)_DBD += pvaDriverSupport.dbd
+  $(PROD_NAME)_LIBS := pvaDriver $($(PROD_NAME)_LIBS)
+endif
+
+
 #ifdef TDS3000
 #  $(DBD_NAME)_DBD += devTDS3000.dbd
 #  $(PROD_NAME)_LIBS := devTDS3000 $($(PROD_NAME)_LIBS)
