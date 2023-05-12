@@ -10,7 +10,7 @@ epicsEnvSet("LOCATION", "location")
 epicsEnvSet("GROUP", "group")
 
 # search path for database files
-# epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(DEVIOCSTATS)/db")
+epicsEnvSet("EPICS_DB_INCLUDE_PATH", ".")
 
 # search path for streamDevice protocol files
 epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
