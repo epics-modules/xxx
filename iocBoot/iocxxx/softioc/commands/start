@@ -22,13 +22,18 @@ start() {
 
 
 remote_start() {
-	MY_IP=`hostname -I`
-	ENDPOINT="${MY_IP}:$(get_random_port)"
-	INFO_FILE="$(psinfo $INFO_CONSOLE $INFO_PREFIX).txt"
-	LOG_FILE="${SNAME}/logs/iocConsole/$(psinfo $INFO_CONSOLE $INFO_PREFIX).log_"`date +%y%m%d-%H%M%S`
+	if ioc_up; then
+		${ECHO} -n "IOC is already running"
 	
-	# Start Console Port
-	${PROCSERV} --allow --quiet --oneshot -L ${LOG_FILE} -c ${IOC_STARTUP_DIR} -i ^C --logoutcmd=^D -I "${INFO_FILE}" "${ENDPOINT}" ${IOC_CMD}
-	
-	sleep 0.5
+	else
+		MY_IP=`hostname -I`
+		ENDPOINT="${MY_IP}:$(get_random_port)"
+		INFO_FILE="$(psinfo $INFO_CONSOLE $INFO_PREFIX).txt"
+		LOG_FILE="${SNAME}/logs/iocConsole/$(psinfo $INFO_CONSOLE $INFO_PREFIX).log_"`date +%y%m%d-%H%M%S`
+		
+		# Start Console Port
+		${PROCSERV} --allow --quiet --oneshot -L ${LOG_FILE} -c ${IOC_STARTUP_DIR} -i ^C --logoutcmd=^D -I "${INFO_FILE}" "${ENDPOINT}" ${IOC_CMD}
+		
+		sleep 0.5
+	fi
 }
