@@ -27,28 +27,6 @@ IOC_STARTUP_FILE="st.cmd.Linux"
 #IOC_STARTUP_FILE="st.cmd.Win32"
 #IOC_STARTUP_FILE="st.cmd.Win64"
 
-
-# The RUN_IN variable defines how the IOC should be run. Valid options:
-#   screen		(run in a screen session)
-#   procServ	(run in procServ)
-#   shell		(run on the shell--turns 'start' argument into 'run')
-RUN_IN=procServ
-
-# The PROCSERV_ENDPOINT variable defines the type of control endpoint to be used
-#   tcp			(tcp port)
-#   unix		(unix socket)
-PROCSERV_ENDPOINT=tcp
-
-# Extra procServ options:
-#   -w             start procServ, but require the IOC to be started manually
-#   -o             run the IOC once, then quit procServ when the IOC exits
-#   --allow        allow telnet access from anywhere
-#   --restrict     only allow access from localhost explicitly (the default behavior)
-#   -l <endpoint>  create a read-only log endpoint (endpoint = port # or socket filename)
-#!PROCSERV_OPTIONS="-w"
-#!PROCSERV_OPTIONS="-o"
-PROCSERV_OPTIONS="--allow"
-
 # Change YES to NO in the following line to disable screen-PID lookup, which isn't supported on Windows
 GET_SCREEN_PID=YES
 
@@ -173,6 +151,80 @@ register() {
 	fi
 }
 
+checkpid() {
+	# Assume the IOC is down until proven otherwise
+	IOC_DOWN=1
+	
+    MY_UID=`${ID} -u`
+    # The '\$' is needed in the pgrep pattern to select xxx, but not xxx.sh
+    IOC_PID=`${PGREP} ${IOC_BINARY}\$ -u ${MY_UID}`
+    
+	
+    if [ "${IOC_PID}" != "" ] ; then
+
+        # At least one instance of the IOC binary is running; 
+        # Find the binary that is associated with this script/IOC
+        for pid in ${IOC_PID}; do
+			# Check if a process with the given PID has been run in the current startup directory
+			BIN_CHECK=`${PS} aux | ${GREP} "${pid}" | ${GREP} "${IOC_CMD}"`
+			
+			if [[ ! -z "$BIN_CHECK" ]] ; then
+                # The IOC is running; the binary with PID=$pid is the IOC that was run from $IOC_STARTUP_DIR
+                IOC_PID=${pid}
+                IOC_DOWN=0
+				
+                SCREEN_PID=""
+                
+                # Assume IOC is running in shell until learning otherwise
+                RUNNING_IN=shell
+                
+                if [ "${GET_SCREEN_PID}" = "YES" ] ; then
+                    # Get the PID of the parent of the IOC (shell or screen)
+                    P_PID=`${PS} -p ${IOC_PID} -o ppid=`
+                    
+                    # Get the PID of the grandparent of the IOC (sshd, screen, or ???)
+                    GP_PID=`${PS} -p ${P_PID} -o ppid=`
+
+                    #!${ECHO} "P_PID=${P_PID}, GP_PID=${GP_PID}"
+
+                    # Get the screen PIDs
+                    S_PIDS=`${PGREP} screen`
+                
+                    for s_pid in ${S_PIDS} ; do
+                        ${ECHO} ${s_pid}
+
+                        if [ ${s_pid} -eq ${P_PID} ] ; then
+                            SCREEN_PID=${s_pid}
+                            RUNNING_IN=screen
+                            break
+                        fi
+                
+                        if [ ${s_pid} -eq ${GP_PID} ] ; then
+                            SCREEN_PID=${s_pid}
+                            RUNNING_IN=screen
+                            break
+                        fi
+                    
+                    done
+                    
+                    #!echo "SCREEN_PID=${SCREEN_PID}"
+                    #!echo "PROCSERV_PID=${PROCSERV_PID}"
+                fi
+                
+                break
+            
+            #else
+            #    ${ECHO} "PATHS are different"
+            #    ${ECHO} ${BIN_CWD}
+            #    ${ECHO} ${IOC_CWD}
+            fi
+        done
+    fi
+
+    return ${IOC_DOWN}
+}
+
+
 psinfo() {
 	START=$1
 	VALUE=$2
@@ -214,6 +266,77 @@ parse_procServ_info() {
     fi
 }
 
+can_ping() {
+	WHICH=$1
+	
+	if [[ $(psinfo $WHICH $INFO_IP) != "-1" ]] ; then
+		OPEN=`nc -z $(psinfo $WHICH $INFO_IP) $(psinfo $WHICH $INFO_PORT); echo $?`
+	
+		if [[ $OPEN -eq 0 ]] ; then
+			return 0
+		fi
+	fi
+	
+	return 1
+}
+
+has_remote() {
+	if [[ $(psinfo $INFO_COMMAND $INFO_IP) != "-1" ]] ; then
+		return 0
+	fi
+	
+	return 1
+}
+
+is_local() {
+	if has_remote; then
+		if [[ $(psinfo $INFO_COMMAND $INFO_SAME_HOST) -eq 0 ]] ; then
+			return 1
+		fi
+	fi
+	
+	return 0
+}
+
+ioc_up() {
+	if has_remote; then
+		if $(can_ping $INFO_CONSOLE); then
+			return 0
+		fi
+	else
+		if checkpid; then
+			return 0
+		fi
+	fi
+	
+	return 1
+}
+
+	
+
+update_psinfo() {
+	#refresh softioc folder to make sure procServ info files are loaded
+	ls >> /dev/null
+	
+	parse_procServ_info $INFO_COMMAND
+	parse_procServ_info $INFO_CONSOLE
+	
+	
+	if [[ $(psinfo $INFO_COMMAND $INFO_PID) != "-1" ]] ; then
+		if ! $(can_ping $INFO_COMMAND) ; then
+			${ECHO} "ProcServ file open for command server, but cannot access IP/Port"
+		fi
+	fi
+	
+	if [[ $(psinfo $INFO_CONSOLE $INFO_PID) != "-1" ]] ; then
+		if ! $(can_ping $INFO_CONSOLE) ; then
+			${ECHO} "ProcServ file open for console server, but cannot access IP/Port"
+		fi
+	fi
+}
+
+
+
 send_command() {
 	START=$1
 	CMD=${@:2:$(($#-1))}
@@ -226,81 +349,8 @@ screenpid() {
     if [ ! -z ${SCREEN_PID} ] ; then
         ${ECHO} " in a screen session (pid=${SCREEN_PID})"
     else
-        ${ECHO}
+        ${ECHO} 
     fi
-}
-
-checkpid() {
-	# Assume the IOC is down until proven otherwise
-	IOC_DOWN=1
-	
-    MY_UID=`${ID} -u`
-    # The '\$' is needed in the pgrep pattern to select xxx, but not xxx.sh
-    IOC_PID=`${PGREP} ${IOC_BINARY}\$ -u ${MY_UID}`
-    
-	
-    if [ "${IOC_PID}" != "" ] ; then
-
-        # At least one instance of the IOC binary is running; 
-        # Find the binary that is associated with this script/IOC
-        for pid in ${IOC_PID}; do
-			# Check if a process with the given PID has been run in the current startup directory
-			BIN_CHECK=`${PS} aux | ${GREP} "${pid}" | ${GREP} "${IOC_CMD}"`
-			
-			if [[ ! -z "$BIN_CHECK" ]] ; then
-                # The IOC is running; the binary with PID=$pid is the IOC that was run from $IOC_STARTUP_DIR
-                IOC_PID=${pid}
-                IOC_DOWN=0
-                
-                SCREEN_PID=""
-                
-                # Assume IOC is running in shell until learning otherwise
-                RUNNING_IN=shell
-                
-                if [ "${GET_SCREEN_PID}" = "YES" ] ; then
-                    # Get the PID of the parent of the IOC (shell or screen)
-                    P_PID=`${PS} -p ${IOC_PID} -o ppid=`
-                    
-                    # Get the PID of the grandparent of the IOC (sshd, screen, or ???)
-                    GP_PID=`${PS} -p ${P_PID} -o ppid=`
-
-                    #!${ECHO} "P_PID=${P_PID}, GP_PID=${GP_PID}"
-
-                    # Get the screen PIDs
-                    S_PIDS=`${PGREP} screen`
-                
-                    for s_pid in ${S_PIDS} ; do
-                        #!${ECHO} ${s_pid}
-
-                        if [ ${s_pid} -eq ${P_PID} ] ; then
-                            SCREEN_PID=${s_pid}
-                            RUNNING_IN=screen
-                            break
-                        fi
-                
-                        if [ ${s_pid} -eq ${GP_PID} ] ; then
-                            SCREEN_PID=${s_pid}
-                            RUNNING_IN=screen
-                            break
-                        fi
-                    
-                    done
-                    
-                    #!echo "SCREEN_PID=${SCREEN_PID}"
-                    #!echo "PROCSERV_PID=${PROCSERV_PID}"
-                fi
-                
-                break
-            
-            #else
-            #    ${ECHO} "PATHS are different"
-            #    ${ECHO} ${BIN_CWD}
-            #    ${ECHO} ${IOC_CWD}
-            fi
-        done
-    fi
-
-    return ${IOC_DOWN}
 }
 
 ioc_cmd() {	
@@ -361,33 +411,7 @@ done
 
 
 #####################################################################
-
-#refresh softioc folder to make sure procServ info files are loaded
-ls >> /dev/null
-
-parse_procServ_info $INFO_COMMAND
-parse_procServ_info $INFO_CONSOLE
-
-if [[ ${PROCSERV_INFO[$INFO_COMMAND + $INFO_IP]} != "-1" ]] ; then
-	OPEN=`nc -z ${PROCSERV_INFO[$INFO_COMMAND + $INFO_IP]} ${PROCSERV_INFO[$INFO_COMMAND + $INFO_PORT]}; echo $?`
-
-	if [[ $OPEN -eq 0 ]] ; then
-		REMOTE_COMMAND=YES
-	else
-		${ECHO} "ProcServ file open for command server, but cannot access IP/Port"
-	fi
-fi
-
-if [[ ${PROCSERV_INFO[$INFO_CONSOLE + $INFO_IP]} != "-1" ]] ; then
-	OPEN=`nc -z ${PROCSERV_INFO[$INFO_CONSOLE + $INFO_IP]} ${PROCSERV_INFO[$INFO_CONSOLE + $INFO_PORT]}; echo $?`
-
-	if [[ $OPEN -eq 0 ]] ; then
-		REMOTE_CONSOLE=YES
-	else
-		${ECHO} "ProcServ file open for console server, but cannot access IP/Port"
-	fi
-fi
-
+update_psinfo
 
 if [ ! -d ${IOC_STARTUP_DIR} ] ; then
     ${ECHO} "Error: ${IOC_STARTUP_DIR} doesn't exist."

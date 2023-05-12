@@ -1,5 +1,5 @@
 register "usage" usage
-register "usage" remote_usage remote
+register "usage" usage_remote remote
 
 usage() {
 	if [ $# -eq 0 ] ; then
@@ -36,7 +36,7 @@ usage() {
 	fi
 }
 
-remote_usage() {
+usage_remote() {
 	if [ $# -eq 0 ] ; then
 		OUTPUT="Usage: {"
 		

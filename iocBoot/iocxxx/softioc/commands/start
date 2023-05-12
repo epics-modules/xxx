@@ -2,29 +2,21 @@ register "start" start
 register "start" remote_start remote
 
 start() {
-	if [[ $REMOTE_COMMAND == "YES" ]] ; then	
-		
-		if [[ $REMOTE_CONSOLE == "YES" ]] ; then
-			${ECHO} "IOC already running"
-		else
-			send_command $INFO_COMMAND "start"
-		fi
+	if ioc_up; then
+		${ECHO} -n "IOC is already running"
+	
+	elif has_remote ; then
+		send_command $INFO_COMMAND "start"
 		
 	else
 		
-		if checkpid; then
-			${ECHO} -n "${IOC_NAME} is already running (pid=${IOC_PID})"
-			screenpid
-		else
-			${ECHO} "Starting ${IOC_NAME}"
+		${ECHO} "Starting ${IOC_NAME}"
 			
-			LOG_FILE="${SNAME}/logs/${PROCSERV_INFO[$INFO_CONSOLE + $INFO_PREFIX]}.log_"`date +%y%m%d-%H%M%S`
+		LOG_FILE="${SNAME}/logs/iocConsole/$(psinfo $INFO_CONSOLE $INFO_PREFIX).log_"`date +%y%m%d-%H%M%S`
 			
-			cd ${IOC_STARTUP_DIR}
-			${SCREEN} -dm -S ${IOC_NAME} -h 5000 -L -Logfile ${LOG_FILE} ${IOC_CMD}
-			cd ${SNAME}
-		fi
-	
+		cd ${IOC_STARTUP_DIR}
+		${SCREEN} -dm -S ${IOC_NAME} -h 5000 -L -Logfile ${LOG_FILE} ${IOC_CMD}
+		cd ${SNAME}
 	fi
 }
 
@@ -33,12 +25,10 @@ remote_start() {
 	MY_IP=`hostname -I`
 	ENDPOINT="${MY_IP}:$(get_random_port)"
 	INFO_FILE="$(psinfo $INFO_CONSOLE $INFO_PREFIX).txt"
-	LOG_FILE="${SNAME}/logs/$(psinfo $INFO_CONSOLE $INFO_PREFIX).log_"`date +%y%m%d-%H%M%S`
+	LOG_FILE="${SNAME}/logs/iocConsole/$(psinfo $INFO_CONSOLE $INFO_PREFIX).log_"`date +%y%m%d-%H%M%S`
 	
 	# Start Console Port
-	${PROCSERV} ${PROCSERV_OPTIONS} --quiet --oneshot -L ${LOG_FILE} -c ${IOC_STARTUP_DIR} -i ^C --logoutcmd=^D -I "${INFO_FILE}" "${ENDPOINT}" ${IOC_CMD}
+	${PROCSERV} --allow --quiet --oneshot -L ${LOG_FILE} -c ${IOC_STARTUP_DIR} -i ^C --logoutcmd=^D -I "${INFO_FILE}" "${ENDPOINT}" ${IOC_CMD}
 	
 	sleep 0.5
-	
-	parse_procServ_info $INFO_CONSOLE
 }
