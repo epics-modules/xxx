@@ -18,3 +18,4 @@ built_*.req
 dbl-all.txt
 *.sav*
 scan1Menu.sav
+iocBoot/*/softioc/logs

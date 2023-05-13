@@ -170,7 +170,7 @@ QTabBar::tab:selected
 QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tab">
           <property name="Fill" stdset="0">
@@ -972,7 +972,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
            <item row="1" column="2">
             <widget class="caRelatedDisplay" name="carelateddisplay_47">
              <property name="label">
-              <string notr="true">-</string>
+              <string notr="true">-   EPID   </string>
              </property>
              <property name="foreground">
               <color>
@@ -987,6 +987,15 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
                <green>132</green>
                <blue>0</blue>
               </color>
+             </property>
+             <property name="labels">
+              <string>EPID #1</string>
+             </property>
+             <property name="files">
+              <string>fb_epid.ui</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:epid1</string>
              </property>
              <property name="stackingMode" stdset="0">
               <enum>caRowColMenu::Menu</enum>

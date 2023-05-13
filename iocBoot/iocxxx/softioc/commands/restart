@@ -1,6 +1,21 @@
 register "restart" restart
+register "restart" remote_restart
 
 restart() {
-    ioc_cmd stop
-    ioc_cmd start
+	if ! ioc_up; then
+		${ECHO} "IOC isn't running"
+	
+	elif has_remote; then
+		send_command $INFO_COMMAND "start"
+
+	else
+		ioc_cmd stop
+		sleep 1.0
+		ioc_cmd start
+	fi
+}
+
+remote_restart() {
+	remote_cmd stop
+	remote_cmd start
 }
