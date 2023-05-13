@@ -532,11 +532,13 @@ ifeq ($(OS_CLASS), Linux)
     $(DBD_NAME)_DBD += softGlueSupport.dbd
     $(PROD_NAME)_LIBS := softGlue $($(PROD_NAME)_LIBS)
   endif
-  
+
+ifeq (linux-arm, $(findstring linux-arm, $(T_A)))
   ifdef SOFTGLUEZYNQ
     $(DBD_NAME)_DBD += softGlueZynqSupport.dbd
     $(PROD_NAME)_LIBS := softGlueZynq $($(PROD_NAME)_LIBS)
   endif
+endif
     
   ifdef YOKOGAWA_DAS
     $(DBD_NAME)_DBD += mw100Support.dbd
