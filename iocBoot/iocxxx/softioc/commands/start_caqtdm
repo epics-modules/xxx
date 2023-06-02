@@ -1,9 +1,0 @@
-register "caqtdm" start_caqtdm
-
-start_caqtdm() {
-	${IOC_STARTUP_DIR}/../../start_caQtDM_${IOC_NAME} $*
-}
-
-start_caqtdm_usage() {
-	${ECHO} "$(${BASENAME} ${0}) caqtdm [ui_file ui_macros]"
-}

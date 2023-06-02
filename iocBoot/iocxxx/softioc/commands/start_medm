@@ -1,9 +1,0 @@
-register "medm" start_medm
-
-start_medm() {
-	${IOC_STARTUP_DIR}/../../start_MEDM_${IOC_NAME} $*
-}
-
-start_medm_usage() {
-	${ECHO} "$(${BASENAME} ${0}) medm [adl_file macros]"
-}

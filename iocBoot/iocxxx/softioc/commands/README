@@ -1,0 +1,207 @@
+#########################
+#    xxx.pl Commands    #
+#########################
+
+
+This folder contains the commands that the xxx.pl script will recognize, both when running
+locally or when running as a remote procServ command console.
+
+Any file in this folder with the extension ".pm" will be loaded as a perl package when the 
+xxx.pl script is run. Any package using the "commands::" namespace will be registered as a 
+command that can be run, with the command name being equal to the package name. So, for 
+example, the package "commands::stop" would define the command "stop".
+
+Within the package, one can define three different subroutines; _local, _remote, and _usage.
+These functions, if they exist, are called when the command is invoked by a local script,
+when invoked on a remote procServ command console, or when passed to the usage command. A
+package doesn't need to define all of these functions, only the ones that will be used.
+
+
+
+###############################
+#    Environment Variables    #
+###############################
+
+
+The xxx.pl script exports environment variables that a command can use to access any files 
+and folders that may be necessary. At the beginning of the package, one can import the "Env"
+package to bind environment variables to global scalar values so that they can be accessed
+with just "$ENVIRONMENT_VARIABLE" rather than the full "$ENV{ENVIRONMENT_VARIABLE}".
+
+The environment variables that the script exports are:
+
+* TOP       - Path to the top level folder of the IOC
+* IOC_NAME  - Name of the IOC, specifying which iocBoot directory to use
+
+* IOC_BINARY      - Name of the IOC executable
+* IOC_BIN_DIR     - Location of the /bin directory in the IOC
+* EPICS_HOST_ARCH - Architecture of the IOC to run
+* IOC_BIN_PATH    - Full path to the IOC executable
+
+* IOC_STARTUP_FILE      - Name of the st.cmd file to run
+* IOC_STARTUP_DIR       - Directory to start the IOC in
+* IOC_STARTUP_FILE_PATH - Full path to the st.cmd file to run
+
+* IOC_COMMAND_DIR - Path to the /commands folder
+* IOC_CMD         - Shell command to be run by run/screen/procServ
+
+* SCREEN   - Name of screen command
+* TELNET   - Name of telnet command
+* PROCSERV - Name of procServ command
+* NETCAT   - Name of netcat command
+* ECHO     - Name of echo command
+
+
+
+##########################
+#    Utility Packages    #
+##########################
+
+
+Two other utility packages provide functions necessary for commands to get info about the
+system or to interact with the control systems available. To load these packages, perl must
+be told where to find them using the IOC_COMMAND_DIR environment variable.
+
+> use Env; 
+> use lib "$IOC_COMMAND_DIR";
+> use _info;
+> use _commands;
+
+
+
+# _info
+
+The _info package includes functions for getting information about running screen or procServ
+processes, sending commands to a procServ process, and some common TCP tasks.
+
+
+* _info::my_ip
+
+	Returns the current computer's ip address
+
+	
+* _info::get_port
+
+	Returns a port number >= 50000 that can be used for TCP traffic
+
+	
+* _info::procserv(<TYPE>, <INFO>)
+
+	TYPE - "COMMAND" or "CONSOLE"
+	INFO - "PREFIX", "PORT", "PID", "IP", or "SAME_HOST"
+
+	Returns information about a running procServ process. Information is parsed from info
+	files that are created by procServ while running. The command console is a manager console
+	that can launch and kill IOC processes. The console process is the IOC's shell console.
+	
+	PREFIX    - The prefix used for the procServ info and log files.
+	IP        - The IP of the computer running the procServ instance
+	PORT      - The port used
+	PID       - The PID of the running process
+	SAME_HOST - Whether the IP of the procServ instance matches the IP of the computer running xxx.pl
+	
+	
+* _info::get_local_pid
+	
+	Returns the PID of a screen or procServ instance on the current computer running the IOC_CMD.
+	
+	
+* _info::can_ping(<TYPE>)
+
+	TYPE - "COMMAND" or "CONSOLE"
+
+	Returns whether the given procServ instance can be reached
+
+
+* _info::has_remote
+
+	Returns whether a command console is open for the IOC
+	
+	
+* _info::is_local
+
+	Returns whether any potential running instances of the IOC would be on the current computer
+	
+	
+* _info::ioc_up
+
+	Returns whether a running instance of the IOC can be found
+	
+	
+* _info::send_cmd(<TYPE>, <CMD>)
+
+	TYPE - "COMMAND" or "CONSOLE"
+	CMD  - The string to send
+	
+	Sends the given command to the procServ instance
+	
+	
+
+	
+	
+# _commands
+
+The _commands package allows commands to properly call other commands.
+
+
+* _commands::call(<TYPE>, <FUNC>, <ARGS>)
+
+	TYPE - "_local", "_remote", or "_usage"
+	FUNC - The function to call
+	ARGS - An array of args to be passed to the function
+	
+	Calls commands::<FUNC>::<TYPE>(<ARGS>)
+	
+
+* _commands::listAll(<FILTER>)
+
+	FILTER - "_local", "_remote", "_usage"
+	
+	Prints a "|" separated list of all functions that implement the function listed in FILTER.
+	
+	
+	
+	
+	
+##################
+#    TEMPLATE    #
+##################
+
+
+package commands::<COMMAND NAME>;   # Provide the command name to be recognized as
+
+use Env;                            # Get environment variables as simple scalars
+use lib "$IOC_COMMAND_DIR";         # Add IOC_COMMAND_DIR as a location to find packages
+
+# Include utility packages
+use _info;
+use _commands;
+
+
+sub _local   # Called when there isn't a remote command console
+{
+	my @params = @_;
+	
+	my $first_arg = $params[0];
+	my $second_arg = $param[1];
+	
+	
+}
+
+sub _remote  # Function that a remote command console can execute
+{
+}
+
+
+sub _usage   # Prints the usage of the function
+{
+	print("<COMMAND NAME> <ARGS>");
+}
+	
+
+
+1;  # Necessary for perl packages
+
+
+
+
