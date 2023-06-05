@@ -76,6 +76,6 @@ This directory has example code for support that one might be loading into an IO
 
 ### iocBoot/iocxxx/softioc
 
-This is the directory that hosts the controls for Linux soft IOCs. xxx.sh takes in a set of commands defined in the commands folder, allowing one to start/stop/restart an IOC in the background, connect to see the console of a running IOC, launch the default GUI, or to check if an IOC is running. New commands can be added to the commands folder and the script will automatically pick them up, if one is so inclined.
+This is the directory that hosts the controls for Linux soft IOCs. xxx.pl takes in a set of commands defined in the commands folder, allowing one to start/stop/restart an IOC in the background, connect to see the console of a running IOC, launch the default GUI, or to check if an IOC is running. New commands can be added to the commands folder and the script will automatically pick them up, if one is so inclined.
 
-The xxx.sh script can be symbolically linked anywhere and should be able to properly determine the paths to properly launch the IOC. If a problem does occur, you can manually define any paths that are used, as well as which startup script is used, and you can even change the basic shell commands that the script uses if needed.
+The xxx.pl script can be symbolically linked anywhere and should be able to properly determine the paths to properly launch the IOC. If a problem does occur, you can manually define any paths that are used, as well as which startup script is used, and you can even change the basic shell commands that the script uses if needed.
