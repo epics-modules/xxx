@@ -33,7 +33,7 @@ BEGIN
 	#! $ENV{IOC_BIN_DIR}="/home/username/epics/synApps/support/module/iocs/exampleIOC/bin";
 	
 	# Architecture the IOC is built under
-	$ENV{EPICS_HOST_ARCH}="linux-x86_64";
+	$ENV{EPICS_HOST_ARCH} //= "linux-x86_64";
 	#! $ENV{EPICS_HOST_ARCH}="linux-x86_64-debug";
 	
 	
