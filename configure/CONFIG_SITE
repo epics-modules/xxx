@@ -28,10 +28,6 @@ CHECK_RELEASE = YES
 #   INSTALL_LOCATION here.
 #INSTALL_LOCATION=</path/name/to/install/top>
 
-# To build the IOC application set BUILD_IOCS to YES
-# Otherwise set it to NO
-BUILD_IOCS=YES
-
 # Set this when your IOC and the host use different paths
 #   to access the application. This will be needed to boot
 #   from a Microsoft FTP server or with some NFS mounts.
