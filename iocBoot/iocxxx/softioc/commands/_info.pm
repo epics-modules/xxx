@@ -102,14 +102,19 @@ sub get_local_pid
 	
 	foreach (split(/\n/, $ptable))
 	{
+		#Remove leading spaces
+		$_ =~ s/^\s+//;
+		
 		#Split proc info, but don't break up command
 		my @splitline = split(/\s+/, $_, 6);
 		
-		#[1] is PID, [5] is Command
+		print($splitline[0], " | " , $splitline[1], "\n");
 		
-		if (index($splitline[5], ${IOC_CMD}) != -1)
+		#[0] is PID, [4] is Command
+		
+		if (index($splitline[4], ${IOC_CMD}) != -1)
 		{
-			return $splitline[1];
+			return $splitline[0];
 		}
 	}
 	
