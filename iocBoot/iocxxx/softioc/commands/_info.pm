@@ -108,8 +108,6 @@ sub get_local_pid
 		#Split proc info, but don't break up command
 		my @splitline = split(/\s+/, $_, 6);
 		
-		print($splitline[0], " | " , $splitline[1], "\n");
-		
 		#[0] is PID, [4] is Command
 		
 		if (index($splitline[4], ${IOC_CMD}) != -1)
