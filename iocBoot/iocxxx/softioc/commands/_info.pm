@@ -106,7 +106,7 @@ sub get_local_pid
 		$_ =~ s/^\s+//;
 		
 		#Split proc info, but don't break up command
-		my @splitline = split(/\s+/, $_, 6);
+		my @splitline = split(/\s+/, $_, 5);
 		
 		#[0] is PID, [4] is Command
 		
