@@ -110,7 +110,7 @@ sub get_local_pid
 		
 		#[0] is PID, [4] is Command
 		
-		if (index($splitline[4], ${IOC_CMD}) != -1)
+		if (index($splitline[4], ${IOC_CMD}) == 0)
 		{
 			return $splitline[0];
 		}
