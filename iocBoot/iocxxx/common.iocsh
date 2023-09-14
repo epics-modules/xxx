@@ -59,11 +59,6 @@ iocshLoad("$(AUTOSAVE)/iocsh/configMenu.iocsh", "PREFIX=$(PREFIX),CONFIG=scan1")
 #- You could make scan configurations read-only:
 #dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=$(PREFIX),CONFIG=scan1,ENABLE_SAVE=0")
 
-#- A set of scan parameters for each positioner.  This is a convenience
-#- for the user.  It can contain an entry for each scannable thing in the
-#- crate.
-#dbLoadTemplate("substitutions/scanParms.substitutions", "P=$(PREFIX)")
-
 ### Stuff for user programming ###
 iocshLoad("$(CALC)/iocsh/userCalc.iocsh", "PREFIX=$(PREFIX), ARRAY_SIZE=8000")
 
@@ -92,3 +87,8 @@ dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db", "P=$(PREFIX),R=mybusy2")
 #- IOCNM is name of IOC, RHOST specifies the remote server accepting hearbeats
 dbLoadRecords("$(ALIVE)/aliveApp/Db/alive.db", "P=$(PREFIX),IOCNM=$(IOC),RHOST=164.54.100.11")
 dbLoadRecords("$(ALIVE)/aliveApp/Db/aliveMSGCalc.db", "P=$(PREFIX)")
+
+#- A set of scan parameters for each positioner.  This is a convenience
+#- for the user.  It can contain an entry for each scannable thing in the
+#- crate.
+#dbLoadTemplate("substitutions/scanParms.substitutions", "P=$(PREFIX)")
