@@ -2,7 +2,6 @@
 #- XSIZE     - Image Width
 #- YSIZE     - Image Height
 #- TYPE      - Image Datatype, default: Int8
-#- FTVL      - Waveform type, default: UCHAR
 #- COLORS    - Number of colors, default: 1
 
 epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(EPICS_DB_INCLUDE_PATH):$(ADCORE)/db:$(ADURL)/db")
@@ -11,14 +10,24 @@ epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(EPICS_DB_INCLUDE_PATH):$(ADCORE)/db:$(AD
 # URLDriverConfig(const char *portName, int maxBuffers, size_t maxMemory, 
 #                 int priority, int stackSize)
 URLDriverConfig("$(INSTANCE)", 0, 0)
-dbLoadRecords("$(ADURL)/db/URLDriver.template","P=$(PREFIX)$(INSTANCE):,R=cam1:,PORT=$(INSTANCE),ADDR=0,TIMEOUT=1")
+dbLoadRecords("$(ADURL)/db/URLDriver.template","P=$(PREFIX),R=$(INSTANCE):,PORT=$(INSTANCE),ADDR=0,TIMEOUT=1")
 
 # Create a standard arrays plugin.
 NDStdArraysConfigure("Image1", 3, 0, "$(PORT)", 0)
 
 #Create a standard arrays plugin, set it to get data from first simDetector driver.
 NDStdArraysConfigure("$(INSTANCE)Image", 3, 0, "$(INSTANCE)", 0, 2000000)
-luaCmd("dbLoadRecords('$(ADCORE)/ADApp/Db/NDStdArrays.template', 'P=$(PREFIX):,R=image1:,PORT=$(INSTANCE)Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(TYPE=Int8),FTVL=$(FTVL=UCHAR),NELEMENTS=' .. tostring((XSIZE*YSIZE)|0) )", "XSIZE=$(XSIZE),YSIZE=$(YSIZE)")
+
+# Need to determine certain values from input parameters
+iocshCmd("epicsEnvSet('__FTVL', '$($(TYPE=Int8)_VAL)')", "Int8_VAL=UCHAR, UInt8_VAL=UCHAR, Int16_VAL=SHORT, UInt16_VAL=SHORT, Int32_VAL=LONG, UInt32_VAL=LONG, Float32_VAL=DOUBLE, Float64_VAL=DOUBLE")
+iocshCmd("epicsEnvSet('__TYPE', '$($(TYPE=Int8)_VAL)')", "Int8_VAL=Int8, UInt8_VAL=Int8, Int16_VAL=Int16, UInt16_VAL=Int16, Int32_VAL=Int32, UInt32_VAL=Int32, Float32_VAL=Float32, Float64_VAL=Float64")
+luaCmd("epicsEnvSet('__SIZE', tostring((COLORS*XSIZE*YSIZE)|0))", "COLORS=$(COLORS=1), XSIZE=$(XSIZE), YSIZE=$(YSIZE)")
+
+dbLoadRecords("$(ADCORE)/ADApp/Db/NDStdArrays.template", "P=$(PREFIX):,R=image1:,PORT=$(INSTANCE)Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(__TYPE),FTVL=$(__FTVL),NELEMENTS=$(__SIZE)")
+
+epicsEnvUnset("__FTVL")
+epicsEnvUnset("__TYPE")
+epicsEnvUnset("__SIZE")
 
 iocshLoad("$(ADCORE)/iocBoot/commonPlugins.cmd", "PREFIX=$(PREFIX), PORT=$(INSTANCE), QSIZE=20, XSIZE=$(XSIZE), YSIZE=$(YSIZE), NCHANS=1024, CBUFFS=20, MAX_THREADS=5")
 
