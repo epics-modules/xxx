@@ -1,2 +1,7 @@
 #RULES.ioc
 include $(CONFIG)/RULES.ioc
+
+modules.lua: \
+    $(wildcard $(TOP)/configure/RELEASE*) \
+    $(wildcard $(TOP)/configure/CONFIG_SITE*) | $(INSTALL_BIN)
+	$(PERL) $(abspath $(TOP)/bin/$(EPICS_HOST_ARCH)/GenLuaModules.pl) -a $(ARCH) -t $(IOCS_APPL_TOP) $@

@@ -572,6 +572,8 @@ $(PROD_NAME)_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 # print out just one variable
 #$(info SUPPORT = $(SUPPORT))
 
+SCRIPTS += GenLuaModules.pl
+
 #===========================
 
 include $(TOP)/configure/RULES

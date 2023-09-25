@@ -12,6 +12,6 @@ ARCH = linux-x86_64
 #ARCH = vxWorks694-ppc32
 #ARCH = vxWorks-ppc603
 
-TARGETS = cdCommands envPaths dllPath.bat
+TARGETS = cdCommands envPaths dllPath.bat modules.lua
 
 include $(TOP)/configure/RULES.ioc
