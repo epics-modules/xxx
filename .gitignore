@@ -12,6 +12,7 @@ templates/
 cdCommands
 envPaths
 dllPath.bat
+modules.lua
 auto_settings.sav*
 auto_positions.sav*
 built_*.req
