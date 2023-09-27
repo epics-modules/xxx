@@ -549,6 +549,13 @@ endif
     $(DBD_NAME)_DBD += GalilSupport.dbd
     $(PROD_NAME)_LIBS := GalilSupport $($(PROD_NAME)_LIBS)
   endif
+    
+  ifdef XSPRESS3
+    $(DBD_NAME)_DBD += xspress3Support.dbd
+    $(PROD_NAME)_LIBS := xspress3Epics xspress3 img_mod $($(PROD_NAME)_LIBS)
+    $(PROD_NAME)_SYS_LIBS += pthread rt
+    
+  endif
 
   ifeq ($(TIRPC), YES)
     $(PROD_NAME)_SYS_LIBS += tirpc
