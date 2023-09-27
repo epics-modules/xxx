@@ -390,6 +390,11 @@ ifeq ($(OS_CLASS), WIN32)
     $(DBD_NAME)_DBD += dxpSITOROSupport.dbd
     $(PROD_NAME)_LIBS := dxpSITORO handelSITORO $($(PROD_NAME)_LIBS)
   endif
+    
+  ifdef LABJACK
+    $(DBD_NAME)_DBD += LabJackSupport.dbd
+    $(PROD_NAME)_LIBS := LabJack LabJackM $($(PROD_NAME)_LIBS)
+  endif
 endif
 
 ##################################################################
@@ -555,6 +560,11 @@ endif
     $(PROD_NAME)_LIBS := xspress3Epics xspress3 img_mod $($(PROD_NAME)_LIBS)
     $(PROD_NAME)_SYS_LIBS += pthread rt
     
+  endif
+    
+  ifdef LABJACK
+    $(DBD_NAME)_DBD += LabJackSupport.dbd
+    $(PROD_NAME)_LIBS := LabJack LabJackM $($(PROD_NAME)_LIBS)
   endif
 
   ifeq ($(TIRPC), YES)
