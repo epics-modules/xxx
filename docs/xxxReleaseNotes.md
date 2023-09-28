@@ -13,11 +13,13 @@ Release 6-3
 
 * Added Scaler module
 * Added LabJack module
+* Added Xpress3 module
+* Added Galil module
 * vxWorks IOCs now automatically write out their bootParams on a successful boot
 * xxx startup script converted to perl for cross-platform compatibility
 * xxx startup script also no longer needs IOC_STARTUP_DIR to be set
 * New AreaDetector example scripts
-* IOC builds are now gated by a BUILD_IOCS config macro
+* Autosave .req search path automatically generated based on RELEASE file
 
 Release 6-2-1
 -------------
