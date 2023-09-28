@@ -15,7 +15,7 @@ The template of most IOCs that are deployed by the Beamline Controls group is th
 
 ### configure/RELEASE
 
-An IOC's RELEASE file is what provides the build system and the IOC with the correct paths to any support modules referenced in other areas. Any macro definition in this file, or in any file included by this one, will be seen as a path to an EPICS module. This means the system will be able to find library files that are located in the <path>/lib directory, header files that are located in the <path>/include directory, and so on. Macros are defined in the file in the following way:
+An IOC's RELEASE file is what provides the build system and the IOC with the correct paths to any support modules referenced in other areas. Any macro definition in this file, or in any file included by this one, will be seen as a path to an EPICS module. This means the system will be able to find library files that are located in the \<path\>/lib directory, header files that are located in the \<path\>/include directory, and so on. Macros are defined in the file in the following way:
 
 ```
 MACRO_NAME = /path/to/module
@@ -23,14 +23,14 @@ MACRO_NAME = /path/to/module
 
 The Beamline Controls group provides a set of curated EPICS modules that have a known set of interactions with each other and cover much of the support needed by standard IOCs. This collection is called synApps and tagged releases can be found in /APSshare/epics. In the RELEASE file, you will see the SUPPORT macro being set to one of those releases then we include the synApps collection's version of the RELEASE file. Which then provides your IOC with the path definitions to all of the modules that are included in that release of synApps as well as to the version of EPICS base that the support was built with.
 
-A customized version of synApps can be built locally using the assemble_synApps script located at https://github.com/EPICS-synApps/support/blob/master/assemble_synApps.sh. By switching the SUPPORT macro to point at the location that you build synApps in, the IOC will then pull in the definitions to all of your local support modules instead.
+A customized version of synApps can be built locally using the assemble_synApps script located at [https://github.com/EPICS-synApps/support/blob/master/assemble_synApps.sh](https://github.com/EPICS-synApps/assemble_synApps/blob/main/assemble_synApps). By switching the IOC's SUPPORT macro to point at the local location that you build synApps in, the IOC will then pull in the definitions to all of your local support modules instead.
 
 
 ### xxxApp/src/Makefile 
 
 While the RELEASE file provides the correct paths to find files, one must still add those files in order to construct the executable and the database definitions file for the IOC. This Makefile goes through the support modules that are in synApps and checks to see if a definition was made in the RELEASE file, and includes the correct files if it is.
 
-We define two name macros, PROD_NAME and DBD_NAME, which are then used to construct two lists through the file, $(PROD_NAME)_LIBS and $(DBD_NAME)_DBD. $(PROD_NAME)_LIBS contains all the library files containing support code and functions that the IOC can call and is used to construct an executable named '$(PROD_NAME)'. Meanwhile, $(DBD_NAME)_DBD will construct a database definitions file named '$(DBD_NAME).dbd' for the IOC.
+We define two name macros, PROD_NAME and DBD_NAME, which are then used to construct two lists through the file, ```$(PROD_NAME)_LIBS``` and ```$(DBD_NAME)_DBD```. ```$(PROD_NAME)_LIBS``` contains all the library files containing support code and functions that the IOC can call and is used to construct an executable named ```$(PROD_NAME)```. Meanwhile, ```$(DBD_NAME)_DBD``` will construct a database definitions file named ```$(DBD_NAME).dbd``` for the IOC.
 
 A database definitions file serves two purposes. First, it defines the structure of EPICS record types, telling the IOC what the various field names are and the type and size of data stored in that field. Secondly, it provides the IOC with the links between the compiled support code and the text names that will be used to refer to said support in database files. An IOC starts as a mostly clean slate, it doesn't know anything about EPICS record types, and only understands a few commands on the shell. To access all the code that is compiled into the executable, the IOC needs to load the database definitions file and then run a registration function that will go through and configure the IOC to understand all the record types, drivers, functions, and variables in the dbd file.
 
