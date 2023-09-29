@@ -54,133 +54,6 @@ ifdef ADSIMDETECTOR
   $(PROD_NAME)_LIBS := simDetector $($(PROD_NAME)_LIBS)
 endif
 
-ifdef ADURL
-  $(DBD_NAME)_DBD += URLDriverSupport.dbd
-  $(PROD_NAME)_LIBS := URLDriver $($(PROD_NAME)_LIBS)
-endif
-
-ifdef ADGENICAM
-  $(PROD_NAME)_LIBS := ADGenICam $($(PROD_NAME)_LIBS)
-endif
-
-ifdef ADANDOR
-  $(DBD_NAME)_DBD += andorCCDSupport.dbd
-  $(DBD_NAME)_DBD += shamrockSupport.dbd
-  $(PROD_NAME)_LIBS := andorCCD $($(PROD_NAME)_LIBS)
-
-  PROD_SYS_LIBS_Linux += andor
-  PROD_SYS_LIBS_Linux += shamrockcif
-
-endif
-
-ifdef ADARAVIS
-  $(DBD_NAME)_DBD += ADAravisSupport.dbd
-
-  PROD_LIBS += ADAravis
-  PROD_SYS_LIBS_Linux += ADAravis
-  PROD_SYS_LIBS_Linux += ADGenICam
-  PROD_SYS_LIBS_Linux += aravis-0.8
-  PROD_SYS_LIBS += gio-2.0 gobject-2.0 gthread-2.0 glib-2.0
-  PROD_SYS_LIBS_Linux += usb-1.0
-endif
-
-ifdef ADVIMBA
-  $(DBD_NAME)_DBD += ADVimbaSupport.dbd
-
-  PROD_LIBS += ADVimba
-  PROD_SYS_LIBS_Linux += ADVimba
-  PROD_SYS_LIBS_Linux += VimbaC
-  PROD_SYS_LIBS_Linux += VimbaCPP
-  PROD_SYS_LIBS_Linux += VimbaImageTransform
-endif
-
-ifdef ADSPINNAKER
-ifeq (rhel8-x86_64, $(findstring rhel8-x86_64, $(T_A)))
-
-
-  PROD_LIBS += ADSpinnaker
-  $(DBD_NAME)_DBD += ADSpinnakerSupport.dbd
- 
-# We use PROD_SYS_LIBS even though varios so files are in the ADSpinnaker tree 
-# because we are doing static build but the file is a .so file, not a .a file.
-
-PROD_SYS_LIBS_Linux += Spinnaker
-PROD_SYS_LIBS_Linux += GCBase_gcc540_v3_0
-PROD_SYS_LIBS_Linux += GenApi_gcc540_v3_0
-PROD_SYS_LIBS_Linux += NodeMapData_gcc540_v3_0
-PROD_SYS_LIBS_Linux += MathParser_gcc540_v3_0
-PROD_SYS_LIBS_Linux += XmlParser_gcc540_v3_0
-PROD_SYS_LIBS_Linux += Log_gcc540_v3_0
-
-
-endif
-endif
-
-ifdef ADPOINTGREY
-  $(DBD_NAME)_DBD += pointGreySupport.dbd
-  $(PROD_NAME)_LIBS := pointGrey $($(PROD_NAME)_LIBS)
-#  $(PROD_NAME)_LIBS := flycapture $($(PROD_NAME)_LIBS)
-
-PROD_SYS_LIBS_Linux += flycapture
-endif
-
-ifdef ADPROSILICA
-  $(DBD_NAME)_DBD += prosilicaSupport.dbd
-  $(PROD_NAME)_LIBS := prosilica $($(PROD_NAME)_LIBS)
-  $(PROD_NAME)_LIBS := PvAPI $($(PROD_NAME)_LIBS)
-
-
-PROD_SYS_LIBS_Linux += prosilica 
-PROD_SYS_LIBS_Linux += PvAPI
-PROD_SYS_LIBS_Linux += readline
-
-endif
-
-ifdef ADPIXIRAD
-  $(DBD_NAME)_DBD += pixiradSupport.dbd
-  $(PROD_NAME)_LIBS := pixirad $($(PROD_NAME)_LIBS)
-endif
-
-ifdef ADMAR345
-  $(DBD_NAME)_DBD += mar345Support.dbd
-  $(PROD_NAME)_LIBS := mar345 $($(PROD_NAME)_LIBS)
-endif
-
-ifdef ADPILATUS
-  $(DBD_NAME)_DBD +=  pilatusDetectorSupport.dbd
-  $(PROD_NAME)_LIBS := pilatusDetector $($(PROD_NAME)_LIBS)
-#  $(PROD_NAME)_LIBS := cbfad $($(PROD_NAME)_LIBS)
-
-
-PROD_SYS_LIBS += cbfad
-endif
-
-ifdef ADEIGER
-  $(DBD_NAME)_DBD +=  eigerDetectorSupport.dbd
-  $(PROD_NAME)_LIBS := eigerDetector $($(PROD_NAME)_LIBS)
-  $(PROD_NAME)_LIBS := frozen $($(PROD_NAME)_LIBS)
-  $(PROD_NAME)_LIBS := hdf5_hl $($(PROD_NAME)_LIBS)
-
- # PROD_SYS_LIBS  += eigerDetector
-  PROD_SYS_LIBS  += frozen 
-  PROD_SYS_LIBS  += hdf5_hl hdf5
-  PROD_SYS_LIBS  += zmq 
-
-
-ifdef ZMQ_LIB
-  zmq_DIR        += $(ZMQ_LIB)
-  PROD_LIBS      += zmq
-else
-  PROD_SYS_LIBS  += zmq
-endif
-endif
-
-
-ifdef PVADRIVER
-  $(DBD_NAME)_DBD += pvaDriverSupport.dbd
-  $(PROD_NAME)_LIBS := pvaDriver $($(PROD_NAME)_LIBS)
-endif
-
 
 #ifdef TDS3000
 #  $(DBD_NAME)_DBD += devTDS3000.dbd
@@ -485,6 +358,132 @@ endif
 
 ##################################################################
 ifeq ($(OS_CLASS), Linux) 
+  
+ifdef ADURL
+  $(DBD_NAME)_DBD += URLDriverSupport.dbd
+  $(PROD_NAME)_LIBS := URLDriver $($(PROD_NAME)_LIBS)
+endif
+
+ifdef ADGENICAM
+  $(PROD_NAME)_LIBS := ADGenICam $($(PROD_NAME)_LIBS)
+endif
+
+ifdef ADANDOR
+  $(DBD_NAME)_DBD += andorCCDSupport.dbd
+  $(DBD_NAME)_DBD += shamrockSupport.dbd
+  $(PROD_NAME)_LIBS := andorCCD $($(PROD_NAME)_LIBS)
+
+  PROD_SYS_LIBS_Linux += andor
+  PROD_SYS_LIBS_Linux += shamrockcif
+
+endif
+
+ifdef ADARAVIS
+  $(DBD_NAME)_DBD += ADAravisSupport.dbd
+
+  PROD_LIBS += ADAravis
+  PROD_SYS_LIBS_Linux += ADAravis
+  PROD_SYS_LIBS_Linux += ADGenICam
+  PROD_SYS_LIBS_Linux += aravis-0.8
+  PROD_SYS_LIBS += gio-2.0 gobject-2.0 gthread-2.0 glib-2.0
+  PROD_SYS_LIBS_Linux += usb-1.0
+endif
+
+ifdef ADVIMBA
+  $(DBD_NAME)_DBD += ADVimbaSupport.dbd
+
+  PROD_LIBS += ADVimba
+  PROD_SYS_LIBS_Linux += ADVimba
+  PROD_SYS_LIBS_Linux += VimbaC
+  PROD_SYS_LIBS_Linux += VimbaCPP
+  PROD_SYS_LIBS_Linux += VimbaImageTransform
+endif
+
+ifdef ADSPINNAKER
+
+  PROD_LIBS += ADSpinnaker
+  $(DBD_NAME)_DBD += ADSpinnakerSupport.dbd
+ 
+# We use PROD_SYS_LIBS even though varios so files are in the ADSpinnaker tree 
+# because we are doing static build but the file is a .so file, not a .a file.
+
+PROD_SYS_LIBS_Linux += Spinnaker
+PROD_SYS_LIBS_Linux += GCBase_gcc540_v3_0
+PROD_SYS_LIBS_Linux += GenApi_gcc540_v3_0
+PROD_SYS_LIBS_Linux += NodeMapData_gcc540_v3_0
+PROD_SYS_LIBS_Linux += MathParser_gcc540_v3_0
+PROD_SYS_LIBS_Linux += XmlParser_gcc540_v3_0
+PROD_SYS_LIBS_Linux += Log_gcc540_v3_0
+
+endif
+
+ifdef ADPOINTGREY
+  $(DBD_NAME)_DBD += pointGreySupport.dbd
+  $(PROD_NAME)_LIBS := pointGrey $($(PROD_NAME)_LIBS)
+#  $(PROD_NAME)_LIBS := flycapture $($(PROD_NAME)_LIBS)
+
+PROD_SYS_LIBS_Linux += flycapture
+endif
+
+ifdef ADPROSILICA
+  $(DBD_NAME)_DBD += prosilicaSupport.dbd
+  $(PROD_NAME)_LIBS := prosilica $($(PROD_NAME)_LIBS)
+  $(PROD_NAME)_LIBS := PvAPI $($(PROD_NAME)_LIBS)
+
+
+PROD_SYS_LIBS_Linux += prosilica 
+PROD_SYS_LIBS_Linux += PvAPI
+PROD_SYS_LIBS_Linux += readline
+
+endif
+
+ifdef ADPIXIRAD
+  $(DBD_NAME)_DBD += pixiradSupport.dbd
+  $(PROD_NAME)_LIBS := pixirad $($(PROD_NAME)_LIBS)
+endif
+
+ifdef ADMAR345
+  $(DBD_NAME)_DBD += mar345Support.dbd
+  $(PROD_NAME)_LIBS := mar345 $($(PROD_NAME)_LIBS)
+endif
+
+ifdef ADPILATUS
+  $(DBD_NAME)_DBD +=  pilatusDetectorSupport.dbd
+  $(PROD_NAME)_LIBS := pilatusDetector $($(PROD_NAME)_LIBS)
+#  $(PROD_NAME)_LIBS := cbfad $($(PROD_NAME)_LIBS)
+
+
+PROD_SYS_LIBS += cbfad
+endif
+
+ifdef ADEIGER
+  $(DBD_NAME)_DBD +=  eigerDetectorSupport.dbd
+  $(PROD_NAME)_LIBS := eigerDetector $($(PROD_NAME)_LIBS)
+  $(PROD_NAME)_LIBS := frozen $($(PROD_NAME)_LIBS)
+  $(PROD_NAME)_LIBS := hdf5_hl $($(PROD_NAME)_LIBS)
+
+ # PROD_SYS_LIBS  += eigerDetector
+  PROD_SYS_LIBS  += frozen 
+  PROD_SYS_LIBS  += hdf5_hl hdf5
+  PROD_SYS_LIBS  += zmq 
+
+
+ifdef ZMQ_LIB
+  zmq_DIR        += $(ZMQ_LIB)
+  PROD_LIBS      += zmq
+else
+  PROD_SYS_LIBS  += zmq
+endif
+endif
+
+
+ifdef PVADRIVER
+  $(DBD_NAME)_DBD += pvaDriverSupport.dbd
+  $(PROD_NAME)_LIBS := pvaDriver $($(PROD_NAME)_LIBS)
+endif
+    
+    
+    
   ifdef DXP
     # If your host supports parallel port or USB interfaces to Saturn DXP, set
     # LINUX_USB_INSTALLED to YES in <synApps>/configure/CONFIG_SITE.
