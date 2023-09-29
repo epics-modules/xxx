@@ -566,6 +566,17 @@ endif
     $(PROD_NAME)_LIBS := LabJack LabJackM $($(PROD_NAME)_LIBS)
   endif
 
+  ifdef MEASCOMP
+  ifdef ULDAQ
+    uldaq_DIR = $(ULDAQ)/lib
+
+    $(DBD_NAME)_DBD += measCompSupport.dbd
+    $(PROD_NAME)_LIBS := uldaq $($(PROD_NAME)_LIBS)
+    $(PROD_NAME)_LIBS := measComp $($(PROD_NAME)_LIBS)
+  endif
+  endif
+
+
   ifeq ($(TIRPC), YES)
     $(PROD_NAME)_SYS_LIBS += tirpc
   endif   
