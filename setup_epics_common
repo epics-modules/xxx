@@ -76,9 +76,53 @@ addModule   ADSIMDETECTOR        medm                     /simDetectorApp/op/adl
 addModule   ADSIMDETECTOR        caqtdm                   /simDetectorApp/op/ui
 addModule   ADSIMDETECTOR        caqtdm                   /simDetectorApp/op/ui/autoconvert
 
+addModule   ADANDOR              medm                     /andorApp/op/adl
+addModule   ADANDOR              caqtdm                   /andorApp/op/ui
+addModule   ADANDOR              caqtdm                   /andorApp/op/ui/autoconvert
+
+addModule   ADANDOR3             medm                     /andor3App/op/adl
+addModule   ADANDOR3             caqtdm                   /andor3App/op/ui
+addModule   ADANDOR3             caqtdm                   /andor3App/op/ui/autoconvert
+
+addModule   ADARAVIS             medm                     /aravisApp/op/adl
+addModule   ADARAVIS             caqtdm                   /aravisApp/op/ui
+addModule   ADARAVIS             caqtdm                   /aravisApp/op/ui/autoconvert
+
+addModule   ADEIGER              medm                     /eigerApp/op/adl
+addModule   ADEIGER              caqtdm                   /eigerApp/op/ui
+addModule   ADEIGER              caqtdm                   /eigerApp/op/ui/autoconvert
+
+addModule   ADGENICAM            medm                     /GenICamApp/op/adl
+addModule   ADGENICAM            caqtdm                   /GenICamApp/op/ui
+addModule   ADGENICAM            caqtdm                   /GenICamApp/op/ui/autoconvert
+
+addModule   ADMAR345             medm                     /mar345App/op/adl
+addModule   ADMAR345             caqtdm                   /mar345App/op/ui
+addModule   ADMAR345             caqtdm                   /mar345App/op/ui/autoconvert
+
+addModule   ADMARCCD             medm                     /marCCDApp/op/adl
+addModule   ADMARCCD             caqtdm                   /marCCDApp/op/ui
+addModule   ADMARCCD             caqtdm                   /marCCDApp/op/ui/autoconvert
+
+addModule   ADPILATUS            medm                     /pilatusApp/op/adl
+addModule   ADPILATUS            caqtdm                   /pilatusApp/op/ui
+addModule   ADPILATUS            caqtdm                   /pilatusApp/op/ui/autoconvert
+
+addModule   ADPOINTGREY          medm                     /pointGreyApp/op/adl
+addModule   ADPOINTGREY          caqtdm                   /pointGreyApp/op/ui
+addModule   ADPOINTGREY          caqtdm                   /pointGreyApp/op/ui/autoconvert
+
+addModule   ADPROSILICA          medm                     /prosilicaApp/op/adl
+addModule   ADPROSILICA          caqtdm                   /prosilicaApp/op/ui
+addModule   ADPROSILICA          caqtdm                   /prosilicaApp/op/ui/autoconvert
+
 addModule   ADURL                medm                     /urlApp/op/adl
 addModule   ADURL                caqtdm                   /urlApp/op/ui
 addModule   ADURL                caqtdm                   /urlApp/op/ui/autoconvert
+
+addModule   ADVIMBA              medm                     /vimbaApp/op/adl
+addModule   ADVIMBA              caqtdm                   /vimbaApp/op/ui
+addModule   ADVIMBA              caqtdm                   /vimbaApp/op/ui/autoconvert
 
 addModule   ASYN                 medm                     /opi/medm
 addModule   ASYN                 caqtdm                   /opi/caqtdm
