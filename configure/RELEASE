@@ -26,10 +26,12 @@
 ##############################################################################
 
 # Define the path to the synApps support directory and uncomment.
-SUPPORT=/corvette/home/epics/devel
+SUPPORT=/APSshare/epics/synApps_6_2_1/support
+EPICS_BASE=/APSshare/epics/base-7.0.4.1
 
 # Specify the standard synApps configuration.
 -include $(SUPPORT)/configure/RELEASE
+-include $(AREA_DETECTOR)/configure/RELEASE.local
 
 # Include any non-standard support
 #TDS3000 = $(SUPPORT)/../nonSynAppsSupport/tds3000-2.4
