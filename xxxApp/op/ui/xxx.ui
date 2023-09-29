@@ -170,7 +170,7 @@ QTabBar::tab:selected
 QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tab">
           <property name="Fill" stdset="0">
@@ -1592,7 +1592,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
            <item row="1" column="3">
             <widget class="caRelatedDisplay" name="carelateddisplay_66">
              <property name="label">
-              <string notr="true">-</string>
+              <string notr="true">-  ADMarCCD  </string>
              </property>
              <property name="foreground">
               <color>
@@ -1609,46 +1609,13 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
               </color>
              </property>
              <property name="labels">
-              <string>1</string>
+              <string>MarCCD</string>
              </property>
              <property name="files">
-              <string>1</string>
+              <string>marCCD.ui</string>
              </property>
              <property name="args">
-              <string>1</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="2">
-            <widget class="caRelatedDisplay" name="carelateddisplay_67">
-             <property name="label">
-              <string notr="true">- Oxford X1k</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>Oxford x1k</string>
-             </property>
-             <property name="files">
-              <string>Oxford_X1k.ui</string>
-             </property>
-             <property name="args">
-              <string>P=xxx:,S=s1</string>
+              <string>P=xxx:,R=cam1:</string>
              </property>
              <property name="stackingMode" stdset="0">
               <enum>caRowColMenu::Menu</enum>
@@ -1696,136 +1663,10 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="3">
-            <widget class="caRelatedDisplay" name="caRelatedDisplay_26">
-             <property name="label">
-              <string notr="true">-  quadEM   </string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>Quad Electrometer Ch.1;Quad Electrometer Ch.2;Quad Electrometer Ch.3;Quad Electrometer Ch.4;Quad Electrometer MCAs;Vertical feedback;Horizontal feedback</string>
-             </property>
-             <property name="files">
-              <string>quadEM.ui;quadEM.ui;quadEM.ui;quadEM.ui;quadEM_med.ui;pid_control.ui;pid_control.ui</string>
-             </property>
-             <property name="args">
-              <string>P=xxx:,EM=EM1;P=xxx:,EM=EM2;P=xxx:,EM=EM3;P=xxx:,EM=EM4;P=xxx:quadEM:, P_FFT=xxx:quadEM_FFT:;P=xxx:, PID=quadEMVertical,TITLE=Vertical_Feedback;P=xxx:, PID=quadEMHorizontal,TITLE=Horizontal_Feedback</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-             <property name="removeParent" stdset="0">
-              <string>false;false;false;false;false;false;false</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="caRelatedDisplay" name="carelateddisplay_15">
-             <property name="label">
-              <string notr="true">-  SIS3820  </string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>SIS3820 Scaler8;SIS3820 Scaler32</string>
-             </property>
-             <property name="files">
-              <string>scaler.ui;scaler32.ui</string>
-             </property>
-             <property name="args">
-              <string>P=xxx:3820:,S=scaler1;P=xxx:3820:,S=scaler1</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="caRelatedDisplay" name="carelateddisplay_13">
-             <property name="label">
-              <string notr="true">-Prebuilt AD</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>AD Top (prebuilts);Cam 1 Image;Cam 2 Image</string>
-             </property>
-             <property name="files">
-              <string>ADTop.ui;ad_cam_image.ui;ad_cam_image.ui</string>
-             </property>
-             <property name="args">
-              <string>;P=13SIM1:, R=cam1:;P=13SIM1:, R=cam2:</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
            <item row="3" column="2">
             <widget class="caRelatedDisplay" name="carelateddisplay_10">
              <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="caRelatedDisplay" name="caRelatedDisplay_24">
-             <property name="label">
-              <string notr="true">-  SIS38XX  </string>
+              <string notr="true">- ADProsilica </string>
              </property>
              <property name="foreground">
               <color>
@@ -1842,19 +1683,16 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
               </color>
              </property>
              <property name="labels">
-              <string>SIS38XX</string>
+              <string>Prosilica</string>
              </property>
              <property name="files">
-              <string>SIS38XX.ui</string>
+              <string>prosilica.ui</string>
              </property>
              <property name="args">
-              <string>P=xxx:3820:</string>
+              <string>P=xxx:,R=cam1:</string>
              </property>
              <property name="stackingMode" stdset="0">
               <enum>caRowColMenu::Menu</enum>
-             </property>
-             <property name="removeParent" stdset="0">
-              <string>false</string>
              </property>
             </widget>
            </item>
@@ -1936,7 +1774,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
            <item row="3" column="3">
             <widget class="caRelatedDisplay" name="carelateddisplay_9">
              <property name="label">
-              <string notr="true">-</string>
+              <string notr="true">- ADGenicam </string>
              </property>
              <property name="foreground">
               <color>
@@ -1951,6 +1789,15 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
                <green>132</green>
                <blue>0</blue>
               </color>
+             </property>
+             <property name="labels">
+              <string>AVT Manta G507C;AVT Manta G146C;AVT GC1380CH;AVT GC1380H;Blackfly 20E4C;Blackfly 13Y3M;Blackfly 50S5C;Grasshopper 2356M;Grasshopper 51S5M;Oryx 51S5M</string>
+             </property>
+             <property name="files">
+              <string>ADVimba.ui;ADVimba.ui;ADVimba.ui;ADVimba.ui;ADAravis.ui;ADAravis.ui;ADAravis.ui;ADAravis.ui;ADAravis.ui;ADAravis.ui</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,R=cam1:,C=AVT_Manta_G507C;P=xxx:,R=cam1:,C=AVT_Manta_G146C;P=xxx:,R=cam1:,C=AVT_GC1380CH;P=xxx:,R=cam1:,C=AVT_GC1380H;P=xxx:,R=cam1:,C=PGR_Blackfly_20E4C;P=xxx:,R=cam1:,C=PGR_BlackflyS_13Y3M;P=xxx:,R=cam1:,C=PGR_BlackflyS_50S5C;P=xxx:,R=cam1:,C=PGR_GS3_U3_2356M;P=xxx:,R=cam1:,C=PGR_GS3_U3_51S5M;P=xxx:,R=cam1:,C=FLIR_ORX_10G_51S5M</string>
              </property>
              <property name="stackingMode" stdset="0">
               <enum>caRowColMenu::Menu</enum>
@@ -2006,7 +1853,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
               </font>
              </property>
              <property name="label">
-              <string notr="true">- Scaler #3 </string>
+              <string notr="true">- SIS Scaler </string>
              </property>
              <property name="foreground">
               <color>
@@ -2023,13 +1870,13 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
               </color>
              </property>
              <property name="labels">
-              <string>Scaler 3;Scaler 3 (16 ch);Scaler 3 (32 ch);Scaler 3 (64 ch);Scaler 3 modCalc</string>
+              <string>SIS3820 Scaler8;SIS3820 Scaler32;SIS38XX</string>
              </property>
              <property name="files">
-              <string>scaler16m.ui;scaler16.ui;scaler32.ui;scaler64.ui;scaler16m.ui</string>
+              <string>scaler.ui;scaler32.ui;SIS38XX.ui</string>
              </property>
              <property name="args">
-              <string>P=xxx:,S=scaler3;P=xxx:,S=scaler3;P=xxx:,S=scaler3;P=xxx:,S=scaler3;P=xxx:,S=scaler3</string>
+              <string>P=xxx:3820:,S=scaler1;P=xxx:3820:,S=scaler1;P=xxx:3820:</string>
              </property>
              <property name="stackingMode" stdset="0">
               <enum>caRowColMenu::Menu</enum>
@@ -2039,34 +1886,10 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="1">
-            <widget class="caRelatedDisplay" name="carelateddisplay_11">
-             <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
            <item row="2" column="3">
             <widget class="caRelatedDisplay" name="carelateddisplay_68">
              <property name="label">
-              <string notr="true">-</string>
+              <string notr="true">-   ADURL   </string>
              </property>
              <property name="foreground">
               <color>
@@ -2083,37 +1906,13 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
               </color>
              </property>
              <property name="labels">
-              <string>1</string>
+              <string>ADURL</string>
              </property>
              <property name="files">
-              <string>1</string>
+              <string>URLDriver.ui</string>
              </property>
              <property name="args">
-              <string>1</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="caRelatedDisplay" name="carelateddisplay_14">
-             <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
+              <string>P=xxx:,R=cam1:</string>
              </property>
              <property name="stackingMode" stdset="0">
               <enum>caRowColMenu::Menu</enum>
@@ -2153,39 +1952,6 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
              </property>
              <property name="removeParent" stdset="0">
               <string>false;false;false;false;false;false;false;false</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="4">
-            <widget class="caRelatedDisplay" name="carelateddisplay_65">
-             <property name="label">
-              <string notr="true">-</string>
-             </property>
-             <property name="foreground">
-              <color>
-               <red>228</red>
-               <green>228</green>
-               <blue>228</blue>
-              </color>
-             </property>
-             <property name="background">
-              <color>
-               <red>53</red>
-               <green>132</green>
-               <blue>0</blue>
-              </color>
-             </property>
-             <property name="labels">
-              <string>1</string>
-             </property>
-             <property name="files">
-              <string>1</string>
-             </property>
-             <property name="args">
-              <string>1</string>
-             </property>
-             <property name="stackingMode" stdset="0">
-              <enum>caRowColMenu::Menu</enum>
              </property>
             </widget>
            </item>
@@ -2232,6 +1998,264 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
            </item>
            <item row="2" column="1">
             <widget class="caRelatedDisplay" name="carelateddisplay_12">
+             <property name="label">
+              <string notr="true">- ADPilatus </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>Pilatus</string>
+             </property>
+             <property name="files">
+              <string>pilatusDetector.ui</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,R=cam1:</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="caRelatedDisplay" name="carelateddisplay_11">
+             <property name="label">
+              <string notr="true">-</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="caRelatedDisplay" name="carelateddisplay_65">
+             <property name="label">
+              <string notr="true">-  ADMar345  </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>Mar 345</string>
+             </property>
+             <property name="files">
+              <string>mar345.ui</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,R=cam1:</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4">
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_26">
+             <property name="label">
+              <string notr="true">-  quadEM   </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>Quad Electrometer Ch.1;Quad Electrometer Ch.2;Quad Electrometer Ch.3;Quad Electrometer Ch.4;Quad Electrometer MCAs;Vertical feedback;Horizontal feedback</string>
+             </property>
+             <property name="files">
+              <string>quadEM.ui;quadEM.ui;quadEM.ui;quadEM.ui;quadEM_med.ui;pid_control.ui;pid_control.ui</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,EM=EM1;P=xxx:,EM=EM2;P=xxx:,EM=EM3;P=xxx:,EM=EM4;P=xxx:quadEM:, P_FFT=xxx:quadEM_FFT:;P=xxx:, PID=quadEMVertical,TITLE=Vertical_Feedback;P=xxx:, PID=quadEMHorizontal,TITLE=Horizontal_Feedback</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+             <property name="removeParent" stdset="0">
+              <string>false;false;false;false;false;false;false</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="caRelatedDisplay" name="carelateddisplay_15">
+             <property name="label">
+              <string notr="true">-  ADAndor  </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>Andor;Andor3;Shamrock</string>
+             </property>
+             <property name="files">
+              <string>Andor.ui;Andor3.ui;Shamrock.ui</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,R=cam1:;P=xxx:,R=cam1:;P=xxx:,R=cam1:</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="caRelatedDisplay" name="carelateddisplay_25">
+             <property name="label">
+              <string notr="true">-  ADEiger  </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>Eiger</string>
+             </property>
+             <property name="files">
+              <string>eigerDetector.ui</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,R=cam1:</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="caRelatedDisplay" name="carelateddisplay_67">
+             <property name="label">
+              <string notr="true">- Oxford X1k </string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>Oxford x1k</string>
+             </property>
+             <property name="files">
+              <string>Oxford_X1k.ui</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,S=s1</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="caRelatedDisplay" name="carelateddisplay_14">
+             <property name="label">
+              <string notr="true">-ADPointGrey</string>
+             </property>
+             <property name="foreground">
+              <color>
+               <red>228</red>
+               <green>228</green>
+               <blue>228</blue>
+              </color>
+             </property>
+             <property name="background">
+              <color>
+               <red>53</red>
+               <green>132</green>
+               <blue>0</blue>
+              </color>
+             </property>
+             <property name="labels">
+              <string>Point Grey</string>
+             </property>
+             <property name="files">
+              <string>pointGrey.ui</string>
+             </property>
+             <property name="args">
+              <string>P=xxx:,R=cam1:</string>
+             </property>
+             <property name="stackingMode" stdset="0">
+              <enum>caRowColMenu::Menu</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="caRelatedDisplay" name="carelateddisplay_13">
              <property name="label">
               <string notr="true">-</string>
              </property>
