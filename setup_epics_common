@@ -172,6 +172,10 @@ addModule   FLY                  medm                     /flyApp/op/adl
 addModule   FLY                  caqtdm                   /flyApp/op/ui
 addModule   FLY                  caqtdm                   /flyApp/op/ui/autoconvert
 
+addModule   GALIL                medm                     /GalilSup/op/adl
+addModule   GALIL                caqtdm                   /GalilSup/op/ui
+addModule   GALIL                caqtdm                   /GalilSup/op/ui/autoconvert
+
 addModule   IP                   medm                     /ipApp/op/adl
 addModule   IP                   caqtdm                   /ipApp/op/ui
 addModule   IP                   caqtdm                   /ipApp/op/ui/autoconvert
@@ -200,6 +204,10 @@ addModule   MCA                  medm                     /mcaApp/op/adl
 addModule   MCA                  caqtdm                   /mcaApp/op/ui
 addModule   MCA                  caqtdm                   /mcaApp/op/ui/autoconvert
 
+addModule   MEASCOMP             medm                     /measCompApp/op/adl
+addModule   MEASCOMP             caqtdm                   /measCompApp/op/ui
+addModule   MEASCOMP             caqtdm                   /measCompApp/op/ui/autoconvert
+
 addModule   MODBUS               medm                     /modbusApp/op/adl
 addModule   MODBUS               caqtdm                   /modbusApp/op/ui
 addModule   MODBUS               caqtdm                   /modbusApp/op/ui/autoconvert
@@ -224,6 +232,10 @@ addModule   SOFTGLUE             medm                     /softGlueApp/op/adl
 addModule   SOFTGLUE             caqtdm                   /softGlueApp/op/ui
 addModule   SOFTGLUE             caqtdm                   /softGlueApp/op/ui/autoconvert
 
+addModule   SOFTGLUEZYNQ         medm                     /softGlueApp/op/adl
+addModule   SOFTGLUEZYNQ         caqtdm                   /softGlueApp/op/ui
+addModule   SOFTGLUEZYNQ         caqtdm                   /softGlueApp/op/ui/autoconvert
+
 addModule   SSCAN                medm                     /sscanApp/op/adl
 addModule   SSCAN                caqtdm                   /sscanApp/op/ui
 addModule   SSCAN                caqtdm                   /sscanApp/op/ui/autoconvert
@@ -241,6 +253,10 @@ addModule   VAC                  caqtdm                   /vacApp/op/ui/autoconv
 addModule   VME                  medm                     /vmeApp/op/adl
 addModule   VME                  caqtdm                   /vmeApp/op/ui
 addModule   VME                  caqtdm                   /vmeApp/op/ui/autoconvert
+
+addModule   XPRESS3              medm                     /xpress3App/opi/adl
+addModule   XPRESS3              caqtdm                   /xpress3App/opi/ui
+addModule   XPRESS3              caqtdm                   /xpress3App/opi/ui/autoconvert
 
 addModule   YOKOGAWA_DAS         medm                     /mw100App/op/adl
 addModule   YOKOGAWA_DAS         caqtdm                   /mw100App/op/ui
