@@ -681,10 +681,10 @@ $(pv_value)</tooltip>
         <path>xxBusyRecord.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <R>mybusy</R>
+          <R>mybusy1</R>
         </macros>
         <mode>1</mode>
-        <description>busyRecord</description>
+        <description>busyRecord 1</description>
       </action>
       <action type="OPEN_DISPLAY">
         <path>xxBusyRecord.opi</path>

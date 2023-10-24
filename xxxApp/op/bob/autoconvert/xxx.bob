@@ -3501,7 +3501,7 @@
         <file>xxBusyRecord.opi</file>
         <macros>
           <P>xxx:</P>
-          <R>mybusy</R>
+          <R>mybusy1</R>
         </macros>
         <target>tab</target>
         <description>busyRecord</description>
