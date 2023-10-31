@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2023-10-31 17:51:10 by prjemian-->
+<display version="2.0.0">
+  <name>xxBusyRecord2x</name>
+  <x>445</x>
+  <y>516</y>
+  <width>338</width>
+  <height>160</height>
+  <background_color>
+    <color red="187" green="187" blue="187">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #6</name>
+    <x>8</x>
+    <y>8</y>
+    <width>158</width>
+    <height>148</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color red="145" green="145" blue="145">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="145" green="145" blue="145">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #9</name>
+    <macros>
+      <R>$(R1)</R>
+    </macros>
+    <file>xxBusyRecord.bob</file>
+    <x>13</x>
+    <y>52</y>
+    <width>150</width>
+    <height>100</height>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #11</name>
+    <pv_name>$(P)$(R1).DESC</pv_name>
+    <x>13</x>
+    <y>12</y>
+    <width>149</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #15</name>
+    <x>13</x>
+    <y>33</y>
+    <width>149</width>
+    <height>14</height>
+    <line_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #18</name>
+    <text>($(P)$(R1))</text>
+    <x>13</x>
+    <y>34</y>
+    <width>149</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #21</name>
+    <x>171</x>
+    <y>8</y>
+    <width>158</width>
+    <height>148</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color red="145" green="145" blue="145">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="145" green="145" blue="145">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #24</name>
+    <macros>
+      <R>$(R2)</R>
+    </macros>
+    <file>xxBusyRecord.bob</file>
+    <x>176</x>
+    <y>52</y>
+    <width>150</width>
+    <height>100</height>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #26</name>
+    <pv_name>$(P)$(R2).DESC</pv_name>
+    <x>176</x>
+    <y>12</y>
+    <width>149</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #30</name>
+    <x>176</x>
+    <y>33</y>
+    <width>149</width>
+    <height>14</height>
+    <line_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #33</name>
+    <text>($(P)$(R2))</text>
+    <x>176</x>
+    <y>34</y>
+    <width>149</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+</display>
