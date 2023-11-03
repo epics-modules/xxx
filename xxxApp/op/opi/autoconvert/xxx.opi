@@ -5110,7 +5110,7 @@ $(pv_value)</tooltip>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <P>xxx:</P>
-          <R>mybusy</R>
+          <R>mybusy1</R>
         </macros>
         <mode>1</mode>
         <description>busyRecord</description>

@@ -308,9 +308,9 @@ composite {
 		args="P=$(P),N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
 	}
 	display[14] {
-		label="busyRecord"
+		label="busyRecord 1"
 		name="xxBusyRecord.adl"
-		args="P=$(P),R=mybusy"
+		args="P=$(P),R=mybusy1"
 	}
 	display[15] {
 		label="busyRecord 2"

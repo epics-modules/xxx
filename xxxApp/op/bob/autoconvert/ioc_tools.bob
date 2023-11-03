@@ -352,10 +352,10 @@
       <action type="open_display">
         <file>xxBusyRecord.opi</file>
         <macros>
-          <R>mybusy</R>
+          <R>mybusy1</R>
         </macros>
         <target>tab</target>
-        <description>busyRecord</description>
+        <description>busyRecord 1</description>
       </action>
       <action type="open_display">
         <file>xxBusyRecord.opi</file>

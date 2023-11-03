@@ -2444,7 +2444,7 @@ displayFileName {
   11 "userAve10more.edl"
   12 "userCalcOuts10more.edl"
   13 "userCalcs10more.edl"
-  14 "xxBusyRecord.edl"
+  14 "xxBusyRecord2x.edl"
   15 "userCalcsGlobalEnable.edl"
 }
 menuLabel {
@@ -2480,7 +2480,7 @@ symbols {
   11 "P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
   12 "P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
   13 "P=xxx:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"
-  14 "P=xxx:,R=mybusy"
+  14 "P=xxx:,R1=mybusy1,R2=mybusy2"
   15 "P=xxx:"
 }
 replaceSymbols {

@@ -4311,7 +4311,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
               <string>xxBusyRecord.ui;xxBusyRecord.ui</string>
              </property>
              <property name="args">
-              <string>P=xxx:,R=mybusy;P=xxx:,R=mybusy2</string>
+              <string>P=xxx:,R=mybusy1;P=xxx:,R=mybusy2</string>
              </property>
              <property name="stackingMode" stdset="0">
               <enum>caRowColMenu::Menu</enum>

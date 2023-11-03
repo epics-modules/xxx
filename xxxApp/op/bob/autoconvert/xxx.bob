@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2023-10-31 17:50:56 by prjemian-->
 <display version="2.0.0">
   <name>xxx</name>
   <x>1145</x>
@@ -16,15 +17,15 @@
       <action type="open_display">
         <file>table.opi</file>
         <macros>
+          <P>xxx:</P>
+          <Q>Table1</Q>
+          <T>table1</T>
           <M0X>m1</M0X>
           <M0Y>m2</M0Y>
           <M1Y>m3</M1Y>
           <M2X>m4</M2X>
           <M2Y>m5</M2Y>
           <M2Z>m6</M2Z>
-          <P>xxx:</P>
-          <Q>Table1</Q>
-          <T>table1</T>
         </macros>
         <target>tab</target>
         <description>Table1 (S)</description>
@@ -32,15 +33,15 @@
       <action type="open_display">
         <file>table_full.opi</file>
         <macros>
+          <P>xxx:</P>
+          <Q>Table1</Q>
+          <T>table1</T>
           <M0X>m1</M0X>
           <M0Y>m2</M0Y>
           <M1Y>m3</M1Y>
           <M2X>m4</M2X>
           <M2Y>m5</M2Y>
           <M2Z>m6</M2Z>
-          <P>xxx:</P>
-          <Q>Table1</Q>
-          <T>table1</T>
         </macros>
         <target>tab</target>
         <description>Table1 (L)</description>
@@ -48,15 +49,15 @@
       <action type="open_display">
         <file>table.opi</file>
         <macros>
+          <P>xxx:</P>
+          <Q>Table2</Q>
+          <T>table2</T>
           <M0X>m1</M0X>
           <M0Y>m2</M0Y>
           <M1Y>m3</M1Y>
           <M2X>m4</M2X>
           <M2Y>m5</M2Y>
           <M2Z>junk</M2Z>
-          <P>xxx:</P>
-          <Q>Table2</Q>
-          <T>table2</T>
         </macros>
         <target>tab</target>
         <description>Table2 (S) (no Z)</description>
@@ -64,15 +65,15 @@
       <action type="open_display">
         <file>table_full.opi</file>
         <macros>
+          <P>xxx:</P>
+          <Q>Table2</Q>
+          <T>table2</T>
           <M0X>m1</M0X>
           <M0Y>m2</M0Y>
           <M1Y>m3</M1Y>
           <M2X>m4</M2X>
           <M2Y>m5</M2Y>
           <M2Z>junk</M2Z>
-          <P>xxx:</P>
-          <Q>Table2</Q>
-          <T>table2</T>
         </macros>
         <target>tab</target>
         <description>Table2 (L) (no Z)</description>
@@ -80,15 +81,15 @@
       <action type="open_display">
         <file>table.opi</file>
         <macros>
+          <P>xxx:</P>
+          <Q>Table3</Q>
+          <T>table3</T>
           <M0X>junk</M0X>
           <M0Y>m2</M0Y>
           <M1Y>m3</M1Y>
           <M2X>junk</M2X>
           <M2Y>m5</M2Y>
           <M2Z>m6</M2Z>
-          <P>xxx:</P>
-          <Q>Table3</Q>
-          <T>table3</T>
         </macros>
         <target>tab</target>
         <description>Table3 (S) (no X)</description>
@@ -96,15 +97,15 @@
       <action type="open_display">
         <file>table_full.opi</file>
         <macros>
+          <P>xxx:</P>
+          <Q>Table3</Q>
+          <T>table3</T>
           <M0X>junk</M0X>
           <M0Y>m2</M0Y>
           <M1Y>m3</M1Y>
           <M2X>junk</M2X>
           <M2Y>m5</M2Y>
           <M2Z>m6</M2Z>
-          <P>xxx:</P>
-          <Q>Table3</Q>
-          <T>table3</T>
         </macros>
         <target>tab</target>
         <description>Table3 (L) (no X)</description>
@@ -112,15 +113,15 @@
       <action type="open_display">
         <file>table.opi</file>
         <macros>
+          <P>xxx:</P>
+          <Q>Table4</Q>
+          <T>table4</T>
           <M0X>junk</M0X>
           <M0Y>m2</M0Y>
           <M1Y>m3</M1Y>
           <M2X>junk</M2X>
           <M2Y>m5</M2Y>
           <M2Z>junk</M2Z>
-          <P>xxx:</P>
-          <Q>Table4</Q>
-          <T>table4</T>
         </macros>
         <target>tab</target>
         <description>Table4 (S) (no X or Z)</description>
@@ -128,15 +129,15 @@
       <action type="open_display">
         <file>table_full.opi</file>
         <macros>
+          <P>xxx:</P>
+          <Q>Table4</Q>
+          <T>table4</T>
           <M0X>junk</M0X>
           <M0Y>m2</M0Y>
           <M1Y>m3</M1Y>
           <M2X>junk</M2X>
           <M2Y>m5</M2Y>
           <M2Z>junk</M2Z>
-          <P>xxx:</P>
-          <Q>Table4</Q>
-          <T>table4</T>
         </macros>
         <target>tab</target>
         <description>Table4 (L) (no X or Z)</description>
@@ -145,9 +146,9 @@
         <file>ASRPmirrorTable.opi</file>
         <macros>
           <P>xxx:</P>
-          <PITCH>xxx:m8</PITCH>
           <TBL>mt1</TBL>
           <VERT>xxx:m7</VERT>
+          <PITCH>xxx:m8</PITCH>
         </macros>
         <target>tab</target>
         <description>ASRP mirror table</description>
@@ -155,15 +156,15 @@
       <action type="open_display">
         <file>table_soft.opi</file>
         <macros>
+          <P>xxx:</P>
+          <Q>Table1</Q>
+          <T>table1</T>
           <M0X>m1</M0X>
           <M0Y>m2</M0Y>
           <M1Y>m3</M1Y>
           <M2X>m4</M2X>
           <M2Y>m5</M2Y>
           <M2Z>m6</M2Z>
-          <P>xxx:</P>
-          <Q>Table1</Q>
-          <T>table1</T>
         </macros>
         <target>tab</target>
         <description>Table1 soft (S)</description>
@@ -188,6 +189,7 @@
       <action type="open_display">
         <file>topMotors8.opi</file>
         <macros>
+          <P>xxx:</P>
           <M1>m1</M1>
           <M2>m2</M2>
           <M3>m3</M3>
@@ -196,7 +198,6 @@
           <M6>m6</M6>
           <M7>m7</M7>
           <M8>m8</M8>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>1-8</description>
@@ -204,6 +205,7 @@
       <action type="open_display">
         <file>topMotors8.opi</file>
         <macros>
+          <P>xxx:</P>
           <M1>m9</M1>
           <M2>m10</M2>
           <M3>m11</M3>
@@ -212,7 +214,6 @@
           <M6>m14</M6>
           <M7>m15</M7>
           <M8>m16</M8>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>9-16</description>
@@ -220,6 +221,7 @@
       <action type="open_display">
         <file>topMotors8.opi</file>
         <macros>
+          <P>xxx:</P>
           <M1>m17</M1>
           <M2>m18</M2>
           <M3>m19</M3>
@@ -228,7 +230,6 @@
           <M6>m22</M6>
           <M7>m23</M7>
           <M8>m24</M8>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>17-24</description>
@@ -236,6 +237,7 @@
       <action type="open_display">
         <file>topMotors8.opi</file>
         <macros>
+          <P>xxx:</P>
           <M1>m25</M1>
           <M2>m26</M2>
           <M3>m27</M3>
@@ -244,7 +246,6 @@
           <M6>m30</M6>
           <M7>m31</M7>
           <M8>m32</M8>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>25-32</description>
@@ -252,6 +253,7 @@
       <action type="open_display">
         <file>topMotors8.opi</file>
         <macros>
+          <P>xxx:</P>
           <M1>m33</M1>
           <M2>m34</M2>
           <M3>m35</M3>
@@ -260,7 +262,6 @@
           <M6>m38</M6>
           <M7>m39</M7>
           <M8>m40</M8>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>33-40</description>
@@ -268,6 +269,7 @@
       <action type="open_display">
         <file>topMotors8.opi</file>
         <macros>
+          <P>xxx:</P>
           <M1>m41</M1>
           <M2>m42</M2>
           <M3>m43</M3>
@@ -276,7 +278,6 @@
           <M6>m46</M6>
           <M7>m47</M7>
           <M8>m48</M8>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>41-48</description>
@@ -286,7 +287,6 @@
         <macros>
           <P>xxx:</P>
           <SM1>SM1</SM1>
-          <SM10>SM10</SM10>
           <SM2>SM2</SM2>
           <SM3>SM3</SM3>
           <SM4>SM4</SM4>
@@ -295,6 +295,7 @@
           <SM7>SM7</SM7>
           <SM8>SM8</SM8>
           <SM9>SM9</SM9>
+          <SM10>SM10</SM10>
         </macros>
         <target>tab</target>
         <description>soft motors 1-10</description>
@@ -302,11 +303,11 @@
       <action type="open_display">
         <file>topMotors4.opi</file>
         <macros>
+          <P>xxx:</P>
           <M1>pm1</M1>
           <M2>pm2</M2>
           <M3>pm3</M3>
           <M4>pm4</M4>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>Pseudo-motors</description>
@@ -339,20 +340,20 @@
         <file>kohzuGraphic.opi</file>
         <macros>
           <P>xxx:</P>
-          <PVE>BraggEAO</PVE>
-          <PVL>BraggLambdaAO</PVL>
-          <PVTh>BraggThetaAO</PVTh>
-          <QE>BraggE</QE>
-          <QL>BraggLambda</QL>
-          <QTh>BraggTheta</QTh>
-          <mCHI2>m12</mCHI2>
           <mTH>m9</mTH>
-          <mTH2>m13</mTH2>
-          <mX>m14</mX>
-          <mX2>m16</mX2>
-          <mY>m15</mY>
           <mY1>m10</mY1>
           <mZ2>m11</mZ2>
+          <mCHI2>m12</mCHI2>
+          <mTH2>m13</mTH2>
+          <mX>m14</mX>
+          <mY>m15</mY>
+          <mX2>m16</mX2>
+          <QE>BraggE</QE>
+          <PVE>BraggEAO</PVE>
+          <QL>BraggLambda</QL>
+          <PVL>BraggLambdaAO</PVL>
+          <QTh>BraggTheta</QTh>
+          <PVTh>BraggThetaAO</PVTh>
         </macros>
         <target>tab</target>
         <description>Kohzu Graphic (GEOM 1)</description>
@@ -361,20 +362,20 @@
         <file>kohzu2Graphic.opi</file>
         <macros>
           <P>xxx:</P>
-          <PVE>BraggEAO</PVE>
-          <PVL>BraggLambdaAO</PVL>
-          <PVTh>BraggThetaAO</PVTh>
-          <QE>BraggE</QE>
-          <QL>BraggLambda</QL>
-          <QTh>BraggTheta</QTh>
-          <mCHI2>m12</mCHI2>
           <mTH>m9</mTH>
-          <mTH2>m13</mTH2>
-          <mX>m14</mX>
-          <mX2>m16</mX2>
-          <mY>m15</mY>
           <mY2>m10</mY2>
           <mZ2>m11</mZ2>
+          <mCHI2>m12</mCHI2>
+          <mTH2>m13</mTH2>
+          <mX>m14</mX>
+          <mY>m15</mY>
+          <mX2>m16</mX2>
+          <QE>BraggE</QE>
+          <PVE>BraggEAO</PVE>
+          <QL>BraggLambda</QL>
+          <PVL>BraggLambdaAO</PVL>
+          <QTh>BraggTheta</QTh>
+          <PVTh>BraggThetaAO</PVTh>
         </macros>
         <target>tab</target>
         <description>Kohzu Graphic (GEOM 2)</description>
@@ -407,8 +408,8 @@
         <file>scanParms.opi</file>
         <macros>
           <P>xxx:</P>
-          <PV>BraggEAO</PV>
           <Q>BraggE</Q>
+          <PV>BraggEAO</PV>
         </macros>
         <target>tab</target>
         <description>Energy-scan parameters</description>
@@ -417,8 +418,8 @@
         <file>scanParms.opi</file>
         <macros>
           <P>xxx:</P>
-          <PV>BraggThetaAO</PV>
           <Q>BraggTheta</Q>
+          <PV>BraggThetaAO</PV>
         </macros>
         <target>tab</target>
         <description>Theta-scan parameters</description>
@@ -427,8 +428,8 @@
         <file>scanParms.opi</file>
         <macros>
           <P>xxx:</P>
-          <PV>BraggLambdaAO</PV>
           <Q>BraggLambda</Q>
+          <PV>BraggLambdaAO</PV>
         </macros>
         <target>tab</target>
         <description>Wavelength-scan parameters</description>
@@ -453,8 +454,8 @@
       <action type="open_display">
         <file>scan.opi</file>
         <macros>
-          <N>1</N>
           <P>xxx:</P>
+          <N>1</N>
           <S>scan1</S>
         </macros>
         <target>tab</target>
@@ -463,8 +464,8 @@
       <action type="open_display">
         <file>scan.opi</file>
         <macros>
-          <N>2</N>
           <P>xxx:</P>
+          <N>2</N>
           <S>scan2</S>
         </macros>
         <target>tab</target>
@@ -473,8 +474,8 @@
       <action type="open_display">
         <file>scan.opi</file>
         <macros>
-          <N>3</N>
           <P>xxx:</P>
+          <N>3</N>
           <S>scan3</S>
         </macros>
         <target>tab</target>
@@ -483,8 +484,8 @@
       <action type="open_display">
         <file>scan.opi</file>
         <macros>
-          <N>4</N>
           <P>xxx:</P>
+          <N>4</N>
           <S>scan4</S>
         </macros>
         <target>tab</target>
@@ -493,8 +494,8 @@
       <action type="open_display">
         <file>scan.opi</file>
         <macros>
-          <N>H</N>
           <P>xxx:</P>
+          <N>H</N>
           <S>scanH</S>
         </macros>
         <target>tab</target>
@@ -504,10 +505,10 @@
         <file>scanParms2Pos.opi</file>
         <macros>
           <P>xxx:</P>
-          <PV1>xxx:m7</PV1>
-          <PV2>xxx:m8</PV2>
           <Q>m7_8</Q>
           <SCAN>xxx:scan1</SCAN>
+          <PV1>xxx:m7</PV1>
+          <PV2>xxx:m8</PV2>
         </macros>
         <target>tab</target>
         <description>test scanParms2Pos</description>
@@ -532,8 +533,8 @@
       <action type="open_display">
         <file>ProgressBar.opi</file>
         <macros>
-          <B>xxx:scanProgress:</B>
           <P>xxx:</P>
+          <B>xxx:scanProgress:</B>
         </macros>
         <target>tab</target>
         <description>scanProgress</description>
@@ -541,8 +542,8 @@
       <action type="open_display">
         <file>configMenu.opi</file>
         <macros>
-          <CONFIG>scan1</CONFIG>
           <P>xxx:</P>
+          <CONFIG>scan1</CONFIG>
         </macros>
         <target>tab</target>
         <description>scan1Menu</description>
@@ -666,8 +667,8 @@
       <action type="open_display">
         <file>Keithley2kDMM_mf.opi</file>
         <macros>
-          <Dmm>D1</Dmm>
           <P>xxx:</P>
+          <Dmm>D1</Dmm>
         </macros>
         <target>tab</target>
         <description>Keithley 2000 DMM #1</description>
@@ -675,8 +676,8 @@
       <action type="open_display">
         <file>Keithley2kDMM_mf.opi</file>
         <macros>
-          <Dmm>D2</Dmm>
           <P>xxx:</P>
+          <Dmm>D2</Dmm>
         </macros>
         <target>tab</target>
         <description>Keithley 2000 DMM #2</description>
@@ -738,11 +739,11 @@
       <action type="open_display">
         <file>SGM_tiny.opi</file>
         <macros>
+          <P>xxx:</P>
+          <N>1</N>
+          <M_x>m7</M_x>
           <M_rIn>m6</M_rIn>
           <M_rOut>m8</M_rOut>
-          <M_x>m7</M_x>
-          <N>1</N>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>Spherical Grating Monochromator (tiny)</description>
@@ -750,11 +751,11 @@
       <action type="open_display">
         <file>SGM.opi</file>
         <macros>
+          <P>xxx:</P>
+          <N>1</N>
+          <M_x>m7</M_x>
           <M_rIn>m6</M_rIn>
           <M_rOut>m8</M_rOut>
-          <M_x>m7</M_x>
-          <N>1</N>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>Spherical Grating Monochromator</description>
@@ -807,8 +808,8 @@
       <action type="open_display">
         <file>hr_nested.opi</file>
         <macros>
-          <N>1</N>
           <P>xxx:</P>
+          <N>1</N>
         </macros>
         <target>tab</target>
         <description>High resolution monochromator (nested)</description>
@@ -816,8 +817,8 @@
       <action type="open_display">
         <file>hr_symmetric.opi</file>
         <macros>
-          <N>1</N>
           <P>xxx:</P>
+          <N>1</N>
         </macros>
         <target>tab</target>
         <description>High resolution monochromator (symmetric)</description>
@@ -825,8 +826,8 @@
       <action type="open_display">
         <file>hrSeqCtl_All.opi</file>
         <macros>
-          <N>1</N>
           <P>xxx:</P>
+          <N>1</N>
         </macros>
         <target>tab</target>
         <description>High resolution monochromator control</description>
@@ -927,8 +928,8 @@
       <action type="open_display">
         <file>deviceCmdReply.opi</file>
         <macros>
-          <N>1</N>
           <P>xxx:</P>
+          <N>1</N>
         </macros>
         <target>tab</target>
         <description>deviceCmdReply 1</description>
@@ -936,8 +937,8 @@
       <action type="open_display">
         <file>deviceCmdReply.opi</file>
         <macros>
-          <N>2</N>
           <P>xxx:</P>
+          <N>2</N>
         </macros>
         <target>tab</target>
         <description>deviceCmdReply 2</description>
@@ -945,8 +946,8 @@
       <action type="open_display">
         <file>deviceCmdReply.opi</file>
         <macros>
-          <N>3</N>
           <P>xxx:</P>
+          <N>3</N>
         </macros>
         <target>tab</target>
         <description>deviceCmdReply 3</description>
@@ -954,8 +955,8 @@
       <action type="open_display">
         <file>deviceCmdReply.opi</file>
         <macros>
-          <N>4</N>
           <P>xxx:</P>
+          <N>4</N>
         </macros>
         <target>tab</target>
         <description>deviceCmdReply 4</description>
@@ -963,8 +964,8 @@
       <action type="open_display">
         <file>deviceCmdReply.opi</file>
         <macros>
-          <N>5</N>
           <P>xxx:</P>
+          <N>5</N>
         </macros>
         <target>tab</target>
         <description>deviceCmdReply 5</description>
@@ -972,8 +973,8 @@
       <action type="open_display">
         <file>deviceCmdReply.opi</file>
         <macros>
-          <N>6</N>
           <P>xxx:</P>
+          <N>6</N>
         </macros>
         <target>tab</target>
         <description>deviceCmdReply 6</description>
@@ -981,8 +982,8 @@
       <action type="open_display">
         <file>deviceCmdReply.opi</file>
         <macros>
-          <N>7</N>
           <P>xxx:</P>
+          <N>7</N>
         </macros>
         <target>tab</target>
         <description>deviceCmdReply 7</description>
@@ -990,8 +991,8 @@
       <action type="open_display">
         <file>deviceCmdReply.opi</file>
         <macros>
-          <N>8</N>
           <P>xxx:</P>
+          <N>8</N>
         </macros>
         <target>tab</target>
         <description>deviceCmdReply 8</description>
@@ -1095,11 +1096,11 @@
       <action type="open_display">
         <file>2filter.opi</file>
         <macros>
-          <LOCK1>fltr_1_2:</LOCK1>
-          <LOCK2>fltr_1_2:</LOCK2>
           <P>xxx:</P>
           <Q1>fltr1:</Q1>
           <Q2>fltr2:</Q2>
+          <LOCK1>fltr_1_2:</LOCK1>
+          <LOCK2>fltr_1_2:</LOCK2>
         </macros>
         <target>tab</target>
         <description>User Filter</description>
@@ -1107,11 +1108,11 @@
       <action type="open_display">
         <file>2filter_setup.opi</file>
         <macros>
-          <LOCK1>fltr_1_2:</LOCK1>
-          <LOCK2>fltr_1_2:</LOCK2>
           <P>xxx:</P>
           <Q1>fltr1:</Q1>
           <Q2>fltr2:</Q2>
+          <LOCK1>fltr_1_2:</LOCK1>
+          <LOCK2>fltr_1_2:</LOCK2>
         </macros>
         <target>tab</target>
         <description>User Filter Setup</description>
@@ -1119,12 +1120,12 @@
       <action type="open_display">
         <file>pf4.opi</file>
         <macros>
+          <P>xxx:</P>
+          <H>pf401:</H>
           <A>A</A>
           <B>B</B>
-          <H>pf401:</H>
-          <MONO></MONO>
-          <P>xxx:</P>
           <PV></PV>
+          <MONO></MONO>
         </macros>
         <target>tab</target>
         <description>XIA pfcu</description>
@@ -1132,10 +1133,10 @@
       <action type="open_display">
         <file>pf4dual.opi</file>
         <macros>
-          <MONO>xxx:BraggERdbkAO</MONO>
           <P>xxx:</P>
           <PV1>xxx:pf4_1:</PV1>
           <PV2>xxx:Unidig1Bo</PV2>
+          <MONO>xxx:BraggERdbkAO</MONO>
         </macros>
         <target>tab</target>
         <description>XIA pfcu (synApps 5.2.1)</description>
@@ -1143,8 +1144,11 @@
       <action type="open_display">
         <file>pf4.opi</file>
         <macros>
+          <P>xxx:</P>
+          <H>pf4:</H>
           <A>A</A>
           <B>B</B>
+          <MONO>xxx:BraggEAO</MONO>
           <B1>xxx:Unidig1Bo3</B1>
           <B2>xxx:Unidig1Bo4</B2>
           <B3>xxx:Unidig1Bo5</B3>
@@ -1153,9 +1157,6 @@
           <B6>xxx:Unidig1Bo8</B6>
           <B7>xxx:Unidig1Bo9</B7>
           <B8>xxx:Unidig1Bo10</B8>
-          <H>pf4:</H>
-          <MONO>xxx:BraggEAO</MONO>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>PF4 Filter</description>
@@ -1163,8 +1164,11 @@
       <action type="open_display">
         <file>pf4small.opi</file>
         <macros>
+          <P>xxx:</P>
+          <H>pf4:</H>
           <A>A</A>
           <B>B</B>
+          <MONO>xxx:BraggEAO</MONO>
           <B1>xxx:Unidig1Bo3</B1>
           <B2>xxx:Unidig1Bo4</B2>
           <B3>xxx:Unidig1Bo5</B3>
@@ -1173,9 +1177,6 @@
           <B6>xxx:Unidig1Bo8</B6>
           <B7>xxx:Unidig1Bo9</B7>
           <B8>xxx:Unidig1Bo10</B8>
-          <H>pf4:</H>
-          <MONO>xxx:BraggEAO</MONO>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>PF4 Filter small</description>
@@ -1183,10 +1184,10 @@
       <action type="open_display">
         <file>pf4.opi</file>
         <macros>
+          <P>xxx:</P>
+          <H>pf4:</H>
           <A>A</A>
           <B>B</B>
-          <H>pf4:</H>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>PF4 Filter fake I/O</description>
@@ -1194,9 +1195,9 @@
       <action type="open_display">
         <file>pf4Bank.opi</file>
         <macros>
-          <B>A</B>
-          <H>pf4:</H>
           <P>xxx:</P>
+          <H>pf4:</H>
+          <B>A</B>
         </macros>
         <target>tab</target>
         <description>PF4 FilterBank A</description>
@@ -1314,12 +1315,12 @@
       <action type="open_display">
         <file>HuberDMC4.opi</file>
         <macros>
+          <P>xxx:</P>
+          <Q>DMC1:</Q>
           <M1>1</M1>
           <M2>2</M2>
           <M3>3</M3>
           <M4>4</M4>
-          <P>xxx:</P>
-          <Q>DMC1:</Q>
         </macros>
         <target>tab</target>
         <description>Huber DMC9200 servo controller</description>
@@ -1345,8 +1346,8 @@
       <action type="open_display">
         <file>HeidEncoder.opi</file>
         <macros>
-          <A>6</A>
           <P>xxx:</P>
+          <A>6</A>
         </macros>
         <target>tab</target>
         <description>Heidenhain AWE1024</description>
@@ -1354,8 +1355,8 @@
       <action type="open_display">
         <file>HeidEncoder.opi</file>
         <macros>
-          <A>7</A>
           <P>xxx:</P>
+          <A>7</A>
         </macros>
         <target>tab</target>
         <description>Heidenhain AWE1024</description>
@@ -1425,13 +1426,13 @@
       <action type="open_display">
         <file>orient.opi</file>
         <macros>
-          <O>_0</O>
           <P>xxx:</P>
+          <O>_0</O>
           <PM>xxx:</PM>
+          <mTTH>m9</mTTH>
+          <mTH>m10</mTH>
           <mCHI>m11</mCHI>
           <mPHI>m12</mPHI>
-          <mTH>m10</mTH>
-          <mTTH>m9</mTTH>
         </macros>
         <target>tab</target>
         <description>orientation matrix</description>
@@ -1441,10 +1442,10 @@
         <macros>
           <P>xxx:</P>
           <PM>xxx:</PM>
+          <mTTH>m9</mTTH>
+          <mTH>m10</mTH>
           <mCHI>m11</mCHI>
           <mPHI>m12</mPHI>
-          <mTH>m10</mTH>
-          <mTTH>m9</mTTH>
         </macros>
         <target>tab</target>
         <description>orient9</description>
@@ -1469,8 +1470,8 @@
       <action type="open_display">
         <file>mca_small.opi</file>
         <macros>
-          <M>aim_adc1</M>
           <P>xxx:</P>
+          <M>aim_adc1</M>
         </macros>
         <target>tab</target>
         <description>Canberra AIM Multichannel Analyzer</description>
@@ -1478,8 +1479,8 @@
       <action type="open_display">
         <file>mca.opi</file>
         <macros>
-          <M>aim_adc1</M>
           <P>xxx:</P>
+          <M>aim_adc1</M>
         </macros>
         <target>tab</target>
         <description>MCA with ROI's</description>
@@ -1487,8 +1488,8 @@
       <action type="open_display">
         <file>xxIcbAdc.opi</file>
         <macros>
-          <ADC>adc1</ADC>
           <P>xxx:</P>
+          <ADC>adc1</ADC>
         </macros>
         <target>tab</target>
         <description>ADC 1</description>
@@ -1505,8 +1506,8 @@
       <action type="open_display">
         <file>xxIcbHVPS.opi</file>
         <macros>
-          <HVPS>hvps1</HVPS>
           <P>xxx:</P>
+          <HVPS>hvps1</HVPS>
         </macros>
         <target>tab</target>
         <description>HVPS 1</description>
@@ -1514,8 +1515,8 @@
       <action type="open_display">
         <file>xxIcbAmp.opi</file>
         <macros>
-          <AMP>amp1</AMP>
           <P>xxx:</P>
+          <AMP>amp1</AMP>
         </macros>
         <target>tab</target>
         <description>AMP 1</description>
@@ -1523,8 +1524,8 @@
       <action type="open_display">
         <file>dsp9660Gain.opi</file>
         <macros>
-          <DSP>dsp1</DSP>
           <P>xxx:</P>
+          <DSP>dsp1</DSP>
         </macros>
         <target>tab</target>
         <description>DSP 1</description>
@@ -1532,8 +1533,8 @@
       <action type="open_display">
         <file>mca_small.opi</file>
         <macros>
-          <M>softMCA</M>
           <P>xxx:</P>
+          <M>softMCA</M>
         </macros>
         <target>tab</target>
         <description>soft MCA</description>
@@ -1602,7 +1603,7 @@
       </color>
     </background_color>
   </widget>
-  <widget type="group" version="2.0.0">
+  <widget type="group" version="3.0.0">
     <name>composite #167</name>
     <x>350</x>
     <y>78</y>
@@ -1706,8 +1707,8 @@
       <action type="open_display">
         <file>pvHistory.opi</file>
         <macros>
-          <N>1</N>
           <P>xxx:</P>
+          <N>1</N>
         </macros>
         <target>tab</target>
         <description>pvHistory 1</description>
@@ -1742,8 +1743,8 @@
       <action type="open_display">
         <file>VME_DAC8.opi</file>
         <macros>
-          <D>1</D>
           <P>xxx:</P>
+          <D>1</D>
         </macros>
         <target>tab</target>
         <description>vme DAC 1 Chans 1-8</description>
@@ -1751,8 +1752,8 @@
       <action type="open_display">
         <file>VME_DAC8.opi</file>
         <macros>
-          <D>2</D>
           <P>xxx:</P>
+          <D>2</D>
         </macros>
         <target>tab</target>
         <description>vme DAC 2 Chans 1-8</description>
@@ -1760,8 +1761,8 @@
       <action type="open_display">
         <file>topDAC8.opi</file>
         <macros>
-          <D>3</D>
           <P>xxx:</P>
+          <D>3</D>
         </macros>
         <target>tab</target>
         <description>dac128V 1 Chans 1-8</description>
@@ -1769,8 +1770,8 @@
       <action type="open_display">
         <file>topDAC8.opi</file>
         <macros>
-          <D>1</D>
           <P>xxx:</P>
+          <D>1</D>
         </macros>
         <target>tab</target>
         <description>vme DAC 1 Chans 1-8</description>
@@ -1804,8 +1805,8 @@
       <action type="open_display">
         <file>mca_small.opi</file>
         <macros>
-          <M>mca0</M>
           <P>xxx:med:</P>
+          <M>mca0</M>
         </macros>
         <target>tab</target>
         <description>summed spectrum (mca0)</description>
@@ -1821,8 +1822,8 @@
       <action type="open_display">
         <file>xxIcbHVPS.opi</file>
         <macros>
-          <HVPS>hvps1</HVPS>
           <P>xxx:med:</P>
+          <HVPS>hvps1</HVPS>
         </macros>
         <target>tab</target>
         <description>HV power supply</description>
@@ -1883,6 +1884,7 @@
       <action type="open_display">
         <file>Acromag_8in.opi</file>
         <macros>
+          <P>xxx:</P>
           <A>1</A>
           <CH0>0</CH0>
           <CH1>1</CH1>
@@ -1892,7 +1894,6 @@
           <CH5>5</CH5>
           <CH6>6</CH6>
           <CH7>7</CH7>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description> Acromag 8 in</description>
@@ -1900,6 +1901,7 @@
       <action type="open_display">
         <file>Acromag_8out.opi</file>
         <macros>
+          <P>xxx:</P>
           <A>1</A>
           <CH0>0</CH0>
           <CH1>1</CH1>
@@ -1909,7 +1911,6 @@
           <CH5>5</CH5>
           <CH6>6</CH6>
           <CH7>7</CH7>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description> Acromag 8 out</description>
@@ -1917,8 +1918,8 @@
       <action type="open_display">
         <file>Acromag_16out.opi</file>
         <macros>
-          <A>1</A>
           <P>xxx:</P>
+          <A>1</A>
         </macros>
         <target>tab</target>
         <description> Acromag 16 out</description>
@@ -1926,8 +1927,8 @@
       <action type="open_display">
         <file>Acromag_16in.opi</file>
         <macros>
-          <A>1</A>
           <P>xxx:</P>
+          <A>1</A>
         </macros>
         <target>tab</target>
         <description> Acromag 16 in</description>
@@ -1953,8 +1954,8 @@
       <action type="open_display">
         <file>quadEM.opi</file>
         <macros>
-          <EM>EM1</EM>
           <P>xxx:</P>
+          <EM>EM1</EM>
         </macros>
         <target>tab</target>
         <description>Quad Electrometer Ch.1</description>
@@ -1962,8 +1963,8 @@
       <action type="open_display">
         <file>quadEM.opi</file>
         <macros>
-          <EM>EM2</EM>
           <P>xxx:</P>
+          <EM>EM2</EM>
         </macros>
         <target>tab</target>
         <description>Quad Electrometer Ch.2</description>
@@ -1971,8 +1972,8 @@
       <action type="open_display">
         <file>quadEM.opi</file>
         <macros>
-          <EM>EM3</EM>
           <P>xxx:</P>
+          <EM>EM3</EM>
         </macros>
         <target>tab</target>
         <description>Quad Electrometer Ch.3</description>
@@ -1980,8 +1981,8 @@
       <action type="open_display">
         <file>quadEM.opi</file>
         <macros>
-          <EM>EM4</EM>
           <P>xxx:</P>
+          <EM>EM4</EM>
         </macros>
         <target>tab</target>
         <description>Quad Electrometer Ch.4</description>
@@ -2135,8 +2136,8 @@
       <action type="open_display">
         <file>caputRecorder.opi</file>
         <macros>
-          <L>xxx:</L>
           <P>xxx:</P>
+          <L>xxx:</L>
         </macros>
         <target>tab</target>
         <description>caputRecorder</description>
@@ -2144,8 +2145,8 @@
       <action type="open_display">
         <file>caputRecorder.opi</file>
         <macros>
-          <L>xxx:</L>
           <P>xxxA:</P>
+          <L>xxx:</L>
         </macros>
         <target>tab</target>
         <description>caputRecorderA</description>
@@ -2171,11 +2172,11 @@
       <action type="open_display">
         <file>CoarseFineMotor.opi</file>
         <macros>
+          <P>xxx:cf1:</P>
+          <M>MOT</M>
+          <PM>xxx:</PM>
           <CM>m1</CM>
           <FM>m2</FM>
-          <M>MOT</M>
-          <P>xxx:cf1:</P>
-          <PM>xxx:</PM>
         </macros>
         <target>tab</target>
         <description>CoarseFine</description>
@@ -2236,9 +2237,9 @@
       <action type="open_display">
         <file>Io.opi</file>
         <macros>
-          <MONO>xxx:BraggEAO</MONO>
           <P>xxx:Io:</P>
           <S>xxx:scaler1</S>
+          <MONO>xxx:BraggEAO</MONO>
         </macros>
         <target>tab</target>
         <description>Io</description>
@@ -2265,8 +2266,8 @@
         <macros>
           <P>xxx:</P>
           <SLIT>Slit1H</SLIT>
-          <mXn>m6</mXn>
           <mXp>m5</mXp>
+          <mXn>m6</mXn>
         </macros>
         <target>tab</target>
         <description>Slit 1 (H)</description>
@@ -2276,8 +2277,8 @@
         <macros>
           <P>xxx:</P>
           <SLIT>Slit1V</SLIT>
-          <mXn>m4</mXn>
           <mXp>m3</mXp>
+          <mXn>m4</mXn>
         </macros>
         <target>tab</target>
         <description>Slit 1 (V)</description>
@@ -2285,14 +2286,14 @@
       <action type="open_display">
         <file>4slitGraphic.opi</file>
         <macros>
-          <H>Slit1H</H>
           <P>xxx:</P>
           <SLIT>Slit_1</SLIT>
-          <V>Slit1V</V>
-          <mXn>m4</mXn>
+          <H>Slit1H</H>
           <mXp>m3</mXp>
-          <mYn>m6</mYn>
+          <mXn>m4</mXn>
+          <V>Slit1V</V>
           <mYp>m5</mYp>
+          <mYn>m6</mYn>
         </macros>
         <target>tab</target>
         <description>Slit 1 Graphic</description>
@@ -2300,11 +2301,11 @@
       <action type="open_display">
         <file>motor4x.opi</file>
         <macros>
+          <P>xxx:</P>
           <M1>m3</M1>
           <M2>m4</M2>
           <M3>m5</M3>
           <M4>m6</M4>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>Slit Motors</description>
@@ -2314,8 +2315,8 @@
         <macros>
           <P>xxx:</P>
           <SLIT>Slit2H</SLIT>
-          <mXn>m16</mXn>
           <mXp>m15</mXp>
+          <mXn>m16</mXn>
         </macros>
         <target>tab</target>
         <description>Slit 2 (H) (soft)</description>
@@ -2325,8 +2326,8 @@
         <macros>
           <P>xxx:</P>
           <SLIT>Slit2V</SLIT>
-          <mXn>m14</mXn>
           <mXp>m13</mXp>
+          <mXn>m14</mXn>
         </macros>
         <target>tab</target>
         <description>Slit 2 (V) (soft)</description>
@@ -2334,14 +2335,14 @@
       <action type="open_display">
         <file>4slitGraphic_soft.opi</file>
         <macros>
-          <H>Slit2H</H>
           <P>xxx:</P>
           <SLIT>Slit_2</SLIT>
-          <V>Slit2V</V>
-          <mXn>m16</mXn>
+          <H>Slit2H</H>
           <mXp>m15</mXp>
-          <mYn>m14</mYn>
+          <mXn>m16</mXn>
+          <V>Slit2V</V>
           <mYp>m13</mYp>
+          <mYn>m14</mYn>
         </macros>
         <target>tab</target>
         <description>Slit 2 Graphic (soft)</description>
@@ -2349,8 +2350,8 @@
       <action type="open_display">
         <file>xia_slit.opi</file>
         <macros>
-          <HSC>hsc1:</HSC>
           <P>xxx:</P>
+          <HSC>hsc1:</HSC>
         </macros>
         <target>tab</target>
         <description>XIA slit 1 (H)</description>
@@ -2358,8 +2359,8 @@
       <action type="open_display">
         <file>xia_slit.opi</file>
         <macros>
-          <HSC>hsc2:</HSC>
           <P>xxx:</P>
+          <HSC>hsc2:</HSC>
         </macros>
         <target>tab</target>
         <description>XIA slit 1 (V)</description>
@@ -2451,8 +2452,8 @@
       <action type="open_display">
         <file>SR570_tiny.opi</file>
         <macros>
-          <A>A1</A>
           <P>xxx:</P>
+          <A>A1</A>
         </macros>
         <target>tab</target>
         <description>SRS 570 Current Preamplifier #A1</description>
@@ -2460,8 +2461,8 @@
       <action type="open_display">
         <file>SR570_tiny.opi</file>
         <macros>
-          <A>A2</A>
           <P>xxx:</P>
+          <A>A2</A>
         </macros>
         <target>tab</target>
         <description>SRS 570 Current Preamplifier #A2</description>
@@ -2469,8 +2470,8 @@
       <action type="open_display">
         <file>SR570_tiny.opi</file>
         <macros>
-          <A>A3</A>
           <P>xxx:</P>
+          <A>A3</A>
         </macros>
         <target>tab</target>
         <description>SRS 570 Current Preamplifier #A3</description>
@@ -2478,8 +2479,8 @@
       <action type="open_display">
         <file>SR570_tiny.opi</file>
         <macros>
-          <A>A4</A>
           <P>xxx:</P>
+          <A>A4</A>
         </macros>
         <target>tab</target>
         <description>SRS 570 Current Preamplifier #A4</description>
@@ -2487,8 +2488,8 @@
       <action type="open_display">
         <file>SR570_tiny.opi</file>
         <macros>
-          <A>A5</A>
           <P>xxx:</P>
+          <A>A5</A>
         </macros>
         <target>tab</target>
         <description>SRS 570 Current Preamplifier #A5</description>
@@ -2496,10 +2497,10 @@
       <action type="open_display">
         <file>femto.opi</file>
         <macros>
-          <AC>xxx:Unidig1Bo9</AC>
-          <F>seq01:</F>
-          <H>fem01:</H>
           <P>xxx:</P>
+          <H>fem01:</H>
+          <F>seq01:</F>
+          <AC>xxx:Unidig1Bo9</AC>
         </macros>
         <target>tab</target>
         <description>Femto Current Preamplifier</description>
@@ -2578,13 +2579,13 @@
         <file>ml_monoGraphic.opi</file>
         <macros>
           <P>xxx:</P>
-          <mB>m11</mB>
+          <mY1>m1</mY1>
+          <mZ1>m2</mZ1>
+          <mY2>m9</mY2>
+          <mZ2>m8</mZ2>
           <mT1>m7</mT1>
           <mT2>m10</mT2>
-          <mY1>m1</mY1>
-          <mY2>m9</mY2>
-          <mZ1>m2</mZ1>
-          <mZ2>m8</mZ2>
+          <mB>m11</mB>
         </macros>
         <target>tab</target>
         <description>ml_monoGraphic</description>
@@ -2617,8 +2618,8 @@
         <file>scanParms.opi</file>
         <macros>
           <P>xxx:</P>
-          <PV>ml_monoE</PV>
           <Q>ml_monoE</Q>
+          <PV>ml_monoE</PV>
         </macros>
         <target>tab</target>
         <description>Energy-scan parameters</description>
@@ -2627,8 +2628,8 @@
         <file>scanParms.opi</file>
         <macros>
           <P>xxx:</P>
-          <PV>ml_monoTheta</PV>
           <Q>ml_monoTheta</Q>
+          <PV>ml_monoTheta</PV>
         </macros>
         <target>tab</target>
         <description>Theta-scan parameters</description>
@@ -2637,8 +2638,8 @@
         <file>scanParms.opi</file>
         <macros>
           <P>xxx:</P>
-          <PV>ml_monoLambda</PV>
           <Q>ml_monoLambda</Q>
+          <PV>ml_monoLambda</PV>
         </macros>
         <target>tab</target>
         <description>Wavelength-scan parameters</description>
@@ -2664,8 +2665,8 @@
       <action type="open_display">
         <file>softGlueMenu.opi</file>
         <macros>
-          <H>softGlue:</H>
           <P>xxx:</P>
+          <H>softGlue:</H>
         </macros>
         <target>tab</target>
         <description>softGlueMenu</description>
@@ -2673,8 +2674,8 @@
       <action type="open_display">
         <file>softGlueMenu.opi</file>
         <macros>
-          <H>softGlue2:</H>
           <P>xxx:</P>
+          <H>softGlue2:</H>
         </macros>
         <target>tab</target>
         <description>softGlue2 Menu</description>
@@ -2682,9 +2683,9 @@
       <action type="open_display">
         <file>softGlue_Shift32_bare.opi</file>
         <macros>
+          <P>xxx:</P>
           <H>softGlue:</H>
           <N>1</N>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>shift 1</description>
@@ -2692,9 +2693,9 @@
       <action type="open_display">
         <file>softGlue_Shift32_bare.opi</file>
         <macros>
+          <P>xxx:</P>
           <H>softGlue:</H>
           <N>2</N>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>shift 2</description>
@@ -2702,8 +2703,8 @@
       <action type="open_display">
         <file>configMenu.opi</file>
         <macros>
-          <CONFIG>SG</CONFIG>
           <P>xxx:</P>
+          <CONFIG>SG</CONFIG>
         </macros>
         <target>tab</target>
         <description>SoftGlue Circuits</description>
@@ -2764,8 +2765,8 @@
       <action type="open_display">
         <file>mca_small.opi</file>
         <macros>
-          <M>mip330_1</M>
           <P>xxx:</P>
+          <M>mip330_1</M>
         </macros>
         <target>tab</target>
         <description>ADC 1 sweep</description>
@@ -2773,8 +2774,8 @@
       <action type="open_display">
         <file>mca_small.opi</file>
         <macros>
-          <M>mip330_2</M>
           <P>xxx:</P>
+          <M>mip330_2</M>
         </macros>
         <target>tab</target>
         <description>ADC 2 sweep</description>
@@ -2782,8 +2783,8 @@
       <action type="open_display">
         <file>mca_small.opi</file>
         <macros>
-          <M>mip330_3</M>
           <P>xxx:</P>
+          <M>mip330_3</M>
         </macros>
         <target>tab</target>
         <description>ADC 3 sweep</description>
@@ -2791,8 +2792,8 @@
       <action type="open_display">
         <file>mca_small.opi</file>
         <macros>
-          <M>mip330_4</M>
           <P>xxx:</P>
+          <M>mip330_4</M>
         </macros>
         <target>tab</target>
         <description>ADC 4 sweep</description>
@@ -2848,6 +2849,9 @@
       <action type="open_display">
         <file>trajectoryScan.opi</file>
         <macros>
+          <P>xxx:</P>
+          <R>traj1:</R>
+          <TITLE>traj1</TITLE>
           <M1>m1</M1>
           <M2>m2</M2>
           <M3>m3</M3>
@@ -2856,9 +2860,6 @@
           <M6>m6</M6>
           <M7>m7</M7>
           <M8>m8</M8>
-          <P>xxx:</P>
-          <R>traj1:</R>
-          <TITLE>traj1</TITLE>
         </macros>
         <target>tab</target>
         <description>standard trajectoryScan</description>
@@ -2866,6 +2867,9 @@
       <action type="open_display">
         <file>MAX_trajectoryScan.opi</file>
         <macros>
+          <P>xxx:</P>
+          <R>traj1:</R>
+          <TITLE>traj1</TITLE>
           <M1>m1</M1>
           <M2>m2</M2>
           <M3>m3</M3>
@@ -2874,9 +2878,6 @@
           <M6>m6</M6>
           <M7>m7</M7>
           <M8>m8</M8>
-          <P>xxx:</P>
-          <R>traj1:</R>
-          <TITLE>traj1</TITLE>
         </macros>
         <target>tab</target>
         <description>trajectoryScan1</description>
@@ -2884,6 +2885,9 @@
       <action type="open_display">
         <file>MAX_trajectoryScan.opi</file>
         <macros>
+          <P>xxx:</P>
+          <R>traj2:</R>
+          <TITLE>traj2</TITLE>
           <M1>m9</M1>
           <M2>m10</M2>
           <M3>m11</M3>
@@ -2892,9 +2896,6 @@
           <M6>m14</M6>
           <M7>m15</M7>
           <M8>m16</M8>
-          <P>xxx:</P>
-          <R>traj2:</R>
-          <TITLE>traj2</TITLE>
         </macros>
         <target>tab</target>
         <description>trajectoryScan2</description>
@@ -2902,6 +2903,9 @@
       <action type="open_display">
         <file>MAX_trajectoryScan2.opi</file>
         <macros>
+          <P>xxx:</P>
+          <R>traj1:</R>
+          <TITLE>traj1</TITLE>
           <M1>m1</M1>
           <M2>m2</M2>
           <M3>m3</M3>
@@ -2910,9 +2914,6 @@
           <M6>m6</M6>
           <M7>m7</M7>
           <M8>m8</M8>
-          <P>xxx:</P>
-          <R>traj1:</R>
-          <TITLE>traj1</TITLE>
         </macros>
         <target>tab</target>
         <description>trajectoryScan1 (2 mot)</description>
@@ -2920,6 +2921,9 @@
       <action type="open_display">
         <file>trajectoryScan.opi</file>
         <macros>
+          <P>xxx:</P>
+          <R>traj1:</R>
+          <TITLE>traj1</TITLE>
           <M1>m1</M1>
           <M2>m2</M2>
           <M3>m3</M3>
@@ -2928,9 +2932,6 @@
           <M6>m6</M6>
           <M7>m7</M7>
           <M8>m8</M8>
-          <P>xxx:</P>
-          <R>traj1:</R>
-          <TITLE>traj1</TITLE>
         </macros>
         <target>tab</target>
         <description>MM4000 XPS trajectory</description>
@@ -3015,8 +3016,8 @@
       <action type="open_display">
         <file>countDownTimer.opi</file>
         <macros>
-          <N>1</N>
           <P>xxx:</P>
+          <N>1</N>
         </macros>
         <target>tab</target>
         <description>count down timer</description>
@@ -3041,8 +3042,8 @@
       <action type="open_display">
         <file>alarmClock.opi</file>
         <macros>
-          <A>1</A>
           <P>xxx:</P>
+          <A>1</A>
         </macros>
         <target>tab</target>
         <description>alarm clock</description>
@@ -3068,8 +3069,8 @@
       <action type="open_display">
         <file>timer.opi</file>
         <macros>
-          <N>1</N>
           <P>xxx:</P>
+          <N>1</N>
         </macros>
         <target>tab</target>
         <description>timer</description>
@@ -3130,9 +3131,9 @@
       <action type="open_display">
         <file>slew.opi</file>
         <macros>
+          <P>xxx:</P>
           <M>m2</M>
           <MCS>3820:</MCS>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>SlewScan</description>
@@ -3185,9 +3186,9 @@
       <action type="open_display">
         <file>encoderInterlaceFly.opi</file>
         <macros>
-          <FLY>xxx:eFly:</FLY>
           <P>xxx:</P>
           <Q>iFly:</Q>
+          <FLY>xxx:eFly:</FLY>
         </macros>
         <target>tab</target>
         <description>encoderInterlaceFly</description>
@@ -3221,8 +3222,8 @@
       <action type="open_display">
         <file>configMenu.opi</file>
         <macros>
-          <CONFIG>waveformTypes</CONFIG>
           <P>xxx:</P>
+          <CONFIG>waveformTypes</CONFIG>
         </macros>
         <target>tab</target>
         <description>waveformTypes menu</description>
@@ -3267,10 +3268,10 @@
       <action type="open_display">
         <file>motor3x.opi</file>
         <macros>
+          <P>xxx:</P>
           <M1>m2</M1>
           <M2>m1</M2>
           <M3>m3</M3>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>MLLH hard motors</description>
@@ -3287,12 +3288,12 @@
       <action type="open_display">
         <file>motor5x.opi</file>
         <macros>
+          <P>xxx:</P>
           <M1>m4</M1>
           <M2>m5</M2>
           <M3>m6</M3>
           <M4>m7</M4>
           <M5>m8</M5>
-          <P>xxx:</P>
         </macros>
         <target>tab</target>
         <description>MLLV hard motors</description>
@@ -3374,8 +3375,8 @@
       <action type="open_display">
         <file>userStringCalcs10more.opi</file>
         <macros>
+          <P>xxx:</P>
           <N1>11</N1>
-          <N10>20</N10>
           <N2>12</N2>
           <N3>13</N3>
           <N4>14</N4>
@@ -3384,7 +3385,7 @@
           <N7>17</N7>
           <N8>18</N8>
           <N9>19</N9>
-          <P>xxx:</P>
+          <N10>20</N10>
         </macros>
         <target>tab</target>
         <description>user stringCalcs 11-20</description>
@@ -3392,8 +3393,8 @@
       <action type="open_display">
         <file>userTransforms10more.opi</file>
         <macros>
+          <P>xxx:</P>
           <N1>11</N1>
-          <N10>20</N10>
           <N2>12</N2>
           <N3>13</N3>
           <N4>14</N4>
@@ -3402,7 +3403,7 @@
           <N7>17</N7>
           <N8>18</N8>
           <N9>19</N9>
-          <P>xxx:</P>
+          <N10>20</N10>
         </macros>
         <target>tab</target>
         <description>user transforms 11-20</description>
@@ -3410,8 +3411,8 @@
       <action type="open_display">
         <file>userStringSeqs10more.opi</file>
         <macros>
+          <P>xxx:</P>
           <N1>11</N1>
-          <N10>20</N10>
           <N2>12</N2>
           <N3>13</N3>
           <N4>14</N4>
@@ -3420,7 +3421,7 @@
           <N7>17</N7>
           <N8>18</N8>
           <N9>19</N9>
-          <P>xxx:</P>
+          <N10>20</N10>
         </macros>
         <target>tab</target>
         <description>user string seqs 11-20</description>
@@ -3428,8 +3429,8 @@
       <action type="open_display">
         <file>userArrayCalcs10more.opi</file>
         <macros>
+          <P>xxx:</P>
           <N1>11</N1>
-          <N10>20</N10>
           <N2>12</N2>
           <N3>13</N3>
           <N4>14</N4>
@@ -3438,7 +3439,7 @@
           <N7>17</N7>
           <N8>18</N8>
           <N9>19</N9>
-          <P>xxx:</P>
+          <N10>20</N10>
         </macros>
         <target>tab</target>
         <description>user arrayCalcs 11-20</description>
@@ -3446,8 +3447,8 @@
       <action type="open_display">
         <file>userAve10more.opi</file>
         <macros>
+          <P>xxx:</P>
           <N1>11</N1>
-          <N10>20</N10>
           <N2>12</N2>
           <N3>13</N3>
           <N4>14</N4>
@@ -3456,7 +3457,7 @@
           <N7>17</N7>
           <N8>18</N8>
           <N9>19</N9>
-          <P>xxx:</P>
+          <N10>20</N10>
         </macros>
         <target>tab</target>
         <description>user average 11-20</description>
@@ -3464,8 +3465,8 @@
       <action type="open_display">
         <file>userCalcOuts10more.opi</file>
         <macros>
+          <P>xxx:</P>
           <N1>11</N1>
-          <N10>20</N10>
           <N2>12</N2>
           <N3>13</N3>
           <N4>14</N4>
@@ -3474,7 +3475,7 @@
           <N7>17</N7>
           <N8>18</N8>
           <N9>19</N9>
-          <P>xxx:</P>
+          <N10>20</N10>
         </macros>
         <target>tab</target>
         <description>user calcOuts 11-20</description>
@@ -3482,8 +3483,8 @@
       <action type="open_display">
         <file>userCalcs10more.opi</file>
         <macros>
+          <P>xxx:</P>
           <N1>11</N1>
-          <N10>20</N10>
           <N2>12</N2>
           <N3>13</N3>
           <N4>14</N4>
@@ -3492,16 +3493,17 @@
           <N7>17</N7>
           <N8>18</N8>
           <N9>19</N9>
-          <P>xxx:</P>
+          <N10>20</N10>
         </macros>
         <target>tab</target>
         <description>user calcs 11-20</description>
       </action>
       <action type="open_display">
-        <file>xxBusyRecord.opi</file>
+        <file>xxBusyRecord2x.opi</file>
         <macros>
           <P>xxx:</P>
-          <R>mybusy</R>
+          <R1>mybusy1</R1>
+          <R2>mybusy2</R2>
         </macros>
         <target>tab</target>
         <description>busyRecord</description>
@@ -3571,9 +3573,9 @@
       <action type="open_display">
         <file>encoderInterlaceFly.opi</file>
         <macros>
-          <FLY>xxx:eFly:</FLY>
           <P>xxx:</P>
           <Q>iFly:</Q>
+          <FLY>xxx:eFly:</FLY>
         </macros>
         <target>tab</target>
         <description>encoderInterlaceFly</description>
@@ -3581,9 +3583,9 @@
       <action type="open_display">
         <file>encoderTableFly.opi</file>
         <macros>
-          <FLY>xxx:eFly:</FLY>
           <P>yyy:</P>
           <Q>tFly:</Q>
+          <FLY>xxx:eFly:</FLY>
         </macros>
         <target>tab</target>
         <description>encoderTableFly</description>
@@ -3706,9 +3708,9 @@
       <action type="open_display">
         <file>encoderInterlaceFly.opi</file>
         <macros>
-          <FLY>xxx:eFly:</FLY>
           <P>xxx:</P>
           <Q>iFly:</Q>
+          <FLY>xxx:eFly:</FLY>
         </macros>
         <target>tab</target>
         <description>encoderInterlaceFly</description>
