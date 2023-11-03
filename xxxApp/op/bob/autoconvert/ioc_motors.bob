@@ -257,6 +257,20 @@
     </background_color>
   </widget>
   <widget type="action_button" version="3.0.0">
+    <name>related display #42</name>
+    <text>Piezo</text>
+    <x>254</x>
+    <y>80</y>
+    <width>112</width>
+    <height>24</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
   </widget>
   <widget type="action_button" version="3.0.0">
     <name>related display #44</name>

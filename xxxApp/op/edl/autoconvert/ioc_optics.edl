@@ -678,12 +678,20 @@ bgColor rgb 13056 39168 0
 topShadowColor rgb 55808 55808 55808
 botShadowColor rgb 17920 17920 17920
 font "helvetica-medium-r-14.0"
-buttonLabel ""
-numPvs 0
-numDsps 0
+buttonLabel "EPID"
+numPvs 2
+numDsps 1
 displayFileName {
+  0 "fb_epid.edl"
 }
 menuLabel {
+  0 "EPID"
+}
+symbols {
+  0 "P=$(P):epid1"
+}
+replaceSymbols {
+  0 1
 }
 endObjectProperties
 
@@ -903,7 +911,7 @@ menuLabel {
 }
 symbols {
   0 "P=$(P),O=_0,PM=$(P),mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
-  1 "P=$(P),PM=$(P),mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
+  1 "P=$(P),O=_0,PM=$(P),mTTH=m9,mTH=m10,mCHI=m11,mPHI=m12"
 }
 replaceSymbols {
   0 1
