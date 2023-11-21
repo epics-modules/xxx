@@ -258,7 +258,13 @@ ifeq ($(OS_CLASS), WIN32)
       $(PROD_NAME)_SYS_LIBS += setupapi
     endif
   endif
-  
+
+  ifdef DANTE
+    $(DBD_NAME)_DBD += mcaDanteSupport.dbd
+    $(PROD_NAME)_LIBS := mcaDante $($(PROD_NAME)_LIBS)
+    $(PROD_NAME)_SYS_LIBS += XGL_DPP
+  endif
+    
   ifdef DXPSITORO
     $(DBD_NAME)_DBD += dxpSITOROSupport.dbd
     $(PROD_NAME)_LIBS := dxpSITORO handelSITORO $($(PROD_NAME)_LIBS)
@@ -482,7 +488,11 @@ ifdef PVADRIVER
   $(PROD_NAME)_LIBS := pvaDriver $($(PROD_NAME)_LIBS)
 endif
     
-    
+  ifdef DANTE
+    $(DBD_NAME)_DBD += mcaDanteSupport.dbd
+    $(PROD_NAME)_LIBS := mcaDante $($(PROD_NAME)_LIBS)
+    $(PROD_NAME)_SYS_LIBS += XGL_DPP
+  endif
     
   ifdef DXP
     # If your host supports parallel port or USB interfaces to Saturn DXP, set
