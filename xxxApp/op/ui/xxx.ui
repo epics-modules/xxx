@@ -1835,7 +1835,7 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
               <string>ADBase.ui;simDetector.ui;ad_cam_image.ui;;ADBase.ui;simDetector.ui;ad_cam_image.ui</string>
              </property>
              <property name="args">
-              <string>P=xxx:, R=SIM1:cam1:;P=xxx:, R=SIM1:cam1:;P=xxx:, R=cam1:;;P=xxx:, R=SIM1:cam2:;P=xxx:, R=SIM1:cam2:;P=xxx:, R=cam2:</string>
+              <string>P=xxx:, R=cam1:;P=xxx:, R=cam1:;P=xxx:, R=cam1:;;P=xxx:, R=cam2:;P=xxx:, R=cam2:;P=xxx:, R=cam2:</string>
              </property>
              <property name="stackingMode" stdset="0">
               <enum>caRowColMenu::Menu</enum>
