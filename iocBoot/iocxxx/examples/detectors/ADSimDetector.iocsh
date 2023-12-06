@@ -17,7 +17,7 @@ iocshRun('epicsEnvSet("__FTVL", "$($(TYPE=Int8)_VAL)")', "Int8_VAL=UCHAR, UInt8_
 iocshRun('epicsEnvSet("__TYPE", "$($(TYPE=Int8)_VAL)")', "Int8_VAL=Int8, UInt8_VAL=Int8, Int16_VAL=Int16, UInt16_VAL=Int16, Int32_VAL=Int32, UInt32_VAL=Int32, Float32_VAL=Float32, Float64_VAL=Float64")
 luaCmd("epicsEnvSet('__SIZE', tostring((XSIZE*YSIZE)|0))", "XSIZE=$(XSIZE), YSIZE=$(YSIZE)")
 
-dbLoadRecords("$(ADCORE)/ADApp/Db/NDStdArrays.template", "P=$(PREFIX):,R=image1:,PORT=$(INSTANCE)Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(__TYPE),FTVL=$(__FTVL),NELEMENTS=$(__SIZE)")
+dbLoadRecords("$(ADCORE)/ADApp/Db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=$(INSTANCE)Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(__TYPE),FTVL=$(__FTVL),NELEMENTS=$(__SIZE)")
 
 epicsEnvUnset("__FTVL")
 epicsEnvUnset("__TYPE")
