@@ -20,8 +20,8 @@ export MACROS_PY=${EPICS_APP_UI_DIR}/../python/macros.py
 export EDITOR=nedit
 
 #######################################
-# start caQtDM
+# start CSS-phoebus
 
 
-/APSshare/bin/phoebus -nosplash -resource "file:${EPICS_APP_UI_DIR}/${DEFAULT_UI_FILE}?${UI_FILE_MACROS}&target=window"
+/APSshare/bin/phoebus -layout phoebus.layout -resource "file:${EPICS_APP_UI_DIR}/${DEFAULT_UI_FILE}?${UI_FILE_MACROS}&target=window"
 

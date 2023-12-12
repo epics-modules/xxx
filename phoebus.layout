@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<memento show_menu="true" show_statusbar="true" show_tabs="true" show_toolbar="true">
+    <DockStage_MAIN height="131.0" width="703.0" x="50.0" y="50.0">
+        <pane selected="0">
+            <DockItem_b4d5ca26_c0ef_4aab_bb16_904abfb906b2 application="welcome"/>
+        </pane>
+    </DockStage_MAIN>
+</memento>
