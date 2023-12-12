@@ -8,9 +8,6 @@ use Cwd qw(cwd);
 use Getopt::Std;
 $Getopt::Std::STANDARD_HELP_VERSION = 1;
 
-use FindBin qw($Bin);
-use lib ("$EPICS_BASE/lib/perl", $Bin);
-
 use EPICS::Path;
 use EPICS::Release;
 
