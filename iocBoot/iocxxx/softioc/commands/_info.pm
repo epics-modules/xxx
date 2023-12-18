@@ -59,7 +59,7 @@ sub parse
 		
 		my $ip_addr = my_ip();
 		
-		if ($ip_addr == $tcpline[1])
+		if ($ip_addr eq $tcpline[1])
 		{
 			$output{"SAME_HOST"} = 1;
 		}
