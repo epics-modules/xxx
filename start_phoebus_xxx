@@ -2,7 +2,7 @@
 
 export EPICS_APP=$(cd "$(dirname "$BASH_SOURCE")"; cd -P "$(dirname "$(readlink "$BASH_SOURCE" || echo .)")"; pwd)
 export EPICS_APP_UI_DIR=${EPICS_APP}/xxxApp/op/bob/autoconvert
-export DEFAULT_UI_FILE=${1:-${DEFAULT_UI_FILE:-xxx.bob}}
+export DEFAULT_UI_FILE=${1:-${DEFAULT_UI_FILE:-ioc_motors.bob}}
 export UI_FILE_MACROS=${2:-"P=xxx:"}
 
 # #######################################
