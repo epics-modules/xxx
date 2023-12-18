@@ -4,4 +4,4 @@ include $(CONFIG)/RULES.ioc
 modules.lua: \
     $(wildcard $(TOP)/configure/RELEASE*) \
     $(wildcard $(TOP)/configure/CONFIG_SITE*) | $(INSTALL_BIN)
-	$(PERL) -I$(EPICS_BASE)/bin/perl $(abspath $(TOP)/bin/$(EPICS_HOST_ARCH)/GenLuaModules.pl) -a $(ARCH) -t $(IOCS_APPL_TOP) $@
+	$(PERL) -I$(EPICS_BASE)/lib/perl $(abspath $(TOP)/bin/$(EPICS_HOST_ARCH)/GenLuaModules.pl) -a $(ARCH) -t $(IOCS_APPL_TOP) $@
