@@ -2175,13 +2175,13 @@ QWidget[Fill=&quot;True&quot;] { background: rgba(0,0,0,0); }</string>
               </color>
              </property>
              <property name="labels">
-              <string>Eiger</string>
+              <string>Eiger 1X;Eiger 2X</string>
              </property>
              <property name="files">
-              <string>eigerDetector.ui</string>
+              <string>eigerDetector.ui;eiger2Detector.ui</string>
              </property>
              <property name="args">
-              <string>P=xxx:,R=cam1:</string>
+              <string>P=xxx:,R=cam1:;P=xxx:,R=cam1:</string>
              </property>
              <property name="stackingMode" stdset="0">
               <enum>caRowColMenu::Menu</enum>
