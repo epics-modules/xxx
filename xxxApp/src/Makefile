@@ -262,7 +262,7 @@ ifeq ($(OS_CLASS), WIN32)
   ifdef DANTE
     $(DBD_NAME)_DBD += mcaDanteSupport.dbd
     $(PROD_NAME)_LIBS := mcaDante $($(PROD_NAME)_LIBS)
-    $(PROD_NAME)_SYS_LIBS += XGL_DPP
+    $(PROD_NAME)_LIBS := XGL_DPP $($(PROD_NAME)_LIBS)
   endif
     
   ifdef DXPSITORO
