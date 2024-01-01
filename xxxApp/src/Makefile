@@ -265,16 +265,16 @@ ifeq ($(OS_CLASS), WIN32)
       $(PROD_NAME)_LIBS := mcaDante $($(PROD_NAME)_LIBS)
       $(PROD_NAME)_LIBS := XGL_DPP $($(PROD_NAME)_LIBS)
     endif
+
+    ifdef LABJACK
+      $(DBD_NAME)_DBD += LabJackSupport.dbd
+      $(PROD_NAME)_LIBS := LabJack LabJackM $($(PROD_NAME)_LIBS)
+    endif
   endif
     
   ifdef DXPSITORO
     $(DBD_NAME)_DBD += dxpSITOROSupport.dbd
     $(PROD_NAME)_LIBS := dxpSITORO handelSITORO $($(PROD_NAME)_LIBS)
-  endif
-    
-  ifdef LABJACK
-    $(DBD_NAME)_DBD += LabJackSupport.dbd
-    $(PROD_NAME)_LIBS := LabJack LabJackM $($(PROD_NAME)_LIBS)
   endif
 endif
 
