@@ -259,10 +259,12 @@ ifeq ($(OS_CLASS), WIN32)
     endif
   endif
 
-  ifdef DANTE
-    $(DBD_NAME)_DBD += mcaDanteSupport.dbd
-    $(PROD_NAME)_LIBS := mcaDante $($(PROD_NAME)_LIBS)
-    $(PROD_NAME)_LIBS := XGL_DPP $($(PROD_NAME)_LIBS)
+  ifeq (windows-x64, $(findstring windows-x64, $(T_A)))
+    ifdef DANTE
+      $(DBD_NAME)_DBD += mcaDanteSupport.dbd
+      $(PROD_NAME)_LIBS := mcaDante $($(PROD_NAME)_LIBS)
+      $(PROD_NAME)_LIBS := XGL_DPP $($(PROD_NAME)_LIBS)
+    endif
   endif
     
   ifdef DXPSITORO
