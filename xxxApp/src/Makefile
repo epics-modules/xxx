@@ -196,11 +196,6 @@ ifdef DEVIOCSTATS
   $(PROD_NAME)_LIBS := devIocStats $($(PROD_NAME)_LIBS)
 endif
 
-ifdef ETHERIP
-  $(DBD_NAME)_DBD += ether_ip.dbd
-  $(PROD_NAME)_LIBS := ether_ip $($(PROD_NAME)_LIBS)
-endif
-
 ifdef ALIVE
   ifndef ADCORE
     $(DBD_NAME)_DBD += aliveSupport.dbd
@@ -504,6 +499,11 @@ endif
       $(PROD_NAME)_LIBS  := dxp handel $($(PROD_NAME)_LIBS)
       $(PROD_NAME)_SYS_LIBS += usb 
     endif
+  endif
+
+  ifdef ETHERIP
+    $(DBD_NAME)_DBD += ether_ip.dbd
+    $(PROD_NAME)_LIBS := ether_ip $($(PROD_NAME)_LIBS)
   endif
 
   ifdef MCA
