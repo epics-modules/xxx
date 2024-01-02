@@ -8,7 +8,12 @@ use _commands;
 sub _local 
 {
 	if    (! _info::ioc_up())      { print("IOC isn't running\n"); }
-	elsif (_info::has_remote())    { _info::send_cmd("COMMAND", "start"); }
+	elsif (_info::has_remote())    
+ 	{ 
+  		_info::send_cmd("COMMAND", "stop");
+    		sleep(1);
+  		_info::send_cmd("COMMAND", "start"); 
+    	}
 	else
 	{
 		_commands::call("_local", "stop");
