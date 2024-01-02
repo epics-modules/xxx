@@ -193,4 +193,33 @@ sub get_port()
 	return $port_to_use;
 }
 
+sub sanity_check()
+{
+	#######################
+	#    Sanity Checks    #
+	#######################
+	
+	
+	if (! -d $ENV{IOC_STARTUP_DIR})
+	{
+		print("Error: Starting directory ($ENV{IOC_STARTUP_DIR}) doesn't exist.\n");
+		print("IOC_STARTUP_DIR in $FindBin::RealScript needs to be corrected.\n");
+		die;
+	}
+	
+	if (! -f $ENV{IOC_BIN_PATH})
+	{
+		print("Error: No IOC executable at $ENV{IOC_BIN_PATH}\n");
+		print("IOC_BIN_PATH in $FindBin::RealScript needs to be corrected.\n");
+		die;
+	}
+	
+	if (! -f $ENV{IOC_STARTUP_FILE_PATH})
+	{
+		print("Error: No IOC startup script at $ENV{IOC_STARTUP_FILE_PATH}\n");
+		print("IOC_STARTUP_FILE_PATH in $FindBin::RealScript needs to be corrected.\n");
+		return;
+	}
+}
+
 1;

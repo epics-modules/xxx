@@ -14,6 +14,7 @@ sub _local()
 	elsif (_info::has_remote())    { _info::send_cmd("COMMAND", "start"); }
 	else
 	{
+		_info::sanity_check();
 		print ("Starting $IOC_NAME\n");
 		
 		my $prefix = _info::procserv("CONSOLE", "PREFIX");

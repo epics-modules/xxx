@@ -12,6 +12,7 @@ sub _local
 	elsif (_info::has_remote())    { print("IOC set up for remote commands\n"); }
 	else
 	{		
+		_info::sanity_check();
 		print("Starting $IOC_NAME\n");
 		
 		my $currdir = getcwd();

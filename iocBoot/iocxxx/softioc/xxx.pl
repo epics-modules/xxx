@@ -95,23 +95,9 @@ use _commands;
 
 #####################################################################
 
-
 my $GET_SCREEN_PID=1;
 
-
 #####################################################################
-
-#######################
-#    Sanity Checks    #
-#######################
-
-
-if (! -d $ENV{IOC_STARTUP_DIR})
-{
-	print("Error: Starting directory ($ENV{IOC_STARTUP_DIR}) doesn't exist.\n");
-	print("IOC_STARTUP_DIR in $FindBin::RealScript needs to be corrected.\n");
-	die;
-}
 
 if (! -d $ENV{IOC_COMMAND_DIR})
 {
@@ -119,21 +105,6 @@ if (! -d $ENV{IOC_COMMAND_DIR})
 	print("IOC_COMMAND_DIR in $FindBin::RealScript needs to be corrected.\n");
 	die;
 }
-
-if (! -f $ENV{IOC_BIN_PATH})
-{
-	print("Error: No IOC executable at $ENV{IOC_BIN_PATH}\n");
-	print("IOC_BIN_PATH in $FindBin::RealScript needs to be corrected.\n");
-	die;
-}
-
-if (! -f $ENV{IOC_STARTUP_FILE_PATH})
-{
-	print("Error: No IOC startup script at $ENV{IOC_STARTUP_FILE_PATH}\n");
-	print("IOC_STARTUP_FILE_PATH in $FindBin::RealScript needs to be corrected.\n");
-	return;
-}
-
 
 #####################
 #    Parse Input    #
