@@ -23,7 +23,7 @@ MACRO_NAME = /path/to/module
 
 The Beamline Controls group provides a set of curated EPICS modules that have a known set of interactions with each other and cover much of the support needed by standard IOCs. This collection is called synApps and tagged releases can be found in /APSshare/epics. In the RELEASE file, you will see the SUPPORT macro being set to one of those releases then we include the synApps collection's version of the RELEASE file. Which then provides your IOC with the path definitions to all of the modules that are included in that release of synApps as well as to the version of EPICS base that the support was built with.
 
-A customized version of synApps can be built locally using the assemble_synApps script located at [https://github.com/EPICS-synApps/support/blob/master/assemble_synApps.sh](https://github.com/EPICS-synApps/assemble_synApps/blob/main/assemble_synApps). By switching the IOC's SUPPORT macro to point at the local location that you build synApps in, the IOC will then pull in the definitions to all of your local support modules instead.
+A customized version of synApps can be built locally using the assemble_synApps script located at [assemble_synApps](https://github.com/EPICS-synApps/assemble_synApps/tree/main). By switching the IOC's SUPPORT macro to point at the local location that you build synApps in, the IOC will then pull in the definitions to all of your local support modules instead.
 
 
 ### xxxApp/src/Makefile 
