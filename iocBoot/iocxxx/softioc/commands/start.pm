@@ -43,7 +43,7 @@ sub _remote()
 		my $curr_time = strftime("%y%m%d-%H%M%S", localtime());
 		my $LOG_FILE="$IOC_STARTUP_DIR/softioc/logs/iocConsole/${prefix}.log_${curr_time}";
 		
-		system("$PROCSERV --allow --quiet --oneshot -L $LOG_FILE -c $IOC_STARTUP_DIR -i ^C --logoutcmd=^D -I $prefix.txt $ip_addr:$port $IOC_CMD");
+		system("cd $FindBin::RealBin; $PROCSERV --allow --quiet --oneshot -L $LOG_FILE -c $IOC_STARTUP_DIR -i ^C --logoutcmd=^D -I $prefix.txt $ip_addr:$port $IOC_CMD");
 	}
 }
 
