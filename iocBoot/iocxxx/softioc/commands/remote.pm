@@ -31,7 +31,7 @@ sub _local
 		my $LOG_FILE="$IOC_STARTUP_DIR/softioc/logs/remote/${prefix}.log_${curr_time}";
 		
 		# Start Command Port
-		system("$PROCSERV --allow --quiet --oneshot -L $LOG_FILE -i ^C --logoutcmd=^D -I $prefix.txt $ip_addr:$port $FindBin::RealBin/$FindBin::RealScript remote commandline");
+		system("cd $FindBin::RealBin; $PROCSERV --allow --quiet --oneshot -L $LOG_FILE -i ^C --logoutcmd=^D -I $prefix.txt $ip_addr:$port $FindBin::RealBin/$FindBin::RealScript remote commandline");
 	}
 	elsif ( $ONOFF eq "disable" )
 	{
