@@ -2,7 +2,7 @@
 
 export EPICS_APP=`dirname ${BASH_SOURCE:-$0}`
 export EPICS_APP_ADL_DIR=${EPICS_APP}/xxxApp/op/adl
-export DEFAULT_UI_FILE=${1:-${DEFAULT_UI_FILE:-xxx.ui}}
+export DEFAULT_UI_FILE=${1:-${DEFAULT_UI_FILE:-xxx.adl}}
 export UI_FILE_MACROS=${2:-"P=xxx:"}
 
 source ${EPICS_APP}/setup_epics_common medm
