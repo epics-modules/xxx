@@ -5,8 +5,7 @@ file "$(MOTOR)/db/asyn_motor.db"
 {
 pattern
 {N,   M,       DTYP,         PORT,  ADDR,  DESC,          EGU, DIR,  VELO,  VBAS,  ACCL,  BDST,  BVEL,  BACC,  MRES,         PREC,  DHLM,  DLLM,  INIT}
-# 2.54 mm/rev, 200 steps/rev, 1024 microsteps/step
-{1,  "m$(N)",  "asynMotor",  ACS1,  0,     "motor $(N)",  mm,  Pos,  1,     .1,    .2,    0,	1,     .2,    1.240234375e-05,  6,      10,    -10,  ""}
+{1,  "m$(N)",  "asynMotor",  ACS1,  0,     "motor $(N)",  mm,  Pos,  1,     .1,    .2,    0,	1,     .2,    0.0001,      4,     100,   -100,  ""}
 {2,  "m$(N)",  "asynMotor",  ACS1,  1,     "motor $(N)",  mm,  Pos,  1,     .1,    .2,    0,	1,     .2,    0.0001,      4,     100,   -100,  ""}
 {3,  "m$(N)",  "asynMotor",  ACS1,  2,     "motor $(N)",  mm,  Pos,  1,     .1,    .2,    0,	1,     .2,    0.0001,      4,     100,   -100,  ""}
 {4,  "m$(N)",  "asynMotor",  ACS1,  3,     "motor $(N)",  mm,  Pos,  1,     .1,    .2,    0,	1,     .2,    0.0001,      4,     100,   -100,  ""}
