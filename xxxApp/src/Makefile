@@ -588,6 +588,10 @@ endif
   endif
   endif
 
+  ifdef MOTOR
+    $(DBD_NAME)_DBD += AcsMotionSupport.dbd
+    $(PROD_NAME)_LIBS := AcsMotion $($(PROD_NAME)_LIBS)
+  endif
 
   ifeq ($(TIRPC), YES)
     $(PROD_NAME)_SYS_LIBS += tirpc

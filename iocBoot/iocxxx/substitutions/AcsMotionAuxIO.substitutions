@@ -1,0 +1,115 @@
+#
+# Note: the P macro, which is passed to all of the databases in this file, has the value $(PREFIX) and is set in the envVars file
+#
+
+file "$(MOTOR)/db/SPiiPlusAuxLi.db"
+{
+pattern
+{C,     R,   PORT,    CHAN,    SCAN}
+# MP4U
+{mp4u:, li0,  ACS1_IO,    0,      2}
+{mp4u:, li1,  ACS1_IO,    1,      2}
+{mp4u:, li2,  ACS1_IO,    2,      2}
+{mp4u:, li3,  ACS1_IO,    3,      2}
+}
+
+file "$(MOTOR)/db/SPiiPlusAuxLo.db"
+{
+pattern
+{C,     R,   PORT,    CHAN,    SCAN}
+# MP4U
+{mp4u:, lo0,  ACS1_IO,    0,      2}
+{mp4u:, lo1,  ACS1_IO,    1,      2}
+{mp4u:, lo2,  ACS1_IO,    2,      2}
+{mp4u:, lo3,  ACS1_IO,    3,      2}
+}
+
+file "$(MOTOR)/db/SPiiPlusAuxBi.db"
+{
+pattern
+{C,     R,        PORT,   CHAN,     MASK,  SCAN}
+# MP4U
+{mp4u:, bi0:17,  ACS1_IO,    0,   0x10000,   2}
+{mp4u:, bi0:18,  ACS1_IO,    0,   0x20000,   2}
+{mp4u:, bi0:19,  ACS1_IO,    0,   0x40000,   2}
+{mp4u:, bi0:20,  ACS1_IO,    0,   0x80000,   2}
+{mp4u:, bi1:17,  ACS1_IO,    1,   0x10000,   2}
+{mp4u:, bi1:18,  ACS1_IO,    1,   0x20000,   2}
+{mp4u:, bi1:19,  ACS1_IO,    1,   0x40000,   2}
+{mp4u:, bi1:20,  ACS1_IO,    1,   0x80000,   2}
+{mp4u:, bi2:17,  ACS1_IO,    2,   0x10000,   2}
+{mp4u:, bi2:18,  ACS1_IO,    2,   0x20000,   2}
+{mp4u:, bi2:19,  ACS1_IO,    2,   0x40000,   2}
+{mp4u:, bi2:20,  ACS1_IO,    2,   0x80000,   2}
+{mp4u:, bi3:17,  ACS1_IO,    3,   0x10000,   2}
+{mp4u:, bi3:18,  ACS1_IO,    3,   0x20000,   2}
+{mp4u:, bi3:19,  ACS1_IO,    3,   0x40000,   2}
+{mp4u:, bi3:20,  ACS1_IO,    3,   0x80000,   2}
+}
+
+file "$(MOTOR)/db/SPiiPlusAuxBo.db"
+{
+pattern
+{C,     R,        PORT,   CHAN,   MASK,  SCAN}
+# MP4U
+{mp4u:, bo0:8,  ACS1_IO,    0,   0x100,   2}
+{mp4u:, bo0:9,  ACS1_IO,    0,   0x200,   2}
+{mp4u:, bo1:8,  ACS1_IO,    1,   0x100,   2}
+{mp4u:, bo1:9,  ACS1_IO,    1,   0x200,   2}
+{mp4u:, bo2:8,  ACS1_IO,    2,   0x100,   2}
+{mp4u:, bo2:9,  ACS1_IO,    2,   0x200,   2}
+{mp4u:, bo3:8,  ACS1_IO,    3,   0x100,   2}
+{mp4u:, bo3:9,  ACS1_IO,    3,   0x200,   2}
+}
+
+file "$(MOTOR)/db/SPiiPlusAuxAo.db"
+{
+pattern
+{C,     R,    PORT,    CHAN,    SCAN, DRVL, DRVH, LOPR, HOPR, PREC}
+# MP4U
+{mp4u:, ao0,  ACS1_IO,    0,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao1,  ACS1_IO,    1,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao2,  ACS1_IO,    2,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao3,  ACS1_IO,    3,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao4,  ACS1_IO,    4,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao5,  ACS1_IO,    5,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao6,  ACS1_IO,    6,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao7,  ACS1_IO,    7,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao8,  ACS1_IO,    8,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao9,  ACS1_IO,    9,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao10, ACS1_IO,   10,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao11, ACS1_IO,   11,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao12, ACS1_IO,   12,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao13, ACS1_IO,   13,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao14, ACS1_IO,   14,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao15, ACS1_IO,   15,       2,  -10,   10,  -10,   10,    3}
+# IOMps-EA0004V0
+{mp4u:, ao16, ACS1_IO,   16,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao17, ACS1_IO,   17,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao18, ACS1_IO,   18,       2,  -10,   10,  -10,   10,    3}
+{mp4u:, ao19, ACS1_IO,   19,       2,  -10,   10,  -10,   10,    3}
+}
+
+file "$(MOTOR)/db/SPiiPlusAuxAi.db"
+{
+pattern
+{C,     R,     PORT,    CHAN,    SCAN, LOPR, HOPR, PREC}
+# MP4U
+{mp4u:, ai0,   ACS1_IO,    0,       2,  -10,   10,    3}
+{mp4u:, ai1,   ACS1_IO,    1,       2,  -10,   10,    3}
+{mp4u:, ai2,   ACS1_IO,    2,       2,  -10,   10,    3}
+{mp4u:, ai3,   ACS1_IO,    3,       2,  -10,   10,    3}
+{mp4u:, ai4,   ACS1_IO,    4,       2,  -10,   10,    3}
+{mp4u:, ai5,   ACS1_IO,    5,       2,  -10,   10,    3}
+{mp4u:, ai6,   ACS1_IO,    6,       2,  -10,   10,    3}
+{mp4u:, ai7,   ACS1_IO,    7,       2,  -10,   10,    3}
+{mp4u:, ai8,   ACS1_IO,    8,       2,  -10,   10,    3}
+{mp4u:, ai9,   ACS1_IO,    9,       2,  -10,   10,    3}
+{mp4u:, ai10,  ACS1_IO,   10,       2,  -10,   10,    3}
+{mp4u:, ai11,  ACS1_IO,   11,       2,  -10,   10,    3}
+{mp4u:, ai12,  ACS1_IO,   12,       2,  -10,   10,    3}
+{mp4u:, ai13,  ACS1_IO,   13,       2,  -10,   10,    3}
+{mp4u:, ai14,  ACS1_IO,   14,       2,  -10,   10,    3}
+{mp4u:, ai15,  ACS1_IO,   15,       2,  -10,   10,    3}
+}
+
