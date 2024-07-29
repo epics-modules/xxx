@@ -1,6 +1,7 @@
 package _info;
 
 use Env;
+use Cwd;
 use Socket;
 use IO::Socket;
 use Sys::Hostname;
@@ -24,7 +25,7 @@ $procserv_info{"CONSOLE"} = { "PREFIX" => "ioc${IOC_NAME}-console",
 							
 sub my_ip
 {
-	return inet_ntoa((gethostbyname(hostname))[4]);
+	return inet_ntoa(inet_aton(hostname));
 }
 							
 sub parse 
@@ -35,7 +36,7 @@ sub parse
 	
 	my %output = %{$procserv_info{$PS_PROC}};
 	
-	my $CHECK_FILE = "$output{PREFIX}.txt";
+	my $CHECK_FILE = "$FindBin::RealBin/$output{PREFIX}.txt";
 	
 	if (-e $CHECK_FILE && -f $CHECK_FILE)
 	{	
@@ -74,7 +75,6 @@ sub procserv
 	
 	my $PS_PROC = $parms[0];
 	my $PS_INFO = $parms[1];
-
 	
 	my $output = parse($PS_PROC);
 	return $output->{$PS_INFO};
@@ -129,7 +129,7 @@ sub can_ping
 	
 	my $IP = $data->{"IP"};
 	my $PORT = $data->{"PORT"};
-	
+		
 	if ($PORT != -1)
 	{
 		my $exit_code = system("$NETCAT -z $IP $PORT");
