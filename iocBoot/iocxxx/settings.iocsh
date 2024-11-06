@@ -1,3 +1,6 @@
+# IOC Name
+epicsEnvSet("IOC", "iocxxx")
+
 # Shell prompt
 epicsEnvSet("IOCSH_PS1", "$(IOC)> ")
 
