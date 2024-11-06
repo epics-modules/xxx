@@ -171,7 +171,7 @@ ifdef MOTOR
   ifdef SNCSEQ
   $(DBD_NAME)_DBD += devAerotechSeq.dbd devNewportSeq.dbd
   endif
-  $(DBD_NAME)_DBD += devOriel.dbd devPC6K.dbd devPIJena.dbd devPIMotor.dbd PI_GSC2Support.dbd
+  $(DBD_NAME)_DBD += devOriel.dbd devPC6K.dbd devPIJena.dbd devPIMotor.dbd PI_GCS2Support.dbd
   $(DBD_NAME)_DBD += devSPiiPlus.dbd devSmartMotorMotor.dbd devSoftMotor.dbd
   $(DBD_NAME)_DBD += devThorLabs.dbd motorSimSupport.dbd
 
