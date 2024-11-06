@@ -9,7 +9,7 @@ epicsEnvSet("PREFIX", "xxx:")
 
 #For devIocStats
 epicsEnvSet("ENGINEER", "engineer")
-epicsEnvSet("LOCATION", "location")
+epicsEnvSet("LOCATION", "$(HOSTNAME=location)")
 epicsEnvSet("GROUP", "group")
 
 # search path for database files
