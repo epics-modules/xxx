@@ -575,7 +575,8 @@ endif
     
   ifdef LABJACK
     $(DBD_NAME)_DBD += LabJackSupport.dbd
-    $(PROD_NAME)_LIBS := LabJack LabJackM $($(PROD_NAME)_LIBS)
+    $(PROD_NAME)_LIBS := LabJack $($(PROD_NAME)_LIBS)
+    $(PROD_NAME)_SYS_LIBS += LabJackM
   endif
 
   ifdef MEASCOMP
