@@ -13,10 +13,10 @@ epicsEnvSet("LOCATION", "$(HOSTNAME=location)")
 epicsEnvSet("GROUP", "group")
 
 # search path for database files
-epicsEnvSet("EPICS_DB_INCLUDE_PATH", ".")
+epicsEnvSet("EPICS_DB_INCLUDE_PATH", ".:$(TOP)/db")
 
 # search path for streamDevice protocol files
-epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
+epicsEnvSet("STREAM_PROTOCOL_PATH", ".:$(TOP)/db")
 
 # search path for lua scripts
 # epicsEnvSet("LUA_SCRIPT_PATH", "./scripts")
