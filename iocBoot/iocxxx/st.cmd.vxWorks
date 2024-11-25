@@ -63,6 +63,7 @@ iocsh
 #- Now that we have EPICS commands, use them to re-set some of the environment
 #- variables to point to our IOC
 epicsEnvSet("TOP", "$(STARTUP)/../..")
+set_requestfile_path("$(TOP)/db")
 
 #- common.iocsh uses a lua script to set a path for autosave, on Linux this
 #- uses a file that gets built by the IOC, for vxWorks we need to use the
