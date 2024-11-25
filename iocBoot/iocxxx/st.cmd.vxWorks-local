@@ -5,20 +5,14 @@ sysVmeMapShow
 cd ""
 < ../nfsCommands
 
-
-#- Edit to match your arch
-#- < cdCommands.vxWorks-ppc32
-< cdCommands.vxWorks-ppc32sf
-
-#- Edit to match local startup location
-local_startup = "/enter/startup/directory/here/"
+< cdCommands
 
 # How to set and get the clock rate (in Hz.  Default is 60 Hz)
 #sysClkRateSet(100)
 #sysClkRateGet()
 
 ################################################################################
-cd xxxbin
+cd topbin
 
 # If the VxWorks kernel was built using the project facility, the following must
 # be added before any C++ code is loaded (see SPR #28980).
@@ -31,8 +25,8 @@ sysCplusEnable=1
 ### Load synApps EPICS software
 load("xxx.munch")
 #ld(0,0,"xxx.munch")
-cd local_startup
 
+cd startup
 
 # Increase size of buffer for error logging from default 1256
 errlogInit(20000)
@@ -43,10 +37,8 @@ recDynLinkQsize = 1024
 ################################################################################
 # Tell EPICS all about the record types, device-support modules, drivers,
 # etc. in the software we just loaded (xxx.munch)
-dbLoadDatabase("$(XXX)/dbd/iocxxxVX.dbd")
+dbLoadDatabase("$(TOP)/dbd/iocxxxVX.dbd")
 iocxxxVX_registerRecordDeviceDriver(pdbbase)
-
-epicsEnvSet("STARTUP", local_startup)
 
 shellPromptSet "iocxxx> "
 iocLogDisable=0
@@ -58,17 +50,7 @@ iocLogDisable=0
 
 #save_restoreSet_NFSHost("oxygen", "164.54.22.10")
 
-iocsh 
-
-#- Now that we have EPICS commands, use them to re-set some of the environment
-#- variables to point to our IOC
-epicsEnvSet("TOP", "$(STARTUP)/../..")
-
-#- common.iocsh uses a lua script to set a path for autosave, on Linux this
-#- uses a file that gets built by the IOC, for vxWorks we need to use the
-#- version on /APSshare. Thus, we set the search path to find xxx first
-
-epicsEnvSet("LUA_PATH", "$(XXX)/iocBoot/iocxxx/?.lua;;")
+iocsh
 
 < settings.iocsh
 < common.iocsh
@@ -76,8 +58,8 @@ epicsEnvSet("LUA_PATH", "$(XXX)/iocBoot/iocxxx/?.lua;;")
 # devIocStats records specific to vxWorks
 dbLoadRecords("$(DEVIOCSTATS)/db/iocAdminVxWorks.db","IOC=$(PREFIX)")
 # VxWorks support adds these additional PVs to be aliased
-dbLoadRecords("$(XXX)/db/iocAdminSoft_aliases.db","P=$(PREFIX)")
-dbLoadRecords("$(XXX)/db/iocAdminVxWorks_aliases.db","P=$(PREFIX)")
+dbLoadRecords("$(TOP)/db/iocAdminSoft_aliases.db","P=$(PREFIX)")
+dbLoadRecords("$(TOP)/db/iocAdminVxWorks_aliases.db","P=$(PREFIX)")
 
 
 #- If you have vxShell-specific commands to run, exit out of the ioc shell
