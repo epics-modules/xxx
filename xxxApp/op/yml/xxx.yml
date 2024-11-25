@@ -1,0 +1,425 @@
+Header: "XXX"
+Prefix: "xxx:"
+
+
+Motors:
+    - title: "Motors 1-8"
+      links: 
+        - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"}
+    
+    - title: "Motors 9-16"
+      links: 
+        - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16"}
+        
+    - title: "Motors 17-24"
+      links: 
+        - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m17,M2=m18,M3=m19,M4=m20,M5=m21,M6=m22,M7=m23,M8=m24"}
+        
+    - title: "Motors 25-32"
+      links: 
+        - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m25,M2=m26,M3=m27,M4=m28,M5=m29,M6=m30,M7=m31,M8=m32"}
+    
+    - title: "Motors 33-40"
+      links: 
+        - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m33,M2=m34,M3=m35,M4=m36,M5=m37,M6=m38,M7=m39,M8=m40"}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+        
+Optics: 
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    
+
+Detectors: 
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+        
+Direct I/O: 
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+            
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    
+        
+Devices: 
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    
+        
+Tools: 
+    - title: "userCalcs"
+      links:
+        - {label: "user calcs 1-10",        file: "userCalcs10",           macros: "P={Prefix}"}
+        - {label: "user calcs 11-20",       file: "userCalcs10more",       macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+        - {label: "user calcOuts 1-10",     file: "userCalcOuts10",        macros: "P={Prefix}"}
+        - {label: "user calcOuts 11-20",    file: "userCalcOuts10more",    macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+        - {label: "user stringCalcs 1-10",  file: "userStringCalcs10",     macros: "P={Prefix}"}
+        - {label: "user stringCalcs 11-20", file: "userStringCalcs10more", macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+        - {label: "user arrayCalcs 1-10",   file: "userArrayCalcs10",      macros: "P={Prefix}"}
+        - {label: "user arrayCalcs 11-20",  file: "userArrayCalcs10more",  macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+        - {label: "user transforms 1-10",   file: "userTransforms10",      macros: "P={Prefix}"}
+        - {label: "user transforms 11-20",  file: "userTransforms10more",  macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+        - {label: "user string seqs 1-10",  file: "userStringSeqs10",      macros: "P={Prefix}"}
+        - {label: "user string seqs 11-20", file: "userStringSeqs10more",  macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+        - {label: "user average 1-10",      file: "userAve10",             macros: "P={Prefix}"}
+        - {label: "user average 11-20",     file: "userAve10more",         macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+        - {label: "editSseq",               file: "editSseq",              macros: "P={Prefix},Q=ES:"}
+
+    - title: "userScripts"
+      links: 
+        - {label: "user scripts 1-10",  file: "userScripts10", macros: "P={Prefix},R=set1:"}
+        - {label: "user scripts 11-20", file: "userScripts10", macros: "P={Prefix},R=set2:"}
+
+    - title: "Scans"
+      links:
+        - {label: "Scan1 (for all scans)",               file: "scan",          macros: "P={Prefix},N=1,S=scan1"}
+        - {label: "Scan2 (for 2D &amp; higher scans)",   file: "scan",          macros: "P={Prefix},N=2,S=scan2"}
+        - {label: "Scan3 (for 3D &amp; higher scans)",   file: "scan",          macros: "P={Prefix},N=3,S=scan3"}
+        - {label: "Scan4 (for 4D scans)",                file: "scan",          macros: "P={Prefix},N=4,S=scan4"}
+        - {label: "ScanH (for Hardware-assisted scans)", file: "scan",          macros: "P={Prefix},N=H,S=scanH"}
+        - {label: "saveData controls",                   file: "scan_saveData", macros: "P={Prefix}"}
+        - {label: "scanProgress",                        file: "ProgressBar",   macros: "P={Prefix},B={Prefix}scanProgress:"}
+        - {label: "scan1Menu",                           file: "configMenu",    macros: "P={Prefix},CONFIG=scan1"}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+        
+    - title: ""
+      links: 
+        - {label: "", file: "", macros: ""}
+    
+    

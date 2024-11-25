@@ -1,0 +1,55 @@
+#include colors.yml
+#include widgets.yml
+
+Form: !Form
+    title: "{Header}"
+    margins: 10x0x10x10
+
+Grid_Template: !Template:LinkGrid
+    - !ACenter:AStretch:Grid
+        margins: 10x10x10x10
+        repeat-over: "{TAB}"
+        padding: 10
+        horizontal: True
+        aspect-ratio: 1.25
+        
+        children:
+            - !RelatedDisplay
+                geometry: 200x40
+                background: *menu_green
+                foreground: *white
+                font: -DejaVu Sans Mono -Bold
+                text:  "{title:^20s}"
+                links: "{links}"
+
+Links: !TabbedGroup
+    foreground: *white
+    tab-color: $003584
+    selected: $3970C4
+    border-color: $003584
+    border-width: 3
+    inset: 10
+    offset: 5
+    padding: 10
+    font: -DejaVu Sans Mono -Bold -9
+
+    geometry: 0x75 x 860x240
+
+    children:
+        Motors: !Tab
+            - !Apply:LinkGrid { TAB: "Motors" }
+        Optics: !Tab
+            - !Apply:LinkGrid { TAB: "Optics" }
+        Detectors: !Tab
+            - !Apply:LinkGrid { TAB: "Detectors" }
+        Direct I/O: !Tab
+            - !Apply:LinkGrid { TAB: "Direct I/O" }
+        Devices: !Tab
+            - !Apply:LinkGrid { TAB: "Devices" }
+        Tools: !Tab
+            - !Apply:LinkGrid { TAB: "Tools" }
+                    
+UITitle: !Apply:ScreenHeader
+    title: "{Header}"
+    alignment: Left
+    height: 54
