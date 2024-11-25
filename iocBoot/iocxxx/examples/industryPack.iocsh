@@ -58,16 +58,12 @@ ipacAddAvme96XX("C000,3 A=2,800000 C=1,A00000")
 ipacReport(2)
 
 
-#Creates devices serial0:0 through serial0:7
-iocshLoad("$(IPAC)/iocsh/tyGSOctal.iocsh", "INSTANCE=UART_0, PORT=serial0:, TYPE=232, CARRIER=0, SLOT=0, INT_VEC=0x80, MAX_MODULES=1")
+#Creates devices serial0:0 through serial0:7, Increment MAX_MODULES if adding more serial IP boards
+iocshLoad("$(IPAC)/iocsh/tyGSOctal.iocsh", "MAX_MODULES=1, INSTANCE=UART_0, PORT=serial0:, TYPE=232, CARRIER=0, SLOT=0, INT_VEC=0x80")
+#iocshLoad("$(IPAC)/iocsh/tyGSOctal.iocsh", "INSTANCE=UART_1, PORT=serial1:, TYPE=232, CARRIER=0, SLOT=1, INT_VEC=0x80")
 
 #Loads asyn records for serial0:0 through serial0:7, calls them asyn_1 through asyn_8 for user compatibility
 iocshLoad("$(IP)/iocsh/loadSerialComm.iocsh", "PREFIX=$(PREFIX), PORT=serial0:, INSTANCE0=asyn_1, INSTANCE1=asyn_2, INSTANCE2=asyn_3, INSTANCE3=asyn_4, INSTANCE4=asyn_5, INSTANCE5=asyn_6, INSTANCE6=asyn_7, INSTANCE7=asyn_8")
-
-#Creates serial1:0 through serial1:7
-#iocshLoad("$(IPAC)/iocsh/tyGSOctal.iocsh", "INSTANCE=UART_1, PORT=serial1:, TYPE=232, CARRIER=0, SLOT=1, INT_VEC=0x80")
-
-#Loads asyn records for serial1:0 through serial1:7, calls them asyn_9 through asyn_16 for user compatibility
 #iocshLoad("$(IP)/iocsh/loadSerialComm.iocsh", "PREFIX=$(PREFIX), PORT=serial1:, INSTANCE0=asyn_9, INSTANCE1=asyn_10, INSTANCE2=asyn_11, INSTANCE3=asyn_12, INSTANCE4=asyn_13, INSTANCE5=asyn_14, INSTANCE6=asyn_15, INSTANCE7=asyn_16")
 
 # SBS IpUnidig digital I/O
