@@ -598,6 +598,11 @@ endif
   endif   
 endif
 
+
+$(DBD_NAME)_DBD += qsrv.dbd
+
+$(PROD_NAME)_LIBS := qsrv $($(PROD_NAME)_LIBS)
+
 $(PROD_NAME)_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
