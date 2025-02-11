@@ -1,0 +1,26 @@
+record(calcout, "$(P)PVAlive:HEARTBEAT")
+{
+	field(SCAN, "1 second")
+	field(A, 0)
+	field(CALC, "A+1")
+	field(OUT, "$(P)PVAlive:HEARTBEAT.A")
+	
+	info(Q:group, {
+		"$(P)pvalive" : {
+			"HEARTBEAT" : {+channel: "VAL", +type: "plain"}
+		}
+	})
+}
+
+record(stringin, "$(P)PVAlive:$(VAR)")
+{
+	field(DTYP, "IOC env var")
+	field(INP, "@$(VAR)")
+	field(PINI, "YES")
+	
+	info(Q:group, {
+		"$(P)pvalive" : {
+			"$(VAR)" : {+channel: "VAL", +type: "plain"}
+		}
+	})
+}

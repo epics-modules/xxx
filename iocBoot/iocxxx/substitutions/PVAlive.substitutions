@@ -1,0 +1,18 @@
+file "$(TOP)/db/PVAlive.db"
+{
+pattern
+{VAR}
+
+{ARCH}
+{TOP}
+{EPICS_BASE}
+{SUPPORT}
+{ENGINEER}
+{LOCATION}
+{GROUP}
+{STY}
+{PROCSERV_INFO}
+{CONSOLE_INFO}
+{PREFIX}
+
+}
