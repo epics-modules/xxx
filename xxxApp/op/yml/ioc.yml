@@ -6,6 +6,9 @@ Form: !Form
     margins: 10x0x10x10
 
 Grid_Template: !Template:LinkGrid
+    - !Defaults
+        used: True
+        
     - !ACenter:AStretch:Grid
         margins: 10x10x10x10
         repeat-over: "{TAB}"
@@ -14,13 +17,24 @@ Grid_Template: !Template:LinkGrid
         aspect-ratio: 1.25
         
         children:
-            - !RelatedDisplay
-                geometry: 200x40
-                background: *menu_green
-                foreground: *white
-                font: -DejaVu Sans Mono -Bold
-                text:  "{title:^20s}"
-                links: "{links}"
+            - !If:used
+                - !RelatedDisplay
+                    geometry: 200x40
+                    background: *menu_green
+                    foreground: *white
+                    font: -DejaVu Sans Mono -Bold
+                    text:  "{title:^20s}"
+                    links: "{links}"
+                    
+            - !IfNot:used
+                - !RelatedDisplay
+                    geometry: 200x40
+                    background: *menu_green
+                    foreground: *white
+                    font: -DejaVu Sans Mono -Bold
+                    text:  ""
+                    links:
+                        - { label: "", file: "", macros: "" }
 
 Links: !TabbedGroup
     foreground: *white
