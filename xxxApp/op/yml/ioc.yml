@@ -14,7 +14,7 @@ Grid_Template: !Template:LinkGrid
         repeat-over: "{TAB}"
         padding: 10
         horizontal: True
-        aspect-ratio: 1.25
+        aspect-ratio: 1.0
         
         children:
             - !If:used

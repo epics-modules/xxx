@@ -22,16 +22,12 @@ Motors:
       links: 
         - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m25,M2=m26,M3=m27,M4=m28,M5=m29,M6=m30,M7=m31,M8=m32"}
     
-    - title: "Motors 33-40"
-      links: 
-        - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m33,M2=m34,M3=m35,M4=m36,M5=m37,M6=m38,M7=m39,M8=m40"}
-    
         
     #Row 2
         
-    - title: ""
+    - title: "Motors 33-40"
       links: 
-        - {label: "", file: "", macros: ""}
+        - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m33,M2=m34,M3=m35,M4=m36,M5=m37,M6=m38,M7=m39,M8=m40"}
         
     - title: ""
       links: 
@@ -41,10 +37,6 @@ Motors:
       links: 
         - {label: "", file: "", macros: ""}
         
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
     - title: ""
       links: 
         - {label: "", file: "", macros: ""}
@@ -67,17 +59,9 @@ Motors:
     - title: ""
       links: 
         - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
     
     
     # Row 4    
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
         
     - title: "Piezo"
       used: False
@@ -142,11 +126,6 @@ Optics:
       links: 
         - {label: "XIA Slit 1 (H)", file: "xia_slit", macros: "P={Prefix},HSC=hsc1:"}
         - {label: "XIA Slit 1 (V)", file: "xia_slit", macros: "P={Prefix},HSC=hsc2:"}
-    
-    - title: "XIA PFCU"
-      used: False
-      links: 
-        - {label: "XIA PFCU", file: "pf4", macros: "P={Prefix},H=pf401:,A=A,B=B,PV=,MONO="}
         
         
     #Row 2
@@ -168,11 +147,6 @@ Optics:
       links: 
         - {label: "XIA Shutter 1", file: "XIA_shutter", macros: "P={Prefix},S=shutter1"}
         - {label: "XIA Shutter 2", file: "XIA_shutter", macros: "P={Prefix},S=shutter2"}
-    
-    - title: "PF4 Filter"
-      links: 
-        - {label: "PF4 Filter",       file: "pf4",      macros: "P={Prefix},H=pf4:,A=A,B=B,MONO={Prefix}BraggEAO,B1={Prefix}Unidig1Bo3,B2={Prefix}Unidig1Bo4,B3={Prefix}Unidig1Bo5,B4={Prefix}Unidig1Bo6,B5={Prefix}Unidig1Bo7,B6={Prefix}Unidig1Bo8,B7={Prefix}Unidig1Bo9,B8={Prefix}Unidig1Bo10"}
-        - {label: "PF4 Filter small", file: "pf4small", macros: "P={Prefix},H=pf4:,A=A,B=B,MONO={Prefix}BraggEAO,B1={Prefix}Unidig1Bo3,B2={Prefix}Unidig1Bo4,B3={Prefix}Unidig1Bo5,B4={Prefix}Unidig1Bo6,B5={Prefix}Unidig1Bo7,B6={Prefix}Unidig1Bo8,B7={Prefix}Unidig1Bo9,B8={Prefix}Unidig1Bo10"}
         
     
     #Row 3
@@ -193,13 +167,10 @@ Optics:
         - {label: "Spherical Grating Mono (tiny)", file: "SGM_tiny", macros: "P={Prefix},N=1,M_x=m7,M_rIn=m6,M_rOut=m8"}
         - {label: "Spherical Grating Mono",        file: "SGM",      macros: "P={Prefix},N=1,M_x=m7,M_rIn=m6,M_rOut=m8"}
         
-    - title: ""
+    - title: "PF4 Filter"
       links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
+        - {label: "PF4 Filter",       file: "pf4",      macros: "P={Prefix},H=pf4:,A=A,B=B,MONO={Prefix}BraggEAO,B1={Prefix}Unidig1Bo3,B2={Prefix}Unidig1Bo4,B3={Prefix}Unidig1Bo5,B4={Prefix}Unidig1Bo6,B5={Prefix}Unidig1Bo7,B6={Prefix}Unidig1Bo8,B7={Prefix}Unidig1Bo9,B8={Prefix}Unidig1Bo10"}
+        - {label: "PF4 Filter small", file: "pf4small", macros: "P={Prefix},H=pf4:,A=A,B=B,MONO={Prefix}BraggEAO,B1={Prefix}Unidig1Bo3,B2={Prefix}Unidig1Bo4,B3={Prefix}Unidig1Bo5,B4={Prefix}Unidig1Bo6,B5={Prefix}Unidig1Bo7,B6={Prefix}Unidig1Bo8,B7={Prefix}Unidig1Bo9,B8={Prefix}Unidig1Bo10"}
         
     - title: "User Filter"
       links: 
@@ -225,13 +196,10 @@ Optics:
         - {label: "High Resolution Mono (symmetric)", file: "hr_symmetric", macros: "P={Prefix},N=1"}
         - {label: "High Resolution Mono (control)",   file: "hrSeqCtl_All", macros: "P={Prefix},N=1"}
         
-    - title: ""
+    - title: "XIA PFCU"
+      used: False
       links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
+        - {label: "XIA PFCU", file: "pf4", macros: "P={Prefix},H=pf401:,A=A,B=B,PV=,MONO="}
         
     - title: "Coarse/Fine"
       links: 
@@ -271,11 +239,11 @@ Detectors:
         - {label: "Grasshopper 51S5M", file: "ADAravis", macros: "P={Prefix}, R=cam1:,C=PGR_GS3_U3_51S5M"}
         - {label: "Oryx 51S5M",        file: "ADAravis", macros: "P={Prefix}, R=cam1:,C=FLIR_ORX_10G_51S5M"}
     
+    #Row 2
+    
     - title: "ADPilatus"
       links: 
         - {label: "Pilatus", file: "pilatusDetector", macros: "P={Prefix},R=cam1:"}
-    
-    #Row 2
         
     - title: "ADPointGrey"
       links: 
@@ -289,6 +257,9 @@ Detectors:
       links: 
         - {label: "ADURL", file: "URLDriver", macros: "P={Prefix},R=cam1:"}
         
+    
+    #Row 3
+    
     - title: "ADMar345"
       links: 
         - {label: "Mar 345", file: "mar345", macros: "P={Prefix},R=cam1:"}
@@ -297,9 +268,6 @@ Detectors:
       links: 
         - {label: "Mar CCD", file: "marCCD", macros: "P={Prefix},R=cam1:"}
         
-    
-    #Row 3
-        
     - title: ""
       links: 
         - {label: "", file: "", macros: ""}
@@ -308,18 +276,6 @@ Detectors:
       links: 
         - {label: "", file: "", macros: ""}
         
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
     
     # Row 4    
         
@@ -339,10 +295,6 @@ Detectors:
       links: 
         - {label: "", file: "", macros: ""}
         
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
         
 Direct I/O: 
 
@@ -364,10 +316,6 @@ Direct I/O:
       links: 
         - {label: "", file: "", macros: ""}
     
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
     #Row 2
         
     - title: ""
@@ -385,17 +333,9 @@ Direct I/O:
     - title: ""
       links: 
         - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
         
     
     #Row 3
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
     
     - title: ""
       links: 
@@ -415,10 +355,6 @@ Direct I/O:
     
     
     # Row 4    
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
         
     - title: ""
       links: 
@@ -458,15 +394,7 @@ Devices:
       links: 
         - {label: "", file: "", macros: ""}
     
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
     #Row 2
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
         
     - title: ""
       links: 
@@ -486,10 +414,6 @@ Devices:
         
     
     #Row 3
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
     
     - title: ""
       links: 
@@ -509,10 +433,6 @@ Devices:
     
     
     # Row 4    
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
         
     - title: ""
       links: 
@@ -573,10 +493,6 @@ Tools:
     - title: ""
       links: 
         - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
         
         
     # Row 2
@@ -593,10 +509,6 @@ Tools:
       links: 
         - {label: "", file: "", macros: ""}
     
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
     - title: ""
       links: 
         - {label: "", file: "", macros: ""}
@@ -619,10 +531,6 @@ Tools:
     - title: ""
       links: 
         - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
         
     
     # Row 4
@@ -639,10 +547,6 @@ Tools:
       links: 
         - {label: "", file: "", macros: ""}
         
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
     - title: ""
       links: 
         - {label: "", file: "", macros: ""}
