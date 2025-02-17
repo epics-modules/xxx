@@ -9,7 +9,7 @@ Grid_Template: !Template:LinkGrid
     - !Defaults
         used: True
         
-    - !ACenter:AStretch:Grid
+    - !Grid
         margins: 10x10x10x10
         repeat-over: "{TAB}"
         padding: 10
