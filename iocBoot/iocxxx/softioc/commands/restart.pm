@@ -12,20 +12,20 @@ sub _local
  	{ 
   		_info::send_cmd("COMMAND", "stop");
     		sleep(1);
-  		_info::send_cmd("COMMAND", "start"); 
+  		_info::send_cmd("COMMAND", "start", @_); 
     	}
 	else
 	{
 		_commands::call("_local", "stop");
 		sleep(1);
-		_commands::call("_local", "start");
+		_commands::call("_local", "start", @_);
 	}
 }
 
 sub _remote
 {
 	_commands::call("_remote", "stop");
-	_commands::call("_remote", "start");
+	_commands::call("_remote", "start", @_);
 }
 
 

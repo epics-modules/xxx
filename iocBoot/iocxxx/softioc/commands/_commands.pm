@@ -3,6 +3,8 @@ package _commands;
 use Env;
 use lib "$IOC_COMMAND_DIR/..";
 
+use strict;
+
 my @loaded_cmds = ();
 
 opendir my $dir, "$IOC_COMMAND_DIR";
@@ -44,9 +46,11 @@ sub call
 	}
 	else
 	{
-		if (eval "commands::${SELECTION}->can($FUNCTION)")
+		my $mod = "commands::${SELECTION}";
+		
+		if ($mod->can($FUNCTION))
 		{
-			eval "commands::${SELECTION}::$FUNCTION(@SEL_ARGS)";
+			$mod->can($FUNCTION)->(@SEL_ARGS);
 		}
 	}
 }
