@@ -1,0 +1,42 @@
+#- INSTANCE  - Used for Camera Port Name and detector pv name
+#- ID        - IP or computer name
+#- XSIZE     - Image Width
+#- YSIZE     - Image Height
+#- TYPE      - Image Datatype, default: Int32
+
+epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(EPICS_DB_INCLUDE_PATH):$(ADCORE)/db:$(ADPILATUS)/db")
+
+
+###
+# Create the asyn port to talk to the Pilatus on port 41234.
+drvAsynIPPortConfigure("camserver","$(ID):41234")
+# Uncomment the following to enable asynTrace on the camserver port
+#asynSetTraceIOMask("camserver",0,2)
+#asynSetTraceMask("camserver",0,9)
+# Set the input and output terminators.
+asynOctetSetInputEos("camserver", 0, "\x18")
+asynOctetSetOutputEos("camserver", 0, "\n")
+
+pilatusDetectorConfig("$(INSTANCE)", "camserver", $(XSIZE), $(YSIZE), 0, 0)
+dbLoadRecords("$(ADPILATUS)/db/pilatus.template","P=$(PREFIX),R=$(INSTANCE):,PORT=$(INSTANCE),ADDR=0,TIMEOUT=1,CAMSERVER_PORT=camserver")
+
+#Set default NDAttributes
+dbpf("$(PREFIX)$(INSTANCE):NDAttributesFile", "$(ADPILATUS)/iocs/pilatusIOC/iocBoot/iocPilatus/pilatusAttributes.xml")
+
+#Create standard arrays plugins.
+NDStdArraysConfigure("$(INSTANCE)Image", 3, 0, "$(INSTANCE)", 0, 2000000)
+
+# Need to determine certain values from input parameters
+iocshRun('epicsEnvSet("__FTVL", "$($(TYPE=Int32)_VAL)")', "Int8_VAL=UCHAR, UInt8_VAL=UCHAR, Int16_VAL=SHORT, UInt16_VAL=SHORT, Int32_VAL=LONG, UInt32_VAL=LONG, Float32_VAL=DOUBLE, Float64_VAL=DOUBLE")
+iocshRun('epicsEnvSet("__TYPE", "$($(TYPE=Int32)_VAL)")', "Int8_VAL=Int8, UInt8_VAL=Int8, Int16_VAL=Int16, UInt16_VAL=Int16, Int32_VAL=Int32, UInt32_VAL=Int32, Float32_VAL=Float32, Float64_VAL=Float64")
+luaCmd("epicsEnvSet('__SIZE', tostring((COLORS*XSIZE*YSIZE)|0))", "COLORS=$(COLORS=1), XSIZE=$(XSIZE), YSIZE=$(YSIZE)")
+
+dbLoadRecords("$(ADCORE)/ADApp/Db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=$(INSTANCE)Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(__TYPE),FTVL=$(__FTVL),NELEMENTS=$(__SIZE)")
+
+epicsEnvUnset("__FTVL")
+epicsEnvUnset("__TYPE")
+epicsEnvUnset("__SIZE")
+
+iocshLoad("$(ADCORE)/iocBoot/commonPlugins.cmd", "PREFIX=$(PREFIX), PORT=$(INSTANCE), QSIZE=20, XSIZE=$(XSIZE), YSIZE=$(YSIZE), NCHANS=1024, CBUFFS=20, MAX_THREADS=5")
+
+set_requestfile_path("$(ADPILATUS)/db")
