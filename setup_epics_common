@@ -26,9 +26,9 @@ function addModule
     module='$'$1
     module_path=`eval echo $module`
 
-	if [ "$2" != "${DISPLAY_MANAGER}" ]; then
-		return 0
-	fi
+    if [ "$2" != "${DISPLAY_MANAGER}" ]; then
+        return 0
+    fi
 	
     if [ "" != "${module}" ]; then
         # module is required
@@ -277,5 +277,13 @@ if [ "$DISPLAY_MANAGER" == "caqtdm" ]; then
 		export CAQTDM_DISPLAY_PATH=${TMP}
 	else
 		export CAQTDM_DISPLAY_PATH=${TMP}:${CAQTDM_DISPLAY_PATH}
+	fi
+fi
+
+if [ "$DISPLAY_MANAGER" == "pydm" ]; then
+	if [ -z "$PYDM_DISPLAYS_PATH" ]; then
+		export PYDM_DISPLAYS_PATH=${TMP}
+	else
+		export PYDM_DISPLAYS_PATH=${TMP}:${PYDM_DISPLAYS_PATH}
 	fi
 fi
