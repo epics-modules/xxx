@@ -6,7 +6,7 @@
 #- TYPE      - Image Datatype, default: Int8
 
 epicsEnvSet("GENICAM_GENTL64_PATH", "$(ADVIMBA)/bin/$(ARCH)")
-epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(ADCORE)/db:$(ADGENICAM)/db:$(ADVIMBA)/db")
+epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(EPICS_DB_INCLUDE_PATH):$(ADCORE)/db:$(ADGENICAM)/db:$(ADVIMBA)/db")
 
 ADVimbaConfig("$(PORT)", "$(CAM_IP)", 0, 0, 0)
 asynSetTraceIOMask($(PORT), 0, 2)
