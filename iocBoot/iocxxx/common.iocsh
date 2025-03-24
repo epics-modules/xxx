@@ -16,7 +16,7 @@ luaCmd("modules=require('modules'); for mod,path in pairs(modules) do set_reques
 save_restoreSet_Debug(0)
 
 # Access Security
-#dbLoadRecords("$(TOP)/xxxApp/Db/Security_Control.db","P=$(PREFIX)")
+#dbLoadRecords("$(TOP)/db/Security_Control.db","P=$(PREFIX)")
 #asSetFilename("$(TOP)/iocBoot/accessSecurity.acf")
 #asSetSubstitutions("P=$(PREFIX)")
 
@@ -27,7 +27,7 @@ iocshLoad("$(CAPUTRECORDER)/iocsh/caputRecorder.iocsh", "PREFIX=$(PREFIX)")
 iocshLoad("$(SSCAN)/iocsh/sscan.iocsh", "PREFIX=$(PREFIX), MAX_PTS=1000, REQ_FILE=saveData.req")
 iocshLoad("$(AUTOSAVE)/iocsh/configMenu.iocsh", "PREFIX=$(PREFIX),CONFIG=scan1")
 #- You could make scan configurations read-only:
-#dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=$(PREFIX),CONFIG=scan1,ENABLE_SAVE=0")
+#dbLoadRecords("$(AUTOSAVE)/db/configMenu.db","P=$(PREFIX),CONFIG=scan1,ENABLE_SAVE=0")
 
 ### Stuff for user programming ###
 iocshLoad("$(CALC)/iocsh/userCalc.iocsh", "PREFIX=$(PREFIX), ARRAY_SIZE=8000")
@@ -36,27 +36,27 @@ iocshLoad("$(CALC)/iocsh/userCalc.iocsh", "PREFIX=$(PREFIX), ARRAY_SIZE=8000")
 iocshLoad("$(CALC)/iocsh/userCalc_extra.iocsh", "PREFIX=$(PREFIX), N=1, ARRAY_SIZE=8000")
 
 #- Load 20 userScripts
-dbLoadRecords("$(LUA)/luaApp/Db/luascripts10.db", "P=$(PREFIX), R=set1:")
-dbLoadRecords("$(LUA)/luaApp/Db/luascripts10.db", "P=$(PREFIX), R=set2:")
+dbLoadRecords("$(LUA)/db/luascripts10.db", "P=$(PREFIX), R=set1:")
+dbLoadRecords("$(LUA)/db/luascripts10.db", "P=$(PREFIX), R=set2:")
 
 #- string sequence (sseq) records
 iocshLoad("$(CALC)/iocsh/sseq.iocsh", "PREFIX=$(PREFIX), INSTANCE=ES:")
 
 #- interpolation
-dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=$(PREFIX),N=2000")
-dbLoadRecords("$(CALC)/calcApp/Db/interpNew.db", "P=$(PREFIX),Q=1,N=2000")
+dbLoadRecords("$(CALC)/db/interp.db", "P=$(PREFIX),N=2000")
+dbLoadRecords("$(CALC)/db/interpNew.db", "P=$(PREFIX),Q=1,N=2000")
 
 #- busy record
-dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db", "P=$(PREFIX),R=mybusy1")
-dbLoadRecords("$(BUSY)/busyApp/Db/busyRecord.db", "P=$(PREFIX),R=mybusy2")
+dbLoadRecords("$(BUSY)/db/busyRecord.db", "P=$(PREFIX),R=mybusy1")
+dbLoadRecords("$(BUSY)/db/busyRecord.db", "P=$(PREFIX),R=mybusy2")
 
 #- Soft function generator
-#dbLoadRecords("$(CALC)/calcApp/Db/FuncGen.db","P=$(PREFIX),Q=fgen,OUT=$(PREFIX)m7.VAL")
+#dbLoadRecords("$(CALC)/db/FuncGen.db","P=$(PREFIX),Q=fgen,OUT=$(PREFIX)m7.VAL")
 
 ### Load database record for alive heartbeating support.
 #- IOCNM is name of IOC, RHOST specifies the remote server accepting hearbeats
-dbLoadRecords("$(ALIVE)/aliveApp/Db/alive.db", "P=$(PREFIX),IOCNM=$(IOC),RHOST=164.54.100.11")
-dbLoadRecords("$(ALIVE)/aliveApp/Db/aliveMSGCalc.db", "P=$(PREFIX)")
+dbLoadRecords("$(ALIVE)/db/alive.db", "P=$(PREFIX),IOCNM=$(IOC),RHOST=164.54.100.11")
+dbLoadRecords("$(ALIVE)/db/aliveMSGCalc.db", "P=$(PREFIX)")
 
 #- A set of scan parameters for each positioner.  This is a convenience
 #- for the user.  It can contain an entry for each scannable thing in the
