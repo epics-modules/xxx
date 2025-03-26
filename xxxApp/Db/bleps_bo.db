@@ -1,0 +1,11 @@
+record(bo,"$(P)$(N)")
+{
+    field(DESC, "$(DESC)")
+    field(SCAN, "5 second")
+    field(DTYP, "EtherIP")
+    field(PINI, "YES")
+    field(OUT,  "@bleps $(TAG) S 1")
+    field(HIGH, "$(HIGH)")
+    field(ZNAM, "$(ZNAM)")
+    field(ONAM, "$(ONAM)")
+}

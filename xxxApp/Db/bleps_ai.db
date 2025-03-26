@@ -1,0 +1,18 @@
+record(ai,"$(P)$(N)")
+{
+    field(DESC, "$(DESC)")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+    field(DTYP, "EtherIP")
+    field(INP,  "@bleps $(TAG) S $(SCAN)")
+    field(PREC, "$(PREC)")
+    field(EGU,  "$(EGU)")
+    field(HIHI, "$(HIHI)")
+    field(HIGH, "$(HIGH)")
+    field(LOW,  "$(LOW)")
+    field(LOLO, "$(LOLO)")
+    field(HHSV, "$(HHSV)")
+    field(HSV,  "$(HSV)")
+    field(LSV,  "$(LSV)")
+    field(LLSV, "$(LLSV)")
+}

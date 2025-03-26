@@ -1,0 +1,12 @@
+record(bi,"$(P)$(N)")
+{
+    field(DESC, "$(DESC)")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+    field(DTYP, "EtherIP")
+    field(INP,  "@bleps $(TAG) S $(SCAN)")
+    field(ZNAM, "$(ZNAM)")
+    field(ONAM, "$(ONAM)")
+    field(ZSV,  "$(ZSV)")
+    field(OSV,  "$(OSV)")
+}
