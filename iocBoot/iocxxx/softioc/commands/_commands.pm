@@ -66,7 +66,9 @@ sub listAll
 	
 	foreach (sort @loaded_cmds)
 	{
-		next if(! eval "commands::$_->can($FILTER)");
+		my $mod = "commands::$_";
+		
+		next if(! $mod->can($FILTER));
 		
 		if ($first)    { $first = 0; }
 		else           { print("|"); }

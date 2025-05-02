@@ -22,26 +22,26 @@ sub _local
 		
 		print("$FindBin::Script ");
 		
-		_commands::call("_usage", $SELECTION);
+		my $mod = "commands::${SELECTION}";
+		
+		if ($mod->can("_usage"))
+		{
+			_commands::call("_usage", $SELECTION);
+		}
+		else
+		{
+			print($SELECTION);
+		}
+		
+		print("\n");
 	}
 }
 
 sub _remote
 {
-	my @parms = @_;
-	
-	if ($#parms == -1)
-	{
-		print("Usage: $FindBin::Script {");
-		_commands::listAll("_remote");
-		print("}\n");
-	}
-	else
-	{
-		my $SELECTION = $parms[0];
-		
-		_commands::call("_usage", $SELECTION);
-	}
+	print("Usage: $FindBin::Script {");
+	_commands::listAll("_remote");
+	print("}\n");
 }
 
 

@@ -9,7 +9,7 @@ sub _local
 
 sub _usage
 {
-	print("phoebus [boy_file boy_macros]\n");
+	print("phoebus [boy_file boy_macros]");
 }
 
 1;

@@ -9,7 +9,7 @@ sub _local
 
 sub _usage
 {
-	print("medm [adl_file adl_macros]\n");
+	print("medm [adl_file adl_macros]");
 }
 
 

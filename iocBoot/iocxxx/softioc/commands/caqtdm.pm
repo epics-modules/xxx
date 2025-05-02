@@ -9,7 +9,7 @@ sub _local
 
 sub _usage
 {
-	print("caqtdm [ui_file ui_macros]\n");
+	print("caqtdm [ui_file ui_macros]");
 }
 
 1;

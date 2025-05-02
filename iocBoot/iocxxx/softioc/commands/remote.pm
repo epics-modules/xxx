@@ -72,7 +72,7 @@ sub _local
 
 sub _usage
 {
-	print("remote enable/disable\n");
+	print("remote enable/disable");
 }
 
 
