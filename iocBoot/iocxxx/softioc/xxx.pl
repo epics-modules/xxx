@@ -2,6 +2,8 @@
 
 use strict;
 use FindBin;
+use Cwd 'abs_path';
+use File::Basename;
 
 ###################################################################
 # Set Environment Variables to be used by the rest of the scripts #
@@ -14,18 +16,17 @@ BEGIN
 	
 	
 	# IOC prefix name, used to find the correct iocBoot directory and executable
-	$ENV{IOC_NAME}="xxx";
-	
-	
+	$ENV{IOC_NAME} = substr(basename(abs_path("$FindBin::RealBin/../")),3);
+	#! $ENV{IOC_NAME}="xxx";
+		
 	
 	#########################
 	# IOC Executable Config #
 	#########################
 	
 	# Name of the IOC executable file
-	$ENV{IOC_BINARY}="$ENV{IOC_NAME}";
-	#! $ENV{IOC_BINARY}="xxx";
-	
+	$ENV{IOC_BINARY}="xxx";
+	#! $ENV{IOC_BINARY}="$ENV{IOC_NAME}";
 	
 	# Top-level bin directory for the IOC
 	$ENV{IOC_BIN_DIR}="$ENV{TOP}/bin";
