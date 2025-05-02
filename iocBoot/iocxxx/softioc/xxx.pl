@@ -72,7 +72,6 @@ BEGIN
 	$ENV{IOC_COMMAND_DIR}="$ENV{IOC_STARTUP_DIR}/softioc/commands";
 	#! $ENV{IOC_COMMAND_DIR}="/home/username/epics/ioc/synApps/xxx/iocBoot/iocxxx/softioc/commands";
 	
-	
 	$ENV{IOC_CMD}="$ENV{IOC_BIN_PATH} $ENV{IOC_STARTUP_FILE_PATH}";
 	
 	# Required shell commands
@@ -84,6 +83,9 @@ BEGIN
 	
 	# Remove EPICS 7.0.8 history
 	$ENV{EPICS_IOCSH_HISTFILE}="";
+	
+	# Number of log files to keep
+	$ENV{IOC_LOGFILE_MAX}=10;
 }
 
 
