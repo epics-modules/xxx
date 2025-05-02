@@ -1,11 +1,14 @@
-# IOC Name
-epicsEnvSet("IOC", "iocxxx")
+# IOC Title
+epicsEnvSet("IOC_NAME", "xxx")
+
+# Logged IOC name for alive and other tools
+epicsEnvSet("IOC", "ioc$(IOC_NAME)")
 
 # Shell prompt
 epicsEnvSet("IOCSH_PS1", "$(IOC)> ")
 
 # prefix used for all PVs in this IOC
-epicsEnvSet("PREFIX", "xxx:")
+epicsEnvSet("PREFIX", "$(IOC_NAME):")
 
 #For devIocStats
 epicsEnvSet("ENGINEER", "engineer")
