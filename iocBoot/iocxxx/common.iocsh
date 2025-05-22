@@ -30,10 +30,9 @@ iocshLoad("$(AUTOSAVE)/iocsh/configMenu.iocsh", "PREFIX=$(PREFIX),CONFIG=scan1")
 #dbLoadRecords("$(AUTOSAVE)/db/configMenu.db","P=$(PREFIX),CONFIG=scan1,ENABLE_SAVE=0")
 
 ### Stuff for user programming ###
-iocshLoad("$(CALC)/iocsh/userCalc.iocsh", "PREFIX=$(PREFIX), ARRAY_SIZE=8000")
 
-#- Load 10 more of all the user calcs, N=1 creates usercalcs 10-19
-iocshLoad("$(CALC)/iocsh/userCalc_extra.iocsh", "PREFIX=$(PREFIX), N=1, ARRAY_SIZE=8000")
+#- Load two sets of 10 usercalcs/transforms/etc
+luash("./scripts/loadCalcs.lua", "PREFIX=$(PREFIX), NUM_SETS=2, ARRAY_SIZE=8000")
 
 #- Load 20 userScripts
 dbLoadRecords("$(LUA)/db/luascripts10.db", "P=$(PREFIX), R=set1:")
