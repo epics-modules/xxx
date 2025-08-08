@@ -20,6 +20,7 @@ sub _local
 sub _remote
 {
 	my $PID = _info::procserv("CONSOLE", "PID");
+	my $prefix = _info::procserv("CONSOLE", "PREFIX");
 	
 	if ($PID != -1)    { _info::send_cmd("CONSOLE", "exit"); }
 	
@@ -33,6 +34,8 @@ sub _remote
 		
 		if ($WAIT == 5)    { kill("SIGKILL", $PID); last; }
 	}
+	
+	unlink "$prefix.txt";
 }
 
 
