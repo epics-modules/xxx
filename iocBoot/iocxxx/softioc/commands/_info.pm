@@ -178,6 +178,8 @@ sub send_cmd
 		Proto => 'tcp',
 	);
 	
+	return 0 unless $socket;
+	
 	# Seem to need some sort of time to actually establish connection
 	# Instead of arbitrary sleep, we'll just attempt a read
 	my $buffer = "";

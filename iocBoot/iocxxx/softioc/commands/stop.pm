@@ -35,7 +35,7 @@ sub _remote
 		if ($WAIT == 5)    { kill("SIGKILL", $PID); last; }
 	}
 	
-	unlink "$prefix.txt";
+	unlink "$FindBin::RealBin/$prefix.txt";
 }
 
 
