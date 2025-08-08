@@ -48,8 +48,6 @@ The environment variables that the script exports are:
 * SCREEN   - Name of screen command
 * TELNET   - Name of telnet command
 * PROCSERV - Name of procServ command
-* NETCAT   - Name of netcat command
-* ECHO     - Name of echo command
 
 
 

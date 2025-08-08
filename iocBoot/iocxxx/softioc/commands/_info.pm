@@ -130,14 +130,16 @@ sub can_ping
 	my $IP = $data->{"IP"};
 	my $PORT = $data->{"PORT"};
 		
-	if ($PORT != -1)
-	{
-		my $exit_code = system("$NETCAT -z $IP $PORT");
-		
-		return ($exit_code == 0);
-	}
+	my $socket = new IO::Socket::INET (
+		PeerHost => $IP,
+		PeerPort => $PORT,
+		Proto => 'tcp',
+	);
 	
-	return 0;
+	return 0 unless($socket);
+	
+	$socket->close();
+	return 1
 }
 
 sub has_remote 
@@ -170,9 +172,25 @@ sub send_cmd
 	my $IP   = $data->{"IP"};
 	my $PORT = $data->{"PORT"};
 	
+	my $socket = new IO::Socket::INET (
+		PeerHost => $IP,
+		PeerPort => $PORT,
+		Proto => 'tcp',
+	);
+	
+	# Seem to need some sort of time to actually establish connection
+	# Instead of arbitrary sleep, we'll just attempt a read
+	my $buffer = "";
+	$socket->recv($buffer, 1024);
+	
 	my $everything = join(" ", @CMDS);
 	
-	my $throwaway =`$ECHO '$everything' | $NETCAT $IP $PORT`;
+	$socket->send("$everything\n");
+	$socket->shutdown(SHUT_WR);
+	
+	$socket->recv($buffer, 1024);
+	$socket->shutdown(SHUT_RD);
+	$socket->close();
 }
 
 
@@ -183,10 +201,15 @@ sub get_port()
 	
 	while ($port_to_use <= 65535)
 	{
-		my $exit_code = system("$NETCAT -z $ip $port_to_use");
+		my $socket = new IO::Socket::INET (
+			PeerHost => $ip,
+			PeerPort => $port_to_use,
+			Proto => 'tcp',
+		);
 		
-		if ($exit_code != 0)    { last; }
+		last unless($socket);
 		
+		$socket->close();
 		$port_to_use += 1;
 	}
 	

@@ -78,8 +78,6 @@ BEGIN
 	$ENV{SCREEN}="screen";
 	$ENV{TELNET}="telnet";
 	$ENV{PROCSERV}="/APSshare/bin/procServ";
-	$ENV{NETCAT}="nc";
-	$ENV{ECHO}="echo";
 	
 	# Remove EPICS 7.0.8 history
 	$ENV{EPICS_IOCSH_HISTFILE}="";
