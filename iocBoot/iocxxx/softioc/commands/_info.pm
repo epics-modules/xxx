@@ -136,7 +136,7 @@ sub get_local_session
 		if (index($splitline[4], ${IOC_CMD}) != -1)
 		{
 			if    (index($splitline[4], "procServ") != -1)    { return "procserv"; }
-			elsif (index($splitline[4], "screen")   != -1)    { return "screen"; }
+			elsif (index($splitline[4], "SCREEN")   != -1)    { return "screen"; }
 		}
 	}
 	
