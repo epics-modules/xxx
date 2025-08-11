@@ -16,12 +16,7 @@ sub _local()
 	
 	if ( $ONOFF eq "start" )
 	{
-		if    (_info::ioc_up())     { print("IOC is already running\n"); }
-		elsif (_info::has_remote()) 
-		{ 
-			print("Starting procServ session on remote computer\n"); 
-			_info::send_cmd("COMMAND", "start");
-		}
+		if    (_info::ioc_up())     { print("IOC is already running\n"); }		
 		else
 		{
 			my $ip_addr = _info::my_ip();
@@ -50,7 +45,7 @@ sub _local()
 			foreach(reverse @logfiles)
 			{
 				$numkept = $numkept+1;
-				next if ($numkept <= $IOC_LOGFILE_MAX);
+				next if ($numkept <= $IOC_CONSOLE_FILE_MAX);
 				unlink $_;
 			}
 		}
@@ -85,7 +80,7 @@ sub _local()
 
 sub _usage
 {
-	print("procserv start/stop");
+	print("procserv {start|stop} [silent]");
 }
 
 1;

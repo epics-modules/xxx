@@ -32,6 +32,19 @@ sub _local
 		
 		# Start Command Port
 		system("cd $FindBin::RealBin; $PROCSERV --allow --quiet --oneshot -L $LOG_FILE -i ^C --logoutcmd=^D -I $prefix.txt $ip_addr:$port $FindBin::RealBin/$FindBin::RealScript remote commandline");
+		
+		sleep(1);
+		
+		my @logfiles = glob("$IOC_STARTUP_DIR/softioc/logs/remote/${prefix}.log_*");
+			
+		my $numkept=0;
+		
+		foreach(reverse @logfiles)
+		{
+			$numkept = $numkept+1;
+			next if ($numkept <= $IOC_COMMAND_FILE_MAX);
+			unlink $_;
+		}
 	}
 	elsif ( $ONOFF eq "disable" )
 	{
@@ -43,8 +56,8 @@ sub _local
 		
 		my $PID=_info::procserv("COMMAND", "PID");
 		
+		_info::send_cmd("COMMAND", "stop");
 		_info::send_cmd("COMMAND", "exit");
-		_commands::call("_remote", "stop");
 	}
 	elsif ( $ONOFF eq "commandline" )
 	{

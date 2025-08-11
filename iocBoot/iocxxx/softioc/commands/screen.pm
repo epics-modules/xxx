@@ -17,7 +17,6 @@ sub _local()
 	if ( $ONOFF eq "start" )
 	{
 		if    (_info::ioc_up())        { print ("IOC is already running\n"); }
-		elsif (_info::has_remote())    { _info::send_cmd("COMMAND", "start"); }
 		else
 		{
 			_info::sanity_check();
@@ -52,7 +51,7 @@ sub _local()
 			foreach(reverse @logfiles)
 			{
 				$numkept = $numkept+1;
-				next if ($numkept <= $IOC_LOGFILE_MAX);
+				next if ($numkept <= $IOC_CONSOLE_FILE_MAX);
 				unlink $_;
 			}
 		}
@@ -72,7 +71,7 @@ sub _local()
 
 sub _usage
 {
-	print("screen start/stop");
+	print("screen {start|stop} [silent]");
 }
 
 1;

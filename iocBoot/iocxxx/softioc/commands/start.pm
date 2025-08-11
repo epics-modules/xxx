@@ -10,7 +10,8 @@ use _info;
 
 sub _local()
 {
-	_commands::call("_local", $ENV{IOC_DEFAULT_SESSION}, "start");
+	if (_info::has_remote()) { _info::send_cmd("COMMAND", "start"); }
+	else                     { _commands::call("_local", $ENV{IOC_DEFAULT_SESSION}, "start"); }
 }
 
 sub _remote()

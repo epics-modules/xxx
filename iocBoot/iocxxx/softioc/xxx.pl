@@ -86,8 +86,12 @@ BEGIN
 	# Remove EPICS 7.0.8 history
 	$ENV{EPICS_IOCSH_HISTFILE}="";
 	
-	# Number of log files to keep
+	# Set maximum number of both types of log files to keep
 	$ENV{IOC_LOGFILE_MAX}=10;
+	
+	# Or set each type individually, Command is for remote command console logs, Console is iocConsole logs
+	$ENV{IOC_COMMAND_FILE_MAX}=$ENV{IOC_LOGFILE_MAX};
+	$ENV{IOC_CONSOLE_FILE_MAX}=$ENV{IOC_LOGFILE_MAX};
 }
 
 
