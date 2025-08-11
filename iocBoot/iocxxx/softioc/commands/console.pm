@@ -14,12 +14,23 @@ sub _local
 	}
 	else
 	{
-		print("Connecting to ${IOC_NAME}'s screen session\n");
+		my $SESSION = _info::get_local_session();
 		
-		# The -r flag will only connect if no one is attached to the session
-		#!${SCREEN} -r ${IOC_NAME}
-		# The -x flag will connect even if someone is attached to the session
-		system("${SCREEN} -x ${IOC_NAME}");
+		if ($SESSION eq "screen")
+		{
+			print("Connecting to ${IOC_NAME}'s screen session\n");
+			
+			# The -r flag will only connect if no one is attached to the session
+			#!${SCREEN} -r ${IOC_NAME}
+			# The -x flag will connect even if someone is attached to the session
+			system("${SCREEN} -x ${IOC_NAME}");
+		}
+		elsif ($SESSION eq "procServ")
+		{			
+			print("Connecting to ${IOC_NAME}'s procServ session\n");
+			
+			system("${TELNET}", _info::procserv("CONSOLE", "IP"), _info::procserv("CONSOLE", "PORT"));
+		}
 	}
 }
 

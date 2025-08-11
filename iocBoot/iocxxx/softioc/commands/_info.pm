@@ -109,10 +109,34 @@ sub get_local_pid
 		my @splitline = split(/\s+/, $_, 5);
 		
 		#[0] is PID, [4] is Command
-		
 		if (index($splitline[4], ${IOC_CMD}) == 0)
 		{
 			return $splitline[0];
+		}
+	}
+	
+	return 0;
+}
+
+sub get_local_session
+{
+	my $UID=$<;
+	
+	my $ptable = `ps -u $UID x`;
+	
+	foreach (split(/\n/, $ptable))
+	{
+		#Remove leading spaces
+		$_ =~ s/^\s+//;
+		
+		#Split proc info, but don't break up command
+		my @splitline = split(/\s+/, $_, 5);
+		
+		#[0] is PID, [4] is Command
+		if (index($splitline[4], ${IOC_CMD}) != -1)
+		{
+			if    (index($splitline[4], "procServ") != -1)    { return "procserv"; }
+			elsif (index($splitline[4], "screen")   != -1)    { return "screen"; }
 		}
 	}
 	

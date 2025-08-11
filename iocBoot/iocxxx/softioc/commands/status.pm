@@ -31,7 +31,8 @@ sub _local
 		else
 		{
 			my $PID=_info::get_local_pid();
-			print("in a screen session (pid=$PID)\n");
+			my $SESSION=_info::get_local_session();
+			print("in a $SESSION session (pid=$PID)\n");
 		}
 	}
 	else

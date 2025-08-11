@@ -79,6 +79,10 @@ BEGIN
 	$ENV{TELNET}="telnet";
 	$ENV{PROCSERV}="/APSshare/bin/procServ";
 	
+	# Switch between screen/procserv for local sessions (procServ should be set in all lowercase)
+	$ENV{IOC_DEFAULT_SESSION}="screen";
+	#! $ENV{IOC_DEFAULT_SESSION}="procserv";
+	
 	# Remove EPICS 7.0.8 history
 	$ENV{EPICS_IOCSH_HISTFILE}="";
 	
