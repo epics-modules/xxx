@@ -20,7 +20,7 @@ sub _local
 	{
 		my $SELECTION = $parms[0];
 		
-		print("$FindBin::Script ");
+		print("Usage: $FindBin::Script ");
 		
 		my $mod = "commands::${SELECTION}";
 		
