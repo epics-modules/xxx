@@ -30,8 +30,16 @@ sub _local
 		my $curr_time = strftime("%y%m%d-%H%M%S", localtime());
 		my $LOG_FILE="$IOC_STARTUP_DIR/softioc/logs/remote/${prefix}.log_${curr_time}";
 		
+		# Construct system commands
+		my $command1 = "cd $FindBin::RealBin";
+		my $command2 = "$PROCSERV --allow --quiet --oneshot -L $LOG_FILE -i ^C --logoutcmd=^D -I $prefix.txt $ip_addr:$port $PERL $FindBin::RealBin/$FindBin::RealScript remote commandline";
+		
+		# Replace windows backslashes
+		$command1 =~ s{\\(?! )}{/}g;
+		$command2 =~ s{\\(?! )}{/}g;
+		
 		# Start Command Port
-		system("cd $FindBin::RealBin; $PROCSERV --allow --quiet --oneshot -L $LOG_FILE -i ^C --logoutcmd=^D -I $prefix.txt $ip_addr:$port $PERL $FindBin::RealBin/$FindBin::RealScript remote commandline");
+		system("$command1 && $command2");
 		
 		sleep(1);
 		
