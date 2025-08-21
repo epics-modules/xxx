@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
 use strict;
+use Config;
 use FindBin;
 use Cwd 'abs_path';
 use File::Basename;
@@ -77,6 +78,7 @@ BEGIN
 	# Required shell commands
 	$ENV{SCREEN}="screen";
 	$ENV{TELNET}="telnet";
+	$ENV{PERL}="$Config{perlpath}"
 	$ENV{PROCSERV}="/APSshare/bin/procServ";
 	
 	# Switch between screen/procserv for local sessions (procServ should be set in all lowercase)
