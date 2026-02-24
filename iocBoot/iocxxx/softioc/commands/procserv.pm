@@ -27,14 +27,23 @@ sub _local()
 			my $LOG_FILE="-L $IOC_STARTUP_DIR/softioc/logs/iocConsole/${prefix}.log_${curr_time}";
 			
 			if ($#parms > -1)
-			{
-				if ($parms[0] eq "silent")
+			{				
+				if ($parms[1] eq "silent")
 				{
 					$LOG_FILE="";
 				}
 			}
 			
-			system("cd $FindBin::RealBin; $PROCSERV --allow --quiet --oneshot $LOG_FILE -c $IOC_STARTUP_DIR -i ^C --logoutcmd=^D -I $prefix.txt $ip_addr:$port $IOC_CMD");
+			# Construct system commands
+			my $command1 = "cd $FindBin::RealBin";
+			my $command2 = "$PROCSERV --allow --quiet --oneshot $LOG_FILE -c $IOC_STARTUP_DIR -i ^C --logoutcmd=^D -I $prefix.txt $ip_addr:$port $IOC_CMD";
+			
+			# Replace windows backslashes
+			$command1 =~ s{\\(?! )}{/}g;
+			$command2 =~ s{\\(?! )}{/}g;
+			
+			# Start Command Port
+			system("$command1 && $command2");
 			
 			sleep 1;
 			
