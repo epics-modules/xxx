@@ -26,7 +26,7 @@ sub _local()
 			my $curr_time = strftime("%y%m%d-%H%M%S", localtime());
 			my $LOG_FILE="-L $IOC_STARTUP_DIR/softioc/logs/iocConsole/${prefix}.log_${curr_time}";
 			
-			if ($#parms > -1)
+			if ($#parms > 0)
 			{				
 				if ($parms[1] eq "silent")
 				{
