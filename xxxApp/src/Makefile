@@ -600,9 +600,13 @@ endif
 endif
 
 
-$(DBD_NAME)_DBD += qsrv.dbd
-
-$(PROD_NAME)_LIBS := qsrv $($(PROD_NAME)_LIBS)
+# pvAccess server
+ifdef EPICS_QSRV_MAJOR_VERSION
+  $(DBD_NAME)_DBD += qsrv.dbd
+  $(DBD_NAME)_DBD += PVAServerRegister.dbd
+  $(PROD_NAME)_LIBS := qsrv $($(PROD_NAME)_LIBS)
+  $(PROD_NAME)_LIBS += $(EPICS_BASE_PVA_CORE_LIBS)
+endif
 
 $(PROD_NAME)_LIBS += $(EPICS_BASE_IOC_LIBS)
 
