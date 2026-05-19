@@ -1,554 +1,778 @@
 Header: "XXX"
 Prefix: "xxx:"
 
+Tabs:
 
-Motors:
+  #####################################################################
+  # Motors
+  #####################################################################
+  - __index__: "Motors"
+    buttons:
     
-    # Row 1
-    
-    - title: "Motors 1-8"
-      links: 
-        - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"}
-    
-    - title: "Motors 9-16"
-      links: 
-        - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16"}
-        
-    - title: "Motors 17-24"
-      links: 
-        - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m17,M2=m18,M3=m19,M4=m20,M5=m21,M6=m22,M7=m23,M8=m24"}
-        
-    - title: "Motors 25-32"
-      links: 
-        - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m25,M2=m26,M3=m27,M4=m28,M5=m29,M6=m30,M7=m31,M8=m32"}
-    
-        
-    #Row 2
-        
-    - title: "Motors 33-40"
-      links: 
-        - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m33,M2=m34,M3=m35,M4=m36,M5=m37,M6=m38,M7=m39,M8=m40"}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    
-    #Row 3
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    
-    # Row 4    
-        
-    - title: "Piezo"
-      used: False
-      links: 
-        - {label: "Queensgate Piezo (3id)", file: "pzt_3id", macros: "P={Prefix}"}
-        - {label: "Queensgate Piezo (std)", file: "pzt",     macros: "P={Prefix}"}
-        - {label: "Nano2k (ch1)",           file: "Nano2k",  macros: "P={Prefix},S=nano,p=1"}
-        - {label: "Nano2k (ch2)",           file: "Nano2k",  macros: "P={Prefix},S=nano,p=2"}
-        - {label: "Huber DMC9200 servo controller", file: "HuberDMC4", macros: "P={Prefix},Q=DMC1:,M1=1,M2=2,M3=3,M4=4"}
-        
-    - title: "MLL"
-      used: False
-      links: 
-        - {label: "MLLH", file: "MLLH", macros: "P={Prefix},Q=MLLH:"}
-        - {label: "MLLH Motors", file: "motor3x", macros: "P={Prefix},M1=m2,M2=m1,M3=m3"}
-        - {label: "MLLV", file: "MLLV", macros: "P={Prefix},Q=MLLV:"}
-        - {label: "MLLV Motors", file: "motor3x", macros: "P={Prefix},M1=m6,M2=m7,M3=m8"}
-        
-    - title: "Huber DMC"
-      used: False
-      links: 
-        - {label: "Channel 1", file: "HuberDMC", macros: "P={Prefix},Q=DMC1:,M=1"}
-        - {label: "Channel 2", file: "HuberDMC", macros: "P={Prefix},Q=DMC1:,M=2"}
-        - {label: "Channel 3", file: "HuberDMC", macros: "P={Prefix},Q=DMC1:,M=3"}
-        - {label: "Channel 4", file: "HuberDMC", macros: "P={Prefix},Q=DMC1:,M=4"}
-        
-    - title: "Love"
-      used: False
-      links: 
-        - {label: "Love Controllers", file: "LoveList4", macros: "P={Prefix},Q1=Love1,Q2=Love2,Q3=Love3,Q4=Love4"}
-        
-        
-Optics: 
+      # Row 1
+      
+      - title: "Motors 1-8"
+        links: 
+          - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"}
+      
+      - title: "Motors 33-40"
+        links: 
+          - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m33,M2=m34,M3=m35,M4=m36,M5=m37,M6=m38,M7=m39,M8=m40"}
 
-    # Row 1
-    
-    - title: "Tables"
-      links: 
-        - {label: "Table1 (S)",        file: "table",      macros: "P={Prefix},Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6"}
-        - {label: "Table1 (L)",        file: "table_full", macros: "P={Prefix},Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6"}
-        - {label: "Table2 (S) (no Z)", file: "table",      macros: "P={Prefix},Q=Table2,T=table2,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=junk"}
-        - {label: "Table2 (L) (no Z)", file: "table_full", macros: "P={Prefix},Q=Table2,T=table2,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=junk"}
-        - {label: "Table3 (S) (no X)", file: "table",      macros: "P={Prefix},Q=Table3,T=table3,M0X=m1,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=junk"}
-        - {label: "Table3 (L) (no X)", file: "table_full", macros: "P={Prefix},Q=Table3,T=table3,M0X=m1,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=junk"}
-        - {label: "ASRP mirror table", file: "ASRPmirrorTable", macros: "P={Prefix},TBL=mt1,VERT={Prefix}m7,PITCH={Prefix}m8"}
-    
-    - title: "Slit #1"
-      links: 
-        - {label: "Slit 1 {H)",     file: "2slit",        macros: "P={Prefix},SLIT=Slit1H,mXp=m5,mXn=m6"}
-        - {label: "Slit 1 {V)",     file: "2slit",        macros: "P={Prefix},SLIT=Slit1V,mXp=m3,mXn=m4"}
-        - {label: "Slit 1 Graphic", file: "4slitGraphic", macros: "P={Prefix},SLIT=Slit_1,H=Slit1H,mXp=m5,mXn=m6,V=Slit1V,mYp=m3,mYn=m4"}
-        - {label: "Slit Motors",    file: "motor4x",      macros: "P={Prefix},M1=m3,M2=m4,M3=m5,M4=m6"}
-         
-    - title: "Slit #2"
-      links: 
-        - {label: "Slit 2 {H)",     file: "2slit",        macros: "P={Prefix},SLIT=Slit1H,mXp=m15,mXn=m16"}
-        - {label: "Slit 2 {V)",     file: "2slit",        macros: "P={Prefix},SLIT=Slit1V,mXp=m13,mXn=m14"}
-        - {label: "Slit 2 Graphic", file: "4slitGraphic", macros: "P={Prefix},SLIT=Slit_1,H=Slit1H,mXp=m15,mXn=m16,V=Slit1V,mYp=m13,mYn=m14"}
-        - {label: "Slit Motors",    file: "motor4x",      macros: "P={Prefix},M1=m13,M2=m14,M3=m15,M4=m16"}
-    
-    - title: "XIA Slit"
-      links: 
-        - {label: "XIA Slit 1 (H)", file: "xia_slit", macros: "P={Prefix},HSC=hsc1:"}
-        - {label: "XIA Slit 1 (V)", file: "xia_slit", macros: "P={Prefix},HSC=hsc2:"}
-        
-        
-    #Row 2
-        
-    - title: "Mirror"
-      links: 
-        - {label: "2-Post Mirror", file: "2postMirror", macros: "P={Prefix},Q=M1,mDn=m1,mUp=m2"}
-        
-    - title: "4 Circle"
-      links: 
-        - {label: "Orientation Matrix", file: "orient",  macros: "P={Prefix},O=_0,PM={Prefix},mTTH=SM1,mTH=SM2,mCHI=SM3,mPHI=SM4"}
-        - {label: "Orient9",            file: "orient9", macros: "P={Prefix},O=_0,PM={Prefix},mTTH=SM1,mTH=SM2,mCHI=SM3,mPHI=SM4"}
-    
-    - title: "EPID"
-      links: 
-        - {label: "EPID #1", file: "fb_epid", macros: "P={Prefix}epid1"}
-        
-    - title: "Shutter"
-      links: 
-        - {label: "XIA Shutter 1", file: "XIA_shutter", macros: "P={Prefix},S=shutter1"}
-        - {label: "XIA Shutter 2", file: "XIA_shutter", macros: "P={Prefix},S=shutter2"}
-        
-    
-    #Row 3
-        
-    - title: "Kohzu Mono"
-      links: 
-        - {label: "Kohzu Graphic (GEOM 1)", file: "kohzuGraphic",    macros: "P={Prefix},mTH=m9,mY1=m10,mZ2=m11,mCHI2=m12,mTH2=m13,mX=m14,mY=m15,mX2=m16,QE=BraggE,PVE=BraggEAO,QL=BraggLambda,PVL=BraggLambdaAO,QTh=BraggTheta,PVTh=BraggThetaAO"}
-        - {label: "Kohzu Graphic (GEOM 2)", file: "kohzu2Graphic",   macros: "P={Prefix},mTH=m9,mY2=m10,mZ2=m11,mCHI2=m12,mTH2=m13,mX=m14,mY=m15,mX2=m16,QE=BraggE,PVE=BraggEAO,QL=BraggLambda,PVL=BraggLambdaAO,QTh=BraggTheta,PVTh=BraggThetaAO"}
-        - {label: "Kohzu Seq (tiny)",       file: "kohzuSeqCtl_tiny",macros: "P={Prefix}"}
-        - {label: "Kohzu Seq",              file: "kohzuSeqCtl",     macros: "P={Prefix}"}
-        - {label: "Kohzu Seq (All)",        file: "kohzuSeqCtl_All", macros: "P={Prefix}"}
-        - {label: "Energy-scan parameters", file: "scanParms",       macros: "P={Prefix},Q=BraggE,PV=BraggEAO"}
-        - {label: "Theta-scan parameters",  file: "scanParms",       macros: "P={Prefix},Q=BraggTheta,PV=BraggThetaAO"}
-        - {label: "Wavelength-scan parameters", file: "scanParms",   macros: "P={Prefix},Q=BraggLambda,PV=BraggLambdaAO"}
-    
-    - title: "SGM Mono"
-      links: 
-        - {label: "Spherical Grating Mono (tiny)", file: "SGM_tiny", macros: "P={Prefix},N=1,M_x=m7,M_rIn=m6,M_rOut=m8"}
-        - {label: "Spherical Grating Mono",        file: "SGM",      macros: "P={Prefix},N=1,M_x=m7,M_rIn=m6,M_rOut=m8"}
-        
-    - title: "PF4 Filter"
-      links: 
-        - {label: "PF4 Filter",       file: "pf4",      macros: "P={Prefix},H=pf4:,A=A,B=B,MONO={Prefix}BraggEAO,B1={Prefix}Unidig1Bo3,B2={Prefix}Unidig1Bo4,B3={Prefix}Unidig1Bo5,B4={Prefix}Unidig1Bo6,B5={Prefix}Unidig1Bo7,B6={Prefix}Unidig1Bo8,B7={Prefix}Unidig1Bo9,B8={Prefix}Unidig1Bo10"}
-        - {label: "PF4 Filter small", file: "pf4small", macros: "P={Prefix},H=pf4:,A=A,B=B,MONO={Prefix}BraggEAO,B1={Prefix}Unidig1Bo3,B2={Prefix}Unidig1Bo4,B3={Prefix}Unidig1Bo5,B4={Prefix}Unidig1Bo6,B5={Prefix}Unidig1Bo7,B6={Prefix}Unidig1Bo8,B7={Prefix}Unidig1Bo9,B8={Prefix}Unidig1Bo10"}
-        
-    - title: "User Filter"
-      links: 
-        - {label: "User Filter",       file: "2filter",       macros: "P={Prefix},Q1=fltr1:,Q2=fltr2:,LOCK1=fltr_1_2:,LOCK2=fltr_1_2:"}
-        - {label: "User Filter Setup", file: "2filter_setup", macros: "P={Prefix},Q1=fltr1:,Q2=fltr2:,LOCK1=fltr_1_2:,LOCK2=fltr_1_2:"}
-    
-    
-    # Row 4    
-        
-    - title: "ML Mono"
-      links: 
-        - {label: "ml_monoGraphic",         file: "ml_monoGraphic",    macros: "P={Prefix},mY1=m1,mZ1=m2,mY2=m9,mZ2=m8,mT1=m7,mT2=m10,mB=m11"}
-        - {label: "ml_monoSeq (tiny)",      file: "ml_monoSeqCtl_tiny",macros: "P={Prefix}"}
-        - {label: "ml_monoSeq",             file: "ml_monoSeqCtl",     macros: "P={Prefix}"}
-        - {label: "ml_monoSeq (All)",       file: "ml_monoSeqCtl_All", macros: "P={Prefix}"}
-        - {label: "Energy-scan parameters", file: "scanParms",         macros: "P={Prefix},Q=ml_monoE,PV=ml_monoE"}
-        - {label: "Theta-scan parameters",  file: "scanParms",         macros: "P={Prefix},Q=ml_monoTheta,PV=ml_monoTheta"}
-        - {label: "Wavelength-scan parameters", file: "scanParms",     macros: "P={Prefix},Q=ml_monoLambda,PV=ml_monoLambda"}
-        
-    - title: "HR Mono"
-      links: 
-        - {label: "High Resolution Mono (nested)",    file: "hr_nested",    macros: "P={Prefix},N=1"}
-        - {label: "High Resolution Mono (symmetric)", file: "hr_symmetric", macros: "P={Prefix},N=1"}
-        - {label: "High Resolution Mono (control)",   file: "hrSeqCtl_All", macros: "P={Prefix},N=1"}
-        
-    - title: "XIA PFCU"
-      used: False
-      links: 
-        - {label: "XIA PFCU", file: "pf4", macros: "P={Prefix},H=pf401:,A=A,B=B,PV=,MONO="}
-        
-    - title: "Coarse/Fine"
-      links: 
-        - {label: "CoarseFine", file: "CoarseFineMotor", macros: "P={Prefix}cf1:,M=MOT,PM={Prefix},CM=m7,FM=m8"}
-    
-    
+      - title: "Piezo"
+        used: False
+        links: 
+          - {label: "Queensgate Piezo (3id)", file: "pzt_3id", macros: "P={Prefix}"}
+          - {label: "Queensgate Piezo (std)", file: "pzt",     macros: "P={Prefix}"}
+          - {label: "Nano2k (ch1)",           file: "Nano2k",  macros: "P={Prefix},S=nano,p=1"}
+          - {label: "Nano2k (ch2)",           file: "Nano2k",  macros: "P={Prefix},S=nano,p=2"}
+          - {label: "Huber DMC9200 servo controller", file: "HuberDMC4", macros: "P={Prefix},Q=DMC1:,M1=1,M2=2,M3=3,M4=4"}
 
-Detectors: 
+      - title: "MLL"
+        used: False
+        links: 
+          - {label: "MLLH",             file: "MLLH",    macros: "P={Prefix},Q=MLLH:"}
+          - {label: "MLLH hard motors", file: "motor3x", macros: "P={Prefix},M1=m2,M2=m1,M3=m3"}
+          - {label: "MLLV",             file: "MLLV",    macros: "P={Prefix},Q=MLLV:"}
+          - {label: "MLLV hard motors", file: "motor5x", macros: "P={Prefix},M1=m4,M2=m5,M3=m6,M4=m7,M5=m8"}
 
-    # Row 1
-    
-    - title: "simDetector"
-      links: 
-        - {label: "Simulator", file: "simDetector", macros: "P={Prefix},R=cam1:"}
-    
-    - title: "ADAndor"
-      links: 
-        - {label: "Andor",    file: "Andor",    macros: "P={Prefix},R=cam1:"}
-        - {label: "Andor3",   file: "Andor3",   macros: "P={Prefix},R=cam1:"}
-        - {label: "Shamrock", file: "Shamrock", macros: "P={Prefix},R=cam1:"}
-        
-    - title: "ADEiger"
-      links: 
-        - {label: "Eiger 1X", file: "eigerDetector",  macros: "P={Prefix},R=cam1:"}
-        - {label: "Eiger 2X", file: "eiger2Detector", macros: "P={Prefix},R=cam1:"}
-    
-    - title: "ADGeniCam"
-      links: 
-        - {label: "AVT Manta G507C",   file: "ADVimba", macros: "P={Prefix}, R=cam1:, C=AVT_Manta_G507C"}
-        - {label: "AVT Manta G146C",   file: "ADVimba", macros: "P={Prefix}, R=cam1:, C=AVT_Manta_G146C"}
-        - {label: "AVT GC1380CH",      file: "ADVimba", macros: "P={Prefix}, R=cam1:, C=AVT_GC1380CH"}
-        - {label: "AVT GC1380H",       file: "ADVimba", macros: "P={Prefix}, R=cam1:, C=AVT_GC1380H"}
-        - {label: "Blackfly 20E4C",    file: "ADAravis", macros: "P={Prefix}, R=cam1:,C=PGR_Blackfly_20E4C"}
-        - {label: "Blackfly 13Y3M",    file: "ADAravis", macros: "P={Prefix}, R=cam1:,C=PGR_Blackfly_13Y3M"}
-        - {label: "Blackfly 50S5C",    file: "ADAravis", macros: "P={Prefix}, R=cam1:,C=PGR_Blackfly_50S5C"}
-        - {label: "Grasshopper 2356M", file: "ADAravis", macros: "P={Prefix}, R=cam1:,C=PGR_GS3_U3_2356M"}
-        - {label: "Grasshopper 51S5M", file: "ADAravis", macros: "P={Prefix}, R=cam1:,C=PGR_GS3_U3_51S5M"}
-        - {label: "Oryx 51S5M",        file: "ADAravis", macros: "P={Prefix}, R=cam1:,C=FLIR_ORX_10G_51S5M"}
-    
-    #Row 2
-    
-    - title: "ADPilatus"
-      links: 
-        - {label: "Pilatus", file: "pilatusDetector", macros: "P={Prefix},R=cam1:"}
-        
-    - title: "ADPointGrey"
-      links: 
-        - {label: "Point Grey", file: "pointGrey", macros: "P={Prefix},R=cam1:"}
-        
-    - title: "ADProsilica"
-      links: 
-        - {label: "Prosilica", file: "prosilica", macros: "P={Prefix},R=cam1:"}
-    
-    - title: "ADURL"
-      links: 
-        - {label: "ADURL", file: "URLDriver", macros: "P={Prefix},R=cam1:"}
-        
-    
-    #Row 3
-    
-    - title: "ADMar345"
-      links: 
-        - {label: "Mar 345", file: "mar345", macros: "P={Prefix},R=cam1:"}
-    
-    - title: "ADMarCCD"
-      links: 
-        - {label: "Mar CCD", file: "marCCD", macros: "P={Prefix},R=cam1:"}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    
-    # Row 4    
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-        
-Direct I/O: 
+      - title: "Huber DMC"
+        used: False
+        links: 
+          - {label: "Channel 1", file: "HuberDMC", macros: "P={Prefix},Q=DMC1:,M=1"}
+          - {label: "Channel 2", file: "HuberDMC", macros: "P={Prefix},Q=DMC1:,M=2"}
+          - {label: "Channel 3", file: "HuberDMC", macros: "P={Prefix},Q=DMC1:,M=3"}
+          - {label: "Channel 4", file: "HuberDMC", macros: "P={Prefix},Q=DMC1:,M=4"}
 
-    # Row 1
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    #Row 2
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    
-    #Row 3
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    
-    # Row 4    
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    
-        
-Devices: 
+      # Row 2
+      
+      - title: "Motors 9-16"
+        links: 
+          - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16"}
+          
+      - title: "Motors 41-48"
+        links: 
+          - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m41,M2=m42,M3=m43,M4=m44,M5=m45,M6=m46,M7=m47,M8=m48"}
 
-    # Row 1
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    #Row 2
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    
-    #Row 3
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    
-    # Row 4    
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    
-        
-Tools: 
-    
-    # Row 1
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
 
-    - title: "userCalcs"
-      links:
-        - {label: "user calcs 1-10",        file: "userCalcs10",           macros: "P={Prefix}"}
-        - {label: "user calcs 11-20",       file: "userCalcs10more",       macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
-        - {label: "user calcOuts 1-10",     file: "userCalcOuts10",        macros: "P={Prefix}"}
-        - {label: "user calcOuts 11-20",    file: "userCalcOuts10more",    macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
-        - {label: "user stringCalcs 1-10",  file: "userStringCalcs10",     macros: "P={Prefix}"}
-        - {label: "user stringCalcs 11-20", file: "userStringCalcs10more", macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
-        - {label: "user arrayCalcs 1-10",   file: "userArrayCalcs10",      macros: "P={Prefix}"}
-        - {label: "user arrayCalcs 11-20",  file: "userArrayCalcs10more",  macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
-        - {label: "user transforms 1-10",   file: "userTransforms10",      macros: "P={Prefix}"}
-        - {label: "user transforms 11-20",  file: "userTransforms10more",  macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
-        - {label: "user string seqs 1-10",  file: "userStringSeqs10",      macros: "P={Prefix}"}
-        - {label: "user string seqs 11-20", file: "userStringSeqs10more",  macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
-        - {label: "user average 1-10",      file: "userAve10",             macros: "P={Prefix}"}
-        - {label: "user average 11-20",     file: "userAve10more",         macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
-        - {label: "editSseq",               file: "editSseq",              macros: "P={Prefix},Q=ES:"}
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
 
-    - title: "userScripts"
-      links: 
-        - {label: "user scripts 1-10",  file: "userScripts10", macros: "P={Prefix},R=set1:"}
-        - {label: "user scripts 11-20", file: "userScripts10", macros: "P={Prefix},R=set2:"}
+      - title: "Love"
+        used: False
+        links: 
+          - {label: "Love Controllers", file: "LoveList4", macros: "P={Prefix},Q1=Love1,Q2=Love2,Q3=Love3,Q4=Love4"}
 
-    - title: "Scans"
-      links:
-        - {label: "Scan1 (for all scans)",               file: "scan",          macros: "P={Prefix},N=1,S=scan1"}
-        - {label: "Scan2 (for 2D &amp; higher scans)",   file: "scan",          macros: "P={Prefix},N=2,S=scan2"}
-        - {label: "Scan3 (for 3D &amp; higher scans)",   file: "scan",          macros: "P={Prefix},N=3,S=scan3"}
-        - {label: "Scan4 (for 4D scans)",                file: "scan",          macros: "P={Prefix},N=4,S=scan4"}
-        - {label: "ScanH (for Hardware-assisted scans)", file: "scan",          macros: "P={Prefix},N=H,S=scanH"}
-        - {label: "saveData controls",                   file: "scan_saveData", macros: "P={Prefix}"}
-        - {label: "scanProgress",                        file: "ProgressBar",   macros: "P={Prefix},B={Prefix}scanProgress:"}
-        - {label: "scan1Menu",                           file: "configMenu",    macros: "P={Prefix},CONFIG=scan1"}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-        
-    # Row 2
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
+      # Row 3
+      
+      - title: "Motors 17-24"
+        links: 
+          - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m17,M2=m18,M3=m19,M4=m20,M5=m21,M6=m22,M7=m23,M8=m24"}
+          
+      - title: "Motors 49-56"
+        links: 
+          - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m49,M2=m50,M3=m51,M4=m52,M5=m53,M6=m54,M7=m55,M8=m56"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      # Row 4
+      
+      - title: "Motors 25-32"
+        links: 
+          - {label: "motors", file: "topMotors8", macros: "P={Prefix},M1=m25,M2=m26,M3=m27,M4=m28,M5=m29,M6=m30,M7=m31,M8=m32"}
+
+      - title: "Extra Motors"
+        links: 
+          - {label: "soft motors 1-10", file: "softMotors10",   macros: "P={Prefix},SM1=SM1,SM2=SM2,SM3=SM3,SM4=SM4,SM5=SM5,SM6=SM6,SM7=SM7,SM8=SM8,SM9=SM9,SM10=SM10"}
+          - {label: "Pseudo-motors",    file: "topMotors4",     macros: "P={Prefix},M1=pm1,M2=pm2,M3=pm3,M4=pm4"}
+          - {label: "motor status 16",  file: "motorStatus16",  macros: "P={Prefix}"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+
+  #####################################################################
+  # Optics
+  #####################################################################
+  - __index__: "Optics" 
+    buttons:
+
+      # Row 1
+
+      - title: "Kohzu Mono"
+        links: 
+          - {label: "Kohzu Graphic (GEOM 1)", file: "kohzuGraphic",    macros: "P={Prefix},mTH=m9,mY1=m10,mZ2=m11,mCHI2=m12,mTH2=m13,mX=m14,mY=m15,mX2=m16,QE=BraggE,PVE=BraggEAO,QL=BraggLambda,PVL=BraggLambdaAO,QTh=BraggTheta,PVTh=BraggThetaAO"}
+          - {label: "Kohzu Graphic (GEOM 2)", file: "kohzu2Graphic",   macros: "P={Prefix},mTH=m9,mY2=m10,mZ2=m11,mCHI2=m12,mTH2=m13,mX=m14,mY=m15,mX2=m16,QE=BraggE,PVE=BraggEAO,QL=BraggLambda,PVL=BraggLambdaAO,QTh=BraggTheta,PVTh=BraggThetaAO"}
+          - {label: "Kohzu Seq (tiny)",       file: "kohzuSeqCtl_tiny",macros: "P={Prefix}"}
+          - {label: "Kohzu Seq",              file: "kohzuSeqCtl",     macros: "P={Prefix}"}
+          - {label: "Kohzu Seq (All)",        file: "kohzuSeqCtl_All", macros: "P={Prefix}"}
+          - {label: "Energy-scan parameters", file: "scanParms",       macros: "P={Prefix},Q=BraggE,PV=BraggEAO"}
+          - {label: "Theta-scan parameters",  file: "scanParms",       macros: "P={Prefix},Q=BraggTheta,PV=BraggThetaAO"}
+          - {label: "Wavelength-scan parameters", file: "scanParms",   macros: "P={Prefix},Q=BraggLambda,PV=BraggLambdaAO"}
+
+      - title: "PF4 Filter"
+        links: 
+          - {label: "PF4 Filter",       file: "pf4",              macros: "P={Prefix},H=pf4:,A=A,B=B,MONO={Prefix}BraggEAO,B1={Prefix}Unidig1Bo3,B2={Prefix}Unidig1Bo4,B3={Prefix}Unidig1Bo5,B4={Prefix}Unidig1Bo6,B5={Prefix}Unidig1Bo7,B6={Prefix}Unidig1Bo8,B7={Prefix}Unidig1Bo9,B8={Prefix}Unidig1Bo10"}
+          - {label: "PF4 Filter small", file: "pf4small",         macros: "P={Prefix},H=pf4:,A=A,B=B,MONO={Prefix}BraggEAO,B1={Prefix}Unidig1Bo3,B2={Prefix}Unidig1Bo4,B3={Prefix}Unidig1Bo5,B4={Prefix}Unidig1Bo6,B5={Prefix}Unidig1Bo7,B6={Prefix}Unidig1Bo8,B7={Prefix}Unidig1Bo9,B8={Prefix}Unidig1Bo10"}
+          - {label: "PF4 Filter fake I/O", file: "pf4",           macros: "P={Prefix},H=pf4:,A=A,B=B"}
+          - {label: "PF4 FilterBank A", file: "pf4Bank",          macros: "P={Prefix},H=pf4:,B=A"}
+          - {label: "Alt PF4 filter 16", file: "filter_8_8_more", macros: "P={Prefix},R=filter:"}
+          - {label: "Alt PF4 filter 8",  file: "filter_8_0_more", macros: "P={Prefix},R=filter:"}
+
+      - title: "Shutter"
+        links: 
+          - {label: "XIA Shutter 1", file: "XIA_shutter",    macros: "P={Prefix},S=shutter1"}
+          - {label: "XIA Shutter 2", file: "XIA_shutterTry", macros: "P={Prefix},S=shutter2"}
+
+      - title: "Slit #1"
+        links: 
+          - {label: "Slit 1 (H)",     file: "2slit",        macros: "P={Prefix},SLIT=Slit1H,mXp=m5,mXn=m6"}
+          - {label: "Slit 1 (V)",     file: "2slit",        macros: "P={Prefix},SLIT=Slit1V,mXp=m3,mXn=m4"}
+          - {label: "Slit 1 Graphic", file: "4slitGraphic", macros: "P={Prefix},SLIT=Slit_1,H=Slit1H,mXp=m3,mXn=m4,V=Slit1V,mYp=m5,mYn=m6"}
+          - {label: "Slit Motors",    file: "motor4x",      macros: "P={Prefix},M1=m3,M2=m4,M3=m5,M4=m6"}
+
+      - title: "Tables"
+        links: 
+          - {label: "Table1 (S)",              file: "table",      macros: "P={Prefix},Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6"}
+          - {label: "Table1 (L)",              file: "table_full", macros: "P={Prefix},Q=Table1,T=table1,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=m6"}
+          - {label: "Table2 (S) (no Z)",       file: "table",      macros: "P={Prefix},Q=Table2,T=table2,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=junk"}
+          - {label: "Table2 (L) (no Z)",       file: "table_full", macros: "P={Prefix},Q=Table2,T=table2,M0X=m1,M0Y=m2,M1Y=m3,M2X=m4,M2Y=m5,M2Z=junk"}
+          - {label: "Table3 (S) (no X)",       file: "table",      macros: "P={Prefix},Q=Table3,T=table3,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=m6"}
+          - {label: "Table3 (L) (no X)",       file: "table_full", macros: "P={Prefix},Q=Table3,T=table3,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=m6"}
+          - {label: "Table4 (S) (no X or Z)",  file: "table",      macros: "P={Prefix},Q=Table4,T=table4,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=junk"}
+          - {label: "Table4 (L) (no X or Z)",  file: "table_full", macros: "P={Prefix},Q=Table4,T=table4,M0X=junk,M0Y=m2,M1Y=m3,M2X=junk,M2Y=m5,M2Z=junk"}
+          - {label: "ASRP mirror table",       file: "ASRPmirrorTable", macros: "P={Prefix},TBL=mt1,VERT={Prefix}m7,PITCH={Prefix}m8"}
+
+      # Row 2
+
+      - title: "SGM Mono"
+        links: 
+          - {label: "Spherical Grating Mono (tiny)", file: "SGM_tiny", macros: "P={Prefix},N=1,M_x=m7,M_rIn=m6,M_rOut=m8"}
+          - {label: "Spherical Grating Mono",        file: "SGM",      macros: "P={Prefix},N=1,M_x=m7,M_rIn=m6,M_rOut=m8"}
+
+      - title: "User Filter"
+        links: 
+          - {label: "User Filter",       file: "2filter",       macros: "P={Prefix},Q1=fltr1:,Q2=fltr2:,LOCK1=fltr_1_2:,LOCK2=fltr_1_2:"}
+          - {label: "User Filter Setup", file: "2filter_setup", macros: "P={Prefix},Q1=fltr1:,Q2=fltr2:,LOCK1=fltr_1_2:,LOCK2=fltr_1_2:"}
+
+      - title: "EPID"
+        links: 
+          - {label: "EPID #1", file: "fb_epid", macros: "P={Prefix}epid1"}
+
+      - title: "Slit #2"
+        links: 
+          - {label: "Slit 2 (H) (soft)",     file: "2slit_soft",        macros: "P={Prefix},SLIT=Slit2H,mXp=m15,mXn=m16"}
+          - {label: "Slit 2 (V) (soft)",     file: "2slit_soft",        macros: "P={Prefix},SLIT=Slit2V,mXp=m13,mXn=m14"}
+          - {label: "Slit 2 Graphic (soft)", file: "4slitGraphic_soft", macros: "P={Prefix},SLIT=Slit_2,H=Slit2H,mXp=m15,mXn=m16,V=Slit2V,mYp=m13,mYn=m14"}
+
+      - title: "Mirror"
+        links: 
+          - {label: "2-Post Mirror", file: "2postMirror", macros: "P={Prefix},Q=M1,mDn=m1,mUp=m2"}
+
+      # Row 3
+
+      - title: "ML Mono"
+        links: 
+          - {label: "ml_monoGraphic",         file: "ml_monoGraphic",    macros: "P={Prefix},mY1=m1,mZ1=m2,mY2=m9,mZ2=m8,mT1=m7,mT2=m10,mB=m11"}
+          - {label: "ml_monoSeq (tiny)",      file: "ml_monoSeqCtl_tiny",macros: "P={Prefix}"}
+          - {label: "ml_monoSeq",             file: "ml_monoSeqCtl",     macros: "P={Prefix}"}
+          - {label: "ml_monoSeq (All)",       file: "ml_monoSeqCtl_All", macros: "P={Prefix}"}
+          - {label: "Energy-scan parameters", file: "scanParms",         macros: "P={Prefix},Q=ml_monoE,PV=ml_monoE"}
+          - {label: "Theta-scan parameters",  file: "scanParms",         macros: "P={Prefix},Q=ml_monoTheta,PV=ml_monoTheta"}
+          - {label: "Wavelength-scan parameters", file: "scanParms",     macros: "P={Prefix},Q=ml_monoLambda,PV=ml_monoLambda"}
+
+      - title: "XIA PFCU"
+        used: False
+        links: 
+          - {label: "XIA PFCU",                  file: "pf4",     macros: "P={Prefix},H=pf401:,A=A,B=B,PV=,MONO="}
+          - {label: "XIA PFCU (synApps 5.2.1)",  file: "pf4dual", macros: "P={Prefix},PV1={Prefix}pf4_1:,PV2={Prefix}Unidig1Bo,MONO={Prefix}BraggERdbkAO"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: "XIA Slit"
+        links: 
+          - {label: "XIA Slit 1 (H)", file: "xia_slit", macros: "P={Prefix},HSC=hsc1:"}
+          - {label: "XIA Slit 1 (V)", file: "xia_slit", macros: "P={Prefix},HSC=hsc2:"}
+
+      - title: "4 Circle"
+        links: 
+          - {label: "Orientation Matrix", file: "orient",  macros: "P={Prefix},O=_0,PM={Prefix},mTTH=SM1,mTH=SM2,mCHI=SM3,mPHI=SM4"}
+          - {label: "Orient9",            file: "orient9", macros: "P={Prefix},O=_0,PM={Prefix},mTTH=SM1,mTH=SM2,mCHI=SM3,mPHI=SM4"}
+
+      # Row 4
+
+      - title: "HR Mono"
+        links: 
+          - {label: "High Resolution Mono (nested)",    file: "hr_nested",    macros: "P={Prefix},N=1"}
+          - {label: "High Resolution Mono (symmetric)", file: "hr_symmetric", macros: "P={Prefix},N=1"}
+          - {label: "High Resolution Mono (control)",   file: "hrSeqCtl_All", macros: "P={Prefix},N=1"}
+
+      - title: "Coarse/Fine"
+        links: 
+          - {label: "CoarseFine", file: "CoarseFineMotor", macros: "P={Prefix}cf1:,M=MOT,PM={Prefix},CM=m7,FM=m8"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+
+  #####################################################################
+  # Detectors
+  #####################################################################
+  - __index__: "Detectors" 
+    buttons:
+
+      # Row 1
+
+      - title: "Scaler #1"
+        links: 
+          - {label: "Scaler 1",         file: "scaler16m", macros: "P={Prefix},S=scaler1"}
+          - {label: "Scaler 1 (16 ch)", file: "scaler16",  macros: "P={Prefix},S=scaler1"}
+          - {label: "Scaler 1 (32 ch)", file: "scaler32",  macros: "P={Prefix},S=scaler1"}
+          - {label: "Scaler 1 (64 ch)", file: "scaler64",  macros: "P={Prefix},S=scaler1"}
+
+      - title: "ADAndor"
+        links: 
+          - {label: "Andor",    file: "Andor",    macros: "P={Prefix},R=cam1:"}
+          - {label: "Andor3",   file: "Andor3",   macros: "P={Prefix},R=cam1:"}
+          - {label: "Shamrock", file: "Shamrock", macros: "P={Prefix},R=cam1:"}
+
+      - title: "simDetector"
+        links: 
+          - {label: "Simulator #1 General",  file: "ADBase",        macros: "P={Prefix},R=cam1:"}
+          - {label: "Simulator #1 Specific", file: "simDetector",   macros: "P={Prefix},R=cam1:"}
+          - {label: "Simulator #1 Image",    file: "ad_cam_image",  macros: "P={Prefix},R=cam1:"}
+          - {label: "Simulator #2 General",  file: "ADBase",        macros: "P={Prefix},R=cam2:"}
+          - {label: "Simulator #2 Specific", file: "simDetector",   macros: "P={Prefix},R=cam2:"}
+          - {label: "Simulator #2 Image",    file: "ad_cam_image",  macros: "P={Prefix},R=cam2:"}
+
+      - title: "ADMar345"
+        links: 
+          - {label: "Mar 345", file: "mar345", macros: "P={Prefix},R=cam1:"}
+
+      - title: "MCA"
+        links: 
+          - {label: "Canberra AIM Multichannel Analyzer", file: "mca_small",  macros: "P={Prefix},M=aim_adc1"}
+          - {label: "MCA with ROI's",                     file: "mca",        macros: "P={Prefix},M=aim_adc1"}
+          - {label: "ADC 1",   file: "xxIcbAdc",    macros: "P={Prefix},ADC=adc1"}
+          - {label: "TCA 1",   file: "xxIcbTCA",    macros: "P={Prefix},TCA=tca1"}
+          - {label: "HVPS 1",  file: "xxIcbHVPS",   macros: "P={Prefix},HVPS=hvps1"}
+          - {label: "AMP 1",   file: "xxIcbAmp",    macros: "P={Prefix},AMP=amp1"}
+          - {label: "DSP 1",   file: "dsp9660Gain",  macros: "P={Prefix},DSP=dsp1"}
+          - {label: "soft MCA", file: "mca_small",   macros: "P={Prefix},M=softMCA"}
+
+      # Row 2
+
+      - title: "Scaler #2"
+        links: 
+          - {label: "Scaler 2",         file: "scaler16m", macros: "P={Prefix},S=scaler2"}
+          - {label: "Scaler 2 (16 ch)", file: "scaler16",  macros: "P={Prefix},S=scaler2"}
+          - {label: "Scaler 2 (32 ch)", file: "scaler32",  macros: "P={Prefix},S=scaler2"}
+          - {label: "Scaler 2 (64 ch)", file: "scaler64",  macros: "P={Prefix},S=scaler2"}
+
+      - title: "ADEiger"
+        links: 
+          - {label: "Eiger 1X", file: "eigerDetector",  macros: "P={Prefix},R=cam1:"}
+          - {label: "Eiger 2X", file: "eiger2Detector", macros: "P={Prefix},R=cam1:"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: "ADMarCCD"
+        links: 
+          - {label: "Mar CCD", file: "marCCD", macros: "P={Prefix},R=cam1:"}
+
+      - title: "multiMCA"
+        links: 
+          - {label: "3 element detector",      file: "3element",   macros: "P={Prefix}med:"}
+          - {label: "summed spectrum (mca0)",   file: "mca_small",  macros: "P={Prefix}med:,M=mca0"}
+          - {label: "sum control",             file: "mcaSum3",    macros: "P={Prefix}med:"}
+          - {label: "HV power supply",         file: "xxIcbHVPS",  macros: "P={Prefix}med:,HVPS=hvps1"}
+
+      # Row 3
+
+      - title: "SIS Scaler"
+        links: 
+          - {label: "SIS3820 Scaler8",  file: "scaler",   macros: "P={Prefix}3820:,S=scaler1"}
+          - {label: "SIS3820 Scaler32", file: "scaler32",  macros: "P={Prefix}3820:,S=scaler1"}
+          - {label: "SIS38XX",          file: "SIS38XX",   macros: "P={Prefix}3820:"}
+
+      - title: "ADPilatus"
+        links: 
+          - {label: "Pilatus", file: "pilatusDetector", macros: "P={Prefix},R=cam1:"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: "ADURL"
+        links: 
+          - {label: "ADURL", file: "URLDriver", macros: "P={Prefix},R=cam1:"}
+
+      - title: "quadEM"
+        links: 
+          - {label: "Quad Electrometer Ch.1", file: "quadEM",      macros: "P={Prefix},EM=EM1"}
+          - {label: "Quad Electrometer Ch.2", file: "quadEM",      macros: "P={Prefix},EM=EM2"}
+          - {label: "Quad Electrometer Ch.3", file: "quadEM",      macros: "P={Prefix},EM=EM3"}
+          - {label: "Quad Electrometer Ch.4", file: "quadEM",      macros: "P={Prefix},EM=EM4"}
+          - {label: "Quad Electrometer MCAs", file: "quadEM_med",  macros: "P={Prefix}quadEM:,P_FFT={Prefix}quadEM_FFT:"}
+          - {label: "Vertical feedback",      file: "pid_control", macros: "P={Prefix},PID=quadEMVertical,TITLE=Vertical_Feedback"}
+          - {label: "Horizontal feedback",    file: "pid_control", macros: "P={Prefix},PID=quadEMHorizontal,TITLE=Horizontal_Feedback"}
+
+      # Row 4
+
+      - title: "Oxford X1k"
+        links: 
+          - {label: "Oxford x1k", file: "Oxford_X1k", macros: "P={Prefix},S=s1"}
+
+      - title: "ADPointGrey"
+        links: 
+          - {label: "Point Grey", file: "pointGrey", macros: "P={Prefix},R=cam1:"}
+
+      - title: "ADProsilica"
+        links: 
+          - {label: "Prosilica", file: "prosilica", macros: "P={Prefix},R=cam1:"}
+
+      - title: "ADGeniCam"
+        links: 
+          - {label: "AVT Manta G507C",   file: "ADVimba",  macros: "P={Prefix},R=cam1:,C=AVT_Manta_G507C"}
+          - {label: "AVT Manta G146C",   file: "ADVimba",  macros: "P={Prefix},R=cam1:,C=AVT_Manta_G146C"}
+          - {label: "AVT GC1380CH",      file: "ADVimba",  macros: "P={Prefix},R=cam1:,C=AVT_GC1380CH"}
+          - {label: "AVT GC1380H",       file: "ADVimba",  macros: "P={Prefix},R=cam1:,C=AVT_GC1380H"}
+          - {label: "Blackfly 20E4C",    file: "ADAravis", macros: "P={Prefix},R=cam1:,C=PGR_Blackfly_20E4C"}
+          - {label: "Blackfly 13Y3M",    file: "ADAravis", macros: "P={Prefix},R=cam1:,C=PGR_BlackflyS_13Y3M"}
+          - {label: "Blackfly 50S5C",    file: "ADAravis", macros: "P={Prefix},R=cam1:,C=PGR_BlackflyS_50S5C"}
+          - {label: "Grasshopper 2356M", file: "ADAravis", macros: "P={Prefix},R=cam1:,C=PGR_GS3_U3_2356M"}
+          - {label: "Grasshopper 51S5M", file: "ADAravis", macros: "P={Prefix},R=cam1:,C=PGR_GS3_U3_51S5M"}
+          - {label: "Oryx 51S5M",        file: "ADAravis", macros: "P={Prefix},R=cam1:,C=FLIR_ORX_10G_51S5M"}
+
+      - title: "Four Step"
+        links: 
+          - {label: "4-step measurement", file: "4step", macros: "P={Prefix}"}
+
+
+  #####################################################################
+  # Direct I/O
+  #####################################################################
+  - __index__: "Direct I/O" 
+    buttons:
+
+      # Row 1
+
+      - title: "Serial 1-8"
+        links: 
+          - {label: "asyn record serial1", file: "asynOctet", macros: "P={Prefix},R=asyn_1"}
+          - {label: "asyn record serial2", file: "asynOctet", macros: "P={Prefix},R=asyn_2"}
+          - {label: "asyn record serial3", file: "asynOctet", macros: "P={Prefix},R=asyn_3"}
+          - {label: "asyn record serial4", file: "asynOctet", macros: "P={Prefix},R=asyn_4"}
+          - {label: "asyn record serial5", file: "asynOctet", macros: "P={Prefix},R=asyn_5"}
+          - {label: "asyn record serial6", file: "asynOctet", macros: "P={Prefix},R=asyn_6"}
+          - {label: "asyn record serial7", file: "asynOctet", macros: "P={Prefix},R=asyn_7"}
+          - {label: "asyn record serial8", file: "asynOctet", macros: "P={Prefix},R=asyn_8"}
+
+      - title: "Acromag"
+        links: 
+          - {label: "Acromag 8 in",  file: "Acromag_8in",   macros: "P={Prefix},A=1,CH0=0,CH1=1,CH2=2,CH3=3,CH4=4,CH5=5,CH6=6,CH7=7"}
+          - {label: "Acromag 8 out", file: "Acromag_8out",  macros: "P={Prefix},A=1,CH0=0,CH1=1,CH2=2,CH3=3,CH4=4,CH5=5,CH6=6,CH7=7"}
+          - {label: "Acromag 16 out", file: "Acromag_16out", macros: "P={Prefix},A=1"}
+          - {label: "Acromag 16 in",  file: "Acromag_16in",  macros: "P={Prefix},A=1"}
+
+      - title: "VME DAC"
+        links: 
+          - {label: "vme DAC 1 Chans 1-8", file: "VME_DAC8", macros: "P={Prefix},D=1"}
+          - {label: "vme DAC 2 Chans 1-8", file: "VME_DAC8", macros: "P={Prefix},D=2"}
+          - {label: "vme DAC 1 Chans 1-8", file: "topDAC8",  macros: "P={Prefix},D=1"}
+
+      - title: "IP330 ADC"
+        links: 
+          - {label: "ADC 1",               file: "Ip330Scan",         macros: "P={Prefix},R=IP330_"}
+          - {label: "ADC 1 sweep",          file: "mca_small",         macros: "P={Prefix},M=mip330_1"}
+          - {label: "ADC 2 sweep",          file: "mca_small",         macros: "P={Prefix},M=mip330_2"}
+          - {label: "ADC 3 sweep",          file: "mca_small",         macros: "P={Prefix},M=mip330_3"}
+          - {label: "ADC 4 sweep",          file: "mca_small",         macros: "P={Prefix},M=mip330_4"}
+          - {label: "Slow feedback",        file: "pid_control",       macros: "P={Prefix},PID=pid_slow,TITLE=Slow_Feedback"}
+          - {label: "Fast feedback",        file: "pid_control",       macros: "P={Prefix},PID=ip330PIDFast,TITLE=Fast_Feedback"}
+          - {label: "Async Slow feedback",  file: "async_pid_control", macros: "P={Prefix},PID=async_pid_slow,TITLE=Slow_Feedback"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      # Row 2
+
+      - title: "Serial 9-16"
+        links: 
+          - {label: "asyn record serial9",  file: "asynOctet", macros: "P={Prefix},R=asyn_9"}
+          - {label: "asyn record serial10", file: "asynOctet", macros: "P={Prefix},R=asyn_10"}
+          - {label: "asyn record serial11", file: "asynOctet", macros: "P={Prefix},R=asyn_11"}
+          - {label: "asyn record serial12", file: "asynOctet", macros: "P={Prefix},R=asyn_12"}
+          - {label: "asyn record serial13", file: "asynOctet", macros: "P={Prefix},R=asyn_13"}
+          - {label: "asyn record serial14", file: "asynOctet", macros: "P={Prefix},R=asyn_14"}
+          - {label: "asyn record serial15", file: "asynOctet", macros: "P={Prefix},R=asyn_15"}
+          - {label: "asyn record serial16", file: "asynOctet", macros: "P={Prefix},R=asyn_16"}
+
+      - title: "IpUnidig"
+        links: 
+          - {label: "IpUnidig I/O", file: "IpUnidig_top", macros: "P={Prefix},R=Unidig1"}
+
+      - title: "DAC 128V"
+        links: 
+          - {label: "dac128V 1 Chans 1-8", file: "topDAC8", macros: "P={Prefix},D=3"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      # Row 3
+
+      - title: "Serial Extra"
+        links: 
+          - {label: "Serial Device", file: "asynOctet", macros: "P={Prefix},R="}
+          - {label: "Serial Device", file: "asynOctet", macros: "P={Prefix},R="}
+          - {label: "Serial Device", file: "asynOctet", macros: "P={Prefix},R="}
+          - {label: "Serial Device", file: "asynOctet", macros: "P={Prefix},R="}
+          - {label: "Serial Device", file: "asynOctet", macros: "P={Prefix},R="}
+          - {label: "Serial Device", file: "asynOctet", macros: "P={Prefix},R="}
+          - {label: "Serial Device", file: "asynOctet", macros: "P={Prefix},R="}
+          - {label: "Serial Device", file: "asynOctet", macros: "P={Prefix},R="}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      # Row 4
+
+      - title: "devCmdReply"
+        links: 
+          - {label: "deviceCmdReply 1", file: "deviceCmdReply", macros: "P={Prefix},N=1"}
+          - {label: "deviceCmdReply 2", file: "deviceCmdReply", macros: "P={Prefix},N=2"}
+          - {label: "deviceCmdReply 3", file: "deviceCmdReply", macros: "P={Prefix},N=3"}
+          - {label: "deviceCmdReply 4", file: "deviceCmdReply", macros: "P={Prefix},N=4"}
+          - {label: "deviceCmdReply 5", file: "deviceCmdReply", macros: "P={Prefix},N=5"}
+          - {label: "deviceCmdReply 6", file: "deviceCmdReply", macros: "P={Prefix},N=6"}
+          - {label: "deviceCmdReply 7", file: "deviceCmdReply", macros: "P={Prefix},N=7"}
+          - {label: "deviceCmdReply 8", file: "deviceCmdReply", macros: "P={Prefix},N=8"}
+
+      - title: "VME"
+        links: 
+          - {label: "generic VME", file: "recVme", macros: "P={Prefix},Q=vme1"}
+
+      - title: "CAMAC"
+        links: 
+          - {label: "generic CAMAC", file: "CAMAC_IO", macros: "REC={Prefix}camac1"}
+
+      - title: "GPIB1"
+        links: 
+          - {label: "asyn GPIB", file: "asynOctet", macros: "P={Prefix},R=gpib1"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+
+  #####################################################################
+  # Devices
+  #####################################################################
+  - __index__: "Devices"
+    buttons:
+
+      # Row 1
+
+      - title: "Preamps"
+        links: 
+          - {label: "SRS 570 Current Preamplifier #A1", file: "SR570_tiny", macros: "P={Prefix},A=A1"}
+          - {label: "SRS 570 Current Preamplifier #A2", file: "SR570_tiny", macros: "P={Prefix},A=A2"}
+          - {label: "SRS 570 Current Preamplifier #A3", file: "SR570_tiny", macros: "P={Prefix},A=A3"}
+          - {label: "SRS 570 Current Preamplifier #A4", file: "SR570_tiny", macros: "P={Prefix},A=A4"}
+          - {label: "SRS 570 Current Preamplifier #A5", file: "SR570_tiny", macros: "P={Prefix},A=A5"}
+          - {label: "Femto Current Preamplifier",        file: "femto",      macros: "P={Prefix},H=fem01:,F=seq01:,AC={Prefix}Unidig1Bo9"}
+
+      - title: "Digitel Vac"
+        links: 
+          - {label: "Digitel Pump", file: "Pump", macros: "P={Prefix},PUMP=ip1"}
+
+      - title: "Keithley 2K"
+        links: 
+          - {label: "Keithley 2000 DMM #1",         file: "Keithley2kDMM_mf", macros: "P={Prefix},Dmm=D1"}
+          - {label: "Keithley 2000 DMM #2",         file: "Keithley2kDMM_mf", macros: "P={Prefix},Dmm=D2"}
+          - {label: "Keithley DMM (thermistors)",    file: "KeithleyDMM",      macros: "P={Prefix}"}
+
+      - title: "Io"
+        links: 
+          - {label: "Io", file: "Io", macros: "P={Prefix}Io:,S={Prefix}scaler1,MONO={Prefix}BraggEAO"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      # Row 2
+
+      - title: "Encoders"
+        links: 
+          - {label: "Heidenhain AWE1024",   file: "HeidEncoder",    macros: "P={Prefix},A=6"}
+          - {label: "Heidenhain AWE1024",   file: "HeidEncoder",    macros: "P={Prefix},A=7"}
+          - {label: "Heidenhain ND261",     file: "HeidND261",      macros: "P={Prefix}"}
+          - {label: "Heidenhain IK320",     file: "HeidIK320_group", macros: "P={Prefix},card=card0,group=5"}
+
+      - title: "MPC IonPump"
+        links: 
+          - {label: "MPC Pump", file: "Pump", macros: "P={Prefix},PUMP=ip2"}
+
+      - title: "Eurotherm"
+        links: 
+          - {label: "Eurotherm",    file: "Eurotherm",   macros: "P={Prefix}"}
+          - {label: "Eurotherm 2k", file: "Eurotherm2k", macros: "P={Prefix},TC=1"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      # Row 3
+
+      - title: "HP Laser"
+        links: 
+          - {label: "HP Laser Axis 1", file: "HPLaserAxis", macros: "P={Prefix},Q=HPLaser1"}
+          - {label: "HP Laser Axis 2", file: "HPLaserAxis", macros: "P={Prefix},Q=HPLaser2"}
+
+      - title: "MPC TSPPump"
+        links: 
+          - {label: "MPC TSP Pump", file: "Pump", macros: "P={Prefix},PUMP=tsp1"}
+
+      - title: "LakeShore"
+        links: 
+          - {label: "LakeShore Temp. Controller", file: "LakeShore", macros: "P={Prefix},Q=TC1"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      # Row 4
+
+      - title: "Autocoll"
+        links: 
+          - {label: "Autocollimator", file: "Elcomat", macros: "P={Prefix}"}
+
+      - title: "Octupole"
+        links: 
+          - {label: "OctupoleRamp", file: "OctupoleRamp",    macros: "P={Prefix},Q=octupole:"}
+          - {label: "temp",         file: "octupoleTempRead", macros: "P={Prefix},Q=Oct:"}
+
+      - title: "ILM202"
+        links: 
+          - {label: "Oxford ILM202 Cryogen Level Meter", file: "Oxford_ILM202", macros: "P={Prefix},S=s1"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+
+  #####################################################################
+  # Tools
+  #####################################################################
+  - __index__: "Tools"
+    buttons: 
     
-    - title: ""
+      # Row 1
+
+      - title: "userCalcs"
+        links:
+          - {label: "user calcs 1-10",        file: "userCalcs10",           macros: "P={Prefix}"}
+          - {label: "user calcs 11-20",       file: "userCalcs10more",       macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+          - {label: "user calcOuts 1-10",     file: "userCalcOuts10",        macros: "P={Prefix}"}
+          - {label: "user calcOuts 11-20",    file: "userCalcOuts10more",    macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+          - {label: "user stringCalcs 1-10",  file: "userStringCalcs10",     macros: "P={Prefix}"}
+          - {label: "user stringCalcs 11-20", file: "userStringCalcs10more", macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+          - {label: "user arrayCalcs 1-10",   file: "userArrayCalcs10",      macros: "P={Prefix}"}
+          - {label: "user arrayCalcs 11-20",  file: "userArrayCalcs10more",  macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+          - {label: "user transforms 1-10",   file: "userTransforms10",      macros: "P={Prefix}"}
+          - {label: "user transforms 11-20",  file: "userTransforms10more",  macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+          - {label: "user string seqs 1-10",  file: "userStringSeqs10",      macros: "P={Prefix}"}
+          - {label: "user string seqs 11-20", file: "userStringSeqs10more",  macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+          - {label: "user average 1-10",      file: "userAve10",             macros: "P={Prefix}"}
+          - {label: "user average 11-20",     file: "userAve10more",         macros: "P={Prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+          - {label: "editSseq",               file: "editSseq",              macros: "P={Prefix},Q=ES:"}
+
+      - title: "userScripts"
+        links: 
+          - {label: "user scripts 1-10",  file: "userScripts10", macros: "P={Prefix},R=set1:"}
+          - {label: "user scripts 11-20", file: "userScripts10", macros: "P={Prefix},R=set2:"}
+
+      - title: "Scans"
+        links:
+          - {label: "Scan1 (for all scans)",               file: "scan",          macros: "P={Prefix},N=1,S=scan1"}
+          - {label: "Scan2 (for 2D &amp; higher scans)",   file: "scan",          macros: "P={Prefix},N=2,S=scan2"}
+          - {label: "Scan3 (for 3D &amp; higher scans)",   file: "scan",          macros: "P={Prefix},N=3,S=scan3"}
+          - {label: "Scan4 (for 4D scans)",                file: "scan",          macros: "P={Prefix},N=4,S=scan4"}
+          - {label: "ScanH (for Hardware-assisted scans)", file: "scan",          macros: "P={Prefix},N=H,S=scanH"}
+          - {label: "test scanParms2Pos",                  file: "scanParms2Pos", macros: "P={Prefix},Q=m7_8,SCAN={Prefix}scan1,PV1={Prefix}m7,PV2={Prefix}m8"}
+          - {label: "saveData controls",                   file: "scan_saveData", macros: "P={Prefix}"}
+          - {label: "aux scan",                            file: "scanAux",       macros: "P={Prefix},S=scanAux"}
+          - {label: "scanProgress",                        file: "ProgressBar",   macros: "P={Prefix},B={Prefix}scanProgress:"}
+          - {label: "scan1Menu",                           file: "configMenu",    macros: "P={Prefix},CONFIG=scan1"}
+
+      - title: "Array"
+        links: 
+          - {label: "interp",       file: "interp",     macros: "P={Prefix}"}
+          - {label: "arrayTest",    file: "arrayTest",   macros: "P={Prefix}"}
+          - {label: "pvHistory 1",  file: "pvHistory",   macros: "P={Prefix},N=1"}
+          - {label: "interpNew",    file: "interpNew",   macros: "P={Prefix},Q=1"}
+
+      - title: "caputRec"
+        links: 
+          - {label: "caputRecorder",  file: "caputRecorder", macros: "P={Prefix},L={Prefix}"}
+          - {label: "caputRecorderA", file: "caputRecorder", macros: "P=xxxA:,L={Prefix}"}
+
+      # Row 2
+
+      - title: "softGlue"
+        links: 
+          - {label: "softGlueMenu",       file: "softGlueMenu",             macros: "P={Prefix},H=softGlue:"}
+          - {label: "softGlue2 Menu",     file: "softGlueMenu",             macros: "P={Prefix},H=softGlue2:"}
+          - {label: "shift 1",            file: "softGlue_Shift32_bare",    macros: "P={Prefix},H=softGlue:,N=1"}
+          - {label: "shift 2",            file: "softGlue_Shift32_bare",    macros: "P={Prefix},H=softGlue:,N=2"}
+          - {label: "SoftGlue Circuits",  file: "configMenu",               macros: "P={Prefix},CONFIG=SG"}
+
+      - title: "timer"
+        links: 
+          - {label: "timer", file: "timer", macros: "P={Prefix},N=1"}
+
+      - title: "ramp_tweak"
+        links: 
+          - {label: "ramp/tweak rt1", file: "ramp_tweak", macros: "P={Prefix},Q=rt1"}
+          - {label: "ramp/tweak rt2", file: "ramp_tweak", macros: "P={Prefix},Q=rt2"}
+
+      - title: "BunchClock"
+        links: 
+          - {label: "Bunch Clock Generator",      file: "BunchClkGen",    macros: "UNIT={Prefix}BnchClkGen"}
+          - {label: "Bunch Clock display A",      file: "BunchClkGenA",   macros: "UNIT={Prefix}BnchClkGen"}
+          - {label: "Bunch Clock 3id Top screen", file: "BunchClkGenTop", macros: "UNIT={Prefix}BnchClkGen"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      # Row 3
+
+      - title: "busy record"
+        links: 
+          - {label: "busy record 1", file: "xxBusyRecord", macros: "P={Prefix},R=mybusy1"}
+          - {label: "busy record 2", file: "xxBusyRecord", macros: "P={Prefix},R=mybusy2"}
+
+      - title: "alarmClock"
+        links: 
+          - {label: "alarm clock", file: "alarmClock", macros: "P={Prefix},A=1"}
+
+      - title: "trajectory"
+        links: 
+          - {label: "standard trajectoryScan",  file: "trajectoryScan",       macros: "P={Prefix},R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"}
+          - {label: "trajectoryScan1",          file: "MAX_trajectoryScan",   macros: "P={Prefix},R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"}
+          - {label: "trajectoryScan2",          file: "MAX_trajectoryScan",   macros: "P={Prefix},R=traj2:,TITLE=traj2,M1=m9,M2=m10,M3=m11,M4=m12,M5=m13,M6=m14,M7=m15,M8=m16"}
+          - {label: "trajectoryScan1 (2 mot)",  file: "MAX_trajectoryScan2",  macros: "P={Prefix},R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"}
+          - {label: "MM4000 XPS trajectory",    file: "trajectoryScan",       macros: "P={Prefix},R=traj1:,TITLE=traj1,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6,M7=m7,M8=m8"}
+
+      - title: "shutterDo"
+        links: 
+          - {label: "shutterDo",  file: "shutterDo",  macros: "P={Prefix},Q=s2:,SHUTTER_STATUS={Prefix}sim2:B_SHTRS_CLOSED,OPEN_PV={Prefix}sim2:open,CLOSE_PV={Prefix}sim2:close"}
+          - {label: "shutterSim", file: "shutterSim", macros: "P={Prefix},Q=sim2:,SHUTTER_STATUS={Prefix}sim2:B_SHTRS_CLOSED,OPEN_PV={Prefix}sim2:openCmd,CLOSE_PV={Prefix}sim2:closeCmd"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      # Row 4
+
+      - title: "FuncGen"
+        links: 
+          - {label: "funcGen", file: "FuncGen", macros: "P={Prefix},Q=fgen"}
+
+      - title: "countDown"
+        links: 
+          - {label: "count down timer", file: "countDownTimer", macros: "P={Prefix},N=1"}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+      - title: ""
+        links: 
+          - {label: "", file: "", macros: ""}
+
+
+Status:
+    - title: "Status"
       links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
+        - {label: "IOC Status soft ioc",     file: "ioc_stats_soft",    macros: "ioc={Prefix}"}
+        - {label: "IOC Status vxworks ioc",  file: "ioc_stats_vxworks", macros: "ioc={Prefix}"}
+        - {label: "save_restore Status",     file: "save_restoreStatus", macros: "P={Prefix}"}
+        - {label: "alive record",            file: "aliveRecord",       macros: "P={Prefix}"}
+
+    - title: "APS Ops"
       links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-        
-    # Row 3
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    
-    # Row 4
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-        
-    - title: ""
-      links: 
-        - {label: "", file: "", macros: ""}
-    
-    
+        - {label: "24 hr. Beam History",       file: "beamHistory",      macros: "P={Prefix},xx=28us"}
+        - {label: "24 hr. beam history, etc.", file: "beamHistory_full", macros: "P={Prefix},xx=28us"}

@@ -10,16 +10,17 @@ Grid_Template: !Template:LinkGrid
         used: True
         
     - !Grid
-        margins: 10x10x10x10
-        repeat-over: "{TAB}"
+        margins: 10x10x10x15
+        repeat-over: "{buttons}"
         padding: 10
         horizontal: True
-        aspect-ratio: 1.0
+        aspect-ratio: 1.2
+        max-cols: 5
         
         children:
             - !If:used
                 - !RelatedDisplay
-                    geometry: 200x40
+                    geometry: 180x40
                     background: *menu_green
                     foreground: *white
                     font: -DejaVu Sans Mono -Bold
@@ -28,7 +29,7 @@ Grid_Template: !Template:LinkGrid
                     
             - !IfNot:used
                 - !RelatedDisplay
-                    geometry: 200x40
+                    geometry: 180x40
                     background: *menu_green
                     foreground: *white
                     font: -DejaVu Sans Mono -Bold
@@ -36,33 +37,41 @@ Grid_Template: !Template:LinkGrid
                     links:
                         - { label: "", file: "", macros: "" }
 
-Links: !TabbedGroup
-    foreground: *white
-    tab-color: $003584
-    selected: $3970C4
-    border-color: $003584
-    border-width: 3
-    inset: 10
-    offset: 5
-    padding: 10
-    font: -DejaVu Sans Mono -Bold -9
-
-    geometry: 0x75 x 860x240
-
+Content: !VFlow
+    geometry: 0x75 x 0x0
+    padding: 20
     children:
-        Motors: !Tab
-            - !Apply:LinkGrid { TAB: "Motors" }
-        Optics: !Tab
-            - !Apply:LinkGrid { TAB: "Optics" }
-        Detectors: !Tab
-            - !Apply:LinkGrid { TAB: "Detectors" }
-        Direct I/O: !Tab
-            - !Apply:LinkGrid { TAB: "Direct I/O" }
-        Devices: !Tab
-            - !Apply:LinkGrid { TAB: "Devices" }
-        Tools: !Tab
-            - !Apply:LinkGrid { TAB: "Tools" }
-                    
+        - !TabbedRepeat
+            foreground: *white
+            tab-color: $003584
+            selected: $3970C4
+            border-color: $003584
+            border-width: 3
+            inset: 10
+            offset: 5
+            padding: 10
+            font: -DejaVu Sans Mono -Bold -9
+
+            geometry: 963x240
+
+            repeat-over: "Tabs"
+
+            children:
+                - !Apply:LinkGrid
+
+        - !HRepeat
+            repeat-over: "Status"
+            padding: 10
+            margins: 10x0x0x0
+            children:
+                - !RelatedDisplay
+                    geometry: 180x40
+                    background: *menu_green
+                    foreground: *white
+                    font: -DejaVu Sans Mono -Bold
+                    text: "{title:^20s}"
+                    links: "{links}"
+
 UITitle: !Apply:ScreenHeader
     title: "{Header}"
     alignment: Left
