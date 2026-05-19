@@ -20,3 +20,4 @@ dbl-all.txt
 *.sav*
 scan1Menu.sav
 iocBoot/*/softioc/logs
+.iocsh_history
