@@ -7,25 +7,23 @@
 # by the IOC's configure/RELEASE file.
 #
 # Usage:
-#   Called from start_*_xxx scripts.  Expects $EPICS_APP to be set by caller.
-#
-#   As a Perl module (from other Perl scripts):
-#     require "$EPICS_APP/setup_epics_common";
-#     my $path = build_display_path($epics_app, $display_manager, $app_screen_dir);
+#   As a Perl module (from ioc.pl command modules):
+#     require "$TOP/setup_epics_common";
+#     my $path = build_display_path($epics_app, $display_manager);
 #
 #   As a standalone script (for eval from bash):
-#     eval $(perl setup_epics_common <display_manager> <epics_app> <app_screen_dir>)
+#     eval $(perl setup_epics_common <display_manager> <epics_app>)
 
 use strict;
-use File::Find;
 use Cwd 'abs_path';
 
-# Directories to skip during recursive search -- build artifacts, VCS,
+# Directories to skip during search -- build artifacts, VCS,
 # test/example code, documentation, and iocBoot directories.
 my %SKIP_DIRS = map { $_ => 1 } qw(
     .git .svn .hg
     bin lib include dbd db
     iocBoot documentation docs
+    autoconvert
 );
 
 # Prefixes of directory names to skip (test apps, examples, etc.)
@@ -109,9 +107,89 @@ sub parse_release
 
 
 ###############################################################################
+# Depth-limited directory scanner.  Searches for directories containing
+# files with the given extension.  When a matching directory is found,
+# its /autoconvert subdirectory is also added (if it exists) but not
+# searched further.  Skips build output, test, and documentation dirs.
+#
+#   $dir       - Directory to search
+#   $extension - File extension to look for (e.g., "adl", "ui")
+#   $max_depth - Maximum directory depth to descend
+#   $results   - Array ref to append found directories to
+###############################################################################
+
+sub _search_depth
+{
+    my ($dir, $extension, $max_depth, $results) = @_;
+
+    return if $max_depth < 0;
+
+    # Check if this directory contains screen files
+    my @files = glob("$dir/*.$extension");
+
+    if (@files)
+    {
+        push @$results, $dir;
+
+        # Also add /autoconvert if it exists (but don't search into it)
+        if (-d "$dir/autoconvert")
+        {
+            push @$results, "$dir/autoconvert";
+        }
+
+        return;    # Don't recurse deeper once we've found screen files
+    }
+
+    # No screen files here, but check if autoconvert/ has them
+    # (some modules only have auto-converted screens, not hand-crafted ones)
+    if (-d "$dir/autoconvert")
+    {
+        my @ac_files = glob("$dir/autoconvert/*.$extension");
+
+        if (@ac_files)
+        {
+            push @$results, "$dir/autoconvert";
+            return;
+        }
+    }
+
+    # Recurse into subdirectories
+    return if $max_depth == 0;
+
+    opendir(my $dh, $dir) or return;
+
+    my @subdirs = grep {
+        my $name = $_;
+
+        $name ne '.' && $name ne '..'
+        && !$SKIP_DIRS{$name}
+        && $name !~ /^O\./
+        && !grep { $name =~ /^${_}/i } @SKIP_PREFIXES;
+    } readdir($dh);
+
+    closedir($dh);
+
+    for my $subdir (sort @subdirs)
+    {
+        my $full = "$dir/$subdir";
+        next unless -d $full;
+        _search_depth($full, $extension, $max_depth - 1, $results);
+    }
+}
+
+
+###############################################################################
 # Discover screen file directories for a given file extension within a
-# module path.  Uses File::Find to recursively search, skipping build
-# output, test, and documentation directories.
+# module path.  Searches to a depth of 3 directories, which covers all
+# standard synApps screen directory layouts:
+#
+#   depth 1: streamApp                    (StreamDevice)
+#   depth 2: op/adl, opi/medm            (devIocStats, asyn)
+#   depth 3: *App/op/adl, *App/opi/adl   (most modules)
+#
+# If the module contains a 'modules/' subdirectory (e.g., motor), that
+# subdirectory is also searched to depth 3, covering layouts like:
+#   modules/<submod>/<name>App/op/adl     (motor submodules)
 ###############################################################################
 
 sub find_screen_dirs
@@ -122,34 +200,26 @@ sub find_screen_dirs
 
     return @found unless (-d $module_path);
 
-    find({
-        wanted => sub {
-            return unless -d $_;
+    # Search to depth 3 from the module root
+    _search_depth($module_path, $extension, 3, \@found);
 
-            # Check if this directory contains files with the target extension
-            my @files = glob("$_/*.$extension");
+    # If a 'modules/' subdirectory exists, search each submodule within
+    # it to depth 3 (covers motor-style layouts like
+    # modules/<submod>/<name>App/op/adl)
+    if (-d "$module_path/modules")
+    {
+        opendir(my $dh, "$module_path/modules") or return sort @found;
 
-            if (@files)
-            {
-                push @found, $_;
-            }
-        },
-        no_chdir => 1,
-        preprocess => sub {
-            return grep {
-                my $dir = $_;
+        for my $submod (sort readdir($dh))
+        {
+            next if $submod eq '.' || $submod eq '..';
+            my $submod_path = "$module_path/modules/$submod";
+            next unless -d $submod_path;
+            _search_depth($submod_path, $extension, 3, \@found);
+        }
 
-                # Skip known build/artifact directories
-                !$SKIP_DIRS{$dir}
-                &&
-                # Skip O.* build output directories
-                $dir !~ /^O\./
-                &&
-                # Skip test/example directories
-                !grep { $dir =~ /^${_}/i } @SKIP_PREFIXES;
-            } @_;
-        },
-    }, $module_path);
+        closedir($dh);
+    }
 
     return sort @found;
 }
@@ -194,32 +264,6 @@ sub build_display_path
     delete $applications{"TOP"};
     delete $applications{"SUPPORT"};
     delete $applications{"EPICS_BASE"};
-
-    # Remove modules whose paths are subdirectories of other modules
-    # (e.g., ADCORE is under AREA_DETECTOR) to avoid duplicate scanning
-    my @mod_keys = keys %applications;
-
-    foreach my $key (@mod_keys)
-    {
-        next unless exists $applications{$key};
-        my $path = $applications{$key};
-
-        foreach my $other_key (@mod_keys)
-        {
-            next if $key eq $other_key;
-            next unless exists $applications{$other_key};
-
-            my $other_path = $applications{$other_key};
-
-            # If this module's path starts with another module's path,
-            # it's a subdirectory -- remove it
-            if ($path ne $other_path && index($path, "$other_path/") == 0)
-            {
-                delete $applications{$key};
-                last;
-            }
-        }
-    }
 
     # Scan the local application directory first so its screens take priority
     my @path_components;
