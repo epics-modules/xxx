@@ -271,4 +271,132 @@ sub sanity_check()
 	}
 }
 
+
+my $LOG_WATCHER_PID_FILE = "$FindBin::RealBin/.log_watcher.pid";
+my $LOG_WATCHER_POLL_INTERVAL = 60;    # seconds between size checks
+my $LOG_WATCHER_KEEP_RATIO = 0.75;     # fraction of max size to keep after truncation
+
+sub start_log_watcher
+{
+	my @parms = @_;
+	my $logfile = $parms[0];
+	
+	my $max_size = $ENV{IOC_LOGFILE_MAX_SIZE} // 0;
+	
+	# Don't start if size limiting is disabled
+	if ($max_size <= 0)    { return; }
+	
+	# Clean up any stale watcher
+	stop_log_watcher();
+	
+	my $pid = fork();
+	
+	if (!defined $pid)
+	{
+		print("Warning: Could not fork log watcher: $!\n");
+		return;
+	}
+	
+	if ($pid != 0)
+	{
+		# Parent: record the child PID and return
+		if (open(my $fh, ">", $LOG_WATCHER_PID_FILE))
+		{
+			print $fh "$pid\n";
+			close($fh);
+		}
+		return;
+	}
+	
+	# Child: detach from terminal and run the watch loop
+	POSIX::setsid();
+	
+	# Close standard file descriptors so we don't hold the terminal
+	open(STDIN,  "<", "/dev/null");
+	open(STDOUT, ">", "/dev/null");
+	open(STDERR, ">", "/dev/null");
+	
+	while (1)
+	{
+		sleep($LOG_WATCHER_POLL_INTERVAL);
+		
+		# Exit if the log file no longer exists
+		last if (! -f $logfile);
+		
+		# Exit if the IOC is no longer running
+		last if (! ioc_up());
+		
+		my $size = (stat($logfile))[7];
+		
+		next if (!defined $size || $size <= $max_size);
+		
+		# Truncate: keep the tail portion of the file
+		_truncate_logfile($logfile, $max_size);
+	}
+	
+	# Clean up PID file on exit
+	unlink $LOG_WATCHER_PID_FILE if (-f $LOG_WATCHER_PID_FILE);
+	
+	exit(0);
+}
+
+sub _truncate_logfile
+{
+	my ($logfile, $max_size) = @_;
+	
+	my $keep_bytes = int($max_size * $LOG_WATCHER_KEEP_RATIO);
+	
+	my $size = (stat($logfile))[7];
+	return if (!defined $size || $size <= $max_size);
+	
+	my $skip = $size - $keep_bytes;
+	
+	# Read the tail we want to keep
+	if (!open(my $rfh, "<", $logfile))    { return; }
+	else
+	{
+		seek($rfh, $skip, 0);
+		
+		# Advance past any partial line so we start at a clean boundary
+		my $partial = <$rfh>;
+		
+		# Read the remaining content
+		local $/;
+		my $tail = <$rfh>;
+		close($rfh);
+		
+		# Only proceed if we actually have content to write back
+		if (defined $tail && length($tail) > 0)
+		{
+			# Write the tail back, truncating the file
+			if (open(my $wfh, ">", $logfile))
+			{
+				print $wfh $tail;
+				close($wfh);
+			}
+		}
+	}
+}
+
+sub stop_log_watcher
+{
+	if (-f $LOG_WATCHER_PID_FILE)
+	{
+		if (open(my $fh, "<", $LOG_WATCHER_PID_FILE))
+		{
+			my $pid = <$fh>;
+			close($fh);
+			
+			chomp($pid) if defined $pid;
+			
+			if (defined $pid && $pid =~ /^\d+$/ && $pid > 0)
+			{
+				kill("SIGTERM", $pid);
+			}
+		}
+		
+		unlink $LOG_WATCHER_PID_FILE;
+	}
+}
+
 1;

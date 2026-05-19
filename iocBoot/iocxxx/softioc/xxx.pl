@@ -94,6 +94,11 @@ BEGIN
 	# Or set each type individually, Command is for remote command console logs, Console is iocConsole logs
 	$ENV{IOC_COMMAND_FILE_MAX}=$ENV{IOC_LOGFILE_MAX};
 	$ENV{IOC_CONSOLE_FILE_MAX}=$ENV{IOC_LOGFILE_MAX};
+	
+	# Set maximum size (in bytes) for an active console log file.
+	# When exceeded, the file is truncated to keep the most recent content.
+	# Default: 1073741824 (1 GB).  Set to 0 to disable size limiting.
+	$ENV{IOC_LOGFILE_MAX_SIZE}=1073741824;
 }
 
 

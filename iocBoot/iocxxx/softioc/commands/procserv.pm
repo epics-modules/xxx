@@ -24,13 +24,16 @@ sub _local()
 			
 			my $prefix = _info::procserv("CONSOLE", "PREFIX");
 			my $curr_time = strftime("%y%m%d-%H%M%S", localtime());
-			my $LOG_FILE="-L $IOC_STARTUP_DIR/softioc/logs/iocConsole/${prefix}.log_${curr_time}";
+			my $LOG_PATH="$IOC_STARTUP_DIR/softioc/logs/iocConsole/${prefix}.log_${curr_time}";
+			my $LOG_FILE="-L $LOG_PATH";
+			my $silent = 0;
 			
 			if ($#parms > 0)
 			{				
 				if ($parms[1] eq "silent")
 				{
 					$LOG_FILE="";
+					$silent = 1;
 				}
 			}
 			
@@ -47,6 +50,9 @@ sub _local()
 			
 			sleep 1;
 			
+			# Start log file size watcher (unless running silent)
+			if (! $silent)    { _info::start_log_watcher($LOG_PATH); }
+			
 			my @logfiles = glob("$IOC_STARTUP_DIR/softioc/logs/iocConsole/${prefix}.log_*");
 			
 			my $numkept=0;
@@ -61,6 +67,8 @@ sub _local()
 	}
 	elsif ( $ONOFF eq "stop" )
 	{
+		_info::stop_log_watcher();
+		
 		my $PID = _info::procserv("CONSOLE", "PID");
 		my $prefix = _info::procserv("CONSOLE", "PREFIX");
 		
