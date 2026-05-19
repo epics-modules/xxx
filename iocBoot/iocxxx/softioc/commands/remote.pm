@@ -32,7 +32,7 @@ sub _local
 		
 		# Construct system commands
 		my $command1 = "cd $FindBin::RealBin";
-		my $command2 = "$PROCSERV --allow --quiet --oneshot -L $LOG_FILE -i ^C --logoutcmd=^D -I $prefix.txt $ip_addr:$port $PERL $FindBin::RealBin/$FindBin::RealScript remote commandline";
+		my $command2 = "$PROCSERV --allow --quiet --oneshot -L $LOG_FILE -i ^C --logoutcmd=^D -I $FindBin::RealBin/$prefix.txt $ip_addr:$port $PERL $FindBin::RealBin/$FindBin::RealScript remote commandline";
 		
 		# Replace windows backslashes
 		$command1 =~ s{\\(?! )}{/}g;

@@ -42,7 +42,7 @@ sub _local()
 			
 			# Construct system commands
 			my $command1 = "cd $FindBin::RealBin";
-			my $command2 = "$PROCSERV --allow --quiet --oneshot $LOG_FILE -c $IOC_STARTUP_DIR -i ^C --logoutcmd=^D -I $prefix.txt $ip_addr:$port $IOC_CMD";
+			my $command2 = "$PROCSERV --allow --quiet --oneshot $LOG_FILE -c $IOC_STARTUP_DIR -i ^C --logoutcmd=^D -I $FindBin::RealBin/$prefix.txt $ip_addr:$port $IOC_CMD";
 			
 			# Replace windows backslashes
 			$command1 =~ s{\\(?! )}{/}g;
