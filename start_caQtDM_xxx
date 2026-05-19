@@ -1,29 +1,43 @@
-#!/bin/bash
+#!/usr/bin/perl
 
-export EPICS_APP=`dirname ${BASH_SOURCE:-$0}`
-export EPICS_APP_UI_DIR=${EPICS_APP}/xxxApp/op/ui
-export DEFAULT_UI_FILE=${1:-${DEFAULT_UI_FILE:-xxx.ui}}
-export UI_FILE_MACROS=${2:-"P=xxx:"}
+use strict;
+use FindBin;
+use Cwd 'abs_path';
+use File::Basename;
 
-source ${EPICS_APP}/setup_epics_common caqtdm
+# Resolve EPICS_APP to the real directory of this script (follows symlinks)
+my $EPICS_APP = $FindBin::RealBin;
 
-# #######################################
-# # optional: add support directories not associated with environment variables
+# IOC screen directory and default file
+my $EPICS_APP_UI_DIR  = "$EPICS_APP/xxxApp/op/ui";
+my $DEFAULT_UI_FILE   = $ARGV[0] // $ENV{DEFAULT_UI_FILE} // "xxx.ui";
+my $UI_FILE_MACROS    = $ARGV[1] // "P=xxx:";
 
-if [ -z "/APSshare/caqtdm" ]; then
-  CAQTDM_DISPLAY_PATH=$CAQTDM_DISPLAY_PATH:/APSshare/uisys/sr/id
-fi
+# Build the display path using setup_epics_common
+require "$EPICS_APP/setup_epics_common";
+my $display_path = build_display_path($EPICS_APP, "caqtdm", $EPICS_APP_UI_DIR);
+
+# Set environment
+$ENV{CAQTDM_DISPLAY_PATH} = defined $ENV{CAQTDM_DISPLAY_PATH} && $ENV{CAQTDM_DISPLAY_PATH} ne ""
+    ? "$display_path:$ENV{CAQTDM_DISPLAY_PATH}"
+    : $display_path;
+
+#######################################
+# optional: add support directories not associated with environment variables
+
+# if (-d "/APSshare/uisys/sr/id")
+# {
+#     $ENV{CAQTDM_DISPLAY_PATH} .= ":/APSshare/uisys/sr/id";
+# }
 
 
-# #######################################
-# # optional: support for PVs with large data sizes, such as areaDetector
-# # This should agree with the environment variable set by the ioc
-# # see 'putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"' in iocBoot/ioc<target>/st.cmd
+#######################################
+# optional: support for PVs with large data sizes, such as areaDetector
+# This should agree with the environment variable set by the IOC
+# see 'epicsEnvSet "EPICS_CA_MAX_ARRAY_BYTES"' in settings.iocsh
 
-if [ "" == "${EPICS_CA_MAX_ARRAY_BYTES}" ]; then
-  #export EPICS_CA_MAX_ARRAY_BYTES=64008
-  export EPICS_CA_MAX_ARRAY_BYTES=8000100
-fi
+$ENV{EPICS_CA_MAX_ARRAY_BYTES} //= 8000100;
+
 
 #######################################
 # optional: override system default environment variables for Qt and Qwt
@@ -31,47 +45,48 @@ fi
 # Because I'm using a local copy of Qt/Qwt, and not the system
 # copy, I need to set some environment variables
 
-#OVERRIDE_QT_BASE=/home/oxygen/MOONEY/Download/Qt
-#export QTDIR=${OVERRIDE_QT_BASE}/qt-4.8.4
-#export QT_PLUGIN_PATH=
-#export QT_PLUGIN_PATH=${QT_PLUGIN_PATH}:${OVERRIDE_QT_BASE}/qt-4.8.4/plugins
-#export QT_PLUGIN_PATH=${QT_PLUGIN_PATH}:${OVERRIDE_QT_BASE}/qwt-6.0/designer/plugins/designer
+#my $OVERRIDE_QT_BASE = "/home/oxygen/MOONEY/Download/Qt";
+#$ENV{QTDIR} = "$OVERRIDE_QT_BASE/qt-4.8.4";
+#$ENV{QT_PLUGIN_PATH} = "";
+#$ENV{QT_PLUGIN_PATH} .= ":$OVERRIDE_QT_BASE/qt-4.8.4/plugins";
+#$ENV{QT_PLUGIN_PATH} .= ":$OVERRIDE_QT_BASE/qwt-6.0/designer/plugins/designer";
 
 
 #######################################
 # optional: other environment variables that may need local definitions
 # these are copied from caQtDM's source for startDM_Local
 
-#export QTCONTROLS_LIBS=`pwd`/caQtDM_Binaries
-#export QTBASE=${QTCONTROLS_LIBS}
-#export QT_PLUGIN_PATH=${QTBASE}
-#export CAQTDM_DISPLAY_PATH=`pwd`/caQtDM_Tests
+#$ENV{QTCONTROLS_LIBS} = getcwd() . "/caQtDM_Binaries";
+#$ENV{QTBASE} = $ENV{QTCONTROLS_LIBS};
+#$ENV{QT_PLUGIN_PATH} = $ENV{QTBASE};
 
 # For drag-and-drop workaround at APS, need /APSshare/bin/xclip
-export CAQTDM_EXEC_LIST='Probe;probe &P &:UI File;echo &A:PV Name(s);echo &P:Copy PV name; echo -n &P| xclip -i -sel clip:Paste PV name;caput &P `xclip -o -sel clip`'
+$ENV{CAQTDM_EXEC_LIST} = 'Probe;probe &P &:UI File;echo &A:PV Name(s);echo &P:Copy PV name; echo -n &P| xclip -i -sel clip:Paste PV name;caput &P `xclip -o -sel clip`';
 
-export START_PUTRECORDER=${EPICS_APP}/start_putrecorder
-export MACROS_PY=${EPICS_APP_UI_DIR}/../python/macros.py
-export EDITOR=nedit
-if [ -z "/APSshare/caqtdm" ]; then
-  export PATH=${PATH}:/APSshare/bin
-  export QT_PLUGIN_PATH=/APSshare/caqtdm/plugins
-  export LD_LIBRARY_PATH=/APSshare/caqtdm/lib
-  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${EPICS_BASE}/lib/linux-x86_64
+$ENV{START_PUTRECORDER} = "$EPICS_APP/start_putrecorder";
+$ENV{MACROS_PY}         = "$EPICS_APP_UI_DIR/../python/macros.py";
+$ENV{EDITOR}          //= "nedit";
+
+if (-d "/APSshare/caqtdm")
+{
+    $ENV{PATH} = "$ENV{PATH}:/APSshare/bin";
+    $ENV{QT_PLUGIN_PATH}  = "/APSshare/caqtdm/plugins";
+    $ENV{LD_LIBRARY_PATH} = "/APSshare/caqtdm/lib";
+    $ENV{LD_LIBRARY_PATH} .= ":" . ($ENV{EPICS_BASE} // "") . "/lib/linux-x86_64";
+}
 else
-  export QT_PLUGIN_PATH=/usr/local/epics/extensions/lib/linux-x86_64
-fi
+{
+    $ENV{QT_PLUGIN_PATH} = "/usr/local/epics/extensions/lib/linux-x86_64";
+}
 
 
 #######################################
 # optional: access to ioctim and bcdapc15
 
-#export EPICS_CA_ADDR_LIST="164.54.53.99 164.54.54.88"
+#$ENV{EPICS_CA_ADDR_LIST} = "164.54.53.99 164.54.54.88";
 
 
 #######################################
 # start caQtDM
 
-/APSshare/bin/caQtDM -style plastique -noMsg -macro ${UI_FILE_MACROS} ${DEFAULT_UI_FILE} &
-
-
+exec("/APSshare/bin/caQtDM", "-style", "plastique", "-noMsg", "-macro", $UI_FILE_MACROS, $DEFAULT_UI_FILE);

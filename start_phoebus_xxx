@@ -1,27 +1,33 @@
-#!/bin/bash
+#!/usr/bin/perl
 
-export EPICS_APP=$(cd "$(dirname "$BASH_SOURCE")"; cd -P "$(dirname "$(readlink "$BASH_SOURCE" || echo .)")"; pwd)
-export EPICS_APP_UI_DIR=${EPICS_APP}/xxxApp/op/bob/autoconvert
-export DEFAULT_UI_FILE=${1:-${DEFAULT_UI_FILE:-ioc_motors.bob}}
-export UI_FILE_MACROS=${2:-"P=xxx:"}
+use strict;
+use FindBin;
+use Cwd 'abs_path';
+use File::Basename;
 
-# #######################################
-# # optional: support for PVs with large data sizes, such as areaDetector
-# # This should agree with the environment variable set by the ioc
-# # see 'putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"' in iocBoot/ioc<target>/st.cmd
+# Resolve EPICS_APP to the real directory of this script (follows symlinks)
+my $EPICS_APP = $FindBin::RealBin;
 
-if [ "" == "${EPICS_CA_MAX_ARRAY_BYTES}" ]; then
-  #export EPICS_CA_MAX_ARRAY_BYTES=64008
-  export EPICS_CA_MAX_ARRAY_BYTES=8000100
-fi
+# IOC screen directory and default file
+my $EPICS_APP_UI_DIR  = "$EPICS_APP/xxxApp/op/bob/autoconvert";
+my $DEFAULT_UI_FILE   = $ARGV[0] // $ENV{DEFAULT_UI_FILE} // "ioc_motors.bob";
+my $UI_FILE_MACROS    = $ARGV[1] // "P=xxx:";
 
-export START_PUTRECORDER=${EPICS_APP}/start_putrecorder
-export MACROS_PY=${EPICS_APP_UI_DIR}/../python/macros.py
-export EDITOR=nedit
+#######################################
+# optional: support for PVs with large data sizes, such as areaDetector
+# This should agree with the environment variable set by the IOC
+# see 'epicsEnvSet "EPICS_CA_MAX_ARRAY_BYTES"' in settings.iocsh
+
+$ENV{EPICS_CA_MAX_ARRAY_BYTES} //= 8000100;
+
+$ENV{START_PUTRECORDER} = "$EPICS_APP/start_putrecorder";
+$ENV{MACROS_PY}         = "$EPICS_APP_UI_DIR/../python/macros.py";
+$ENV{EDITOR}          //= "nedit";
+
 
 #######################################
 # start CSS-phoebus
 
-
-/APSshare/bin/phoebus -layout $EPICS_APP/phoebus.layout -resource "file:${EPICS_APP_UI_DIR}/${DEFAULT_UI_FILE}?${UI_FILE_MACROS}&target=window"
-
+exec("/APSshare/bin/phoebus",
+    "-layout", "$EPICS_APP/phoebus.layout",
+    "-resource", "file:${EPICS_APP_UI_DIR}/${DEFAULT_UI_FILE}?${UI_FILE_MACROS}&target=window");

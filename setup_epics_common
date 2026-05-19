@@ -1,289 +1,297 @@
-#!/bin/bash -f
+#!/usr/bin/perl
 
-DISPLAY_MANAGER=$1
-
-# caller (typically: start_****_xxx) MUST define:
-# EPICS_APP - Top level IOC directory
-# EPICS_APP_ADL_DIR - Location of adl file directory
-# EPICS_APP_UI_DIR  - Location of ui file directory
-
-
-#######################################
-# support function to simplify repetitive task,
-# used to build up displaty path of supported modules
+# setup_epics_common
 #
-# usage::
+# Builds a display search path for MEDM, caQtDM, or pyDM by automatically
+# discovering screen file directories within all support modules referenced
+# by the IOC's configure/RELEASE file.
 #
-#    addModule ENVIRONMENT_VARIABLE DISPLAY_TYPE [SUBDIRECTORY]
+# Usage:
+#   Called from start_*_xxx scripts.  Expects $EPICS_APP to be set by caller.
 #
-# TMP is a temporary display path
-# TMP is internal to this script, no need to export.
+#   As a Perl module (from other Perl scripts):
+#     require "$EPICS_APP/setup_epics_common";
+#     my $path = build_display_path($epics_app, $display_manager, $app_screen_dir);
+#
+#   As a standalone script (for eval from bash):
+#     eval $(perl setup_epics_common <display_manager> <epics_app> <app_screen_dir>)
 
-function addModule
+use strict;
+use File::Find;
+use Cwd 'abs_path';
+
+# Directories to skip during recursive search -- build artifacts, VCS,
+# test/example code, documentation, and iocBoot directories.
+my %SKIP_DIRS = map { $_ => 1 } qw(
+    .git .svn .hg
+    bin lib include dbd db
+    iocBoot documentation docs
+);
+
+# Prefixes of directory names to skip (test apps, examples, etc.)
+my @SKIP_PREFIXES = qw(test example);
+
+
+###############################################################################
+# Parse a RELEASE file and return a hash of MODULE => PATH
+#
+# This is equivalent to the logic in release.pl but returns the data as a
+# hash rather than printing it.
+###############################################################################
+
+sub parse_release
 {
-    # $1 is a symbol defined in <synApps>/configure/RELEASE
-    # module_path is the path defined for that symbol in the RELEASE file
-    module='$'$1
-    module_path=`eval echo $module`
+    my ($file, $applications) = @_;
 
-    if [ "$2" != "${DISPLAY_MANAGER}" ]; then
-        return 0
-    fi
-	
-    if [ "" != "${module}" ]; then
-        # module is required
-        addition=${module_path}
-        if [ "" != "$3" ]; then
-            # optional subdirectory path
-            addition+=/$3
-        fi
-        if [ -d "${addition}" ]; then
-            # proceed ONLY if new addition path exists
-            # Then, can define paths to all area detectors specific screens
-            if [ "" == "${TMP}" ]; then
-                # no existing path defined, start here
-                TMP=.
-            fi
-            TMP+=:${addition}
-        fi
-    fi
+    if (-r "$file")
+    {
+        open(my $fh, "<", "$file") or return;
+
+        while (my $line = <$fh>)
+        {
+            next if ($line =~ /^\s*#/);
+
+            chomp($line);
+            $line =~ s/\r//g;
+
+            # Test for "include" / "-include" directives
+            if ($line =~ /^(-?include)\s+(.*)/)
+            {
+                my $inc_path = $2;
+
+                # Resolve $(MACRO) references in the include path
+                if ($inc_path =~ /\$\((\w+)\)(.*)/)
+                {
+                    my $macro = $1;
+                    my $rest  = $2;
+
+                    if (exists $applications->{$macro} && $applications->{$macro} ne "")
+                    {
+                        $inc_path = $applications->{$macro} . $rest;
+                    }
+                    else
+                    {
+                        next;    # macro not yet defined, skip
+                    }
+                }
+
+                parse_release($inc_path, $applications);
+            }
+            elsif ($line =~ /^(\w+)\s*=\s*(.*)/)
+            {
+                my $key = $1;
+                my $val = $2;
+
+                # Resolve $(MACRO) references in the value
+                if ($val =~ /\$\((\w+)\)(.*)/)
+                {
+                    my $macro = $1;
+                    my $rest  = $2;
+
+                    if (exists $applications->{$macro} && $applications->{$macro} ne "")
+                    {
+                        $val = $applications->{$macro} . $rest;
+                    }
+                }
+
+                $key =~ s/^\s+|\s+$//g;
+
+                if ($key ne "")
+                {
+                    $applications->{$key} = $val;
+                }
+            }
+        }
+
+        close($fh);
+    }
 }
 
 
-#######################################
-# get environment variables for support modules 
+###############################################################################
+# Discover screen file directories for a given file extension within a
+# module path.  Uses File::Find to recursively search, skipping build
+# output, test, and documentation directories.
+###############################################################################
 
-output=`perl -s $EPICS_APP/release.pl -form=bash  $EPICS_APP`
-eval $output
+sub find_screen_dirs
+{
+    my ($module_path, $extension) = @_;
+
+    my @found;
+
+    return @found unless (-d $module_path);
+
+    find({
+        wanted => sub {
+            return unless -d $_;
+
+            # Check if this directory contains files with the target extension
+            my @files = glob("$_/*.$extension");
+
+            if (@files)
+            {
+                push @found, $_;
+            }
+        },
+        no_chdir => 1,
+        preprocess => sub {
+            return grep {
+                my $dir = $_;
+
+                # Skip known build/artifact directories
+                !$SKIP_DIRS{$dir}
+                &&
+                # Skip O.* build output directories
+                $dir !~ /^O\./
+                &&
+                # Skip test/example directories
+                !grep { $dir =~ /^${_}/i } @SKIP_PREFIXES;
+            } @_;
+        },
+    }, $module_path);
+
+    return sort @found;
+}
 
 
-# ========  ================     ===============          ===========================
-# function  MODULE_VARIABLE      Display Manager          subdirectory with .ui files
-# ========  ================     ===============          ===========================
-addModule   EPICS_APP_ADL_DIR    medm                     
-addModule   EPICS_APP_UI_DIR     caqtdm                   
-addModule   EPICS_APP_UI_DIR     caqtdm                   /autoconvert
+###############################################################################
+# Build the complete display path for a given display manager.
+#
+#   $epics_app      - Top level IOC directory (TOP)
+#   $display_manager - "medm", "caqtdm", or "pydm"
+#   $app_screen_dir  - The IOC's own screen directory (e.g., xxxApp/op/adl)
+#
+# Returns the colon-separated display path string.
+###############################################################################
 
-addModule   ALIVE                medm                     /aliveApp/op/adl
-addModule   ALIVE                caqtdm                   /aliveApp/op/ui
-addModule   ALIVE                caqtdm                   /aliveApp/op/ui/autoconvert
+sub build_display_path
+{
+    my ($epics_app, $display_manager, $app_screen_dir) = @_;
 
-addModule   AREA_DETECTOR        medm                     /ADCore/ADApp/op/adl
-addModule   AREA_DETECTOR        caqtdm                   /ADCore/ADApp/op/ui
-addModule   AREA_DETECTOR        caqtdm                   /ADCore/ADApp/op/ui/autoconvert
+    # Determine file extension to search for
+    my $extension;
 
-addModule   ADSIMDETECTOR        medm                     /simDetectorApp/op/adl
-addModule   ADSIMDETECTOR        caqtdm                   /simDetectorApp/op/ui
-addModule   ADSIMDETECTOR        caqtdm                   /simDetectorApp/op/ui/autoconvert
+    if    ($display_manager eq "medm")    { $extension = "adl"; }
+    elsif ($display_manager eq "caqtdm")  { $extension = "ui"; }
+    elsif ($display_manager eq "pydm")    { $extension = "ui"; }
+    else                                  { return ""; }
 
-addModule   ADANDOR              medm                     /andorApp/op/adl
-addModule   ADANDOR              caqtdm                   /andorApp/op/ui
-addModule   ADANDOR              caqtdm                   /andorApp/op/ui/autoconvert
+    # Parse RELEASE to get all module paths
+    my %applications;
+    $applications{"TOP"} = $epics_app;
 
-addModule   ADANDOR3             medm                     /andor3App/op/adl
-addModule   ADANDOR3             caqtdm                   /andor3App/op/ui
-addModule   ADANDOR3             caqtdm                   /andor3App/op/ui/autoconvert
+    if (defined $ENV{GATEWAY} && $ENV{GATEWAY} ne "")
+    {
+        $applications{"GATEWAY"} = $ENV{GATEWAY};
+    }
 
-addModule   ADARAVIS             medm                     /aravisApp/op/adl
-addModule   ADARAVIS             caqtdm                   /aravisApp/op/ui
-addModule   ADARAVIS             caqtdm                   /aravisApp/op/ui/autoconvert
+    parse_release("$epics_app/configure/RELEASE", \%applications);
 
-addModule   ADEIGER              medm                     /eigerApp/op/adl
-addModule   ADEIGER              caqtdm                   /eigerApp/op/ui
-addModule   ADEIGER              caqtdm                   /eigerApp/op/ui/autoconvert
+    # Remove non-module entries
+    delete $applications{"TOP"};
+    delete $applications{"SUPPORT"};
+    delete $applications{"EPICS_BASE"};
 
-addModule   ADGENICAM            medm                     /GenICamApp/op/adl
-addModule   ADGENICAM            caqtdm                   /GenICamApp/op/ui
-addModule   ADGENICAM            caqtdm                   /GenICamApp/op/ui/autoconvert
+    # Remove modules whose paths are subdirectories of other modules
+    # (e.g., ADCORE is under AREA_DETECTOR) to avoid duplicate scanning
+    my @mod_keys = keys %applications;
 
-addModule   ADMAR345             medm                     /mar345App/op/adl
-addModule   ADMAR345             caqtdm                   /mar345App/op/ui
-addModule   ADMAR345             caqtdm                   /mar345App/op/ui/autoconvert
+    foreach my $key (@mod_keys)
+    {
+        next unless exists $applications{$key};
+        my $path = $applications{$key};
 
-addModule   ADMARCCD             medm                     /marCCDApp/op/adl
-addModule   ADMARCCD             caqtdm                   /marCCDApp/op/ui
-addModule   ADMARCCD             caqtdm                   /marCCDApp/op/ui/autoconvert
+        foreach my $other_key (@mod_keys)
+        {
+            next if $key eq $other_key;
+            next unless exists $applications{$other_key};
 
-addModule   ADPILATUS            medm                     /pilatusApp/op/adl
-addModule   ADPILATUS            caqtdm                   /pilatusApp/op/ui
-addModule   ADPILATUS            caqtdm                   /pilatusApp/op/ui/autoconvert
+            my $other_path = $applications{$other_key};
 
-addModule   ADPOINTGREY          medm                     /pointGreyApp/op/adl
-addModule   ADPOINTGREY          caqtdm                   /pointGreyApp/op/ui
-addModule   ADPOINTGREY          caqtdm                   /pointGreyApp/op/ui/autoconvert
+            # If this module's path starts with another module's path,
+            # it's a subdirectory -- remove it
+            if ($path ne $other_path && index($path, "$other_path/") == 0)
+            {
+                delete $applications{$key};
+                last;
+            }
+        }
+    }
 
-addModule   ADPROSILICA          medm                     /prosilicaApp/op/adl
-addModule   ADPROSILICA          caqtdm                   /prosilicaApp/op/ui
-addModule   ADPROSILICA          caqtdm                   /prosilicaApp/op/ui/autoconvert
+    # Start with the IOC's own screen directory
+    my @path_components;
 
-addModule   ADURL                medm                     /urlApp/op/adl
-addModule   ADURL                caqtdm                   /urlApp/op/ui
-addModule   ADURL                caqtdm                   /urlApp/op/ui/autoconvert
+    if (defined $app_screen_dir && -d $app_screen_dir)
+    {
+        push @path_components, $app_screen_dir;
 
-addModule   ADVIMBA              medm                     /vimbaApp/op/adl
-addModule   ADVIMBA              caqtdm                   /vimbaApp/op/ui
-addModule   ADVIMBA              caqtdm                   /vimbaApp/op/ui/autoconvert
+        # For caQtDM/pyDM, also check for an autoconvert subdirectory
+        if ($extension eq "ui" && -d "$app_screen_dir/autoconvert")
+        {
+            push @path_components, "$app_screen_dir/autoconvert";
+        }
+    }
 
-addModule   ASYN                 medm                     /opi/medm
-addModule   ASYN                 caqtdm                   /opi/caqtdm
-addModule   ASYN                 caqtdm                   /opi/caqtdm/autoconvert
+    # Discover screen directories in each module
+    foreach my $mod (sort keys %applications)
+    {
+        my $mod_path = $applications{$mod};
+        next unless (-d $mod_path);
 
-addModule   AUTOSAVE             medm                     /asApp/op/adl
-addModule   AUTOSAVE             caqtdm                   /asApp/op/ui
-addModule   AUTOSAVE             caqtdm                   /asApp/op/ui/autoconvert
+        my @dirs = find_screen_dirs($mod_path, $extension);
+        push @path_components, @dirs;
+    }
 
-addModule   BUSY                 medm                     /busyApp/op/adl
-addModule   BUSY                 caqtdm                   /busyApp/op/ui
-addModule   BUSY                 caqtdm                   /busyApp/op/ui/autoconvert
+    return join(":", @path_components);
+}
 
-addModule   CALC                 medm                     /calcApp/op/adl
-addModule   CALC                 caqtdm                   /calcApp/op/ui
-addModule   CALC                 caqtdm                   /calcApp/op/ui/autoconvert
 
-addModule   CAMAC                medm                     /camacApp/op/adl
-addModule   CAMAC                caqtdm                   /camacApp/op/ui
-addModule   CAMAC                caqtdm                   /camacApp/op/ui/autoconvert
+###############################################################################
+# If run as a standalone script, output shell export commands for eval
+###############################################################################
 
-addModule   CAPUTRECORDER        medm                     /caputRecorderApp/op/adl
-addModule   CAPUTRECORDER        caqtdm                   /caputRecorderApp/op/ui
-addModule   CAPUTRECORDER        caqtdm                   /caputRecorderApp/op/ui/autoconvert
+if (!caller())
+{
+    my $display_manager = $ARGV[0] // "";
+    my $epics_app       = $ARGV[1] // $ENV{EPICS_APP} // ".";
+    my $app_screen_dir  = $ARGV[2] // "";
 
-addModule   DAC128V              medm                     /dac128VApp/op/adl
-addModule   DAC128V              caqtdm                   /dac128VApp/op/ui
-addModule   DAC128V              caqtdm                   /dac128VApp/op/ui/autoconvert
+    my $path = build_display_path($epics_app, $display_manager, $app_screen_dir);
 
-addModule   DELAYGEN             medm                     /delaygenApp/op/adl
-addModule   DELAYGEN             caqtdm                   /delaygenApp/op/ui
-addModule   DELAYGEN             caqtdm                   /delaygenApp/op/ui/autoconvert
+    if ($display_manager eq "medm")
+    {
+        if (defined $ENV{EPICS_DISPLAY_PATH} && $ENV{EPICS_DISPLAY_PATH} ne "")
+        {
+            print "export EPICS_DISPLAY_PATH=$path:\$EPICS_DISPLAY_PATH\n";
+        }
+        else
+        {
+            print "export EPICS_DISPLAY_PATH=$path\n";
+        }
+    }
+    elsif ($display_manager eq "caqtdm")
+    {
+        if (defined $ENV{CAQTDM_DISPLAY_PATH} && $ENV{CAQTDM_DISPLAY_PATH} ne "")
+        {
+            print "export CAQTDM_DISPLAY_PATH=$path:\$CAQTDM_DISPLAY_PATH\n";
+        }
+        else
+        {
+            print "export CAQTDM_DISPLAY_PATH=$path\n";
+        }
+    }
+    elsif ($display_manager eq "pydm")
+    {
+        if (defined $ENV{PYDM_DISPLAYS_PATH} && $ENV{PYDM_DISPLAYS_PATH} ne "")
+        {
+            print "export PYDM_DISPLAYS_PATH=$path:\$PYDM_DISPLAYS_PATH\n";
+        }
+        else
+        {
+            print "export PYDM_DISPLAYS_PATH=$path\n";
+        }
+    }
+}
 
-addModule   DXP                  medm                     /dxpApp/op/ui
-addModule   DXP                  caqtdm                   /dxpApp/op/ui
-addModule   DXP                  caqtdm                   /dxpApp/op/ui/autoconvert
-
-addModule   DXPSITORO            medm                     /dxpSITOROApp/op/adl
-addModule   DXPSITORO            caqtdm                   /dxpSITOROApp/op/ui
-addModule   DXPSITORO            caqtdm                   /dxpSITOROApp/op/ui/autoconvert
-
-addModule   DEVIOCSTATS          medm                     /op/adl
-addModule   DEVIOCSTATS          caqtdm                   /op/ui
-addModule   DEVIOCSTATS          caqtdm                   /op/ui/autoconvert
-
-addModule   FLY                  medm                     /flyApp/op/adl
-addModule   FLY                  caqtdm                   /flyApp/op/ui
-addModule   FLY                  caqtdm                   /flyApp/op/ui/autoconvert
-
-addModule   GALIL                medm                     /GalilSup/op/adl
-addModule   GALIL                caqtdm                   /GalilSup/op/ui
-addModule   GALIL                caqtdm                   /GalilSup/op/ui/autoconvert
-
-addModule   IP                   medm                     /ipApp/op/adl
-addModule   IP                   caqtdm                   /ipApp/op/ui
-addModule   IP                   caqtdm                   /ipApp/op/ui/autoconvert
-
-addModule   IP330                medm                     /ip330App/op/adl
-addModule   IP330                caqtdm                   /ip330App/op/ui
-addModule   IP330                caqtdm                   /ip330App/op/ui/autoconvert
-
-addModule   IPUNIDIG             medm                     /ipUnidigApp/op/adl
-addModule   IPUNIDIG             caqtdm                   /ipUnidigApp/op/ui
-addModule   IPUNIDIG             caqtdm                   /ipUnidigApp/op/ui/autoconvert
-
-addModule   LABJACK              medm                     /LabJackApp/op/adl
-addModule   LABJACK              caqtdm                   /LabJackApp/op/ui
-addModule   LABJACK              caqtdm                   /LabJackApp/op/ui/autoconvert
-
-addModule   LOVE                 medm                     /loveApp/op/adl
-addModule   LOVE                 caqtdm                   /loveApp/op/ui
-addModule   LOVE                 caqtdm                   /loveApp/op/ui/autoconvert
-
-addModule   LUA                  medm                     /luaApp/op/adl
-addModule   LUA                  caqtdm                   /luaApp/op/ui
-addModule   LUA                  caqtdm                   /luaApp/op/ui/autoconvert
-
-addModule   MCA                  medm                     /mcaApp/op/adl
-addModule   MCA                  caqtdm                   /mcaApp/op/ui
-addModule   MCA                  caqtdm                   /mcaApp/op/ui/autoconvert
-
-addModule   MEASCOMP             medm                     /measCompApp/op/adl
-addModule   MEASCOMP             caqtdm                   /measCompApp/op/ui
-addModule   MEASCOMP             caqtdm                   /measCompApp/op/ui/autoconvert
-
-addModule   MODBUS               medm                     /modbusApp/op/adl
-addModule   MODBUS               caqtdm                   /modbusApp/op/ui
-addModule   MODBUS               caqtdm                   /modbusApp/op/ui/autoconvert
-
-addModule   MOTOR                medm                     /motorApp/op/adl
-addModule   MOTOR                caqtdm                   /motorApp/op/ui
-addModule   MOTOR                caqtdm                   /motorApp/op/ui/autoconvert
-
-addModule   OPTICS               medm                     /opticsApp/op/adl
-addModule   OPTICS               caqtdm                   /opticsApp/op/ui
-addModule   OPTICS               caqtdm                   /opticsApp/op/ui/autoconvert
-
-addModule   QUADEM               medm                     /quadEMApp/op/adl
-addModule   QUADEM               caqtdm                   /quadEMApp/op/ui
-addModule   QUADEM               caqtdm                   /quadEMApp/op/ui/autoconvert
-
-addModule   SCALER               medm                     /scalerApp/op/adl
-addModule   SCALER               caqtdm                   /scalerApp/op/ui
-addModule   SCALER               caqtdm                   /scalerApp/op/ui/autoconvert
-
-addModule   SOFTGLUE             medm                     /softGlueApp/op/adl
-addModule   SOFTGLUE             caqtdm                   /softGlueApp/op/ui
-addModule   SOFTGLUE             caqtdm                   /softGlueApp/op/ui/autoconvert
-
-addModule   SOFTGLUEZYNQ         medm                     /softGlueApp/op/adl
-addModule   SOFTGLUEZYNQ         caqtdm                   /softGlueApp/op/ui
-addModule   SOFTGLUEZYNQ         caqtdm                   /softGlueApp/op/ui/autoconvert
-
-addModule   SSCAN                medm                     /sscanApp/op/adl
-addModule   SSCAN                caqtdm                   /sscanApp/op/ui
-addModule   SSCAN                caqtdm                   /sscanApp/op/ui/autoconvert
-
-addModule   STD                  medm                     /stdApp/op/adl
-addModule   STD                  caqtdm                   /stdApp/op/ui
-addModule   STD                  caqtdm                   /stdApp/op/ui/autoconvert
-
-addModule   TDS3000              medm                     /medm
-
-addModule   VAC                  medm                     /vacApp/op/adl
-addModule   VAC                  caqtdm                   /vacApp/op/ui
-addModule   VAC                  caqtdm                   /vacApp/op/ui/autoconvert
-
-addModule   VME                  medm                     /vmeApp/op/adl
-addModule   VME                  caqtdm                   /vmeApp/op/ui
-addModule   VME                  caqtdm                   /vmeApp/op/ui/autoconvert
-
-addModule   XPRESS3              medm                     /xpress3App/opi/adl
-addModule   XPRESS3              caqtdm                   /xpress3App/opi/ui
-addModule   XPRESS3              caqtdm                   /xpress3App/opi/ui/autoconvert
-
-addModule   YOKOGAWA_DAS         medm                     /mw100App/op/adl
-addModule   YOKOGAWA_DAS         caqtdm                   /mw100App/op/ui
-addModule   YOKOGAWA_DAS         caqtdm                   /mw100App/op/ui/autoconvert
-
-# ========  ================  ===========================
-
-if [ "$DISPLAY_MANAGER" == "medm" ]; then
-	if [ -z "$EPICS_DISPLAY_PATH" ]; then
-		export EPICS_DISPLAY_PATH=${TMP}
-	else
-		export EPICS_DISPLAY_PATH=${TMP}:${EPICS_DISPLAY_PATH}
-	fi
-fi
-
-if [ "$DISPLAY_MANAGER" == "caqtdm" ]; then
-	if [ -z "$CAQTDM_DISPLAY_PATH" ]; then
-		export CAQTDM_DISPLAY_PATH=${TMP}
-	else
-		export CAQTDM_DISPLAY_PATH=${TMP}:${CAQTDM_DISPLAY_PATH}
-	fi
-fi
-
-if [ "$DISPLAY_MANAGER" == "pydm" ]; then
-	if [ -z "$PYDM_DISPLAYS_PATH" ]; then
-		export PYDM_DISPLAYS_PATH=${TMP}
-	else
-		export PYDM_DISPLAYS_PATH=${TMP}:${PYDM_DISPLAYS_PATH}
-	fi
-fi
+1;
