@@ -99,6 +99,50 @@ BEGIN
 	# When exceeded, the file is truncated to keep the most recent content.
 	# Default: 1073741824 (1 GB).  Set to 0 to disable size limiting.
 	$ENV{IOC_LOGFILE_MAX_SIZE}=1073741824;
+	
+	
+	############################
+	# Display Manager Config   #
+	############################
+	
+	# Top level of the IOC application
+	$ENV{EPICS_APP}=$ENV{TOP};
+	
+	# Discover the application's screen directories
+	my @app_dirs = glob("$ENV{TOP}/*App/op");
+	my $APP_OP_DIR = $app_dirs[0] // "$ENV{TOP}/xxxApp/op";
+	
+	$ENV{EPICS_APP_ADL_DIR}="$APP_OP_DIR/adl";
+	#! $ENV{EPICS_APP_ADL_DIR}="$ENV{TOP}/xxxApp/op/adl";
+	
+	$ENV{EPICS_APP_UI_DIR}="$APP_OP_DIR/ui";
+	#! $ENV{EPICS_APP_UI_DIR}="$ENV{TOP}/xxxApp/op/ui";
+	
+	$ENV{EPICS_APP_BOB_DIR}="$APP_OP_DIR/bob/autoconvert";
+	#! $ENV{EPICS_APP_BOB_DIR}="$ENV{TOP}/xxxApp/op/bob/autoconvert";
+	
+	# Default UI files: use IOC_NAME-based file if it exists, fall back to IOC_BINARY
+	$ENV{IOC_DEFAULT_ADL} = (-f "$ENV{EPICS_APP_ADL_DIR}/$ENV{IOC_NAME}.adl")
+	    ? "$ENV{IOC_NAME}.adl" : "$ENV{IOC_BINARY}.adl";
+	#! $ENV{IOC_DEFAULT_ADL}="xxx.adl";
+	
+	$ENV{IOC_DEFAULT_UI} = (-f "$ENV{EPICS_APP_UI_DIR}/$ENV{IOC_NAME}.ui")
+	    ? "$ENV{IOC_NAME}.ui" : "$ENV{IOC_BINARY}.ui";
+	#! $ENV{IOC_DEFAULT_UI}="xxx.ui";
+	
+	$ENV{IOC_DEFAULT_BOB} = (-f "$ENV{EPICS_APP_BOB_DIR}/$ENV{IOC_NAME}.bob")
+	    ? "$ENV{IOC_NAME}.bob" : "ioc_motors.bob";
+	#! $ENV{IOC_DEFAULT_BOB}="ioc_motors.bob";
+	
+	# Default PV prefix macro for display managers
+	$ENV{IOC_DEFAULT_MACROS}="P=$ENV{IOC_NAME}:";
+	#! $ENV{IOC_DEFAULT_MACROS}="P=xxx:";
+	
+	# Common display environment
+	$ENV{EPICS_CA_MAX_ARRAY_BYTES} //= 8000100;
+	$ENV{EDITOR} //= "nedit";
+	$ENV{START_PUTRECORDER}="$ENV{TOP}/start_putrecorder";
+	$ENV{MACROS_PY}="$APP_OP_DIR/python/macros.py";
 }
 
 
