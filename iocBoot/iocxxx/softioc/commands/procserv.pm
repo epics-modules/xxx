@@ -19,6 +19,9 @@ sub _local()
 		if    (_info::ioc_up())     { print("IOC is already running\n"); }		
 		else
 		{
+			# Check for stale procServ info files
+			if (_info::check_stale_and_prompt())    { return; }
+			
 			my $ip_addr = _info::my_ip();
 			my $port = _info::get_port();
 			

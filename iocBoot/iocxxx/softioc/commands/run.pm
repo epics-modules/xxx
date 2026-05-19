@@ -13,6 +13,10 @@ sub _local
 	else
 	{		
 		_info::sanity_check();
+		
+		# Check for stale procServ info files
+		if (_info::check_stale_and_prompt())    { return; }
+		
 		print("Starting $IOC_NAME\n");
 		
 		my $currdir = getcwd();

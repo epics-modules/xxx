@@ -22,7 +22,9 @@ $procserv_info{"CONSOLE"} = { "PREFIX" => "ioc${IOC_NAME}-console",
                               "PID" => -1,
                               "IP" => -1,
                               "SAME_HOST" => 0};
-							
+
+my %stale_info;    # Tracks stale procServ info files detected during parse()
+
 sub my_ip
 {
 	return inet_ntoa(inet_aton(hostname));
@@ -63,6 +65,45 @@ sub parse
 		if ($ip_addr eq $tcpline[1])
 		{
 			$output{"SAME_HOST"} = 1;
+		}
+		
+		# Validate that the process is actually running
+		my $is_valid = 0;
+		
+		if ($output{"SAME_HOST"})
+		{
+			# Same host: check if PID is alive
+			$is_valid = kill(0, $output{"PID"});
+		}
+		else
+		{
+			# Different host: try TCP connect to procServ port
+			my $socket = new IO::Socket::INET (
+				PeerHost => $output{"IP"},
+				PeerPort => $output{"PORT"},
+				Proto    => 'tcp',
+				Timeout  => 5,
+			);
+			
+			if ($socket)
+			{
+				$is_valid = 1;
+				$socket->close();
+			}
+		}
+		
+		if (! $is_valid)
+		{
+			# Record the stale info for later prompting
+			$stale_info{$PS_PROC} = {
+				"FILE" => $CHECK_FILE,
+				"IP"   => $output{"IP"},
+				"PORT" => $output{"PORT"},
+				"PID"  => $output{"PID"},
+			};
+			
+			# Return defaults so callers see "no remote instance"
+			return \%{$procserv_info{$PS_PROC}};
 		}
 	}
 	
@@ -158,6 +199,7 @@ sub can_ping
 		PeerHost => $IP,
 		PeerPort => $PORT,
 		Proto => 'tcp',
+		Timeout => 5,
 	);
 	
 	return 0 unless($socket);
@@ -269,6 +311,51 @@ sub sanity_check()
 		print("IOC_STARTUP_FILE_PATH in $FindBin::RealScript needs to be corrected.\n");
 		return;
 	}
+}
+
+
+sub check_stale_and_prompt
+{
+	# Only care about stale CONSOLE files (indicates a previously-running IOC)
+	return 0 if (! exists $stale_info{"CONSOLE"});
+	
+	my $info = $stale_info{"CONSOLE"};
+	
+	# Non-interactive: silently clean up and proceed
+	if (! -t STDIN)
+	{
+		unlink $info->{"FILE"} if (-f $info->{"FILE"});
+		delete $stale_info{"CONSOLE"};
+		return 0;
+	}
+	
+	print("\n");
+	print("Warning: A procServ info file was found for $IOC_NAME, but the\n");
+	print("process does not appear to be running.\n");
+	print("\n");
+	print("  File: $info->{FILE}\n");
+	print("  IP:   $info->{IP}\n");
+	print("  Port: $info->{PORT}\n");
+	print("  PID:  $info->{PID}\n");
+	print("\n");
+	print("This may indicate the IOC previously crashed or is running on a\n");
+	print("host that is currently unreachable.\n");
+	print("\n");
+	print("Do you want to continue starting the IOC? [y/N]: ");
+	
+	my $answer = <STDIN>;
+	chomp($answer) if defined $answer;
+	
+	if (defined $answer && $answer =~ /^[yY]$/)
+	{
+		# User confirmed: clean up stale file and proceed
+		unlink $info->{"FILE"} if (-f $info->{"FILE"});
+		delete $stale_info{"CONSOLE"};
+		return 0;
+	}
+	
+	# User declined or hit enter
+	return 1;
 }
 
 
