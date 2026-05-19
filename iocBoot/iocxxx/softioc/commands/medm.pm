@@ -11,7 +11,7 @@ sub _local
 	
 	# Build display search path
 	require "$TOP/setup_epics_common";
-	my $display_path = build_display_path($TOP, "medm", $EPICS_APP_ADL_DIR);
+	my $display_path = build_display_path($TOP, "medm");
 	
 	$ENV{EPICS_DISPLAY_PATH} = defined $ENV{EPICS_DISPLAY_PATH} && $ENV{EPICS_DISPLAY_PATH} ne ""
 	    ? "$display_path:$ENV{EPICS_DISPLAY_PATH}"

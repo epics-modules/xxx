@@ -11,7 +11,7 @@ sub _local
 	
 	# Build display search path
 	require "$TOP/setup_epics_common";
-	my $display_path = build_display_path($TOP, "caqtdm", $EPICS_APP_UI_DIR);
+	my $display_path = build_display_path($TOP, "caqtdm");
 	
 	$ENV{CAQTDM_DISPLAY_PATH} = defined $ENV{CAQTDM_DISPLAY_PATH} && $ENV{CAQTDM_DISPLAY_PATH} ne ""
 	    ? "$display_path:$ENV{CAQTDM_DISPLAY_PATH}"

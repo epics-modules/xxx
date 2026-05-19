@@ -160,14 +160,16 @@ sub find_screen_dirs
 #
 #   $epics_app      - Top level IOC directory (TOP)
 #   $display_manager - "medm", "caqtdm", or "pydm"
-#   $app_screen_dir  - The IOC's own screen directory (e.g., xxxApp/op/adl)
+#
+# Scans $epics_app first (so the local application's screens appear at the
+# front of the path), then scans all support modules from configure/RELEASE.
 #
 # Returns the colon-separated display path string.
 ###############################################################################
 
 sub build_display_path
 {
-    my ($epics_app, $display_manager, $app_screen_dir) = @_;
+    my ($epics_app, $display_manager) = @_;
 
     # Determine file extension to search for
     my $extension;
@@ -219,21 +221,16 @@ sub build_display_path
         }
     }
 
-    # Start with the IOC's own screen directory
+    # Scan the local application directory first so its screens take priority
     my @path_components;
 
-    if (defined $app_screen_dir && -d $app_screen_dir)
+    if (-d $epics_app)
     {
-        push @path_components, $app_screen_dir;
-
-        # For caQtDM/pyDM, also check for an autoconvert subdirectory
-        if ($extension eq "ui" && -d "$app_screen_dir/autoconvert")
-        {
-            push @path_components, "$app_screen_dir/autoconvert";
-        }
+        my @local_dirs = find_screen_dirs($epics_app, $extension);
+        push @path_components, @local_dirs;
     }
 
-    # Discover screen directories in each module
+    # Discover screen directories in each support module
     foreach my $mod (sort keys %applications)
     {
         my $mod_path = $applications{$mod};
@@ -255,9 +252,8 @@ if (!caller())
 {
     my $display_manager = $ARGV[0] // "";
     my $epics_app       = $ARGV[1] // $ENV{EPICS_APP} // ".";
-    my $app_screen_dir  = $ARGV[2] // "";
 
-    my $path = build_display_path($epics_app, $display_manager, $app_screen_dir);
+    my $path = build_display_path($epics_app, $display_manager);
 
     if ($display_manager eq "medm")
     {
