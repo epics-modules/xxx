@@ -13,8 +13,7 @@ use File::Basename;
 BEGIN
 {
 	# Top level of the IOC folder
-	$ENV{TOP} = "$FindBin::RealBin/../../..";
-	
+	$ENV{TOP} = "$FindBin::RealBin/../../..";	
 	
 	# IOC prefix name, used to find the correct iocBoot directory and executable
 	$ENV{IOC_NAME} = substr(basename(abs_path("$FindBin::RealBin/../")),3);
@@ -66,9 +65,6 @@ BEGIN
 	# Display Manager Config   #
 	############################
 	
-	# Top level of the IOC application
-	$ENV{EPICS_APP}=$ENV{TOP};
-	
 	# Default UI files for display managers (searched via display path)
 	$ENV{IOC_DEFAULT_ADL}="$ENV{IOC_NAME}.adl";
 	#! $ENV{IOC_DEFAULT_ADL}="xxx.adl";
@@ -79,7 +75,7 @@ BEGIN
 	$ENV{IOC_DEFAULT_BOB}="$ENV{IOC_NAME}.bob";
 	#! $ENV{IOC_DEFAULT_BOB}="ioc_motors.bob";
 	
-	# Default PV prefix macro for display managers
+	# Default macros for display managers
 	$ENV{IOC_DEFAULT_MACROS}="P=$ENV{IOC_NAME}:";
 	#! $ENV{IOC_DEFAULT_MACROS}="P=xxx:";
 	
@@ -94,20 +90,19 @@ BEGIN
 	
 	$ENV{IOC_CMD}="$ENV{IOC_BIN_PATH} $ENV{IOC_STARTUP_FILE_PATH}";
 	
-	# Required shell commands
-	$ENV{SCREEN}="screen";
-	$ENV{TELNET}="telnet";
-	$ENV{PERL}="$Config{perlpath}";
-	$ENV{PROCSERV}="/APSshare/bin/procServ";
-	
 	# Switch between screen/procserv for local sessions (procServ should be set in all lowercase)
 	$ENV{IOC_DEFAULT_SESSION}="screen";
 	#! $ENV{IOC_DEFAULT_SESSION}="procserv";
-	
+
+
+	########################
+	#  IOC Logging Config  #
+	########################
+
 	# Remove EPICS 7.0.8 history
 	$ENV{EPICS_IOCSH_HISTFILE}="";
 	
-	# Set maximum number of both types of log files to keep
+	# Set maximum number of remote manager and iocConsole log files to keep
 	$ENV{IOC_LOGFILE_MAX}=10;
 	
 	# Or set each type individually, Command is for remote command console logs, Console is iocConsole logs
@@ -118,6 +113,16 @@ BEGIN
 	# When exceeded, the file is truncated to keep the most recent content.
 	# Default: 1073741824 (1 GB).  Set to 0 to disable size limiting.
 	$ENV{IOC_LOGFILE_MAX_SIZE}=1073741824;
+
+
+	###########################
+	#  Require Command Paths  #
+	###########################
+
+	$ENV{SCREEN}="screen";
+	$ENV{TELNET}="telnet";
+	$ENV{PERL}="$Config{perlpath}";
+	$ENV{PROCSERV}="/APSshare/bin/procServ";
 	
 }
 

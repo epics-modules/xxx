@@ -19,7 +19,7 @@ sub _local
 	if ($pid == 0)
 	{
 		exec("/APSshare/bin/phoebus",
-		    "-layout", "$EPICS_APP/phoebus.layout",
+		    "-layout", "$TOP/phoebus.layout",
 		    "-resource", "file:${bob_dir}/${ui_file}?${macros}&target=window");
 	}
 }
