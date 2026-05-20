@@ -12,18 +12,21 @@ epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(EPICS_DB_INCLUDE_PATH):$(ADCORE)/db:$(AD
 andorCCDConfig("$(INSTANCE)", "$(INSTALL_PATH='')", $(SERIAL), 0, 0, 0, 0, 0)
 dbLoadRecords("$(ADANDOR)/db/andorCCD.template",   "P=$(PREFIX),R=$(INSTANCE):,PORT=$(INSTANCE),ADDR=0,TIMEOUT=1")
 
-#Create a standard arrays plugin, set it to get data from first simDetector driver.
-NDStdArraysConfigure("$(INSTANCE)Image", 3, 0, "$(INSTANCE)", 0, 2000000)
+# Create a standard arrays plugin
+NDStdArraysConfigure("Image1", 3, 0, "$(INSTANCE)", 0, 2000000)
 
 # Need to determine certain values from input parameters
 iocshRun('epicsEnvSet("__FTVL", "$($(TYPE=Int16)_VAL)")', "Int8_VAL=UCHAR, UInt8_VAL=UCHAR, Int16_VAL=SHORT, UInt16_VAL=SHORT, Int32_VAL=LONG, UInt32_VAL=LONG, Float32_VAL=DOUBLE, Float64_VAL=DOUBLE")
 iocshRun('epicsEnvSet("__TYPE", "$($(TYPE=Int16)_VAL)")', "Int8_VAL=Int8, UInt8_VAL=Int8, Int16_VAL=Int16, UInt16_VAL=Int16, Int32_VAL=Int32, UInt32_VAL=Int32, Float32_VAL=Float32, Float64_VAL=Float64")
+iocshRun('epicsEnvSet("__BYTES", "$($(TYPE=Int16)_VAL)")', "Int8_VAL=1, UInt8_VAL=1, Int16_VAL=2, UInt16_VAL=2, Int32_VAL=4, UInt32_VAL=4, Float32_VAL=4, Float64_VAL=8")
 luaCmd("epicsEnvSet('__SIZE', tostring((XSIZE*YSIZE)|0))", "XSIZE=$(XSIZE), YSIZE=$(YSIZE)")
+luaCmd("epicsEnvSet('EPICS_CA_MAX_ARRAY_BYTES', tostring(math.ceil(1.1 * SIZE * BYTES)))", "SIZE=$(__SIZE), BYTES=$(__BYTES)")
 
-dbLoadRecords("$(ADCORE)/ADApp/Db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=$(INSTANCE)Image,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(__TYPE),FTVL=$(__FTVL),NELEMENTS=$(__SIZE)")
+dbLoadRecords("$(ADCORE)/ADApp/Db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(INSTANCE),TYPE=$(__TYPE),FTVL=$(__FTVL),NELEMENTS=$(__SIZE)")
 
 epicsEnvUnset("__FTVL")
 epicsEnvUnset("__TYPE")
+epicsEnvUnset("__BYTES")
 epicsEnvUnset("__SIZE")
 
 iocshLoad("$(ADCORE)/iocBoot/commonPlugins.cmd", "PREFIX=$(PREFIX), PORT=$(INSTANCE), QSIZE=20, XSIZE=$(XSIZE), YSIZE=$(YSIZE), NCHANS=1024, CBUFFS=20, MAX_THREADS=5")
