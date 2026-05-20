@@ -83,10 +83,6 @@ BEGIN
 	$ENV{IOC_DEFAULT_MACROS}="P=$ENV{IOC_NAME}:";
 	#! $ENV{IOC_DEFAULT_MACROS}="P=xxx:";
 	
-	# Common display environment
-	$ENV{EDITOR} //= "nedit";
-	$ENV{START_PUTRECORDER}="$ENV{TOP}/start_putrecorder";
-	
 	
 	##########################
 	# Config For This Script #
