@@ -1,13 +1,13 @@
 #########################
-#    xxx.pl Commands    #
+#    ioc.pl Commands    #
 #########################
 
 
-This folder contains the commands that the xxx.pl script will recognize, both when running
+This folder contains the commands that the ioc.pl script will recognize, both when running
 locally or when running as a remote procServ command console.
 
 Any file in this folder with the extension ".pm" will be loaded as a perl package when the 
-xxx.pl script is run. Any package using the "commands::" namespace will be registered as a 
+ioc.pl script is run. Any package using the "commands::" namespace will be registered as a 
 command that can be run, with the command name being equal to the package name. So, for 
 example, the package "commands::stop" would define the command "stop".
 
@@ -23,7 +23,7 @@ package doesn't need to define all of these functions, only the ones that will b
 ###############################
 
 
-The xxx.pl script exports environment variables that a command can use to access any files 
+The ioc.pl script exports environment variables that a command can use to access any files 
 and folders that may be necessary. At the beginning of the package, one can import the "Env"
 package to bind environment variables to global scalar values so that they can be accessed
 with just "$ENVIRONMENT_VARIABLE" rather than the full "$ENV{ENVIRONMENT_VARIABLE}".
@@ -96,7 +96,7 @@ processes, sending commands to a procServ process, and some common TCP tasks.
 	IP        - The IP of the computer running the procServ instance
 	PORT      - The port used
 	PID       - The PID of the running process
-	SAME_HOST - Whether the IP of the procServ instance matches the IP of the computer running xxx.pl
+	SAME_HOST - Whether the IP of the procServ instance matches the IP of the computer running ioc.pl
 	
 	
 * _info::get_local_pid
@@ -181,7 +181,7 @@ sub _local   # Called when there isn't a remote command console
 	my @params = @_;
 	
 	my $first_arg = $params[0];
-	my $second_arg = $param[1];
+	my $second_arg = $params[1];
 	
 	
 }

@@ -1,5 +1,18 @@
-Assuming the EPICS_HOST_ARCH environment variable is set correctly,
-start the ioc from this directory by executing the following command.
+Start the IOC using the softioc management script:
 
-../../bin/${EPICS_HOST_ARCH}/xxx st.cmd
+  softioc/ioc.pl start
 
+Other useful commands:
+
+  softioc/ioc.pl status       # Check if the IOC is running
+  softioc/ioc.pl console      # Connect to the IOC console
+  softioc/ioc.pl stop         # Stop the IOC
+  softioc/ioc.pl restart      # Restart the IOC
+  softioc/ioc.pl caqtdm       # Launch caQtDM display
+  softioc/ioc.pl medm         # Launch MEDM display
+  softioc/ioc.pl phoebus      # Launch Phoebus display
+
+Alternatively, assuming EPICS_HOST_ARCH is set, start the IOC
+directly from this directory:
+
+  ../../bin/${EPICS_HOST_ARCH}/xxx st.cmd.Linux
