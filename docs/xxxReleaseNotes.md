@@ -8,6 +8,68 @@ nav_order: 3
 xxx Release Notes
 =================
 
+Release 6-4
+-----------
+
+### IOC Management
+
+* Renamed `xxx.pl` to `ioc.pl` -- the launcher script no longer needs to match the IOC name
+* Display manager launch commands (`medm`, `caqtdm`, `phoebus`) moved from top-level start scripts into the softioc commands directory, making each IOC directory fully self-contained
+* Removed `start_MEDM_xxx`, `start_caQtDM_xxx`, `start_phoebus_xxx` top-level scripts -- use `ioc.pl medm`, `ioc.pl caqtdm`, `ioc.pl phoebus` instead
+* Removed legacy `run` and `in-screen.sh` scripts -- use `ioc.pl start` / `ioc.pl screen start` instead
+* Display-related environment variables (`IOC_DEFAULT_ADL`, `IOC_DEFAULT_UI`, `IOC_DEFAULT_BOB`, `IOC_DEFAULT_MACROS`) now set automatically in `ioc.pl` based on `IOC_NAME`
+* Added stale procServ info file detection with user prompt when starting an IOC; validates via PID check (same host) or TCP connect (remote host)
+* Added 5-second timeout to procServ TCP connections to prevent hangs on unreachable hosts
+* Fixed procServ `-I` info file written to wrong directory when using symlinks (GitHub issue #74) -- now uses absolute paths
+* Added log file size watcher that truncates console log files when they exceed a configurable maximum (default 1 GB), keeping the most recent content
+* Creating a second IOC from the template now requires only: copy the `iocBoot/iocxxx` directory, edit `IOC_NAME` in `settings.iocsh`, and run `make`
+
+### Display Path Setup
+
+* `setup_epics_common` rewritten in Perl with automatic screen directory discovery -- no longer requires manually listing each module's screen path
+* Screen directories are discovered by scanning all modules from `configure/RELEASE` using a depth-limited search
+* `modules/` subdirectories (e.g., motor submodules) are automatically searched
+* `autoconvert/` directories are automatically appended when screen files are found
+* Performance optimized: depth-limited search completes in under 3 seconds vs ~20 seconds for full recursive scan
+
+### Gestalt Screens
+
+* Completed the gestalt data file (`xxx.yml`) to match all entries from the hand-crafted caQtDM screen
+* Fixed bugs in the gestalt data: MLL motor file/count mismatch, Slit #2 copy-paste errors, Table3/Table4 macro errors, Shutter file mismatch, ADGeniCam BlackflyS typo
+* Added all previously missing entries: Direct I/O tab (12 entries), Devices tab (13 entries), Tools tab (11 entries), Detectors tab (8 entries), Motors tab (3 entries)
+* Added Status/APS Ops bar below the tabbed group
+* Layout updated to use `TabbedRepeat` for user-customizable tabs with 5-column grid
+
+### areaDetector Examples
+
+* Standardized all 19 detector example scripts to use hardcoded `Image1` port name for NDStdArrays (reverted from `$(INSTANCE)Image` convention)
+* Fixed ADDexela: NDStdArraysConfigure port name mismatch that broke the image plugin
+* Fixed ADGeniCam: `$(PORT)` changed to `$(INSTANCE)` in ADVimbaConfig and asynSetTraceIOMask
+* Fixed ADMarCCD: `mar345Config` changed to `marCCDConfig` (copy-paste error)
+* Fixed ADEiger1X/2X: header comment TYPE default corrected from Int32 to Int8
+* Fixed ADAdsc: added missing `set_requestfile_path`
+* Added COLORS support to ADProsilica for color camera modes
+* Added type-aware `EPICS_CA_MAX_ARRAY_BYTES` calculation to all 19 scripts (1.1x image size in bytes)
+* Cleaned up stale comments referencing simDetector in 12 scripts
+
+### Serial Device Examples
+
+* Added 22 new device examples to `serial_devices.iocsh` from synApps ip and love modules
+* New devices include: ADAM 4018, Agilent E3631A, BK 9130, Eurotherm 2000-series, LakeShore 218/330/340, Love controllers, MKS 651C, Newport LAE500, Omega DP41, Oxford CS800, Pelco CM6700, Protura P201, SRS PTC10 (Ethernet with RTD/TC/TEC channels), SR830, US Digital X3
+* Updated Eurotherm entry from old `dbLoadRecords` to new `Eurotherm2k.iocsh`
+* Parameter values sourced from module authors' own example IOCs
+
+### Other
+
+* Added PVA server registration and core library linking
+* Added PVAlive database and QSRV group
+* Added BLEPS databases
+* Added motorAcsMotion support
+* Added PI GCS2 support
+* Disabled EPICS base 7.0.8 iocsh history file by default
+* Fixed remote command triggering on certain computers
+* Various Windows compatibility fixes for procServ/screen commands
+
 Release 6-3
 -----------
 
@@ -177,8 +239,7 @@ Release 5-1
     
 *   serial\_OI\_Block, GPIB\_OI\_Block -> deviceCmdReply
     
-*   [cvs log](cvsLog.txt)
-    
+
 
 Release 5-0
 -----------
