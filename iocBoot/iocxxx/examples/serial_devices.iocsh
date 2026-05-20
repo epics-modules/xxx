@@ -1,8 +1,17 @@
 #ACS MCB-4B
 #iocshLoad("$(MOTOR)/iocsh/ACS_MCB4B.iocsh", "PORT=serial0:3, CONTROLLER=0, POLL_RATE=100, NUM_AXES=1")
 
-# Eurotherm temp controller
-#dbLoadRecords("$(IP)/ipApp/Db/Eurotherm.db","P=$(PREFIX),PORT=serial0:7")
+# ADAM 4018 8-channel Thermocouple Input Module (RS-485)
+#iocshLoad("$(IP)/iocsh/ADAM_4018.iocsh", "PREFIX=$(PREFIX), INSTANCE=adam1, PORT=serial0:6, A=01")
+
+# Agilent E3631A Triple Output Power Supply
+#iocshLoad("$(IP)/iocsh/Agilent_E3631A.iocsh", "PREFIX=$(PREFIX), INSTANCE=PS1:, PORT=serial0:5")
+
+# BK Precision 9130 Triple Output Power Supply
+#iocshLoad("$(IP)/iocsh/BK_9130.iocsh", "PREFIX=$(PREFIX), INSTANCE=PS1:, PORT=serial0:5")
+
+# Eurotherm 2000-series Temperature Controller
+#iocshLoad("$(IP)/iocsh/Eurotherm2k.iocsh", "PREFIX=$(PREFIX), INSTANCE=TC1, PORT=serial0:7")
 
 # Heidenhain ND261 encoder (for PSL monochromator)
 #iocshLoad("$(IP)/iocsh/Heidenhain_ND261.iocsh", "PREFIX=$(PREFIX), PORT=serial0:1")
@@ -14,14 +23,35 @@
 #iocshLoad("$(IP)/iocsh/Keithley_2k_serial.iocsh", "PREFIX=$(PREFIX), INSTANCE=D1, PORT=serial0:0, NUM_CHANNELS=22, MODEL=2700")
 #iocshLoad("$(IP)/iocsh/Keithley_2k_serial.iocsh", "PREFIX=$(PREFIX), INSTANCE=D1, PORT=serial0:0, NUM_CHANNELS=10, MODEL=2000")
 
-# Lakeshore DRC-93CA Temperature Controller
+# LakeShore DRC-93CA Temperature Controller
 #iocshLoad("$(IP)/iocsh/Lakeshore_DRC93CA.iocsh", "PREFIX=$(PREFIX), INSTANCE=TC1, PORT=serial0:4")
+
+# LakeShore 218 Temperature Monitor
+#iocshLoad("$(IP)/iocsh/LakeShore_218.iocsh", "PREFIX=$(PREFIX), INSTANCE=LS218:, PORT=serial0:4")
+
+# LakeShore 330 Temperature Controller
+#iocshLoad("$(IP)/iocsh/LakeShore_330.iocsh", "PREFIX=$(PREFIX), INSTANCE=LS330:, PORT=serial0:4")
+
+# LakeShore 340 Temperature Controller
+#iocshLoad("$(IP)/iocsh/LakeShore_340.iocsh", "PREFIX=$(PREFIX), INSTANCE=LS340:, PORT=serial0:4")
+
+# Love Temperature Controllers (RS-485 multi-drop, up to 4 on one port)
+#iocshLoad("$(LOVE)/iocsh/love.iocsh", "PREFIX=$(PREFIX), PORT=L0, SERIAL=serial0:3, ADDR=0x01, INSTANCE=Love1, MODEL=1600")
+#iocshLoad("$(LOVE)/iocsh/love.iocsh", "PREFIX=$(PREFIX), PORT=L0, SERIAL=serial0:3, ADDR=0x02, INSTANCE=Love2, MODEL=1600")
+#iocshLoad("$(LOVE)/iocsh/love.iocsh", "PREFIX=$(PREFIX), PORT=L0, SERIAL=serial0:3, ADDR=0x03, INSTANCE=Love3, MODEL=1600")
+#iocshLoad("$(LOVE)/iocsh/love.iocsh", "PREFIX=$(PREFIX), PORT=L0, SERIAL=serial0:3, ADDR=0x04, INSTANCE=Love4, MODEL=16A")
 
 #McClennan PM304
 #iocshLoad("$(MOTOR)/iocsh/McClennan_PM304.iocsh", "PORT=serial0:4, CONTROLLER=0, POLL_RATE=10, MAX_CONTROLLERS=1, NUM_AXES=1")
 
+# MKS 651C Pressure Controller
+#iocshLoad("$(IP)/iocsh/MKS_651C.iocsh", "PREFIX=$(PREFIX), INSTANCE=MKS1:, PORT=serial0:2")
+
 # MKS vacuum gauges
 #dbLoadRecords("$(IP)/ipApp/Db/MKS.db","P=$(PREFIX),PORT=serial0:2,CC1=cc1,CC2=cc3,PR1=pr1,PR2=pr3")
+
+# Newport LAE500 Autocollimator
+#iocshLoad("$(IP)/iocsh/Newport_LAE500.iocsh", "PREFIX=$(PREFIX), INSTANCE=AC1:, PORT=serial0:3")
 
 #Newport MM4000
 #iocshLoad("$(MOTOR)/iocsh/Newport_MM4000.iocsh", "PORT=serial0:2, CONTROLLER=0, POLL_RATE=10, MAX_CONTROLLERS=1")
@@ -29,14 +59,26 @@
 #Newport PM500
 #iocshLoad("$(MOTOR)/iocsh/Newport_PM500.iocsh",  "PORT=serial0:3, CONTROLLER=0, POLL_RATE=10, MAX_CONTROLLERS=1")
 
+# Omega DP41 Process Meter
+#iocshLoad("$(IP)/iocsh/Omega_DP41.iocsh", "PREFIX=$(PREFIX), INSTANCE=DP41:, PORT=serial0:7")
+
 # Oriel 18011 Encoder Mike
 #dbLoadRecords("$(IP)/ipApp/Db/eMike.db", "P=$(PREFIX),M=em1,PORT=serial0:3")
+
+# Oxford CS800 Cryostream Controller (Ethernet)
+#   Set up shared UDP status listener (once per IOC):
+#iocshLoad("$(IP)/iocsh/Oxford_CS800_status.iocsh", "PREFIX=$(PREFIX), R=CS:, STATUS_IP=192.168.0.176")
+#   Configure each controller:
+#iocshLoad("$(IP)/iocsh/Oxford_CS800.iocsh", "PREFIX=$(PREFIX), R=CS0:, CID=411, COMMAND_IP=192.168.0.144, CS800_STATUS=$(PREFIX)CS:status_packet")
 
 # Oxford Cyberstar X1000 Scintillation detector and pulse processing unit
 #iocshLoad("$(IP)/iocsh/Oxford_X1k.iocsh", "PREFIX=$(PREFIX), INSTANCE=s1, PORT=serial0:4")
 
-# Oxford ILM202 Cryogen Level Meter (serial0:)
+# Oxford ILM202 Cryogen Level Meter
 #iocshLoad("$(IP)/iocsh/Oxford_ILM202.iocsh", "PREFIX=$(PREFIX), INSTANCE=s1, PORT=serial0:5")
+
+# Pelco CM6700 Video Matrix Switcher
+#iocshLoad("$(IP)/iocsh/Pelco_CM6700.iocsh", "PREFIX=$(PREFIX), INSTANCE=Pelco:, PORT=serial0:7")
 
 # PI Digitel 500/1500 pump
 #dbLoadRecords("$(IP)/ipApp/Db/Digitel.db","$(PREFIX),PUMP=ip1,PORT=serial0:3")
@@ -47,8 +89,23 @@
 # PI MPC TSP (titanium sublimation pump)
 #dbLoadRecords("$(IP)/ipApp/Db/TSP.db","P=$(PREFIX),TSP=tsp1,PORT=serial0:4,PA=0")
 
+# Protura P201 Encoder
+#iocshLoad("$(IP)/iocsh/Protura_P201.iocsh", "PREFIX=$(PREFIX), INSTANCE=enc1, DEVPATH=/dev/ttyUSB0, MOTOR=$(PREFIX)m1")
+
+# SRS PTC10 Temperature Controller (Ethernet)
+#iocshLoad("$(IP)/iocsh/PTC10_eth.iocsh", "PREFIX=$(PREFIX), INSTANCE=tc1, IP_ADDR=192.168.1.50, PORT=PTC_ETH")
+#iocshLoad("$(IP)/iocsh/PTC10_tc.iocsh",  "PREFIX=$(PREFIX), INSTANCE=tc1, PORT=PTC_ETH, T1=1A, T2=1B, T3=1C, T4=1D")
+#iocshLoad("$(IP)/iocsh/PTC10_rtd.iocsh", "PREFIX=$(PREFIX), INSTANCE=tc1, PORT=PTC_ETH, R1=2A, R2=2B")
+#iocshLoad("$(IP)/iocsh/PTC10_tec.iocsh", "PREFIX=$(PREFIX), INSTANCE=tc1, PORT=PTC_ETH, TI=3A, TO=3B")
+
 ### Queensgate piezo driver
 #iocshLoad("$(IP)/iocsh/Queensgate_piezo.iocsh", "P=$(PREFIX), PORT=serial0:5")
 
 # Stanford Research Systems SR570 Current Preamplifier
 #iocshLoad("$(IP)/iocsh/SR_570.iocsh", "PREFIX=$(PREFIX), INSTANCE=A1, PORT=serial0:1")
+
+# Stanford Research Systems SR830 Lock-In Amplifier
+#iocshLoad("$(IP)/iocsh/SR_830.iocsh", "PREFIX=$(PREFIX), INSTANCE=1, PORT=serial0:2")
+
+# US Digital X3 Inclinometer
+#iocshLoad("$(IP)/iocsh/USdigital_X3.iocsh", "PREFIX=$(PREFIX), INSTANCE=X3:, PORT=serial0:6")
