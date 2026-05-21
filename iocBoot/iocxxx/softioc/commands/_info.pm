@@ -358,10 +358,7 @@ sub check_stale_and_prompt
 	return 1;
 }
 
-
 my $LOG_WATCHER_PID_FILE = "$FindBin::RealBin/.log_watcher.pid";
-my $LOG_WATCHER_POLL_INTERVAL = 60;    # seconds between size checks
-my $LOG_WATCHER_KEEP_RATIO = 0.75;     # fraction of max size to keep after truncation
 
 sub start_log_watcher
 {
@@ -405,7 +402,7 @@ sub start_log_watcher
 	
 	while (1)
 	{
-		sleep($LOG_WATCHER_POLL_INTERVAL);
+		sleep($IOC_LOGFILE_POLLING);
 		
 		# Exit if the log file no longer exists
 		last if (! -f $logfile);
@@ -431,7 +428,7 @@ sub _truncate_logfile
 {
 	my ($logfile, $max_size) = @_;
 	
-	my $keep_bytes = int($max_size * $LOG_WATCHER_KEEP_RATIO);
+	my $keep_bytes = int($max_size * $IOC_LOGFILE_KEEP_AMT);
 	
 	my $size = (stat($logfile))[7];
 	return if (!defined $size || $size <= $max_size);

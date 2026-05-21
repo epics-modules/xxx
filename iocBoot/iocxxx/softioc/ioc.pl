@@ -114,6 +114,12 @@ BEGIN
 	# Default: 1073741824 (1 GB).  Set to 0 to disable size limiting.
 	$ENV{IOC_LOGFILE_MAX_SIZE}=1073741824;
 
+	# Set number of seconds betewen size checks of logfile
+	$ENV{IOC_LOGFILE_POLLING}=60;
+
+	# Set percentage amount of IOC file to keep when truncating
+	$ENV{IOC_LOGFILE_KEEP_AMT}=0.75;
+
 
 	###########################
 	#  Require Command Paths  #
