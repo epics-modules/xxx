@@ -56,6 +56,8 @@ Not fully necessary to a build, but this directory contains custom databases or 
 
 ## Files Related to Running an IOC
 
+For a guide to configuring hardware, display managers, autosave, and saveData in a running IOC, see [Configuring an IOC](configuring.html).
+
 ### iocBoot/iocxxx/st.cmd.\<ARCH\> 
 
 This is the basic template of loading all support for an IOC for a given arch. You will provide this file to the IOC's executable when you want to run, it will go through, line by line, and run the commands listed in the operating shell in order to configure the IOC for running. Most of this file shouldn't need to be changed, it is set to include the correct path-defining file created by the iocBoot Makefile, load the database definition file constructed by the xxxApp/src Makefile, run the registration function, and then load some common IOC support.

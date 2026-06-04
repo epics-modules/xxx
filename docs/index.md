@@ -6,7 +6,8 @@ nav_order: 1
 
 # XXX module documentation
 
-* [Overview](overview.md)
-* [vme_address](vme_address.html)
-* [xxxKnownProblems](xxxKnownProblems.md)
-* [xxxReleaseNotes](xxxReleaseNotes.md)
+* [Overview](overview.md) -- IOC file structure and build system
+* [Configuring an IOC](configuring.md) -- Hardware, display managers, autosave, and saveData
+* [Release Notes](xxxReleaseNotes.md)
+* [Known Problems](xxxKnownProblems.md)
+* [VME Addresses](vme_address.html)
