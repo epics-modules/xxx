@@ -1,17 +1,14 @@
+#- The following lines are examples of what might be required to use NFS,
+#- rather than FTP, for booting the VME crate, and generally for reading
+#- and writing files on the server.
 
-routeShow
+#- Needed for nfs v3+, set the UID and GID the VME will use 
+nfsAuthUnixSet("s100dserv", <uid>, <gid>, 0, 0)
 
-# The following lines are examples of what might be required to use NFS,
-# rather than FTP, for booting the VME crate, and generally for reading
-# and writing files on the server.
-#
+#- Register the IP addresses for the hosts of any mounts
+hostAdd("s100data","<ip_data>")
+hostAdd("s100dserv", "<ip_dserv>")
+
+#- Mount what you need
 nfsMount("s100dserv","/APSshare","/APSshare")
-hostAdd("oxygen","164.54.22.10")
-nfsMount("oxygen","/export/oxygen","/home/oxygen")
-nfsMount("oxygen","/export/oxygen4","/home/oxygen4")
-hostAdd("mooneylinux","164.54.51.75")
-nfsMount("mooneylinux","/local","/local")
-
-nfsDevShow
-# The following line eliminates "cksum: out of data" messages due to DHCP
-#proxyPortFwdOff(67)
+nfsMount("s100data","/xorApps","/net/s100data/xorApps")
