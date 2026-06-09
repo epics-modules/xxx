@@ -105,10 +105,20 @@ $(DBD_NAME)_DBD += $(BUSY_IOC_DBDS)
 endif
 $(PROD_NAME)_LIBS := $(BUSY_IOC_LIBS) $($(PROD_NAME)_LIBS)
 
+
 ifndef ADCORE
 $(DBD_NAME)_DBD += $(SSCAN_IOC_DBDS)
 endif
+# Area detector doesn't include sscanProgress, 
+# we used to get it incorrectly from STD, but that's been fixed
+ifdef SNCSEQ
+ifdef ADCORE
+$(DBD_NAME)_DBD += sscanProgressSupport.dbd
+endif
+endif
+
 $(PROD_NAME)_LIBS := $(SSCAN_IOC_LIBS) $($(PROD_NAME)_LIBS)
+
 
 ifndef ADCORE
 $(DBD_NAME)_DBD += $(AUTOSAVE_IOC_DBDS)
