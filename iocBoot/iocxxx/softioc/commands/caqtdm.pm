@@ -1,6 +1,8 @@
 package commands::caqtdm;
 
 use Env;
+use lib "$IOC_COMMAND_DIR";
+use _release;
 
 sub _local
 {
@@ -10,8 +12,7 @@ sub _local
 	my $macros  = $parms[1] // $ENV{IOC_DEFAULT_MACROS};
 	
 	# Build display search path
-	require "$TOP/setup_epics_common";
-	my $display_path = build_display_path($TOP, "caqtdm");
+	my $display_path = _release::display_path($TOP, "caqtdm");
 	
 	$ENV{CAQTDM_DISPLAY_PATH} = defined $ENV{CAQTDM_DISPLAY_PATH} && $ENV{CAQTDM_DISPLAY_PATH} ne ""
 	    ? "$display_path:$ENV{CAQTDM_DISPLAY_PATH}"

@@ -1,18 +1,18 @@
-#!/usr/bin/perl
+package _release;
 
-# setup_epics_common
+# _release.pm
 #
-# Builds a display search path for MEDM, caQtDM, or pyDM by automatically
-# discovering screen file directories within all support modules referenced
-# by the IOC's configure/RELEASE file.
+# Utility package for parsing EPICS configure/RELEASE files and
+# discovering display screen directories within support modules.
 #
 # Usage:
-#   As a Perl module (from ioc.pl command modules):
-#     require "$TOP/setup_epics_common";
-#     my $path = build_display_path($epics_app, $display_manager);
+#   use _release;
 #
-#   As a standalone script (for eval from bash):
-#     eval $(perl setup_epics_common <display_manager> <epics_app>)
+#   my %apps;
+#   $apps{"TOP"} = $TOP;
+#   _release::parse("$TOP/configure/RELEASE", \%apps);
+#
+#   my $path = _release::display_path($TOP, "caqtdm");
 
 use strict;
 use Cwd 'abs_path';
@@ -31,13 +31,13 @@ my @SKIP_PREFIXES = qw(test example);
 
 
 ###############################################################################
-# Parse a RELEASE file and return a hash of MODULE => PATH
+# Parse a RELEASE file and populate a hash of MODULE => PATH
 #
-# This is equivalent to the logic in release.pl but returns the data as a
-# hash rather than printing it.
+#   $file         - Path to the RELEASE file
+#   $applications - Hash ref to populate with module paths
 ###############################################################################
 
-sub parse_release
+sub parse
 {
     my ($file, $applications) = @_;
 
@@ -73,7 +73,7 @@ sub parse_release
                     }
                 }
 
-                parse_release($inc_path, $applications);
+                parse($inc_path, $applications);
             }
             elsif ($line =~ /^(\w+)\s*=\s*(.*)/)
             {
@@ -111,11 +111,6 @@ sub parse_release
 # files with the given extension.  When a matching directory is found,
 # its /autoconvert subdirectory is also added (if it exists) but not
 # searched further.  Skips build output, test, and documentation dirs.
-#
-#   $dir       - Directory to search
-#   $extension - File extension to look for (e.g., "adl", "ui")
-#   $max_depth - Maximum directory depth to descend
-#   $results   - Array ref to append found directories to
 ###############################################################################
 
 sub _search_depth
@@ -181,18 +176,13 @@ sub _search_depth
 ###############################################################################
 # Discover screen file directories for a given file extension within a
 # module path.  Searches to a depth of 3 directories, which covers all
-# standard synApps screen directory layouts:
+# standard synApps screen directory layouts.
 #
-#   depth 1: streamApp                    (StreamDevice)
-#   depth 2: op/adl, opi/medm            (devIocStats, asyn)
-#   depth 3: *App/op/adl, *App/opi/adl   (most modules)
-#
-# If the module contains a 'modules/' subdirectory (e.g., motor), that
-# subdirectory is also searched to depth 3, covering layouts like:
-#   modules/<submod>/<name>App/op/adl     (motor submodules)
+# If the module contains a 'modules/' subdirectory (e.g., motor), each
+# submodule is also searched to depth 3.
 ###############################################################################
 
-sub find_screen_dirs
+sub screen_dirs
 {
     my ($module_path, $extension) = @_;
 
@@ -204,8 +194,7 @@ sub find_screen_dirs
     _search_depth($module_path, $extension, 3, \@found);
 
     # If a 'modules/' subdirectory exists, search each submodule within
-    # it to depth 3 (covers motor-style layouts like
-    # modules/<submod>/<name>App/op/adl)
+    # it to depth 3 (covers motor-style layouts)
     if (-d "$module_path/modules")
     {
         opendir(my $dh, "$module_path/modules") or return sort @found;
@@ -228,16 +217,13 @@ sub find_screen_dirs
 ###############################################################################
 # Build the complete display path for a given display manager.
 #
-#   $epics_app      - Top level IOC directory (TOP)
+#   $epics_app       - Top level IOC directory (TOP)
 #   $display_manager - "medm", "caqtdm", or "pydm"
-#
-# Scans $epics_app first (so the local application's screens appear at the
-# front of the path), then scans all support modules from configure/RELEASE.
 #
 # Returns the colon-separated display path string.
 ###############################################################################
 
-sub build_display_path
+sub display_path
 {
     my ($epics_app, $display_manager) = @_;
 
@@ -258,7 +244,7 @@ sub build_display_path
         $applications{"GATEWAY"} = $ENV{GATEWAY};
     }
 
-    parse_release("$epics_app/configure/RELEASE", \%applications);
+    parse("$epics_app/configure/RELEASE", \%applications);
 
     # Remove non-module entries
     delete $applications{"TOP"};
@@ -270,7 +256,7 @@ sub build_display_path
 
     if (-d $epics_app)
     {
-        my @local_dirs = find_screen_dirs($epics_app, $extension);
+        my @local_dirs = screen_dirs($epics_app, $extension);
         push @path_components, @local_dirs;
     }
 
@@ -280,58 +266,11 @@ sub build_display_path
         my $mod_path = $applications{$mod};
         next unless (-d $mod_path);
 
-        my @dirs = find_screen_dirs($mod_path, $extension);
+        my @dirs = screen_dirs($mod_path, $extension);
         push @path_components, @dirs;
     }
 
     return join(":", @path_components);
-}
-
-
-###############################################################################
-# If run as a standalone script, output shell export commands for eval
-###############################################################################
-
-if (!caller())
-{
-    my $display_manager = $ARGV[0] // "";
-    my $epics_app       = $ARGV[1] // $ENV{EPICS_APP} // ".";
-
-    my $path = build_display_path($epics_app, $display_manager);
-
-    if ($display_manager eq "medm")
-    {
-        if (defined $ENV{EPICS_DISPLAY_PATH} && $ENV{EPICS_DISPLAY_PATH} ne "")
-        {
-            print "export EPICS_DISPLAY_PATH=$path:\$EPICS_DISPLAY_PATH\n";
-        }
-        else
-        {
-            print "export EPICS_DISPLAY_PATH=$path\n";
-        }
-    }
-    elsif ($display_manager eq "caqtdm")
-    {
-        if (defined $ENV{CAQTDM_DISPLAY_PATH} && $ENV{CAQTDM_DISPLAY_PATH} ne "")
-        {
-            print "export CAQTDM_DISPLAY_PATH=$path:\$CAQTDM_DISPLAY_PATH\n";
-        }
-        else
-        {
-            print "export CAQTDM_DISPLAY_PATH=$path\n";
-        }
-    }
-    elsif ($display_manager eq "pydm")
-    {
-        if (defined $ENV{PYDM_DISPLAYS_PATH} && $ENV{PYDM_DISPLAYS_PATH} ne "")
-        {
-            print "export PYDM_DISPLAYS_PATH=$path:\$PYDM_DISPLAYS_PATH\n";
-        }
-        else
-        {
-            print "export PYDM_DISPLAYS_PATH=$path\n";
-        }
-    }
 }
 
 1;

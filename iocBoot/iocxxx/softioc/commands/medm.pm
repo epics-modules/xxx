@@ -1,6 +1,8 @@
 package commands::medm;
 
 use Env;
+use lib "$IOC_COMMAND_DIR";
+use _release;
 
 sub _local
 {
@@ -10,8 +12,7 @@ sub _local
 	my $macros  = $parms[1] // $ENV{IOC_DEFAULT_MACROS};
 	
 	# Build display search path
-	require "$TOP/setup_epics_common";
-	my $display_path = build_display_path($TOP, "medm");
+	my $display_path = _release::display_path($TOP, "medm");
 	
 	$ENV{EPICS_DISPLAY_PATH} = defined $ENV{EPICS_DISPLAY_PATH} && $ENV{EPICS_DISPLAY_PATH} ne ""
 	    ? "$display_path:$ENV{EPICS_DISPLAY_PATH}"
