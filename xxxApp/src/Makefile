@@ -576,6 +576,8 @@ $(PROD_NAME)_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
 SCRIPTS += GenLuaModules.pl
 
+LIB_INSTALLS += settings.lua
+
 #===========================
 
 include $(TOP)/configure/RULES

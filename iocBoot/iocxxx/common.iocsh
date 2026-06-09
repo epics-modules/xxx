@@ -9,7 +9,7 @@ iocshLoad("$(AUTOSAVE)/iocsh/autosaveBuild.iocsh",     "PREFIX=$(PREFIX), BUILD_
 
 ###
 # Setup search path for .req files. Include the db folders of every module specified in RELEASE
-luaCmd("modules=require('modules'); for mod,path in pairs(modules) do set_requestfile_path(path .. '/db') end")
+luaCmd("modules=require('modules'); for mod,path in pairs(modules) do set_requestfile_path(path .. '/db'); luaAddModule(path) end")
 
 
 # Debug-output level
