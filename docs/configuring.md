@@ -5,14 +5,19 @@ nav_order: 3
 ---
 
 
-Configuring and Running a synApps IOC
-=====================================
+# Configuring and Running a synApps IOC
+{: .no_toc}
+
+## Table of contents
+{: .no_toc .text-delta }
+
+- TOC
+{:toc}
 
 This page covers how to configure and run an IOC built from the xxx template. For an overview of the xxx module's file structure and build system, see the [Overview](overview.html). For obtaining and building synApps, see the [synApps documentation](https://epics-synapps.github.io/support/).
 
 
-Setting up the IOC
-------------------
+## Setting up the IOC
 
 **Linux soft IOC (typical deployment):**
 
@@ -40,8 +45,7 @@ Ensure that `caRepeater` is running on the host (it is started automatically by 
 For vxWorks-based VME IOCs, see [vxWorks Configuration](https://epics-synapps.github.io/support/vxWorks.html) for boot parameter setup, serial console configuration, and NFS file system requirements.
 
 
-Configuring hardware
---------------------
+## Configuring hardware
 
 Hardware configuration is done in the IOC's `iocBoot/iocxxx/` directory. The key files are:
 
@@ -63,29 +67,31 @@ Hardware configuration is done in the IOC's `iocBoot/iocxxx/` directory. The key
 synApps also includes many features for run-time programming, including userCalcs, string and array expression evaluation, scan support, sequence records, signal averaging, interpolation, and FPGA-based digital logic. See the [calc](https://epics-modules.github.io/calc/), [sscan](https://epics-modules.github.io/sscan/), and [std](https://epics-modules.github.io/std/) module documentation for details.
 
 
-Display managers
-----------------
+## Display managers
 
 synApps includes display files in several formats: `.ui` files for caQtDM, `.bob` files for Phoebus, and `.adl` files for MEDM. The caQtDM `.ui` files are the primary, actively tested display files. Phoebus `.bob` files are also well-supported. The MEDM `.adl` files are still included but MEDM itself is a legacy tool.
 
+Launch display managers from the IOC's softioc directory:
+
+```
+softioc/ioc.pl caqtdm                    # caQtDM (primary)
+softioc/ioc.pl phoebus                   # Phoebus
+softioc/ioc.pl medm                      # MEDM (legacy)
+softioc/ioc.pl caqtdm xxx.ui "P=xxx:"   # With specific file and macros
+```
+
+The `ioc.pl` display commands automatically discover all screen file directories from the modules listed in `configure/RELEASE` and build the display search path. Default screen files and PV prefix macros are derived from the IOC name configured in `settings.iocsh`.
+
 - **caQtDM** (primary) -- Display files use the `.ui` format and are located in each module's `op/ui/` directory. All synApps display files are operationally tested in caQtDM.
 
-    To start the caQtDM interface, edit and run the `start_caQtDM_xxx` script in your IOC directory (or use `softioc/ioc.pl caqtdm`). This script sets the environment variables `EPICS_APP` and `EPICS_APP_UI_DIR` and generates the display file search path from the application's `configure/RELEASE` file. For example:
+- **Phoebus** -- Phoebus `.bob` display files are also provided and well-supported.
 
-    ```
-    export EPICS_APP=/path/to/your/ioc
-    export EPICS_APP_UI_DIR=${EPICS_APP}/xxxApp/op/ui
-    ```
-
-- **Phoebus** -- Phoebus `.bob` display files are also provided and well-supported. To start Phoebus with synApps displays, edit and run the `start_phoebus_xxx` script (or use `softioc/ioc.pl phoebus`).
-
-- **MEDM** (legacy) -- The original MEDM `.adl` display files are still included and can be used with the `start_MEDM_xxx` script (or `softioc/ioc.pl medm`), but MEDM is no longer actively developed or the focus of testing.
+- **MEDM** (legacy) -- The original MEDM `.adl` display files are still included but MEDM is no longer actively developed or the focus of testing.
 
 If you are running a display manager on a workstation that isn't on the same subnet as the IOCs, you may need to set the environment variable `EPICS_CA_ADDR_LIST` to the IP addresses or broadcast addresses of the subnets containing the IOCs. With EPICS base 7.0 and PV Access, many of the old Channel Access array size limitations (`EPICS_CA_MAX_ARRAY_BYTES`) are no longer relevant when using PVA clients.
 
 
-autosave/restore
-----------------
+## autosave/restore
 
 The autosave directory (`iocBoot/iocxxx/autosave/`) must be writable by the IOC process so it can write the files `auto_positions.sav` and `auto_settings.sav`. On Linux, ensure the IOC user has write permission:
 
@@ -98,7 +104,6 @@ To modify the list of PVs that are saved and restored, edit `iocBoot/iocxxx/auto
 The autosave software is started by the `create_monitor_set(...)` calls in `common.iocsh`. Restore happens during `iocInit` via initHooks in the autosave module.
 
 
-saveData
---------
+## saveData
 
 saveData is a Channel Access client that monitors sscan records and saves scan data to disk. It is configured with the file `iocBoot/iocxxx/saveData.req`, which specifies which sscan records to monitor and which PV values to include in all data files. Look for the `[extraPV]` section in `saveData.req` to customize the list of PVs saved with every data file. See the [sscan module documentation](https://epics-modules.github.io/sscan/) for details on saveData configuration and the MDA file format.
