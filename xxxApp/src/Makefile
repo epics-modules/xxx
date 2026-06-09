@@ -65,10 +65,8 @@ endif
 #  $(PROD_NAME)_LIBS := caPutLog $($(PROD_NAME)_LIBS)
 #endif
 
-ifdef CAPUTRECORDER
-  $(DBD_NAME)_DBD += caputRecorder.dbd
-  $(PROD_NAME)_LIBS := caputRecorder $($(PROD_NAME)_LIBS)
-endif
+$(DBD_NAME)_DBD += $(CAPUTRECORDER_IOC_DBDS)
+$(PROD_NAME)_LIBS := $(CAPUTRECORDER_IOC_LIBS) $($(PROD_NAME)_LIBS)
 
 ifdef SNCSEQ
   ifeq (seq-2-1, $(findstring seq-2-1, $(SNCSEQ)))
@@ -91,52 +89,34 @@ ifdef ASYN
   $(PROD_NAME)_LIBS := asyn $($(PROD_NAME)_LIBS)
 endif
 
-ifdef STD
-  $(DBD_NAME)_DBD += stdSupport.dbd
-  $(PROD_NAME)_LIBS := std $($(PROD_NAME)_LIBS)
-endif
+$(DBD_NAME)_DBD += $(STD_IOC_DBDS)
+$(PROD_NAME)_LIBS := $(STD_IOC_LIBS) $($(PROD_NAME)_LIBS)
 
-ifdef SCALER
-  $(DBD_NAME)_DBD += scalerSupport.dbd
-  $(PROD_NAME)_LIBS := scaler $($(PROD_NAME)_LIBS)
-endif
+$(DBD_NAME)_DBD += $(SCALER_IOC_DBDS)
+$(PROD_NAME)_LIBS := $(SCALER_IOC_LIBS) $($(PROD_NAME)_LIBS)
 
-ifdef CALC
-  ifndef ADCORE
-    $(DBD_NAME)_DBD += calcSupport.dbd
-  endif
-  $(PROD_NAME)_LIBS := calc $($(PROD_NAME)_LIBS)
+ifndef ADCORE
+$(DBD_NAME)_DBD += $(CALC_IOC_DBDS)
 endif
+$(PROD_NAME)_LIBS := $(CALC_IOC_LIBS) $($(PROD_NAME)_LIBS)
 
-ifdef BUSY
-  ifndef ADCORE
-    $(DBD_NAME)_DBD += busySupport.dbd
-  endif
-  $(PROD_NAME)_LIBS := busy $($(PROD_NAME)_LIBS)
+ifndef ADCORE
+$(DBD_NAME)_DBD += $(BUSY_IOC_DBDS)
 endif
+$(PROD_NAME)_LIBS := $(BUSY_IOC_LIBS) $($(PROD_NAME)_LIBS)
 
-ifdef SSCAN
-  ifndef ADCORE
-    $(DBD_NAME)_DBD += sscanSupport.dbd
-  endif
-  $(PROD_NAME)_LIBS := sscan $($(PROD_NAME)_LIBS)
-  ifdef SNCSEQ
-    $(DBD_NAME)_DBD += sscanProgressSupport.dbd
-    $(PROD_NAME)_LIBS := scanProgress $($(PROD_NAME)_LIBS)
-  endif
+ifndef ADCORE
+$(DBD_NAME)_DBD += $(SSCAN_IOC_DBDS)
 endif
+$(PROD_NAME)_LIBS := $(SSCAN_IOC_LIBS) $($(PROD_NAME)_LIBS)
 
-ifdef AUTOSAVE
-  ifndef ADCORE
-    $(DBD_NAME)_DBD += asSupport.dbd
-  endif
-  $(PROD_NAME)_LIBS := autosave $($(PROD_NAME)_LIBS)
+ifndef ADCORE
+$(DBD_NAME)_DBD += $(AUTOSAVE_IOC_DBDS)
 endif
+$(PROD_NAME)_LIBS := $(AUTOSAVE_IOC_LIBS) $($(PROD_NAME)_LIBS)
 
-ifdef OPTICS
-  $(DBD_NAME)_DBD += opticsSupport.dbd
-  $(PROD_NAME)_LIBS := optics $($(PROD_NAME)_LIBS)
-endif
+$(DBD_NAME)_DBD += $(OPTICS_IOC_DBDS)
+$(PROD_NAME)_LIBS := $(OPTICS_IOC_LIBS) $($(PROD_NAME)_LIBS)
 
 ifdef MCA
   $(DBD_NAME)_DBD += mcaSupport.dbd
@@ -148,15 +128,11 @@ ifdef QUADEM
   $(PROD_NAME)_LIBS := quadEM $($(PROD_NAME)_LIBS)
 endif
 
-ifdef IP
-  $(DBD_NAME)_DBD += ipSupport.dbd
-  $(PROD_NAME)_LIBS := ip $($(PROD_NAME)_LIBS)
-endif
+$(DBD_NAME)_DBD += $(IP_IOC_DBDS)
+$(PROD_NAME)_LIBS := $(IP_IOC_LIBS) $($(PROD_NAME)_LIBS)
 
-ifdef LUA
-  $(DBD_NAME)_DBD += luaSupport.dbd
-  $(PROD_NAME)_LIBS := lua $($(PROD_NAME)_LIBS)
-endif
+$(DBD_NAME)_DBD += $(LUA_IOC_DBDS)
+$(PROD_NAME)_LIBS := $(LUA_IOC_LIBS) $($(PROD_NAME)_LIBS)
 
 ifdef MODBUS
   $(DBD_NAME)_DBD += modbusSupport.dbd
@@ -196,22 +172,28 @@ ifdef DEVIOCSTATS
   $(PROD_NAME)_LIBS := devIocStats $($(PROD_NAME)_LIBS)
 endif
 
-ifdef ALIVE
-  ifndef ADCORE
-    $(DBD_NAME)_DBD += aliveSupport.dbd
-  endif
-  $(PROD_NAME)_LIBS := alive $($(PROD_NAME)_LIBS)
+ifndef ADCORE
+$(DBD_NAME)_DBD += $(ALIVE_IOC_DBDS)
 endif
+$(PROD_NAME)_LIBS := $(ALIVE_IOC_LIBS) $($(PROD_NAME)_LIBS)
 
-ifdef DELAYGEN
-  $(DBD_NAME)_DBD += delaygenSupport.dbd
-  $(PROD_NAME)_LIBS := delaygen $($(PROD_NAME)_LIBS)
-endif
+$(DBD_NAME)_DBD += $(DELAYGEN_IOC_DBDS)
+$(PROD_NAME)_LIBS := $(DELAYGEN_IOC_LIBS) $($(PROD_NAME)_LIBS)
 
-ifdef VAC
-  $(DBD_NAME)_DBD += vacSupport.dbd
-  $(PROD_NAME)_LIBS := vac $($(PROD_NAME)_LIBS)
-endif
+$(DBD_NAME)_DBD += $(VAC_IOC_DBDS)
+$(PROD_NAME)_LIBS := $(VAC_IOC_LIBS) $($(PROD_NAME)_LIBS)
+
+$(DBD_NAME)_DBD += $(LOVE_IOC_DBDS)
+$(PROD_NAME)_LIBS := $(LOVE_IOC_LIBS) $($(PROD_NAME)_LIBS)
+
+$(DBD_NAME)_DBD += $(VME_IOC_DBDS)
+$(PROD_NAME)_LIBS := $(VME_IOC_LIBS) $($(PROD_NAME)_LIBS)
+
+$(DBD_NAME)_DBD += $(SOFTGLUE_IOC_DBDS)
+$(PROD_NAME)_LIBS := $(SOFTGLUE_IOC_LIBS) $($(PROD_NAME)_LIBS)
+
+$(DBD_NAME)_DBD += $(YOKOGAWA_DAS_IOC_DBDS)
+$(PROD_NAME)_LIBS := $(YOKOGAWA_DAS_IOC_LIBS) $($(PROD_NAME)_LIBS)
 
 #ifdef FLY
 #  $(DBD_NAME)_DBD += flySupport.dbd
@@ -279,19 +261,6 @@ ifeq ($(OS_CLASS), vxWorks)
     $(PROD_NAME)_LIBS := allenBradley $($(PROD_NAME)_LIBS)
   endif
 
-  ifdef VME
-    $(DBD_NAME)_DBD += vmeVXSupport.dbd
-    $(PROD_NAME)_LIBS := vme $($(PROD_NAME)_LIBS)
-  endif
-
-  ifdef STD
-    $(DBD_NAME)_DBD += stdVXSupport.dbd
-  endif
-
-  ifdef IP
-    $(DBD_NAME)_DBD += ipVXSupport.dbd
-  endif
-
   ifdef MCA
     $(DBD_NAME)_DBD += SIS38XXSupport.dbd
     $(DBD_NAME)_DBD += mcaCanberraSupport.dbd
@@ -324,11 +293,6 @@ ifeq ($(OS_CLASS), vxWorks)
     $(DBD_NAME)_DBD += allenBradley.dbd
   endif
 
-  ifdef LOVE
-    $(DBD_NAME)_DBD += devLove.dbd
-    $(PROD_NAME)_LIBS := love $($(PROD_NAME)_LIBS)
-  endif
-
   ifdef IPAC
     $(DBD_NAME)_DBD += tyGSOctal.dbd
     $(DBD_NAME)_DBD += drvIpac.dbd
@@ -339,11 +303,6 @@ ifeq ($(OS_CLASS), vxWorks)
 
   ifdef ASYN
     $(DBD_NAME)_DBD += drvGsIP488.dbd
-  endif
-
-  ifdef SOFTGLUE
-    $(DBD_NAME)_DBD += softGlueSupport.dbd
-    $(PROD_NAME)_LIBS := softGlue $($(PROD_NAME)_LIBS)
   endif
 
   ifdef MOTOR
@@ -544,23 +503,13 @@ endif
     $(PROD_NAME)_LIBS := ip330 $($(PROD_NAME)_LIBS)
   endif
 
-  ifdef SOFTGLUE
-    $(DBD_NAME)_DBD += softGlueSupport.dbd
-    $(PROD_NAME)_LIBS := softGlue $($(PROD_NAME)_LIBS)
-  endif
-
 ifeq (linux-arm, $(findstring linux-arm, $(T_A)))
   ifdef SOFTGLUEZYNQ
     $(DBD_NAME)_DBD += softGlueZynqSupport.dbd
     $(PROD_NAME)_LIBS := softGlueZynq $($(PROD_NAME)_LIBS)
   endif
 endif
-    
-  ifdef YOKOGAWA_DAS
-    $(DBD_NAME)_DBD += mw100Support.dbd
-    $(PROD_NAME)_LIBS := mw100 $($(PROD_NAME)_LIBS)
-  endif
-  
+
   ifdef GALIL
     $(DBD_NAME)_DBD += GalilSupport.dbd
     $(PROD_NAME)_LIBS := GalilSupport $($(PROD_NAME)_LIBS)
