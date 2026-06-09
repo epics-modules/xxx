@@ -576,7 +576,8 @@ $(PROD_NAME)_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
 SCRIPTS += GenLuaModules.pl
 
-LIB_INSTALLS += settings.lua
+# Need to go up a directory because LIB_INSTALLS evaluates in O.<arch> folder
+LIB_INSTALLS += ../settings.lua
 
 #===========================
 
