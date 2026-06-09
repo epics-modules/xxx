@@ -26,11 +26,13 @@ Release 6-4
 
 ### Display Path Setup
 
-* `setup_epics_common` rewritten in Perl with automatic screen directory discovery -- no longer requires manually listing each module's screen path
+* Display path discovery rewritten in Perl with automatic screen directory scanning, consolidated into `softioc/commands/_release.pm`
 * Screen directories are discovered by scanning all modules from `configure/RELEASE` using a depth-limited search
 * `modules/` subdirectories (e.g., motor submodules) are automatically searched
 * `autoconvert/` directories are automatically appended when screen files are found
 * Performance optimized: depth-limited search completes in under 3 seconds vs ~20 seconds for full recursive scan
+* `start_putrecorder` replaced with `ioc.pl putrecorder` command module
+* `release.pl` and `setup_epics_common` removed -- functionality consolidated into `softioc/commands/_release.pm`
 
 ### Gestalt Screens
 
