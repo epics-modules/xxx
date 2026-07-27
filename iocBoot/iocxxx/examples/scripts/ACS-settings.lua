@@ -51,7 +51,8 @@ return {
 
 	-- Motor list: set individual motor values here.
 	-- Only specify fields that differ from the defaults above.
-	-- N is the axis number (1-based), ADDR is computed as N-1.
+	-- N is the axis number (1-based), ADDR is computed as N-1, 
+	-- but you can manually set ADDR if that's necessary.
 	{N = 1,  DESC = "Sample X",   EGU = "mm",  MRES = 0.0001,  ERES = 0.000005,   ABSOLUTE = true,  MAX_VELO = 5.0, MAX_ACCL = 20.0},
 	{N = 2,  DESC = "Sample Y",   EGU = "mm",  MRES = 0.0002,  ERES = 0.000005,   ABSOLUTE = true,  MAX_VELO = 5.0, MAX_ACCL = 20.0},
 	{N = 3,  DESC = "Sample Z",   EGU = "mm",  MRES = 0.000125,                    ABSOLUTE = true},

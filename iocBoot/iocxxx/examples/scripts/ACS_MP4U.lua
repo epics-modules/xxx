@@ -77,11 +77,10 @@ drvAsynIPPortConfigure(INSTANCE .. "_ETH", ("%s:%s"):format(IP_ADDR, PORT), 0, 0
 asynOctetSetInputEos(INSTANCE .. "_ETH", -1, "\r")
 asynOctetSetOutputEos(INSTANCE .. "_ETH", -1, "\r")
 
-AcsMotionConfig(INSTANCE, INSTANCE .. "_ETH", #acs, MOVING_POLL, IDLE_POLL, "")
-SPiiPlusCreateProfile(INSTANCE, acs.NPOINTS)
-
 local basic_macros = { P= PREFIX .. INSTANCE .. ":", PORT= INSTANCE, "N", "M", "ADDR", "PREC" }
 local all_macros = { basic_macros, {"DTYP", "DESC", "EGU", "DIR", "VELO", "VBAS", "ACCL", "BDST", "BVEL", "BACC", "SREV", "MRES", "DHLM", "DLLM", "INIT"}}
+
+local max_addr = 0
 
 for index, axis in ipairs(acs) do
 	-- Adjust for referential values
@@ -89,6 +88,8 @@ for index, axis in ipairs(acs) do
 	if axis.NPULSES < 0   then axis.NPULSES = axis.NPOINTS end
 	if axis.NREADBACK < 0 then axis.NREADBACK = axis.NPOINTS end
 	if axis.ADDR == nil   then axis.ADDR = axis.N - 1 end
+
+	if axis.ADDR > max_addr then max_addr = axis.ADDR end
 
 	if axis.PREC < 0 then
 		-- Auto-compute precision from MRES significant digits
@@ -131,5 +132,9 @@ for index, axis in ipairs(acs) do
 		SREV = axis.SREV,
 	}
 end
+
+AcsMotionConfig(INSTANCE, INSTANCE .. "_ETH", max_addr + 1, MOVING_POLL, IDLE_POLL, "")
+SPiiPlusCreateProfile(INSTANCE, acs.NPOINTS)
+
 
 dbLoadRecords("$(MOTOR)/db/profileMoveController.template", acs:macros{P= PREFIX..INSTANCE, PORT=INSTANCE, R="pm:", NAXES=#acs, "NPOINTS", "NPULSES", "TIMEOUT"})
