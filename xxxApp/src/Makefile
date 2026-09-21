@@ -169,7 +169,7 @@ endif
 
 ifdef OPCUA
   $(DBD_NAME)_DBD += opcua.dbd
-  $(PROD_NAME)_LIBS := opcua
+  $(PROD_NAME)_LIBS := opcua $($(PROD_NAME)_LIBS)
 endif
 
 ifdef STREAM
