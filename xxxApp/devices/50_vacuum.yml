@@ -1,0 +1,50 @@
+# Vacuum device support (vac module): ion/TSP pumps and vacuum gauges.
+#
+# An instance must specify:
+#   instance        the device register (see per type) -> macro as noted
+#   name            (optional) label; defaults per type
+#   links           the ordered list of screens the related-display offers,
+#                   currently just: screen
+#
+# IonPump: instance -> macro PUMP=  (e.g. "ip1", "tsp1")
+# VacSen:  instance -> macro GAUGE=  (e.g. "gauge1")
+
+# Ion/TSP pump (Digitel, MPC). All use the same Pump screen.
+#
+# st.cmd boot parameters (supply per instance):
+#   port            the asyn serial port the pump is wired to (e.g. "serial1")
+#   dev             pump model/controller type -> macro DEV= (e.g. "MPC", "500")
+#   stn             station field -> macro STN= (e.g. "1")
+#   addr            (optional) asyn address -> macro ADDR=; default 0
+#
+# st.cmd delegates to the vac module's digitelPump.iocsh fragment, which sets the
+# serial options and loads the pump database.
+_IonPump: &_IonPump
+    name: "Pump ({instance})"
+    addr: "0"
+    screen: {label: "{name}", file: "Pump", macros: "P={prefix},PUMP={instance}"}
+    st.cmd: |
+        iocshLoad(VAC .. "/iocsh/digitelPump.iocsh",
+                  "PREFIX=" .. PREFIX .. ", INSTANCE=" .. instance ..
+                  ", PORT=" .. port .. ", DEV=" .. dev ..
+                  ", STN=" .. stn .. ", ADDR=" .. addr)
+
+# Vacuum gauge sensor
+#
+# st.cmd boot parameters (supply per instance):
+#   port            the asyn serial port the gauge is wired to (e.g. "serial1")
+#   dev             gauge model -> macro DEV= (e.g. "GP307", "GP350")
+#   stn             station field -> macro STN= (optional for GP307/GP350)
+#   addr            (optional) asyn address -> macro ADDR=; default 0
+#
+# st.cmd delegates to the vac module's vacSensor.iocsh fragment, which selects
+# the model-specific sensor startup and loads the gauge database.
+_VacSen: &_VacSen
+    name: "Gauge ({instance})"
+    addr: "0"
+    screen: {label: "{name}", file: "VacSen", macros: "P={prefix},GAUGE={instance}"}
+    st.cmd: |
+        iocshLoad(VAC .. "/iocsh/vacSensor.iocsh",
+                  "PREFIX=" .. PREFIX .. ", INSTANCE=" .. instance ..
+                  ", PORT=" .. port .. ", DEV=" .. dev ..
+                  ", STN=" .. stn .. ", ADDR=" .. addr)

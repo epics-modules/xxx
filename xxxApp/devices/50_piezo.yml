@@ -1,0 +1,22 @@
+# Nano2k piezo controller support (std module).
+#
+# A Nano2k is reached through its controller register (S=, e.g. "Nano2k:") under
+# the IOC prefix, with an axis/channel register (p=).
+#
+# An instance must specify:
+#   instance        the controller register (e.g. "Nano2k:") -> macro S=
+#   channel         the axis/channel register (e.g. "1")      -> macro p=
+#   name            (optional) label; defaults to "Nano2k (<instance>)"
+#   links           the ordered list of screens the related-display offers,
+#                   currently just: screen
+#
+# The std module ships no iocsh fragment; Nano2k.db is self-contained (all links
+# internal, no external asyn port), so st.cmd loads it directly with P and S.
+# The database uses only P and S; the screen's per-axis p= macro selects which
+# axis panel to show and is not a database parameter.
+_Nano2k: &_Nano2k
+    name: "Nano2k ({instance})"
+    screen: {label: "{name}", file: "Nano2k", macros: "P={prefix},S={instance},p={channel}"}
+    st.cmd: |
+        dbLoadRecords(STD .. "/db/Nano2k.db",
+                      "P=" .. PREFIX .. ", S=" .. instance)

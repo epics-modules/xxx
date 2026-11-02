@@ -14,4 +14,7 @@ ARCH = linux-x86_64
 
 TARGETS = cdCommands envPaths dllPath.bat modules.lua
 
+# Assemble this IOC's device file from the devices/ subdirectory. 
+DIRS += devices
+
 include $(TOP)/configure/RULES.ioc

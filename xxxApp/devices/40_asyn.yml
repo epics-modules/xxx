@@ -1,0 +1,25 @@
+# asyn serial / GPIB record support.
+#
+# A raw asyn port is reached through its asyn record name (R=, e.g. "asyn_1" for
+# a serial line or "gpib1" for a GPIB device). All use the same asynOctet screen.
+#
+# An instance must specify:
+#   instance        the asyn record name (e.g. "asyn_1", "gpib1") -> macro R=
+#   name            (optional) label for the device; defaults to "asyn (<instance>)"
+#   links           the ordered list of screens the related-display offers,
+#                   currently just: screen
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name of the (already-configured) asyn port this record
+#                   attaches to (e.g. "serial1", "gpib1Port")
+#
+# st.cmd loads asynRecord.db for the port. The underlying port itself
+# (drvAsynSerialPortConfigure / drvAsynIPPortConfigure) is created by whichever
+# device owns the port, so it is not configured here.
+_asyn_Octet: &_asyn_Octet
+    name: "asyn ({instance})"
+    screen: {label: "{name}", file: "asynOctet", macros: "P={prefix},R={instance}"}
+    st.cmd: |
+        dbLoadRecords(ASYN .. "/db/asynRecord.db",
+                      "P=" .. PREFIX .. ", R=" .. instance ..
+                      ", PORT=" .. port .. ", ADDR=0, OMAX=0, IMAX=0")

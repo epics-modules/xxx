@@ -1,0 +1,43 @@
+# Digital/binary I/O support.
+#
+# IpUnidig (Greensprings IP-Unidig binary I/O) and the busy record both address
+# a device by its record prefix (R=, e.g. "Unidig1" or "busy1").
+#
+# An instance must specify:
+#   instance        the device record name (e.g. "Unidig1", "busy1") -> macro R=
+#   name            (optional) label for the device; defaults per type
+#   links           the ordered list of screens the related-display offers;
+#                   the available screen keys are listed per type below
+
+# IpUnidig binary I/O: screen (overview), screen_detail, more (debug)
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name to give the IP-Unidig asyn port (e.g. "Unidig1")
+#   int_vec         interrupt vector for the IP module
+#   carrier         (optional) IPAC carrier number; default 0
+#   slot            (optional) IPAC slot number; default 0
+#
+# st.cmd delegates to the ipUnidig module's ipUnidig.iocsh fragment.
+_IpUnidig: &_IpUnidig
+    name: "IpUnidig ({instance})"
+    carrier: "0"
+    slot: "0"
+    screen:        {label: "{name}",          file: "IpUnidig_top",  macros: "P={prefix},R={instance}"}
+    screen_detail: {label: "{name} (detail)", file: "IpUnidig",      macros: "P={prefix},R={instance}"}
+    more:          {label: "{name} (more)",   file: "IpUnidig_more", macros: "P={prefix},R={instance}"}
+    st.cmd: |
+        iocshLoad(IPUNIDIG .. "/iocsh/ipUnidig.iocsh",
+                  "PREFIX=" .. PREFIX .. ", PORT=" .. port ..
+                  ", INT_VEC=" .. int_vec ..
+                  ", CARRIER=" .. carrier .. ", SLOT=" .. slot)
+
+# busy record
+#
+# The busy record is a pure software record; st.cmd loads its db directly
+# (busy module ships no iocsh fragment).
+_Busy: &_Busy
+    name: "Busy ({instance})"
+    screen: {label: "{name}", file: "xxBusyRecord", macros: "P={prefix},R={instance}"}
+    st.cmd: |
+        dbLoadRecords(BUSY .. "/db/busyRecord.db",
+                      "P=" .. PREFIX .. ", R=" .. instance)

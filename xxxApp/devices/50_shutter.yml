@@ -1,0 +1,24 @@
+# Fast shutter support (XIA PFCU-based fast shutter).
+#
+# A shutter instance is identified by its shutter record name (S=, e.g. "shutter1").
+#
+# An instance must specify:
+#   instance        the shutter record name (e.g. "shutter1") -> macro S=
+#   name            (optional) label for the device; defaults to "Shutter (<instance>)"
+#   links           the ordered list of screens the related-display offers,
+#                   currently just: screen
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name of the (already-configured) asyn serial port the PFCU
+#                   is wired to (e.g. "serial1")
+#   address         PFCU unit address -> macro ADDRESS= (e.g. "0")
+#
+# st.cmd delegates to the optics module's XIA_shutter.iocsh fragment, which sets
+# the serial parameters and loads the shutter database.
+_XIA_Shutter: &_XIA_Shutter
+    name: "Shutter ({instance})"
+    screen: {label: "XIA {name}", file: "XIA_shutter", macros: "P={prefix},S={instance}"}
+    st.cmd: |
+        iocshLoad(OPTICS .. "/iocsh/XIA_shutter.iocsh",
+                  "PREFIX=" .. PREFIX .. ", INSTANCE=" .. instance ..
+                  ", PORT=" .. port .. ", ADDRESS=" .. address)

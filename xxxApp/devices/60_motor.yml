@@ -1,0 +1,172 @@
+# Motor record support (motor module).
+#
+# The motor record user interface is vendor-neutral: the same screens apply to
+# every controller (Newport, OMS, Aerotech, etc.); the controller differences
+# live in the IOC's asyn port configuration, not in the motor screen.
+#
+# A motor appears at two granularities, both offered by this one type:
+#   - individual: one motor record            (screen, macro M={instance})
+#   - bank:       N motors on one screen       (bank_4/bank_8/bank_16)
+#   - status:     a compact N-motor status grid (status_8, prefix only)
+#
+# The bank screens take a positional list of motor record names (M1..MN) that is
+# specific to each bank; the instance supplies that full list via bank_macros.
+#
+# An instance must specify:
+#   instance        the motor record name (e.g. "m1") -> macro M=  (individual)
+#   name            (optional) label; defaults to "Motor (<instance>)"
+#   bank_macros     (bank screens only) the full "P=...,M1=...,M8=..." macro string
+#   links           the ordered list of screens the related-display offers,
+#                   chosen from: screen, bank_4, bank_8, bank_16, status_8
+#
+# Screen-only: the vendor-neutral _Motor type is just the motor-record user
+# interface and has no startup of its own. The per-axis motor records carry ~18
+# site/application-specific fields (VELO, MRES, limits, EGU, DIR, ...) supplied
+# via a per-controller .substitutions file, which is inherently site config, not
+# a uniform catalog parameter. Use the controller-specific _Motor_* types below
+# to create the controller + axes at boot; the per-axis records are then loaded
+# by site configuration via that controller's motor.substitutions.
+_Motor: &_Motor
+    name: "Motor ({instance})"
+    screen:   {label: "{name}",          file: "motorx",       macros: "P={prefix},M={instance}"}
+    bank_4:   {label: "{name} (4)",      file: "topMotors4",   macros: "{bank_macros}"}
+    bank_8:   {label: "{name} (8)",      file: "topMotors8",   macros: "{bank_macros}"}
+    bank_16:  {label: "{name} (16)",     file: "16motor_form", macros: "{bank_macros}"}
+    status_8: {label: "{name} status",   file: "motorStatus8", macros: "P={prefix}"}
+
+# ---------------------------------------------------------------------------
+# Controller-specific motor types.
+#
+# Each _Motor_* type creates its motor controller (and axes) at boot by
+# delegating to the motor module's controller .iocsh fragment, then loads the
+# motorUtil allstop/alldone utility and calls motorUtilInit after iocInit. The
+# per-axis motor records are NOT loaded here: they carry ~18 per-application
+# fields (VELO, MRES, limits, EGU, DIR, ...) that come from a per-controller
+# motor.substitutions file loaded by site configuration. These types reuse the
+# vendor-neutral _Motor screens via the merge key.
+#
+# Serial controllers (ESP300, MM4000, PI_C867) take an already-configured asyn
+# serial port via "port"; that serial port is created by whichever device owns
+# it. The ACS TCP controller creates its own IP connection from "ip_addr".
+# ---------------------------------------------------------------------------
+
+# Shared motorUtil startup: loads motorUtil.db (prefix-only) and runs
+# motorUtilInit after iocInit. Controller creation is added per type.
+_Motor_Util: &_Motor_Util
+    screen:   {label: "{name}",          file: "motorx",       macros: "P={prefix},M={instance}"}
+    bank_4:   {label: "{name} (4)",      file: "topMotors4",   macros: "{bank_macros}"}
+    bank_8:   {label: "{name} (8)",      file: "topMotors8",   macros: "{bank_macros}"}
+    bank_16:  {label: "{name} (16)",     file: "16motor_form", macros: "{bank_macros}"}
+    status_8: {label: "{name} status",   file: "motorStatus8", macros: "P={prefix}"}
+
+# Newport ESP300 (serial)
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name of the (already-configured) asyn serial port the
+#                   controller is wired to (e.g. "serial1")
+#   controller      (optional) controller index -> CONTROLLER=; default 0
+#   max_controllers (optional) number of controllers -> MAX_CONTROLLERS=; default 1
+#   poll_rate       (optional) poll rate -> POLL_RATE=; default 10
+_Motor_Newport_ESP300: &_Motor_Newport_ESP300
+    <<: *_Motor_Util
+    name: "ESP300 ({instance})"
+    controller: "0"
+    max_controllers: "1"
+    poll_rate: "10"
+    st.cmd: |
+        iocshLoad(MOTOR .. "/iocsh/Newport_ESP300.iocsh",
+                  "PORT=" .. port .. ", CONTROLLER=" .. controller ..
+                  ", MAX_CONTROLLERS=" .. max_controllers ..
+                  ", POLL_RATE=" .. poll_rate)
+        dbLoadRecords(MOTOR .. "/db/motorUtil.db", "P=" .. PREFIX)
+        doAfterIocInit("motorUtilInit('" .. PREFIX .. "')")
+
+# Newport MM4000 (serial)
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name of the (already-configured) asyn serial port (e.g. "serial1")
+#   controller      (optional) controller index -> CONTROLLER=; default 0
+#   max_controllers (optional) number of controllers -> MAX_CONTROLLERS=; default 1
+#   poll_rate       (optional) poll rate (Hz) -> POLL_RATE=; default 10
+_Motor_Newport_MM4000: &_Motor_Newport_MM4000
+    <<: *_Motor_Util
+    name: "MM4000 ({instance})"
+    controller: "0"
+    max_controllers: "1"
+    poll_rate: "10"
+    st.cmd: |
+        iocshLoad(MOTOR .. "/iocsh/Newport_MM4000.iocsh",
+                  "PORT=" .. port .. ", CONTROLLER=" .. controller ..
+                  ", MAX_CONTROLLERS=" .. max_controllers ..
+                  ", POLL_RATE=" .. poll_rate)
+        dbLoadRecords(MOTOR .. "/db/motorUtil.db", "P=" .. PREFIX)
+        doAfterIocInit("motorUtilInit('" .. PREFIX .. "')")
+
+# Physik Instrumente C-867 (GCS2, serial)
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name of the (already-configured) asyn serial port (e.g. "serial1")
+#   controller      (optional) controller index -> CONTROLLER=; default 0
+#   num_axes        (optional) max axes per controller -> NUM_AXES=; default 0
+#   poll_rate       (optional) poll rate (msec) -> POLL_RATE=; default 100
+_Motor_PI_C867: &_Motor_PI_C867
+    <<: *_Motor_Util
+    name: "PI C-867 ({instance})"
+    controller: "0"
+    num_axes: "0"
+    poll_rate: "100"
+    st.cmd: |
+        iocshLoad(MOTOR .. "/iocsh/PI_C867.iocsh",
+                  "PORT=" .. port .. ", CONTROLLER=" .. controller ..
+                  ", NUM_AXES=" .. num_axes .. ", POLL_RATE=" .. poll_rate)
+        dbLoadRecords(MOTOR .. "/db/motorUtil.db", "P=" .. PREFIX)
+        doAfterIocInit("motorUtilInit('" .. PREFIX .. "')")
+
+# ACS Motion controller (TCP/Ethernet)
+#
+# st.cmd boot parameters (supply per instance):
+#   asyn_port       name of asyn port to create for this controller -> INSTANCE=
+#                   (e.g. "ACS1"); the fragment also creates <asyn_port>_ETH
+#   ip_addr         IP address of the controller -> IP_ADDR=
+#   tcp_port        (optional) controller TCP control port -> TCP_PORT=; default 701
+#   num_axes        (optional) number of axes -> NUM_AXES=; default 1
+#   poll_period     (optional) poll period (s) -> POLL_PERIOD=; default 1.0
+#
+# Unlike the serial controllers, this fragment creates its own IP connection, so
+# only the IP address (not a pre-made port) is required.
+_Motor_ACS_tcp: &_Motor_ACS_tcp
+    <<: *_Motor_Util
+    name: "ACS Motion ({instance})"
+    tcp_port: "701"
+    num_axes: "1"
+    poll_period: "1.0"
+    st.cmd: |
+        iocshLoad(MOTOR .. "/iocsh/ACS_Motion_tcp.iocsh",
+                  "INSTANCE=" .. asyn_port .. ", IP_ADDR=" .. ip_addr ..
+                  ", TCP_PORT=" .. tcp_port .. ", NUM_AXES=" .. num_axes ..
+                  ", POLL_PERIOD=" .. poll_period)
+        dbLoadRecords(MOTOR .. "/db/motorUtil.db", "P=" .. PREFIX)
+        doAfterIocInit("motorUtilInit('" .. PREFIX .. "')")
+
+# Symetrie hexapod controller (motor module, motorSymetrie submodule).
+#
+# A Symetrie hexapod is reached through its register (R=, e.g. "HEX01:") under
+# the IOC prefix. The config and advanced sub-panels are modular parts embedded
+# in the main screen; the 6-motor view is a positional motor bank handled by the
+# _Motor type, so this type offers only the hexapod control screen.
+#
+# An instance must specify:
+#   instance        the hexapod register (e.g. "HEX01:") -> macro R=
+#   name            (optional) label; defaults to "Hexapod (<instance>)"
+#   links           the ordered list of screens the related-display offers,
+#                   currently just: screen
+#
+# Screen-only: the Symetrie hexapod controller is created over a PowerPMAC SSH
+# connection (drvAsynPowerPMACPortConfigure with host credentials) that is not
+# part of this template's motor binary and requires site-specific SSH login
+# details, followed by a per-axis SymetriePmac.substitutions file. Both are
+# inherently site configuration, so the controller startup is loaded by site
+# config, not from the catalog.
+_Symetrie_Hexapod: &_Symetrie_Hexapod
+    name: "Hexapod ({instance})"
+    screen: {label: "{name}", file: "SymetrieHexapodMain", macros: "P={prefix},R={instance}"}

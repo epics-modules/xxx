@@ -1,0 +1,68 @@
+# XIA DXP single-element MCA spectroscopy support (dxp module).
+#
+# These are the single-element DXP device entry screens. A single-element DXP is
+# reached through its detector/mca register (D=, e.g. "dxp1:") and mca register
+# (M=, e.g. "mca1"), both under the IOC prefix. Multi-element DXP screens use a
+# positional element loop and are wired per-IOC, not as a shared type.
+#
+# An instance must specify:
+#   instance        the detector register (e.g. "dxp1:") -> macro D=
+#   mca             the mca register (e.g. "mca1")        -> macro M=
+#   name            (optional) label; defaults per type
+#   links           the ordered list of screens the related-display offers,
+#                   currently just: screen
+#
+# st.cmd boot parameters (supply per instance):
+#   ini             XIA Handel .ini configuration file for the detector
+#   port            name to give the DXP asyn port (e.g. "DXP1")
+#   nchan           (optional) MCA channels; default 2048
+#
+# The dxp module ships no iocsh fragment, so each type inlines the real startup
+# (grounded in the module's iocBoot example st.cmd): xiaInit of the .ini file,
+# NDDxpConfig of a single-element port, the shared dxp templates plus the model
+# template, the mca callback template, and mca.db. The "model" field selects the
+# model-specific template (dxpSaturn / microDXP). The instance maps to R= in the
+# templates; mca maps to the mca record name.
+
+# Shared single-element DXP startup, used by both models via the merge key.
+# The "model" field names the model-specific template under $(DXP)/dxpApp/Db.
+_DXP_base: &_DXP_base
+    nchan: "2048"
+    st.cmd: |
+        xiaInit(ini)
+        NDDxpConfig(port, 1, 0, 0)
+        dbLoadRecords(DXP .. "/dxpApp/Db/dxpSystem.template",
+                      "P=" .. PREFIX .. ", R=" .. instance ..
+                      ", IO=@asyn(" .. port .. " 0 1)")
+        dbLoadRecords(DXP .. "/dxpApp/Db/dxpHighLevel.template",
+                      "P=" .. PREFIX .. ", R=" .. instance ..
+                      ", IO=@asyn(" .. port .. " 0 1)")
+        dbLoadRecords(DXP .. "/dxpApp/Db/" .. model .. ".template",
+                      "P=" .. PREFIX .. ", R=" .. instance ..
+                      ", IO=@asyn(" .. port .. " 0 1)")
+        dbLoadRecords(DXP .. "/dxpApp/Db/dxpLowLevel.template",
+                      "P=" .. PREFIX .. ", R=" .. instance ..
+                      ", IO=@asyn(" .. port .. " 0 1)")
+        dbLoadRecords(DXP .. "/dxpApp/Db/dxpSCA_16.template",
+                      "P=" .. PREFIX .. ", R=" .. instance ..
+                      ", IO=@asyn(" .. port .. " 0 1)")
+        dbLoadRecords(DXP .. "/dxpApp/Db/mcaCallback.template",
+                      "P=" .. PREFIX .. ", R=" .. mca ..
+                      ", IO=@asyn(" .. port .. " 0 1)")
+        dbLoadRecords(MCA .. "/mcaApp/Db/mca.db",
+                      "P=" .. PREFIX .. ", M=" .. mca ..
+                      ", DTYP=asynMCA, INP=@asyn(" .. port .. " 0), NCHAN=" .. nchan)
+
+# XIA Saturn (single-element)
+_DXP_Saturn: &_DXP_Saturn
+    <<: *_DXP_base
+    name: "DXP Saturn ({instance})"
+    model: "dxpSaturn"
+    screen: {label: "{name}", file: "dxpSaturn", macros: "P={prefix},D={instance},M={mca}"}
+
+# XIA microDXP (single-element)
+_DXP_Micro: &_DXP_Micro
+    <<: *_DXP_base
+    name: "microDXP ({instance})"
+    model: "microDXP"
+    screen: {label: "{name}", file: "microDXP", macros: "P={prefix},D={instance},M={mca}"}

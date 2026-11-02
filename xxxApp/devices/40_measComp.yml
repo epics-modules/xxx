@@ -1,0 +1,134 @@
+# Measurement Computing DAQ device support (measComp module).
+#
+# Each measComp hardware model has one top-level "*_module" device screen that
+# embeds the function panels (analog in/out, counters, DIO, pulse gen) for that
+# model. The function panels and plot screens are modular parts, not standalone
+# devices, so only the per-model module screens are typed here.
+#
+# Most models need only the IOC prefix. A few also take a small, fixed set of
+# register macros for the sub-functions the model provides (e.g. Ao, Ti, or the
+# binary Bd/Bi/Bo/Li/Lo set); these are fixed per model, not positional, so each
+# is supplied as a static field on the type.
+#
+# An instance must specify:
+#   prefix          supplied per IOC (boot passthrough / gestalt generation)
+#   name            (optional) label; defaults per type
+#   links           the ordered list of screens the related-display offers,
+#                   currently just: screen
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name to give this device's asyn port (e.g. "USB1808_1")
+#   unique_id       the device's unique serial/board id (or "0" for first found)
+#
+# The measComp module ships no iocsh fragment, so st.cmd inlines the real
+# startup: MultiFunctionConfig(port, unique_id, WDIG_POINTS, WGEN_POINTS) then
+# dbLoadTemplate of the model's substitutions file (grounded in the module's
+# iocBoot example st.cmd files). The per-model "model" field selects the
+# substitutions basename and may differ from the screen file name (e.g. the
+# _MC_1608G type uses the USB1608G substitutions). Waveform models default
+# wdig_points/wgen_points to 0; override per instance where the model supports
+# waveform digitizer / generator buffers.
+
+# Shared measComp startup: used by every model via the merge key. The "model"
+# field (set per type) names the substitutions file under $(MEASCOMP)/db.
+_MC_base: &_MC_base
+    wdig_points: "0"
+    wgen_points: "0"
+    st.cmd: |
+        MultiFunctionConfig(port, unique_id, wdig_points, wgen_points)
+        dbLoadTemplate(MEASCOMP .. "/db/" .. model .. ".substitutions",
+                       "P=" .. PREFIX .. ", PORT=" .. port ..
+                       ", WDIG_POINTS=" .. wdig_points ..
+                       ", WGEN_POINTS=" .. wgen_points)
+
+# --- prefix-only models ---
+
+_MC_USB1808: &_MC_USB1808
+    <<: *_MC_base
+    name: "MC USB-1808"
+    model: "USB1808"
+    screen: {label: "{name}", file: "USB1808_module", macros: "P={prefix}"}
+
+_MC_USB231: &_MC_USB231
+    <<: *_MC_base
+    name: "MC USB-231"
+    model: "USB231"
+    screen: {label: "{name}", file: "USB231_module", macros: "P={prefix}"}
+
+_MC_USB2408: &_MC_USB2408
+    <<: *_MC_base
+    name: "MC USB-2408"
+    model: "USB2408"
+    screen: {label: "{name}", file: "USB2408_module", macros: "P={prefix}"}
+
+_MC_USB3105: &_MC_USB3105
+    <<: *_MC_base
+    name: "MC USB-3105"
+    model: "USB3105"
+    screen: {label: "{name}", file: "USB3105_module", macros: "P={prefix}"}
+
+_MC_USB1608G_2AO: &_MC_USB1608G_2AO
+    <<: *_MC_base
+    name: "MC USB-1608G-2AO"
+    model: "USB1608G_2AO"
+    screen: {label: "{name}", file: "USB1608G_2AO_module", macros: "P={prefix}"}
+
+_MC_1608G: &_MC_1608G
+    <<: *_MC_base
+    name: "MC 1608G"
+    model: "USB1608G"
+    screen: {label: "{name}", file: "1608G_module", macros: "P={prefix}"}
+
+_MC_E1608: &_MC_E1608
+    <<: *_MC_base
+    name: "MC E-1608"
+    model: "E1608"
+    screen: {label: "{name}", file: "E1608_module", macros: "P={prefix}"}
+
+_MC_ETC: &_MC_ETC
+    <<: *_MC_base
+    name: "MC E-TC"
+    model: "ETC"
+    screen: {label: "{name}", file: "ETC_module", macros: "P={prefix}"}
+
+# --- models with a fixed analog-output register ---
+
+_MC_USB3104: &_MC_USB3104
+    <<: *_MC_base
+    name: "MC USB-3104"
+    model: "USB3104"
+    screen: {label: "{name}", file: "USB3104_module", macros: "P={prefix},Ao=Ao"}
+
+# --- models with a fixed temperature-input register ---
+
+_MC_USBTEMP: &_MC_USBTEMP
+    <<: *_MC_base
+    name: "MC USB-TEMP"
+    model: "USBTEMP"
+    screen: {label: "{name}", file: "USBTEMP_module", macros: "P={prefix},Ti=Ti"}
+
+_MC_USBTEMP_AI: &_MC_USBTEMP_AI
+    <<: *_MC_base
+    name: "MC USB-TEMP-AI"
+    model: "USBTEMP_AI"
+    screen: {label: "{name}", file: "USBTEMP_AI_module", macros: "P={prefix},Ti=Ti"}
+
+# --- models with a fixed binary/digital I/O register set ---
+
+_MC_TC32: &_MC_TC32
+    <<: *_MC_base
+    name: "MC TC-32"
+    model: "TC32"
+    screen: {label: "{name}", file: "TC32_module", macros: "P={prefix},Ti=Ti,Bi=Bi,Bo=Bo,Li=Li,Lo=Lo"}
+
+_MC_USB1208LS: &_MC_USB1208LS
+    <<: *_MC_base
+    name: "MC USB-1208LS"
+    model: "USB1208"
+    screen: {label: "{name}", file: "USB1208LS_module", macros: "P={prefix},Bd=Bd,Bi=Bi,Bo=Bo,Li=Li,Lo=Lo"}
+
+_MC_EDIO24: &_MC_EDIO24
+    <<: *_MC_base
+    name: "MC E-DIO24"
+    model: "EDIO24"
+    screen: {label: "{name}", file: "EDIO24_module", macros: "P={prefix},Bd=Bd,Bi=Bi,Bo=Bo,Li=Li,Lo=Lo"}

@@ -1,0 +1,48 @@
+# Optics device support (optics module).
+#
+# These are the clean top-level optics device entry screens. The bespoke
+# beamline-specific optics screens (monochromators, mirror stripes, Kohzu, PF4
+# filter banks) use positional per-element wiring and are configured per-IOC,
+# not as shared types.
+#
+# An instance must specify:
+#   instance        the device register (see per type) -> macro as noted
+#   name            (optional) label; defaults per type
+#   links           the ordered list of screens the related-display offers,
+#                   currently just: screen
+
+# Filter drive (single drive, R=)
+#
+# st.cmd boot parameters (supply per instance):
+#   kev             name of the PV giving beam energy in keV -> macro KEV=
+#   num_filters     number of filter records in the substitutions -> NUM_FILTERS=
+#
+# st.cmd delegates to the optics module's filterDrive.iocsh fragment, which loads
+# the filter database and starts the filterDrive sequence program (via
+# doAfterIocInit). The per-filter substitutions default to the module's EXAMPLE
+# file; override SUB per instance for a site filter set.
+_Filter_Drive: &_Filter_Drive
+    name: "Filter Drive ({instance})"
+    screen: {label: "{name}", file: "filter_drive", macros: "P={prefix},R={instance}"}
+    st.cmd: |
+        iocshLoad(OPTICS .. "/iocsh/filterDrive.iocsh",
+                  "PREFIX=" .. PREFIX .. ", INSTANCE=" .. instance ..
+                  ", KEV=" .. kev .. ", NUM_FILTERS=" .. num_filters)
+
+# Soft (software) slit (SLIT=)
+#
+# Screen-only: 2slit.db builds a virtual slit from two underlying motor PVs
+# (mXp, mXn), which is site-specific positional wiring, not a uniform catalog
+# parameter. The soft slit database is loaded by site configuration.
+_Slit_Soft: &_Slit_Soft
+    name: "Slit ({instance})"
+    screen: {label: "{name}", file: "2slit_soft", macros: "P={prefix},SLIT={instance}"}
+
+# EPID feedback loop (prefix only)
+#
+# Screen-only: fb_epid.db requires the feedback input/output PV links (IN, OUT)
+# and a dedicated calc number, which define the specific feedback loop and are
+# inherently per-application. The database is loaded by site configuration.
+_EPID_Feedback: &_EPID_Feedback
+    name: "EPID Feedback"
+    screen: {label: "{name}", file: "fb_epid", macros: "P={prefix}"}

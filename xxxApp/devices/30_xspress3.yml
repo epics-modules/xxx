@@ -1,0 +1,62 @@
+# Xspress3 multi-channel fluorescence detector support (Quantum Detectors).
+#
+# An Xspress3 is reached through its areaDetector register prefix (R=, e.g.
+# "det1:") under the IOC prefix. The channel-count overview screens need only the
+# IOC prefix; the MCA-view and plugin screens also need the register.
+#
+# An instance must specify:
+#   instance        the detector register prefix (e.g. "det1:") -> macro R=
+#   name            (optional) label for the device; defaults to "Xspress3 (<instance>)"
+#   links           the ordered list of screens the related-display offers,
+#                   chosen from:
+#                     screen                       8-channel overview (default)
+#                     screen_1/_2/_4/_7/_14/_16    other channel-count overviews
+#                     mcas_4/mcas_8/mcas_16        MCA-view screens
+#                     plugins                      per-channel plugin controls
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name to give the Xspress3 asyn port (e.g. "XSP3")
+#   num_channels    number of detector channels (e.g. "4")
+#   ip_addr         IP address of the Xspress3 box
+#   num_bins        (optional) spectrum bins; default 4096
+#   num_cards       (optional) number of Xspress3 cards; default 1
+#   max_frames      (optional) frame buffer depth; default 16384
+#   circ_buffer     (optional) circular buffer flag; default 1
+#
+# The xspress3 module ships no reusable iocsh fragment (only a hardcoded example
+# IOC using nested `< *.cmd` includes), so st.cmd inlines the core startup
+# (grounded in that example's DefineXSP3Driver.cmd): the driver config, the main
+# areaDetector template, and the standard plugin chain via ADCore's
+# commonPlugins.cmd. Per-channel SCA/ROI setup and the settings CONFIG_PATH are
+# site-specific and are applied by site configuration (the example's
+# DefineSCAROI.cmd / SetChannelValues.cmd loops), not from the catalog.
+_Xspress3: &_Xspress3
+    name: "Xspress3 ({instance})"
+    num_bins: "4096"
+    num_cards: "1"
+    max_frames: "16384"
+    circ_buffer: "1"
+    st.cmd: |
+        xspress3Config(port, num_channels, num_cards, ip_addr,
+                       max_frames, max_frames, num_bins, 0, 0, 0, 0, circ_buffer)
+        dbLoadRecords(XSPRESS3 .. "/db/xspress3.template",
+                      "P=" .. PREFIX .. ", R=" .. instance ..
+                      ", PORT=" .. port .. ", ADDR=0, TIMEOUT=5" ..
+                      ", MAX_SPECTRA=" .. num_bins .. ", MAX_FRAMES=" .. max_frames ..
+                      ", HDF=" .. PREFIX .. "HDF1:, PROC=" .. PREFIX .. "Proc1:")
+        iocshLoad(ADCORE .. "/iocBoot/commonPlugins.cmd",
+                  "PREFIX=" .. PREFIX .. ", PORT=" .. port ..
+                  ", QSIZE=20, XSIZE=" .. num_bins ..
+                  ", YSIZE=" .. num_channels ..
+                  ", NCHANS=1024, CBUFFS=20, MAX_THREADS=5")
+    screen:    {label: "{name}",           file: "xspress3_8chan",       macros: "P={prefix}"}
+    screen_1:  {label: "{name} (1 ch)",    file: "xspress3_1chan",       macros: "P={prefix}"}
+    screen_2:  {label: "{name} (2 ch)",    file: "xspress3_2chan",       macros: "P={prefix}"}
+    screen_4:  {label: "{name} (4 ch)",    file: "xspress3_4chan",       macros: "P={prefix}"}
+    screen_7:  {label: "{name} (7 ch)",    file: "xspress3_7chan",       macros: "P={prefix}"}
+    screen_14: {label: "{name} (14 ch)",   file: "xspress3_14chan",      macros: "P={prefix}"}
+    screen_16: {label: "{name} (16 ch)",   file: "xspress3_16chan",      macros: "P={prefix}"}
+    mcas_4:    {label: "{name} (4 MCAs)",  file: "xspress3_4mcas",       macros: "P={prefix},R={instance}"}
+    mcas_8:    {label: "{name} (8 MCAs)",  file: "xspress3_8mcas",       macros: "P={prefix},R={instance}"}
+    mcas_16:   {label: "{name} (16 MCAs)", file: "xspress3_16mcas",      macros: "P={prefix},R={instance}"}
+    plugins:   {label: "{name} plugins",   file: "xspress3_chan_plugins", macros: "P={prefix},R={instance}"}

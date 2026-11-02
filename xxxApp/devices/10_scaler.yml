@@ -1,0 +1,21 @@
+# Scaler device support (Joerger/SIS scalers).
+#
+# An instance must specify:
+#   instance        the scaler record name suffix (e.g. "scaler1") -> macro S=
+#   name            (optional) label for the device; defaults to "Scaler (<instance>)"
+#   links           the ordered list of screens the related-display offers,
+#                   chosen from: screen, screen_16, screen_32, screen_64
+#
+# st.cmd delegates to the scaler module's shipped softScaler.iocsh fragment,
+# passing the resolved IOC prefix and this instance's name. See README.md for
+# the st.cmd contract (injected macro globals, environmental fallback for env
+# vars and iocsh functions, doAfterIOCInit for post-iocInit commands).
+_Scaler: &_Scaler
+    name: "Scaler ({instance})"
+    screen:    {label: "{name}",         file: "scaler16m", macros: "P={prefix},S={instance}"}
+    screen_16: {label: "{name} (16 ch)", file: "scaler16",  macros: "P={prefix},S={instance}"}
+    screen_32: {label: "{name} (32 ch)", file: "scaler32",  macros: "P={prefix},S={instance}"}
+    screen_64: {label: "{name} (64 ch)", file: "scaler64",  macros: "P={prefix},S={instance}"}
+    st.cmd: |
+        iocshLoad(SCALER .. "/iocsh/softScaler.iocsh",
+                  "PREFIX=" .. PREFIX .. ", INSTANCE=" .. instance)

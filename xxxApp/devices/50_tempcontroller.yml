@@ -1,0 +1,73 @@
+# Temperature controller support (LakeShore, Eurotherm, Love).
+#
+# These controllers differ in their instance macro, so each is its own type:
+#   LakeShore   instance -> macro Q=   (e.g. "TC1")
+#   Eurotherm2k instance -> macro TC=  (e.g. "1")
+#   Love        instance -> macro Q=   (e.g. "love1")
+#
+# An instance must specify:
+#   instance        the controller record name / channel (see per type above)
+#   name            (optional) label for the device; defaults per type
+#   links           the ordered list of screens the related-display offers,
+#                   currently just: screen
+
+# LakeShore temperature controller
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name of the (already-configured) asyn port the controller is
+#                   wired to (e.g. "serial1")
+#   model           (optional) LakeShore model database basename; default
+#                   "LakeShore336" (also "LakeShore331", "LakeShore330")
+#   addr            (optional) asyn address; default 0
+#
+# The LakeShore database ships in the ip module; st.cmd loads it directly (no
+# iocsh fragment). The serial port is created by whichever device owns it.
+_LakeShore: &_LakeShore
+    name: "LakeShore ({instance})"
+    model: "LakeShore336"
+    addr: "0"
+    screen: {label: "{name}", file: "LakeShore", macros: "P={prefix},Q={instance}"}
+    st.cmd: |
+        dbLoadRecords(IP .. "/db/" .. model .. ".db",
+                      "P=" .. PREFIX .. ", Q=" .. instance ..
+                      ", PORT=" .. port .. ", ADDR=" .. addr)
+
+# Eurotherm 2000-series temperature controller
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name of the (already-configured) asyn port the controller is
+#                   wired to (e.g. "serial1")
+#   gad             (optional) GPIB group address -> macro GAD=; default 0
+#   lad             (optional) GPIB local address -> macro LAD=; default 0
+#
+# The Eurotherm2k database ships in the ip module; st.cmd loads it directly (no
+# iocsh fragment). The serial port is created by whichever device owns it.
+_Eurotherm_2000: &_Eurotherm_2000
+    name: "Eurotherm 2k ({instance})"
+    gad: "0"
+    lad: "0"
+    screen: {label: "{name}", file: "Eurotherm2k", macros: "P={prefix},TC={instance}"}
+    st.cmd: |
+        dbLoadRecords(IP .. "/db/Eurotherm2k.db",
+                      "P=" .. PREFIX .. ", TC=" .. instance ..
+                      ", PORT=" .. port .. ", GAD=" .. gad .. ", LAD=" .. lad)
+
+# Love controller (single controller; for the 4-up LoveList4 panel, wire the
+# four Q1..Q4 macros per-IOC in an instance file instead)
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name to give the Love driver's asyn port (e.g. "Love1")
+#   serial          name of the (already-configured) source serial asyn port
+#   addr            controller address in hex -> macro ADDR= (e.g. "1")
+#   model           device model passed to drvLoveConfig (e.g. "1600" / "16A")
+#
+# st.cmd delegates to the love module's love.iocsh fragment, which configures the
+# serial options, initializes the driver, and loads the controller database.
+_Love_Controller: &_Love_Controller
+    name: "Love ({instance})"
+    screen: {label: "{name}", file: "LoveController", macros: "P={prefix},Q={instance}"}
+    st.cmd: |
+        iocshLoad(LOVE .. "/iocsh/love.iocsh",
+                  "PREFIX=" .. PREFIX .. ", INSTANCE=" .. instance ..
+                  ", PORT=" .. port .. ", SERIAL=" .. serial ..
+                  ", ADDR=" .. addr .. ", MODEL=" .. model)

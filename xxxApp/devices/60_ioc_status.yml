@@ -1,0 +1,42 @@
+# IOC status bundle (iocStats, autosave save/restore, alive record).
+#
+# This is a "bundle" type: unlike the per-device types, it has no instance macro.
+# It exposes standard per-IOC status screens keyed only off the IOC prefix. Note
+# the iocStats screen takes its prefix as the ioc= macro, the others as P=.
+#
+# An instance must specify:
+#   prefix          supplied per IOC (boot passthrough / gestalt generation)
+#   links           the ordered list of screens the related-display offers,
+#                   chosen from: ioc_stats, save_restore, alive
+#
+# st.cmd note: this bundle loads only the clean, self-contained status records
+# that have no ordering dependency on core IOC setup -- the iocStats soft records
+# (iocAdminSoft.db + this template's iocAdminSoft_aliases.db) and the autosave
+# save/restore status record (save_restoreStatus.db). The lua module ships no
+# iocsh fragment for these, so they are loaded directly (grounded in the stock
+# xxx IOC st.cmd).
+#
+# Important: iocAdminSoft.db builds records named $(IOC):..., and the stock xxx
+# IOC loads it with IOC=$(PREFIX) (the PV prefix, NOT the iocxxx process name) so
+# the records match the ioc_stats_soft screen's $(ioc):... PVs with ioc={prefix}.
+# So st.cmd passes IOC=PREFIX here, deliberately, not the IOC env var.
+#
+# Deliberately NOT in this st.cmd (remain common.iocsh-owned infrastructure):
+#   - autosave core setup: common.iocsh lines 2-4, 16 (autosave_settings.iocsh,
+#     save_restore.iocsh, autosaveBuild.iocsh, save_restoreSet_Debug) -- ordered
+#     IOC-core startup, not a per-device record load.
+#   - alive record: common.iocsh lines 57-58 (alive.db / aliveMSGCalc.db) --
+#     requires a site-specific RHOST, so it stays site config even though the
+#     bundle offers an "alive" screen onto it.
+# NOTE: common.iocsh is NOT edited here; superseded lines are flagged for the
+# future parser only. iocStats/save_restoreStatus do not have their own explicit
+# load lines in this repo's common.iocsh (they come via the module-load loop /
+# autosave setup), so this adds the explicit status-record loads the screens need.
+_IOC_Status: &_IOC_Status
+    ioc_stats:    {label: "IOC Status",          file: "ioc_stats_soft",     macros: "ioc={prefix}"}
+    save_restore: {label: "Save/Restore Status", file: "save_restoreStatus", macros: "P={prefix}"}
+    alive:        {label: "Alive Record",        file: "aliveRecord",        macros: "P={prefix}"}
+    st.cmd: |
+        dbLoadRecords(DEVIOCSTATS .. "/db/iocAdminSoft.db", "IOC=" .. PREFIX)
+        dbLoadRecords(TOP .. "/db/iocAdminSoft_aliases.db", "P=" .. PREFIX)
+        dbLoadRecords(AUTOSAVE .. "/db/save_restoreStatus.db", "P=" .. PREFIX)

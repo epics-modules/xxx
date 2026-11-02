@@ -1,0 +1,27 @@
+# User scripts bundle (lua userScripts).
+#
+# This is a "bundle" type with no instance macro. It exposes the lua userScripts
+# screens for two script-record sets. Unlike the other bundles, it needs two
+# per-IOC record prefixes (the two userScripts sets) rather than a single prefix.
+#
+# An instance must specify:
+#   prefix          supplied per IOC (boot passthrough / gestalt generation)
+#   R1, R2          the two userScripts record prefixes (e.g. "set1:", "set2:")
+#   links           reference the bundled list via the links key, e.g.
+#                   links: "{MyUserScripts[links]}"
+#
+# st.cmd note: the lua module ships no iocsh fragment for userScripts, so st.cmd
+# loads the two luascripts10.db record sets directly (grounded in common.iocsh).
+# The R1/R2 record prefixes are the same two values the bundle screens use.
+#
+# Supersedes common.iocsh lines 38-39 (the two `luascripts10.db` loads). NOTE:
+# common.iocsh is NOT edited here; the superseded lines are flagged for the
+# future parser only. (common.iocsh line 35's loadCalcs.lua with NUM_SETS=2 also
+# relates to script-set creation; the plain db loads here match lines 38-39.)
+_User_Scripts: &_User_Scripts
+    st.cmd: |
+        dbLoadRecords(LUA .. "/db/luascripts10.db", "P=" .. PREFIX .. ", R=" .. R1)
+        dbLoadRecords(LUA .. "/db/luascripts10.db", "P=" .. PREFIX .. ", R=" .. R2)
+    links:
+        - {label: "user scripts 1-10",  file: "userScripts10", macros: "P={prefix},R={R1}"}
+        - {label: "user scripts 11-20", file: "userScripts10", macros: "P={prefix},R={R2}"}

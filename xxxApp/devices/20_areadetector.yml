@@ -1,0 +1,115 @@
+# areaDetector camera/detector support.
+#
+# Every areaDetector driver shares the same instance macro: the camera register
+# prefix (R=, e.g. "cam1:"). The types below differ only in which detector
+# screens they offer. Each also provides the generic ADBase and image screens.
+#
+# An instance must specify:
+#   instance        the camera register prefix (e.g. "cam1:") -> macro R=
+#   name            (optional) label for the device; defaults per type
+#   links           the ordered list of screens the related-display offers;
+#                   the available screen keys are listed per type below
+#
+# st.cmd boot parameters (supply per instance):
+#   port            bare detector/port name (e.g. "SIM1"); this is the fragment's
+#                   INSTANCE, used for the asyn port name and the record prefix
+#                   (the fragment builds R=<port>:). Note this differs from the
+#                   catalog "instance" above, which is the full screen register
+#                   (e.g. "cam1:") -- for AD the screen register should equal
+#                   "<port>:".
+#   xsize           sensor width in pixels  -> macro XSIZE=
+#   ysize           sensor height in pixels -> macro YSIZE=
+#   type            image data type         -> macro TYPE= (default Int8)
+#   id              (most drivers) connection id: IP address or serial number
+#                   -> macro ID=. Not needed by simDetector / URL.
+#
+# st.cmd delegates to this template IOC's own in-repo detector startup fragments
+# (iocBoot/<IOC>/examples/detectors/<fragment>.iocsh), which create the driver,
+# load the detector template, the standard-arrays plugin, and commonPlugins.cmd.
+# Each type sets the "fragment" field to its fragment basename. Drivers that take
+# no connection id (simDetector, URL) override st.cmd to omit ID=.
+_AD_Base: &_AD_Base
+    type: "Int8"
+    base:  {label: "{name} (general)", file: "ADBase",       macros: "P={prefix},R={instance}"}
+    image: {label: "{name} (image)",   file: "ad_cam_image", macros: "P={prefix},R={instance}"}
+    st.cmd: |
+        iocshLoad(TOP .. "/iocBoot/" .. IOC .. "/examples/detectors/" .. fragment .. ".iocsh",
+                  "PREFIX=" .. PREFIX .. ", INSTANCE=" .. port ..
+                  ", ID=" .. id .. ", XSIZE=" .. xsize ..
+                  ", YSIZE=" .. ysize .. ", TYPE=" .. type)
+
+# st.cmd variant for drivers that take no connection id (simDetector, URL).
+_AD_Base_NoId: &_AD_Base_NoId
+    type: "Int8"
+    base:  {label: "{name} (general)", file: "ADBase",       macros: "P={prefix},R={instance}"}
+    image: {label: "{name} (image)",   file: "ad_cam_image", macros: "P={prefix},R={instance}"}
+    st.cmd: |
+        iocshLoad(TOP .. "/iocBoot/" .. IOC .. "/examples/detectors/" .. fragment .. ".iocsh",
+                  "PREFIX=" .. PREFIX .. ", INSTANCE=" .. port ..
+                  ", XSIZE=" .. xsize .. ", YSIZE=" .. ysize .. ", TYPE=" .. type)
+
+# simDetector: base, image, sim (simDetector specifics). No connection id.
+_AD_SimDetector: &_AD_SimDetector
+    <<: *_AD_Base_NoId
+    name: "simDetector ({instance})"
+    fragment: "ADSimDetector"
+    sim:  {label: "{name} (specific)", file: "simDetector", macros: "P={prefix},R={instance}"}
+
+# ADAndor: base, image, andor, andor3, shamrock. Uses the Andor3 fragment (ID=).
+_AD_Andor: &_AD_Andor
+    <<: *_AD_Base
+    name: "Andor ({instance})"
+    fragment: "ADAndor3"
+    andor:    {label: "{name}",          file: "Andor",    macros: "P={prefix},R={instance}"}
+    andor3:   {label: "{name} (Andor3)", file: "Andor3",   macros: "P={prefix},R={instance}"}
+    shamrock: {label: "{name} Shamrock", file: "Shamrock", macros: "P={prefix},R={instance}"}
+
+# ADEiger: base, image, eiger1, eiger2. Uses the Eiger2X fragment (ID=IP addr).
+_AD_Eiger: &_AD_Eiger
+    <<: *_AD_Base
+    name: "Eiger ({instance})"
+    fragment: "ADEiger2X"
+    eiger1: {label: "{name} (1X)", file: "eigerDetector",  macros: "P={prefix},R={instance}"}
+    eiger2: {label: "{name} (2X)", file: "eiger2Detector", macros: "P={prefix},R={instance}"}
+
+# ADPilatus: base, image, pilatus
+_AD_Pilatus: &_AD_Pilatus
+    <<: *_AD_Base
+    name: "Pilatus ({instance})"
+    fragment: "ADPilatus"
+    pilatus: {label: "{name}", file: "pilatusDetector", macros: "P={prefix},R={instance}"}
+
+# ADProsilica: base, image, prosilica
+_AD_Prosilica: &_AD_Prosilica
+    <<: *_AD_Base
+    name: "Prosilica ({instance})"
+    fragment: "ADProsilica"
+    prosilica: {label: "{name}", file: "prosilica", macros: "P={prefix},R={instance}"}
+
+# ADPointGrey: base, image, pointGrey
+_AD_PointGrey: &_AD_PointGrey
+    <<: *_AD_Base
+    name: "Point Grey ({instance})"
+    fragment: "ADPointGrey"
+    pointGrey: {label: "{name}", file: "pointGrey", macros: "P={prefix},R={instance}"}
+
+# ADMarCCD: base, image, marccd
+_AD_MarCCD: &_AD_MarCCD
+    <<: *_AD_Base
+    name: "MarCCD ({instance})"
+    fragment: "ADMarCCD"
+    marccd: {label: "{name}", file: "marCCD", macros: "P={prefix},R={instance}"}
+
+# ADMar345: base, image, mar345
+_AD_Mar345: &_AD_Mar345
+    <<: *_AD_Base
+    name: "Mar345 ({instance})"
+    fragment: "ADMar345"
+    mar345: {label: "{name}", file: "mar345", macros: "P={prefix},R={instance}"}
+
+# ADURL: base, image, url. No connection id.
+_AD_URL: &_AD_URL
+    <<: *_AD_Base_NoId
+    name: "ADURL ({instance})"
+    fragment: "ADURL"
+    url: {label: "{name}", file: "URLDriver", macros: "P={prefix},R={instance}"}

@@ -1,0 +1,86 @@
+# Delay/pulse generator support (delaygen module).
+#
+# Each delay generator has one top-level device screen reached through its
+# register (R=, e.g. "DG1:") under the IOC prefix. The per-channel delay, trigger,
+# burst and output panels are modular parts embedded in the main screen and are
+# not typed here.
+#
+# An instance must specify:
+#   instance        the device register (e.g. "DG1:") -> macro R=
+#   name            (optional) label; defaults per type
+#   links           the ordered list of screens the related-display offers,
+#                   currently just: screen
+#
+# The delaygen module ships no iocsh fragment, so each type inlines its real
+# startup (grounded in the module's iocBoot example st.cmd + dg645.cmd): a driver
+# config call (where the model needs its own asyn driver port) plus a
+# dbLoadRecords of the model's database. The underlying serial/GPIB source port
+# (drvAsynSerialPortConfigure / gsIP488Configure) is created by whichever device
+# owns it and is referenced here via the "serial" / "gpib_*" boot parameters.
+
+# Stanford Research Systems DG645
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name to give the DG645 asyn driver port (e.g. "DG1")
+#   serial          name of the source serial/IP asyn port (e.g. "serial1")
+_SRS_DG645: &_SRS_DG645
+    name: "SRS DG645 ({instance})"
+    screen: {label: "{name}", file: "srsDG645", macros: "P={prefix},R={instance}"}
+    st.cmd: |
+        drvAsynDG645(port, serial, -1)
+        dbLoadRecords(DELAYGEN .. "/delaygenApp/Db/drvDG645.db",
+                      "P=" .. PREFIX .. ", R=" .. instance .. ", PORT=" .. port)
+
+# Berkeley Nucleonics 505
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name of the source serial/IP asyn port (e.g. "serial1")
+_BNC_505: &_BNC_505
+    name: "BNC 505 ({instance})"
+    screen: {label: "{name}", file: "BNC_505", macros: "P={prefix},R={instance}"}
+    st.cmd: |
+        dbLoadRecords(DELAYGEN .. "/delaygenApp/Db/BNC_505.db",
+                      "P=" .. PREFIX .. ", R=" .. instance .. ", PORT=" .. port)
+
+# Coherent SDG
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name to give the SDG asyn driver port (e.g. "SDG")
+#   serial          name of the source serial/IP asyn port (e.g. "serial1")
+_Coherent_SDG: &_Coherent_SDG
+    name: "Coherent SDG ({instance})"
+    screen: {label: "{name}", file: "CoherentSDG", macros: "P={prefix},R={instance}"}
+    st.cmd: |
+        drvAsynCoherentSDG(port, serial, -1)
+        dbLoadRecords(DELAYGEN .. "/delaygenApp/Db/drvAsynCoherentSDG.db",
+                      "P=" .. PREFIX .. ", R=" .. instance .. ", PORT=" .. port)
+
+# Stanford Research Systems DG535 (GPIB)
+#
+# st.cmd boot parameters (supply per instance):
+#   gpib_link       GPIB link number -> macro L= (e.g. "1")
+#   gpib_addr       GPIB address     -> macro A= (e.g. "15")
+_SRS_DG535: &_SRS_DG535
+    name: "SRS DG535 ({instance})"
+    screen: {label: "{name}", file: "devDG535", macros: "P={prefix},R={instance}"}
+    st.cmd: |
+        dbLoadRecords(DELAYGEN .. "/delaygenApp/Db/devDG535.db",
+                      "P=" .. PREFIX .. ", R=" .. instance ..
+                      ", L=" .. gpib_link .. ", A=" .. gpib_addr)
+
+# Colby programmable delay line
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name to give the Colby asyn driver port (e.g. "COL")
+#   serial          name of the source serial/IP asyn port (e.g. "serial1")
+#   addr            device address field -> macro A= (e.g. "Colby")
+#   prec            display precision -> macro PREC= (default 3)
+_Colby: &_Colby
+    name: "Colby ({instance})"
+    prec: "3"
+    screen: {label: "{name}", file: "colbyMain", macros: "P={prefix},R={instance}"}
+    st.cmd: |
+        drvAsynColby(port, serial, -1, "ns", 1)
+        dbLoadRecords(DELAYGEN .. "/delaygenApp/Db/colbyPDL100A.db",
+                      "P=" .. PREFIX .. ", R=" .. instance ..
+                      ", PREC=" .. prec .. ", A=" .. addr .. ", PORT=" .. port)

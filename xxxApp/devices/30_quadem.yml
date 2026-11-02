@@ -1,0 +1,27 @@
+# Quad electrometer (quadEM) support (TetrAMM, AH401B, etc.).
+#
+# A quadEM instance is identified by its base electrometer name (e.g. "EM1").
+# Note the two screens take different macros for the same instance value: the
+# main screen uses R={instance}: (with trailing colon) while the "less" screen
+# uses EM={instance}.
+#
+# An instance must specify:
+#   instance        the electrometer base name (e.g. "EM1")
+#   name            (optional) label for the device; defaults to "Quad Electrometer (<instance>)"
+#   links           the ordered list of screens the related-display offers,
+#                   chosen from: screen, screen_less
+#
+# st.cmd boot parameters (supply per instance):
+#   ip_addr         IP address of the electrometer (e.g. "164.54.1.2:10001")
+#
+# st.cmd delegates to the quadEM module's TetrAMM.iocsh fragment (the common
+# model). For AH501/AH401/APS_EM, override the fragment name accordingly; those
+# models take the same PREFIX/INSTANCE/IP_ADDR triple (APS_EM uses ADDRESS).
+_QuadEM: &_QuadEM
+    name: "Quad Electrometer ({instance})"
+    screen:      {label: "{name}",        file: "quadEM",      macros: "P={prefix},R={instance}:"}
+    screen_less: {label: "{name} (less)", file: "quadEM_less", macros: "P={prefix},EM={instance}"}
+    st.cmd: |
+        iocshLoad(QUADEM .. "/iocsh/TetrAMM.iocsh",
+                  "PREFIX=" .. PREFIX .. ", INSTANCE=" .. instance ..
+                  ", IP_ADDR=" .. ip_addr)

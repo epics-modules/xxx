@@ -1,0 +1,12 @@
+# Per-IOC global scalars.
+#
+# The PV prefix is a boot-time passthrough: it is NOT baked here, so a single
+# shared build/type library can serve many IOCs, each supplying its own prefix.
+#  - Boot reads $(PREFIX) from settings.iocsh.
+#  - Screen generation (gestalt) supplies {prefix} per IOC.
+#
+# Add shared per-IOC scalars here as they appear. This file is rank 10, so it
+# follows the shared type library (assembled as rank 00,
+# 00_device_templates.yml) and precedes the instances (rank 50+) in the
+# assembly. Globals carry no YAML anchors, so their position after the templates
+# is safe; a stock parser resolves the completed mapping regardless of order.

@@ -1,0 +1,37 @@
+# SoftGlue FPGA signal-processing fabric support (softGlue module).
+#
+# A SoftGlue fabric is reached through its field register (H=, e.g. "1" for the
+# first FPGA field) under the IOC prefix. The top-level overview screen links to
+# the individual logic-block panels (AND, DFF, counters, etc.), which are modular
+# parts and not typed here.
+#
+# An instance must specify:
+#   instance        the field register (e.g. "1") -> macro H=
+#   name            (optional) label; defaults to "SoftGlue (<instance>)"
+#   links           the ordered list of screens the related-display offers,
+#                   currently just: screen
+#
+# st.cmd boot parameters (supply per instance):
+#   carrier         IPAC carrier number (e.g. "0")
+#   slot            IPAC slot number (e.g. "2")
+#   sport           single-register asyn port name (e.g. "SOFTGLUE")
+#   readevent       scan event number for signal-show records (e.g. "10")
+#
+# The softGlue module ships only a hardcoded site example (softGlue.iocsh sets
+# its own PREFIX/INSTANCE via epicsEnvSet), not a reusable parameterized
+# fragment, so st.cmd inlines the FPGA init + driver port + record load using
+# catalog params (grounded in that example). The FPGA content is loaded once per
+# fabric; instance maps to the H= field register. IPAC carrier init
+# (industryPack.cmd) must already have run before this snippet.
+_SoftGlue: &_SoftGlue
+    name: "SoftGlue ({instance})"
+    readevent: "10"
+    screen: {label: "{name}", file: "softGlueAll", macros: "P={prefix},H={instance}"}
+    st.cmd: |
+        initIP_EP200_FPGA(carrier, slot, SOFTGLUE .. "/softGlueApp/Db/SoftGlue_2_2.hex")
+        initIP_EP201SingleRegisterPort(sport, carrier, slot)
+        dbLoadRecords(SOFTGLUE .. "/db/softGlue_SignalShow.db",
+                      "P=" .. PREFIX .. ", H=" .. instance ..
+                      ", PORT=" .. sport .. ", READEVENT=" .. readevent)
+        dbLoadRecords(SOFTGLUE .. "/db/softGlue_convenience.db",
+                      "P=" .. PREFIX .. ", H=" .. instance)

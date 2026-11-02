@@ -1,0 +1,22 @@
+# PID feedback loop support (std module).
+#
+# A PID loop is reached through its loop register (PID=, e.g. "PID1") under the
+# IOC prefix. The screen's title text defaults to the device name but may be
+# overridden per instance.
+#
+# An instance must specify:
+#   instance        the PID loop register (e.g. "PID1") -> macro PID=
+#   name            (optional) label; defaults to "PID (<instance>)"
+#   title           (optional) screen title text; defaults to {name}
+#   links           the ordered list of screens the related-display offers,
+#                   currently just: screen
+#
+# Screen-only: pid_control.db requires the process-variable input/output links
+# (INP, OUT) plus gain and limit fields that define the specific feedback loop,
+# which are inherently per-application and not uniform catalog parameters. The
+# PID database is therefore loaded by site configuration (e.g. via a dbLoadTemplate
+# of a site pid_slow.template), not from the catalog.
+_PID: &_PID
+    name: "PID ({instance})"
+    title: "{name}"
+    screen: {label: "{name}", file: "pid_control", macros: "P={prefix},PID={instance},TITLE={title}"}

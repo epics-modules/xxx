@@ -1,0 +1,21 @@
+# Scaler instances for this IOC.
+#
+# Each instance merges the shared _Scaler type and supplies its instance name
+# (and optionally overrides the derived label via name:). links: selects which
+# of the type's screens the related-display button offers, in order.
+Scaler1:
+    <<: *_Scaler
+    instance: "scaler1"
+    links:
+        - "{Scaler1[screen]}"
+        - "{Scaler1[screen_16]}"
+        - "{Scaler1[screen_32]}"
+        - "{Scaler1[screen_64]}"
+
+Scaler2:
+    <<: *_Scaler
+    instance: "scaler2"
+    name: "I0 Scaler"
+    links:
+        - "{Scaler2[screen]}"
+        - "{Scaler2[screen_16]}"

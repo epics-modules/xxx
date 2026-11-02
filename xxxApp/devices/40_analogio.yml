@@ -1,0 +1,65 @@
+# Analog I/O support (DAC128V DAC, IP330 ADC, VME DAC).
+#
+# These analog cards differ only in their instance macro:
+#   DAC128V  instance -> macro D=  (e.g. "1")
+#   IP330    instance -> macro R=  (e.g. "IP330_")
+#   VME_DAC8 instance -> macro D=  (e.g. "1"); card number -> macro N=
+#
+# An instance must specify:
+#   instance        the device identifier (see per type above)
+#   name            (optional) label for the device; defaults per type
+#   links           the ordered list of screens the related-display offers,
+#                   currently just: screen
+#
+# The VME DAC also requires:
+#   card            the card number (e.g. "0") -> macro N=
+
+# DAC128V 8-channel DAC
+#
+# st.cmd boot parameters (supply per instance):
+#   carrier         (optional) IPAC carrier number; default 0
+#   slot            (optional) IPAC slot number; default 0
+#   port            (optional) asyn port name; default DAC<carrier><slot>
+#
+# st.cmd delegates to the dac128V module's dac128V.iocsh fragment.
+_DAC128V: &_DAC128V
+    name: "DAC128V ({instance})"
+    carrier: "0"
+    slot: "0"
+    screen: {label: "{name} channels", file: "topDAC8", macros: "P={prefix},D={instance}"}
+    st.cmd: |
+        iocshLoad(DAC128V .. "/iocsh/dac128V.iocsh",
+                  "PREFIX=" .. PREFIX ..
+                  ", CARRIER=" .. carrier .. ", SLOT=" .. slot)
+
+# IP330 ADC
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name to give the IP330 asyn port (e.g. "IP330_1")
+#   int_vec         interrupt vector for the IP module
+#   trigger         external trigger direction ("Input" or "Output")
+#   carrier         (optional) IPAC carrier number; default 0
+#   slot            (optional) IPAC slot number; default 0
+#
+# st.cmd delegates to the ip330 module's ip330.iocsh fragment.
+_IP330: &_IP330
+    name: "IP330 ({instance})"
+    carrier: "0"
+    slot: "0"
+    trigger: "Input"
+    screen: {label: "{name} ADC", file: "Ip330Scan", macros: "P={prefix},R={instance}"}
+    st.cmd: |
+        iocshLoad(IP330 .. "/iocsh/ip330.iocsh",
+                  "PREFIX=" .. PREFIX .. ", PORT=" .. port ..
+                  ", INT_VEC=" .. int_vec .. ", TRIGGER=" .. trigger ..
+                  ", CARRIER=" .. carrier .. ", SLOT=" .. slot)
+
+# VME 8-channel DAC (std module)
+#
+# Screen-only: the std module ships VME_DAC8 as a MEDM/autoconvert screen with
+# no accompanying database or driver-config fragment, so there is no st.cmd to
+# instantiate it from the catalog. Its records are expected to come from a
+# site-specific VME DAC configuration loaded elsewhere.
+_VME_DAC8: &_VME_DAC8
+    name: "VME DAC ({instance})"
+    screen: {label: "{name}", file: "VME_DAC", macros: "P={prefix},D={instance},N={card}"}

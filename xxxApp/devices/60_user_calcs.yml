@@ -1,0 +1,78 @@
+# User calculations (calc module): per-record type + whole-module bundle.
+#
+# A user-calc record appears at two granularities, both offered by _UserCalc:
+#   - individual: one calc record    (screen, macros C={instance},N={number})
+#   - bank:       10/20/40 on one screen (bank_10/bank_20/bank_40)
+# The 20- and 40-record bank screens take a positional list of record numbers
+# (N1..N40); the instance supplies that full list via bank_macros. The 10-record
+# bank takes only the prefix.
+#
+# _User_Calcs is a "bundle" type with no instance macro: it bundles all the
+# standard user-calc screens (userCalcs, userCalcOuts, userStringCalcs,
+# userArrayCalcs, userTransforms, userStringSeqs, userAve, editSseq) into a
+# single screen list keyed only off the IOC prefix. The "11-20" screens pass the
+# higher record numbers explicitly via N1..N10.
+#
+# A _UserCalc instance must specify:
+#   instance        the calc record register (e.g. "userCalc") -> macro C=
+#   number          the record number (e.g. "1")               -> macro N=
+#   name            (optional) label; defaults to "Calc (<instance>)"
+#   bank_macros     (bank_20/bank_40 only) the full "P=...,N1=...,N40=..." string
+#   links           chosen from: screen, bank_10, bank_20, bank_40
+#
+# A _User_Calcs instance must specify:
+#   prefix          supplied per IOC (boot passthrough / gestalt generation)
+#   links           reference the bundled list via the links key, e.g.
+#                   links: "{MyUserCalcs[links]}"
+#
+# st.cmd note: the user-calc records are a whole-module set loaded once per IOC
+# off the prefix, so the boot startup lives on the _User_Calcs bundle (below),
+# not on the per-record _UserCalc view. The per-record _UserCalc type is a screen
+# onto records already created by that bundle load, so it has no st.cmd of its
+# own.
+
+# Per-record user calc (individual + N-record banks). Screen-only: the records it
+# views are created by the _User_Calcs bundle's st.cmd (one whole-module load).
+_UserCalc: &_UserCalc
+    name: "Calc ({instance})"
+    screen:  {label: "{name}",       file: "userCalc_full", macros: "P={prefix},C={instance},N={number}"}
+    bank_10: {label: "{name} (10)",  file: "userCalcs10",   macros: "P={prefix}"}
+    bank_20: {label: "{name} (20)",  file: "userCalcs20",   macros: "{bank_macros}"}
+    bank_40: {label: "{name} (40)",  file: "userCalcs40",   macros: "{bank_macros}"}
+
+# Whole-module user-calc load (bundle).
+#
+# st.cmd boot parameters (supply per instance):
+#   array_size      (optional) userArrayCalc array length -> ARRAY_SIZE=; default 8000
+#
+# st.cmd delegates to the calc module's userCalc.iocsh fragment, which loads the
+# complete user-calc record set (calcs, calcOuts, stringCalcs, arrayCalcs,
+# transforms, averages) for records 1-10 off the prefix.
+#
+# Supersedes common.iocsh line 35 (`luash("./scripts/loadCalcs.lua", ...)`),
+# which loads the same records (userCalc.iocsh is the stock equivalent of a
+# single NUM_SETS=1 load). NOTE: common.iocsh is NOT edited here; the superseded
+# line is flagged for the future parser only. The records 11-20 shown by the
+# bundle's "11-20" screens require a second record set (loadCalcs.lua NUM_SETS=2
+# loads two sets); a second userCalc.iocsh load with a 10-offset is site config.
+_User_Calcs: &_User_Calcs
+    array_size: "8000"
+    st.cmd: |
+        iocshLoad(CALC .. "/iocsh/userCalc.iocsh",
+                  "PREFIX=" .. PREFIX .. ", ARRAY_SIZE=" .. array_size)
+    links:
+        - {label: "user calcs 1-10",        file: "userCalcs10",           macros: "P={prefix}"}
+        - {label: "user calcs 11-20",       file: "userCalcs10more",       macros: "P={prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+        - {label: "user calcOuts 1-10",     file: "userCalcOuts10",        macros: "P={prefix}"}
+        - {label: "user calcOuts 11-20",    file: "userCalcOuts10more",    macros: "P={prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+        - {label: "user stringCalcs 1-10",  file: "userStringCalcs10",     macros: "P={prefix}"}
+        - {label: "user stringCalcs 11-20", file: "userStringCalcs10more", macros: "P={prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+        - {label: "user arrayCalcs 1-10",   file: "userArrayCalcs10",      macros: "P={prefix}"}
+        - {label: "user arrayCalcs 11-20",  file: "userArrayCalcs10more",  macros: "P={prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+        - {label: "user transforms 1-10",   file: "userTransforms10",      macros: "P={prefix}"}
+        - {label: "user transforms 11-20",  file: "userTransforms10more",  macros: "P={prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+        - {label: "user string seqs 1-10",  file: "userStringSeqs10",      macros: "P={prefix}"}
+        - {label: "user string seqs 11-20", file: "userStringSeqs10more",  macros: "P={prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+        - {label: "user average 1-10",      file: "userAve10",             macros: "P={prefix}"}
+        - {label: "user average 11-20",     file: "userAve10more",         macros: "P={prefix},N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20"}
+        - {label: "editSseq",               file: "editSseq",              macros: "P={prefix},Q=ES:"}

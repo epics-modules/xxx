@@ -37,6 +37,12 @@ CHECK_RELEASE = YES
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
+# Custom file type for the assembled device type library (see xxxApp/devices).
+# The shared, IOC-agnostic device type library is installed here and consumed
+# by each IOC's per-IOC device assembly in iocBoot/ioc<name>.
+FILE_TYPE += DEVICES
+INSTALL_DEVICES = $(INSTALL_LOCATION)/devices
+
 # These allow developers to override the CONFIG_SITE variable
 # settings without having to modify the configure/CONFIG_SITE
 # file itself.

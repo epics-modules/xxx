@@ -1,0 +1,25 @@
+# Multichannel analyzer (MCA) support.
+#
+# An MCA instance is identified by its mca record name (M=, e.g. "aim_adc1").
+#
+# An instance must specify:
+#   instance        the mca record name (e.g. "aim_adc1") -> macro M=
+#   name            (optional) label for the device; defaults to "MCA (<instance>)"
+#   links           the ordered list of screens the related-display offers,
+#                   chosen from: screen (small), screen_roi (with ROIs)
+#
+# st.cmd boot parameters (supply per instance):
+#   port            the asyn port name feeding this MCA (e.g. "AIM1/1")
+#   nchan           (optional) number of channels; default 2048
+#
+# The MCA module ships no generic single-MCA iocsh fragment, so st.cmd loads
+# mca.db directly (grounded in dxp/measComp example st.cmd usage).
+_MCA: &_MCA
+    name: "MCA ({instance})"
+    nchan: "2048"
+    screen:     {label: "{name}",            file: "mca_small", macros: "P={prefix},M={instance}"}
+    screen_roi: {label: "{name} (with ROIs)", file: "mca",       macros: "P={prefix},M={instance}"}
+    st.cmd: |
+        dbLoadRecords(MCA .. "/mcaApp/Db/mca.db",
+                      "P=" .. PREFIX .. ", M=" .. instance ..
+                      ", DTYP=asynMCA, INP=@asyn(" .. port .. "), NCHAN=" .. nchan)

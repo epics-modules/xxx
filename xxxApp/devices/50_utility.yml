@@ -1,0 +1,65 @@
+# Software utility record support (std module).
+#
+# These are standalone utility screens beamlines commonly launch: software
+# timers, a pv-history logger, an alarm clock and a throttle. Each is reached
+# through its record register under the IOC prefix. The generic per-record calc
+# screens are covered by the user-calc types, not here.
+#
+# An instance must specify:
+#   instance        the record register (see per type) -> macro as noted
+#   name            (optional) label; defaults per type
+#   links           the ordered list of screens the related-display offers,
+#                   currently just: screen
+#
+# The std module ships no iocsh fragment; types with a dedicated standalone
+# database load it directly in st.cmd. The countdown timer and alarm clock are
+# instead software compositions built from generic calc / string-calc records
+# via a site substitutions file, so they have no single catalog database and
+# remain screen-only.
+
+# Software timer (N=)
+_Timer: &_Timer
+    name: "Timer ({instance})"
+    screen: {label: "{name}", file: "timer", macros: "P={prefix},N={instance}"}
+    st.cmd: |
+        dbLoadRecords(STD .. "/db/timer.db",
+                      "P=" .. PREFIX .. ", N=" .. instance)
+
+# Count-down timer (N=)
+#
+# Screen-only: built from generic calc records (cdt<N>:*) configured via a site
+# substitutions file, not a dedicated database; loaded by site configuration.
+_CountDownTimer: &_CountDownTimer
+    name: "Countdown Timer ({instance})"
+    screen: {label: "{name}", file: "countDownTimer", macros: "P={prefix},N={instance}"}
+
+# PV history logger (N=)
+#
+# st.cmd boot parameters (supply per instance):
+#   maxsamples      (optional) history buffer length -> macro MAXSAMPLES=;
+#                   default 5000
+_PvHistory: &_PvHistory
+    name: "PV History ({instance})"
+    maxsamples: "5000"
+    screen: {label: "{name}", file: "pvHistory", macros: "P={prefix},N={instance}"}
+    st.cmd: |
+        dbLoadRecords(STD .. "/db/pvHistory.db",
+                      "P=" .. PREFIX .. ", N=" .. instance ..
+                      ", MAXSAMPLES=" .. maxsamples)
+
+# Alarm clock (A=)
+#
+# Screen-only: built from generic calc / string-calc records (AClock<N>:*)
+# configured via a site substitutions file, not a dedicated database; loaded by
+# site configuration.
+_AlarmClock: &_AlarmClock
+    name: "Alarm Clock ({instance})"
+    screen: {label: "{name}", file: "alarmClock", macros: "P={prefix},A={instance}"}
+
+# Throttle (THR=)
+_Throttle: &_Throttle
+    name: "Throttle ({instance})"
+    screen: {label: "{name}", file: "throttle", macros: "P={prefix},THR={instance}"}
+    st.cmd: |
+        dbLoadRecords(STD .. "/db/throttle.db",
+                      "P=" .. PREFIX .. ", THR=" .. instance)

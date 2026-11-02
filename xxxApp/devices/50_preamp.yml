@@ -1,0 +1,56 @@
+# Current preamplifier support (SRS SR570, Femto).
+#
+# An instance must specify:
+#   instance        the preamp address/register (see per type below)
+#   name            (optional) label for the device; defaults per type
+#   links           the ordered list of screens the related-display offers,
+#                   chosen per type as noted
+#
+# SR570:  instance -> macro A=  (e.g. "A1")
+# Femto:  the generic _Femto screen needs F=, H=, AC= registers; the per-model
+#         _Femto_* screens need just A= (the amplifier address)
+
+# Stanford Research Systems SR570
+#
+# st.cmd boot parameters (supply per instance):
+#   port            name of the (already-configured) asyn serial port the SR570
+#                   is wired to (e.g. "serial1")
+#
+# The SR570 database ships in the ip module; st.cmd loads SR570.db directly (no
+# iocsh fragment). The serial port itself is created by whichever device owns it.
+_SRS_SR570: &_SRS_SR570
+    name: "SR570 ({instance})"
+    screen:      {label: "{name}",        file: "SR570",      macros: "P={prefix},A={instance}"}
+    screen_tiny: {label: "{name} (tiny)", file: "SR570_tiny", macros: "P={prefix},A={instance}"}
+    st.cmd: |
+        dbLoadRecords(IP .. "/db/SR570.db",
+                      "P=" .. PREFIX .. ", A=" .. instance .. ", PORT=" .. port)
+
+# Femto preamplifier (generic; needs F=, H=, AC= registers).
+# An instance must also specify:
+#   field           the Femto field register   -> macro F=
+#   hardware        the Femto hardware register -> macro H=
+#   ac              the Femto AC register       -> macro AC=
+#
+# Screen-only: Femto startup wires each gain-select bit (G1..G4) to a specific
+# digital-output channel (e.g. a particular IpUnidig Bo bit), which is inherently
+# site-specific board wiring, not a uniform catalog parameter. The gain-bit
+# substitutions (femto_DxPCA_x00.substitutions) are therefore loaded by site
+# configuration, not from the catalog. See std module docs/femto_DxPCA_x00.txt.
+_Femto: &_Femto
+    name: "Femto ({instance})"
+    screen: {label: "{name}", file: "femto", macros: "P={prefix},F={field},H={hardware},AC={ac}"}
+
+# Femto per-model variants (address-only, A=). Screen-only for the same
+# site-specific gain-bit wiring reason as the generic _Femto above.
+_Femto_DLPCA_200: &_Femto_DLPCA_200
+    name: "Femto DLPCA-200 ({instance})"
+    screen: {label: "{name}", file: "femto_DLPCA_200", macros: "P={prefix},A={instance}"}
+
+_Femto_DHPCA_100: &_Femto_DHPCA_100
+    name: "Femto DHPCA-100 ({instance})"
+    screen: {label: "{name}", file: "femto_DHPCA_100", macros: "P={prefix},A={instance}"}
+
+_Femto_DDPCA_300: &_Femto_DDPCA_300
+    name: "Femto DDPCA-300 ({instance})"
+    screen: {label: "{name}", file: "femto_DDPCA_300", macros: "P={prefix},A={instance}"}

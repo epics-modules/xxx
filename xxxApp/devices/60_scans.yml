@@ -1,0 +1,39 @@
+# Scan records bundle (sscan module).
+#
+# This is a "bundle" type: it has no instance macro, and bundles the standard
+# scan-record screens (scan1-4, scanH, saveData controls, scanProgress, and the
+# scan1 config menu) into a single screen list keyed only off the IOC prefix.
+#
+# An instance must specify:
+#   prefix          supplied per IOC (boot passthrough / gestalt generation)
+#   links           reference the bundled list via the links key, e.g.
+#                   links: "{MyScans[links]}"
+#
+# st.cmd boot parameters (supply per instance):
+#   max_pts         (optional) maximum scan points -> MAX_PTS=; default 1000
+#   req_file        (optional) saveData request file -> REQ_FILE=; default saveData.req
+#
+# st.cmd delegates to the sscan module's sscan.iocsh fragment, which loads the
+# scan records (scan1-4, scanH) and starts the saveData task.
+#
+# Supersedes common.iocsh line 27 (`iocshLoad("$(SSCAN)/iocsh/sscan.iocsh", ...)`).
+# NOTE: common.iocsh is NOT edited here; the superseded line is flagged for the
+# future parser only. The scan1 configMenu (common.iocsh line 28, an autosave
+# configMenu with ordering ties to autosave setup) remains common.iocsh-owned,
+# even though the bundle offers a scan1Menu screen onto it.
+_Scans: &_Scans
+    max_pts: "1000"
+    req_file: "saveData.req"
+    st.cmd: |
+        iocshLoad(SSCAN .. "/iocsh/sscan.iocsh",
+                  "PREFIX=" .. PREFIX .. ", MAX_PTS=" .. max_pts ..
+                  ", REQ_FILE=" .. req_file)
+    links:
+        - {label: "Scan1 (for all scans)",               file: "scan",          macros: "P={prefix},N=1,S=scan1"}
+        - {label: "Scan2 (for 2D & higher scans)",       file: "scan",          macros: "P={prefix},N=2,S=scan2"}
+        - {label: "Scan3 (for 3D & higher scans)",       file: "scan",          macros: "P={prefix},N=3,S=scan3"}
+        - {label: "Scan4 (for 4D scans)",                file: "scan",          macros: "P={prefix},N=4,S=scan4"}
+        - {label: "ScanH (for Hardware-assisted scans)", file: "scan",          macros: "P={prefix},N=H,S=scanH"}
+        - {label: "saveData controls",                   file: "scan_saveData", macros: "P={prefix}"}
+        - {label: "scanProgress",                        file: "ProgressBar",   macros: "P={prefix},B={prefix}scanProgress:"}
+        - {label: "scan1Menu",                           file: "configMenu",    macros: "P={prefix},CONFIG=scan1"}

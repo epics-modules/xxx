@@ -1,0 +1,43 @@
+# Yokogawa data acquisition unit support (Yokogawa_DAS module).
+#
+# Each Yokogawa DAU has one top-level main screen reached through its data
+# acquisition unit register (DAU=, e.g. "DAU:") under the IOC prefix. The
+# per-channel analog/digital/calculation panels are modular parts embedded in
+# the main screen and are not typed here.
+#
+# An instance must specify:
+#   instance        the DAU register (e.g. "DAU:") -> macro DAU=
+#   name            (optional) label; defaults per type
+#   links           the ordered list of screens the related-display offers,
+#                   currently just: screen
+#
+# st.cmd boot parameters (supply per instance):
+#   handle          driver handle name passed to gm10Init/mw100Init (e.g. "hdl")
+#   ip_addr         IP address of the DAU (e.g. "164.54.52.228")
+#
+# The Yokogawa_DAS module ships no iocsh fragment, so st.cmd inlines the real
+# startup: gm10Init/mw100Init(handle, ip) then dbLoadRecords of the DAU system
+# record (grounded in the module's iocBoot example st.cmd). The per-channel
+# analog/digital/calc records come from a site-generated substitutions file
+# (auto_gm10/auto_mw100.substitutions, produced by querying the device) that is
+# not shipped and is therefore loaded by site configuration, not here.
+
+# Yokogawa GM10
+_Yokogawa_GM10: &_Yokogawa_GM10
+    name: "Yokogawa GM10 ({instance})"
+    screen: {label: "{name}", file: "gm10_main", macros: "P={prefix},DAU={instance}"}
+    st.cmd: |
+        gm10Init(handle, ip_addr)
+        dbLoadRecords(YOKOGAWA_DAS .. "/yokogawaDasApp/Db/GM10_system.db",
+                      "P=" .. PREFIX .. ", DAU=" .. instance ..
+                      ", HANDLE=" .. handle)
+
+# Yokogawa MW100
+_Yokogawa_MW100: &_Yokogawa_MW100
+    name: "Yokogawa MW100 ({instance})"
+    screen: {label: "{name}", file: "mw100_main", macros: "P={prefix},DAU={instance}"}
+    st.cmd: |
+        mw100Init(handle, ip_addr)
+        dbLoadRecords(YOKOGAWA_DAS .. "/yokogawaDasApp/Db/MW100_system.db",
+                      "P=" .. PREFIX .. ", DAU=" .. instance ..
+                      ", HANDLE=" .. handle)
