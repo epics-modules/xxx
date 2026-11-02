@@ -14,7 +14,7 @@ nav_order: 3
 - TOC
 {:toc}
 
-This page covers how to configure and run an IOC built from the xxx template. For an overview of the xxx module's file structure and build system, see the [Overview](overview.html). For obtaining and building synApps, see the [synApps documentation](https://epics-synapps.github.io/support/).
+This page covers how to configure and run an IOC built from the xxx template. For an overview of the xxx module's file structure and build system, see the [Overview](index.html). For obtaining and building synApps, see the [synApps documentation](https://epics-synapps.github.io/support/).
 
 
 ## Setting up the IOC
@@ -35,8 +35,10 @@ To run the IOC directly in the foreground:
 
 ```
 cd iocBoot/iocxxx
-../../bin/linux-x86_64/xxx st.cmd.Linux
+../../bin/<ARCH>/xxx st.cmd.Linux
 ```
+
+Replace `<ARCH>` with your build architecture (for example, `linux-x86_64`).
 
 Ensure that `caRepeater` is running on the host (it is started automatically by most Channel Access clients).
 
@@ -49,8 +51,8 @@ For vxWorks-based VME IOCs, see [vxWorks Configuration](https://epics-synapps.gi
 
 Hardware configuration is done in the IOC's `iocBoot/iocxxx/` directory. The key files are:
 
-- `st.cmd.*` -- The IOC's startup script. It loads an executable, configures hardware, and loads databases from synApps modules. Mostly, it sources `.iocsh` files that do these same things. See the [Overview](overview.html) for details on the startup script structure.
-- `settings.iocsh` -- Defines environment variables commonly used throughout the IOC, including the IOC name/prefix.
+- `st.cmd.*` -- The IOC's startup script. It loads an executable, configures hardware, and loads databases from synApps modules. Mostly, it sources `.iocsh` files that do these same things. See the [Overview](index.html) for details on the startup script structure.
+- `settings.iocsh` -- Defines environment variables commonly used throughout the IOC, including the IOC name/prefix and devIocStats metadata. See the [Overview](index.html) for the full list of key variables.
 - `examples/*.iocsh` -- Example command files for common hardware (motors, serial devices, optics, detectors, etc.). Copy the relevant examples to the main `iocBoot/iocxxx/` directory and edit them to match your hardware, then add a line in `st.cmd` to source them.
 - `examples/substitutions/*.substitutions` -- Example substitution files for database loading.
 - `auto_positions.req`, `auto_settings.req` -- Autosave request files (see [autosave/restore](#autosaverestore) below).

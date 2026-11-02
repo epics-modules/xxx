@@ -26,6 +26,12 @@ The standard synApps module paths are pulled in automatically via
 If you don't want to build all default target architectures, edit
 `configure/CONFIG` to set `CROSS_COMPILER_TARGET_ARCHS`.
 
+The IOC boot files (`cdCommands`, `envPaths`, `modules.lua`) default their
+architecture from `EPICS_HOST_ARCH`, so a native build needs no change. For a
+cross-compiled target such as vxWorks, set `ARCH` in `iocBoot/iocxxx/Makefile`
+(uncomment one of the `ARCH =` lines), in your environment, or on the `make`
+command line.
+
 Run `gnumake` from the top-level directory.
 
 ## Configuring the IOC

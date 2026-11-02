@@ -51,7 +51,11 @@ The library list is set up differently because libraries must be included in a c
 
 ### iocBoot/iocxxx/Makefile
 
-The last file necessary to properly build an IOC is the Makefile in the boot directory. This file tells the build system to take the IOC's RELEASE file and use it to construct a file with all the path definitions in a mode that the IOC shell environment is capable of using. There are two variables set in this file. `ARCH` is the architecture that the IOC will run on, and `TARGETS` defines what file types to generate. The three file types are `cdCommands`, `envPaths`, and `dllPath.bat` -- which you use depends on the operating system. The `cdCommands` file has path definitions that the vxWorks shell can run, while `envPaths` can be run under the ioc or lua shell. `dllPath.bat` is added into TARGETS for Windows to provide the OS with the right paths to load support DLLs.
+The last file necessary to properly build an IOC is the Makefile in the boot directory. This file tells the build system to take the IOC's RELEASE file and use it to construct files with all the path definitions in a form the IOC's shell environment can use. Two variables are set here: `ARCH` and `TARGETS`.
+
+`ARCH` is the architecture the IOC will run on. By default it is taken from `EPICS_HOST_ARCH`, the architecture of the machine running the build, so a native build needs no change. To build boot files for a cross-compiled target such as vxWorks, uncomment one of the `ARCH =` lines in the Makefile, set `ARCH` in your environment, or pass it on the command line (`make ARCH=vxWorks-ppc32`); any of these overrides the default.
+
+`TARGETS` defines which path-definition files to generate: `cdCommands`, `envPaths`, `dllPath.bat`, and `modules.lua`. Which ones you need depends on the operating system and shell. `cdCommands` holds path definitions the vxWorks shell can run, while `envPaths` can be run under the IOC or lua shell. `dllPath.bat` is generated for Windows to give the OS the paths it needs to load support DLLs. `modules.lua` is the lua-shell counterpart: it is a lua table mapping each support module name (for example `SCALER`, `ASYN`, `AREA_DETECTOR`) to its installed path on disk, alongside `TOP`, `SUPPORT`, and `EPICS_BASE`. Only modules whose paths actually exist are included. Lua-based startup code loads this table so it can resolve a module by name to its location -- for example, to `iocshLoad` a startup fragment shipped inside a module. All of these files are regenerated from `configure/RELEASE` on every build, so they are not edited by hand.
 
 
 ### xxxApp/Db
@@ -75,7 +79,13 @@ This contains a common set of support that most IOCs may want to make use of. Pr
 
 ### iocBoot/iocxxx/settings.iocsh
 
-This defines environment variables that are commonly used throughout different support.
+This defines environment variables that are commonly used throughout different support, and it is the primary per-IOC configuration point. The key variables are:
+
+* `IOC_NAME` -- the IOC's short name, used to derive its PV prefix, process name, and shell prompt
+* `PREFIX` -- the PV prefix applied to the IOC's records (derived from `IOC_NAME` by default)
+* `ENGINEER`, `LOCATION`, `GROUP` -- metadata surfaced through devIocStats and the alive heartbeat record
+
+For most IOCs, setting `IOC_NAME` is all that is required; the remaining values either derive from it or are optional metadata.
 
 ### iocBoot/iocxxx/examples
 
