@@ -1,0 +1,78 @@
+#include colors.yml
+#include widgets.yml
+
+Form: !Form
+    title: "{Header}"
+    margins: 10x0x10x10
+
+Grid_Template: !Template:LinkGrid
+    - !Defaults
+        used: True
+        
+    - !Grid
+        margins: 10x10x10x15
+        repeat-over: "{buttons}"
+        padding: 10
+        horizontal: True
+        aspect-ratio: 1.2
+        max-cols: 5
+        
+        children:
+            - !If:used
+                - !RelatedDisplay
+                    geometry: 180x40
+                    background: *menu_green
+                    foreground: *white
+                    font: -DejaVu Sans Mono -Bold
+                    text:  "{title:^20s}"
+                    links: "{links}"
+                    
+            - !IfNot:used
+                - !RelatedDisplay
+                    geometry: 180x40
+                    background: *menu_green
+                    foreground: *white
+                    font: -DejaVu Sans Mono -Bold
+                    text:  ""
+                    links:
+                        - { label: "", file: "", macros: "" }
+
+Content: !VFlow
+    geometry: 0x75 x 0x0
+    padding: 20
+    children:
+        - !TabbedRepeat
+            foreground: *white
+            tab-color: $003584
+            selected: $3970C4
+            border-color: $003584
+            border-width: 3
+            inset: 10
+            offset: 5
+            padding: 10
+            font: -DejaVu Sans Mono -Bold -9
+
+            geometry: 963x240
+
+            repeat-over: "Tabs"
+
+            children:
+                - !Apply:LinkGrid
+
+        - !HRepeat
+            repeat-over: "Status"
+            padding: 10
+            margins: 10x0x0x0
+            children:
+                - !RelatedDisplay
+                    geometry: 180x40
+                    background: *menu_green
+                    foreground: *white
+                    font: -DejaVu Sans Mono -Bold
+                    text: "{title:^20s}"
+                    links: "{links}"
+
+UITitle: !Apply:ScreenHeader
+    title: "{Header}"
+    alignment: Left
+    height: 54
