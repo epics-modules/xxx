@@ -167,9 +167,17 @@ ifdef MOTOR
   $(PROD_NAME)_LIBS := Parker SmartMotor ThorLabs softMotor motorSimSupport $($(PROD_NAME)_LIBS)
 endif
 
+
+ifneq ($(OS_CLASS), vxWorks) 
 ifdef OPCUA
   $(DBD_NAME)_DBD += opcua.dbd
   $(PROD_NAME)_LIBS := opcua $($(PROD_NAME)_LIBS)
+endif
+
+ifdef QUADEM
+  $(DBD_NAME)_DBD += drvAHxxx.dbd drvTetrAMM.dbd
+  $(PROD_NAME)_LIBS := quadEM $($(PROD_NAME)_LIBS)
+endif
 endif
 
 ifdef STREAM
