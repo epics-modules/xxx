@@ -33,7 +33,7 @@ PROD_IOC = $(PROD_NAME)
 DBD_SUFFIX_cygwin32 = $(error Cygwin not supported)
 DBD_SUFFIX_Darwin = Darwin
 DBD_SUFFIX_Linux = Linux
-DBD_SUFFIX_RTEMS = $(error RTEMS not supported)
+DBD_SUFFIX_RTEMS = RTEMS
 DBD_SUFFIX_vxWorks = VX
 DBD_SUFFIX_WIN32 = Win$(if $(findstring 32, $(T_A)),32,64)
 DBD_NAME = $(DBD_PREFIX)$(DBD_SUFFIX_$(OS_CLASS))
@@ -580,6 +580,8 @@ $(PROD_NAME)_LIBS += $(EPICS_BASE_IOC_LIBS)
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
 ifeq ($(OS_CLASS), vxWorks) 
   $(PROD_NAME)_SRCS  += $(DBD_NAME)_registerRecordDeviceDriver.cpp
+else ifeq ($(OS_CLASS), RTEMS)
+  $(PROD_NAME)_SRCS  += $(DBD_NAME)_registerRecordDeviceDriver.cpp $(PROD_NAME)Main.c
 else
   $(PROD_NAME)_SRCS  += $(DBD_NAME)_registerRecordDeviceDriver.cpp $(PROD_NAME)Main.cpp
 endif
