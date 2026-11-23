@@ -539,6 +539,11 @@ endif
     $(PROD_NAME)_SYS_LIBS += pthread rt
     
   endif
+
+  ifdef KETEK
+    $(DBD_NAME)_DBD += ketekSupport.dbd
+    $(PROD_NAME)_LIBS := ketek $($(PROD_NAME)_LIBS)
+  endif
     
   ifdef LABJACK
     $(DBD_NAME)_DBD += LabJackSupport.dbd
