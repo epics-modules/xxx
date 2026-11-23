@@ -546,6 +546,11 @@ endif
     $(PROD_NAME)_SYS_LIBS += LabJackM
   endif
 
+  ifdef MCOREUTILS
+    $(DBD_NAME)_DBD += mcoreutils.dbd
+    $(PROD_NAME)_LIBS := mcoreutils $($(PROD_NAME)_LIBS)
+  endif
+
   ifdef MEASCOMP
   ifdef ULDAQ
     uldaq_DIR = $(ULDAQ)/lib
