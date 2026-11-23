@@ -566,6 +566,11 @@ endif
     $(PROD_NAME)_LIBS := AcsMotion $($(PROD_NAME)_LIBS)
   endif
 
+  ifdef PYDEVSUP
+    $(DBD_NAME)_DBD += pyDevSup.dbd
+    $(PROD_NAME)_LIBS := pyDevSup$(PY_LD_VER) $($(PROD_NAME)_LIBS)
+  endif
+
   ifeq ($(TIRPC), YES)
     $(PROD_NAME)_SYS_LIBS += tirpc
   endif   
