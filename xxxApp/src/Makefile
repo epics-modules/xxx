@@ -576,6 +576,11 @@ endif
     $(PROD_NAME)_LIBS := pyDevSup$(PY_LD_VER) $($(PROD_NAME)_LIBS)
   endif
 
+  ifdef URROBOT
+    $(DBD_NAME)_DBD += urRobotSupport.dbd
+    $(PROD_NAME)_LIBS := urRobot rtde $($(PROD_NAME)_LIBS)
+  endif
+
   ifeq ($(TIRPC), YES)
     $(PROD_NAME)_SYS_LIBS += tirpc
   endif   
