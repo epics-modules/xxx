@@ -213,6 +213,11 @@ $(PROD_NAME)_LIBS := $(SOFTGLUE_IOC_LIBS) $($(PROD_NAME)_LIBS)
 $(DBD_NAME)_DBD += $(YOKOGAWA_DAS_IOC_DBDS)
 $(PROD_NAME)_LIBS := $(YOKOGAWA_DAS_IOC_LIBS) $($(PROD_NAME)_LIBS)
 
+ifdef ETHERIP
+  $(DBD_NAME)_DBD += ether_ip.dbd
+  $(PROD_NAME)_LIBS := ether_ip $($(PROD_NAME)_LIBS)
+endif
+
 #ifdef FLY
 #  $(DBD_NAME)_DBD += flySupport.dbd
 #  $(PROD_NAME)_LIBS := fly $($(PROD_NAME)_LIBS)
@@ -476,11 +481,6 @@ endif
       $(PROD_NAME)_LIBS  := dxp handel $($(PROD_NAME)_LIBS)
       $(PROD_NAME)_SYS_LIBS += usb 
     endif
-  endif
-
-  ifdef ETHERIP
-    $(DBD_NAME)_DBD += ether_ip.dbd
-    $(PROD_NAME)_LIBS := ether_ip $($(PROD_NAME)_LIBS)
   endif
 
   ifdef MCA
