@@ -572,6 +572,7 @@ endif
   endif
 
   ifdef PYDEVSUP
+    PY_LD_VER = 3.9
     $(DBD_NAME)_DBD += pyDevSup.dbd
     $(PROD_NAME)_LIBS := pyDevSup$(PY_LD_VER) $($(PROD_NAME)_LIBS)
   endif
