@@ -154,6 +154,7 @@ ifdef MOTOR
   $(DBD_NAME)_DBD += devAttocube.dbd devFaulhaberMotor.dbd devImsMotor.dbd
   $(DBD_NAME)_DBD += devKohzuMotor.dbd devMclennanMotor.dbd devMicos.dbd
   $(DBD_NAME)_DBD += devMicroMo.dbd devNewFocus.dbd devNewport.dbd
+  $(DBD_NAME)_DBD += omsAsynSupport.dbd omsAsynMAXnetSupport.dbd omsAsynMXASupport.dbd
   
   ifdef SNCSEQ
   $(DBD_NAME)_DBD += devAerotechSeq.dbd devNewportSeq.dbd
@@ -168,7 +169,7 @@ ifdef MOTOR
 
   $(PROD_NAME)_LIBS := motor $($(PROD_NAME)_LIBS)
   $(PROD_NAME)_LIBS := Acs acsTech80 Aerotech AMCI Attocube Faulhaber HytecMotor Ims KohzuMotor $($(PROD_NAME)_LIBS)
-  $(PROD_NAME)_LIBS := Mclennan Micos MicroMo Micronix NewFocus Newport NPointMotor Oriel PI PI_GCS2Support PIJena $($(PROD_NAME)_LIBS)
+  $(PROD_NAME)_LIBS := Mclennan Micos MicroMo Micronix NewFocus Newport NPointMotor Oriel omsAsyn PI PI_GCS2Support PIJena $($(PROD_NAME)_LIBS)
   $(PROD_NAME)_LIBS := Parker smarActMotor SmartMotor ThorLabs softMotor motorSimSupport $($(PROD_NAME)_LIBS)
 endif
 
