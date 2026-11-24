@@ -184,6 +184,12 @@ ifdef QUADEM
   $(DBD_NAME)_DBD += drvAHxxx.dbd drvTetrAMM.dbd
   $(PROD_NAME)_LIBS := quadEM $($(PROD_NAME)_LIBS)
 endif
+
+ifdef MOTOR
+  $(DBD_NAME)_DBD += phytronSupport.dbd
+  $(PROD_NAME)_LIBS := phytronAxisMotor $($(PROD_NAME)_LIBS)
+endif
+
 endif
 
 ifdef STREAM
